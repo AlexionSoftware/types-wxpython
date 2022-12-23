@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "types-wxpython"
+version = "0.1.0"
+description = "Typing stubs for wxPython"
+authors = ["Alexion Software <info@alexion.nl>"]
+license = "GPL"
+
+packages = [
+    { include = "stubs" },
+]
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
