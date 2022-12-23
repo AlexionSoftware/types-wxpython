@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Typing stubs for wxPython"
 authors = ["Alexion Software <info@alexion.nl>"]
 license = "GPL"
+readme = "README.md"
 
 packages = [
     { include = "wx-stubs" },
