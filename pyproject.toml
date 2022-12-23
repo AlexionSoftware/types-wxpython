@@ -6,7 +6,7 @@ authors = ["Alexion Software <info@alexion.nl>"]
 license = "GPL"
 
 packages = [
-    { include = "stubs" },
+    { include = "wx-stubs" },
 ]
 
 [tool.poetry.build]
