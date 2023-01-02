@@ -1207,6 +1207,10 @@ class ComboBox(ItemContainer, TextEntry, Control):
 		""" Same as wx.TextEntry.SetSelection
 		"""
 
+	def FindString(self, search: str) -> int:
+		""" Finds an item whose label matches the given string.
+		"""
+
 
 class ItemKind:
 	""" Interface voor wx.ItemKind
