@@ -17,7 +17,6 @@ VERTICAL: int
 HORIZONTAL: int
 NOT_FOUND: int
 OPEN: int
-ACCEL_CTRL: int
 LIST_FORMAT_LEFT: int
 LC_SINGLE_SEL: int
 LC_VRULES: int
@@ -51,6 +50,28 @@ DEFAULT: int
 LB_EXTENDED: int
 LI_HORIZONTAL: int
 LI_VERTICAL: int
+BK_DEFAULT: int
+NO_IMAGE: int
+TE_READONLY: int
+MODERN: int
+FIXED_MINSIZE: int
+
+ACCEL_NORMAL: int
+ACCEL_CTRL: int
+ACCEL_SHIFT: int
+WXK_F1: int
+WXK_F2: int
+WXK_F3: int
+WXK_F4: int
+WXK_F5: int
+WXK_F6: int
+WXK_F7: int
+WXK_F8: int
+WXK_F9: int
+WXK_F10: int
+WXK_F11: int
+WXK_F12: int
+WXK_DELETE: int
 
 ICON_NONE: int
 ICON_ERROR: int
@@ -88,6 +109,8 @@ EVT_COMBOBOX: int
 EVT_KEY_DOWN: int
 EVT_LISTBOX: int
 EVT_LISTBOX_DCLICK: int
+EVT_SIZE: int
+EVT_ICONIZE: int
 
 TR_HIDE_ROOT: int
 TR_NO_BUTTONS: int
@@ -105,7 +128,8 @@ CURSOR_HAND: int
 
 NewId: Callable
 NewIdRef: Callable
-DefaultSize: 'Size' = (-1, -1)
+DefaultSize: tuple[int, int] = (-1, -1)
+DefaultPosition: tuple[int, int] = (-1, -1)
 
 wxEVT_COMMAND_BUTTON_CLICKED: int
 
@@ -131,8 +155,18 @@ class Window(EvtHandler):
 	""" Interface voor wx.Window
 	"""
 
-	def __init__(self, parent: Any, id: int = None, pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = 0, name: str = "", title: str = ""):
+	def __init__(self, parent: Any, id: int = None, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, name: str = "", title: str = "") -> None:
 		""" Constructs a window, which can be a child of a frame, dialog or any other non-control window.
+		"""
+
+	def GetScreenRect(self) -> 'Size':
+		""" Returns the position and size of the window on the screen as a wxRect object.
+		"""
+
+	def GetHandle(self) -> Any:
+		""" Returns the platform-specific handle of the physical window.
+
+			Cast it to an appropriate handle, such as HWND for Windows, Widget for Motif or GtkWidget for GTK.
 		"""
 
 	def GetParent(self) -> 'Window':
@@ -213,11 +247,11 @@ class Window(EvtHandler):
 		""" Sets the window's cursor.
 		"""
 
-	def SetMinSize(self, size: tuple[int, int]) -> None:
+	def SetMinSize(self, size: Union['Size', tuple[int, int]]) -> None:
 		""" Sets the minimum size of the window, to indicate to the sizer layout mechanism that this is the minimum required size.
 		"""
 
-	def SetMaxSize(self, size: tuple[int, int]) -> None:
+	def SetMaxSize(self, size: Union['Size', tuple[int, int]]) -> None:
 		""" Sets the maximum size of the window, to indicate to the sizer layout mechanism that this is the maximum required size.
 		"""
 
@@ -281,6 +315,25 @@ class Window(EvtHandler):
 			By default, the window is its own event handler.
 		"""
 
+	def SetPosition(self, pt: Union[tuple[int, int], 'Position']) -> None:
+		""" Moves the window to the specified position.
+
+			This is exactly the same as calling Move with the default arguments.
+		"""
+
+	def SetSize(self, size: Union[tuple[int, int], 'Size']) -> None:
+		""" Sets the size of the window in pixels.
+		"""
+
+	def CenterOnScreen(self, direction: int = -1) -> None:
+		""" A synonym for CentreOnScreen .
+		"""
+
+	def CentreOnScreen(self, direction: int = -1) -> None:
+		""" Centres the window on screen.
+			Specifies the direction for the centering. May be HORIZONTAL , VERTICAL or BOTH .
+		"""
+
 
 NullCursor: 'Cursor'
 CURSOR_WAIT: int
@@ -290,7 +343,7 @@ class Cursor:
 	""" Interface voor wx.Cursor
 	"""
 
-	def __init__(self, cursor: int):
+	def __init__(self, cursor: int) -> None:
 		""" Constructor
 		"""
 
@@ -396,11 +449,19 @@ class TopLevelWindow(Window):
 	""" Interface voor wx.TopLevelWindow
 	"""
 
+	def IsMaximized(self) -> bool:
+		""" Returns true if the window is maximized.
+		"""
+
 	def SetTitle(self, title: str) -> None:
 		""" Sets the window title.
 		"""
 
 	def SetIcon(self, icon: Icon) -> None:
+		""" Sets the icon for this window.
+		"""
+
+	def SetIcons(self, icons: 'IconBundle') -> None:
 		""" Sets the icon for this window.
 		"""
 
@@ -518,7 +579,7 @@ class Choice(ItemContainer, Control):
 	""" Interface voor wx.Choice
 	"""
 
-	def __init__(self, parent: Any, id: int = 0, pos: tuple[int, int] = None, size: tuple[int, int] = None, choices: list[Any] = None, style: int = None, validator: int = None, name: str = None):
+	def __init__(self, parent: Any, id: int = 0, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, choices: list[Any] = None, style: int = None, validator: int = None, name: str = None) -> None:
 		pass
 
 	def Clear(self) -> None:
@@ -550,7 +611,7 @@ class CheckBox(Control):
 	""" Interface voor wx.CheckBox
 	"""
 
-	def __init__(self, parent: Any, id: int = 0, label: str = "", pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = 0, validator: int = None, name: str = ""):
+	def __init__(self, parent: Any, id: int = 0, label: str = "", pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, validator: int = None, name: str = "") -> None:
 		pass
 
 	def IsChecked(self) -> bool:
@@ -600,7 +661,7 @@ class TextCtrl(TextEntry, Control):
 	""" Interface voor wx.TextCtrl
 	"""
 
-	def __init__(self, parent: Any, id: int = None, pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = 0, name: str = "", title: str = "", value: str = ""):
+	def __init__(self, parent: Any, id: int = None, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, name: str = "", title: str = "", value: str = "") -> None:
 		""" Constructs a window, which can be a child of a frame, dialog or any other non-control window.
 		"""
 
@@ -622,7 +683,7 @@ class Colour:
 	""" Interface voor wx.Colour
 	"""
 
-	def __init__(self, *args, **kwargs):
+	def __init__(self, *args, **kwargs) -> None:
 		pass
 
 
@@ -700,7 +761,7 @@ class BoxSizer(Sizer):
 	""" Interface voor wx.BoxSizer
 	"""
 
-	def __init__(self, orient: int = 'HORIZONTAL'):
+	def __init__(self, orient: int = 'HORIZONTAL') -> None:
 		""" Constructor for a wx.BoxSizer
 		"""
 		pass
@@ -714,7 +775,7 @@ class WrapSizer(Sizer):
 	""" Interface voor wx.WrapSizer
 	"""
 
-	def __init__(self):
+	def __init__(self) -> None:
 		""" Constructor for a wx.WrapSizer
 		"""
 		pass
@@ -724,7 +785,7 @@ class GridSizer(Sizer):
 	""" Interface voor wx.GridSizer
 	"""
 
-	def __init__(self, rows: int = 0, cols: int = 0, vgap: int = 0, hgap: int = 0):
+	def __init__(self, rows: int = 0, cols: int = 0, vgap: int = 0, hgap: int = 0) -> None:
 		""" Constructor voor wx.GridSizer
 		"""
 
@@ -786,7 +847,7 @@ class GBPosition:
 	""" This class represents the position of an item in a virtual grid of rows and columns managed by a GridBagSizer.
 	"""
 
-	def __init__(self, row: int = 0, col: int = 0):
+	def __init__(self, row: int = 0, col: int = 0) -> None:
 		""" Construct a new wx.GBPosition, setting the row and column.
 		"""
 
@@ -795,7 +856,7 @@ class GBSpan:
 	""" This class is used to hold the row and column spanning attributes of items in a GridBagSizer.
 	"""
 
-	def __init__(self, rowspan: int = 0, colspan: int = 0):
+	def __init__(self, rowspan: int = 0, colspan: int = 0) -> None:
 		""" Construct a new wx.GBSpan, setting the rowspan and colspan.
 		"""
 
@@ -804,7 +865,7 @@ class GridBagSizer(FlexGridSizer):
 	""" A wx.Sizer that can lay out items in a virtual grid like a wx.FlexGridSizer but in this case explicit positioning of the items is allowed using wx.GBPosition, and items can optionally span more than one row and/or column using wx.GBSpan.
 	"""
 
-	def __init__(self, vgap: int = 0, hgap: int = 0):
+	def __init__(self, vgap: int = 0, hgap: int = 0) -> None:
 		""" Construct
 		"""
 
@@ -817,6 +878,10 @@ class Size:
 	""" Interface voor wx.Size
 	"""
 
+	def __init__(self, width: Optional[int] = None, height: Optional[int] = None) -> None:
+		""" Initializes this size object with the given width and height.
+		"""
+
 	def GetHeight(self) -> int:
 		""" Gets the height member.
 		"""
@@ -826,11 +891,16 @@ class Size:
 		"""
 
 
+class Position:
+	""" Interface voor wx.Position
+	"""
+
+
 class FrozenWindow(ContextManager):
 	""" Interface voor wx.FrozenWindow
 	"""
 
-	def __init__(self, window: Window):
+	def __init__(self, window: Window) -> None:
 		pass
 
 	def __enter__(self) -> None:
@@ -879,7 +949,7 @@ class Button(Window):
 	""" Interface voor wx.Button
 	"""
 
-	def __init__(self, parent: Any, id: int = None, pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = 0, name: str = "", label: str = ""):
+	def __init__(self, parent: Any, id: int = None, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, name: str = "", label: str = "") -> None:
 		""" Constructs a window, which can be a child of a frame, dialog or any other non-control window.
 		"""
 
@@ -888,12 +958,16 @@ class BitmapButton(Button):
 	""" Interface voor wx.Button
 	"""
 
+	def __init__(self, parent: Window, id: int = -1, bitmap: Optional['Bitmap'] = None, pos: Optional[Union[tuple[int, int], 'Position']] = None, size: Optional[Union[tuple[int, int], 'Size']] = None, style: int = 0, validator: Any = None, name: str = "") -> None:
+		""" Constructor, creating and showing a button.
+		"""
+
 
 class StaticText(Window):
 	""" Interface voor wx.StaticText
 	"""
 
-	def __init__(self, parent: Window, label: str = None, style: int = None, size: tuple[int, int] = None, pos: tuple[int, int] = None):
+	def __init__(self, parent: Window, label: str = None, style: int = None, size: Optional[Union['Size', tuple[int, int]]] = None, pos: Optional[Union['Position', tuple[int, int]]] = None) -> None:
 		""" Constructor
 		"""
 		...
@@ -908,7 +982,7 @@ class StaticBox(Window):
 	""" Interface voor wx.StaticBox
 	"""
 
-	def __init__(self, parent: Window, id: int = -1, label: str = "", pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = 0, name: str = ""):
+	def __init__(self, parent: Window, id: int = -1, label: str = "", pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, name: str = ""):
 		""" Constructor
 		"""
 
@@ -917,7 +991,7 @@ class StaticBoxSizer(BoxSizer):
 	""" Interface voor wx.StaticBoxSizer
 	"""
 
-	def __init__(self, box: StaticBox, orient: int = 0):
+	def __init__(self, box: StaticBox, orient: int = 0) -> None:
 		""" Constructor
 		"""
 
@@ -926,7 +1000,7 @@ class AcceleratorTable:
 	""" Interface voor wx.AcceleratorTable
 	"""
 
-	def __init__(self, entries: list[tuple[int, int, int]]):
+	def __init__(self, entries: list[tuple[int, int, int]]) -> None:
 		""" Constructor
 		"""
 
@@ -935,7 +1009,7 @@ class StaticLine(Window):
 	""" Interface voor wx.StaticLine
 	"""
 
-	def __init__(self, parent: Any, orien: int = -1, pos: tuple[int, int] = None, size: tuple[int, int] = None, style: int = None):
+	def __init__(self, parent: Any, orien: int = -1, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = None):
 		""" Constructor
 		"""
 
@@ -1034,7 +1108,7 @@ class Bitmap:
 	""" Interface voor wx.Bitmap
 	"""
 
-	def __init__(self, name: str, type: int = 1):
+	def __init__(self, name: str, type: int = 1) -> None:
 		""" Loads a bitmap from a file or resource.
 		"""
 		...
@@ -1049,7 +1123,7 @@ class StaticBitmap(Window):
 	""" Interface voor wx.StaticBitMap
 	"""
 
-	def __init__(self, parent: Window, id: int = 'ID_ANY', bitmap: Bitmap = None, pos: Size = None, size: Size = None, style: int = 0, name: str = ""):
+	def __init__(self, parent: Window, id: int = 'ID_ANY', bitmap: Bitmap = None, pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, style: int = 0, name: str = "") -> None:
 		""" Constructor, creating and showing a static bitmap control.
 		"""
 		...
@@ -1059,7 +1133,7 @@ class ImageList:
 	""" Interface voor wx.ImageList
 	"""
 
-	def __init__(self, width: int, height: int):
+	def __init__(self, width: int, height: int) -> None:
 		""" Constructor
 		"""
 		...
@@ -1074,7 +1148,7 @@ class CallLater:
 	""" A convenience class for wx.Timer, that calls the given callable object once after the given amount of milliseconds, passing any positional or keyword args. The return value of the callable is available after it has been run with the GetResult method.
 	"""
 
-	def __init__(self, millis: int, callableObj: Callable):
+	def __init__(self, millis: int, callableObj: Callable) -> None:
 		""" Constructor
 		"""
 		raise NotImplementedError
@@ -1084,13 +1158,150 @@ class CallAfter:
 	""" Calling this function on an object schedules an asynchronous call to the functor specified as CallAfter() argument at a (slightly) later time. This is useful when processing some events as certain actions typically can't be performed inside their handlers, e.g. you shouldn't show a modal dialog from a mouse click event handler as this would break the mouse capture state – but you can call a function showing this message dialog after the current event handler completes.
 	"""
 
-	def __init__(self, callableObj: Callable, *args, **kw):
+	def __init__(self, callableObj: Callable, *args, **kw) -> None:
 		""" Constructor
 		"""
 		raise NotImplementedError
 
 
+class EventLoopBase:
+	""" Interface voor wx.EventLoopBase
+	"""
+
+	def Dispatch(self) -> bool:
+		""" Dispatches the next event in the windowing system event queue.
+
+			Blocks until an event appears if there are none currently (use Pending if this is not wanted).
+
+			Returns False if the event loop should stop and True otherwise.
+		"""
+
+	def DispatchTimeout(self, timeout: int) -> int:
+		""" Dispatch an event but not wait longer than the specified timeout for it.
+
+			If an event is received before the specified timeout expires, it is processed and the function returns 1 normally or 0 if the event loop should quite. Otherwise, i.e. if the timeout expires, the functions returns -1 without processing any events.
+
+			Returns 1 if an event was processed, 0 if the event loop should quit or -1 if the timeout expired.
+		"""
+
+	def Exit(self, rc: int = 0) -> None:
+		""" Exit the currently running loop with the given exit code.
+
+			The loop will exit, i.e. its Run method will return, during the next event loop iteration.
+
+			Notice that this method can only be used if this event loop is the currently running one, i.e. its IsRunning returns True. If this is not the case, an assert failure is triggered and nothing is done as outer event loops can’t be exited from immediately. Use ScheduleExit if you’d like to exit this loop even if it doesn’t run currently.
+		"""
+
+	@staticmethod
+	def GetActive() -> Optional['EventLoopBase']:
+		""" Return the currently active (running) event loop.
+
+			May return None if there is no active event loop (e.g. during application startup or shutdown).
+		"""
+
+	def IsEventAllowedInsideYield(self, cat: int) -> bool:
+		""" Returns True if the given event category is allowed inside a YieldFor call (i.e.
+
+			compares the given category against the last mask passed to YieldFor ).
+		"""
+
+	def IsMain(self) -> bool:
+		""" Returns True if this is the main loop executed by wx.App.OnRun .
+		"""
+
+	def IsOk(self) -> bool:
+		""" Use this to check whether the event loop was successfully created before using it.
+		"""
+
+	def IsRunning(self) -> bool:
+		""" Return True if this event loop is currently running.
+
+			Notice that even if this event loop hasn't terminated yet but has just spawned a nested (e.g. modal) event loop, this method would return False.
+		"""
+
+	def IsYielding(self) -> bool:
+		""" Returns True if called from inside wx.Yield or from inside YieldFor .
+		"""
+
+	def OnExit(self) -> None:
+		""" This function is called before the event loop terminates, whether this happens normally (because of wx.Exit call) or abnormally (because of an exception thrown from inside the loop).
+
+		The default implementation calls wx.AppConsole.OnEventLoopExit .
+	"""
+
+	def Pending(self) -> bool:
+		""" Return True if any events are available.
+
+			If this method returns True, calling Dispatch will not block.
+		"""
+
+	def ProcessIdle(self) -> bool:
+		""" This virtual function is called when the application becomes idle and normally just sends wx.IdleEvent to all interested parties.
+
+		It should return True if more idle events are needed, False if not.
+	"""
+
+	def Run(self) -> int:
+		""" Start the event loop, return the exit code when it is finished.
+
+			Logically, this method calls Dispatch in a loop until it returns False and also takes care of generating idle events during each loop iteration. However not all implementations of this class really implement it like this (e.g. wxGTK does not) so you shouldn’t rely on Dispatch being called from inside this function.
+		"""
+
+	def ScheduleExit(self, rc: int = 0) -> None:
+		""" Schedule an exit from the loop with the given exit code.
+
+			This method is similar to wx.Exit but can be called even if this event loop is not the currently running one – and if it is the active loop, then it works in exactly the same way as wx.Exit .
+
+			The loop will exit as soon as the control flow returns to it, i.e. after any nested loops terminate.
+		"""
+
+	@staticmethod
+	def SetActive(loop: 'EventLoopBase') -> None:
+		"""	Set currently active (running) event loop.
+
+			Called by wx.EventLoopActivator, use an instance of this class instead of calling this method directly to ensure that the previously active event loop is restored.
+
+			Results in a call to wx.AppConsole.OnEventLoopEnter .
+		"""
+
+	def WakeUp(self) -> None:
+		""" Called by wxWidgets to wake up the event loop even if it is currently blocked inside Dispatch .
+		"""
+
+	def WakeUpIdle(self) -> None:
+		""" Makes sure that idle events are sent again.
+		"""
+
+	def Yield(self, onlyIfNeeded: bool = False) -> bool:
+		""" Yields control to pending messages in the windowing system.
+
+			This can be useful, for example, when a time-consuming process writes to a text window. Without an occasional yield, the text window will not be updated properly, and on systems with cooperative multitasking, other processes will not respond.
+
+			Caution should be exercised, however, since yielding may allow the user to perform actions which are not compatible with the current task. Disabling menu items or whole menus during processing can avoid unwanted reentrance of code: see wx.SafeYield for a better function.
+
+			Note that wx.Yield will not flush the message logs. This is intentional as calling wx.Yield is usually done to quickly update the screen and popping up a message box dialog may be undesirable. If you do wish to flush the log messages immediately (otherwise it will be done during the next idle loop iteration), call wx.Log.FlushActive .
+
+			If onlyIfNeeded parameter is True and the flow control is already inside wx.Yield , i.e. IsYielding returns True, the method just silently returns False and doesn’t do anything.
+		"""
+
+	def YieldFor(self, eventsToProcess: int) -> bool:
+		""" Works like wx.Yield with onlyIfNeeded == True, except that it allows the caller to specify a mask of the wx.EventCategory values which indicates which events should be processed and which should instead be “delayed” (i.e. processed by the main loop later).
+
+			Note that this is a safer alternative to wx.Yield since it ensures that only the events you’re interested to will be processed; i.e. this method helps to avoid unwanted reentrancies.
+
+			Note that currently only wxMSW and wxGTK do support selective yield of native events coming from the underlying GUI toolkit. wxWidgets events posted using wx.EvtHandler.AddPendingEvent or wx.EvtHandler.QueueEvent are instead selectively processed by all ports.
+		"""
+
+
 class AppConsole:
+	""" Interface voor wx.AppConsole
+	"""
+
+	def GetMainLoop(self) -> EventLoopBase:
+		""" Returns the main event loop instance, i.e. the event loop which is started by OnRun and which dispatches all events sent from the native toolkit to the application (except when new event loops are temporarily set-up).
+
+		The returned value maybe None. Put initialization code which needs a not None main event loop into OnEventLoopEnter .
+		"""
 
 	def SetAppDisplayName(self, name: str) -> None:
 		""" Set the application name to be used in the user-visible places such as window titles.
@@ -1148,6 +1359,14 @@ class Notebook(Control):
 	""" Interface voor wx.Notebook
 	"""
 
+	def AddPage(self, page: Window, text: str, select: bool = False, imageId: int = -1) -> bool:
+		""" Adds a new page.
+
+			The page must have the book control itself as the parent and must not have been added to this control previously.
+
+			The call to this function will generate the page changing and page changed events if select is True, but not when inserting the very first page (as there is no previous page selection to switch from in this case and so it wouldn’t make sense to e.g. veto such event).
+		"""
+
 
 class KeyboardState:
 
@@ -1188,7 +1407,7 @@ class PyCommandEvent(Event):
 	""" Interface voor wx.Event
 	"""
 
-	def __init__(self, eventType: int, windowId: int):
+	def __init__(self, eventType: int, windowId: int) -> None:
 		""" Constructor
 		"""
 		...
@@ -1198,7 +1417,7 @@ class ComboBox(ItemContainer, TextEntry, Control):
 	""" Interface voor wx.ComboBox
 	"""
 
-	def __init__(self, parent: Window, choices: list, style: int = None, size: tuple[int, int] = -1, pos: tuple[int, int] = -1):
+	def __init__(self, parent: Window, choices: list, style: int = None, size: Optional[Union['Size', tuple[int, int]]] = None, pos: Optional[Union['Position', tuple[int, int]]] = None):
 		""" Constructor
 		"""
 		...
@@ -1227,7 +1446,7 @@ class Menu(EvtHandler):
 	""" Interface voor wx.Menu
 	"""
 
-	def __init__(self, parent: Optional[Window] = None, style: int = None):
+	def __init__(self, parent: Optional[Window] = None, style: int = None) -> None:
 		""" Constructor
 		"""
 		...
@@ -1267,7 +1486,7 @@ class ListBox(ItemContainer, Control):
 	""" Interface voor wx.ListBox
 	"""
 
-	def __init__(self, parent: Window, choices: list, style: int = None, size: tuple[int, int] = -1, pos: tuple[int, int] = -1):
+	def __init__(self, parent: Window, choices: list, style: int = None, size: Optional[Union['Size', tuple[int, int]]] = None, pos: Optional[Union['Position', tuple[int, int]]] = None):
 		""" Constructor
 		"""
 
@@ -1284,11 +1503,16 @@ class ListBox(ItemContainer, Control):
 		"""
 
 
+class CheckListBox(ListBox):
+	""" Interface voor wx.CheckListBox
+	"""
+
+
 class RadioBox(Control):
 	""" Interface voor wx.RadioBox
 	"""
 
-	def __init__(self, parent: Window, id: int = -1, label: str = "", pos: tuple[int, int] = None, size: tuple[int, int] = None, choices: list[str] = [], majorDimension: int = 0, style: int = -1, validator: Any = None, name: str = ""):
+	def __init__(self, parent: Window, id: int = -1, label: str = "", pos: Optional[Union['Position', tuple[int, int]]] = None, size: Optional[Union['Size', tuple[int, int]]] = None, choices: list[str] = [], majorDimension: int = 0, style: int = -1, validator: Any = None, name: str = ""):
 		""" Constructor
 		"""
 
@@ -1320,6 +1544,759 @@ class Log:
 		...
 
 
+class DataFormat:
+	""" Interface voor wx.DataFormat
+	"""
+
+	def __init__(self, format: Any) -> None:
+		""" Constructs a data format object for a custom format identified by its name format.
+		"""
+
+	def GetId(self) -> str:
+		""" Returns the name of a custom format (this function will fail for a standard format).
+		"""
+
+	def GetType(self) -> int:
+		""" Returns the platform-specific number identifying the format.
+		"""
+
+	def SetId(self, format: str) -> None:
+		""" Sets the format to be the custom format identified by the given name.
+		"""
+
+	def SetType(self, type: int) -> None:
+		""" Sets the format to the given value, which should be one of DF_XXX constants.
+		"""
+
+
+class DataObject:
+	""" Interface voor wx.DataObject
+	"""
+
+	def GetAllFormats(self, dir: int = -1) -> list[DataFormat]:
+		""" Returns a list of wx.DataFormat objects which this data object supports transferring in the given direction.
+		"""
+
+	def GetDataHere(self, format: DataFormat, buf: Any) -> bool:
+		""" Copies this data object’s data in the requested format to the buffer provided.
+		"""
+
+	def GetDataSize(self, format: DataFormat) -> int:
+		""" Returns the data size of the given format format.
+		"""
+
+	def GetFormatCount(self, dir: int = -1) -> int:
+		""" Returns the number of available formats for rendering or setting the data.
+		"""
+
+	def GetPreferredFormat(self, dir: int = -1) -> DataFormat:
+		""" Returns the preferred format for either rendering the data (if dir is Get , its default value) or for setting it.
+
+			Usually this will be the native format of the wx.DataObject.
+		"""
+
+	def IsSupported(self, format: DataFormat, dir: int = -1) -> bool:
+		""" Returns True if this format is supported.
+		"""
+
+	def SetData(self, format: DataFormat, buf: Any) -> bool:
+		""" Copies data from the provided buffer to this data object for the specified format.
+		"""
+
+
+class TextDataObject(DataObject):
+	""" Interface voor wx.TextDataObject
+	"""
+
+	def __init__(self, text: str = "") -> None:
+		""" Constructor, may be used to initialise the text (otherwise SetText should be used later).
+		"""
+
+	def GetText(self) -> str:
+		""" Returns the text associated with the data object.
+
+			You may wish to override this method when offering data on-demand, but this is not required by wxWidgets’ internals. Use this method to get data in text form from the wx.Clipboard.
+		"""
+
+	def GetTextLength(self) -> int:
+		""" Returns the data size.
+
+			By default, returns the size of the text data set in the constructor or using SetText . This can be overridden to provide text size data on-demand. It is recommended to return the text length plus 1 for a trailing zero, but this is not strictly required.
+		"""
+
+	def SetText(self, strText: str) -> None:
+		""" Sets the text associated with the data object.
+
+			This method is called when the data object receives the data and, by default, copies the text into the member variable. If you want to process the text on the fly you may wish to override this function.
+		"""
+
+
+class Clipboard:
+	""" Interface voor wx.Clipboard
+	"""
+
+	def AddData(self, data: DataObject) -> bool:
+		""" Call this function to add the data object to the clipboard.
+
+			This is an obsolete synonym for SetData .
+		"""
+
+	def Clear(self) -> None:
+		""" Clears the global clipboard object and the system’s clipboard if possible.
+		"""
+
+	def Close(self) -> None:
+		""" Call this function to close the clipboard, having opened it with Open .
+		"""
+
+	def Flush(self) -> bool:
+		""" Flushes the clipboard: this means that the data which is currently on clipboard will stay available even after the application exits (possibly eating memory), otherwise the clipboard will be emptied on exit.
+
+			Currently this method is implemented in MSW and GTK and always returns False otherwise.
+
+			Returns False if the operation is unsuccessful for any reason.
+
+			Note On GTK, only the non-primary selection can be flushed. Calling this function when the clipboard is using the primary selection will return False and not make any data available after the program exits.
+		"""
+
+	@staticmethod
+	def Get() -> 'Clipboard':
+		""" Returns the global instance (wxTheClipboard) of the clipboard object.
+		"""
+
+	def GetData(self, data: str) -> bool:
+		""" Call this function to fill data with data on the clipboard, if available in the required format.
+
+			Returns True on success.
+		"""
+
+	def IsOpened(self) -> bool:
+		""" Returns True if the clipboard has been opened.
+		"""
+
+	def IsSupported(self, format: DataFormat) -> bool:
+		""" Returns True if there is data which matches the data format of the given data object currently available on the clipboard.
+
+			Todo The name of this function is misleading. This should be renamed to something that more accurately indicates what it does.
+		"""
+
+	def IsUsingPrimarySelection(self) -> bool:
+		""" Returns True if we are using the primary selection, False if clipboard one.
+
+			See also UsePrimarySelection
+		"""
+
+	def Open(self) -> bool:
+		""" Call this function to open the clipboard before calling SetData and GetData .
+
+			Call Close when you have finished with the clipboard. You should keep the clipboard open for only a very short time.
+
+			Returns True on success. This should be tested (as in the sample shown above).
+		"""
+
+	def SetData(self, data: DataObject) -> bool:
+		""" Call this function to set the data object to the clipboard.
+
+			The new data object replaces any previously set one, so if the application wants to provide clipboard data in several different formats, it must use a composite data object supporting all of the formats instead of calling this function several times with different data objects as this would only leave data from the last one in the clipboard.
+
+			After this function has been called, the clipboard owns the data, so do not delete the data explicitly.
+		"""
+
+	def UsePrimarySelection(self, primary: bool = False) -> None:
+		""" On platforms supporting it (all X11-based ports), wx.Clipboard uses the CLIPBOARD X11 selection by default.
+
+			When this function is called with True, all subsequent clipboard operations will use PRIMARY selection until this function is called again with False.
+
+			On the other platforms, there is no PRIMARY selection and so all clipboard operations will fail. This allows implementing the standard X11 handling of the clipboard which consists in copying data to the CLIPBOARD selection only when the user explicitly requests it (i.e. by selecting the “Copy” menu command) but putting the currently selected text into the PRIMARY selection automatically, without overwriting the normal clipboard contents with the currently selected text on the other platforms.
+		"""
+
+
+TheClipboard: Clipboard
+
+
+class IconBundle:
+	""" Interface voor wx.IconBundle
+	"""
+
+	def AddIcon(self, icon: Union[Icon, str], type: int = -1) -> None:
+		""" Adds all the icons contained in the file to the bundle; if the collection already contains icons with the same width and height, they are replaced by the new ones.
+		"""
+
+	def GetIcon(self, size: Union[tuple[int, int], Size], flags: int = -1) -> Icon:
+		""" Returns the icon with the given size.
+
+			If size is wx.DefaultSize , it is interpreted as the standard system icon size, i.e. the size returned by wx.SystemSettings.GetMetric for SYS_ICON_X and SYS_ICON_Y .
+
+			If the bundle contains an icon with exactly the requested size, it’s always returned. Otherwise, the behaviour depends on the flags. If only wx.IconBundle.FALLBACK_NONE is given, the function returns an invalid icon. If wx.IconBundle.FALLBACK_SYSTEM is given, it tries to find the icon of standard system size, regardless of the size passed as parameter. Otherwise, or if the icon system size is not found neither, but wx.IconBundle.FALLBACK_NEAREST_LARGER flag is specified, the function returns the smallest icon of the size larger than the requested one or, if this fails too, just the icon closest to the specified size.
+		"""
+
+	def GetIconByIndex(self, n: int) -> Icon:
+		""" return the icon at index (must be < GetIconCount )
+		"""
+
+	def GetIconCount(self) -> int:
+		""" return the number of available icons
+		"""
+
+	def GetIconOfExactSize(self, size: Union[tuple[int, int], Size]) -> Icon:
+		""" Returns the icon with exactly the given size or wx.NullIcon if this size is not available.
+		"""
+
+	def IsEmpty(self) -> bool:
+		""" Returns True if the bundle doesn’t contain any icons, False otherwise (in which case a call to GetIcon with default parameter should return a valid icon).
+		"""
+
+
+class SplitterWindow(Window):
+	""" Interface voor wx.SplitterWindow
+	"""
+
+	def GetDefaultSashSize(self) -> int:
+		""" Returns the default sash size in pixels.
+
+			The size of the sash is its width for a vertically split window and its height for a horizontally split one. Its other direction is the same as the client size of the window in the corresponding direction.
+
+			The default sash size is platform-dependent because it conforms to the current platform look-and-feel and cannot be changed.
+		"""
+
+	def GetMinimumPaneSize(self) -> int:
+		""" Returns the current minimum pane size (defaults to zero).
+		"""
+
+	def GetSashGravity(self) -> float:
+		""" Returns the current sash gravity.
+		"""
+
+	def GetSashPosition(self) -> int:
+		""" Returns the current sash position.
+		"""
+
+	def GetSashSize(self) -> int:
+		""" Returns the default sash size in pixels or 0 if it is invisible.
+		"""
+
+	def GetSplitMode(self) -> int:
+		""" Gets the split mode.
+		"""
+
+	def GetWindow1(self) -> Window:
+		""" Returns the left/top or only pane.
+		"""
+
+	def GetWindow2(self) -> Window:
+		""" Returns the right/bottom pane.
+		"""
+
+	def Initialize(self, window: Window) -> None:
+		""" Initializes the splitter window to have one pane.
+
+			The child window is shown if it is currently hidden.
+
+			Note This should be called if you wish to initially view only a single pane in the splitter window.
+		"""
+
+	def IsSashInvisible(self) -> bool:
+		""" Returns True if the sash is invisible even when the window is split, False otherwise.
+
+			Note This is a shortcut for HasFlag(wxSP_NOSASH)
+		"""
+
+	def IsSplit(self) -> bool:
+		""" Returns True if the window is split, False otherwise.
+		"""
+
+	def ReplaceWindow(self, winOld: Window, winNew: Window) -> bool:
+		""" This function replaces one of the windows managed by the wx.SplitterWindow with another one.
+
+			It is in general better to use it instead of calling Unsplit and then resplitting the window back because it will provoke much less flicker (if any). It is valid to call this function whether the splitter has two windows or only one.
+
+			Both parameters should be not None and winOld must specify one of the windows managed by the splitter. If the parameters are incorrect or the window couldn’t be replaced, False is returned. Otherwise the function will return True, but please notice that it will not delete the replaced window and you may wish to do it yourself.
+		"""
+
+	def SetMinimumPaneSize(self, paneSize: int) -> None:
+		""" Sets the minimum pane size.
+
+			Note The default minimum pane size is zero, which means that either pane can be reduced to zero by dragging the sash, thus removing one of the panes. To prevent this behaviour (and veto out-of-range sash dragging), set a minimum size, for example 20 pixels. If the wx.SP_PERMIT_UNSPLIT style is used when a splitter window is created, the window may be unsplit even if minimum size is non-zero.
+		"""
+
+	def SetSashGravity(self, gravity: float) -> None:
+		""" Sets the sash gravity.
+
+			Notice that when sash gravity for a newly created splitter window, it is often necessary to explicitly set the splitter size using SetSize to ensure that is big enough for its initial sash position. Otherwise, i.e. if the window is created with the default tiny size and only resized to its correct size later, the initial sash position will be affected by the gravity and typically result in sash being at the rightmost position for the gravity of 1. See the example code creating wx.SplitterWindow in the splitter sample for more details.
+
+			Note Gravity is real factor which controls position of sash while resizing wx.SplitterWindow. Gravity tells wx.SplitterWindow how much will left/top window grow while resizing. Example values:
+				0.0: only the bottom/right window is automatically resized
+				0.5: both windows grow by equal size
+				1.0: only left/top window grows Gravity should be a real value between 0.0 and 1.0. Default value of sash gravity is 0.0. That value is compatible with previous (before gravity was introduced) behaviour of wx.SplitterWindow.
+		"""
+
+	def SetSashInvisible(self, invisible: bool = True) -> None:
+		""" Sets whether the sash should be invisible, even when the window is split.
+
+			When the sash is invisible, it doesn’t appear on the screen at all and, in particular, doesn’t allow the user to resize the windows.
+
+			Note Only sets the internal variable; does not update the display.
+		"""
+
+	def SetSashPosition(self, position: int, redraw: bool = True) -> None:
+		""" Sets the sash position.
+
+			Note Does not currently check for an out-of-range value.
+		"""
+
+	def SetSplitMode(self, mode: int) -> None:
+		""" Sets the split mode.
+			Can be wx.SPLIT_VERTICAL or wx.SPLIT_HORIZONTAL.
+		"""
+
+	def SplitHorizontally(self, window1: Window, window2: Window, sashPosition: int = 0) -> bool:
+		""" Initializes the top and bottom panes of the splitter window.
+
+			The child windows are shown if they are currently hidden.
+
+			Returns True if successful, False otherwise (the window was already split).
+
+			Note This should be called if you wish to initially view two panes. It can also be called at any subsequent time, but the application should check that the window is not currently split using IsSplit .
+		"""
+
+	def SplitVertically(self, window1: Window, window2: Window, sashPosition: int = 0) -> bool:
+		""" Initializes the left and right panes of the splitter window.
+
+			The child windows are shown if they are currently hidden.
+
+			Returns: True if successful, False otherwise (the window was already split).
+
+			Note This should be called if you wish to initially view two panes. It can also be called at any subsequent time, but the application should check that the window is not currently split using IsSplit .
+		"""
+
+	def Unsplit(self, toRemove: Optional[Window] = None) -> bool:
+		""" Unsplits the window.
+
+			Returns: True if successful, False otherwise (the window was not split).
+		"""
+
+
+class SizeEvent(Event):
+	""" Interface voor wx.SizeEvent
+	"""
+
+	def GetSize(self) -> Size:
+		""" Returns the entire size of the window generating the size change event.
+
+			This is the new total size of the window, i.e. the same size as would be returned by wx.Window.GetSize if it were called now. Use wx.Window.GetClientSize if you catch this event in a top level window such as wx.Frame to find the size available for the window contents.
+		"""
+
+
+class PyUserData:
+	""" Interface voor wx.PyUserData
+	"""
+
+
+class BitmapBundle:
+	""" Interface voor wx.BitmapBundle
+	"""
+
+
+class VisualAttributes:
+	""" Interface voor wx.VisualAttributes
+	"""
+
+
+class ToolBarToolBase:
+	""" Interface voor wx.ToolBarToolBase
+	"""
+
+	def __init__(self, tbar: Optional['ToolBar'] = None, toolid: int = -1, label: str = "", bmpNormal: Optional[Bitmap] = None, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, clientData: Optional['PyUserData'] = None, shortHelpString: str = "", longHelpString: str = "") -> None:
+		""" Constructor
+		"""
+
+	def Attach(self, tbar: 'ToolBar') -> None:
+		""" """
+
+	def CanBeToggled(self) -> bool:
+		""" """
+
+	def Detach(self) -> None:
+		""" """
+
+	def Enable(self, enable: bool) -> bool:
+		""" """
+
+	def GetBitmap(self) -> Bitmap:
+		""" """
+
+	def GetClientData(self) -> 'PyUserData':
+		""" """
+
+	def GetControl(self) -> Control:
+		""" """
+
+	def GetDisabledBitmap(self) -> Bitmap:
+		""" """
+
+	def GetDisabledBitmapBundle(self) -> 'BitmapBundle':
+		""" Return the bundle containing disabled tool bitmaps.
+
+			This bundle may be invalid if the tool doesn't show a bitmap or doesn't have a specific disabled bitmap creates one automatically from the normal bitmap.
+		"""
+
+	def GetDropdownMenu(self) -> Menu:
+		""" """
+
+	def GetId(self) -> int:
+		""" """
+
+	def GetKind(self) -> int:
+		""" """
+
+	def GetLabel(self) -> str:
+		""" """
+
+	def GetLongHelp(self) -> str:
+		""" """
+
+	def GetNormalBitmap(self) -> Bitmap:
+		""" """
+
+	def GetNormalBitmapBundle(self) -> 'BitmapBundle':
+		""" Return the bundle containing normal tool bitmaps.
+
+			This bundle may be invalid if the tool doesn't show a bitmap.
+		"""
+
+	def GetShortHelp(self) -> str:
+		""" """
+
+	def GetStyle(self) -> int:
+		""" """
+
+	def GetToolBar(self) -> 'ToolBar':
+		""" Return the toolbar this tool is a member of.
+		"""
+
+	def IsButton(self) -> bool:
+		""" """
+
+	def IsControl(self) -> bool:
+		""" """
+
+	def IsEnabled(self) -> bool:
+		""" """
+
+	def IsSeparator(self) -> bool:
+		""" """
+
+	def IsStretchable(self) -> bool:
+		""" """
+
+	def IsStretchableSpace(self) -> bool:
+		""" """
+
+	def IsToggled(self) -> bool:
+		""" """
+
+	def MakeStretchable(self) -> None:
+		""" """
+
+	def SetClientData(self, clientData: 'PyUserData') -> None:
+		""" """
+
+	def SetDisabledBitmap(self, bmp: Bitmap) -> None:
+		""" """
+
+	def SetDropdownMenu(self, menu: Menu) -> None:
+		""" """
+
+	def SetLabel(self, label: str) -> None:
+		""" """
+
+	def SetLongHelp(self, help: str) -> bool:
+		""" """
+
+	def SetNormalBitmap(self, bmp: Bitmap) -> None:
+		""" """
+
+	def SetShortHelp(self, help: str) -> bool:
+		""" """
+
+	def SetToggle(self, toggle: bool) -> bool:
+		""" """
+
+	def Toggle(self, toggle: bool = False) -> bool:
+		""" """
+
+
+class ToolBar(Control):
+	""" Interface voor wx.ToolBar
+	"""
+
+	def __init__(self, parent: Window, id: int = -1, pos: Optional[Union[tuple[int, int], Position]] = None, size: Optional[Union[tuple[int, int], Size]] = None, style: int = -1, name: str = "") -> None:
+		""" Constructs a toolbar.
+
+			Note After a toolbar is created, you use AddTool and perhaps AddSeparator , and then you must call Realize to construct and display the toolbar tools.
+		"""
+
+	def AddCheckTool(self, toolId: int, label: str, bitmap1: Bitmap, bmpDisabled: Optional[Bitmap] = None, shortHelp: str = "", longHelp: str = "", clientData: Optional[Any] = None) -> ToolBarToolBase:
+		""" Adds a new check (or toggle) tool to the toolbar.
+		"""
+
+	def AddControl(self, control: Control, label: str = "") -> ToolBarToolBase:
+		""" Adds any control to the toolbar, typically e.g. a wx.ComboBox.
+
+			Note Mac: labels are only displayed if wxWidgets is built with MAC_USE_NATIVE_TOOLBAR set to 1
+		"""
+
+	def AddLabelTool(self, id: int, label: str, bitmap: Bitmap, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, shortHelp: str = "", longHelp: str = "", clientData: Optional['PyUserData'] = None) -> ToolBarToolBase:
+		""" Old style method to add a tool in the toolbar.
+		"""
+
+	def AddRadioTool(self, toolId: int, label: str, bitmap1: Bitmap, bmpDisabled: Optional[Bitmap] = None, shortHelp: str = "", longHelp: str = "", clientData: Optional['PyUserData'] = None) -> ToolBarToolBase:
+		""" Adds a new radio tool to the toolbar.
+
+			Consecutive radio tools form a radio group such that exactly one button in the group is pressed at any moment, in other words whenever a button in the group is pressed the previously pressed button is automatically released. You should avoid having the radio groups of only one element as it would be impossible for the user to use such button.
+
+			By default, the first button in the radio group is initially pressed, the others are not.
+		"""
+
+	def AddSeparator(self) -> ToolBarToolBase:
+		""" Adds a separator for spacing groups of tools.
+
+			Notice that the separator uses the look appropriate for the current platform so it can be a vertical line (MSW, some versions of GTK) or just an empty space or something else.
+		"""
+
+	def AddSimpleTool(self, toolId: int, bitmap: Bitmap, shortHelpString: str = "", longHelpString: str = "", isToggle: int = 0) -> ToolBarToolBase:
+		""" Old style method to add a tool to the toolbar.
+		"""
+
+	def AddStretchableSpace(self) -> ToolBarToolBase:
+		""" Adds a stretchable space to the toolbar.
+
+			Any space not taken up by the fixed items (all items except for stretchable spaces) is distributed in equal measure between the stretchable spaces in the toolbar. The most common use for this method is to add a single stretchable space before the items which should be right-aligned in the toolbar, but more exotic possibilities are possible, e.g. a stretchable space may be added in the beginning and the end of the toolbar to centre all toolbar items.
+		"""
+
+	def AddTool(self, tool: Optional[ToolBarToolBase] = None, toolId: Optional[int] = -1, label: Optional[str] = "", bitmap: Optional[Bitmap] = None, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, shortHelp: str = "", longHelp: str = "", clientData: Optional['PyUserData'] = None) -> ToolBarToolBase:
+		""" Adds a tool to the toolbar.
+
+			Note After you have added tools to a toolbar, you must call Realize in order to have the tools appear.
+		"""
+
+	def ClearTools(self) -> None:
+		""" Deletes all the tools in the toolbar.
+		"""
+
+	def CreateSeparator(self) -> ToolBarToolBase:
+		""" Factory function to create a new separator toolbar tool.
+		"""
+
+	def CreateTool(self, control: Optional[Control] = None, toolId: Optional[int] = None, label: str = "", bmpNormal: Optional[Bitmap] = None, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, clientData: Optional['PyUserData'] = None, shortHelp: str = "", longHelp: str = "") -> ToolBarToolBase:
+		""" Factory function to create a new toolbar tool.
+		"""
+
+	def DeleteTool(self, toolId: int) -> bool:
+		""" Removes the specified tool from the toolbar and deletes it.
+
+			If you don't want to delete the tool, but just to remove it from the toolbar (to possibly add it back later), you may use RemoveTool instead.
+
+			Note It is unnecessary to call Realize for the change to take place, it will happen immediately.
+		"""
+
+	def DeleteToolByPos(self, pos: int) -> bool:
+		""" This function behaves like DeleteTool but it deletes the tool at the specified position and not the one with the given id.
+		"""
+
+	def EnableTool(self, toolId: int, enable: bool) -> bool:
+		""" Enables or disables the tool.
+
+			Note Some implementations will change the visible state of the tool to indicate that it is disabled.
+		"""
+
+	def FindById(self, id: int) -> Optional[ToolBarToolBase]:
+		""" Returns a pointer to the tool identified by id or None if no corresponding tool is found.
+		"""
+
+	def FindControl(self, id: int) -> Optional[ToolBarToolBase]:
+		""" Returns a pointer to the control identified by id or None if no corresponding control is found.
+		"""
+
+	def FindToolForPosition(self, x: int, y: int) -> Optional[ToolBarToolBase]:
+		""" Finds a tool for the given mouse position.
+
+			Note Currently not implemented in wxGTK (always returns None there).
+		"""
+
+	@staticmethod
+	def GetClassDefaultAttributes(variant: int = -1) -> 'VisualAttributes':
+		""" """
+
+	def GetMargins(self) -> Size:
+		""" Returns the left/right and top/bottom margins, which are also used for inter-toolspacing.
+		"""
+
+	def GetToolBitmapSize(self) -> Size:
+		""" Returns the size of bitmap that the toolbar expects to have.
+
+			The default bitmap size is platform-dependent: for example, it is 16x15 for MSW and 24x24 for GTK. This size does not necessarily indicate the best size to use for the toolbars on the given platform, for this you should use ArtProvider::GetNativeSizeHint(wxART_TOOLBAR) but in any case, as the bitmap size is deduced automatically from the size of the bitmaps associated with the tools added to the toolbar, it is usually unnecessary to call neither this function nor SetToolBitmapSize at all.
+
+			Note Note that this is the size of the bitmap you pass to AddTool , and not the eventual size of the tool button.
+		"""
+
+	def GetToolByPos(self, pos: Union[Position, tuple[int, int]]) -> Optional[ToolBarToolBase]:
+		""" Returns a pointer to the tool at ordinal position pos.
+
+			Dont confuse this with FindToolForPosition .
+		"""
+
+	def GetToolClientData(self, toolId: int) -> Optional['PyUserData']:
+		""" Get any client data associated with the tool.
+		"""
+
+	def GetToolEnabled(self, toolId: int) -> bool:
+		""" Called to determine whether a tool is enabled (responds to user input).
+		"""
+
+	def GetToolLongHelp(self, toolId: int) -> str:
+		""" Returns the long help for the given tool.
+		"""
+
+	def GetToolPacking(self) -> int:
+		""" Returns the value used for packing tools.
+		"""
+
+	def GetToolPos(self, toolId: int) -> int:
+		""" Returns the tool position in the toolbar, or NOT_FOUND if the tool is not found.
+		"""
+
+	def GetToolSeparation(self) -> int:
+		""" Returns the default separator size.
+		"""
+
+	def GetToolShortHelp(self, toolId: int) -> str:
+		""" Returns the short help for the given tool.
+		"""
+
+	def GetToolSize(self) -> Size:
+		""" Returns the size of a whole button, which is usually larger than a tool bitmap because of added 3D effects.
+		"""
+
+	def GetToolState(self, toolId: int) -> bool:
+		""" Gets the on/off state of a toggle tool.
+		"""
+
+	def GetToolsCount(self) -> int:
+		""" Returns the number of tools in the toolbar.
+		"""
+
+	def InsertControl(self, pos: int, control: Control, label: str = "") -> ToolBarToolBase:
+		""" Inserts the control into the toolbar at the given position.
+
+			You must call Realize for the change to take place.
+		"""
+
+	def InsertLabelTool(self, pos: int, id: int, label: str, bitmap: Bitmap, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, shortHelp: str = "", longHelp: str = "", clientData: Optional['PyUserData'] = None) -> ToolBarToolBase:
+		""" Old style method to insert a tool in the toolbar.
+		"""
+
+	def InsertSeparator(self, pos: int) -> ToolBarToolBase:
+		""" Inserts the separator into the toolbar at the given position.
+
+			You must call Realize for the change to take place.
+		"""
+
+	def InsertSimpleTool(self, pos: int, toolId: int, bitmap: Bitmap, shortHelpString: str = "", longHelpString: str = "", isToggle: int = 0) -> ToolBarToolBase:
+		""" Old style method to insert a tool in the toolbar.
+		"""
+
+	def InsertStretchableSpace(self, pos: int) -> ToolBarToolBase:
+		""" Inserts a stretchable space at the given position.
+		"""
+
+	def InsertTool(self, pos: int, tool: Optional[ToolBarToolBase] = None, toolId: Optional[int] = None, label: Optional[str] = "", bitmap: Optional[Bitmap] = None, bmpDisabled: Optional[Bitmap] = None, kind: int = -1, shortHelp: str = "", longHelp: str = "", clientData: Optional['PyUserData'] = None) -> Optional[ToolBarToolBase]:
+		""" Inserts the tool with the specified attributes into the toolbar at the given position.
+
+			You must call Realize for the change to take place.
+		"""
+
+	def Realize(self) -> bool:
+		""" This function should be called after you have added tools.
+		"""
+
+	def RemoveTool(self, id: int) -> ToolBarToolBase:
+		""" Removes the given tool from the toolbar but doesn't delete it.
+
+			This allows inserting/adding this tool back to this (or another) toolbar later.
+
+			Note It is unnecessary to call Realize for the change to take place, it will happen immediately.
+		"""
+
+	def SetDropdownMenu(self, id: int, menu: Menu) -> bool:
+		""" Sets the dropdown menu for the tool given by its id.
+
+			The tool itself will delete the menu when it's no longer needed. Only supported under GTK+ und MSW.
+
+			If you define a EVT_TOOL_DROPDOWN() handler in your program, you must call wx.Event.Skip from it or the menu won't be displayed.
+		"""
+
+	def SetMargins(self, x: int = 0, y: int = 0, size: Optional[Union[tuple[int, int], Size]] = None) -> bool:
+		""" Set the values to be used as margins for the toolbar.
+
+			Note This must be called before the tools are added if absolute positioning is to be used, and the default (zero-size) margins are to be overridden.
+		"""
+
+	def SetToolBitmapSize(self, size: Union[tuple[int, int], Size]) -> None:
+		""" Sets the default size of each tool bitmap.
+
+			It is usually unnecessary to call this function, as the tools will always be made big enough to fit the size of the bitmaps used in them. Moreover, calling it forces wx.ToolBar to scale its images in high DPI using the provided size, instead of letting wx.BitmapBundle used for the tool bitmaps determine the best suitable bitmap size, which may result in suboptimal appearance.
+
+			If you do call it, it must be done before toolbar is Realized.
+		"""
+
+	def SetToolClientData(self, id: int, clientData: 'PyUserData') -> None:
+		""" Sets the client data associated with the tool.
+		"""
+
+	def SetToolDisabledBitmap(self, id: int, bitmap: Bitmap) -> None:
+		""" Sets the bitmap to be used by the tool with the given ID when the tool is in a disabled state.
+
+			This can only be used on Button tools, not controls.
+
+			Note The native toolbar classes on the main platforms all synthesize the disabled bitmap from the normal bitmap, so this function will have no effect on those platforms.
+		"""
+
+	def SetToolLongHelp(self, toolId: int, helpString: str) -> None:
+		""" Sets the long help for the given tool.
+
+			Note You might use the long help for displaying the tool purpose on the status line.
+		"""
+
+	def SetToolNormalBitmap(self, id: int, bitmap: Bitmap) -> None:
+		""" Sets the bitmap to be used by the tool with the given ID.
+
+			This can only be used on Button tools, not controls.
+		"""
+
+	def SetToolPacking(self, packing: int = 1) -> None:
+		""" Sets the value used for spacing tools.
+
+			Note The packing is used for spacing in the vertical direction if the toolbar is horizontal, and for spacing in the horizontal direction if the toolbar is vertical.
+		"""
+
+	def SetToolSeparation(self, separation: int = 5) -> None:
+		""" Sets the default separator size.
+		"""
+
+	def SetToolShortHelp(self, toolId: int, helpString: str) -> None:
+		""" Sets the short help for the given tool.
+
+			Note An application might use short help for identifying the tool purpose in a tooltip.
+		"""
+
+	def ToggleTool(self, toolId: int, toggle: bool) -> None:
+		""" Toggles a tool on or off.
+
+			This does not cause any event to get emitted.
+		"""
+
+
 def GetApp() -> App:
 	""" Retrieve the WX App
 	"""
@@ -1330,3 +2307,13 @@ def PostEvent(window: EvtHandler, event: Event) -> None:
 	""" Send an Event
 	"""
 	...
+
+
+def Yield() -> None:
+	""" Process pending events
+	"""
+
+
+def SafeYield() -> None:
+	""" Process pending events
+	"""

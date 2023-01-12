@@ -1,5 +1,9 @@
 from typing import Optional
-from .. import Window, Icon, ICON_INFORMATION
+from .. import Window, Icon, ICON_INFORMATION, EvtHandler
+
+
+EVT_TASKBAR_LEFT_DCLICK: int
+EVT_TASKBAR_RIGHT_UP: int
 
 
 class HyperlinkCtrl(Window):
@@ -7,7 +11,7 @@ class HyperlinkCtrl(Window):
 	"""
 
 
-class TaskBarIcon:
+class TaskBarIcon(EvtHandler):
 
 	def SetIcon(self, icon: Icon, tooltip: str = "") -> bool:
 		""" Sets the icon, and optional tooltip text.
@@ -18,7 +22,7 @@ class NotificationMessage:
 	""" Interface voor wwx.adv.NotificationMessage
 	"""
 
-	def __init__(self, title: str, message: str = "", parent: Optional[Window] = None, flags: int = ICON_INFORMATION):
+	def __init__(self, title: str, message: str = "", parent: Optional[Window] = None, flags: int = ICON_INFORMATION) -> None:
 		""" Default constructor, use SetParent , SetTitle and SetMessage to initialize the object before showing it.
 		"""
 
