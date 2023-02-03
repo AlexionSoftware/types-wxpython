@@ -480,6 +480,10 @@ class Dialog(TopLevelWindow):
 		"""
 		...
 
+	def IsModal(self) -> bool:
+		""" Returns True if the dialog box is modal, False otherwise.
+		"""
+
 
 class TreeCtrl(Window):
 	""" Interface voor wx.TreeItemId
