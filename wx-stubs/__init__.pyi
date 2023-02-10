@@ -55,6 +55,7 @@ NO_IMAGE: int
 TE_READONLY: int
 MODERN: int
 FIXED_MINSIZE: int
+ALIGN_CENTER_VERTICAL: int
 
 ACCEL_NORMAL: int
 ACCEL_CTRL: int
@@ -629,6 +630,132 @@ class Panel(Window):
 
 
 class TextEntry:
+	""" Common base class for single line text entry fields.
+	"""
+
+	def AppendText(self, text: str) -> None:
+		""" Appends the text to the end of the text control.
+
+			Note After the text is appended, the insertion point will be at the end of the text control. If this behaviour is not desired, the programmer should use GetInsertionPoint and SetInsertionPoint .
+		"""
+
+	def AutoComplete(self, choices: list[str]) -> bool:
+		""" Call this function to enable auto-completion of the text typed in a single-line text control using the given choices.
+
+			Returns: True if the auto-completion was enabled or False if the operation failed, typically because auto-completion is not supported by the current platform.
+		"""
+
+	def AutoCompleteDirectories(self) -> bool:
+		""" Call this function to enable auto-completion of the text using the file system directories.
+
+			Unlike AutoCompleteFileNames which completes both file names and directories, this function only completes the directory names.
+
+			Notice that currently this function is only implemented in wxMSW port and does nothing under the other platforms.
+
+			Returns: True if the auto-completion was enabled or False if the operation failed, typically because auto-completion is not supported by the current platform.
+		"""
+
+	def AutoCompleteFileNames(self) -> bool:
+		""" Call this function to enable auto-completion of the text typed in a single-line text control using all valid file system paths.
+
+			Notice that currently this function is only implemented in wxMSW port and does nothing under the other platforms.
+
+			Returns: True if the auto-completion was enabled or False if the operation failed, typically because auto-completion is not supported by the current platform.
+		"""
+
+	def CanCopy(self) -> bool:
+		""" Returns True if the selection can be copied to the clipboard.
+		"""
+
+	def CanCut(self) -> bool:
+		""" Returns True if the selection can be cut to the clipboard.
+		"""
+
+	def CanPaste(self) -> bool:
+		""" Returns True if the contents of the clipboard can be pasted into the text control.
+
+			On some platforms (Motif, GTK) this is an approximation and returns True if the control is editable, False otherwise.
+		"""
+
+	def CanRedo(self) -> bool:
+		""" Returns True if there is a redo facility available and the last operation can be redone.
+		"""
+
+	def CanUndo(self) -> bool:
+		""" Returns True if there is an undo facility available and the last operation can be undone.
+		"""
+
+	def ChangeValue(self, value: str) -> None:
+		""" Sets the new text control value.
+
+			It also marks the control as not-modified which means that IsModified() would return False immediately after the call to ChangeValue .
+
+			The insertion point is set to the start of the control (i.e. position 0) by this function.
+
+			This functions does not generate the wxEVT_TEXT event but otherwise is identical to SetValue .
+
+			See User Generated Events vs Programmatically Generated Events for more information.
+		"""
+
+	def Clear(self) -> None:
+		""" Clears the text in the control.
+
+			Note that this function will generate a wxEVT_TEXT event, i.e. its effect is identical to calling SetValue (“”).
+		"""
+
+	def Copy(self) -> None:
+		""" Copies the selected text to the clipboard.
+		"""
+
+	def Cut(self) -> None:
+		""" Copies the selected text to the clipboard and removes it from the control.
+		"""
+
+	def ForceUpper(self) -> None:
+		""" Convert all text entered into the control to upper case.
+
+			Call this method to ensure that all text entered into the control is converted on the fly to upper case. If the control is not empty, its existing contents is also converted to upper case.
+		"""
+
+	def GetHint(self) -> str:
+		""" Returns the current hint string.
+		"""
+
+	def GetInsertionPoint(self) -> int:
+		""" Returns the insertion point, or cursor, position.
+
+			This is defined as the zero based index of the character position to the right of the insertion point. For example, if the insertion point is at the end of the single-line text control, it is equal to GetLastPosition .
+
+			Notice that insertion position is, in general, different from the index of the character the cursor position at in the string returned by GetValue . While this is always the case for the single line controls, multi-line controls can use two characters "\\r\\n" as line separator (this is notably the case under MSW) meaning that indices in the control and its string value are offset by 1 for every line.
+		"""
+
+	def GetLastPosition(self) -> int:
+		""" Returns the zero based index of the last position in the text control, which is equal to the number of characters in the control.
+		"""
+
+	def GetMargins(self) -> 'Size':
+		""" Returns the margins used by the control.
+
+			The x field of the returned point is the horizontal margin and the y field is the vertical one.
+		"""
+
+	def GetRange(self, from_: int, to_: int) -> str:
+		""" Returns the string containing the text starting in the positions from and up to to in the control.
+
+			The positions must have been returned by another wx.TextCtrl method. Please note that the positions in a multiline wx.TextCtrl do not correspond to the indices in the string returned by GetValue because of the different new line representations ( CR or CR LF) and so this method should be used to obtain the correct results instead of extracting parts of the entire value. It may also be more efficient, especially if the control contains a lot of data.
+		"""
+
+	def GetSelection(self) -> tuple[int, int]:
+		""" Gets the current selection span.
+
+			If the returned values are equal, there was no selection. Please note that the indices returned may be used with the other wx.TextCtrl methods but don’t necessarily represent the correct indices into the string returned by GetValue for multiline controls under Windows (at least,) you should use GetStringSelection to get the selected text.
+		"""
+
+	def GetStringSelection(self) -> str:
+		""" Gets the text currently selected in the control.
+
+			If there is no selection, the returned string is empty.
+		"""
 
 	def GetValue(self) -> str:
 		""" Gets the contents of the control.
@@ -636,8 +763,64 @@ class TextEntry:
 			Notice that for a multiline text control, the lines will be separated by (Unix-style) \n characters, even under Windows where they are separated by a \r\n sequence in the native control.
 		"""
 
+	def IsEditable(self) -> bool:
+		""" Returns True if the controls contents may be edited by user (note that it always can be changed by the program).
+
+			In other words, this functions returns True if the control hasn’t been put in read-only mode by a previous call to SetEditable .
+		"""
+
+	def IsEmpty(self) -> bool:
+		""" Returns True if the control is currently empty.
+
+			This is the same as GetValue .empty() but can be much more efficient for the multiline controls containing big amounts of text.
+		"""
+
+	def Paste(self) -> None:
+		""" Pastes text from the clipboard to the text item.
+		"""
+
+	def Redo(self) -> None:
+		""" If there is a redo facility and the last operation can be redone, redoes the last operation.
+
+			Does nothing if there is no redo facility.
+		"""
+
+	def Remove(self, from_: int, to_: int) -> None:
+		""" Removes the text starting at the first given position up to (but not including) the character at the last position.
+
+			This function puts the current insertion point position at to as a side effect.
+		"""
+
+	def Replace(self, from_: int, to_: int, value: str) -> None:
+		""" Replaces the text starting at the first position up to (but not including) the character at the last position with the given text.
+
+			This function puts the current insertion point position at to as a side effect.
+		"""
+
+	def SelectAll(self) -> None:
+		""" Selects all text in the control.
+		"""
+
+	def SelectNone(self) -> None:
+		""" Deselects selected text in the control.
+		"""
+
 	def SetEditable(self, editable: bool) -> None:
 		""" Makes the text item editable or read-only, overriding the wx.TE_READONLY flag.
+		"""
+
+	def SetHint(self, hint: str) -> bool:
+		""" Sets a hint shown in an empty unfocused text control.
+
+			The hints are usually used to indicate to the user what is supposed to be entered into the given entry field, e.g. a common use of them is to show an explanation of what can be entered in a wx.SearchCtrl.
+
+			The hint is shown (usually greyed out) for an empty control until it gets focus and is shown again if the control loses it and remains empty. It won’t be shown once the control has a non-empty value, although it will be shown again if the control contents is cleared. Because of this, it generally only makes sense to use hints with the controls which are initially empty.
+
+			Notice that hints are known as cue banners under MSW or placeholder strings under macOS.
+
+			For the platforms without native hints support, the implementation has several known limitations. Notably, the hint display will not be properly updated if you change wx.TextEntry contents programmatically when the hint is displayed using methods other than SetValue or ChangeValue or others which use them internally (e.g. Clear ). In other words, currently you should avoid calling methods such as WriteText or Replace when using hints and the text control is empty. If you bind to the control's focus and wxEVT_TEXT events, you must call wx.Event.Skip on them so that the generic implementation works correctly.
+
+			Another limitation is that hints are ignored for the controls with TE_PASSWORD style.
 		"""
 
 	def SetInsertionPoint(self, pos: int) -> None:
@@ -646,10 +829,24 @@ class TextEntry:
 
 	def SetInsertionPointEnd(self) -> None:
 		""" Sets the insertion point at the end of the text control.
+
+			This is equivalent to calling wx.TextCtrl.SetInsertionPoint with wx.TextCtrl.GetLastPosition argument.
 		"""
 
-	def Clear(self) -> None:
-		""" Leeghalen van de Choice
+	def SetMargins(self, pt: 'Size') -> bool:
+		""" Attempts to set the control margins.
+
+			When margins are given as wx.Point, x indicates the left and y the top margin. Use -1 to indicate that an existing value should be used.
+		"""
+
+	def SetMaxLength(self, len: int) -> None:
+		""" This function sets the maximum number of characters the user can enter into the control.
+
+			In other words, it allows limiting the text value length to len not counting the terminating NUL character.
+
+			If len is 0, the previously set max length limit, if any, is discarded and the user may enter as much text as the underlying native text control widget supports (typically at least 32Kb). If the user tries to enter more characters into the text control when it already is filled up to the maximal length, a wxEVT_TEXT_MAXLEN event is sent to notify the program about it (giving it the possibility to show an explanatory message, for example) and the extra input is discarded.
+
+			Note that in wxGTK this function may only be used with single line text controls.
 		"""
 
 	def SetSelection(self, from_: int, to_: int) -> None:
@@ -658,6 +855,26 @@ class TextEntry:
 			If both parameters are equal to -1 all text in the control is selected.
 
 			Notice that the insertion point will be moved to from by this function.
+		"""
+
+	def SetValue(self, value: str) -> None:
+		""" Sets the new text control value.
+
+			It also marks the control as not-modified which means that IsModified() would return False immediately after the call to SetValue .
+
+			The insertion point is set to the start of the control (i.e. position 0) by this function unless the control value doesn’t change at all, in which case the insertion point is left at its original position.
+
+			Note that, unlike most other functions changing the controls values, this function generates a wxEVT_TEXT event. To avoid this you can use ChangeValue instead.
+		"""
+
+	def Undo(self) -> None:
+		""" If there is an undo facility and the last operation can be undone, undoes the last operation.
+
+			Does nothing if there is no undo facility.
+		"""
+
+	def WriteText(self, text: str) -> None:
+		""" Writes the text into the text control at the current insertion position.
 		"""
 
 
@@ -949,7 +1166,96 @@ class SystemSettings:
 		"""
 
 
-class Button(Window):
+class AnyButton(Control):
+	""" Interface voor wx.AnyButton
+	"""
+
+	def GetBitmap(self) -> 'Bitmap':
+		""" Return the bitmap shown by the button.
+
+			The returned bitmap may be invalid only if the button doesn’t show any images.
+		"""
+
+	def GetBitmapCurrent(self) -> 'Bitmap':
+		""" Returns the bitmap used when the mouse is over the button.
+
+			The returned bitmap is only valid if SetBitmapCurrent had been previously called.
+		"""
+
+	def GetBitmapDisabled(self) -> 'Bitmap':
+		""" Returns the bitmap used for the disabled state.
+
+			The returned bitmap is only valid if SetBitmapDisabled had been previously called.
+		"""
+
+	def GetBitmapFocus(self) -> 'Bitmap':
+		""" Returns the bitmap used for the focused state.
+
+			The returned bitmap is only valid if SetBitmapFocus had been previously called.
+		"""
+
+	def GetBitmapLabel(self) -> 'Bitmap':
+		""" Returns the bitmap for the normal state.
+
+			This is exactly the same as GetBitmap but uses a name backwards-compatible with wx.BitmapButton.
+		"""
+
+	def GetBitmapMargins(self) -> Size:
+		""" Get the margins between the bitmap and the text of the button.
+		"""
+
+	def GetBitmapPressed(self) -> 'Bitmap':
+		""" Returns the bitmap used when the button is pressed.
+
+			The returned bitmap is only valid if SetBitmapPressed had been previously called.
+		"""
+
+	def SetBitmap(self, bitmap: 'Bitmap', dir: int = -1) -> None:
+		""" Sets the bitmap to display in the button.
+
+			The bitmap is displayed together with the button label. This method sets up a single bitmap which is used in all button states, use SetBitmapDisabled , SetBitmapPressed , SetBitmapCurrent or SetBitmapFocus to change the individual images used in different states.
+		"""
+
+	def SetBitmapCurrent(self, bitmap: 'Bitmap') -> None:
+		""" Sets the bitmap to be shown when the mouse is over the button.
+
+			If bitmap is invalid, the normal bitmap will be used in the current state.
+		"""
+
+	def SetBitmapDisabled(self, bitmap: 'Bitmap') -> None:
+		""" Sets the bitmap for the disabled button appearance.
+
+			If bitmap is invalid, the disabled bitmap is set to the automatically generated greyed out version of the normal bitmap, i.e. the same bitmap as is used by default if this method is not called at all. Use SetBitmap with an invalid bitmap to remove the bitmap completely (for all states).
+		"""
+
+	def SetBitmapFocus(self, bitmap: 'Bitmap') -> None:
+		""" Sets the bitmap for the button appearance when it has the keyboard focus.
+
+			If bitmap is invalid, the normal bitmap will be used in the focused state.
+		"""
+
+	def SetBitmapLabel(self, bitmap: 'Bitmap') -> None:
+		""" Sets the bitmap label for the button.
+		"""
+
+	def SetBitmapMargins(self, *args, **kw) -> None:
+		""" Set the margins between the bitmap and the text of the button.
+
+			This method is currently only implemented under MSW. If it is not called, default margin is used around the bitmap.
+		"""
+
+	def SetBitmapPosition(self, dir: int) -> None:
+		""" Set the position at which the bitmap is displayed.
+
+			This method should only be called if the button does have an associated bitmap.
+		"""
+
+	def SetBitmapPressed(self, bitmap: 'Bitmap') -> None:
+		""" Sets the bitmap for the selected (depressed) button appearance.
+		"""
+
+
+class Button(AnyButton):
 	""" Interface voor wx.Button
 	"""
 
