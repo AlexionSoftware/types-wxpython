@@ -171,7 +171,7 @@ class DocumentationGenerator:
 		# Build the typing
 		typingOutput = "class %s" % classSubName
 		if parentClass is not None:
-			typingOutput += "('%s'):\n" % parentClass
+			typingOutput += "(%s):\n" % parentClass
 		else:
 			typingOutput += ":\n"
 
