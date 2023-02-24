@@ -164,7 +164,13 @@ class DocumentationGenerator:
 			if hierarchMap:
 				hierarchItems = hierarchMap.find_all("area")
 				if len(hierarchItems) > 1:
+					# Find the parent class name
 					parentClass = hierarchItems[1]["href"].replace(".html", "")[3:]
+
+					# Check if there is a < in it
+					if "<" in parentClass:
+						# Remove this part
+						parentClass = parentClass[:parentClass.find("<")]
 
 		# Find the real name for the class
 		classSubName = className.split(".")[-1]
