@@ -127,11 +127,10 @@ class DocumentationGenerator:
 		if apiTableElem is not None:
 			self._processTypingClassMethod(className, soup, apiTableElem)
 
-		else:
-			# Check if there are literals
-			literals = soup.find_all(class_="literal")
-			if len(literals) > 0:
-				self._processLiterals(className, soup)
+		# Check if there are literals
+		literals = soup.find_all(class_="literal")
+		if len(literals) > 0:
+			self._processLiterals(className, soup)
 
 		# Remeber we already processed this one
 		self.foundTypingUrls.append(url)
