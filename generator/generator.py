@@ -16,6 +16,9 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.lib.buttons.html",
 ]
 SPACER = "    "
+EXTRA_TYPING = """
+GROW: int  # Synonym for wx.EXPAND\n
+"""
 
 
 class DocumentationGenerator:
@@ -74,6 +77,9 @@ class DocumentationGenerator:
 
 			# Combine the data
 			data = "# -*- coding: utf-8 -*-\nfrom typing import Any, Optional, Union\n\n\n"
+			# Check if this is the base class
+			if fileName == "__init__.pyi":
+				data += EXTRA_TYPING
 			for value in contentPerFileType[fileName].values():
 				data += value + "\n\n"
 
