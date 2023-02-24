@@ -390,11 +390,11 @@ table (see AcceleratorTable).
         """ Returns a textual representation of this accelerator.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ entry (wx.AcceleratorEntry) â
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ entry (wx.AcceleratorEntry) â
         """
 
@@ -621,11 +621,11 @@ class AffineMatrix2D(AffineMatrix2DBase):
         """ Add the translation to this matrix.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Check that this matrix differs from t.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Check that this matrix is identical with t.
         """
 
@@ -689,11 +689,11 @@ class AffineMatrix2DBase:
         """ Add the translation to this matrix.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Check that this matrix differs from t.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Check that this matrix is identical with t.
         """
 
@@ -2819,11 +2819,11 @@ class Brush(GDIObject):
         """ For internal use only.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Inequality operator.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Equality operator.
         """
 
@@ -4149,11 +4149,11 @@ determine drawing colours.
         """ For internal use only.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Tests the inequality of two colours by comparing individual red, green, blue intensities and alpha values.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Tests the equality of two colours by comparing individual red, green, blue intensities and alpha values.
         """
 
@@ -5544,7 +5544,7 @@ object on screen.
         """ Gets the help text to be used as context-sensitive help for this window.
         """
 
-    def GetId(self) -> 'WindowID':
+    def GetId(self) -> int:
         """ Returns the identifier of the window.
         """
 
@@ -5869,7 +5869,7 @@ object on screen.
         """
 
     @staticmethod
-    def NewControlId(count: int=1) -> 'WindowID':
+    def NewControlId(count: int=1) -> int:
         """ Create a new ID or range of IDs that are not currently in use.
         """
 
@@ -6069,7 +6069,7 @@ object on screen.
         """ Sets the help text to be used as context-sensitive help for this window.
         """
 
-    def SetId(self, winid: 'WindowID') -> None:
+    def SetId(self, winid: int) -> None:
         """ Sets the identifier of the window.
         """
 
@@ -6652,11 +6652,11 @@ operations.
         """ Sets the format to the given value, which should be one of DF_XXX constants.
         """
 
-    def __ne__(self, *args, **kw) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Returns True if the formats are different.
         """
 
-    def __eq__(self, *args, **kw) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Returns True if the formats are equal.
         """
 
@@ -7697,7 +7697,7 @@ which can be moved around the screen.
         """ Overloaded Implementations:
         """
 
-    def AddMainButtonId(self, id: 'WindowID') -> None:
+    def AddMainButtonId(self, id: int) -> None:
         """ Adds an identifier to be regarded as a main button for the non-scrolling area of a dialog.
         """
 
@@ -7801,7 +7801,7 @@ which can be moved around the screen.
         """ A static function returning True if layout adaptation is enabled for all dialogs.
         """
 
-    def IsMainButtonId(self, id: 'WindowID') -> bool:
+    def IsMainButtonId(self, id: int) -> bool:
         """ Returns True if id  is in the array of identifiers to be regarded as the main buttons for the non-scrolling area of a dialog.
         """
 
@@ -9246,7 +9246,7 @@ menu).
         """ Overloaded Implementations:
         """
 
-    def GetBaseId(self) -> 'WindowID':
+    def GetBaseId(self) -> int:
         """ Returns the base identifier for the range used for appending items.
         """
 
@@ -9286,7 +9286,7 @@ menu).
         """ Saves the file history into the given config object.
         """
 
-    def SetBaseId(self, baseId: 'WindowID') -> None:
+    def SetBaseId(self, baseId: int) -> None:
         """ Sets the base identifier for the range used for appending items.
         """
 
@@ -10158,11 +10158,11 @@ class Font(GDIObject):
         """ For internal use only.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Inequality operator.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Equality operator.
         """
 
@@ -10897,11 +10897,11 @@ rows and columns managed by a GridBagSizer.
         """ 
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Compare inequality of two GBPositions.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Compare equality of two GBPositions.
         """
 
@@ -11092,11 +11092,11 @@ items in a GridBagSizer.
         """ 
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Compare inequality of two GBSpans.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Compare equality of two GBSpans.
         """
 
@@ -11492,11 +11492,11 @@ class Pen(GDIObject):
         """ For internal use only.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Inequality operator.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Equality operator.
         """
 
@@ -13342,7 +13342,7 @@ class IdManager:
     """ IdManager is responsible for allocating and releasing window IDs.
     """
     @staticmethod
-    def ReserveId(count: int=1) -> 'WindowID':
+    def ReserveId(count: int=1) -> int:
         """ Called directly by wx.Window.NewControlId , this function will create a new ID or range of IDs.
         """
 
@@ -14129,7 +14129,7 @@ window to display non-critical information to the user.
         """ Returns the number of currently shown buttons.
         """
 
-    def GetButtonId(self, idx: int) -> 'WindowID':
+    def GetButtonId(self, idx: int) -> int:
         """ Returns the ID of the button at the given position.
         """
 
@@ -14150,11 +14150,11 @@ window to display non-critical information to the user.
         """ Return the effect currently used for showing the bar.
         """
 
-    def HasButtonId(self, btnid: 'WindowID') -> bool:
+    def HasButtonId(self, btnid: int) -> bool:
         """ Returns whether a button with the given ID is currently shown.
         """
 
-    def RemoveButton(self, btnid: 'WindowID') -> None:
+    def RemoveButton(self, btnid: int) -> None:
         """ Remove a button previously added by AddButton .
         """
 
@@ -14339,11 +14339,11 @@ with multiple items such as e.g.
         """ Sets a new text colour.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Compare two item attributes for inequality.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Compare two item attributes for equality.
         """
 
@@ -15569,11 +15569,11 @@ class LinuxDistributionInfo:
     """ A structure containing information about a Linux distribution as
 returned by the lsb_release utility.
     """
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ ldi (wx.LinuxDistributionInfo) â
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ ldi (wx.LinuxDistributionInfo) â
         """
 
@@ -16655,7 +16655,7 @@ class LongPressEvent(GestureEvent):
     """ This event is generated when one finger touches the surface and
 remains stationary.
     """
-    def __init__(self, windid: 'WindowID'=0) -> None:
+    def __init__(self, windid: int=0) -> None:
         """ Constructor.
         """
 
@@ -17804,7 +17804,7 @@ capture, which was subsequently lost due to an âexternalâ event (for
 example, when a dialog box is shown or if another application captures
 the mouse).
     """
-    def __init__(self, windowId: 'WindowID'=0) -> None:
+    def __init__(self, windowId: int=0) -> None:
         """ Constructor.
         """
 
@@ -18830,7 +18830,7 @@ class Palette(GDIObject):
 class PaletteChangedEvent(Event):
     """ winid (wx.WindowID) â 
     """
-    def __init__(self, winid: 'WindowID'=0) -> None:
+    def __init__(self, winid: int=0) -> None:
         """ winid (wx.WindowID) â
         """
 
@@ -18886,7 +18886,7 @@ EVT_NAVIGATION_KEY: int  #  Process a navigation key event. ^^
 class PanGestureEvent(GestureEvent):
     """ This event is generated when the user moves a finger on the surface.
     """
-    def __init__(self, winid: 'WindowID'=0) -> None:
+    def __init__(self, winid: int=0) -> None:
         """ Constructor.
         """
 
@@ -19268,11 +19268,11 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
         """ Sets the version of the toolkit associated with this PlatformInfo       instance.
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ Inequality operator.
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ Equality operator.
         """
 
@@ -19343,7 +19343,7 @@ class Point:
         """ Combine this object with another one replacing the uninitialized values.
         """
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -19355,7 +19355,7 @@ class Point:
         """ 
         """
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -19479,7 +19479,7 @@ class Point2D:
         """ 
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ pt (Point2DDouble) â
         """
 
@@ -19503,7 +19503,7 @@ class Point2D:
         """ pt (Point2DDouble) â
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ pt (Point2DDouble) â
         """
 
@@ -19640,7 +19640,7 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """ 
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ pos (wx.Position) â
         """
 
@@ -19660,7 +19660,7 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """ Overloaded Implementations:
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ pos (wx.Position) â
         """
 
@@ -19799,7 +19799,7 @@ class PressAndTapEvent(GestureEvent):
     """ This event is generated when the user press the surface with one
 finger and taps with another.
     """
-    def __init__(self, windid: 'WindowID'=0) -> None:
+    def __init__(self, windid: int=0) -> None:
         """ Constructor.
         """
 
@@ -20938,7 +20938,7 @@ class PySimpleApp(App):
 class QueryNewPaletteEvent(Event):
     """ winid (wx.WindowID) â 
     """
-    def __init__(self, winid: 'WindowID'=0) -> None:
+    def __init__(self, winid: int=0) -> None:
         """ winid (wx.WindowID) â
         """
 
@@ -21119,7 +21119,7 @@ class RealPoint:
         """ 
         """
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -21135,7 +21135,7 @@ class RealPoint:
         """ wx.RealPoint
         """
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -21435,7 +21435,7 @@ class Rect:
         """ 
         """
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -21447,7 +21447,7 @@ class Rect:
         """ 
         """
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -21707,11 +21707,11 @@ class Rect2D:
         """ 
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ rect (Rect2DDouble) â
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ rect (Rect2DDouble) â
         """
 
@@ -21942,7 +21942,7 @@ class RotateGestureEvent(GestureEvent):
     """ This event is generated when two fingers move in opposite directions
 on the surface.
     """
-    def __init__(self, windid: 'WindowID'=0) -> None:
+    def __init__(self, windid: int=0) -> None:
         """ Constructor.
         """
 
@@ -23070,7 +23070,7 @@ class Size:
         """ 
         """
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -23082,7 +23082,7 @@ class Size:
         """ 
         """
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -26806,7 +26806,7 @@ class TreeItemId:
         """ int
         """
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -26814,7 +26814,7 @@ class TreeItemId:
         """ 
         """
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -26828,7 +26828,7 @@ class TwoFingerTapEvent(GestureEvent):
     """ This event is generated when two fingers touch the surface at the same
 time.
     """
-    def __init__(self, windid: 'WindowID'=0) -> None:
+    def __init__(self, windid: int=0) -> None:
         """ Constructor.
         """
 
@@ -26931,7 +26931,7 @@ class UpdateUIEvent(CommandEvent):
 give an application the chance to update various user interface
 elements.
     """
-    def __init__(self, commandId: 'WindowID'=0) -> None:
+    def __init__(self, commandId: int=0) -> None:
         """ Constructor.
         """
 
@@ -27443,11 +27443,11 @@ system.
         """ int
         """
 
-    def __ne__(self) -> None:
+    def __ne__(self, item: Any) -> bool:
         """ mode (wx.VideoMode) â
         """
 
-    def __eq__(self) -> None:
+    def __eq__(self, item: Any) -> bool:
         """ m (wx.VideoMode) â
         """
 
@@ -27733,7 +27733,7 @@ until all references to that ID are gone.
         """ Get the ID value
         """
 
-    def __eq__(self, id) -> bool:
+    def __eq__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -27765,7 +27765,7 @@ until all references to that ID are gone.
         """ bool
         """
 
-    def __ne__(self, id) -> bool:
+    def __ne__(self, item: Any) -> bool:
         """ bool
         """
 
@@ -27885,7 +27885,7 @@ class ZoomGestureEvent(GestureEvent):
     """ This event is generated when two fingers pinch the surface to zoom in
 or out.
     """
-    def __init__(self, windid: 'WindowID'=0) -> None:
+    def __init__(self, windid: int=0) -> None:
         """ Constructor.
         """
 
