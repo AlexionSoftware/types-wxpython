@@ -178,7 +178,7 @@ class DocumentationGenerator:
 			literalName = literalElem.get_text().strip()
 			if literalName.startswith("wx."):
 				# Remove the wx.
-				literalName = literalName[3:]
+				literalName = literalName.split(".")[-1]
 
 				# Check if there is a * in the name
 				if "*" in literalName:
