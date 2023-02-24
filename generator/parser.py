@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from logging import Logger
 import re
+from queue import Queue
 from typing import Optional
 
 import requests
