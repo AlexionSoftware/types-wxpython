@@ -15,6 +15,13 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.ribbon.1moduleindex.html",
 	"https://docs.wxpython.org/wx.lib.buttons.html",
 ]
+EXTRA_CLASS_URLS: list[str] = [
+	"https://docs.wxpython.org/wx.FontFamily.enumeration.html",
+	"https://docs.wxpython.org/wx.FontWeight.enumeration.html",
+	"https://docs.wxpython.org/wx.StockCursor.enumeration.html",
+	"https://docs.wxpython.org/wx.StandardID.enumeration.html",
+	"https://docs.wxpython.org/wx.functions.html",
+]
 SPACER = "    "
 EXTRA_TYPING = """
 GROW: int  # Synonym for wx.EXPAND\n
@@ -38,6 +45,13 @@ class DocumentationGenerator:
 		# Remember the whole file
 		self.typings: dict[str, str] = {}
 		self.foundTypingUrls: list[str] = []
+
+		# Add the extra classes to the queue
+		# This classes are not found by default
+		# So we add them manually
+		#
+		for classUrl in EXTRA_CLASS_URLS:
+			self.classQueue.put(classUrl)
 
 		# Check each index
 		for url in BASE_INDEX_URLS:
