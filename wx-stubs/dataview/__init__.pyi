@@ -276,42 +276,79 @@ is reference counted so it can be shared with other views.
         """ Unselect all item.
         """
 
-dataview.DV_SINGLE: int  #  Single selection mode. This is the default.
-dataview.DV_MULTIPLE: int  #  Multiple selection mode.
-dataview.DV_ROW_LINES: int  #  Use alternating colours for odd and even rows.
-dataview.DV_HORIZ_RULES: int  #  Display the separator lines between rows.
-dataview.DV_VERT_RULES: int  #  Display the separator lines between columns.
-dataview.DV_VARIABLE_LINE_HEIGHT: int  #  Allow variable line heights. This can be inefficient when displaying large number of items.
-dataview.DV_NO_HEADER: int  #  Do not show column headers (which are shown by default). ^^
-EVT_DATAVIEW_SELECTION_CHANGED: int  #  Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
-EVT_DATAVIEW_ITEM_ACTIVATED: int  #  Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event. This event is triggered by double clicking an item or pressing some special key (usually âEnterâ) when it is focused.
-EVT_DATAVIEW_ITEM_START_EDITING: int  #  Process a  wxEVT_DATAVIEW_ITEM_START_EDITING   event. This event can be vetoed in order to prevent editing on an item by item basis.
-EVT_DATAVIEW_ITEM_EDITING_STARTED: int  #  Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
-EVT_DATAVIEW_ITEM_EDITING_DONE: int  #  Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
-EVT_DATAVIEW_ITEM_COLLAPSING: int  #  Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
-EVT_DATAVIEW_ITEM_COLLAPSED: int  #  Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
-EVT_DATAVIEW_ITEM_EXPANDING: int  #  Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
-EVT_DATAVIEW_ITEM_EXPANDED: int  #  Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
-EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  #  Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
-EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  #  Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didnât occur on any valid item, in this case  wx.dataview.DataViewEvent.GetItem   simply returns an invalid item.
-EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  #  Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
-EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  #  Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event. Notice that currently this event is not generated in the native macOS versions of the control.
-EVT_DATAVIEW_COLUMN_SORTED: int  #  Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
-EVT_DATAVIEW_COLUMN_REORDERED: int  #  Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event.
-EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  #  Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
-EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
-EVT_DATAVIEW_ITEM_DROP: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
+
+
+DV_SINGLE: int  # : Single selection mode. This is the default.
+
+DV_MULTIPLE: int  # : Multiple selection mode.
+
+DV_ROW_LINES: int  # : Use alternating colours for odd and even rows.
+
+DV_HORIZ_RULES: int  # : Display the separator lines between rows.
+
+DV_VERT_RULES: int  # : Display the separator lines between columns.
+
+DV_VARIABLE_LINE_HEIGHT: int  # : Allow variable line heights. This can be inefficient when displaying large number of items.
+
+DV_NO_HEADER: int  # : Do not show column headers (which are shown by default). ^^
+
+EVT_DATAVIEW_SELECTION_CHANGED: int  # : Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
+
+EVT_DATAVIEW_ITEM_ACTIVATED: int  # : Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event. This event is triggered by double clicking an item or pressing some special key (usually âEnterâ) when it is focused.
+
+EVT_DATAVIEW_ITEM_START_EDITING: int  # : Process a  wxEVT_DATAVIEW_ITEM_START_EDITING   event. This event can be vetoed in order to prevent editing on an item by item basis.
+
+EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
+
+EVT_DATAVIEW_ITEM_EDITING_DONE: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
+
+EVT_DATAVIEW_ITEM_COLLAPSING: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
+
+EVT_DATAVIEW_ITEM_COLLAPSED: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
+
+EVT_DATAVIEW_ITEM_EXPANDING: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
+
+EVT_DATAVIEW_ITEM_EXPANDED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
+
+EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # : Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
+
+EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # : Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didnât occur on any valid item, in this case  wx.dataview.DataViewEvent.GetItem   simply returns an invalid item.
+
+EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
+
+EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event. Notice that currently this event is not generated in the native macOS versions of the control.
+
+EVT_DATAVIEW_COLUMN_SORTED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
+
+EVT_DATAVIEW_COLUMN_REORDERED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event.
+
+EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # : Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
+
+EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
+
+EVT_DATAVIEW_ITEM_DROP: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
+
 DV_SINGLE: int
+
 DV_MULTIPLE: int
+
 DV_ROW_LINES: int
+
 DV_HORIZ_RULES: int
+
 DV_VERT_RULES: int
-DV_VARIABLE_LINE_HEIGHT: int
-DV_NO_HEADER: int
-DV_ROW_LINES: int
-DF_INVALID: int
-DV_ROW_LINES: int
-DV_ROW_LINES: int
+
 DV_VARIABLE_LINE_HEIGHT: int
 
+DV_NO_HEADER: int
+
+DV_ROW_LINES: int
+
+DF_INVALID: int
+
+DV_ROW_LINES: int
+
+DV_ROW_LINES: int
+
+DV_VARIABLE_LINE_HEIGHT: int
 

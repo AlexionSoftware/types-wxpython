@@ -1292,68 +1292,155 @@ control capable of showing multiple styles and images.
         """ Move a number of words to the right.
         """
 
-richtext.RE_CENTRE_CARET: int  #  The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
-richtext.RE_MULTILINE: int  #  The control will be multiline (mandatory).
-richtext.RE_READONLY: int  #  The control will not be editable. ^^
-RE_CENTRE_CARET: int
-RE_CENTER_CARET: int
-RE_MULTILINE: int
-RE_READONLY: int
-TEXT_ATTR_URL: int
-ID_CLEAR: int
-ID_COPY: int
-ID_CUT: int
-ID_PASTE: int
-ID_REDO: int
-ID_SELECTALL: int
-ID_UNDO: int
-ID_CLEAR: int
-ID_COPY: int
-ID_CUT: int
-ID_PASTE: int
-ID_REDO: int
-ID_SELECTALL: int
-ID_UNDO: int
-TEXT_ATTR_URL: int
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-RICHTEXT_TYPE_ANY: int
-RICHTEXT_TYPE_ANY: int
-RICHTEXT_TYPE_ANY: int
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-RICHTEXT_SETSTYLE_RENUMBER: int
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-ID_CLEAR: int
-ID_COPY: int
-ID_CUT: int
-ID_PASTE: int
-ID_REDO: int
-ID_SELECTALL: int
-ID_UNDO: int
-ID_CLEAR: int
-ID_COPY: int
-ID_CUT: int
-ID_PASTE: int
-ID_REDO: int
-ID_SELECTALL: int
-ID_UNDO: int
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-RICHTEXT_SETSTYLE_RENUMBER: int
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-RICHTEXT_TYPE_ANY: int
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-RICHTEXT_SETSTYLE_RENUMBER: int
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-RICHTEXT_SETPROPERTIES_WITH_UNDO: int
-RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
-RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
-RICHTEXT_SETPROPERTIES_RESET: int
-RICHTEXT_SETPROPERTIES_REMOVE: int
-RICHTEXT_SETSTYLE_NONE: int
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-RICHTEXT_SETSTYLE_OPTIMIZE: int
-RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
-RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
-RICHTEXT_SETSTYLE_RESET: int
-RICHTEXT_SETSTYLE_REMOVE: int
+    def WriteField(*args, **kwargs) -> 'richtext.RichTextField':
+        """ Writes a field at the current insertion point.
+        """
 
+    def WriteImage(self, *args, **kw) -> bool:
+        """ Overloaded Implementations:
+        """
+
+    def WriteTable(*args, **kwargs) -> 'richtext.RichTextTable':
+        """ Write a table at the current insertion point, returning the table.
+        """
+
+    def WriteText(self, text: str) -> None:
+        """ Writes text at the current position.
+        """
+
+    def WriteTextBox(*args, **kwargs) -> 'richtext.RichTextBox':
+        """ Write a text box at the current insertion point, returning the text box.
+        """
+
+    def XYToPosition(self, x, y) -> int:
+        """ Translates from column and line number to position.
+        """
+
+
+
+RE_CENTRE_CARET: int  # : The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
+
+RE_MULTILINE: int  # : The control will be multiline (mandatory).
+
+RE_READONLY: int  # : The control will not be editable. ^^
+
+RE_CENTRE_CARET: int
+
+RE_CENTER_CARET: int
+
+RE_MULTILINE: int
+
+RE_READONLY: int
+
+TEXT_ATTR_URL: int
+
+ID_CLEAR: int
+
+ID_COPY: int
+
+ID_CUT: int
+
+ID_PASTE: int
+
+ID_REDO: int
+
+ID_SELECTALL: int
+
+ID_UNDO: int
+
+ID_CLEAR: int
+
+ID_COPY: int
+
+ID_CUT: int
+
+ID_PASTE: int
+
+ID_REDO: int
+
+ID_SELECTALL: int
+
+ID_UNDO: int
+
+TEXT_ATTR_URL: int
+
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+
+RICHTEXT_TYPE_ANY: int
+
+RICHTEXT_TYPE_ANY: int
+
+RICHTEXT_TYPE_ANY: int
+
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+
+RICHTEXT_SETSTYLE_RENUMBER: int
+
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+
+ID_CLEAR: int
+
+ID_COPY: int
+
+ID_CUT: int
+
+ID_PASTE: int
+
+ID_REDO: int
+
+ID_SELECTALL: int
+
+ID_UNDO: int
+
+ID_CLEAR: int
+
+ID_COPY: int
+
+ID_CUT: int
+
+ID_PASTE: int
+
+ID_REDO: int
+
+ID_SELECTALL: int
+
+ID_UNDO: int
+
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+
+RICHTEXT_SETSTYLE_RENUMBER: int
+
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+
+RICHTEXT_TYPE_ANY: int
+
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+
+RICHTEXT_SETSTYLE_RENUMBER: int
+
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+
+RICHTEXT_SETPROPERTIES_WITH_UNDO: int
+
+RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
+
+RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
+
+RICHTEXT_SETPROPERTIES_RESET: int
+
+RICHTEXT_SETPROPERTIES_REMOVE: int
+
+RICHTEXT_SETSTYLE_NONE: int
+
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+
+RICHTEXT_SETSTYLE_OPTIMIZE: int
+
+RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
+
+RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
+
+RICHTEXT_SETSTYLE_RESET: int
+
+RICHTEXT_SETSTYLE_REMOVE: int
 

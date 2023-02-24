@@ -17,11 +17,15 @@ class __ThemedMixin:
 GenButton when used as a themed button.
         """
 
+
+
 EVT_ENTER_WINDOW: int
-EVT_LEAVE_WINDOW: int
-EVT_ENTER_WINDOW: int
+
 EVT_LEAVE_WINDOW: int
 
+EVT_ENTER_WINDOW: int
+
+EVT_LEAVE_WINDOW: int
 
 class __ToggleMixin:
     """ A mixin that allows to transform GenButton in the corresponding
@@ -55,17 +59,27 @@ toggle button.
         """ Sets the button as toggled/not toggled.
         """
 
+
+
 EVT_KEY_DOWN: int
+
 EVT_KEY_UP: int
+
 EVT_LEFT_DOWN: int
+
 EVT_LEFT_UP: int
-EVT_MOTION: int
-EVT_KEY_DOWN: int
-EVT_KEY_UP: int
-EVT_LEFT_DOWN: int
-EVT_LEFT_UP: int
+
 EVT_MOTION: int
 
+EVT_KEY_DOWN: int
+
+EVT_KEY_UP: int
+
+EVT_LEFT_DOWN: int
+
+EVT_LEFT_UP: int
+
+EVT_MOTION: int
 
 class GenButton(Control):
     """ A generic button, and base class for the other generic buttons.
@@ -203,32 +217,55 @@ and set a good size.
 the parentâs colours.
         """
 
+
+
 EVT_BUTTON: int
+
 EVT_SET_FOCUS: int
+
 EVT_KEY_DOWN: int
+
 EVT_KEY_UP: int
+
 EVT_LEFT_DOWN: int
+
 EVT_LEFT_UP: int
+
 EVT_MOUSE_CAPTURE_LOST: int
+
 EVT_KILL_FOCUS: int
+
 EVT_MOTION: int
+
 EVT_PAINT: int
+
 EVT_SIZE: int
+
 EVT_BUTTON: int
+
 EVT_SET_FOCUS: int
+
 EVT_KEY_DOWN: int
+
 EVT_KEY_UP: int
+
 EVT_LEFT_DOWN: int
+
 EVT_LEFT_UP: int
+
 EVT_MOUSE_CAPTURE_LOST: int
+
 EVT_KILL_FOCUS: int
+
 EVT_MOTION: int
+
 EVT_PAINT: int
+
 EVT_SIZE: int
+
 DefaultSize: int
 
-
-class GenBitmapButton(lib.buttons.GenButton):
+class GenBitmapButton(GenButton):
     """ A generic bitmap button.
     """
     def __init__(self, parent, id=-1, bitmap=wx.NullBitmap, pos = wx.DefaultPosition, size = wx.DefaultSize, style = 0, validator = wx.DefaultValidator, name = "genbutton") -> None:
@@ -274,7 +311,7 @@ This is the only one that is required.
 
 
 
-class GenBitmapTextButton(lib.buttons.GenBitmapButton):
+class GenBitmapTextButton(GenBitmapButton):
     """ A generic bitmapped button with text label.
     """
     def __init__(self, parent, id=-1, bitmap=wx.NullBitmap, label='', pos = wx.DefaultPosition, size = wx.DefaultSize, style = 0, validator = wx.DefaultValidator, name = "genbutton") -> None:
@@ -287,12 +324,12 @@ class GenBitmapTextButton(lib.buttons.GenBitmapButton):
 
 
 
-class GenBitmapTextToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenBitmapTextButton):
+class GenBitmapTextToggleButton(__ToggleMixin,GenBitmapTextButton):
     """ A generic toggle bitmap button with text label.
     """
 
 
-class GenBitmapToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenBitmapButton):
+class GenBitmapToggleButton(__ToggleMixin,GenBitmapButton):
     """ A generic toggle bitmap button.
     """
 
@@ -323,37 +360,37 @@ otherwise.
 
 
 
-class GenToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenButton):
+class GenToggleButton(__ToggleMixin,GenButton):
     """ A generic toggle button.
     """
 
 
-class ThemedGenBitmapButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapButton):
+class ThemedGenBitmapButton(__ThemedMixin,GenBitmapButton):
     """ A themed generic bitmap button.
     """
 
 
-class ThemedGenBitmapTextButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapTextButton):
+class ThemedGenBitmapTextButton(__ThemedMixin,GenBitmapTextButton):
     """ A themed generic bitmapped button with text label.
     """
 
 
-class ThemedGenBitmapTextToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapTextToggleButton):
+class ThemedGenBitmapTextToggleButton(__ThemedMixin,GenBitmapTextToggleButton):
     """ A themed generic toggle bitmap button with text label.
     """
 
 
-class ThemedGenBitmapToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapToggleButton):
+class ThemedGenBitmapToggleButton(__ThemedMixin,GenBitmapToggleButton):
     """ A themed generic toggle bitmap button.
     """
 
 
-class ThemedGenButton(lib.buttons.__ThemedMixin, lib.buttons.GenButton):
+class ThemedGenButton(__ThemedMixin,GenButton):
     """ A themed generic button.
     """
 
 
-class ThemedGenToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenToggleButton):
+class ThemedGenToggleButton(__ThemedMixin,GenToggleButton):
     """ A themed generic toggle button.
     """
 

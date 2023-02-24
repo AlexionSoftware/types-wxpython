@@ -838,5 +838,365 @@ tabular data.
         """ Register a new data type.
         """
 
+    def Render(*args, **kwargs) -> None:
+        """ Draws part or all of a   wx.grid.Grid  on a   wx.DC  for printing or display.
+        """
+
+    def ResetColPos(self) -> None:
+        """ Resets the position of the columns to the default.
+        """
+
+    def ResetRowPos(self) -> None:
+        """ Resets the position of the rows to the default.
+        """
+
+    def SaveEditControlValue(self) -> None:
+        """ Sets the value of the current grid cell to the current in-place edit control value.
+        """
+
+    def SelectAll(self) -> None:
+        """ Selects all cells in the grid.
+        """
+
+    def SelectBlock(self, *args, **kw) -> None:
+        """ Selects a rectangular block of cells.
+        """
+
+    def SelectCol(self, col, addToSelected=False) -> None:
+        """ Selects the specified column.
+        """
+
+    def SelectRow(self, row, addToSelected=False) -> None:
+        """ Selects the specified row.
+        """
+
+    def SetAttr(self, row, col, attr) -> None:
+        """ Sets the cell attributes for the specified cell.
+        """
+
+    def SetCellAlignment(self, row, col, horiz, vert) -> None:
+        """ Sets the horizontal and vertical alignment for grid cell text at the specified location.
+        """
+
+    def SetCellBackgroundColour(self, row, col, colour) -> None:
+        """ Set the background colour for the given cell or all cells by default.
+        """
+
+    def SetCellEditor(self, row, col, editor) -> None:
+        """ Sets the editor for the grid cell at the specified location.
+        """
+
+    def SetCellFitMode(self, row, col, fitMode) -> None:
+        """ Specifies the behaviour of the cell contents if it doesnât fit into the available space.
+        """
+
+    def SetCellFont(self, row, col, font) -> None:
+        """ Sets the font for text in the grid cell at the specified location.
+        """
+
+    def SetCellHighlightColour(self) -> None:
+        """ `` (wx.Colour) â
+        """
+
+    def SetCellHighlightPenWidth(self, width: int) -> None:
+        """ width (int) â
+        """
+
+    def SetCellHighlightROPenWidth(self, width: int) -> None:
+        """ width (int) â
+        """
+
+    def SetCellOverflow(self, row, col, allow) -> None:
+        """ Sets the overflow permission of the cell.
+        """
+
+    def SetCellRenderer(self, row, col, renderer) -> None:
+        """ Sets the renderer for the grid cell at the specified location.
+        """
+
+    def SetCellSize(self, row, col, num_rows, num_cols) -> None:
+        """ Set the size of the cell.
+        """
+
+    def SetCellTextColour(self, row, col, colour) -> None:
+        """ Sets the text colour for the given cell.
+        """
+
+    def SetCellValue(self, *args, **kw) -> None:
+        """ Sets the string value for the cell at the specified location.
+        """
+
+    def SetColAttr(self, col, attr) -> None:
+        """ Sets the cell attributes for all cells in the specified column.
+        """
+
+    def SetColFormatBool(self, col: int) -> None:
+        """ Sets the specified column to display boolean values.
+        """
+
+    def SetColFormatCustom(self, col, typeName) -> None:
+        """ Sets the specified column to display data in a custom format.
+        """
+
+    def SetColFormatDate(self, col, format="") -> None:
+        """ Sets the specified column to display date values.
+        """
+
+    def SetColFormatFloat(self, col, width=-1, precision=-1) -> None:
+        """ Sets the specified column to display floating point values with the given width and precision.
+        """
+
+    def SetColFormatNumber(self, col: int) -> None:
+        """ Sets the specified column to display integer values.
+        """
+
+    def SetColLabelAlignment(self, horiz, vert) -> None:
+        """ Sets the horizontal and vertical alignment of column label text.
+        """
+
+    def SetColLabelSize(self, height: int) -> None:
+        """ Sets the height of the column labels.
+        """
+
+    def SetColLabelTextOrientation(self, textOrientation: int) -> None:
+        """ Sets the orientation of the column labels (either  HORIZONTAL   or   VERTICAL ).
+        """
+
+    def SetColLabelValue(self, col, value) -> None:
+        """ Set the value for the given column label.
+        """
+
+    def SetColMinimalAcceptableWidth(self, width: int) -> None:
+        """ Sets the minimal width  to which the user can resize columns.
+        """
+
+    def SetColMinimalWidth(self, col, width) -> None:
+        """ Sets the minimal width  for the specified column col.
+        """
+
+    def SetColPos(self, colID, newPos) -> None:
+        """ Sets the position of the specified column.
+        """
+
+    def SetColSize(self, col, width) -> None:
+        """ Sets the width of the specified column.
+        """
+
+    def SetColSizes(self, sizeInfo: 'grid.GridSizesInfo') -> None:
+        """ Restore all columns sizes.
+        """
+
+    def SetColumnsOrder(self, order: list[int]) -> None:
+        """ Sets the positions of all columns at once.
+        """
+
+    def SetCornerLabelAlignment(self, horiz, vert) -> None:
+        """ Sets the horizontal and vertical alignment of the (top-left) corner label text.
+        """
+
+    def SetCornerLabelTextOrientation(self, textOrientation: int) -> None:
+        """ Sets the orientation of the (top-left) corner label (either  HORIZONTAL   or   VERTICAL ).
+        """
+
+    def SetCornerLabelValue(self) -> None:
+        """ Set the value for the (top-left) corner label.
+        """
+
+    def SetDefaultCellAlignment(self, horiz, vert) -> None:
+        """ Sets the default horizontal and vertical alignment for grid cell text.
+        """
+
+    def SetDefaultCellBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
+        """ Sets the default background colour for grid cells.
+        """
+
+    def SetDefaultCellFitMode(self, fitMode: 'grid.GridFitMode') -> None:
+        """ Specifies the default behaviour of the cell contents if it doesnât fit into the available space.
+        """
+
+    def SetDefaultCellFont(self, font: 'Font') -> None:
+        """ Sets the default font to be used for grid cell text.
+        """
+
+    def SetDefaultCellOverflow(self, allow: bool) -> None:
+        """ Sets the default overflow permission of the cells.
+        """
+
+    def SetDefaultCellTextColour(self, colour: Union[int, str, 'Colour']) -> None:
+        """ Sets the current default colour for grid cell text.
+        """
+
+    def SetDefaultColSize(self, width, resizeExistingCols=False) -> None:
+        """ Sets the default width for columns in the grid.
+        """
+
+    def SetDefaultEditor(self, editor: 'grid.GridCellEditor') -> None:
+        """ Sets the default editor for grid cells.
+        """
+
+    def SetDefaultRenderer(self, renderer: 'grid.GridCellRenderer') -> None:
+        """ Sets the default renderer for grid cells.
+        """
+
+    def SetDefaultRowSize(self, height, resizeExistingRows=False) -> None:
+        """ Sets the default height for rows in the grid.
+        """
+
+    def SetGridCursor(self, *args, **kw) -> None:
+        """ Set the grid cursor to the specified cell.
+        """
+
+    def SetGridFrozenBorderColour(self) -> None:
+        """ `` (wx.Colour) â
+        """
+
+    def SetGridFrozenBorderPenWidth(self, width: int) -> None:
+        """ width (int) â
+        """
+
+    def SetGridLineColour(self, colour: Union[int, str, 'Colour']) -> None:
+        """ Sets the colour used to draw grid lines.
+        """
+
+    def SetLabelBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
+        """ Sets the background colour for row and column labels.
+        """
+
+    def SetLabelFont(self, font: 'Font') -> None:
+        """ Sets the font for row and column labels.
+        """
+
+    def SetLabelTextColour(self, colour: Union[int, str, 'Colour']) -> None:
+        """ Sets the colour for row and column label text.
+        """
+
+    def SetMargins(self, extraWidth, extraHeight) -> None:
+        """ Sets the extra margins used around the grid area.
+        """
+
+    def SetReadOnly(self, row, col, isReadOnly=True) -> None:
+        """ Makes the cell at the specified location read-only or editable.
+        """
+
+    def SetRowAttr(self, row, attr) -> None:
+        """ Sets the cell attributes for all cells in the specified row.
+        """
+
+    def SetRowLabelAlignment(self, horiz, vert) -> None:
+        """ Sets the horizontal and vertical alignment of row label text.
+        """
+
+    def SetRowLabelSize(self, width: int) -> None:
+        """ Sets the width of the row labels.
+        """
+
+    def SetRowLabelValue(self, row, value) -> None:
+        """ Sets the value for the given row label.
+        """
+
+    def SetRowMinimalAcceptableHeight(self, height: int) -> None:
+        """ Sets the minimal row height  used by default.
+        """
+
+    def SetRowMinimalHeight(self, row, height) -> None:
+        """ Sets the minimal height  for the specified row.
+        """
+
+    def SetRowPos(self, rowID, newPos) -> None:
+        """ Sets the position of the specified row.
+        """
+
+    def SetRowSize(self, row, height) -> None:
+        """ Sets the height of the specified row.
+        """
+
+    def SetRowSizes(self, sizeInfo: 'grid.GridSizesInfo') -> None:
+        """ Restore all rows sizes.
+        """
+
+    def SetRowsOrder(self, order: list[int]) -> None:
+        """ Sets the positions of all rows at once.
+        """
+
+    def SetScrollLineX(self, x: int) -> None:
+        """ Sets the number of pixels per horizontal scroll increment.
+        """
+
+    def SetScrollLineY(self, y: int) -> None:
+        """ Sets the number of pixels per vertical scroll increment.
+        """
+
+    def SetSelectionBackground(self, c: Union[int, str, 'Colour']) -> None:
+        """ Set the colour to be used for drawing the selection background.
+        """
+
+    def SetSelectionForeground(self, c: Union[int, str, 'Colour']) -> None:
+        """ Set the colour to be used for drawing the selection foreground.
+        """
+
+    def SetSelectionMode(self, selmode: GridSelectionModes) -> None:
+        """ Set the selection behaviour of the grid.
+        """
+
+    def SetSortingColumn(self, col, ascending=True) -> None:
+        """ Set the column to display the sorting indicator in and its direction.
+        """
+
+    def SetTabBehaviour(self, behaviour: TabBehaviour) -> None:
+        """ Set the gridâs behaviour when the user presses the TAB key.
+        """
+
+    def _SetTable(self, table, takeOwnership=False, selmode=GridSelectCells) -> bool:
+        """ Passes a pointer to a custom grid table to be used by the grid.
+        """
+
+    def SetTable(self, table, takeOwnership=False, selmode=Grid.GridSelectCells) -> None:
+        """ Set the Grid Table to be used by this grid.
+        """
+
+    def SetUseNativeColLabels(self, native: bool=True) -> None:
+        """ Call this in order to make the column labels use a native look by using wx.RendererNative.DrawHeaderButton   internally.
+        """
+
+    def ShowCellEditControl(self) -> None:
+        """ Displays the active in-place cell edit control for the current cell after it was hidden.
+        """
+
+    def ShowCol(self, col: int) -> None:
+        """ Shows the previously hidden column by resizing it to non-0 size.
+        """
+
+    def ShowRow(self, col: int) -> None:
+        """ Shows the previously hidden row.
+        """
+
+    def UnsetSortingColumn(self) -> None:
+        """ Remove any currently shown sorting indicator.
+        """
+
+    def UseNativeColHeader(self, native: bool=True) -> bool:
+        """ Enable the use of native header window for column labels.
+        """
+
+    def XToCol(self, x, clipToMinMax=False, gridWindow=None) -> int:
+        """ Returns the column at the given pixel position depending on the window.
+        """
+
+    def XToEdgeOfCol(self, x: int) -> int:
+        """ Returns the column whose right hand edge is close to the given logical x  position.
+        """
+
+    def XYToCell(self, *args, **kw) -> 'grid.GridCellCoords':
+        """ Overloaded Implementations:
+        """
+
+    def YToEdgeOfRow(self, y: int) -> int:
+        """ Returns the row whose bottom edge is close to the given logical y  position.
+        """
+
+    def YToRow(self, y, clipToMinMax=False, gridWindow=None) -> int:
+        """ Returns the grid row that corresponds to the logical y  coordinate.
+        """
+
 
 
