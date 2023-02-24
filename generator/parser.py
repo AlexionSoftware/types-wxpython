@@ -15,10 +15,11 @@ BASE_URL = "https://docs.wxpython.org/"
 class Parser:
 	""" Parse the information to ITyping
 	"""
-	def __init__(self, logger: Logger) -> None:
+	def __init__(self, fetchQueue: Queue, logger: Logger) -> None:
 		""" Constructor
 		"""
 		self.foundTypingUrls: list[str] = []
+		self.fetchQueue = fetchQueue
 		self.logger = logger
 
 	def processClassApi(self, url: str) -> Optional[list[ITyping]]:
@@ -43,6 +44,9 @@ class Parser:
 		if soup is None:
 			self.logger.error("This page '%s' doesnt work!" % url)
 			return None
+
+		# Find all the reference to other classes
+		self._findInternalReference(soup)
 
 		# Find the name of the class
 		classFullName = soup.find("title").get_text()
@@ -514,3 +518,25 @@ class Parser:
 		if typing.startswith("wx"):
 			typing = "'" + typing[3:] + "'"
 		return typing
+
+	def _findInternalReference(self, soup: Tag) -> None:
+		""" Search for internal references
+		"""
+		# Find all the a tags
+		aTags = soup.find_all("a", class_="internal")
+
+		# Walk through all the a tags and add them to the queue
+		for aTag in aTags:
+			# Make sure it is a internal link
+			href: str = aTag["href"]
+			if href.startswith("#"):
+				continue
+			if href.startswith("http"):
+				continue
+
+			# Use the href untill the #
+			if "#" in href:
+				href = href[:href.find("#")]
+
+			# Add to the queue
+			self.fetchQueue.put(href)
