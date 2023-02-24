@@ -233,6 +233,13 @@ class DocumentationGenerator:
 			params: dict[str, str] = {}
 			returnType: str = "None"
 
+			# Check if this is an alias
+			if methodDef.startswith("Alias"):
+				# Change the return type
+				# We should find the other method and copy that
+				#
+				returnType = "Any"
+
 			# Check if this is a real thing
 			if methodName.startswith("~"):
 				continue
