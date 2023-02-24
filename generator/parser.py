@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from logging import Logger
 import re
 from typing import Optional
 
@@ -14,16 +15,18 @@ BASE_URL = "https://docs.wxpython.org/"
 class Parser:
 	""" Parse the information to ITyping
 	"""
-	def __init__(self) -> None:
+	def __init__(self, logger: Logger) -> None:
 		""" Constructor
 		"""
 		self.foundTypingUrls: list[str] = []
+		self.logger = logger
 
 	def processClassApi(self, url: str) -> Optional[list[ITyping]]:
 		""" Process a Class API
 		"""
 		# Check if we already know this
 		if url in self.foundTypingUrls:
+			self.logger.warn("Already found this url: '%s'" % url)
 			return None
 		if url.endswith(".png"):
 			return None
@@ -31,11 +34,14 @@ class Parser:
 		# Retrieve the page
 		r = requests.get(BASE_URL + url)
 		if r.status_code != 200:
-			print("This page '%s' doesnt work!" % url)
-			raise
+			self.logger.error("This page '%s' doesnt work!" % url)
+			return None
 
 		# Process the HTML
 		soup = BeautifulSoup(r.text, 'html.parser')
+		if soup is None:
+			self.logger.error("This page '%s' doesnt work!" % url)
+			return None
 
 		# Find the name of the class
 		classFullName = soup.find("title").get_text()

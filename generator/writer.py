@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from logging import Logger
 import os
 
 from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral
@@ -9,6 +10,10 @@ SPACER = "    "
 class TypingWriter:
 	""" Write typing to PYI
 	"""
+	def __init__(self, logger: Logger) -> None:
+		""" Constructor
+		"""
+		self.logger = logger
 
 	def write(self, typings: list[ITyping]) -> bool:
 		""" Write the typing to a pyi
@@ -61,6 +66,7 @@ class TypingWriter:
 			data += typingStr + "\n\n"
 
 		# Write the file
+		self.logger.info("Writing file: " + filePath)
 		with open(filePath, "w", encoding="utf-8") as fileHandler:
 			fileHandler.write(data)
 

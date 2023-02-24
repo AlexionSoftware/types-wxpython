@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import logging
+import sys
 from queue import Queue
 
 import requests
@@ -73,10 +75,16 @@ class DocumentationGenerator:
 		self.classQueue: Queue[str] = Queue()
 
 		# Remember the whole file
-		self.typings: list[ITyping] = []
+		# Create a logger
+		self.logger = logging.Logger("WXPythonTypingGenerator")
+		handler = logging.StreamHandler(sys.stdout)
+		handler.setLevel(logging.DEBUG)
+		formatter = logging.Formatter("%(levelname)s: %(message)s")
+		handler.setFormatter(formatter)
+		self.logger.addHandler(handler)
 
 		# Create a parser
-		self.parser = Parser()
+		self.parser = Parser(self.logger)
 
 		# Add the extra classes to the queue
 		# This classes are not found by default
@@ -87,14 +95,14 @@ class DocumentationGenerator:
 
 		# Check each index
 		for url in BASE_INDEX_URLS:
-			print(url)
+			self.logger.info("Fetching Index: " + url)
 			self._processIndex(url)
 
 			# Process all the classes
 			while not self.classQueue.empty():
 				# Retrieve the next item
 				classUrl = self.classQueue.get()
-				print(classUrl)
+				self.logger.info("Fetching documentation: " + classUrl)
 
 				# Process the data
 				typingList = self.parser.processClassApi(classUrl)
@@ -106,7 +114,7 @@ class DocumentationGenerator:
 		self.typings.extend(EXTRA_KNOWN_ITEMS)
 
 		# Write to files
-		TypingWriter().write(self.typings)
+		TypingWriter(self.logger).write(self.typings)
 
 	def _processIndex(self, url: str) -> None:
 		""" Process the index file with all the classes
@@ -114,7 +122,7 @@ class DocumentationGenerator:
 		# Retrieve the page
 		r = requests.get(url)
 		if r.status_code != 200:
-			print("This index '%s' doesnt work!" % url)
+			self.logger.error("This index '%s' doesnt work!" % url)
 			return
 
 		# Process the HTML
