@@ -125,6 +125,32 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 		"returnType": "int",
 	}
 ]
+OVERRIDES: dict[str, ITyping] = {
+	"wx.ListCtrl.GetFirstSelected": {
+		"returnType": "int",
+	},
+	"wx.ListCtrl.GetFocusedItem": {
+		"returnType": "int",
+	},
+	"wx.NewIdRef": {
+		"returnType": "int",
+	},
+	"wx.ListCtrl.OnGetItemAttr": {
+		"returnType": "Optional['ItemAttr']",
+	},
+	"wx.TreeCtrl.GetItemData": {
+		"returnType": "Any",
+	},
+	"wx.TreeCtrl.GetFirstChild": {
+		"returnType": "Optional['TreeItemId']",
+	},
+	"wx.TreeCtrl.GetNextChild": {
+		"returnType": "Optional['TreeItemId']",
+	},
+	"wx.GetApp": {
+		"returnType": "'PyApp'",
+	}
+}
 
 
 class DocumentationGenerator:

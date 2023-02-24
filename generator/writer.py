@@ -45,6 +45,9 @@ class TypingWriter:
 			if fileName not in contentPerFileType:
 				contentPerFileType[fileName] = []
 
+			# Check if we should override something in the item
+			self._overrideItemData(item)
+
 			# Put in the module
 			contentPerFileType[fileName].append(item)
 
@@ -114,3 +117,22 @@ class TypingWriter:
 			for functionTyping in typingObj["functions"]:
 				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
 			return output
+
+	def _overrideItemData(self, typing: ITyping) -> None:
+		""" Override the item data
+		"""
+		from .generator import OVERRIDES
+
+		# Generate the full module name
+		fullModuleName = typing["moduleName"] + "." + typing["name"]
+
+		# Check if we have an override
+		if fullModuleName in OVERRIDES:
+			# Override the info
+			typing.update(OVERRIDES[fullModuleName])
+
+		# Check if the type is a class
+		if typing["type"] == "class":
+			# Check the overrides for all the functions
+			for functionTyping in typing["functions"]:
+				self._overrideItemData(functionTyping)
