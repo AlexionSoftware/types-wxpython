@@ -45,6 +45,10 @@ class TypingWriter:
 			if fileName not in contentPerFileType:
 				contentPerFileType[fileName] = []
 
+			# Check if this is a valid item, the name is not a digit
+			if item["name"].isdigit():
+				continue
+
 			# Check if we should override something in the item
 			self._overrideItemData(item)
 
