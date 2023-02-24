@@ -193,25 +193,8 @@ class DocumentationGenerator:
 	def _processTypingClassMethod(self, className: str, soup: Tag, apiTableElem: Tag) -> None:
 		""" Process a class with methods
 		"""
-		# Find the hierarchy
-		parentClass: Optional[str] = None
-		hierarchTable = soup.find(id="class-hierarchy-class-hierarchy")
-		if hierarchTable:
-			hierarchMap = hierarchTable.find("map")
-			if hierarchMap:
-				hierarchItems = hierarchMap.find_all("area")
-				if len(hierarchItems) > 1:
-					# Find the parent class name
-					parentClass = hierarchItems[1]["href"].replace(".html", "")
-
-					# Check if the class starts with wx.
-					if parentClass.startswith("wx."):
-						parentClass = parentClass[3:]
-
-					# Check if there is a < in it
-					if "<" in parentClass:
-						# Remove this part
-						parentClass = parentClass[:parentClass.find("<")]
+		# Find the parent class
+		parentClass = self._findParentClass(soup)
 
 		# Find the real name for the class
 		classSubName = className.split(".")[-1]
@@ -407,6 +390,68 @@ class DocumentationGenerator:
 					typingOutput += eventName + "\n"
 
 		return typingOutput
+
+	def _findParentClass(self, soup: Tag) -> Optional[str]:
+		""" Find the parent class
+		"""
+		# Make room for the parent class
+		parentClass: Optional[str] = None
+
+		# Find the hierarchy element
+		hierarchTable = soup.find(id="class-hierarchy-class-hierarchy")
+		if hierarchTable:
+			# Find the map element
+			hierarchMap = hierarchTable.find("map")
+			if hierarchMap:
+				# Find all the area, each area is a subclass
+				hierarchItems = hierarchMap.find_all("area")
+
+				# Check if there are more than 1, the first one is this class
+				if len(hierarchItems) > 1:
+					# Find the parent class name
+					firstParentElement = hierarchItems[1]
+					parentClass = firstParentElement["href"].replace(".html", "")
+
+					# Check if the class starts with wx.
+					if parentClass.startswith("wx."):
+						parentClass = parentClass[3:]
+
+					# Check if there is a < in it
+					if "<" in parentClass:
+						# Remove this part
+						parentClass = parentClass[:parentClass.find("<")]
+
+					# Now that we found the first one, lets check if there are more
+					index = 2
+					while index < len(hierarchItems):
+						# Retrieve the parent
+						nextParentElement = hierarchItems[index]
+
+						# Find the coords
+						nextCoords = nextParentElement["coords"].split(",")
+						firstCoords = firstParentElement["coords"].split(",")
+
+						# Check if it is at the same height
+						if nextCoords[1] == firstCoords[1]:
+							# This is a subclass
+							nextParentName = nextParentElement["href"].replace(".html", "")
+
+							# Check if the class starts with wx.
+							if nextParentName.startswith("wx."):
+								nextParentName = nextParentName[3:]
+
+							# Check if there is a < in it
+							if "<" in nextParentName:
+								# Remove this part
+								nextParentName = nextParentName[:nextParentName.find("<")]
+
+							# Add to the parentclass
+							parentClass += ", " + nextParentName
+
+						# Check the next parent
+						index += 1
+
+		return parentClass
 
 	def _ensureTyping(self, typing: str, typingType: str = "param") -> str:
 		""" Make sure the typing exists
