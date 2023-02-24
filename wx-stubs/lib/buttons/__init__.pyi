@@ -172,7 +172,7 @@ overridden, which is complicated with multiple inheritance.
         """ Handles the wx.EVT_SIZE event for GenButton.
         """
 
-    def SetBackgroundColour(self, colour: 'Colour') -> None:
+    def SetBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the GenButton background colour.
         """
 
@@ -185,11 +185,11 @@ overridden, which is complicated with multiple inheritance.
 the panel or dialog box.
         """
 
-    def SetForegroundColour(self, colour: 'Colour') -> None:
+    def SetForegroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the wx.GenButton foreground colour.
         """
 
-    def SetInitialSize(self, size: Optional[Any]=None) -> None:
+    def SetInitialSize(self, size: Optional[Union[tuple[int, int], 'Size']]=None) -> None:
         """ Given the current font and bezel width settings, calculate
 and set a good size.
         """
@@ -287,12 +287,12 @@ class GenBitmapTextButton(lib.buttons.GenBitmapButton):
 
 
 
-class GenBitmapTextToggleButton(lib.buttons.__ToggleMixin):
+class GenBitmapTextToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenBitmapTextButton):
     """ A generic toggle bitmap button with text label.
     """
 
 
-class GenBitmapToggleButton(lib.buttons.__ToggleMixin):
+class GenBitmapToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenBitmapButton):
     """ A generic toggle bitmap button.
     """
 
@@ -323,37 +323,37 @@ otherwise.
 
 
 
-class GenToggleButton(lib.buttons.__ToggleMixin):
+class GenToggleButton(lib.buttons.__ToggleMixin, lib.buttons.GenButton):
     """ A generic toggle button.
     """
 
 
-class ThemedGenBitmapButton(lib.buttons.__ThemedMixin):
+class ThemedGenBitmapButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapButton):
     """ A themed generic bitmap button.
     """
 
 
-class ThemedGenBitmapTextButton(lib.buttons.__ThemedMixin):
+class ThemedGenBitmapTextButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapTextButton):
     """ A themed generic bitmapped button with text label.
     """
 
 
-class ThemedGenBitmapTextToggleButton(lib.buttons.__ThemedMixin):
+class ThemedGenBitmapTextToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapTextToggleButton):
     """ A themed generic toggle bitmap button with text label.
     """
 
 
-class ThemedGenBitmapToggleButton(lib.buttons.__ThemedMixin):
+class ThemedGenBitmapToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenBitmapToggleButton):
     """ A themed generic toggle bitmap button.
     """
 
 
-class ThemedGenButton(lib.buttons.__ThemedMixin):
+class ThemedGenButton(lib.buttons.__ThemedMixin, lib.buttons.GenButton):
     """ A themed generic button.
     """
 
 
-class ThemedGenToggleButton(lib.buttons.__ThemedMixin):
+class ThemedGenToggleButton(lib.buttons.__ThemedMixin, lib.buttons.GenToggleButton):
     """ A themed generic toggle button.
     """
 

@@ -69,7 +69,7 @@ tabular data.
         """ Appends one or more new columns to the right of the grid.
         """
 
-    def CalcColLabelsExposed(self, reg, gridWindow=None) -> Any:
+    def CalcColLabelsExposed(self, reg, gridWindow=None) -> list[int]:
         """ Appends one or more new columns to the right of the grid.
         """
 
@@ -81,7 +81,7 @@ tabular data.
         """ Overloaded Implementations:
         """
 
-    def CalcRowLabelsExposed(self, reg, gridWindow=None) -> Any:
+    def CalcRowLabelsExposed(self, reg, gridWindow=None) -> list[int]:
         """ Appends one or more new columns to the right of the grid.
         """
 
@@ -654,7 +654,7 @@ tabular data.
         """ Returns an ordered range of non-overlapping selected columns.
         """
 
-    def GetSelectedCols(self) -> Any:
+    def GetSelectedCols(self) -> list[int]:
         """ Returns an array of selected columns.
         """
 
@@ -662,7 +662,7 @@ tabular data.
         """ Returns an ordered range of non-overlapping selected rows.
         """
 
-    def GetSelectedRows(self) -> Any:
+    def GetSelectedRows(self) -> list[int]:
         """ Returns an array of selected rows.
         """
 

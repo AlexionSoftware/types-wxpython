@@ -236,7 +236,7 @@ is reference counted so it can be shared with other views.
         """ Select all items.
         """
 
-    def SetAlternateRowColour(self, colour: 'Colour') -> bool:
+    def SetAlternateRowColour(self, colour: Union[int, str, 'Colour']) -> bool:
         """ Set custom colour for the alternate rows used with wx.dataview.DV_ROW_LINES style.
         """
 
@@ -301,17 +301,17 @@ EVT_DATAVIEW_COLUMN_REORDERED: int  #  Process a  wxEVT_DATAVIEW_COLUMN_REORDERE
 EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  #  Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
 EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
 EVT_DATAVIEW_ITEM_DROP: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
-dataview.DV_SINGLE: int
-dataview.DV_MULTIPLE: int
-dataview.DV_ROW_LINES: int
-dataview.DV_HORIZ_RULES: int
-dataview.DV_VERT_RULES: int
-dataview.DV_VARIABLE_LINE_HEIGHT: int
-dataview.DV_NO_HEADER: int
-dataview.DV_ROW_LINES: int
+DV_SINGLE: int
+DV_MULTIPLE: int
+DV_ROW_LINES: int
+DV_HORIZ_RULES: int
+DV_VERT_RULES: int
+DV_VARIABLE_LINE_HEIGHT: int
+DV_NO_HEADER: int
+DV_ROW_LINES: int
 DF_INVALID: int
-dataview.DV_ROW_LINES: int
-dataview.DV_ROW_LINES: int
-dataview.DV_VARIABLE_LINE_HEIGHT: int
+DV_ROW_LINES: int
+DV_ROW_LINES: int
+DV_VARIABLE_LINE_HEIGHT: int
 
 

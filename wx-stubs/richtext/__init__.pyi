@@ -137,7 +137,7 @@ control capable of showing multiple styles and images.
         """ Begins applying a symbol bullet, using a character from the current font.
         """
 
-    def BeginTextColour(self, colour: 'Colour') -> bool:
+    def BeginTextColour(self, colour: Union[int, str, 'Colour']) -> bool:
         """ Begins using this colour.
         """
 
@@ -411,7 +411,7 @@ control capable of showing multiple styles and images.
         """
 
     @staticmethod
-    def GetAvailableFontNames() -> Any:
+    def GetAvailableFontNames() -> list[str]:
         """ Font names take a long time to retrieve, so cache them (on demand).
         """
 
@@ -596,7 +596,7 @@ control capable of showing multiple styles and images.
         """ Returns a scaled rectangle.
         """
 
-    def GetScaledSize(self, sz: Any) -> Size:
+    def GetScaledSize(self, sz: Union[tuple[int, int], 'Size']) -> Size:
         """ Returns a scaled size.
         """
 
@@ -652,7 +652,7 @@ control capable of showing multiple styles and images.
         """ Returns an unscaled rectangle.
         """
 
-    def GetUnscaledSize(self, sz: Any) -> Size:
+    def GetUnscaledSize(self, sz: Union[tuple[int, int], 'Size']) -> Size:
         """ Returns an unscaled size.
         """
 
@@ -1295,10 +1295,10 @@ control capable of showing multiple styles and images.
 richtext.RE_CENTRE_CARET: int  #  The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
 richtext.RE_MULTILINE: int  #  The control will be multiline (mandatory).
 richtext.RE_READONLY: int  #  The control will not be editable. ^^
-richtext.RE_CENTRE_CARET: int
-richtext.RE_CENTER_CARET: int
-richtext.RE_MULTILINE: int
-richtext.RE_READONLY: int
+RE_CENTRE_CARET: int
+RE_CENTER_CARET: int
+RE_MULTILINE: int
+RE_READONLY: int
 TEXT_ATTR_URL: int
 ID_CLEAR: int
 ID_COPY: int
@@ -1315,13 +1315,13 @@ ID_REDO: int
 ID_SELECTALL: int
 ID_UNDO: int
 TEXT_ATTR_URL: int
-richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
-richtext.RICHTEXT_TYPE_ANY: int
-richtext.RICHTEXT_TYPE_ANY: int
-richtext.RICHTEXT_TYPE_ANY: int
-richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
-richtext.RICHTEXT_SETSTYLE_RENUMBER: int
-richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+RICHTEXT_TYPE_ANY: int
+RICHTEXT_TYPE_ANY: int
+RICHTEXT_TYPE_ANY: int
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+RICHTEXT_SETSTYLE_RENUMBER: int
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
 ID_CLEAR: int
 ID_COPY: int
 ID_CUT: int
@@ -1336,24 +1336,24 @@ ID_PASTE: int
 ID_REDO: int
 ID_SELECTALL: int
 ID_UNDO: int
-richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
-richtext.RICHTEXT_SETSTYLE_RENUMBER: int
-richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-richtext.RICHTEXT_TYPE_ANY: int
-richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
-richtext.RICHTEXT_SETSTYLE_RENUMBER: int
-richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-richtext.RICHTEXT_SETPROPERTIES_WITH_UNDO: int
-richtext.RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
-richtext.RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
-richtext.RICHTEXT_SETPROPERTIES_RESET: int
-richtext.RICHTEXT_SETPROPERTIES_REMOVE: int
-richtext.RICHTEXT_SETSTYLE_NONE: int
-richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
-richtext.RICHTEXT_SETSTYLE_OPTIMIZE: int
-richtext.RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
-richtext.RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
-richtext.RICHTEXT_SETSTYLE_RESET: int
-richtext.RICHTEXT_SETSTYLE_REMOVE: int
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+RICHTEXT_SETSTYLE_RENUMBER: int
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+RICHTEXT_TYPE_ANY: int
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+RICHTEXT_SETSTYLE_RENUMBER: int
+RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+RICHTEXT_SETPROPERTIES_WITH_UNDO: int
+RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
+RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
+RICHTEXT_SETPROPERTIES_RESET: int
+RICHTEXT_SETPROPERTIES_REMOVE: int
+RICHTEXT_SETSTYLE_NONE: int
+RICHTEXT_SETSTYLE_WITH_UNDO: int
+RICHTEXT_SETSTYLE_OPTIMIZE: int
+RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
+RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
+RICHTEXT_SETSTYLE_RESET: int
+RICHTEXT_SETSTYLE_REMOVE: int
 
 

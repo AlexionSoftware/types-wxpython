@@ -150,7 +150,7 @@ notebook control, managing multiple windows with associated tabs.
         """ Sets the tab height.
         """
 
-    def SetUniformBitmapSize(self, size: Any) -> None:
+    def SetUniformBitmapSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Ensure that all tabs have the same height, even if some of them donât have bitmaps.
         """
 
@@ -190,25 +190,25 @@ EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  #  The middle mouse button is re
 EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  #  The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
 EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  #  The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
 EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  #  Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
-aui.AUI_NB_DEFAULT_STYLE: int
-aui.AUI_NB_TOP: int
-aui.AUI_NB_TAB_SPLIT: int
-aui.AUI_NB_TAB_MOVE: int
-aui.AUI_NB_SCROLL_BUTTONS: int
-aui.AUI_NB_CLOSE_ON_ACTIVE_TAB: int
-aui.AUI_NB_MIDDLE_CLICK_CLOSE: int
-aui.AUI_NB_TAB_SPLIT: int
-aui.AUI_NB_TAB_MOVE: int
-aui.AUI_NB_TAB_EXTERNAL_MOVE: int
-aui.AUI_NB_TAB_FIXED_WIDTH: int
-aui.AUI_NB_SCROLL_BUTTONS: int
-aui.AUI_NB_WINDOWLIST_BUTTON: int
-aui.AUI_NB_CLOSE_BUTTON: int
-aui.AUI_NB_CLOSE_ON_ACTIVE_TAB: int
-aui.AUI_NB_CLOSE_ON_ALL_TABS: int
-aui.AUI_NB_MIDDLE_CLICK_CLOSE: int
-aui.AUI_NB_TOP: int
-aui.AUI_NB_BOTTOM: int
+AUI_NB_DEFAULT_STYLE: int
+AUI_NB_TOP: int
+AUI_NB_TAB_SPLIT: int
+AUI_NB_TAB_MOVE: int
+AUI_NB_SCROLL_BUTTONS: int
+AUI_NB_CLOSE_ON_ACTIVE_TAB: int
+AUI_NB_MIDDLE_CLICK_CLOSE: int
+AUI_NB_TAB_SPLIT: int
+AUI_NB_TAB_MOVE: int
+AUI_NB_TAB_EXTERNAL_MOVE: int
+AUI_NB_TAB_FIXED_WIDTH: int
+AUI_NB_SCROLL_BUTTONS: int
+AUI_NB_WINDOWLIST_BUTTON: int
+AUI_NB_CLOSE_BUTTON: int
+AUI_NB_CLOSE_ON_ACTIVE_TAB: int
+AUI_NB_CLOSE_ON_ALL_TABS: int
+AUI_NB_MIDDLE_CLICK_CLOSE: int
+AUI_NB_TOP: int
+AUI_NB_BOTTOM: int
 NOT_FOUND: int
 TOP: int
 BOTTOM: int

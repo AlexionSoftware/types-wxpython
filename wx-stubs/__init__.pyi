@@ -3,6 +3,14 @@ from typing import Any, Optional, Union
 
 GROW: int  # Synonym for wx.EXPAND
 
+RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL
+
+RA_VERTICAL: int  # Synonym of wx.VERTICAL
+
+NORMAL: int
+
+DEFAULT: int
+
 class AcceleratorEntry:
     """ An object used by an application wishing to create an accelerator
 table (see AcceleratorTable).
@@ -819,7 +827,7 @@ PyApp: int
 App: int
 
 
-class AppConsole(EvtHandler):
+class AppConsole(EvtHandler, EventFilter):
     """ This class is essential for writing console-only or hybrid apps
 without having to define USE_GUI=0.
     """
@@ -1640,11 +1648,11 @@ currently selected font.
         """ Sets the current pen for the DC.
         """
 
-    def SetTextBackground(self, colour: 'Colour') -> None:
+    def SetTextBackground(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the current text background colour for the DC.
         """
 
-    def SetTextForeground(self, colour: 'Colour') -> None:
+    def SetTextForeground(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the current text foreground colour for the DC.
         """
 
@@ -1799,7 +1807,7 @@ class BitmapBundle:
         """ Create a bundle from the SVG image loaded from an application resource.
         """
 
-    def GetBitmap(self, size: Any) -> 'Bitmap':
+    def GetBitmap(self, size: Union[tuple[int, int], 'Size']) -> 'Bitmap':
         """ Get bitmap of the specified size, creating a new bitmap from the closest available size by rescaling it if necessary.
         """
 
@@ -1811,7 +1819,7 @@ class BitmapBundle:
         """ Get the size of the bitmap represented by this bundle in default resolution or, equivalently, at 100% scaling.
         """
 
-    def GetIcon(self, size: Any) -> 'Icon':
+    def GetIcon(self, size: Union[tuple[int, int], 'Size']) -> 'Icon':
         """ Get icon of the specified size.
         """
 
@@ -1848,7 +1856,7 @@ class BitmapBundleImpl(RefCounter):
         """ Helper for implementing GetPreferredBitmapSizeAtScale   in the derived classes.
         """
 
-    def GetBitmap(self, size: Any) -> 'Bitmap':
+    def GetBitmap(self, size: Union[tuple[int, int], 'Size']) -> 'Bitmap':
         """ Retrieve the bitmap of exactly the given size.
         """
 
@@ -1856,7 +1864,7 @@ class BitmapBundleImpl(RefCounter):
         """ Return the size of the bitmaps represented by this bundle in the default DPI.
         """
 
-    def GetIndexToUpscale(self, size: Any) -> int:
+    def GetIndexToUpscale(self, size: Union[tuple[int, int], 'Size']) -> int:
         """ Return the index of the available scale most suitable to be upscaled to the given size.
         """
 
@@ -2035,7 +2043,7 @@ EVT_TOGGLEBUTTON: int  #  Handles a wxEVT_TOGGLEBUTTON event. ^^
 ID_ANY: int
 
 
-class BookCtrlBase(Control):
+class BookCtrlBase(Control, WithImages):
     """ A book control is a convenient way of displaying multiple pages of
 information, displayed one page at a time.
     """
@@ -2111,7 +2119,7 @@ information, displayed one page at a time.
         """ Sets the image index for the given page.
         """
 
-    def SetPageSize(self, size: Any) -> None:
+    def SetPageSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the width and height of the pages.
         """
 
@@ -2196,7 +2204,7 @@ windows with associated tabs.
         """ Inserts a new page at the specified position.
         """
 
-    def SetPadding(self, padding: Any) -> None:
+    def SetPadding(self, padding: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the amount of space around each pageâs icon and label, in pixels.
         """
 
@@ -2393,7 +2401,7 @@ column or several hierarchies of either.
         """ Returns the orientation of the box sizer, either wx.VERTICAL or wx.HORIZONTAL.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -2594,11 +2602,11 @@ class BusyInfoFlags:
         """ Default constructor initializes all attributes to default values.
         """
 
-    def Background(self, background: 'Colour') -> 'BusyInfoFlags':
+    def Background(self, background: Union[int, str, 'Colour']) -> 'BusyInfoFlags':
         """ Sets the background colour of   wx.BusyInfo  window.
         """
 
-    def Foreground(self, foreground: 'Colour') -> 'BusyInfoFlags':
+    def Foreground(self, foreground: Union[int, str, 'Colour']) -> 'BusyInfoFlags':
         """ Sets the foreground colour of the title and text strings.
         """
 
@@ -2948,7 +2956,7 @@ or unchecked.
         """ variant (WindowVariant) â
         """
 
-    def GetSelections(self) -> Any:
+    def GetSelections(self) -> list[int]:
         """ Returns a list of the indices of the currently selected items.
         """
 
@@ -2968,7 +2976,7 @@ EVT_CHECKLISTBOX: int  #  Process a  wxEVT_CHECKLISTBOX   event, when an item in
 ID_ANY: int
 
 
-class ListBox(Control):
+class ListBox(Control, ItemContainer):
     """ A listbox is used to select one or more of a list of strings.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3008,7 +3016,7 @@ class ListBox(Control):
         """ Returns the index of the selected item or  NOT_FOUND   if no item is selected.
         """
 
-    def GetSelections(self) -> Any:
+    def GetSelections(self) -> list[int]:
         """ Fill an array of ints with the positions of the currently selected items.
         """
 
@@ -3114,7 +3122,7 @@ to its corresponding child if it loses it now and regains later.
 EVT_CHILD_FOCUS: int  #  Process a  wxEVT_CHILD_FOCUS   event. ^^
 
 
-class Choice(Control):
+class Choice(Control, ItemContainer):
     """ A choice item is used to select one of a list of strings.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3325,7 +3333,7 @@ COPY: int
 CB_READONLY: int
 
 
-class TextCtrl(Control):
+class TextCtrl(Control, TextEntry):
     """ A text control allows text to be displayed and edited.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3858,7 +3866,7 @@ class ColourData(Object):
         """ Under Windows, tells the Windows colour dialog to display the full dialog with custom colour selection controls.
         """
 
-    def SetColour(self, colour: 'Colour') -> None:
+    def SetColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the default colour for the colour dialog.
         """
 
@@ -3892,7 +3900,7 @@ predefined set of named colours.
         """ 
         """
 
-    def FindName(self, colour: 'Colour') -> str:
+    def FindName(self, colour: Union[int, str, 'Colour']) -> str:
         """ Finds a colour name given the colour.
         """
 
@@ -3941,7 +3949,7 @@ class ColourDialogEvent(CommandEvent):
         """ Retrieve the colour the user has just selected.
         """
 
-    def SetColour(self, colour: 'Colour') -> None:
+    def SetColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Set the colour to be sent with the event.
         """
 
@@ -3997,7 +4005,7 @@ ColourPickerCtrl.
         """ Retrieve the colour the user has just selected.
         """
 
-    def SetColour(self, pos: 'Colour') -> None:
+    def SetColour(self, pos: Union[int, str, 'Colour']) -> None:
         """ Set the colour associated with the event.
         """
 
@@ -4006,7 +4014,7 @@ EVT_COLOURPICKER_CURRENT_CHANGED: int  #  Generated whenever the currently selec
 EVT_COLOURPICKER_DIALOG_CANCELLED: int  #  Generated when the user cancels the colour dialog associated with the control, i.e. closes it without accepting the selection. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW. ^^
 
 
-class ComboBox(Control):
+class ComboBox(Control, ItemContainer, TextEntry):
     """ A combobox is like a combination of an edit control and a listbox.
     """
     def __init__(self, *args, **kw) -> None:
@@ -4107,7 +4115,7 @@ ID_ANY: int
 NOT_FOUND: int
 
 
-class ComboCtrl(Control):
+class ComboCtrl(Control, TextEntry):
     """ A combo control is a generic combobox that allows totally custom
 popup.
     """
@@ -4879,7 +4887,7 @@ object on screen.
         """ Prepare for changing positions of multiple child windows.
         """
 
-    def CacheBestSize(self, size: Any) -> None:
+    def CacheBestSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the cached best size value.
         """
 
@@ -4927,7 +4935,7 @@ object on screen.
         """ Overloaded Implementations:
         """
 
-    def ClientToWindowSize(self, size: Any) -> 'Size':
+    def ClientToWindowSize(self, size: Union[tuple[int, int], 'Size']) -> 'Size':
         """ Converts client area size size  to corresponding window size.
         """
 
@@ -5650,7 +5658,7 @@ object on screen.
         """ Determines whether the Layout   function will be called automatically when the window is resized.
         """
 
-    def SetBackgroundColour(self, colour: 'Colour') -> bool:
+    def SetBackgroundColour(self, colour: Union[int, str, 'Colour']) -> bool:
         """ Sets the background colour of the window.
         """
 
@@ -5718,7 +5726,7 @@ object on screen.
         """ Sets the font for this window.
         """
 
-    def SetForegroundColour(self, colour: 'Colour') -> bool:
+    def SetForegroundColour(self, colour: Union[int, str, 'Colour']) -> bool:
         """ Sets the foreground colour of the window.
         """
 
@@ -5730,7 +5738,7 @@ object on screen.
         """ Sets the identifier of the window.
         """
 
-    def SetInitialSize(self, size: Any=DefaultSize) -> None:
+    def SetInitialSize(self, size: Union[tuple[int, int], 'Size']=DefaultSize) -> None:
         """ A smart  SetSize that will fill in default size components with the windowâs best  size values.
         """
 
@@ -5742,19 +5750,19 @@ object on screen.
         """ Sets the layout direction for this window.
         """
 
-    def SetMaxClientSize(self, size: Any) -> None:
+    def SetMaxClientSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the maximum client size of the window, to indicate to the sizer layout mechanism that this is the maximum possible size of its client area.
         """
 
-    def SetMaxSize(self, size: Any) -> None:
+    def SetMaxSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the maximum size of the window, to indicate to the sizer layout mechanism that this is the maximum possible size.
         """
 
-    def SetMinClientSize(self, size: Any) -> None:
+    def SetMinClientSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the minimum client size of the window, to indicate to the sizer layout mechanism that this is the minimum required size of windowâs client area.
         """
 
-    def SetMinSize(self, size: Any) -> None:
+    def SetMinSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the minimum size of the window, to indicate to the sizer layout mechanism that this is the minimum required size.
         """
 
@@ -5766,7 +5774,7 @@ object on screen.
         """ Windows cannot be used to form event handler chains; this function thus will assert when called.
         """
 
-    def SetOwnBackgroundColour(self, colour: 'Colour') -> None:
+    def SetOwnBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the background colour of the window but prevents it from being inherited by the children of this window.
         """
 
@@ -5774,7 +5782,7 @@ object on screen.
         """ Sets the font of the window but prevents it from being inherited by the children of this window.
         """
 
-    def SetOwnForegroundColour(self, colour: 'Colour') -> None:
+    def SetOwnForegroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the foreground colour of the window but prevents it from being inherited by the children of this window.
         """
 
@@ -5927,7 +5935,7 @@ object on screen.
         """ Moves the pointer to the given position on the window.
         """
 
-    def WindowToClientSize(self, size: Any) -> 'Size':
+    def WindowToClientSize(self, size: Union[tuple[int, int], 'Size']) -> 'Size':
         """ Converts window size size  to corresponding client area size In other words, the returned value is what would GetClientSize   return if this window had given window size.
         """
 
@@ -6104,7 +6112,7 @@ EVT_TEXT_PASTE: int  #  Clipboard content was pasted into the control. ^^
 ID_ANY: int
 
 
-class ControlWithItems(Control):
+class ControlWithItems(Control, ItemContainer):
     """ This is convenience class that derives from both Control and
 ItemContainer.
     """
@@ -6163,7 +6171,7 @@ Choice.
         """ Overloaded Implementations:
         """
 
-    def Set(self, items: Any) -> None:
+    def Set(self, items: list[str]) -> None:
         """ Replaces the current control contents with the given items.
         """
 
@@ -7060,7 +7068,7 @@ destructor, restoring the previous one.
         """ Overloaded Implementations:
         """
 
-    def Set(self, col: 'Colour') -> None:
+    def Set(self, col: Union[int, str, 'Colour']) -> None:
         """ Set the background colour to use.
         """
 
@@ -7098,7 +7106,7 @@ destructor, restoring the previous one.
         """ Overloaded Implementations:
         """
 
-    def Set(self, col: 'Colour') -> None:
+    def Set(self, col: Union[int, str, 'Colour']) -> None:
         """ Set the colour to use.
         """
 
@@ -7437,7 +7445,7 @@ which can be moved around the screen.
         """ A static function getting the current layout adapter object.
         """
 
-    def GetMainButtonIds(self) -> Any:
+    def GetMainButtonIds(self) -> list[int]:
         """ Returns an array of identifiers to be regarded as the main buttons for the non-scrolling area of a dialog.
         """
 
@@ -7623,7 +7631,7 @@ class DirDialog(Dialog):
         """ Returns the default or user-selected path.
         """
 
-    def GetPaths(self, paths: Any) -> None:
+    def GetPaths(self, paths: list[str]) -> None:
         """ Fills the array paths  with the full paths of the chosen directories.
         """
 
@@ -7818,7 +7826,7 @@ dots-per-inch, or DPI) of the monitor a window is on changes.
         """ Returns the old DPI.
         """
 
-    def Scale(self, sz: Any) -> 'Size':
+    def Scale(self, sz: Union[tuple[int, int], 'Size']) -> 'Size':
         """ Rescale a value in pixels to match the new DPI.
         """
 
@@ -8193,7 +8201,7 @@ class EventLoopBase:
 
 
 
-class EvtHandler(Object):
+class EvtHandler(Object, Trackable):
     """ A class that can handle events from the windowing system.
     """
     def __init__(self) -> None:
@@ -8405,7 +8413,7 @@ class FileCtrl(Control):
         """ Returns the currently selected filename.
         """
 
-    def GetFilenames(self) -> Any:
+    def GetFilenames(self) -> list[str]:
         """ Returns a list of filenames selected in the control.  This function
 should only be used with controls which have the wx.``wx.FC_MULTIPLE`` style,
 use GetFilename for the others.
@@ -8419,7 +8427,7 @@ use GetFilename for the others.
         """ Returns the full path (directory and filename) of the currently selected file.
         """
 
-    def GetPaths(self) -> Any:
+    def GetPaths(self) -> list[str]:
         """ Returns a list of the full paths (directory and filename) of the files
 chosen. This function should only be used with controlss which have
 the wx.``wx.FC_MULTIPLE`` style, use GetPath for the others.
@@ -8489,7 +8497,7 @@ FileCtrl objects.
         """ Returns the file selected (assuming it is only one file).
         """
 
-    def GetFiles(self) -> Any:
+    def GetFiles(self) -> list[str]:
         """ Returns the files selected.
         """
 
@@ -8501,7 +8509,7 @@ FileCtrl objects.
         """ Sets the directory of this event.
         """
 
-    def SetFiles(self, files: Any) -> None:
+    def SetFiles(self, files: list[str]) -> None:
         """ Sets the files changed by this event.
         """
 
@@ -8531,7 +8539,7 @@ class FileDataObject(DataObjectSimple):
 supports transferring in the given direction.
         """
 
-    def GetFilenames(self) -> Any:
+    def GetFilenames(self) -> list[str]:
         """ Returns the array of file names.
         """
 
@@ -8573,7 +8581,7 @@ class FileDialog(Dialog):
         """ Returns the default filename.
         """
 
-    def GetFilenames(self) -> Any:
+    def GetFilenames(self) -> list[str]:
         """ Returns a list of filenames chosen in the dialog.  This function
 should only be used with the dialogs which have wx.``MULTIPLE`` style,
 use GetFilename for the others.
@@ -8591,7 +8599,7 @@ use GetFilename for the others.
         """ Returns the full path (directory and filename) of the selected file.
         """
 
-    def GetPaths(self) -> Any:
+    def GetPaths(self) -> list[str]:
         """ Returns a list of the full paths of the files chosen. This function
 should only be used with the dialogs which have wx.``MULTIPLE`` style, use
 GetPath for the others.
@@ -8724,7 +8732,7 @@ FileDialog.
         """ Add a checkbox with the specified label.
         """
 
-    def AddChoice(self, strings: Any) -> 'FileDialogChoice':
+    def AddChoice(self, strings: list[str]) -> 'FileDialogChoice':
         """ Add a read-only combobox with the specified contents.
         """
 
@@ -9086,7 +9094,7 @@ system changes.
         """ This is the same as Add , but also recursively adds every file/directory in the tree rooted at path.
         """
 
-    def GetWatchedPaths(self, paths: Any) -> int:
+    def GetWatchedPaths(self, paths: list[str]) -> int:
         """ Retrieves all watched paths and places them in paths.
         """
 
@@ -9170,7 +9178,7 @@ class TranslationsLoader:
         """ Trivial default constructor.
         """
 
-    def GetAvailableTranslations(self, domain: str) -> Any:
+    def GetAvailableTranslations(self, domain: str) -> list[str]:
         """ Implements wx.Translations.GetAvailableTranslations .
         """
 
@@ -9205,7 +9213,7 @@ the âtext/plainâ MIME type.
         """ The returned string is the command to be executed in order to open/print/edit the file of the given type.
         """
 
-    def GetExtensions(self) -> Any:
+    def GetExtensions(self) -> list[str]:
         """ Returns all extensions associated with this file type: for
 example, it may contain the following two elements for the MIME
 type âtext/htmlâ (notice the absence of the leading dot): âhtmlâ
@@ -9229,7 +9237,7 @@ icon is found, and the index of the image in that file, if applicable.
         """ Returns full MIME type specification for this file type: for example, âtext/plainâ.
         """
 
-    def GetMimeTypes(self) -> Any:
+    def GetMimeTypes(self) -> list[str]:
         """ Same as GetMimeType but returns a list of types.  This will usually contain
 only one item, but sometimes, such as on Unix with KDE more than one type
 if there are differences between KDE< mailcap and mime.types.
@@ -9262,7 +9270,7 @@ class FileTypeInfo:
         """ Get the long, user visible description.
         """
 
-    def GetExtensions(self) -> Any:
+    def GetExtensions(self) -> list[str]:
         """ Get the array of all extensions.
         """
 
@@ -9435,7 +9443,7 @@ the GridSizer.
         """ This method is abstract and has to be overwritten by any derived class.
         """
 
-    def GetColWidths(self) -> Any:
+    def GetColWidths(self) -> list[int]:
         """ Returns a read-only array containing the widths of the columns in the sizer.
         """
 
@@ -9447,7 +9455,7 @@ the GridSizer.
         """ Returns the value that specifies how the sizer grows in the ânon-flexibleâ direction if there is one.
         """
 
-    def GetRowHeights(self) -> Any:
+    def GetRowHeights(self) -> list[int]:
         """ Returns a read-only array containing the heights of the rows in the sizer.
         """
 
@@ -9467,7 +9475,7 @@ the GridSizer.
         """ Specifies that the idx  row index is no longer growable.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -9529,7 +9537,7 @@ in the constructor.
         """ Returns the vertical gap (in pixels) between the cells in the sizer.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -9759,7 +9767,7 @@ class Font(GDIObject):
         """ Sets the font weight using an integer value.
         """
 
-    def SetPixelSize(self, pixelSize: Any) -> None:
+    def SetPixelSize(self, pixelSize: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the pixel size.
         """
 
@@ -9876,7 +9884,7 @@ class FontData(Object):
         """ Sets the font that will be returned to the user (for internal use only).
         """
 
-    def SetColour(self, colour: 'Colour') -> None:
+    def SetColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the colour that will be used for the font foreground colour.
         """
 
@@ -9944,12 +9952,12 @@ or the fonts available in the given encoding).
         """
 
     @staticmethod
-    def GetEncodings(facename: str="") -> Any:
+    def GetEncodings(facename: str="") -> list[str]:
         """ Return array of strings containing all encodings found by EnumerateEncodings .
         """
 
     @staticmethod
-    def GetFacenames(encoding=FONTENCODING_SYSTEM, fixedWidthOnly=False) -> Any:
+    def GetFacenames(encoding=FONTENCODING_SYSTEM, fixedWidthOnly=False) -> list[str]:
         """ Return array of strings containing all facenames found by EnumerateFacenames .
         """
 
@@ -10073,7 +10081,7 @@ font names and the fonts present on the machine.
         """
 
     @staticmethod
-    def GetAllEncodingNames(encoding) -> Any:
+    def GetAllEncodingNames(encoding) -> list[str]:
         """ Returns the array of all possible names for the given encoding. If it
 isnât empty, the first name in it is the canonical encoding name,
 i.e. the same string as returned by GetEncodingName()
@@ -10180,7 +10188,7 @@ class FontPickerCtrl(PickerBase):
         """ Sets the minimum point size value allowed for the user-chosen font.
         """
 
-    def SetSelectedColour(self, colour: 'Colour') -> None:
+    def SetSelectedColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the font colour.
         """
 
@@ -10310,7 +10318,7 @@ by the user.
         """ Sets the status bar text and updates the status bar display.
         """
 
-    def SetStatusWidths(self, widths: Any) -> None:
+    def SetStatusWidths(self, widths: list[int]) -> None:
         """ Sets the widths of the fields in the status bar.
         """
 
@@ -10621,11 +10629,11 @@ one row and/or column using GBSpan.
         """ Get the row/col spanning of the specified item.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Called when the managed size of the sizer is needed or when layout needs done.
         """
 
-    def SetEmptyCellSize(self, sz: Any) -> None:
+    def SetEmptyCellSize(self, sz: Union[tuple[int, int], 'Size']) -> None:
         """ Set the size used for cells in the grid with no item.
         """
 
@@ -10942,7 +10950,7 @@ class GraphicsContext(GraphicsObject):
         """ Returns the native context (CGContextRef for Core Graphics, Graphics pointer for GDIPlus and cairo_t pointer for cairo).
         """
 
-    def GetPartialTextExtents(self, text: str) -> Any:
+    def GetPartialTextExtents(self, text: str) -> list[float]:
         """ Fills the widths  array with the widths from the beginning of text  to the corresponding character of text.
         """
 
@@ -11077,7 +11085,7 @@ class Pen(GDIObject):
         """ Returns a reference to the pen colour.
         """
 
-    def GetDashes(self) -> Any:
+    def GetDashes(self) -> list[int]:
         """ Gets an array of dashes (defined as  char   in X,   DWORD   under Windows).
         """
 
@@ -11121,7 +11129,7 @@ class Pen(GDIObject):
         """ The penâs colour is changed to the given colour.
         """
 
-    def SetDashes(self, dashes: Any) -> None:
+    def SetDashes(self, dashes: list[int]) -> None:
         """ Associates an array of dash values (defined as  char   in X,   DWORD   under Windows) with the pen.
         """
 
@@ -11199,7 +11207,7 @@ files) on an arbitrary window.
         """ Gets selected filename path only (else empty string).
         """
 
-    def GetFilePaths(self, paths: Any) -> None:
+    def GetFilePaths(self, paths: list[str]) -> None:
         """ Fills the array paths  with the currently selected filepaths.
         """
 
@@ -11243,7 +11251,7 @@ files) on an arbitrary window.
         """ Selects the given item.
         """
 
-    def SelectPaths(self, paths: Any) -> None:
+    def SelectPaths(self, paths: list[str]) -> None:
         """ Selects only the specified paths, clearing any previous selection.
         """
 
@@ -11652,7 +11660,7 @@ represented by GraphicsGradientStops.
         """ Return the stop position.
         """
 
-    def SetColour(self, col: 'Colour') -> None:
+    def SetColour(self, col: Union[int, str, 'Colour']) -> None:
         """ Change the stop colour.
         """
 
@@ -11690,11 +11698,11 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
         """ Returns the stop at the given index.
         """
 
-    def SetEndColour(self, col: 'Colour') -> None:
+    def SetEndColour(self, col: Union[int, str, 'Colour']) -> None:
         """ Set the end colour to col.
         """
 
-    def SetStartColour(self, col: 'Colour') -> None:
+    def SetStartColour(self, col: Union[int, str, 'Colour']) -> None:
         """ Set the start colour to col.
         """
 
@@ -12133,7 +12141,7 @@ method.
         """ Overloaded Implementations:
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -12406,7 +12414,7 @@ usually used for display of tabular data.
         """ Overloaded Implementations:
         """
 
-    def GetColumnsOrder(self) -> Any:
+    def GetColumnsOrder(self) -> list[int]:
         """ Return the array describing the columns display order.
         """
 
@@ -12431,7 +12439,7 @@ usually used for display of tabular data.
         """ Set the number of columns in the control.
         """
 
-    def SetColumnsOrder(self, order: Any) -> None:
+    def SetColumnsOrder(self, order: list[int]) -> None:
         """ Change the columns display order.
         """
 
@@ -12455,7 +12463,7 @@ usually used for display of tabular data.
         """ Method which may be implemented by the derived classes to allow double clicking the column separator to resize the column to fit its contents.
         """
 
-    def UpdateColumnsOrder(self, order: Any) -> None:
+    def UpdateColumnsOrder(self, order: list[int]) -> None:
         """ Method called when the columns order is changed in the customization dialog.
         """
 
@@ -12725,7 +12733,7 @@ EVT_HELP: int  #  Process a  wxEVT_HELP   event.
 EVT_HELP_RANGE: int  #  Process a  wxEVT_HELP   event for a range of ids. ^^
 
 
-class HScrolledWindow(Panel):
+class HScrolledWindow(Panel, VarHScrollHelper):
     """ In the name of this class, âHâ stands for âhorizontalâ because it can
 be used for scrolling columns of variable widths.
     """
@@ -12771,7 +12779,7 @@ supports transferring in the given direction.
 
 
 
-class HVScrolledWindow(Panel):
+class HVScrolledWindow(Panel, VarHVScrollHelper):
     """ This window inherits all functionality of both vertical and
 horizontal, variable scrolled windows.
     """
@@ -12900,7 +12908,7 @@ class IconBundle(GDIObject):
         """ return the number of available icons
         """
 
-    def GetIconOfExactSize(self, size: Any) -> 'Icon':
+    def GetIconOfExactSize(self, size: Union[tuple[int, int], 'Size']) -> 'Icon':
         """ Returns the icon with exactly the given size or wx.NullIcon       if this size is not available.
         """
 
@@ -13519,7 +13527,7 @@ image creation from data.
         """ Called to get the number of images available in a multi-image file type, if supported.
         """
 
-    def GetAltExtensions(self) -> Any:
+    def GetAltExtensions(self) -> list[str]:
         """ Returns the other file extensions associated with this handler.
         """
 
@@ -13551,7 +13559,7 @@ image creation from data.
         """ Saves an image in the output stream.
         """
 
-    def SetAltExtensions(self, extensions: Any) -> None:
+    def SetAltExtensions(self, extensions: list[str]) -> None:
         """ Sets the alternative file extensions associated with this handler.
         """
 
@@ -13984,7 +13992,7 @@ with multiple items such as e.g.
         """ Returns True if this object has no custom attributes set.
         """
 
-    def SetBackgroundColour(self, colour: 'Colour') -> None:
+    def SetBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets a new background colour.
         """
 
@@ -13992,7 +14000,7 @@ with multiple items such as e.g.
         """ Sets a new font.
         """
 
-    def SetTextColour(self, colour: 'Colour') -> None:
+    def SetTextColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets a new text colour.
         """
 
@@ -14034,7 +14042,7 @@ controls which have string subitems each of which may be selected.
         """ Returns the label of the selected item or an empty string if no item is selected.
         """
 
-    def GetStrings(self) -> Any:
+    def GetStrings(self) -> list[str]:
         """ Returns the array of the labels of all items in the control.
         """
 
@@ -14219,7 +14227,7 @@ class KeyboardState:
 
 
 
-class KeyEvent(Event):
+class KeyEvent(Event, KeyboardState):
     """ This event class contains information about key press and release
 events.
     """
@@ -15358,7 +15366,7 @@ sequence with an item for each column
         """ Gets the column width (report view only).
         """
 
-    def GetColumnsOrder(self) -> Any:
+    def GetColumnsOrder(self) -> list[int]:
         """ Returns the array containing the orders of all columns.
         """
 
@@ -15746,7 +15754,7 @@ class ListItem(Object):
         """ Sets the alignment for the item.
         """
 
-    def SetBackgroundColour(self, colBack: 'Colour') -> None:
+    def SetBackgroundColour(self, colBack: Union[int, str, 'Colour']) -> None:
         """ Sets the background colour for the item.
         """
 
@@ -15786,7 +15794,7 @@ class ListItem(Object):
         """ Sets the text label for the item.
         """
 
-    def SetTextColour(self, colText: 'Colour') -> None:
+    def SetTextColour(self, colText: Union[int, str, 'Colour']) -> None:
         """ Sets the text colour for the item.
         """
 
@@ -16053,7 +16061,7 @@ wxWidgets logging functions as explained in the Logging Overview.
         """
 
     @staticmethod
-    def GetTraceMasks() -> Any:
+    def GetTraceMasks() -> list[str]:
         """ Returns the currently allowed list of string trace masks.
         """
 
@@ -17039,7 +17047,7 @@ class MenuItem(Object):
         """ Set the accel for this item - this may also be done indirectly with SetText
         """
 
-    def SetBackgroundColour(self, colour: 'Colour') -> None:
+    def SetBackgroundColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the background colour associated with the menu item.
         """
 
@@ -17079,7 +17087,7 @@ class MenuItem(Object):
         """ Sets the submenu of this menu item.
         """
 
-    def SetTextColour(self, colour: 'Colour') -> None:
+    def SetTextColour(self, colour: Union[int, str, 'Colour']) -> None:
         """ Sets the text colour associated with the menu item.
         """
 
@@ -17365,7 +17373,7 @@ extensions to the MIME types and vice versa.
         """ Create a new association using the fields of   wx.FileTypeInfo  (at least the MIME type and the extension should be set).
         """
 
-    def EnumAllFileTypes(self) -> Any:
+    def EnumAllFileTypes(self) -> list[str]:
         """ Returns a list of all known file types.
         """
 
@@ -17494,7 +17502,7 @@ the mouse).
 EVT_MOUSE_CAPTURE_LOST: int  #  Process a  wxEVT_MOUSE_CAPTURE_LOST   event. ^^
 
 
-class MouseEvent(Event):
+class MouseEvent(Event, MouseState):
     """ This event class contains information about the events generated by
 the mouse: they include mouse buttons press and release events and
 mouse move events.
@@ -17860,11 +17868,11 @@ allows the user to select one or more.
         """ variant (WindowVariant) â
         """
 
-    def GetSelections(self) -> Any:
+    def GetSelections(self) -> list[int]:
         """ Returns array with indexes of selected items.
         """
 
-    def SetSelections(self, selections: Any) -> None:
+    def SetSelections(self, selections: list[int]) -> None:
         """ Sets selected items from the array of selected itemsâ indexes.
         """
 
@@ -18443,7 +18451,7 @@ PageSetupDialog.
         """ Sets the paper size id.
         """
 
-    def SetPaperSize(self, size: Any) -> None:
+    def SetPaperSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the paper size in millimetres.
         """
 
@@ -19951,7 +19959,7 @@ application document.
         """ Constructor.
         """
 
-    def FitThisSizeToPage(self, imageSize: Any) -> None:
+    def FitThisSizeToPage(self, imageSize: Union[tuple[int, int], 'Size']) -> None:
         """ Set the user scale and device origin of the   wx.DC  associated with this   wx.Printout  so that the given image size fits entirely within the page rectangle and the origin is at the top left corner of the page rectangle.
         """
 
@@ -19959,7 +19967,7 @@ application document.
         """ Set the user scale and device origin of the   wx.DC  associated with this   wx.Printout  so that the given image size fits entirely within the page margins set in the given   wx.PageSetupDialogData  object.
         """
 
-    def FitThisSizeToPaper(self, imageSize: Any) -> None:
+    def FitThisSizeToPaper(self, imageSize: Union[tuple[int, int], 'Size']) -> None:
         """ Set the user scale and device origin of the   wx.DC  associated with this   wx.Printout  so that the given image size fits entirely within the paper and the origin is at the top left corner of the paper.
         """
 
@@ -20403,7 +20411,7 @@ system Hide command.  Mac only.
         """ Called in response of an âopen-documentâ Apple event.
         """
 
-    def MacOpenFiles(self, fileNames: Any) -> None:
+    def MacOpenFiles(self, fileNames: list[str]) -> None:
         """ Called in response of an openFiles message.
         """
 
@@ -20635,7 +20643,7 @@ class QueryNewPaletteEvent(Event):
 
 
 
-class RadioBox(Control):
+class RadioBox(Control, ItemContainerImmutable):
     """ A radio box item is used to select one of number of mutually exclusive
 choices.
     """
@@ -20903,7 +20911,7 @@ enable or disable them.
         """ variant (WindowVariant) â
         """
 
-    def GetCurrentOrder(self) -> Any:
+    def GetCurrentOrder(self) -> list[int]:
         """ Return the current order of the items.
         """
 
@@ -20941,7 +20949,7 @@ class RearrangeDialog(Dialog):
         """ Return the list control used by the dialog.
         """
 
-    def GetOrder(self) -> Any:
+    def GetOrder(self) -> list[int]:
         """ Return the array describing the order of items after it was modified by the user.
         """
 
@@ -21082,7 +21090,7 @@ class Rect:
         """ Set the right side of the rectangle.
         """
 
-    def SetSize(self, s: Any) -> None:
+    def SetSize(self, s: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the size.
         """
 
@@ -21794,7 +21802,7 @@ area in view.
         """ Get the number of pixels per scroll unit (line), in each direction, as set by SetScrollbars .
         """
 
-    def GetSizeAvailableForScrollTarget(self, size: Any) -> 'Size':
+    def GetSizeAvailableForScrollTarget(self, size: Union[tuple[int, int], 'Size']) -> 'Size':
         """ Function which must be overridden to implement the size available for the scroll target for the given size of the main window.
         """
 
@@ -21892,7 +21900,7 @@ SHOW_SB_NEVER: int
 SHOW_SB_DEFAULT: int
 
 
-class ScrolledCanvas(Window):
+class ScrolledCanvas(Window, Scrolled):
     """ The ScrolledCanvas      class is a combination of the Window      and
 Scrolled      classes, and manages scrolling for its client area,
 transforming the coordinates according to the scrollbar positions,
@@ -22693,11 +22701,11 @@ class Size:
         """ Decreases the size in both x and y directions.
         """
 
-    def DecTo(self, size: Any) -> None:
+    def DecTo(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Decrements this object so that both of its dimensions are not greater than the corresponding dimensions of the size.
         """
 
-    def DecToIfSpecified(self, size: Any) -> None:
+    def DecToIfSpecified(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Decrements this object to be not bigger than the given size ignoring non-specified components.
         """
 
@@ -22721,7 +22729,7 @@ class Size:
         """ Increases the size in both x and y directions.
         """
 
-    def IncTo(self, size: Any) -> None:
+    def IncTo(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Increments this object so that both of its dimensions are not less than the corresponding dimensions of the size.
         """
 
@@ -22737,7 +22745,7 @@ class Size:
         """ Sets the width and height members.
         """
 
-    def SetDefaults(self, sizeDefault: Any) -> None:
+    def SetDefaults(self, sizeDefault: Union[tuple[int, int], 'Size']) -> None:
         """ Combine this size object with another one replacing the default (i.e. equal to -1) components of this object with those of the other.
         """
 
@@ -22829,7 +22837,7 @@ class SizeEvent(Event):
         """ rect (wx.Rect) â
         """
 
-    def SetSize(self, size: Any) -> None:
+    def SetSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ size (wx.Size) â
         """
 
@@ -23732,7 +23740,7 @@ box around the sizer.
         """ Returns the static box associated with the sizer.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -23886,7 +23894,7 @@ a frame to give small amounts of status information.
         """ Sets the status text for the i-th  field.
         """
 
-    def SetStatusWidths(self, widths: Any) -> None:
+    def SetStatusWidths(self, widths: list[int]) -> None:
         """ Sets the widths of the fields in the status line.
         """
 
@@ -23946,7 +23954,7 @@ interface guidelines (if such things exist).
         """ Rearranges the buttons and applies proper spacing between buttons to make them match the platform or toolkitâs interface guidelines.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 
@@ -24396,7 +24404,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the right indent in tenths of a millimeter.
         """
 
-    def GetTabs(self) -> Any:
+    def GetTabs(self) -> list[int]:
         """ Returns an array of tab stops, each expressed in tenths of a millimeter.
         """
 
@@ -24568,7 +24576,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the paragraph alignment.
         """
 
-    def SetBackgroundColour(self, colBack: 'Colour') -> None:
+    def SetBackgroundColour(self, colBack: Union[int, str, 'Colour']) -> None:
         """ Sets the background colour.
         """
 
@@ -24680,11 +24688,11 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the right indent in tenths of a millimetre.
         """
 
-    def SetTabs(self, tabs: Any) -> None:
+    def SetTabs(self, tabs: list[int]) -> None:
         """ Sets the tab stops, expressed in tenths of a millimetre.
         """
 
-    def SetTextColour(self, colText: 'Colour') -> None:
+    def SetTextColour(self, colText: Union[int, str, 'Colour']) -> None:
         """ Sets the text foreground colour.
         """
 
@@ -25460,7 +25468,7 @@ below the menu bar in a Frame.
         """ Overloaded Implementations:
         """
 
-    def SetToolBitmapSize(self, size: Any) -> None:
+    def SetToolBitmapSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ Sets the default size of each tool bitmap.
         """
 
@@ -25928,11 +25936,11 @@ class TopLevelWindow(NonOwnedWindow):
         """ Sets several icons of different sizes for this window: this allows using different icons for different situations (e.g.
         """
 
-    def SetMaxSize(self, size: Any) -> None:
+    def SetMaxSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ A simpler interface for setting the size hints than SetSizeHints .
         """
 
-    def SetMinSize(self, size: Any) -> None:
+    def SetMinSize(self, size: Union[tuple[int, int], 'Size']) -> None:
         """ A simpler interface for setting the size hints than SetSizeHints .
         """
 
@@ -26003,7 +26011,7 @@ class Translations:
         """ Returns current translations object, may return None.
         """
 
-    def GetAvailableTranslations(self, domain: str) -> Any:
+    def GetAvailableTranslations(self, domain: str) -> list[str]:
         """ Returns list of all translations of domain  that were found.
         """
 
@@ -26040,7 +26048,7 @@ LANGUAGE_DEFAULT: int
 LANGUAGE_DEFAULT: int
 
 
-class TreeCtrl(Control):
+class TreeCtrl(Control, WithImages):
     """ A tree control presents information as a hierarchy, with items that
 may be expanded to show further items.
     """
@@ -26924,7 +26932,7 @@ orientation specific work.
 
 
 
-class VarHVScrollHelper(VarVScrollHelper):
+class VarHVScrollHelper(VarVScrollHelper, VarHScrollHelper):
     """ This class provides functions wrapping the VarHScrollHelper and
 VarVScrollHelper classes, targeted for scrolling a window in both
 axis.
@@ -27254,7 +27262,7 @@ its items can have variable height as determined by OnMeasureItem()
         """ Set the selection to the specified item, if it is -1 the selection is unset.
         """
 
-    def SetSelectionBackground(self, col: 'Colour') -> None:
+    def SetSelectionBackground(self, col: Union[int, str, 'Colour']) -> None:
         """ Sets the colour to be used for the selected cells background.
         """
 
@@ -27264,7 +27272,7 @@ its items can have variable height as determined by OnMeasureItem()
 
 
 
-class VScrolledWindow(Panel):
+class VScrolledWindow(Panel, VarVScrollHelper):
     """ In the name of this class, âVâ may stand for âvariableâ because it can
 be used for scrolling rows of variable heights; âvirtualâ, because it
 is not necessary to know the heights of all rows in advance  only
@@ -27537,7 +27545,7 @@ long as there is space available in that direction.
         """ Can be overridden in the derived classes to treat some normal items as spacers.
         """
 
-    def RepositionChildren(self, minSize: Any) -> None:
+    def RepositionChildren(self, minSize: Union[tuple[int, int], 'Size']) -> None:
         """ Method which must be overridden in the derived sizer classes.
         """
 

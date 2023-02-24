@@ -185,17 +185,17 @@ the ribbon interface.
         """ Set the value of a certain integer setting to the value new_val.
         """
 
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
 
 
 class RibbonAUIArtProvider(ribbon.RibbonMSWArtProvider):
@@ -305,11 +305,11 @@ class RibbonAUIArtProvider(ribbon.RibbonMSWArtProvider):
         """ Set the value of a certain font setting to the value font.
         """
 
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
 
 
 class RibbonBar(ribbon.RibbonControl):
@@ -431,25 +431,25 @@ EVT_RIBBONBAR_TAB_RIGHT_UP: int  #  Triggered when the right mouse button is rel
 EVT_RIBBONBAR_TAB_LEFT_DCLICK: int  #  Triggered when the left mouse button is double clicked on a tab.
 EVT_RIBBONBAR_TOGGLED: int  #  Triggered when the button triggering the ribbon bar is clicked. This event is new since wxWidgets 2.9.5.
 EVT_RIBBONBAR_HELP_CLICK: int  #  Triggered when the help button is clicked. This even is new since wxWidgets 2.9.5. ^^
-ribbon.RIBBON_BAR_DEFAULT_STYLE: int
-ribbon.RIBBON_BAR_FLOW_HORIZONTAL: int
-ribbon.RIBBON_BAR_SHOW_PAGE_LABELS: int
-ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
-ribbon.RIBBON_BAR_SHOW_TOGGLE_BUTTON: int
-ribbon.RIBBON_BAR_SHOW_HELP_BUTTON: int
-ribbon.RIBBON_BAR_FOLDBAR_STYLE: int
-ribbon.RIBBON_BAR_FLOW_VERTICAL: int
-ribbon.RIBBON_BAR_SHOW_PAGE_ICONS: int
-ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
-ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
-ribbon.RIBBON_BAR_SHOW_PAGE_LABELS: int
-ribbon.RIBBON_BAR_SHOW_PAGE_ICONS: int
-ribbon.RIBBON_BAR_FLOW_HORIZONTAL: int
-ribbon.RIBBON_BAR_FLOW_VERTICAL: int
-ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
-ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
-ribbon.RIBBON_BAR_SHOW_TOGGLE_BUTTON: int
-ribbon.RIBBON_BAR_SHOW_HELP_BUTTON: int
+RIBBON_BAR_DEFAULT_STYLE: int
+RIBBON_BAR_FLOW_HORIZONTAL: int
+RIBBON_BAR_SHOW_PAGE_LABELS: int
+RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
+RIBBON_BAR_SHOW_TOGGLE_BUTTON: int
+RIBBON_BAR_SHOW_HELP_BUTTON: int
+RIBBON_BAR_FOLDBAR_STYLE: int
+RIBBON_BAR_FLOW_VERTICAL: int
+RIBBON_BAR_SHOW_PAGE_ICONS: int
+RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
+RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
+RIBBON_BAR_SHOW_PAGE_LABELS: int
+RIBBON_BAR_SHOW_PAGE_ICONS: int
+RIBBON_BAR_FLOW_HORIZONTAL: int
+RIBBON_BAR_FLOW_VERTICAL: int
+RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
+RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
+RIBBON_BAR_SHOW_TOGGLE_BUTTON: int
+RIBBON_BAR_SHOW_HELP_BUTTON: int
 
 
 class RibbonBarEvent(NotifyEvent):
@@ -603,12 +603,12 @@ class RibbonButtonBar(ribbon.RibbonControl):
 
 EVT_RIBBONBUTTONBAR_CLICKED: int  #  Triggered when the normal (non-dropdown) region of a button on the button bar is clicked.
 EVT_RIBBONBUTTONBAR_DROPDOWN_CLICKED: int  #  Triggered when the dropdown region of a button on the button bar is clicked. wx.ribbon.RibbonButtonBarEvent.PopupMenu   should be called by the event handler if it wants to display a popup menu (which is what most dropdown buttons should be doing). ^^
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
 
 
 class RibbonButtonBarEvent(CommandEvent):
@@ -666,7 +666,7 @@ the ribbon characteristics of having a ribbon art provider, and
         """ Get the art provider to be used.
         """
 
-    def GetBestSizeForParentSize(self, parentSize: Any) -> Size:
+    def GetBestSizeForParentSize(self, parentSize: Union[tuple[int, int], 'Size']) -> Size:
         """ Finds the best width and height given the parentâs width and height.
         """
 
@@ -699,7 +699,7 @@ the ribbon characteristics of having a ribbon art provider, and
         """ Set the art provider to be used.
         """
 
-ribbon.RIBBON_PANEL_FLEXIBLE: int
+RIBBON_PANEL_FLEXIBLE: int
 
 
 class RibbonGallery(ribbon.RibbonControl):
@@ -996,17 +996,17 @@ class RibbonMSWArtProvider(ribbon.RibbonArtProvider):
         """ Set the value of a certain integer setting to the value new_val.
         """
 
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_DISABLED: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
-ribbon.RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_SMALL: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
-ribbon.RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_BUTTONBAR_BUTTON_DISABLED: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_RIGHT_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_TOP_SIZE: int
+RIBBON_ART_GALLERY_BITMAP_PADDING_BOTTOM_SIZE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
+RIBBON_BUTTONBAR_BUTTON_SMALL: int
+RIBBON_BUTTONBAR_BUTTON_MEDIUM: int
+RIBBON_BUTTONBAR_BUTTON_LARGE: int
 
 
 class RibbonPage(ribbon.RibbonControl):
@@ -1146,15 +1146,15 @@ ribbon.RIBBON_PANEL_MINIMISE_BUTTON: int  #  Causes a (de)minimise button to be 
 ribbon.RIBBON_PANEL_STRETCH: int  #  Stretches a single panel to fit the parent page.
 ribbon.RIBBON_PANEL_FLEXIBLE: int  #  Allows the panel to size in both directions; currently only useful when a single   wx.ribbon.RibbonToolBar  is the child of the panel, particularly in vertical orientation where the number of rows is dependent on the amount of horizontal space available. Set the minimum and maximum toolbar rows to take full advantage of this wrapping behaviour. ^^
 EVT_RIBBONPANEL_EXTBUTTON_ACTIVATED: int  #  Triggered when the user activate the panel extension button. ^^
-ribbon.RIBBON_PANEL_DEFAULT_STYLE: int
-ribbon.RIBBON_PANEL_NO_AUTO_MINIMISE: int
-ribbon.RIBBON_PANEL_EXT_BUTTON: int
-ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
-ribbon.RIBBON_PANEL_MINIMISE_BUTTON: int
-ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
-ribbon.RIBBON_PANEL_NO_AUTO_MINIMISE: int
-ribbon.RIBBON_PANEL_STRETCH: int
-ribbon.RIBBON_PANEL_FLEXIBLE: int
+RIBBON_PANEL_DEFAULT_STYLE: int
+RIBBON_PANEL_NO_AUTO_MINIMISE: int
+RIBBON_PANEL_EXT_BUTTON: int
+RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int
+RIBBON_PANEL_MINIMISE_BUTTON: int
+RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int
+RIBBON_PANEL_NO_AUTO_MINIMISE: int
+RIBBON_PANEL_STRETCH: int
+RIBBON_PANEL_FLEXIBLE: int
 
 
 class RibbonPanelEvent(CommandEvent):
