@@ -16,11 +16,13 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.lib.buttons.html",
 ]
 EXTRA_CLASS_URLS: list[str] = [
-	"https://docs.wxpython.org/wx.FontFamily.enumeration.html",
-	"https://docs.wxpython.org/wx.FontWeight.enumeration.html",
-	"https://docs.wxpython.org/wx.StockCursor.enumeration.html",
-	"https://docs.wxpython.org/wx.StandardID.enumeration.html",
-	"https://docs.wxpython.org/wx.functions.html",
+	"wx.FontFamily.enumeration.html",
+	"wx.FontWeight.enumeration.html",
+	"wx.StockCursor.enumeration.html",
+	"wx.StandardID.enumeration.html",
+	"wx.FontEncoding.enumeration.html",
+	"wx.FontStyle.enumeration.html",
+	"wx.functions.html",
 ]
 SPACER = "    "
 EXTRA_TYPING = """
