@@ -62,7 +62,7 @@ class Parser:
 
 		# Check if there is an module name found
 		if className == "wx":
-			className = ""		
+			className = ""
 			moduleName = "wx"
 
 		# Build the list with items
@@ -175,8 +175,8 @@ class Parser:
 		for methodTag in methodTags:
 			# Create the method
 			methodType: ITypingFunction = {
-				"type": "function", 
-				"moduleName": className, 
+				"type": "function",
+				"moduleName": className,
 				"source": source,
 			}
 
@@ -525,6 +525,8 @@ class Parser:
 				typing = "Union[tuple[int, int], 'Size']"
 			elif typing == "wx.Position":
 				typing = "Union[tuple[int, int], 'Position']"
+			elif typing == "wx.Point":
+				typing = "Union[tuple[int, int], 'Point']"
 			elif typing == "wx.Colour":
 				typing = "Union[int, str, 'Colour']"
 
