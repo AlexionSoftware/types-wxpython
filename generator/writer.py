@@ -94,7 +94,7 @@ class TypingWriter:
 			output += (SPACER * depth) + "def " + typingObj["name"] + "(" + typingObj["paramStr"] +  ") -> " + typingObj["returnType"] + ":\n"
 			output += (SPACER * (depth + 1)) + '""" ' + typingObj["docstring"] + "\n"
 			if "source" in typingObj and typingObj["source"]:
-				output += (SPACER * (depth + 1)) + "Source: " + typingObj["source"] + "\n"
+				output += (SPACER * (depth + 2)) + "\n Source: " + typingObj["source"] + "\n"
 			output += (SPACER * (depth + 1)) + '"""\n'
 			return output
 
