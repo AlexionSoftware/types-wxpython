@@ -153,7 +153,14 @@ class DocumentationGenerator:
 			# Get the name of the literal
 			literalName = literalElem.get_text().strip()
 			if literalName.startswith("wx."):
+				# Remove the wx.
 				literalName = literalName[3:]
+
+				# Check if there is a * in the name
+				if "*" in literalName:
+					continue
+
+				# Save the literal
 				typingOutput += literalName + ": int\n"
 
 		# Save the output
