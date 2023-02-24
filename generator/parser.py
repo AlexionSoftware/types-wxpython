@@ -279,6 +279,10 @@ class Parser:
 			methodName = methodName[:methodName.find("(")]
 			methodType["name"] = methodName
 
+			# Make sure the name doesnt start with wx
+			if methodType["name"].startswith("wx"):
+				methodType["name"] = methodType["name"].split(".")[-1]
+
 			# Check if there is an function
 			# This is a mistake in the documentation
 			if "(" in methodType["paramStr"]:
