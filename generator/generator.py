@@ -71,7 +71,7 @@ class DocumentationGenerator:
 				os.makedirs(os.path.dirname(filePath))
 
 			# Combine the data
-			data = "# -*- coding: utf-8 -*-\nfrom typing import Optional, Any\n\n\n"
+			data = "# -*- coding: utf-8 -*-\nfrom typing import Any, Optional, Union\n\n\n"
 			for value in contentPerFileType[fileName].values():
 				data += value + "\n\n"
 
@@ -254,7 +254,7 @@ class DocumentationGenerator:
 						# Check if the last header was return
 						elif nextPart == "return":
 							# Retrieve the return type
-							returnType = self._ensureTyping(part.get_text().strip())
+							returnType = self._ensureTyping(part.get_text().strip(), typingType="return")
 
 			# Check if static
 			if methodName.startswith("static"):
@@ -360,7 +360,7 @@ class DocumentationGenerator:
 
 		return typingOutput
 
-	def _ensureTyping(self, typing: str) -> str:
+	def _ensureTyping(self, typing: str, typingType: str = "param") -> str:
 		""" Make sure the typing exists
 		"""
 		# Make a list of all posible typing problems
@@ -376,6 +376,14 @@ class DocumentationGenerator:
 		for typingKey, typingReplace in typingMap.items():
 			if typingKey in typing:
 				typing = typingReplace
+
+		# Check if this is a param
+		if typingType == "param":
+			# Change Size to Union
+			if typing == "wx.Size":
+				typing = "Union[tuple[int, int], 'Size']"
+			elif typing == "wx.Position":
+				typing = "Union[tuple[int, int], 'Position']"
 
 		# Check if there is a weird thing
 		if "[" in typing:
