@@ -300,6 +300,11 @@ class Parser:
 					else:
 						continue
 
+			# Check if we found typing for the params
+			if "*" not in methodType["paramStr"] and methodType["paramStr"] != "self" and ":" not in methodType["paramStr"]:
+				# We should be able to find all the params
+				self.logger.error("Could not find all the params for %s.%s" % (methodType["moduleName"], methodType["name"]))
+
 			# Add the method to the list
 			result.append(methodType)
 
