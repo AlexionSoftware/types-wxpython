@@ -140,6 +140,8 @@ class DocumentationGenerator:
 		"""
 		# Remeber the class
 		typingOutput = ""
+		if className in self.typings:
+			typingOutput = self.typings[className]
 
 		# Check every literal
 		literals: list[Tag] = soup.find_all(class_="literal")
