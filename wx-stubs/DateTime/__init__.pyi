@@ -8,7 +8,7 @@ class TimeZone:
         """ Overloaded Implementations:
         """
 
-    def GetOffset(self) -> long:
+    def GetOffset(self) -> int:
         """ Return the offset of this time zone from UTC, in seconds.
         """
 
@@ -17,7 +17,7 @@ class TimeZone:
         """
 
     @staticmethod
-    def Make(offset: long) -> 'DateTime.TimeZone':
+    def Make(offset: int) -> 'DateTime.TimeZone':
         """ Create a time zone with the given offset in seconds.
         """
 

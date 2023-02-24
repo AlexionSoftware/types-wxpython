@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from typing import Any, Optional, Union
 
-class AcceleratorEntry:
-    """ An object used by an application wishing to create an accelerator
+GROW: int  # Synonym for wx.EXPAND
 
+class AcceleratorEntry:
+    """ An object used by an application wishing to create an accelerator
 table (see AcceleratorTable).
     """
     def __init__(self, *args, **kw) -> None:
@@ -57,8 +58,7 @@ table (see AcceleratorTable).
 
 
 class AcceleratorTable(Object):
-    """ An accelerator table allows the application to specify a table of
-
+    """ An accelerator table allows the application to specify a table of
 keyboard shortcuts for menu or button commands.
     """
     def __init__(self, *args, **kw) -> None:
@@ -69,20 +69,19 @@ keyboard shortcuts for menu or button commands.
         """ Returns True if the accelerator table is valid.
         """
 
+OK: int
 
 
 class Accessible(Object):
-    """ The Accessible class allows wxWidgets applications, and wxWidgets
-
-itself, to return extended information about user interface elements
-
+    """ The Accessible class allows wxWidgets applications, and wxWidgets
+itself, to return extended information about user interface elements
 to client applications such as screen readers.
     """
     def __init__(self, win: Optional['Window']=None) -> None:
         """ Constructor, taking an optional window.
         """
 
-    def DoDefaultAction(self, childId: int) -> 'AccStatus':
+    def DoDefaultAction(self, childId: int) -> int:
         """ Performs the default action for the object.
         """
 
@@ -146,11 +145,11 @@ to client applications such as screen readers.
         """ Returns the window associated with this object.
         """
 
-    def HitTest(self, pt, childId, childObject) -> 'AccStatus':
+    def HitTest(self, pt, childId, childObject) -> int:
         """ Returns a status value and object id to indicate whether the given point was on this or a child object.
         """
 
-    def Navigate(self, navDir, fromId, toId, toObject) -> 'AccStatus':
+    def Navigate(self, navDir, fromId, toId, toObject) -> int:
         """ Navigates from fromId  to toId  or to toObject.
         """
 
@@ -159,7 +158,7 @@ to client applications such as screen readers.
         """ Allows the application to send an event when something changes in an accessible object.
         """
 
-    def Select(self, childId, selectFlags) -> 'AccStatus':
+    def Select(self, childId, selectFlags) -> int:
         """ Selects the object or child.
         """
 
@@ -167,11 +166,13 @@ to client applications such as screen readers.
         """ Sets the window associated with this object.
         """
 
+ACC_NOT_SUPPORTED: int
+ACC_OK: int
+ACC_OK: int
 
 
 class ActivateEvent(Event):
-    """ An activate event is sent when a window or application is being
-
+    """ An activate event is sent when a window or application is being
 activated or deactivated.
     """
     def __init__(self, eventType=wxEVT_NULL, active=True, id=0, ActivationReason=Reason_Unknown) -> None:
@@ -192,8 +193,7 @@ EVT_HIBERNATE: int  #  Process a hibernate event, supplying the member function.
 
 
 class ActivityIndicator(Control):
-    """ Small control showing an animation indicating that the program is
-
+    """ Small control showing an animation indicating that the program is
 currently busy performing some background task.
     """
     def __init__(self, *args, **kw) -> None:
@@ -205,7 +205,7 @@ currently busy performing some background task.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -286,6 +286,9 @@ class AffineMatrix2D(AffineMatrix2DBase):
         """ Check that this matrix is identical with t.
         """
 
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
 
 
 class AffineMatrix2DBase:
@@ -351,11 +354,13 @@ class AffineMatrix2DBase:
         """ Check that this matrix is identical with t.
         """
 
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
 
 
 class AlphaPixelData:
-    """ A class providing direct access to a wx.Bitmapâs
-
+    """ A class providing direct access to a wx.Bitmapâs
 internal data including the alpha channel (RGBA).
     """
     def __init__(self, *args, **kw) -> None:
@@ -377,8 +382,7 @@ internal data including the alpha channel (RGBA).
 
 
 class Bitmap(GDIObject):
-    """ This class encapsulates the concept of a platform-dependent bitmap,
-
+    """ This class encapsulates the concept of a platform-dependent bitmap,
 either monochrome or colour or colour with alpha channel support.
     """
     def __init__(self, *args, **kw) -> None:
@@ -394,12 +398,9 @@ either monochrome or colour or colour with alpha channel support.
         """
 
     def CopyFromBuffer(self, data, format=BitmapBufferFormat_RGB, stride=-1) -> None:
-        """ Copy data from a buffer object to replace the bitmap pixel data.
-
-Default format is plain RGB, but other formats are now supported as
-
-well.  The following symbols are used to specify the format of the
-
+        """ Copy data from a buffer object to replace the bitmap pixel data.
+Default format is plain RGB, but other formats are now supported as
+well.  The following symbols are used to specify the format of the
 bytes in the buffer:
         """
 
@@ -408,8 +409,7 @@ bytes in the buffer:
         """
 
     def CopyToBuffer(self, data, format=BitmapBufferFormat_RGB, stride=-1) -> None:
-        """ Copy pixel data to a buffer object.  See CopyFromBuffer for buffer
-
+        """ Copy pixel data to a buffer object.  See CopyFromBuffer for buffer
 format details.
         """
 
@@ -427,62 +427,44 @@ format details.
 
     @staticmethod
     def FromBuffer(width, height, data) -> 'Bitmap':
-        """ Creates a wx.Bitmap from in-memory data.  The data parameter
-
-must be a Python object that implements the buffer interface, such
-
-as a string, bytearray, etc.  The data object is expected to contain
-
+        """ Creates a wx.Bitmap from in-memory data.  The data parameter
+must be a Python object that implements the buffer interface, such
+as a string, bytearray, etc.  The data object is expected to contain
 a series of RGB bytes and be at least (widthÂ  heightÂ  3) bytes long.
         """
 
     @staticmethod
     def FromBufferAndAlpha(width, height, data, alpha) -> 'Bitmap':
-        """ Creates a wx.Bitmap from in-memory data.  The data and alpha
-
-parameters must be a Python object that implements the buffer
-
-interface, such as a string, bytearray, etc.  The data object
-
-is expected to contain a series of RGB bytes and be at least
-
-(widthÂ  heightÂ  3) bytes long, while the alpha object is expected
-
-to be (widthÂ  height) bytes long and represents the imageâs alpha
-
-channel.  On Windows and Mac the RGB values will be
-
-âpremultipliedâ by the alpha values.  (The other platforms do
-
+        """ Creates a wx.Bitmap from in-memory data.  The data and alpha
+parameters must be a Python object that implements the buffer
+interface, such as a string, bytearray, etc.  The data object
+is expected to contain a series of RGB bytes and be at least
+(widthÂ  heightÂ  3) bytes long, while the alpha object is expected
+to be (widthÂ  height) bytes long and represents the imageâs alpha
+channel.  On Windows and Mac the RGB values will be
+âpremultipliedâ by the alpha values.  (The other platforms do
 the multiplication themselves.)
         """
 
     @staticmethod
     def FromBufferRGBA(width, height, data) -> 'Bitmap':
-        """ Creates a wx.Bitmap from in-memory data.  The data parameter
-
-must be a Python object that implements the buffer interface, such
-
-as a string, bytearray, etc.  The data object is expected to contain
-
-a series of RGBA bytes and be at least (widthÂ  heightÂ  4) bytes long.
-
-On Windows and Mac the RGB values will be âpremultipliedâ by the
-
+        """ Creates a wx.Bitmap from in-memory data.  The data parameter
+must be a Python object that implements the buffer interface, such
+as a string, bytearray, etc.  The data object is expected to contain
+a series of RGBA bytes and be at least (widthÂ  heightÂ  4) bytes long.
+On Windows and Mac the RGB values will be âpremultipliedâ by the
 alpha values.  (The other platforms do the multiplication themselves.)
         """
 
     @staticmethod
     def FromPNGData(data) -> 'Bitmap':
-        """ Like NewFromPNGData, but with a simpler API accepting a Python
-
+        """ Like NewFromPNGData, but with a simpler API accepting a Python
 buffer-compatible object.
         """
 
     @staticmethod
     def FromRGBA(width, height, red=0, green=0, blue=0, alpha=0) -> 'Bitmap':
-        """ Creates a new empty 32-bit wx.Bitmap where every pixel has been
-
+        """ Creates a new empty 32-bit wx.Bitmap where every pixel has been
 initialized with the given RGBA values.
         """
 
@@ -494,7 +476,7 @@ initialized with the given RGBA values.
         """ Gets the colour depth of the bitmap.
         """
 
-    def GetHandle(self) -> long:
+    def GetHandle(self) -> int:
         """ MSW-only method to fetch the windows handle for the bitmap.
         """
 
@@ -628,6 +610,7 @@ initialized with the given RGBA values.
         """ int
         """
 
+ALPHA_OPAQUE: int
 
 
 class AlphaPixelData_Accessor:
@@ -637,7 +620,7 @@ class AlphaPixelData_Accessor:
         """ Overloaded Implementations:
         """
 
-    def Get(self) -> PyObject:
+    def Get(self) -> Any:
         """ PyObject
         """
 
@@ -666,7 +649,7 @@ class AlphaPixelData_Accessor:
         """
 
     def Set(self, red, green, blue, alpha) -> None:
-        """
+        """ 
         """
 
     def __bool__(self) -> int:
@@ -678,18 +661,17 @@ class AlphaPixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """
+        """ 
         """
 
 
 
 class AnyButton(Control):
-    """ A class for common button functionality used as the base for the
-
+    """ A class for common button functionality used as the base for the
 various button classes.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def GetBitmap(self) -> 'Bitmap':
@@ -744,7 +726,7 @@ various button classes.
         """ Set the margins between the bitmap and the text of the button.
         """
 
-    def SetBitmapPosition(self, dir: Direction) -> None:
+    def SetBitmapPosition(self, dir: int) -> None:
         """ Set the position at which the bitmap is displayed.
         """
 
@@ -752,6 +734,13 @@ various button classes.
         """ Sets the bitmap for the selected (depressed) button appearance.
         """
 
+RIGHT: int
+TOP: int
+BOTTOM: int
+LEFT: int
+RIGHT: int
+TOP: int
+BOTTOM: int
 
 
 class App(AppConsole):
@@ -763,20 +752,15 @@ class App(AppConsole):
 
     @staticmethod
     def Get() -> None:
-        """ A staticmethod returning the currently active application object.
-
+        """ A staticmethod returning the currently active application object.
 Essentially just a more pythonic version of GetApp.
         """
 
     def InitLocale(self) -> None:
-        """ Starting with version 3.8 on Windows, Python is now setting the locale
-
-to what is defined by the system as the default locale. This causes
-
-problems with wxWidgets which expects to be able to manage the locale
-
-via the wx.Locale class, so the locale will be reset here to be the
-
+        """ Starting with version 3.8 on Windows, Python is now setting the locale
+to what is defined by the system as the default locale. This causes
+problems with wxWidgets which expects to be able to manage the locale
+via the wx.Locale class, so the locale will be reset here to be the
 default âCâ locale settings.
         """
 
@@ -785,12 +769,9 @@ default âCâ locale settings.
         """
 
     def OnPreInit(self) -> None:
-        """ Things that must be done after _BootstrapApp has done its thing, but
-
-would be nice if they were already done by the time that OnInit is
-
-called.  This can be overridden in derived classes, but be sure to call
-
+        """ Things that must be done after _BootstrapApp has done its thing, but
+would be nice if they were already done by the time that OnInit is
+called.  This can be overridden in derived classes, but be sure to call
 this method from there.
         """
 
@@ -803,34 +784,43 @@ this method from there.
         """
 
     def RestoreStdio(self) -> None:
-        """
+        """ 
         """
 
     def SetOutputWindowAttributes(self, title=None, pos=None, size=None) -> None:
-        """ Set the title, position and/or size of the output window if the stdio
-
-has been redirected. This should be called before any output would
-
+        """ Set the title, position and/or size of the output window if the stdio
+has been redirected. This should be called before any output would
 cause the output window to be created.
         """
 
     def SetTopWindow(self, frame) -> None:
-        """ Set the âmainâ top level window, which will be used for the parent of
-
-the on-demand output window as well as for dialogs that do not have
-
+        """ Set the âmainâ top level window, which will be used for the parent of
+the on-demand output window as well as for dialogs that do not have
 an explicit parent set.
         """
 
     def __del__(self) -> None:
-        """
+        """ 
         """
 
+App: int
+App: int
+App: int
+App: int
+App: int
+PyApp: int
+App: int
+App: int
+App: int
+App: int
+App: int
+App: int
+PyApp: int
+App: int
 
 
 class AppConsole(EvtHandler):
-    """ This class is essential for writing console-only or hybrid apps
-
+    """ This class is essential for writing console-only or hybrid apps
 without having to define USE_GUI=0.
     """
     def DeletePendingEvents(self) -> None:
@@ -1017,24 +1007,24 @@ class AppTraits:
         """ Shows the assert dialog with the specified message in GUI mode or just prints the string to stderr in console mode.
         """
 
+PORT_GTK: int
 
 
 class ArchiveFSHandler(FileSystemHandler):
     """ A file system handler for accessing files inside of archives.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def Cleanup(self) -> None:
-        """
+        """ 
         """
 
 
 
 class ArtProvider(Object):
-    """ ArtProvider class is used to customize the look of wxWidgets
-
+    """ ArtProvider class is used to customize the look of wxWidgets
 application.
     """
     def CreateBitmap(self, id, client, size) -> 'Bitmap':
@@ -1081,7 +1071,7 @@ application.
         """
 
     @staticmethod
-    def GetMessageBoxIconId(flags: int) -> 'ArtID':
+    def GetMessageBoxIconId(flags: int) -> int:
         """ Helper used by GetMessageBoxIcon : return the art id corresponding to the standard ICON_INFORMATION/WARNING/ERROR/QUESTION flags (only one can be set)
         """
 
@@ -1125,22 +1115,76 @@ application.
         """ Remove a provider from the stack if it is on it.
         """
 
+ART_ERROR: int
+ART_GOTO_LAST: int
+ART_FILE_SAVE_AS: int
+ART_QUESTION: int
+ART_PRINT: int
+ART_DELETE: int
+ART_WARNING: int
+ART_HELP: int
+ART_COPY: int
+ART_INFORMATION: int
+ART_TIP: int
+ART_CUT: int
+ART_ADD_BOOKMARK: int
+ART_REPORT_VIEW: int
+ART_PASTE: int
+ART_DEL_BOOKMARK: int
+ART_LIST_VIEW: int
+ART_UNDO: int
+ART_HELP_SIDE_PANEL: int
+ART_NEW_DIR: int
+ART_REDO: int
+ART_HELP_SETTINGS: int
+ART_FOLDER: int
+ART_PLUS: int
+ART_HELP_BOOK: int
+ART_FOLDER_OPEN: int
+ART_MINUS: int
+ART_HELP_FOLDER: int
+ART_GO_DIR_UP: int
+ART_CLOSE: int
+ART_HELP_PAGE: int
+ART_EXECUTABLE_FILE: int
+ART_QUIT: int
+ART_GO_BACK: int
+ART_NORMAL_FILE: int
+ART_FIND: int
+ART_GO_FORWARD: int
+ART_TICK_MARK: int
+ART_FIND_AND_REPLACE: int
+ART_GO_UP: int
+ART_CROSS_MARK: int
+ART_HARDDISK: int
+ART_GO_DOWN: int
+ART_MISSING_IMAGE: int
+ART_FLOPPY: int
+ART_GO_TO_PARENT: int
+ART_NEW: int
+ART_CDROM: int
+ART_GO_HOME: int
+ART_FILE_OPEN: int
+ART_GOTO_FIRST: int
+ART_FILE_SAVE: int
+ART_FILE_OPEN: int
+ART_OTHER: int
+ART_FRAME_ICON: int
 
 
 class AutoBufferedPaintDC(BufferedPaintDC):
-    """ This DC derivative can be used inside of an EVT_PAINT() event
-
+    """ This DC derivative can be used inside of an EVT_PAINT() event
 handler to achieve double-buffered drawing.
     """
     def __init__(self, window: 'Window') -> None:
         """ Constructor.
         """
 
+BG_STYLE_PAINT: int
 
 
 class DC(Object):
-    """ A DC is a âdevice contextâ onto which graphics and text can be
-
+    """ A DC is a âdevice contextâ onto which graphics and text can be
 drawn.
     """
     def Blit(self, xdest, ydest, width, height, source, xsrc, ysrc, logicalFunc=COPY, useMask=False, xsrcMask=DefaultCoord, ysrcMask=DefaultCoord) -> bool:
@@ -1252,10 +1296,8 @@ drawn.
         """
 
     def DrawLinesFromBuffer(self, pyBuff: Any) -> None:
-        """ Implementation of DrawLines that can use numpy arrays, or anything else that uses the
-
-python buffer protocol directly without any element conversion.  This provides a
-
+        """ Implementation of DrawLines that can use numpy arrays, or anything else that uses the
+python buffer protocol directly without any element conversion.  This provides a
 significant performance increase over the standard DrawLines function.
         """
 
@@ -1387,7 +1429,7 @@ significant performance increase over the standard DrawLines function.
         """ If supported by the platform and the  `   wx.DC `   implementation, this method will return the  `   wx.GraphicsContext `   associated with the DC.
         """
 
-    def GetHDC(self) -> long:
+    def GetHDC(self) -> int:
         """ long
         """
 
@@ -1395,7 +1437,7 @@ significant performance increase over the standard DrawLines function.
         """ Returns a value that can be used as a handle to the native drawing context, if this   wx.DC  has something that could be thought of in that way.
         """
 
-    def GetLayoutDirection(self) -> 'LayoutDirection':
+    def GetLayoutDirection(self) -> int:
         """ Gets the current layout direction of the device context.
         """
 
@@ -1420,10 +1462,8 @@ significant performance increase over the standard DrawLines function.
         """
 
     def GetMultiLineTextExtent(self, st: Any) -> None:
-        """ Return the dimensions of the given stringâs text extent using the
-
-currently selected font, taking into account multiple lines if
-
+        """ Return the dimensions of the given stringâs text extent using the
+currently selected font, taking into account multiple lines if
 present in the string.
         """
 
@@ -1460,8 +1500,7 @@ present in the string.
         """
 
     def GetTextExtent(self, st: Any) -> None:
-        """ Return the dimensions of the given stringâs text extent using the
-
+        """ Return the dimensions of the given stringâs text extent using the
 currently selected font.
         """
 
@@ -1573,7 +1612,7 @@ currently selected font.
         """ Associate a   wx.GraphicsContext  with the DC.
         """
 
-    def SetLayoutDirection(self, dir: LayoutDirection) -> None:
+    def SetLayoutDirection(self, dir: int) -> None:
         """ Sets the current layout direction for the device context.
         """
 
@@ -1633,31 +1672,31 @@ currently selected font.
         """ Overloaded Implementations:
         """
 
-    def _DrawEllipseList(self, pyCoords, pyPens, pyBrushes) -> PyObject:
+    def _DrawEllipseList(self, pyCoords, pyPens, pyBrushes) -> Any:
         """ PyObject
         """
 
-    def _DrawLineList(self, pyCoords, pyPens, pyBrushes) -> PyObject:
+    def _DrawLineList(self, pyCoords, pyPens, pyBrushes) -> Any:
         """ PyObject
         """
 
-    def _DrawLinesFromBuffer(self, pyBuff) -> PyObject:
+    def _DrawLinesFromBuffer(self, pyBuff) -> Any:
         """ PyObject
         """
 
-    def _DrawPointList(self, pyCoords, pyPens, pyBrushes) -> PyObject:
+    def _DrawPointList(self, pyCoords, pyPens, pyBrushes) -> Any:
         """ PyObject
         """
 
-    def _DrawPolygonList(self, pyCoords, pyPens, pyBrushes) -> PyObject:
+    def _DrawPolygonList(self, pyCoords, pyPens, pyBrushes) -> Any:
         """ PyObject
         """
 
-    def _DrawRectangleList(self, pyCoords, pyPens, pyBrushes) -> PyObject:
+    def _DrawRectangleList(self, pyCoords, pyPens, pyBrushes) -> Any:
         """ PyObject
         """
 
-    def _DrawTextList(self, textList, pyPoints, foregroundList, backgroundList) -> PyObject:
+    def _DrawTextList(self, textList, pyPoints, foregroundList, backgroundList) -> Any:
         """ PyObject
         """
 
@@ -1666,17 +1705,37 @@ currently selected font.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> int:
         """ int
         """
 
+BLACK: int
+WHITE: int
+BLACK: int
+BLACK: int
+BLACK: int
+WHITE: int
+ODDEVEN_RULE: int
+WINDING_RULE: int
+FLOOD_SURFACE: int
+FLOOD_BORDER: int
+PostScriptDC: int
+MetafileDC: int
+NullColour: int
+PaintDC: int
+BLACK: int
+WHITE: int
+BLACK: int
+BLACK: int
+BLACK: int
+WHITE: int
 
 
 class BitmapBundle:
@@ -1827,7 +1886,7 @@ class BitmapButton(Button):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -1841,11 +1900,16 @@ BU_TOP: int  #  Aligns the bitmap label to the top of the button.
 BU_RIGHT: int  #  Right-justifies the bitmap label.
 BU_BOTTOM: int  #  Aligns the bitmap label to the bottom of the button. ^^
 EVT_BUTTON: int  #  Process a  wxEVT_BUTTON   event, when the button is clicked. ^^
+BU_LEFT: int
+BU_TOP: int
+BU_RIGHT: int
+BU_BOTTOM: int
+BU_EXACTFIT: int
+ID_ANY: int
 
 
 class BitmapDataObject(DataObjectSimple):
-    """ BitmapDataObject is a specialization of DataObject for bitmap
-
+    """ BitmapDataObject is a specialization of DataObject for bitmap
 data.
     """
     def __init__(self, bitmap: 'Bitmap'=NullBitmap) -> None:
@@ -1853,8 +1917,7 @@ data.
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -1873,8 +1936,7 @@ supports transferring in the given direction.
 
 
 class DataObject:
-    """ A DataObject represents data that can be copied to or from the
-
+    """ A DataObject represents data that can be copied to or from the
 clipboard, or dragged and dropped.
     """
     def __init__(self) -> None:
@@ -1882,8 +1944,7 @@ clipboard, or dragged and dropped.
         """
 
     def GetAllFormats(self, dir=Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -1895,11 +1956,11 @@ supports transferring in the given direction.
         """ Returns the data size of the given format format.
         """
 
-    def GetFormatCount(self, dir: Direction=Get) -> int:
+    def GetFormatCount(self, dir: int=Get) -> int:
         """ Returns the number of available formats for rendering or setting the data.
         """
 
-    def GetPreferredFormat(self, dir: Direction=Get) -> 'DataFormat':
+    def GetPreferredFormat(self, dir: int=Get) -> 'DataFormat':
         """ Returns the preferred format for either rendering the data (if dir  is  Get , its default value) or for setting it.
         """
 
@@ -1912,14 +1973,13 @@ supports transferring in the given direction.
         """
 
     def _testGetAllFormats(self) -> None:
-        """
+        """ 
         """
 
 
 
 class BitmapToggleButton(ToggleButton):
-    """ BitmapToggleButton is a ToggleButton that contains a bitmap
-
+    """ BitmapToggleButton is a ToggleButton that contains a bitmap
 instead of text.
     """
     def __init__(self, *args, **kw) -> None:
@@ -1931,7 +1991,7 @@ instead of text.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -1947,8 +2007,7 @@ EVT_TOGGLEBUTTON: int  #  Handles a wxEVT_TOGGLEBUTTON event. ^^
 
 
 class ToggleButton(AnyButton):
-    """ ToggleButton is a button that stays pressed when clicked by the
-
+    """ ToggleButton is a button that stays pressed when clicked by the
 user.
     """
     def __init__(self, *args, **kw) -> None:
@@ -1960,7 +2019,7 @@ user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -1973,11 +2032,11 @@ user.
         """
 
 EVT_TOGGLEBUTTON: int  #  Handles a wxEVT_TOGGLEBUTTON event. ^^
+ID_ANY: int
 
 
 class BookCtrlBase(Control):
-    """ A book control is a convenient way of displaying multiple pages of
-
+    """ A book control is a convenient way of displaying multiple pages of
 information, displayed one page at a time.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2067,8 +2126,7 @@ information, displayed one page at a time.
 
 
 class BookCtrlEvent(NotifyEvent):
-    """ This class represents the events generated by book controls
-
+    """ This class represents the events generated by book controls
 (wxNotebook, Listbook, Choicebook, Treebook, AuiNotebook).
     """
     def __init__(self, eventType=wxEVT_NULL, id=0, sel=NOT_FOUND, oldSel=NOT_FOUND) -> None:
@@ -2094,8 +2152,7 @@ class BookCtrlEvent(NotifyEvent):
 
 
 class Notebook(BookCtrlBase):
-    """ This class represents a notebook control, which manages multiple
-
+    """ This class represents a notebook control, which manages multiple
 windows with associated tabs.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2111,7 +2168,7 @@ windows with associated tabs.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2164,11 +2221,21 @@ NB_MULTILINE: int  #  (Windows only) There can be several rows of tabs.
 NB_NOPAGETHEME: int  #  (Windows only) Display a solid colour on notebook pages, and not a gradient, which can reduce performance. ^^
 EVT_NOTEBOOK_PAGE_CHANGED: int  #  The page selection was changed. Processes a  wxEVT_NOTEBOOK_PAGE_CHANGED   event.
 EVT_NOTEBOOK_PAGE_CHANGING: int  #  The page selection is about to be changed. Processes a  wxEVT_NOTEBOOK_PAGE_CHANGING   event. This event can be vetoed. ^^
+NB_TOP: int
+NB_LEFT: int
+NB_RIGHT: int
+NB_BOTTOM: int
+NB_FIXEDWIDTH: int
+NB_MULTILINE: int
+NB_NOPAGETHEME: int
+NB_LEFT: int
+RIGHT: int
+BOTTOM: int
+CLIP_CHILDREN: int
 
 
 class Listbook(BookCtrlBase):
-    """ Listbook is a class similar to Notebook but which uses a
-
+    """ Listbook is a class similar to Notebook but which uses a
 ListCtrl to show the labels instead of the tabs.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2180,7 +2247,7 @@ ListCtrl to show the labels instead of the tabs.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2195,11 +2262,15 @@ LB_RIGHT: int  #  Place labels on the right side.
 LB_BOTTOM: int  #  Place labels below the page area. ^^
 EVT_LISTBOOK_PAGE_CHANGED: int  #  The page selection was changed. Processes a  wxEVT_LISTBOOK_PAGE_CHANGED   event.
 EVT_LISTBOOK_PAGE_CHANGING: int  #  The page selection is about to be changed. Processes a  wxEVT_LISTBOOK_PAGE_CHANGING   event. This event can be vetoed. ^^
+LB_DEFAULT: int
+LB_TOP: int
+LB_LEFT: int
+LB_RIGHT: int
+LB_BOTTOM: int
 
 
 class Choicebook(BookCtrlBase):
-    """ Choicebook is a class similar to Notebook, but uses a Choice
-
+    """ Choicebook is a class similar to Notebook, but uses a Choice
 control to show the labels instead of the tabs.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2215,7 +2286,7 @@ control to show the labels instead of the tabs.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2226,11 +2297,16 @@ CHB_RIGHT: int  #  Place labels on the right side.
 CHB_BOTTOM: int  #  Place labels below the page area. ^^
 EVT_CHOICEBOOK_PAGE_CHANGED: int  #  The page selection was changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGED   event.
 EVT_CHOICEBOOK_PAGE_CHANGING: int  #  The page selection is about to be changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGING   event. This event can be vetoed (using  wx.NotifyEvent.Veto ). ^^
+CHB_DEFAULT: int
+CHB_TOP: int
+CHB_TOP: int
+CHB_LEFT: int
+CHB_RIGHT: int
+CHB_BOTTOM: int
 
 
 class Treebook(BookCtrlBase):
-    """ This class is an extension of the Notebook class that allows a tree
-
+    """ This class is an extension of the Notebook class that allows a tree
 structured set of pages to be shown in a control.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2262,7 +2338,7 @@ structured set of pages to be shown in a control.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2297,10 +2373,8 @@ EVT_TREEBOOK_NODE_EXPANDED: int  #  The page node is going to be expanded. Proce
 
 
 class BoxSizer(Sizer):
-    """ The basic idea behind a box sizer is that windows will most often be
-
-laid out in rather simple basic geometry, typically in a row or a
-
+    """ The basic idea behind a box sizer is that windows will most often be
+laid out in rather simple basic geometry, typically in a row or a
 column or several hierarchies of either.
     """
     def __init__(self, orient: int=HORIZONTAL) -> None:
@@ -2327,6 +2401,16 @@ column or several hierarchies of either.
         """ Sets the orientation of the box sizer, either wx.VERTICAL or wx.HORIZONTAL.
         """
 
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
 
 
 class Brush(GDIObject):
@@ -2365,7 +2449,7 @@ class Brush(GDIObject):
         """
 
     def MacSetTheme(self, macThemeBrushID) -> None:
-        """
+        """ 
         """
 
     def SetColour(self, *args, **kw) -> None:
@@ -2400,6 +2484,9 @@ class Brush(GDIObject):
         """ Equality operator.
         """
 
+BRUSHSTYLE_TRANSPARENT: int
+BRUSHSTYLE_TRANSPARENT: int
+BRUSHSTYLE_TRANSPARENT: int
 
 
 class BrushList:
@@ -2412,12 +2499,9 @@ class BrushList:
 
 
 class BufferedDC(MemoryDC):
-    """ This class provides a simple way to avoid flicker: when drawing on it,
-
-everything is in fact first drawn on an in-memory buffer (a Bitmap)
-
-and then copied to the screen, using the associated DC, only once,
-
+    """ This class provides a simple way to avoid flicker: when drawing on it,
+everything is in fact first drawn on an in-memory buffer (a Bitmap)
+and then copied to the screen, using the associated DC, only once,
 when this object is destroyed.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2440,22 +2524,27 @@ when this object is destroyed.
         """ Blits the buffer to the dc, and detaches the dc from the buffer (so it can be effectively used once only).
         """
 
+BUFFER_CLIENT_AREA: int
+BUFFER_VIRTUAL_AREA: int
+BUFFER_CLIENT_AREA: int
+BUFFER_VIRTUAL_AREA: int
 
 
 class BufferedPaintDC(BufferedDC):
-    """ This is a subclass of BufferedDC which can be used inside of an
-
+    """ This is a subclass of BufferedDC which can be used inside of an
 EVT_PAINT() event handler to achieve double-buffered drawing.
     """
     def __init__(self, *args, **kw) -> None:
         """ As with   wx.BufferedDC, you may either provide the bitmap to be used for buffering or let this object create one internally (in the latter case, the size of the client part of the window is used).
         """
 
+BG_STYLE_PAINT: int
+BUFFER_CLIENT_AREA: int
+BUFFER_VIRTUAL_AREA: int
 
 
 class BusyCursor:
-    """ This class makes it easy to tell your user that the program is
-
+    """ This class makes it easy to tell your user that the program is
 temporarily busy.
     """
     def __init__(self, cursor: 'Cursor'=HOURGLASS_CURSOR) -> None:
@@ -2463,18 +2552,17 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class BusyInfo:
-    """ This class makes it easy to tell your user that the program is
-
+    """ This class makes it easy to tell your user that the program is
 temporarily busy.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2490,11 +2578,11 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -2538,11 +2626,12 @@ class BusyInfoFlags:
         """ Sets the transparency of   wx.BusyInfo  window.
         """
 
+ALPHA_TRANSPARENT: int
+ALPHA_OPAQUE: int
 
 
 class Button(AnyButton):
-    """ A button is a control that contains a text string, and is one of the
-
+    """ A button is a control that contains a text string, and is one of the
 most common elements of a GUI.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2558,7 +2647,7 @@ most common elements of a GUI.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2591,17 +2680,20 @@ BU_EXACTFIT: int  #  By default, all buttons are made of at least the standard b
 BU_NOTEXT: int  #  Disables the display of the text label in the button even if it has one or its id is one of the standard stock ids with an associated label: int  #  without using this style a button which is only supposed to show a bitmap but uses a standard id would display a label too.
 BORDER_NONE: int  #  Creates a button without border. This is currently implemented in MSW, GTK2 and OSX/Cocoa. ^^
 EVT_BUTTON: int  #  Process a  wxEVT_BUTTON   event, when the button is clicked. ^^
+BU_LEFT: int
+BU_TOP: int
+BU_RIGHT: int
+BU_BOTTOM: int
+BU_EXACTFIT: int
+BU_NOTEXT: int
+BORDER_NONE: int
 
 
 class CallLater:
-    """ A convenience class for wx.Timer, that calls the given callable
-
-object once after the given amount of milliseconds, passing any
-
-positional or keyword args.  The return value of the callable is
-
-available after it has been run with the GetResult
-
+    """ A convenience class for wx.Timer, that calls the given callable
+object once after the given amount of milliseconds, passing any
+positional or keyword args.  The return value of the callable is
+available after it has been run with the GetResult
 method.
     """
     def __init__(self, millis, callableObj, *args, **kwargs) -> None:
@@ -2609,7 +2701,7 @@ method.
         """
 
     def GetInterval(self) -> None:
-        """
+        """ 
         """
 
     def GetResult(self) -> Any:
@@ -2621,7 +2713,7 @@ method.
         """
 
     def IsRunning(self) -> None:
-        """
+        """ 
         """
 
     def Notify(self) -> None:
@@ -2629,12 +2721,9 @@ method.
         """
 
     def SetArgs(self, *args, **kwargs) -> None:
-        """ (Re)set the args passed to the callable object.  This is
-
-useful in conjunction with Start if
-
-you want to schedule a new call to the same callable
-
+        """ (Re)set the args passed to the callable object.  This is
+useful in conjunction with Start if
+you want to schedule a new call to the same callable
 object but with different parameters.
         """
 
@@ -2647,7 +2736,7 @@ object but with different parameters.
         """
 
     def __del__(self) -> None:
-        """
+        """ 
         """
 
 
@@ -2699,11 +2788,12 @@ class Timer(EvtHandler):
         """ Stops the timer.
         """
 
+TIMER_CONTINUOUS: int
+TIMER_ONE_SHOT: int
 
 
 class Caret:
-    """ A caret is a blinking cursor showing the position where the typed text
-
+    """ A caret is a blinking cursor showing the position where the typed text
 will appear.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2771,8 +2861,7 @@ will appear.
 
 
 class CheckBox(Control):
-    """ A checkbox is a labelled box which by default is either on (checkmark
-
+    """ A checkbox is a labelled box which by default is either on (checkmark
 is visible) or off (no checkmark).
     """
     def __init__(self, *args, **kw) -> None:
@@ -2788,7 +2877,7 @@ is visible) or off (no checkmark).
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2821,11 +2910,17 @@ CHK_3STATE: int  #  Create a 3-state checkbox.
 CHK_ALLOW_3RD_STATE_FOR_USER: int  #  By default a user canât set a 3-state checkbox to the third state. It can only be done from code. Using this flags allows the user to set the checkbox to the third state by clicking.
 ALIGN_RIGHT: int  #  Makes the text appear on the left of the checkbox. ^^
 EVT_CHECKBOX: int  #  Process a  wxEVT_CHECKBOX   event, when the checkbox is clicked. ^^
+CHK_3STATE: int
+CHK_2STATE: int
+CHK_3STATE: int
+CHK_ALLOW_3RD_STATE_FOR_USER: int
+ALIGN_RIGHT: int
+ID_ANY: int
+CHK_UNDETERMINED: int
 
 
 class CheckListBox(ListBox):
-    """ A CheckListBox is like a ListBox, but allows items to be checked
-
+    """ A CheckListBox is like a ListBox, but allows items to be checked
 or unchecked.
     """
     def __init__(self, *args, **kw) -> None:
@@ -2849,7 +2944,7 @@ or unchecked.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2870,6 +2965,7 @@ or unchecked.
         """
 
 EVT_CHECKLISTBOX: int  #  Process a  wxEVT_CHECKLISTBOX   event, when an item in the check list box is checked or unchecked.  wx.CommandEvent.GetInt   will contain the index of the item that was checked or unchecked. wx.CommandEvent.IsChecked   is not valid! Use wx.CheckListBox.IsChecked   instead. ^^
+ID_ANY: int
 
 
 class ListBox(Control):
@@ -2896,7 +2992,7 @@ class ListBox(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -2941,7 +3037,7 @@ class ListBox(Control):
         """
 
     def MSWSetTabStops(self, tabStops) -> None:
-        """
+        """ 
         """
 
     def SetFirstItem(self, *args, **kw) -> None:
@@ -2949,20 +3045,17 @@ class ListBox(Control):
         """
 
     def SetItemBackgroundColour(self, item, c) -> None:
-        """ Set the background colour of an item in the ListBox.
-
+        """ Set the background colour of an item in the ListBox.
 Only valid on MSW and if the wx.LB_OWNERDRAW flag is set.
         """
 
     def SetItemFont(self, item, f) -> None:
-        """ Set the font of an item in the ListBox.
-
+        """ Set the font of an item in the ListBox.
 Only valid on MSW and if the wx.LB_OWNERDRAW flag is set.
         """
 
     def SetItemForegroundColour(self, item, c) -> None:
-        """ Set the foreground colour of an item in the ListBox.
-
+        """ Set the foreground colour of an item in the ListBox.
 Only valid on MSW and if the wx.LB_OWNERDRAW flag is set.
         """
 
@@ -2988,13 +3081,26 @@ LB_NO_SB: int  #  Donât create vertical scrollbar (wxMSW and wxGTK only).
 LB_SORT: int  #  The listbox contents are sorted in alphabetical order. ^^
 EVT_LISTBOX: int  #  Process a  wxEVT_LISTBOX   event, when an item on the list is selected or the selection changes.
 EVT_LISTBOX_DCLICK: int  #  Process a  wxEVT_LISTBOX_DCLICK   event, when the listbox is double-clicked. On some platforms (notably wxGTK2) pressing the enter key is handled as an equivalent of a double-click. ^^
+LB_SINGLE: int
+LB_MULTIPLE: int
+LB_EXTENDED: int
+LB_EXTENDED: int
+LB_HSCROLL: int
+LB_ALWAYS_SB: int
+LB_NEEDED_SB: int
+LB_NO_SB: int
+LB_SORT: int
+NOT_FOUND: int
+LB_MULTIPLE: int
+NOT_FOUND: int
+LB_OWNERDRAW: int
+LB_OWNERDRAW: int
+LB_OWNERDRAW: int
 
 
 class ChildFocusEvent(CommandEvent):
-    """ A child focus event is sent to a (parent-)window when one of its child
-
-windows gains focus, so that the window could restore the focus back
-
+    """ A child focus event is sent to a (parent-)window when one of its child
+windows gains focus, so that the window could restore the focus back
 to its corresponding child if it loses it now and regains later.
     """
     def __init__(self, win: Optional['Window']=None) -> None:
@@ -3024,7 +3130,7 @@ class Choice(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3066,12 +3172,15 @@ class Choice(Control):
 
 CB_SORT: int  #  Sorts the entries alphabetically. ^^
 EVT_CHOICE: int  #  Process a  wxEVT_CHOICE   event, when an item on the list is selected. ^^
+CB_SORT: int
+ID_ANY: int
+NOT_FOUND: int
 
 
 class ClassInfo:
     """ This class stores meta-information about classes.
     """
-    def CreateObject(self) -> 'Object':
+    def CreateObject(self) -> 'Window':
         """ Creates an object of the appropriate kind.
         """
 
@@ -3107,8 +3216,7 @@ class ClassInfo:
 
 
 class ClientDataContainer:
-    """ This class is a mixin that provides storage and management of âclient
-
+    """ This class is a mixin that provides storage and management of âclient
 dataâ.
     """
     def __init__(self) -> None:
@@ -3134,8 +3242,7 @@ dataâ.
 
 
 class ClientDC(WindowDC):
-    """ ClientDC is primarily useful for obtaining information about the
-
+    """ ClientDC is primarily useful for obtaining information about the
 window from outside EVT_PAINT() handler.
     """
     def __init__(self, window: 'Window') -> None:
@@ -3203,10 +3310,8 @@ class Clipboard(Object):
 
 
 class ClipboardTextEvent(CommandEvent):
-    """ This class represents the events generated by a control (typically a
-
-TextCtrl but other windows can generate these events as well) when
-
+    """ This class represents the events generated by a control (typically a
+TextCtrl but other windows can generate these events as well) when
 its content gets copied or cut to, or pasted from the clipboard.
     """
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
@@ -3216,6 +3321,8 @@ its content gets copied or cut to, or pasted from the clipboard.
 EVT_TEXT_COPY: int  #  Some or all of the controls content was copied to the clipboard.
 EVT_TEXT_CUT: int  #  Some or all of the controls content was cut (i.e. copied and deleted).
 EVT_TEXT_PASTE: int  #  Clipboard content was pasted into the control. ^^
+COPY: int
+CB_READONLY: int
 
 
 class TextCtrl(Control):
@@ -3242,7 +3349,7 @@ class TextCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3250,11 +3357,11 @@ class TextCtrl(Control):
         """ Returns the style currently used for the new text.
         """
 
-    def GetLineLength(self, lineNo: long) -> int:
+    def GetLineLength(self, lineNo: int) -> int:
         """ Gets the length of the specified line, not including any trailing newline character(s).
         """
 
-    def GetLineText(self, lineNo: long) -> str:
+    def GetLineText(self, lineNo: int) -> str:
         """ Returns the contents of a given line in the text control, not including any trailing newline character(s).
         """
 
@@ -3267,8 +3374,7 @@ class TextCtrl(Control):
         """
 
     def HideNativeCaret(self) -> bool:
-        """ Turn off the widgetâs native caret on Windows.
-
+        """ Turn off the widgetâs native caret on Windows.
 Ignored on other platforms.
         """
 
@@ -3297,8 +3403,7 @@ Ignored on other platforms.
         """
 
     def MacCheckSpelling(self, check) -> None:
-        """ Turn on the native spell checking for the text widget on
-
+        """ Turn on the native spell checking for the text widget on
 OSX.  Ignored on other platforms.
         """
 
@@ -3322,11 +3427,11 @@ OSX.  Ignored on other platforms.
         """ Enable the automatic replacement of new lines characters in a single-line text field with spaces under macOS.
         """
 
-    def PositionToCoords(self, pos: long) -> 'Point':
+    def PositionToCoords(self, pos: int) -> 'Point':
         """ Converts given text position to client coordinates in pixels.
         """
 
-    def PositionToXY(self, pos: long) -> tuple:
+    def PositionToXY(self, pos: int) -> tuple:
         """ Converts given position to a zero-based column, line number pair.
         """
 
@@ -3347,16 +3452,15 @@ OSX.  Ignored on other platforms.
         """
 
     def ShowNativeCaret(self, show=True) -> bool:
-        """ Turn on the widgetâs native caret on Windows.
-
+        """ Turn on the widgetâs native caret on Windows.
 Ignored on other platforms.
         """
 
-    def ShowPosition(self, pos: long) -> None:
+    def ShowPosition(self, pos: int) -> None:
         """ Makes the line containing the given position visible.
         """
 
-    def XYToPosition(self, x, y) -> long:
+    def XYToPosition(self, x, y) -> int:
         """ Converts the given zero based column and line number to a position.
         """
 
@@ -3391,11 +3495,40 @@ EVT_TEXT: int  #  Respond to a  wxEVT_TEXT   event, generated when the text chan
 EVT_TEXT_ENTER: int  #  Respond to a  wxEVT_TEXT_ENTER   event, generated when enter is pressed in a text control which must have wx.TE_PROCESS_ENTER style for this event to be generated.
 EVT_TEXT_URL: int  #  A mouse event occurred over an URL in the text control.
 EVT_TEXT_MAXLEN: int  #  This event is generated when the user tries to enter more text into the control than the limit set by wx.TextCtrl.SetMaxLength , see its description. ^^
+TE_PROCESS_ENTER: int
+TE_PROCESS_TAB: int
+TE_MULTILINE: int
+TE_PASSWORD: int
+TE_READONLY: int
+TE_RICH: int
+TE_RICH2: int
+TE_RICH2: int
+TE_RICH: int
+TE_AUTO_URL: int
+TE_NOHIDESEL: int
+HSCROLL: int
+TE_NO_VSCROLL: int
+TE_LEFT: int
+TE_CENTRE: int
+TE_RIGHT: int
+TE_DONTWRAP: int
+HSCROLL: int
+TE_CHARWRAP: int
+TE_WORDWRAP: int
+TE_BESTWRAP: int
+TE_CENTRE: int
+TE_RIGHT: int
+TE_READONLY: int
+TE_PASSWORD: int
+TE_PROCESS_ENTER: int
+TE_RICH2: int
+TE_MULTILINE: int
+TE_MULTILINE: int
+TE_MULTILINE: int
 
 
 class CloseEvent(Event):
-    """ This event class contains information about window and session close
-
+    """ This event class contains information about window and session close
 events.
     """
     def __init__(self, commandEventType=wxEVT_NULL, id=0) -> None:
@@ -3443,7 +3576,7 @@ class CollapsibleHeaderCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3459,10 +3592,8 @@ EVT_COLLAPSIBLEHEADER_CHANGED: int  #  User changed the collapsed state. ^^
 
 
 class CollapsiblePane(Control):
-    """ A collapsible pane is a container with an embedded button-like control
-
-which can be used by the user to collapse or expand the paneâs
-
+    """ A collapsible pane is a container with an embedded button-like control
+which can be used by the user to collapse or expand the paneâs
 contents.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3482,7 +3613,7 @@ contents.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3502,11 +3633,14 @@ CP_DEFAULT_STYLE: int  #  The default style. It includes wx.TAB_TRAVERSAL and wx
 CP_NO_TLW_RESIZE: int  #  By default   wx.CollapsiblePane  resizes the top level window containing it when its own size changes. This allows easily implementing dialogs containing an optionally shown part, for example, and so is the default behaviour but can be inconvenient in some specific cases â
 EVT_COLLAPSIBLEPANE_CHANGED: int  #  The user expanded or collapsed the collapsible pane.
 EVT_NAVIGATION_KEY: int  #  Process a navigation key event. ^^
+CP_DEFAULT_STYLE: int
+TAB_TRAVERSAL: int
+BORDER_NONE: int
+CP_NO_TLW_RESIZE: int
 
 
 class CollapsiblePaneEvent(CommandEvent):
-    """ This event class is used for the events generated by
-
+    """ This event class is used for the events generated by
 CollapsiblePane.
     """
     def __init__(self, generator, id, collapsed) -> None:
@@ -3525,10 +3659,8 @@ EVT_COLLAPSIBLEPANE_CHANGED: int  #  The user expanded or collapsed the collapsi
 
 
 class Colour(Object):
-    """ A colour is an object representing a combination of Red, Green, and
-
-Blue (RGB) intensity values and an Alpha value, and is used to
-
+    """ A colour is an object representing a combination of Red, Green, and
+Blue (RGB) intensity values and an Alpha value, and is used to
 determine drawing colours.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3560,7 +3692,7 @@ determine drawing colours.
         """ Returns the alpha value, on platforms where alpha is not yet supported, this always returns wx.ALPHA_OPAQUE.
         """
 
-    def GetAsString(self, flags: long=C2S_NAME|C2S_CSS_SYNTAX) -> str:
+    def GetAsString(self, flags: int=C2S_NAME|C2S_CSS_SYNTAX) -> str:
         """ Converts this colour to a String       using the given flags.
         """
 
@@ -3643,11 +3775,11 @@ determine drawing colours.
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> int:
@@ -3655,19 +3787,19 @@ determine drawing colours.
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def _copyFrom(self, other) -> None:
@@ -3682,6 +3814,13 @@ determine drawing colours.
         """ Tests the equality of two colours by comparing individual red, green, blue intensities and alpha values.
         """
 
+ALPHA_OPAQUE: int
+ALPHA_OPAQUE: int
+Colour: int
+ALPHA_OPAQUE: int
+ALPHA_OPAQUE: int
+Colour: int
+Colour: int
 
 
 class ColourData(Object):
@@ -3734,8 +3873,7 @@ class ColourData(Object):
 
 
 class ColourDatabase:
-    """ wxWidgets maintains a database of standard RGB colours for a
-
+    """ wxWidgets maintains a database of standard RGB colours for a
 predefined set of named colours.
     """
     def __init__(self) -> None:
@@ -3751,7 +3889,7 @@ predefined set of named colours.
         """
 
     def FindColour(self, colour) -> None:
-        """
+        """ 
         """
 
     def FindName(self, colour: 'Colour') -> str:
@@ -3772,7 +3910,7 @@ class ColourDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3784,6 +3922,12 @@ class ColourDialog(Dialog):
         """ Shows the dialog, returning wx.ID_OK if the user pressed wx.OK, and wx.ID_CANCEL otherwise.
         """
 
+ID_OK: int
+OK: int
+ID_CANCEL: int
+ID_OK: int
+OK: int
+ID_CANCEL: int
 
 
 class ColourDialogEvent(CommandEvent):
@@ -3816,7 +3960,7 @@ class ColourPickerCtrl(PickerBase):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3835,11 +3979,14 @@ CLRP_SHOW_ALPHA: int  #  Allows selecting opacity in the colour-chooser (effecti
 EVT_COLOURPICKER_CHANGED: int  #  The user changed the colour selected in the control either using the button or using text control (see  CLRP_USE_TEXTCTRL ; note that in this case the event is fired only if the userâs input is valid, i.e. recognizable). When using a popup dialog for changing the colour, this event is sent only when the changes in the dialog are accepted by the user, unlike   EVT_COLOURPICKER_CURRENT_CHANGED .
 EVT_COLOURPICKER_CURRENT_CHANGED: int  #  The user changed the currently selected colour in the dialog associated with the control. This event is sent immediately when the selection changes and you must also handle  EVT_COLOUR_CANCELLED   to revert to the previously selected colour if the selection ends up not being accepted. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW.
 EVT_COLOURPICKER_DIALOG_CANCELLED: int  #  The user cancelled the colour dialog associated with the control, i.e. closed it without accepting the selection. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW. ^^
+CLRP_DEFAULT_STYLE: int
+CLRP_USE_TEXTCTRL: int
+CLRP_SHOW_LABEL: int
+CLRP_SHOW_ALPHA: int
 
 
 class ColourPickerEvent(CommandEvent):
-    """ This event class is used for the events generated by
-
+    """ This event class is used for the events generated by
 ColourPickerCtrl.
     """
     def __init__(self, *args, **kw) -> None:
@@ -3879,7 +4026,7 @@ class ComboBox(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -3891,7 +4038,7 @@ class ComboBox(Control):
         """ Returns the item being selected right now.
         """
 
-    def GetInsertionPoint(self) -> long:
+    def GetInsertionPoint(self) -> int:
         """ Same as wx.TextEntry.GetInsertionPoint .
         """
 
@@ -3949,11 +4096,19 @@ EVT_TEXT: int  #  Process a  wxEVT_TEXT   event, when the combobox text changes.
 EVT_TEXT_ENTER: int  #  Process a  wxEVT_TEXT_ENTER   event, when RETURN is pressed in the combobox (notice that the combobox must have been created with wx.TE_PROCESS_ENTER style to receive this event).
 EVT_COMBOBOX_DROPDOWN: int  #  Process a  wxEVT_COMBOBOX_DROPDOWN   event, which is generated when the list box part of the combo box is shown (drops down). Notice that this event is only supported by wxMSW, wxGTK with GTK+ 2.10 or later, and OSX/Cocoa.
 EVT_COMBOBOX_CLOSEUP: int  #  Process a  wxEVT_COMBOBOX_CLOSEUP   event, which is generated when the list box of the combo box disappears (closes up). This event is only generated for the same platforms as   wxEVT_COMBOBOX_DROPDOWN   above. ^^
+CB_READONLY: int
+CB_SIMPLE: int
+CB_DROPDOWN: int
+CB_READONLY: int
+CB_SORT: int
+TE_PROCESS_ENTER: int
+TE_PROCESS_ENTER: int
+ID_ANY: int
+NOT_FOUND: int
 
 
 class ComboCtrl(Control):
-    """ A combo control is a generic combobox that allows totally custom
-
+    """ A combo control is a generic combobox that allows totally custom
 popup.
     """
     def __init__(self, *args, **kw) -> None:
@@ -4013,7 +4168,7 @@ popup.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -4030,11 +4185,11 @@ popup.
         """ Returns the current hint string.
         """
 
-    def GetInsertionPoint(self) -> long:
+    def GetInsertionPoint(self) -> int:
         """ Returns the insertion point for the combo controlâs text field.
         """
 
-    def GetLastPosition(self) -> long:
+    def GetLastPosition(self) -> int:
         """ Returns the last position in the combo control text field.
         """
 
@@ -4111,6 +4266,18 @@ EVT_TEXT: int  #  Process a  wxEVT_TEXT   event, when the text changes.
 EVT_TEXT_ENTER: int  #  Process a  wxEVT_TEXT_ENTER   event, when RETURN is pressed in the combo control.
 EVT_COMBOBOX_DROPDOWN: int  #  Process a  wxEVT_COMBOBOX_DROPDOWN   event, which is generated when the popup window is shown (drops down).
 EVT_COMBOBOX_CLOSEUP: int  #  Process a  wxEVT_COMBOBOX_CLOSEUP   event, which is generated when the popup window of the combo control disappears (closes up). You should avoid adding or deleting items in this event. ^^
+CB_READONLY: int
+CB_SORT: int
+TE_PROCESS_ENTER: int
+CC_SPECIAL_DCLICK: int
+CB_READONLY: int
+CC_STD_BUTTON: int
+ID_ANY: int
+CONTROL_ISSUBMENU: int
+CONTROL_SELECTED: int
+CONTROL_DISABLED: int
+LEFT: int
+RIGHT: int
 
 
 class ComboCtrlFeatures:
@@ -4119,8 +4286,7 @@ class ComboCtrlFeatures:
 
 
 class ComboPopup:
-    """ In order to use a custom popup with ComboCtrl, an interface class
-
+    """ In order to use a custom popup with ComboCtrl, an interface class
 must be derived from ComboPopup.
     """
     def __init__(self) -> None:
@@ -4198,12 +4364,9 @@ must be derived from ComboPopup.
 
 
 class Command(Object):
-    """ Command is a base class for modelling an application command, which
-
-is an action usually performed by selecting a menu item, pressing a
-
-toolbar button or any other means provided by the application to
-
+    """ Command is a base class for modelling an application command, which
+is an action usually performed by selecting a menu item, pressing a
+toolbar button or any other means provided by the application to
 change the data or view.
     """
     def __init__(self, canUndo=False, name="") -> None:
@@ -4229,8 +4392,7 @@ change the data or view.
 
 
 class CommandEvent(Event):
-    """ This event class contains information about command events, which
-
+    """ This event class contains information about command events, which
 originate from a variety of simple controls.
     """
     def __init__(self, commandEventType=wxEVT_NULL, id=0) -> None:
@@ -4245,7 +4407,7 @@ originate from a variety of simple controls.
         """ Alias for GetClientData
         """
 
-    def GetExtraLong(self) -> long:
+    def GetExtraLong(self) -> int:
         """ Returns extra information dependent on the event objects type.
         """
 
@@ -4277,7 +4439,7 @@ originate from a variety of simple controls.
         """ Alias for SetClientData
         """
 
-    def SetExtraLong(self, extraLong: long) -> None:
+    def SetExtraLong(self, extraLong: int) -> None:
         """ Sets the m_extraLong  member.
         """
 
@@ -4320,11 +4482,11 @@ EVT_COMMAND_RIGHT_CLICK: int  #  Process a  wxEVT_COMMAND_RIGHT_CLICK   command,
 EVT_COMMAND_SET_FOCUS: int  #  Process a  wxEVT_COMMAND_SET_FOCUS   command, which is generated by a control (wxMSW only).
 EVT_COMMAND_KILL_FOCUS: int  #  Process a  wxEVT_COMMAND_KILL_FOCUS   command, which is generated by a control (wxMSW only).
 EVT_COMMAND_ENTER: int  #  Process a  wxEVT_COMMAND_ENTER   command, which is generated by a control. ^^
+TE_PROCESS_ENTER: int
 
 
 class CommandProcessor(Object):
-    """ CommandProcessor is a class that maintains a history of Commands,
-
+    """ CommandProcessor is a class that maintains a history of Commands,
 with undo/redo functionality built-in.
     """
     def __init__(self, maxCommands: int=-1) -> None:
@@ -4471,19 +4633,19 @@ class ConfigBase(Object):
         """ Returns the type of the given entry or Unknown  if the entry doesnât exist.
         """
 
-    def GetFirstEntry(self) -> PyObject:
+    def GetFirstEntry(self) -> Any:
         """ GetFirstEntry() . (more, value, index)
         """
 
-    def GetFirstGroup(self) -> PyObject:
+    def GetFirstGroup(self) -> Any:
         """ GetFirstGroup() . (more, value, index)
         """
 
-    def GetNextEntry(self, index) -> PyObject:
+    def GetNextEntry(self, index) -> Any:
         """ GetNextEntry() . (more, value, index)
         """
 
-    def GetNextGroup(self, index) -> PyObject:
+    def GetNextGroup(self, index) -> Any:
         """ GetNextGroup(long index) . (more, value, index)
         """
 
@@ -4536,10 +4698,10 @@ class ConfigBase(Object):
         """
 
     def ReadInt(self, key, defaultVal=0) -> None:
-        """
+        """ 
         """
 
-    def ReadLong(self, key, defaultVal) -> long:
+    def ReadLong(self, key, defaultVal) -> int:
         """ Reads a long value from the key and returns it.
         """
 
@@ -4588,15 +4750,14 @@ class ConfigBase(Object):
         """ bool
         """
 
-    def _cpp_ReadInt(self, key, defaultVal=0) -> long:
+    def _cpp_ReadInt(self, key, defaultVal=0) -> int:
         """ long
         """
 
 
 
 class ConfigPathChanger:
-    """ A handy little class which changes the current path in a Config
-
+    """ A handy little class which changes the current path in a Config
 object and restores it in dtor.
     """
     def __init__(self, pContainer, strEntry) -> None:
@@ -4612,18 +4773,17 @@ object and restores it in dtor.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class ContextHelp(Object):
-    """ This class changes the cursor to a query and puts the application into
-
+    """ This class changes the cursor to a query and puts the application into
 a âcontext-sensitive help modeâ.
     """
     def __init__(self, window=None, doNow=True) -> None:
@@ -4638,11 +4798,12 @@ a âcontext-sensitive help modeâ.
         """ Ends context-sensitive help mode.
         """
 
+DIALOG_EX_CONTEXTHELP: int
+DIALOG_EX_CONTEXTHELP: int
 
 
 class ContextHelpButton(BitmapButton):
-    """ Instances of this class may be used to add a question mark button that
-
+    """ Instances of this class may be used to add a question mark button that
 when pressed, puts the application into context-help mode.
     """
     def __init__(self, parent, id=ID_CONTEXT_HELP, pos=DefaultPosition, size=DefaultSize, style=0) -> None:
@@ -4650,15 +4811,17 @@ when pressed, puts the application into context-help mode.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+DIALOG_EX_CONTEXTHELP: int
+OK: int
+ID_CONTEXT_HELP: int
 
 
 class ContextMenuEvent(CommandEvent):
-    """ This class is used for context menu events, sent to give the
-
+    """ This class is used for context menu events, sent to give the
 application a chance to show a context (popup) menu for a Window.
     """
     def __init__(self, type=wxEVT_NULL, id=0, pos=DefaultPosition) -> None:
@@ -4677,8 +4840,7 @@ EVT_CONTEXT_MENU: int  #  A right click (or other context menu command depending
 
 
 class Window(EvtHandler):
-    """ Window is the base class for all windows and represents any visible
-
+    """ Window is the base class for all windows and represents any visible
 object on screen.
     """
     def __init__(self, *args, **kw) -> None:
@@ -4951,7 +5113,7 @@ object on screen.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ Returns the default font and colours which are used by the control.
         """
 
@@ -5007,7 +5169,7 @@ object on screen.
         """ Returns the event handler for this window.
         """
 
-    def GetExtraStyle(self) -> long:
+    def GetExtraStyle(self) -> int:
         """ Returns the extra style bits for the window.
         """
 
@@ -5024,7 +5186,7 @@ object on screen.
         """
 
     def GetGtkWidget(self) -> None:
-        """
+        """ 
         """
 
     def GetHandle(self) -> None:
@@ -5047,7 +5209,7 @@ object on screen.
         """ Generic way of getting a label from any window, for identification purposes.
         """
 
-    def GetLayoutDirection(self) -> 'LayoutDirection':
+    def GetLayoutDirection(self) -> int:
         """ Returns the layout direction for this window, Note that  Layout_Default   is returned if layout direction is not supported.
         """
 
@@ -5183,15 +5345,15 @@ object on screen.
         """ Returns the size of the left/right and top/bottom borders of this window in x and y components of the result respectively.
         """
 
-    def GetWindowStyle(self) -> long:
+    def GetWindowStyle(self) -> int:
         """ See GetWindowStyleFlag   for more info.
         """
 
-    def GetWindowStyleFlag(self) -> long:
+    def GetWindowStyleFlag(self) -> int:
         """ Gets the window style that was passed to the constructor or Create   method.
         """
 
-    def GetWindowVariant(self) -> 'WindowVariant':
+    def GetWindowVariant(self) -> int:
         """ Returns the value previously passed to SetWindowVariant .
         """
 
@@ -5505,7 +5667,7 @@ object on screen.
         """
 
     def SetClientRect(self, rect) -> None:
-        """
+        """ 
         """
 
     def SetClientSize(self, *args, **kw) -> None:
@@ -5525,7 +5687,7 @@ object on screen.
         """
 
     def SetDimensions(self, x, y, width, height, sizeFlags=SIZE_AUTO) -> None:
-        """
+        """ 
         """
 
     def SetDoubleBuffered(self, on: bool) -> None:
@@ -5540,7 +5702,7 @@ object on screen.
         """ Sets the event handler for this window.
         """
 
-    def SetExtraStyle(self, exStyle: long) -> None:
+    def SetExtraStyle(self, exStyle: int) -> None:
         """ Sets the extra style bits for the window.
         """
 
@@ -5576,7 +5738,7 @@ object on screen.
         """ Sets the windowâs label.
         """
 
-    def SetLayoutDirection(self, dir: LayoutDirection) -> None:
+    def SetLayoutDirection(self, dir: int) -> None:
         """ Sets the layout direction for this window.
         """
 
@@ -5629,7 +5791,7 @@ object on screen.
         """
 
     def SetRect(self, rect) -> None:
-        """
+        """ 
         """
 
     def SetScrollPos(self, orientation, pos, refresh=True) -> None:
@@ -5676,15 +5838,15 @@ object on screen.
         """ Overloaded Implementations:
         """
 
-    def SetWindowStyle(self, style: long) -> None:
+    def SetWindowStyle(self, style: int) -> None:
         """ See SetWindowStyleFlag   for more info.
         """
 
-    def SetWindowStyleFlag(self, style: long) -> None:
+    def SetWindowStyleFlag(self, style: int) -> None:
         """ Sets the style of the window.
         """
 
-    def SetWindowVariant(self, variant: WindowVariant) -> None:
+    def SetWindowVariant(self, variant: int) -> None:
         """ Chooses a different variant of the window display to use.
         """
 
@@ -5741,7 +5903,7 @@ object on screen.
         """ Calling this method immediately repaints the invalidated area of the window and all of its children recursively (this normally only happens when the flow of control returns to the event loop).
         """
 
-    def UpdateWindowUI(self, flags: long=UPDATE_UI_NONE) -> None:
+    def UpdateWindowUI(self, flags: int=UPDATE_UI_NONE) -> None:
         """ This function sends one or more   wx.UpdateUIEvent  to the window.
         """
 
@@ -5770,8 +5932,7 @@ object on screen.
         """
 
     def __nonzero__(self) -> None:
-        """ Can be used to test if the C++ part of the window still exists, with
-
+        """ Can be used to test if the C++ part of the window still exists, with
 code like this:
         """
 
@@ -5812,6 +5973,66 @@ EVT_PAINT: int  #  Process a  wxEVT_PAINT   event. See    wx.PaintEvent.
 EVT_SET_CURSOR: int  #  Process a  wxEVT_SET_CURSOR   event. See    wx.SetCursorEvent.
 EVT_SIZE: int  #  Process a  wxEVT_SIZE   event. See    wx.SizeEvent.
 EVT_SYS_COLOUR_CHANGED: int  #  Process a  wxEVT_SYS_COLOUR_CHANGED   event. See    wx.SysColourChangedEvent. ^^
+BORDER_DEFAULT: int
+BORDER_SIMPLE: int
+SIMPLE_BORDER: int
+BORDER_SUNKEN: int
+SUNKEN_BORDER: int
+BORDER_RAISED: int
+RAISED_BORDER: int
+BORDER_STATIC: int
+STATIC_BORDER: int
+BORDER_THEME: int
+BORDER_NONE: int
+NO_BORDER: int
+BORDER_DOUBLE: int
+TRANSPARENT_WINDOW: int
+TAB_TRAVERSAL: int
+WANTS_CHARS: int
+NO_FULL_REPAINT_ON_RESIZE: int
+VSCROLL: int
+HSCROLL: int
+VSCROLL: int
+ALWAYS_SHOW_SB: int
+CLIP_CHILDREN: int
+FULL_REPAINT_ON_RESIZE: int
+WS_EX_BLOCK_EVENTS: int
+WS_EX_TRANSIENT: int
+WS_EX_CONTEXTHELP: int
+WS_EX_PROCESS_IDLE: int
+WS_EX_PROCESS_UI_UPDATES: int
+BORDER_MASK: int
+BORDER_DEFAULT: int
+ID_ANY: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
+ID_CANCEL: int
+TOUCH_NONE: int
+TOUCH_ALL_GESTURES: int
+BORDER_MASK: int
+BORDER_DEFAULT: int
+ID_ANY: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+TE_PROCESS_TAB: int
+ID_NONE: int
+MOD_SHIFT: int
+MOD_CONTROL: int
+MOD_ALT: int
+MOD_WIN: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+UPDATE_UI_FROMIDLE: int
 
 
 class Control(Window):
@@ -5840,7 +6061,7 @@ class Control(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -5880,20 +6101,18 @@ class Control(Window):
 EVT_TEXT_COPY: int  #  Some or all of the controls content was copied to the clipboard.
 EVT_TEXT_CUT: int  #  Some or all of the controls content was cut (i.e. copied and deleted).
 EVT_TEXT_PASTE: int  #  Clipboard content was pasted into the control. ^^
+ID_ANY: int
 
 
 class ControlWithItems(Control):
-    """ This is convenience class that derives from both Control and
-
+    """ This is convenience class that derives from both Control and
 ItemContainer.
     """
 
 
 class ItemContainer(ItemContainerImmutable):
-    """ This class is an abstract base class for some wxWidgets controls which
-
-contain several items such as ListBox, CheckListBox, ComboBox or
-
+    """ This class is an abstract base class for some wxWidgets controls which
+contain several items such as ListBox, CheckListBox, ComboBox or
 Choice.
     """
     def Append(self, *args, **kw) -> int:
@@ -5960,20 +6179,19 @@ Choice.
         """ Alias for Set
         """
 
+OK: int
 
 
 class Cursor(GDIObject):
-    """ A cursor is a small bitmap usually used for denoting where the mouse
-
-pointer is, with a picture that might indicate the interpretation of a
-
+    """ A cursor is a small bitmap usually used for denoting where the mouse
+pointer is, with a picture that might indicate the interpretation of a
 mouse click.
     """
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
         """
 
-    def GetHandle(self) -> long:
+    def GetHandle(self) -> int:
         """ Get the handle for the Cursor.  Windows only.
         """
 
@@ -6004,10 +6222,8 @@ mouse click.
 
 
 class CustomDataObject(DataObjectSimple):
-    """ CustomDataObject is a specialization of DataObjectSimple for some
-
-application-specific data in arbitrary (either custom or one of the
-
+    """ CustomDataObject is a specialization of DataObjectSimple for some
+application-specific data in arbitrary (either custom or one of the
 standard ones).
     """
     def __init__(self, *args, **kw) -> None:
@@ -6015,12 +6231,11 @@ standard ones).
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
-    def GetData(self) -> PyObject:
+    def GetData(self) -> Any:
         """ Returns a reference to the data buffer.
         """
 
@@ -6035,8 +6250,7 @@ supports transferring in the given direction.
 
 
 class DataObjectSimple(DataObject):
-    """ This is the simplest possible implementation of the DataObject
-
+    """ This is the simplest possible implementation of the DataObject
 class.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6044,8 +6258,7 @@ class.
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -6072,10 +6285,8 @@ supports transferring in the given direction.
 
 
 class DataFormat:
-    """ A DataFormat is an encapsulation of a platform-specific format
-
-handle which is used by the system for the clipboard and drag and drop
-
+    """ A DataFormat is an encapsulation of a platform-specific format
+handle which is used by the system for the clipboard and drag and drop
 operations.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6106,11 +6317,18 @@ operations.
         """ Returns True if the formats are equal.
         """
 
+DF_INVALID: int
+DF_TEXT: int
+DF_BITMAP: int
+DF_METAFILE: int
+DF_UNICODETEXT: int
+DF_FILENAME: int
+DF_HTML: int
+DF_PNG: int
 
 
 class DataObjectComposite(DataObject):
-    """ DataObjectComposite is the simplest DataObject derivation which
-
+    """ DataObjectComposite is the simplest DataObject derivation which
 may be used to support multiple formats.
     """
     def __init__(self) -> None:
@@ -6122,8 +6340,7 @@ may be used to support multiple formats.
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -6142,16 +6359,11 @@ supports transferring in the given direction.
 
 
 class DateSpan:
-    """ This class is a âlogical time spanâ and is useful for implementing
-
-program logic for such things as âadd one month to the dateâ which, in
-
-general, doesnât mean to add 60x60x24x31 seconds to it, but to take
-
-the same date the next month (to understand that this is indeed
-
-different consider adding one month to Feb, 15  we want to get Mar,
-
+    """ This class is a âlogical time spanâ and is useful for implementing
+program logic for such things as âadd one month to the dateâ which, in
+general, doesnât mean to add 60x60x24x31 seconds to it, but to take
+the same date the next month (to understand that this is indeed
+different consider adding one month to Feb, 15  we want to get Mar,
 15, of course).
     """
     def __init__(self, years=0, months=0, weeks=0, days=0) -> None:
@@ -6472,7 +6684,7 @@ class DateTime:
         """ Returns broken down representation of the date and time.
         """
 
-    def GetValue(self) -> long:
+    def GetValue(self) -> int:
         """ Returns the number of milliseconds since Jan 1, 1970 UTC.
         """
 
@@ -6650,7 +6862,7 @@ class DateTime:
         """ Sets the day without changing other date components.
         """
 
-    def SetFromDOS(self, ddt: long) -> 'DateTime':
+    def SetFromDOS(self, ddt: int) -> 'DateTime':
         """ Sets the date from the date and time in DOS format.
         """
 
@@ -6738,20 +6950,18 @@ class DateTime:
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
 
 
 class DCBrushChanger:
-    """ DCBrushChanger is a small helper class for setting a brush on a DC
-
-and unsetting it automatically in the destructor, restoring the
-
+    """ DCBrushChanger is a small helper class for setting a brush on a DC
+and unsetting it automatically in the destructor, restoring the
 previous one.
     """
     def __init__(self, dc, brush) -> None:
@@ -6759,18 +6969,17 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DCClipper:
-    """ DCClipper is a helper class for setting a clipping region on a DC
-
+    """ DCClipper is a helper class for setting a clipping region on a DC
 during its lifetime.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6778,20 +6987,18 @@ during its lifetime.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DCFontChanger:
-    """ DCFontChanger is a small helper class for setting a font on a DC
-
-and unsetting it automatically in the destructor, restoring the
-
+    """ DCFontChanger is a small helper class for setting a font on a DC
+and unsetting it automatically in the destructor, restoring the
 previous one.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6803,11 +7010,11 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -6826,10 +7033,8 @@ class DCOverlay:
 
 
 class DCPenChanger:
-    """ DCPenChanger is a small helper class for setting a pen on a DC and
-
-unsetting it automatically in the destructor, restoring the previous
-
+    """ DCPenChanger is a small helper class for setting a pen on a DC and
+unsetting it automatically in the destructor, restoring the previous
 one.
     """
     def __init__(self, dc, pen) -> None:
@@ -6837,20 +7042,18 @@ one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DCTextBgColourChanger:
-    """ DCTextBgColourChanger is a small helper class for setting a
-
-background text colour on a DC and unsetting it automatically in the
-
+    """ DCTextBgColourChanger is a small helper class for setting a
+background text colour on a DC and unsetting it automatically in the
 destructor, restoring the previous one.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6862,37 +7065,33 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DCTextBgModeChanger:
-    """ DCTextBgModeChanger is a small helper class for setting a background
-
-text mode on a DC and unsetting it automatically in the destructor,
-
+    """ DCTextBgModeChanger is a small helper class for setting a background
+text mode on a DC and unsetting it automatically in the destructor,
 restoring the previous one.
     """
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DCTextColourChanger:
-    """ DCTextColourChanger is a small helper class for setting a foreground
-
-text colour on a DC and unsetting it automatically in the
-
+    """ DCTextColourChanger is a small helper class for setting a foreground
+text colour on a DC and unsetting it automatically in the
 destructor, restoring the previous one.
     """
     def __init__(self, *args, **kw) -> None:
@@ -6904,22 +7103,19 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class DelegateRendererNative(RendererNative):
-    """ DelegateRendererNative allows reuse of renderers code by forwarding
-
-all the RendererNative methods to the given object and thus allowing
-
-you to only modify some of its methods  without having to reimplement
-
+    """ DelegateRendererNative allows reuse of renderers code by forwarding
+all the RendererNative methods to the given object and thus allowing
+you to only modify some of its methods  without having to reimplement
 all of them.
     """
     def __init__(self, *args, **kw) -> None:
@@ -7151,8 +7347,7 @@ class RendererNative:
 
 
 class Dialog(TopLevelWindow):
-    """ A dialog box is a window with a title bar and sometimes a system menu,
-
+    """ A dialog box is a window with a title bar and sometimes a system menu,
 which can be moved around the screen.
     """
     def __init__(self, *args, **kw) -> None:
@@ -7175,11 +7370,11 @@ which can be moved around the screen.
         """ Used for two-step dialog box construction.
         """
 
-    def CreateButtonSizer(self, flags: long) -> 'Sizer':
+    def CreateButtonSizer(self, flags: int) -> 'Sizer':
         """ Creates a sizer with standard buttons.
         """
 
-    def CreateSeparatedButtonSizer(self, flags: long) -> 'Sizer':
+    def CreateSeparatedButtonSizer(self, flags: int) -> 'Sizer':
         """ Creates a sizer with standard buttons using CreateButtonSizer   separated from the rest of the dialog contents by a horizontal   wx.StaticLine.
         """
 
@@ -7187,7 +7382,7 @@ which can be moved around the screen.
         """ Returns the sizer containing the given one with a separating   wx.StaticLine  if necessarily.
         """
 
-    def CreateStdDialogButtonSizer(self, flags: long) -> 'StdDialogButtonSizer':
+    def CreateStdDialogButtonSizer(self, flags: int) -> 'StdDialogButtonSizer':
         """ Creates a   wx.StdDialogButtonSizer  with standard buttons.
         """
 
@@ -7213,7 +7408,7 @@ which can be moved around the screen.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -7321,11 +7516,11 @@ which can be moved around the screen.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 CAPTION: int  #  Puts a caption on the dialog box.
@@ -7343,11 +7538,55 @@ DIALOG_EX_CONTEXTHELP: int  #  Under Windows, puts a query button on the caption
 DIALOG_EX_METAL: int  #  On macOS, frames with this style will be shown with a metallic look. This is an extra style. ^^
 EVT_CLOSE: int  #  The dialog is being closed by the user or programmatically (see wx.Window.Close ). The user may generate this event clicking the close button (typically the âXâ on the top-right of the title bar) if itâs present (see the  CLOSE_BOX   style).
 EVT_INIT_DIALOG: int  #  Process a  wxEVT_INIT_DIALOG   event. See    wx.InitDialogEvent. ^^
+ID_OK: int
+ID_CANCEL: int
+CAPTION: int
+DEFAULT_DIALOG_STYLE: int
+CAPTION: int
+CLOSE_BOX: int
+SYSTEM_MENU: int
+RESIZE_BORDER: int
+SYSTEM_MENU: int
+CLOSE_BOX: int
+MAXIMIZE_BOX: int
+MINIMIZE_BOX: int
+STAY_ON_TOP: int
+DIALOG_NO_PARENT: int
+DIALOG_EX_CONTEXTHELP: int
+DIALOG_EX_METAL: int
+OK: int
+OK: int
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
+OK: int
+CANCEL: int
+YES: int
+NO: int
+APPLY: int
+CLOSE: int
+HELP: int
+NO_DEFAULT: int
+OK: int
+CANCEL: int
+YES: int
+NO: int
+APPLY: int
+CLOSE: int
+HELP: int
+NO_DEFAULT: int
+OK: int
+OK: int
+OK: int
+OK: int
+ID_OK: int
+ID_ANY: int
+ID_CANCEL: int
+ID_NONE: int
 
 
 class DialogLayoutAdapter:
-    """ This abstract class is the base for classes that help wxWidgets
-
+    """ This abstract class is the base for classes that help wxWidgets
 perform run-time layout adaptation of dialogs.
     """
     def __init__(self) -> None:
@@ -7372,7 +7611,7 @@ class DirDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -7405,6 +7644,19 @@ DD_DIR_MUST_EXIST: int  #  The dialog will allow the user to choose only an exis
 DD_CHANGE_DIR: int  #  Change the current working directory to the directory chosen by the user. This flag cannot be used with the  DD_MULTIPLE   style.
 DD_MULTIPLE: int  #  Allow the user to select multiple directories. This flag is only available since wxWidgets 3.1.4
 DD_SHOW_HIDDEN: int  #  Show hidden and system folders. This flag is only available since wxWidgets 3.1.4 ^^
+DD_DEFAULT_STYLE: int
+DEFAULT_DIALOG_STYLE: int
+RESIZE_BORDER: int
+DD_DIR_MUST_EXIST: int
+DD_CHANGE_DIR: int
+DD_MULTIPLE: int
+DD_SHOW_HIDDEN: int
+ID_OK: int
+OK: int
+ID_CANCEL: int
+ID_OK: int
+OK: int
+ID_CANCEL: int
 
 
 class DirFilterListCtrl(Choice):
@@ -7423,7 +7675,7 @@ class DirFilterListCtrl(Choice):
         """
 
     def Init(self) -> None:
-        """
+        """ 
         """
 
 
@@ -7440,7 +7692,7 @@ class DirPickerCtrl(PickerBase):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -7462,11 +7714,18 @@ DIRP_DIR_MUST_EXIST: int  #  Creates a picker which allows selecting only existi
 DIRP_CHANGE_DIR: int  #  Change current working directory on each user directory selection change.
 DIRP_SMALL: int  #  Use smaller version of the control with a small ââ¦â button instead of the normal âBrowseâ one. This flag is new since wxWidgets 2.9.3. ^^
 EVT_DIRPICKER_CHANGED: int  #  The user changed the directory selected in the control either using the button or using text control (see wx.DIRP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, e.g. an existing directory path). ^^
+DIRP_DEFAULT_STYLE: int
+DIRP_DIR_MUST_EXIST: int
+DIRP_USE_TEXTCTRL: int
+DIRP_USE_TEXTCTRL: int
+DIRP_DIR_MUST_EXIST: int
+DIRP_CHANGE_DIR: int
+DIRP_SMALL: int
+DIRP_USE_TEXTCTRL: int
 
 
 class Display:
-    """ Determines the sizes and locations of displays connected to the
-
+    """ Determines the sizes and locations of displays connected to the
 system.
     """
     def __init__(self, *args, **kw) -> None:
@@ -7537,20 +7796,18 @@ system.
 
 
 class DisplayChangedEvent(Event):
-    """ A display changed event is sent to top-level windows when the display
-
+    """ A display changed event is sent to top-level windows when the display
 resolution has changed.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 EVT_DISPLAY_CHANGED: int  #  Process a  wxEVT_DISPLAY_CHANGED   event. ^^
 
 
 class DPIChangedEvent(Event):
-    """ Event sent when the display scale factor or pixel density (measured in
-
+    """ Event sent when the display scale factor or pixel density (measured in
 dots-per-inch, or DPI) of the monitor a window is on changes.
     """
     def GetNewDPI(self) -> 'Size':
@@ -7577,8 +7834,7 @@ EVT_DPI_CHANGED: int  #  Process a  wxEVT_DPI_CHANGED   event. ^^
 
 
 class DragImage(Object):
-    """ This class is used when you wish to drag an object on the screen, and
-
+    """ This class is used when you wish to drag an object on the screen, and
 a simple cursor is not enough.
     """
     def __init__(self, *args, **kw) -> None:
@@ -7608,15 +7864,14 @@ a simple cursor is not enough.
 
 
 class DropFilesEvent(Event):
-    """ This class is used for drop files events, that is, when files have
-
+    """ This class is used for drop files events, that is, when files have
 been dropped onto the window.
     """
     def __init__(self, id=0, files=None) -> None:
         """ Constructor.
         """
 
-    def GetFiles(self) -> PyObject:
+    def GetFiles(self) -> Any:
         """ Returns an array of filenames.
         """
 
@@ -7714,8 +7969,7 @@ class DropTarget:
 
 
 class EraseEvent(Event):
-    """ An erase event is sent when a windowâs background needs to be
-
+    """ An erase event is sent when a windowâs background needs to be
 repainted.
     """
     def __init__(self, id=0, dc=None) -> None:
@@ -7730,8 +7984,7 @@ EVT_ERASE_BACKGROUND: int  #  Process a  wxEVT_ERASE_BACKGROUND   event. ^^
 
 
 class Event(Object):
-    """ An event is a structure holding information about an event passed to a
-
+    """ An event is a structure holding information about an event passed to a
 callback or member function.
     """
     def __init__(self, id=0, eventType=wxEVT_NULL) -> None:
@@ -7742,15 +7995,15 @@ callback or member function.
         """ Returns a copy of the event.
         """
 
-    def GetEventCategory(self) -> 'EventCategory':
+    def GetEventCategory(self) -> int:
         """ Returns a generic category for this event.
         """
 
-    def GetEventObject(self) -> 'Object':
+    def GetEventObject(self) -> 'Window':
         """ Returns the object (usually a window) associated with the event, if any.
         """
 
-    def GetEventType(self) -> 'EventType':
+    def GetEventType(self) -> int:
         """ Returns the identifier of the given event type, such as  wxEVT_BUTTON .
         """
 
@@ -7762,7 +8015,7 @@ callback or member function.
         """ Returns True if the event handler should be skipped, False otherwise.
         """
 
-    def GetTimestamp(self) -> long:
+    def GetTimestamp(self) -> int:
         """ Gets the timestamp for the event.
         """
 
@@ -7778,7 +8031,7 @@ callback or member function.
         """ Sets the originating object.
         """
 
-    def SetEventType(self, type: 'EventType') -> None:
+    def SetEventType(self, type: int) -> None:
         """ Sets the event type.
         """
 
@@ -7786,7 +8039,7 @@ callback or member function.
         """ Sets the identifier associated with this event, such as a button command id.
         """
 
-    def SetTimestamp(self, timeStamp: long=0) -> None:
+    def SetTimestamp(self, timeStamp: int=0) -> None:
         """ Sets the timestamp for the event.
         """
 
@@ -7805,31 +8058,29 @@ callback or member function.
 
 
 class EventBlocker(EvtHandler):
-    """ This class is a special event handler which allows discarding any
-
+    """ This class is a special event handler which allows discarding any
 event (or a set of event types) directed to a specific window.
     """
     def __init__(self, win, type=-1) -> None:
         """ Constructs the blocker for the given window and for the given event type.
         """
 
-    def Block(self, eventType: 'EventType') -> None:
+    def Block(self, eventType: int) -> None:
         """ Adds to the list of event types which should be blocked the given eventType.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
 
 class EventFilter:
-    """ A global event filter for pre-processing all the events generated in
-
+    """ A global event filter for pre-processing all the events generated in
 the program.
     """
     def __init__(self) -> None:
@@ -7850,11 +8101,11 @@ class EventLoopActivator:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -7866,7 +8117,7 @@ class EventLoopBase:
         """ Dispatches the next event in the windowing system event queue.
         """
 
-    def DispatchTimeout(self, timeout: long) -> int:
+    def DispatchTimeout(self, timeout: int) -> int:
         """ Dispatch an event but not wait longer than the specified timeout for it.
         """
 
@@ -7879,7 +8130,7 @@ class EventLoopBase:
         """ Return the currently active (running) event loop.
         """
 
-    def IsEventAllowedInsideYield(self, cat: EventCategory) -> bool:
+    def IsEventAllowedInsideYield(self, cat: int) -> bool:
         """ Returns True if the given event category is allowed inside a YieldFor   call (i.e.
         """
 
@@ -7936,7 +8187,7 @@ class EventLoopBase:
         """ Yields control to pending messages in the windowing system.
         """
 
-    def YieldFor(self, eventsToProcess: long) -> bool:
+    def YieldFor(self, eventsToProcess: int) -> bool:
         """ Works like wx.Yield       with onlyIfNeeded  == True, except that it allows the caller to specify a mask of the   wx.EventCategory  values which indicates which events should be processed and which should instead be âdelayedâ (i.e.
         """
 
@@ -8036,8 +8287,7 @@ class EvtHandler(Object):
         """
 
     def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None) -> None:
-        """ Disconnects the event handler binding for event from self.
-
+        """ Disconnects the event handler binding for event from self.
 Returns True if successful.
         """
 
@@ -8048,8 +8298,7 @@ Returns True if successful.
 
 
 class FileConfig(ConfigBase):
-    """ FileConfig implements ConfigBase interface for storing and
-
+    """ FileConfig implements ConfigBase interface for storing and
 retrieving configuration information using plain text files.
     """
     def __init__(self, *args, **kw) -> None:
@@ -8144,7 +8393,7 @@ class FileCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -8157,10 +8406,8 @@ class FileCtrl(Control):
         """
 
     def GetFilenames(self) -> Any:
-        """ Returns a list of filenames selected in the control.  This function
-
-should only be used with controls which have the wx.``wx.FC_MULTIPLE`` style,
-
+        """ Returns a list of filenames selected in the control.  This function
+should only be used with controls which have the wx.``wx.FC_MULTIPLE`` style,
 use GetFilename for the others.
         """
 
@@ -8173,10 +8420,8 @@ use GetFilename for the others.
         """
 
     def GetPaths(self) -> Any:
-        """ Returns a list of the full paths (directory and filename) of the files
-
-chosen. This function should only be used with controlss which have
-
+        """ Returns a list of the full paths (directory and filename) of the files
+chosen. This function should only be used with controlss which have
 the wx.``wx.FC_MULTIPLE`` style, use GetPath for the others.
         """
 
@@ -8217,11 +8462,19 @@ EVT_FILECTRL_FILEACTIVATED: int  #  The user activated a file(by double-clicking
 EVT_FILECTRL_SELECTIONCHANGED: int  #  The user changed the current selection(by selecting or deselecting a file)
 EVT_FILECTRL_FOLDERCHANGED: int  #  The current folder of the file control has been changed
 EVT_FILECTRL_FILTERCHANGED: int  #  The current file filter of the file control has been changed.
+FC_DEFAULT_STYLE: int
+FC_OPEN: int
+FC_OPEN: int
+FC_SAVE: int
+FC_SAVE: int
+FC_OPEN: int
+FC_MULTIPLE: int
+FC_SAVE: int
+FC_NOSHOWHIDDEN: int
 
 
 class FileCtrlEvent(CommandEvent):
-    """ A file control event holds information about events associated with
-
+    """ A file control event holds information about events associated with
 FileCtrl objects.
     """
     def __init__(self, type, evtObject, id) -> None:
@@ -8274,8 +8527,7 @@ class FileDataObject(DataObjectSimple):
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -8297,7 +8549,7 @@ class FileDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -8322,10 +8574,8 @@ class FileDialog(Dialog):
         """
 
     def GetFilenames(self) -> Any:
-        """ Returns a list of filenames chosen in the dialog.  This function
-
-should only be used with the dialogs which have wx.``MULTIPLE`` style,
-
+        """ Returns a list of filenames chosen in the dialog.  This function
+should only be used with the dialogs which have wx.``MULTIPLE`` style,
 use GetFilename for the others.
         """
 
@@ -8342,10 +8592,8 @@ use GetFilename for the others.
         """
 
     def GetPaths(self) -> Any:
-        """ Returns a list of the full paths of the files chosen. This function
-
-should only be used with the dialogs which have wx.``MULTIPLE`` style, use
-
+        """ Returns a list of the full paths of the files chosen. This function
+should only be used with the dialogs which have wx.``MULTIPLE`` style, use
 GetPath for the others.
         """
 
@@ -8395,6 +8643,19 @@ FD_MULTIPLE: int  #  For open dialog only: int  #  allows selecting multiple fil
 FD_CHANGE_DIR: int  #  Change the current working directory (when the dialog is dismissed) to the directory where the file(s) chosen by the user are.
 FD_PREVIEW: int  #  Show the preview of the selected files (currently only supported by wxGTK).
 FD_SHOW_HIDDEN: int  #  Show hidden files. This flag was added in wxWidgets 3.1.3 ^^
+FD_DEFAULT_STYLE: int
+FD_OPEN: int
+FD_SAVE: int
+FD_OVERWRITE_PROMPT: int
+FD_NO_FOLLOW: int
+FD_FILE_MUST_EXIST: int
+FD_MULTIPLE: int
+FD_CHANGE_DIR: int
+FD_PREVIEW: int
+FD_SHOW_HIDDEN: int
+OK: int
+NOT_FOUND: int
+OK: int
 
 
 class FileDialogButton(FileDialogCustomControl):
@@ -8426,6 +8687,8 @@ class FileDialogChoice(FileDialogCustomControl):
         """ Set the selection to the item with the given index.
         """
 
+NOT_FOUND: int
+NOT_FOUND: int
 
 
 class FileDialogCustomControl(EvtHandler):
@@ -8450,8 +8713,7 @@ class FileDialogCustomControl(EvtHandler):
 
 
 class FileDialogCustomize:
-    """ Used with FileDialogCustomizeHook to add custom controls to
-
+    """ Used with FileDialogCustomizeHook to add custom controls to
 FileDialog.
     """
     def AddButton(self, label: str) -> 'FileDialogButton':
@@ -8533,8 +8795,7 @@ class FileDialogTextCtrl(FileDialogCustomControl):
 
 
 class FileDirPickerEvent(CommandEvent):
-    """ This event class is used for the events generated by FilePickerCtrl
-
+    """ This event class is used for the events generated by FilePickerCtrl
 and by DirPickerCtrl.
     """
     def __init__(self, *args, **kw) -> None:
@@ -8565,7 +8826,7 @@ class FilePickerCtrl(PickerBase):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -8590,11 +8851,25 @@ FLP_FILE_MUST_EXIST: int  #  Can be combined with wx.FLP_OPEN only: int  #  the 
 FLP_CHANGE_DIR: int  #  Change current working directory on each user file selection change.
 FLP_SMALL: int  #  Use smaller version of the control with a small ââ¦â button instead of the normal âBrowseâ one. This flag is new since wxWidgets 2.9.3. ^^
 EVT_FILEPICKER_CHANGED: int  #  The user changed the file selected in the control either using the button or using text control (see wx.FLP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, e.g. an existing file path if wx.FLP_FILE_MUST_EXIST was given). ^^
+FLP_DEFAULT_STYLE: int
+FLP_OPEN: int
+FLP_FILE_MUST_EXIST: int
+FLP_USE_TEXTCTRL: int
+FLP_USE_TEXTCTRL: int
+FLP_OPEN: int
+FLP_SAVE: int
+FLP_OVERWRITE_PROMPT: int
+FLP_SAVE: int
+FLP_FILE_MUST_EXIST: int
+FLP_OPEN: int
+FLP_CHANGE_DIR: int
+FLP_SMALL: int
+FLP_USE_TEXTCTRL: int
+FLP_FILE_MUST_EXIST: int
 
 
 class FileDropTarget(DropTarget):
-    """ This is a drop target which accepts files (dragged from File Manager
-
+    """ This is a drop target which accepts files (dragged from File Manager
 or Explorer).
     """
     def __init__(self) -> None:
@@ -8612,10 +8887,8 @@ or Explorer).
 
 
 class FileHistory(Object):
-    """ The FileHistory encapsulates a user interface convenience, the list
-
-of most recently visited files as shown on a menu (usually the File
-
+    """ The FileHistory encapsulates a user interface convenience, the list
+of most recently visited files as shown on a menu (usually the File
 menu).
     """
     def __init__(self, maxFiles=9, idBase=ID_FILE1) -> None:
@@ -8682,11 +8955,11 @@ menu).
         """ Adds this menu to the list of those menus that are managed by this file history object.
         """
 
+ID_FILE1: int
 
 
 class FileSystem(Object):
-    """ This class provides an interface for opening files on different file
-
+    """ This class provides an interface for opening files on different file
 systems.
     """
     def __init__(self) -> None:
@@ -8742,11 +9015,12 @@ systems.
         """ Converts URL into a well-formed filename.
         """
 
+FS_READ: int
+FS_SEEKABLE: int
 
 
 class FileSystemHandler(Object):
-    """ Classes derived from FileSystemHandler are used to access virtual
-
+    """ Classes derived from FileSystemHandler are used to access virtual
 file systems.
     """
     def __init__(self) -> None:
@@ -8797,8 +9071,7 @@ file systems.
 
 
 class FileSystemWatcher(EvtHandler):
-    """ The FileSystemWatcher class allows receiving notifications of file
-
+    """ The FileSystemWatcher class allows receiving notifications of file
 system changes.
     """
     def __init__(self) -> None:
@@ -8924,8 +9197,7 @@ class FileType:
         """
 
     def GetDescription(self) -> str:
-        """ Returns a brief description for this file type: for example, âtext documentâ for
-
+        """ Returns a brief description for this file type: for example, âtext documentâ for
 the âtext/plainâ MIME type.
         """
 
@@ -8934,12 +9206,9 @@ the âtext/plainâ MIME type.
         """
 
     def GetExtensions(self) -> Any:
-        """ Returns all extensions associated with this file type: for
-
-example, it may contain the following two elements for the MIME
-
-type âtext/htmlâ (notice the absence of the leading dot): âhtmlâ
-
+        """ Returns all extensions associated with this file type: for
+example, it may contain the following two elements for the MIME
+type âtext/htmlâ (notice the absence of the leading dot): âhtmlâ
 and âhtmâ.
         """
 
@@ -8947,9 +9216,8 @@ and âhtmâ.
         """ Return the icon associated with this mime type, if any.
         """
 
-    def GetIconInfo(self) -> PyObject:
-        """ Returns a tuple containing the Icon for this file type, the file where the
-
+    def GetIconInfo(self) -> Any:
+        """ Returns a tuple containing the Icon for this file type, the file where the
 icon is found, and the index of the image in that file, if applicable.
         """
 
@@ -8962,10 +9230,8 @@ icon is found, and the index of the image in that file, if applicable.
         """
 
     def GetMimeTypes(self) -> Any:
-        """ Same as GetMimeType but returns a list of types.  This will usually contain
-
-only one item, but sometimes, such as on Unix with KDE more than one type
-
+        """ Same as GetMimeType but returns a list of types.  This will usually contain
+only one item, but sometimes, such as on Unix with KDE more than one type
 if there are differences between KDE< mailcap and mime.types.
         """
 
@@ -8974,10 +9240,8 @@ if there are differences between KDE< mailcap and mime.types.
         """
 
     def GetPrintCommand(self, params) -> str:
-        """ Returns the command which must be executed (see Execute()) in order to
-
-print the file of the given type. The name of the file is retrieved from
-
+        """ Returns the command which must be executed (see Execute()) in order to
+print the file of the given type. The name of the file is retrieved from
 the MessageParameters class.
         """
 
@@ -9056,7 +9320,7 @@ class FilterFSHandler(FileSystemHandler):
     """ Filter file system handler.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 
@@ -9092,10 +9356,8 @@ EVT_FIND_CLOSE: int  #  The dialog is being destroyed, any pointers to it cannot
 
 
 class FindReplaceDialog(Dialog):
-    """ FindReplaceDialog is a standard modeless dialog which is used to
-
-allow the user to search for some text (and possibly replace it with
-
+    """ FindReplaceDialog is a standard modeless dialog which is used to
+allow the user to search for some text (and possibly replace it with
 something else).
     """
     def __init__(self, *args, **kw) -> None:
@@ -9107,7 +9369,7 @@ something else).
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -9151,14 +9413,10 @@ class FindReplaceData(Object):
 
 
 class FlexGridSizer(GridSizer):
-    """ A flex grid sizer is a sizer which lays out its children in a two-
-
-dimensional table with all table fields in one row having the same
-
-height and all fields in one column having the same width, but all
-
-rows or all columns are not necessarily the same height or width as in
-
+    """ A flex grid sizer is a sizer which lays out its children in a two-
+dimensional table with all table fields in one row having the same
+height and all fields in one column having the same width, but all
+rows or all columns are not necessarily the same height or width as in
 the GridSizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -9221,11 +9479,16 @@ the GridSizer.
         """ Specifies how the sizer should grow in the non-flexible direction if there is one (so SetFlexibleDirection   must have been called previously).
         """
 
+VERTICAL: int
+HORIZONTAL: int
+BOTH: int
+FLEX_GROWMODE_NONE: int
+FLEX_GROWMODE_SPECIFIED: int
+FLEX_GROWMODE_ALL: int
 
 
 class GridSizer(Sizer):
-    """ A grid sizer is a sizer which lays out its children in a two-
-
+    """ A grid sizer is a sizer which lays out its children in a two-
 dimensional table with all table fields having the same size, i.e.
     """
     def __init__(self, *args, **kw) -> None:
@@ -9237,10 +9500,8 @@ dimensional table with all table fields having the same size, i.e.
         """
 
     def CalcRowsCols(self) -> None:
-        """ Calculates how many rows and columns will be in the sizer based
-
-on the current number of items and also the rows, cols specified
-
+        """ Calculates how many rows and columns will be in the sizer based
+on the current number of items and also the rows, cols specified
 in the constructor.
         """
 
@@ -9631,6 +9892,10 @@ class FontData(Object):
         """ Determines whether the Help button will be displayed in the font dialog (Windows only).
         """
 
+OK: int
+ID_OK: int
+OK: int
+ID_OK: int
 
 
 class FontDialog(Dialog):
@@ -9645,7 +9910,7 @@ class FontDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -9657,19 +9922,17 @@ class FontDialog(Dialog):
         """ Shows the dialog, returning  ID_OK   if the user pressed Ok, and   ID_CANCEL   otherwise.
         """
 
+OK: int
 
 
 class FontEnumerator:
-    """ FontEnumerator enumerates either all available fonts on the system
-
-or only the ones with given attributes - either only fixed-width
-
-(suited for use in programs such as terminal emulators and the like)
-
+    """ FontEnumerator enumerates either all available fonts on the system
+or only the ones with given attributes - either only fixed-width
+(suited for use in programs such as terminal emulators and the like)
 or the fonts available in the given encoding).
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def EnumerateEncodings(self, font: str="") -> bool:
@@ -9711,12 +9974,9 @@ or the fonts available in the given encoding).
 
 
 class FontInfo:
-    """ This class is a helper used for Font creation using named parameter
-
-idiom: it allows specifying various Font attributes using the
-
-chained calls to its clearly named methods instead of passing them in
-
+    """ This class is a helper used for Font creation using named parameter
+idiom: it allows specifying various Font attributes using the
+chained calls to its clearly named methods instead of passing them in
 the fixed order to Font constructors.
     """
     def __init__(self, *args, **kw) -> None:
@@ -9796,8 +10056,7 @@ class FontList:
 
 
 class FontMapper:
-    """ FontMapper manages user-definable correspondence between logical
-
+    """ FontMapper manages user-definable correspondence between logical
 font names and the fonts present on the machine.
     """
     def __init__(self) -> None:
@@ -9815,10 +10074,8 @@ font names and the fonts present on the machine.
 
     @staticmethod
     def GetAllEncodingNames(encoding) -> Any:
-        """ Returns the array of all possible names for the given encoding. If it
-
-isnât empty, the first name in it is the canonical encoding name,
-
+        """ Returns the array of all possible names for the given encoding. If it
+isnât empty, the first name in it is the canonical encoding name,
 i.e. the same string as returned by GetEncodingName()
         """
 
@@ -9895,7 +10152,7 @@ class FontPickerCtrl(PickerBase):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -9936,6 +10193,14 @@ FNTP_USE_TEXTCTRL: int  #  Creates a text control to the left of the picker butt
 FNTP_FONTDESC_AS_LABEL: int  #  Keeps the label of the button updated with the fontface name and the font size. E.g. choosing âTimes New Roman bold, italic withsize 10â from the fontdialog, will update the label (overwriting any previous label) with the âTimes New Roman, 10â text.
 FNTP_USEFONT_FOR_LABEL: int  #  Uses the currently selected font to draw the label of the button. ^^
 EVT_FONTPICKER_CHANGED: int  #  The user changed the font selected in the control either using the button or using text control (see wx.FNTP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, i.e. recognizable). ^^
+FNTP_DEFAULT_STYLE: int
+FNTP_FONTDESC_AS_LABEL: int
+FNTP_USEFONT_FOR_LABEL: int
+FNTP_USE_TEXTCTRL: int
+FNTP_FONTDESC_AS_LABEL: int
+FNTP_USEFONT_FOR_LABEL: int
+FNTP_USE_TEXTCTRL: int
+FNTP_USE_TEXTCTRL: int
 
 
 class FontPickerEvent(CommandEvent):
@@ -9957,8 +10222,7 @@ EVT_FONTPICKER_CHANGED: int  #  Generated whenever the selected font changes. ^^
 
 
 class Frame(TopLevelWindow):
-    """ A frame is a window whose size and position can (usually) be changed
-
+    """ A frame is a window whose size and position can (usually) be changed
 by the user.
     """
     def __init__(self, *args, **kw) -> None:
@@ -9986,7 +10250,7 @@ by the user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -10075,6 +10339,51 @@ EVT_MENU_OPEN: int  #  A menu is about to be opened. See   wx.MenuEvent.
 EVT_MENU_CLOSE: int  #  A menu has been just closed. See   wx.MenuEvent.
 EVT_MENU_HIGHLIGHT: int  #  The menu item with the specified id has been highlighted: int  #  used to show help prompts in the status bar by   wx.Frame. See   wx.MenuEvent.
 EVT_MENU_HIGHLIGHT_ALL: int  #  A menu item has been highlighted, i.e. the currently selected menu item has changed. See   wx.MenuEvent. ^^
+DEFAULT_FRAME_STYLE: int
+MINIMIZE_BOX: int
+MAXIMIZE_BOX: int
+RESIZE_BORDER: int
+SYSTEM_MENU: int
+CAPTION: int
+CLOSE_BOX: int
+CLIP_CHILDREN: int
+ICONIZE: int
+CAPTION: int
+MINIMIZE_BOX: int
+MAXIMIZE_BOX: int
+CLOSE_BOX: int
+CAPTION: int
+MINIMIZE: int
+ICONIZE: int
+MINIMIZE_BOX: int
+MAXIMIZE: int
+MAXIMIZE_BOX: int
+RESIZE_BORDER: int
+CLOSE_BOX: int
+STAY_ON_TOP: int
+FRAME_FLOAT_ON_PARENT: int
+SYSTEM_MENU: int
+MINIMIZE_BOX: int
+MAXIMIZE_BOX: int
+CLOSE_BOX: int
+CAPTION: int
+CAPTION: int
+RESIZE_BORDER: int
+FRAME_TOOL_WINDOW: int
+FRAME_NO_TASKBAR: int
+MINIMIZE_BOX: int
+FRAME_FLOAT_ON_PARENT: int
+STAY_ON_TOP: int
+FRAME_SHAPED: int
+FRAME_EX_CONTEXTHELP: int
+MAXIMIZE_BOX: int
+MINIMIZE_BOX: int
+DEFAULT_FRAME_STYLE: int
+MAXIMIZE_BOX: int
+FRAME_EX_METAL: int
+HORIZONTAL: int
+VERTICAL: int
+BOTH: int
 
 
 class FSFile(Object):
@@ -10125,8 +10434,7 @@ EVT_FULLSCREEN: int  #  Process a  wxEVT_FULLSCREEN   event. ^^
 
 
 class Gauge(Control):
-    """ A gauge is a horizontal or vertical bar which shows a quantity (often
-
+    """ A gauge is a horizontal or vertical bar which shows a quantity (often
 time).
     """
     def __init__(self, *args, **kw) -> None:
@@ -10138,7 +10446,7 @@ time).
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -10171,11 +10479,15 @@ GA_VERTICAL: int  #  Creates a vertical gauge.
 GA_SMOOTH: int  #  Creates smooth progress bar with one pixel wide update step (not supported by all platforms).
 GA_TEXT: int  #  Display the current value in percents in the gauge itself. This style is only supported in Qt and ignored under the other platforms. This flag is only available in wxWidgets 3.1.0 and later.
 GA_PROGRESS: int  #  Reflect the value of gauge in the application taskbar button under Windows 7 and later and the dock icon under macOS, ignored under the other platforms. This flag is only available in wxWidgets 3.1.0 and later. ^^
+GA_HORIZONTAL: int
+GA_VERTICAL: int
+GA_SMOOTH: int
+GA_TEXT: int
+GA_PROGRESS: int
 
 
 class GBPosition:
-    """ This class represents the position of an item in a virtual grid of
-
+    """ This class represents the position of an item in a virtual grid of
 rows and columns managed by a GridBagSizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -10211,35 +10523,35 @@ rows and columns managed by a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self) -> None:
@@ -10250,15 +10562,15 @@ rows and columns managed by a GridBagSizer.
         """ Compare equality of two GBPositions.
         """
 
+GBPosition: int
+GBPosition: int
+GBPosition: int
 
 
 class GridBagSizer(FlexGridSizer):
-    """ A Sizer that can lay out items in a virtual grid like a
-
-FlexGridSizer but in this case explicit positioning of the items is
-
-allowed using GBPosition, and items can optionally span more than
-
+    """ A Sizer that can lay out items in a virtual grid like a
+FlexGridSizer but in this case explicit positioning of the items is
+allowed using GBPosition, and items can optionally span more than
 one row and/or column using GBSpan.
     """
     def __init__(self, vgap=0, hgap=0) -> None:
@@ -10328,8 +10640,7 @@ one row and/or column using GBSpan.
 
 
 class GBSizerItem(SizerItem):
-    """ The GBSizerItem class is used by the GridBagSizer for tracking the
-
+    """ The GBSizerItem class is used by the GridBagSizer for tracking the
 items in the sizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -10371,8 +10682,7 @@ items in the sizer.
 
 
 class GBSpan:
-    """ This class is used to hold the row and column spanning attributes of
-
+    """ This class is used to hold the row and column spanning attributes of
 items in a GridBagSizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -10408,35 +10718,35 @@ items in a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self) -> None:
@@ -10447,6 +10757,9 @@ items in a GridBagSizer.
         """ Compare equality of two GBSpans.
         """
 
+GBSpan: int
+GBSpan: int
+GBSpan: int
 
 
 class GCDC(DC):
@@ -10740,8 +11053,7 @@ class GraphicsContext(GraphicsObject):
 
 
 class GDIObject(Object):
-    """ This class allows platforms to implement functionality to optimise GDI
-
+    """ This class allows platforms to implement functionality to optimise GDI
 objects, such as Pen, Brush and Font.
     """
     def __init__(self) -> None:
@@ -10845,11 +11157,13 @@ class Pen(GDIObject):
         """ Equality operator.
         """
 
+PENSTYLE_TRANSPARENT: int
+PENSTYLE_TRANSPARENT: int
+PENSTYLE_TRANSPARENT: int
 
 
 class GenericDirCtrl(Control):
-    """ This control can be used to place a directory listing (with optional
-
+    """ This control can be used to place a directory listing (with optional
 files) on an arbitrary window.
     """
     def __init__(self, *args, **kw) -> None:
@@ -10873,7 +11187,7 @@ files) on an arbitrary window.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -10965,11 +11279,17 @@ DIRCTRL_EDIT_LABELS: int  #  Allow the folder and file labels to be editable.
 DIRCTRL_MULTIPLE: int  #  Allows multiple files and folders to be selected. ^^
 EVT_DIRCTRL_SELECTIONCHANGED: int  #  Selected directory has changed. Processes a  wxEVT_DIRCTRL_SELECTIONCHANGED   event type. Notice that this event is generated even for the changes done by the program itself and not only those done by the user. Available since wxWidgets 2.9.5.
 EVT_DIRCTRL_FILEACTIVATED: int  #  The user activated a file by double-clicking or pressing Enter. Available since wxWidgets 2.9.5. ^^
+DIRCTRL_DIR_ONLY: int
+DIRCTRL_3D_INTERNAL: int
+DIRCTRL_SELECT_FIRST: int
+DIRCTRL_SHOW_FILTERS: int
+DIRCTRL_EDIT_LABELS: int
+DIRCTRL_MULTIPLE: int
+DIRCTRL_MULTIPLE: int
 
 
 class GenericDragImage(Object):
-    """ This class is used when you wish to drag an object on the screen, and
-
+    """ This class is used when you wish to drag an object on the screen, and
 a simple cursor is not enough.
     """
     def __init__(self, *args, **kw) -> None:
@@ -11011,8 +11331,7 @@ a simple cursor is not enough.
 
 
 class GenericMessageDialog(Dialog):
-    """ This class represents a dialog that shows a single or multi-line
-
+    """ This class represents a dialog that shows a single or multi-line
 message, with a choice of wx.OK, Yes, No and Cancel buttons.
     """
     def __init__(self, parent, message, caption=MessageBoxCaptionStr, style=OK|CENTRE, pos=DefaultPosition) -> None:
@@ -11036,11 +11355,11 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
-    def GetEffectiveIcon(self) -> long:
+    def GetEffectiveIcon(self) -> int:
         """ long
         """
 
@@ -11056,7 +11375,7 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
         """ string
         """
 
-    def GetMessageDialogStyle(self) -> long:
+    def GetMessageDialogStyle(self) -> int:
         """ long
         """
 
@@ -11126,11 +11445,47 @@ ICON_HAND: int  #  Alias for  ICON_ERROR .
 ICON_AUTH_NEEDED: int  #  Displays an authentication needed symbol. This style is only supported for message dialogs under wxMSW when a task dialog is used to implement them (i.e. when running under Windows Vista or later). In other cases the default icon selection logic will be used. Note this can be combined with other styles to provide a fallback. For instance, using wx.ICON_AUTH_NEEDED | wx.ICON_QUESTION will show a shield symbol on Windows Vista or above and a question symbol on other platforms. Available since wxWidgets 2.9.5
 STAY_ON_TOP: int  #  Makes the message box stay on top of all other windows and not only just its parent (currently implemented only under MSW and GTK).
 CENTRE: int  #  Centre the message box on its parent or on the screen if parent is not specified. Setting this style under MSW makes no differences as the dialog is always centered on the parent. ^^
+OK: int
+OK: int
+CANCEL: int
+YES_NO: int
+HELP: int
+NO_DEFAULT: int
+CANCEL_DEFAULT: int
+YES_DEFAULT: int
+OK_DEFAULT: int
+OK: int
+ICON_NONE: int
+ICON_ERROR: int
+ICON_WARNING: int
+ICON_QUESTION: int
+ICON_INFORMATION: int
+ICON_EXCLAMATION: int
+ICON_HAND: int
+ICON_AUTH_NEEDED: int
+ICON_AUTH_NEEDED: int
+ICON_QUESTION: int
+STAY_ON_TOP: int
+CENTRE: int
+OK: int
+OK: int
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
+ID_HELP: int
+OK: int
+OK: int
+OK: int
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
+ID_HELP: int
 
 
 class GenericProgressDialog(Dialog):
-    """ This class represents a dialog that shows a short message and a
-
+    """ This class represents a dialog that shows a short message and a
 progress bar.
     """
     def __init__(self, title, message, maximum=100, parent=None, style=PD_AUTO_HIDE|PD_APP_MODAL) -> None:
@@ -11138,7 +11493,7 @@ progress bar.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -11186,6 +11541,14 @@ PD_CAN_SKIP: int  #  This flag tells the dialog that it should have a âSkip
 PD_ELAPSED_TIME: int  #  This flag tells the dialog that it should show elapsed time (since creating the dialog).
 PD_ESTIMATED_TIME: int  #  This flag tells the dialog that it should show estimated time.
 PD_REMAINING_TIME: int  #  This flag tells the dialog that it should show remaining time. ^^
+PD_APP_MODAL: int
+PD_AUTO_HIDE: int
+PD_SMOOTH: int
+PD_CAN_ABORT: int
+PD_CAN_SKIP: int
+PD_ELAPSED_TIME: int
+PD_ESTIMATED_TIME: int
+PD_REMAINING_TIME: int
 
 
 class GestureEvent(Event):
@@ -11274,8 +11637,7 @@ class GraphicsFont(GraphicsObject):
 
 
 class GraphicsGradientStop:
-    """ Represents a single gradient stop in a collection of gradient stops as
-
+    """ Represents a single gradient stop in a collection of gradient stops as
 represented by GraphicsGradientStops.
     """
     def __init__(self, col=TransparentColour, pos=0.) -> None:
@@ -11301,8 +11663,7 @@ represented by GraphicsGradientStops.
 
 
 class GraphicsGradientStops:
-    """ Represents a collection of GraphicGradientStop values for use with
-
+    """ Represents a collection of GraphicGradientStop values for use with
 CreateLinearGradientBrush and CreateRadialGradientBrush.
     """
     def __init__(self, startCol=TransparentColour, endCol=TransparentColour) -> None:
@@ -11338,7 +11699,7 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
         """
 
     def __getitem__(self, n) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> SIP_SSIZE_T:
@@ -11508,19 +11869,15 @@ class GraphicsPen(GraphicsObject):
 
 
 class GraphicsPenInfo:
-    """ This class is a helper used for GraphicsPen creation using named
-
-parameter idiom: it allows specifying various GraphicsPen attributes
-
-using the chained calls to its clearly named methods instead of
-
+    """ This class is a helper used for GraphicsPen creation using named
+parameter idiom: it allows specifying various GraphicsPen attributes
+using the chained calls to its clearly named methods instead of
 passing them in the fixed order to GraphicsPen constructors.
     """
 
 
 class GraphicsRenderer(Object):
-    """ A GraphicsRenderer is the instance corresponding to the rendering
-
+    """ A GraphicsRenderer is the instance corresponding to the rendering
 engine used.
     """
     def CreateBitmap(self, bitmap: 'Bitmap') -> 'GraphicsBitmap':
@@ -11634,8 +11991,7 @@ engine used.
 
 
 class Sizer(Object):
-    """ Sizer is the abstract base class used for laying out subwindows in a
-
+    """ Sizer is the abstract base class used for laying out subwindows in a
 window.
     """
     def __init__(self) -> None:
@@ -11647,12 +12003,9 @@ window.
         """
 
     def AddMany(self, items) -> None:
-        """ AddMany is a convenience method for adding several items to a sizer
-
-at one time. Simply pass it a list of tuples, where each tuple
-
-consists of the parameters that you would normally pass to the Add
-
+        """ AddMany is a convenience method for adding several items to a sizer
+at one time. Simply pass it a list of tuples, where each tuple
+consists of the parameters that you would normally pass to the Add
 method.
         """
 
@@ -11817,41 +12170,58 @@ method.
         """
 
     def __nonzero__(self) -> None:
-        """ Can be used to test if the C++ part of the sizer still exists, with
-
+        """ Can be used to test if the C++ part of the sizer still exists, with
 code like this:
         """
 
+TOP: int
+BOTTOM: int
+LEFT: int
+RIGHT: int
+ALL: int
+EXPAND: int
+SHAPED: int
+FIXED_MINSIZE: int
+FIXED_MINSIZE: int
+RESERVE_SPACE_EVEN_IF_HIDDEN: int
+ALIGN_CENTER: int
+ALIGN_CENTRE: int
+ALIGN_LEFT: int
+ALIGN_RIGHT: int
+ALIGN_RIGHT: int
+ALIGN_TOP: int
+ALIGN_BOTTOM: int
+ALIGN_CENTER_VERTICAL: int
+ALIGN_CENTRE_VERTICAL: int
+ALIGN_CENTER_HORIZONTAL: int
+ALIGN_CENTRE_HORIZONTAL: int
 
 
 class GUIEventLoop(EventLoopBase):
     """ A generic implementation of the GUI event loop.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 
 
 class HeaderButtonParams:
-    """ This struct can optionally be used with
-
-RendererNative.DrawHeaderButton() to specify custom values used to
-
+    """ This struct can optionally be used with
+RendererNative.DrawHeaderButton() to specify custom values used to
 draw the text or bitmap label.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 
 
 class HeaderColumn:
-    """ Represents a column header in controls displaying tabular data such as
-
+    """ Represents a column header in controls displaying tabular data such as
 DataViewCtrl or Grid.
     """
-    def GetAlignment(self) -> 'Alignment':
+    def GetAlignment(self) -> int:
         """ Returns the current column alignment.
         """
 
@@ -11911,6 +12281,15 @@ DataViewCtrl or Grid.
         """ Returns True if the column can be clicked by user to sort the control contents by the field in this column.
         """
 
+ALIGN_CENTRE: int
+ALIGN_LEFT: int
+ALIGN_RIGHT: int
+COL_WIDTH_DEFAULT: int
+COL_WIDTH_AUTOSIZE: int
+COL_HIDDEN: int
+COL_REORDERABLE: int
+COL_HIDDEN: int
+COL_SORTABLE: int
 
 
 class HeaderColumnSimple(SettableHeaderColumn):
@@ -11920,7 +12299,7 @@ class HeaderColumnSimple(SettableHeaderColumn):
         """ Constructor for a column header.
         """
 
-    def GetAlignment(self) -> 'Alignment':
+    def GetAlignment(self) -> int:
         """ Trivial implementations of the base class pure virtual functions.
         """
 
@@ -11956,7 +12335,7 @@ class HeaderColumnSimple(SettableHeaderColumn):
         """ Trivial implementations of the base class pure virtual functions.
         """
 
-    def SetAlignment(self, align: Alignment) -> None:
+    def SetAlignment(self, align: int) -> None:
         """ Trivial implementations of the base class pure virtual functions.
         """
 
@@ -11987,8 +12366,7 @@ class HeaderColumnSimple(SettableHeaderColumn):
 
 
 class HeaderCtrl(Control):
-    """ HeaderCtrl is the control containing the column headings which is
-
+    """ HeaderCtrl is the control containing the column headings which is
 usually used for display of tabular data.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12004,7 +12382,7 @@ usually used for display of tabular data.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -12098,6 +12476,18 @@ EVT_HEADER_END_RESIZE: int  #  The user stopped dragging the column by releasing
 EVT_HEADER_BEGIN_REORDER: int  #  The user started to drag the column with the specified index (this can only happen for the controls with wx.HD_ALLOW_REORDER style). This event can be vetoed to prevent the column from being reordered, otherwise the end reorder message will be generated later.
 EVT_HEADER_END_REORDER: int  #  The user dropped the column in its new location. The event can be vetoed to prevent the column from being placed at the new position or handled to update the display of the data in the associated control to match the new column location (available from wx.HeaderCtrlEvent.GetNewOrder ).
 EVT_HEADER_DRAGGING_CANCELLED: int  #  The resizing or reordering operation currently in progress was cancelled. This can happen if the user pressed Esc key while dragging the mouse or the mouse capture was lost for some other reason. You only need to handle this event if your application entered into some modal mode when resizing or reordering began, in which case it should handle this event in addition to the matching end resizing or reordering ones. ^^
+HD_ALLOW_REORDER: int
+HD_ALLOW_HIDE: int
+HD_BITMAP_ON_RIGHT: int
+HD_DEFAULT_STYLE: int
+HD_ALLOW_REORDER: int
+HD_ALLOW_REORDER: int
+HD_ALLOW_REORDER: int
+HD_ALLOW_HIDE: int
+HD_ALLOW_REORDER: int
+HD_ALLOW_HIDE: int
+HD_ALLOW_HIDE: int
+HD_ALLOW_REORDER: int
 
 
 class HeaderCtrlEvent(NotifyEvent):
@@ -12134,10 +12524,8 @@ class HeaderCtrlEvent(NotifyEvent):
 
 
 class HeaderCtrlSimple(HeaderCtrl):
-    """ HeaderCtrlSimple is a concrete header control which can be used
-
-directly, without inheriting from it as you need to do when using
-
+    """ HeaderCtrlSimple is a concrete header control which can be used
+directly, without inheriting from it as you need to do when using
 HeaderCtrl itself.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12157,7 +12545,7 @@ HeaderCtrl itself.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -12181,18 +12569,18 @@ HeaderCtrl itself.
         """ Update the column sort indicator.
         """
 
+COL_HIDDEN: int
 
 
 class HelpControllerBase(Object):
-    """ This is the abstract base class a family of classes by which
-
+    """ This is the abstract base class a family of classes by which
 applications may invoke a help viewer to provide on-line help.
     """
     def __init__(self, parentWindow: Optional['Window']=None) -> None:
         """ Constructs a help instance object, but does not invoke the help viewer.
         """
 
-    def DisplayBlock(self, blockNo: long) -> bool:
+    def DisplayBlock(self, blockNo: int) -> bool:
         """ If the help viewer is not running, runs it and displays the file at the given block number.
         """
 
@@ -12252,11 +12640,11 @@ applications may invoke a help viewer to provide on-line help.
         """ Sets detailed viewer information.
         """
 
+HELP_NETSCAPE: int
 
 
 class HelpControllerHelpProvider(SimpleHelpProvider):
-    """ HelpControllerHelpProvider is an implementation of HelpProvider
-
+    """ HelpControllerHelpProvider is an implementation of HelpProvider
 which supports both context identifiers and plain text help strings.
     """
     def __init__(self, hc: Optional['HelpControllerBase']=None) -> None:
@@ -12274,8 +12662,7 @@ which supports both context identifiers and plain text help strings.
 
 
 class HelpProvider:
-    """ HelpProvider is an abstract class used by a program implementing
-
+    """ HelpProvider is an abstract class used by a program implementing
 context-sensitive help to show the help text for the given window.
     """
     def AddHelp(self, *args, **kw) -> None:
@@ -12311,8 +12698,7 @@ context-sensitive help to show the help text for the given window.
 
 
 class HelpEvent(CommandEvent):
-    """ A help event is sent when the user has requested context-sensitive
-
+    """ A help event is sent when the user has requested context-sensitive
 help.
     """
     def __init__(self, type=wxEVT_NULL, winid=0, pt=DefaultPosition, origin=Origin_Unknown) -> None:
@@ -12340,8 +12726,7 @@ EVT_HELP_RANGE: int  #  Process a  wxEVT_HELP   event for a range of ids. ^^
 
 
 class HScrolledWindow(Panel):
-    """ In the name of this class, âHâ stands for âhorizontalâ because it can
-
+    """ In the name of this class, âHâ stands for âhorizontalâ because it can
 be used for scrolling columns of variable widths.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12353,10 +12738,11 @@ be used for scrolling columns of variable widths.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+ID_ANY: int
 
 
 class HTMLDataObject(DataObjectSimple):
@@ -12367,8 +12753,7 @@ class HTMLDataObject(DataObjectSimple):
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -12387,8 +12772,7 @@ supports transferring in the given direction.
 
 
 class HVScrolledWindow(Panel):
-    """ This window inherits all functionality of both vertical and
-
+    """ This window inherits all functionality of both vertical and
 horizontal, variable scrolled windows.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12400,15 +12784,15 @@ horizontal, variable scrolled windows.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+ID_ANY: int
 
 
 class Icon(GDIObject):
-    """ An icon is a small rectangular bitmap usually used for denoting a
-
+    """ An icon is a small rectangular bitmap usually used for denoting a
 minimized application.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12427,7 +12811,7 @@ minimized application.
         """ Gets the colour depth of the icon.
         """
 
-    def GetHandle(self) -> long:
+    def GetHandle(self) -> int:
         """ long
         """
 
@@ -12472,7 +12856,7 @@ minimized application.
         """
 
     def SetHandle(self, handle) -> None:
-        """
+        """ 
         """
 
     def SetHeight(self, height: int) -> None:
@@ -12527,8 +12911,7 @@ class IconBundle(GDIObject):
 
 
 class IconizeEvent(Event):
-    """ An event being sent when the frame is iconized (minimized) or
-
+    """ An event being sent when the frame is iconized (minimized) or
 restored.
     """
     def __init__(self, id=0, iconized=True) -> None:
@@ -12543,8 +12926,7 @@ EVT_ICONIZE: int  #  Process a  wxEVT_ICONIZE   event. ^^
 
 
 class IconLocation:
-    """ IconLocation is a tiny class describing the location of an
-
+    """ IconLocation is a tiny class describing the location of an
 (external, i.e.
     """
     def __init__(self, *args, **kw) -> None:
@@ -12568,7 +12950,7 @@ class IconLocation:
         """
 
     def SetIndex(self, num) -> None:
-        """
+        """ 
         """
 
     def __bool__(self) -> int:
@@ -12582,8 +12964,7 @@ class IconLocation:
 
 
 class IdleEvent(Event):
-    """ This class is used for idle events, which are generated when the
-
+    """ This class is used for idle events, which are generated when the
 system becomes idle.
     """
     def __init__(self) -> None:
@@ -12609,6 +12990,9 @@ system becomes idle.
         """
 
 EVT_IDLE: int  #  Process a  wxEVT_IDLE   event. ^^
+IDLE_PROCESS_SPECIFIED: int
+WS_EX_PROCESS_IDLE: int
+IDLE_PROCESS_ALL: int
 
 
 class IdManager:
@@ -12624,6 +13008,7 @@ class IdManager:
         """ Called directly by wx.Window.UnreserveControlId , this function will unreserve an ID or range of IDs that is currently reserved.
         """
 
+ID_NONE: int
 
 
 class IFFHandler(ImageHandler):
@@ -12660,14 +13045,10 @@ class Image(Object):
         """
 
     def AdjustChannels(self, factor_red, factor_green, factor_blue, factor_alpha=1.0) -> 'Image':
-        """ This function muliplies all 4 channels (red, green, blue, alpha) with
-
-a factor (around 1.0). Useful for gamma correction, colour correction
-
-and to add a certain amount of transparency to a image (fade in fade
-
-out effects). If factor_alpha is given but the original image has no
-
+        """ This function muliplies all 4 channels (red, green, blue, alpha) with
+a factor (around 1.0). Useful for gamma correction, colour correction
+and to add a certain amount of transparency to a image (fade in fade
+out effects). If factor_alpha is given but the original image has no
 alpha channel then a alpha channel will be added.
         """
 
@@ -12779,11 +13160,9 @@ alpha channel then a alpha channel will be added.
         """ Overloaded Implementations:
         """
 
-    def GetAlphaBuffer(self) -> PyObject:
-        """ Returns a writable Python buffer object that is pointing at the Alpha
-
-data buffer inside the Image. You need to ensure that you do
-
+    def GetAlphaBuffer(self) -> Any:
+        """ Returns a writable Python buffer object that is pointing at the Alpha
+data buffer inside the Image. You need to ensure that you do
 not use this buffer object after the image has been destroyed.
         """
 
@@ -12791,15 +13170,13 @@ not use this buffer object after the image has been destroyed.
         """ Returns the blue intensity at the given coordinate.
         """
 
-    def GetData(self) -> PyObject:
+    def GetData(self) -> Any:
         """ Returns a copy of the RGB bytes of the image.
         """
 
-    def GetDataBuffer(self) -> PyObject:
-        """ Returns a writable Python buffer object that is pointing at the RGB
-
-image data buffer inside the Image. You need to ensure that you do
-
+    def GetDataBuffer(self) -> Any:
+        """ Returns a writable Python buffer object that is pointing at the RGB
+image data buffer inside the Image. You need to ensure that you do
 not use this buffer object after the image has been destroyed.
         """
 
@@ -12980,12 +13357,9 @@ not use this buffer object after the image has been destroyed.
         """
 
     def SetAlphaBuffer(self, alpha) -> None:
-        """ Sets the internal image alpha pointer to point at a Python buffer
-
-object.  This can save making an extra copy of the data but you must
-
-ensure that the buffer object lives lives at least as long as the
-
+        """ Sets the internal image alpha pointer to point at a Python buffer
+object.  This can save making an extra copy of the data but you must
+ensure that the buffer object lives lives at least as long as the
 Image does.
         """
 
@@ -12994,12 +13368,9 @@ Image does.
         """
 
     def SetDataBuffer(self, *args, **kw) -> None:
-        """ Sets the internal image data pointer to point at a Python buffer
-
-object.  This can save making an extra copy of the data but you must
-
-ensure that the buffer object lives lives at least as long as the
-
+        """ Sets the internal image data pointer to point at a Python buffer
+object.  This can save making an extra copy of the data but you must
+ensure that the buffer object lives lives at least as long as the
 Image does.
         """
 
@@ -13052,6 +13423,54 @@ Image does.
         """ int
         """
 
+BITMAP_TYPE_BMP: int
+BITMAP_TYPE_GIF: int
+BITMAP_TYPE_JPEG: int
+BITMAP_TYPE_PNG: int
+BITMAP_TYPE_PCX: int
+BITMAP_TYPE_PNM: int
+BITMAP_TYPE_TIFF: int
+BITMAP_TYPE_TGA: int
+BITMAP_TYPE_XPM: int
+BITMAP_TYPE_ICO: int
+BITMAP_TYPE_CUR: int
+BITMAP_TYPE_ANI: int
+BITMAP_TYPE_ANY: int
+BITMAP_TYPE_BMP: int
+BITMAP_TYPE_GIF: int
+BITMAP_TYPE_JPEG: int
+BITMAP_TYPE_PNG: int
+BITMAP_TYPE_PCX: int
+BITMAP_TYPE_PNM: int
+BITMAP_TYPE_TIFF: int
+BITMAP_TYPE_TGA: int
+BITMAP_TYPE_XPM: int
+BITMAP_TYPE_ICO: int
+BITMAP_TYPE_CUR: int
+BITMAP_TYPE_ANI: int
+BITMAP_TYPE_ANY: int
+BITMAP_TYPE_BMP: int
+BITMAP_TYPE_GIF: int
+BITMAP_TYPE_JPEG: int
+BITMAP_TYPE_PNG: int
+BITMAP_TYPE_PCX: int
+BITMAP_TYPE_PNM: int
+BITMAP_TYPE_TIFF: int
+BITMAP_TYPE_TGA: int
+BITMAP_TYPE_XPM: int
+BITMAP_TYPE_ICO: int
+BITMAP_TYPE_CUR: int
+BITMAP_TYPE_ANI: int
+BITMAP_TYPE_ANY: int
+BITMAP_TYPE_BMP: int
+BITMAP_TYPE_JPEG: int
+BITMAP_TYPE_PNG: int
+BITMAP_TYPE_PCX: int
+BITMAP_TYPE_PNM: int
+BITMAP_TYPE_TIFF: int
+BITMAP_TYPE_XPM: int
+BITMAP_TYPE_ICO: int
+BITMAP_TYPE_CUR: int
 
 
 class ImageDataObject(CustomDataObject):
@@ -13062,8 +13481,7 @@ class ImageDataObject(CustomDataObject):
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -13082,8 +13500,7 @@ supports transferring in the given direction.
 
 
 class ImageHandler(Object):
-    """ This is the base class for implementing image file loading/saving, and
-
+    """ This is the base class for implementing image file loading/saving, and
 image creation from data.
     """
     def __init__(self) -> None:
@@ -13157,10 +13574,10 @@ image creation from data.
 
 
 class ImageHistogram:
-    """ startR (int) â
+    """ startR (int) â 
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def FindFirstUnusedColour(self, startR=1, startG=0, startB=0) -> tuple:
@@ -13175,8 +13592,7 @@ class ImageHistogram:
 
 
 class ImageList(Object):
-    """ A ImageList contains a list of images, which are stored in an
-
+    """ A ImageList contains a list of images, which are stored in an
 unspecified form.
     """
     def __init__(self, *args, **kw) -> None:
@@ -13227,13 +13643,17 @@ unspecified form.
         """ Overloaded Implementations:
         """
 
+IMAGELIST_DRAW_NORMAL: int
+IMAGELIST_DRAW_TRANSPARENT: int
+IMAGELIST_DRAW_SELECTED: int
+IMAGELIST_DRAW_FOCUSED: int
 
 
 class IndividualLayoutConstraint(Object):
-    """ sibling (wx.Window) â
+    """ sibling (wx.Window) â 
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def Above(self, sibling, margin=LAYOUT_DEFAULT_MARGIN) -> None:
@@ -13245,7 +13665,7 @@ class IndividualLayoutConstraint(Object):
         """
 
     def AsIs(self) -> None:
-        """
+        """ 
         """
 
     def Below(self, sibling, margin=LAYOUT_DEFAULT_MARGIN) -> None:
@@ -13337,14 +13757,13 @@ class IndividualLayoutConstraint(Object):
         """
 
     def Unconstrained(self) -> None:
-        """
+        """ 
         """
 
 
 
 class InfoBar(Control):
-    """ An info bar is a transient window shown at top or bottom of its parent
-
+    """ An info bar is a transient window shown at top or bottom of its parent
 window to display non-critical information to the user.
     """
     def __init__(self, *args, **kw) -> None:
@@ -13372,7 +13791,7 @@ window to display non-critical information to the user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -13412,6 +13831,16 @@ window to display non-critical information to the user.
         """ Show a message in the bar.
         """
 
+ID_NONE: int
+SHOW_EFFECT_NONE: int
+SHOW_EFFECT_SLIDE_TO_BOTTOM: int
+SHOW_EFFECT_SLIDE_TO_TOP: int
+ICON_NONE: int
+ICON_INFORMATION: int
+ICON_QUESTION: int
+ICON_WARNING: int
+ICON_ERROR: int
+ICON_NONE: int
 
 
 class InitDialogEvent(Event):
@@ -13425,8 +13854,7 @@ EVT_INIT_DIALOG: int  #  Process a  wxEVT_INIT_DIALOG   event. ^^
 
 
 class InputStream(StreamBase):
-    """ InputStream is an abstract base class which may not be used
-
+    """ InputStream is an abstract base class which may not be used
 directly.
     """
     def __init__(self) -> None:
@@ -13474,7 +13902,7 @@ directly.
         """
 
     def close(self) -> None:
-        """
+        """ 
         """
 
     def eof(self) -> bool:
@@ -13482,23 +13910,23 @@ directly.
         """
 
     def flush(self) -> None:
-        """
+        """ 
         """
 
-    def read(self, *args, **kw) -> PyObject:
+    def read(self, *args, **kw) -> Any:
         """ Overloaded Implementations:
         """
 
-    def readline(self, *args, **kw) -> PyObject:
+    def readline(self, *args, **kw) -> Any:
         """ Overloaded Implementations:
         """
 
-    def readlines(self, *args, **kw) -> PyObject:
+    def readlines(self, *args, **kw) -> Any:
         """ Overloaded Implementations:
         """
 
     def seek(self, offset, whence=0) -> None:
-        """
+        """ 
         """
 
     def tell(self) -> 'FileOffset':
@@ -13511,14 +13939,13 @@ class InternetFSHandler(FileSystemHandler):
     """ A file system handler for accessing files from internet servers.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 
 
 class ItemAttr:
-    """ Represents the attributes (colour, font, â¦) of an item of a control
-
+    """ Represents the attributes (colour, font, â¦) of an item of a control
 with multiple items such as e.g.
     """
     def __init__(self, *args, **kw) -> None:
@@ -13580,8 +14007,7 @@ with multiple items such as e.g.
 
 
 class ItemContainerImmutable:
-    """ ItemContainer defines an interface which is implemented by all
-
+    """ ItemContainer defines an interface which is implemented by all
 controls which have string subitems each of which may be selected.
     """
     def __init__(self) -> None:
@@ -13632,11 +14058,11 @@ controls which have string subitems each of which may be selected.
         """ Selects the item with the specified string in the control.
         """
 
+NOT_FOUND: int
 
 
 class JoystickEvent(Event):
-    """ This event class contains information about joystick events,
-
+    """ This event class contains information about joystick events,
 particularly events received by windows.
     """
     def __init__(self, eventType=wxEVT_NULL, state=0, joystick=JOYSTICK1, change=0) -> None:
@@ -13696,6 +14122,10 @@ EVT_JOY_BUTTON_UP: int  #  Process a  wxEVT_JOY_BUTTON_UP   event.
 EVT_JOY_MOVE: int  #  Process a  wxEVT_JOY_MOVE   event.
 EVT_JOY_ZMOVE: int  #  Process a  wxEVT_JOY_ZMOVE   event.
 EVT_JOYSTICK_EVENTS: int  #  Processes all joystick events. ^^
+JOYSTICK1: int
+JOYSTICK2: int
+JOYSTICK1: int
+JOYSTICK2: int
 
 
 class JPEGHandler(ImageHandler):
@@ -13790,11 +14220,10 @@ class KeyboardState:
 
 
 class KeyEvent(Event):
-    """ This event class contains information about key press and release
-
+    """ This event class contains information about key press and release
 events.
     """
-    def __init__(self, keyEventType: 'EventType'=wxEVT_NULL) -> None:
+    def __init__(self, keyEventType: int=wxEVT_NULL) -> None:
         """ Constructor.
         """
 
@@ -13843,19 +14272,19 @@ events.
         """
 
     def SetKeyCode(self, keyCode) -> None:
-        """
+        """ 
         """
 
     def SetRawKeyCode(self, rawKeyCode) -> None:
-        """
+        """ 
         """
 
     def SetRawKeyFlags(self, rawFlags) -> None:
-        """
+        """ 
         """
 
     def SetUnicodeKey(self, uniChar) -> None:
-        """
+        """ 
         """
 
 EVT_KEY_DOWN: int  #  Process a  wxEVT_KEY_DOWN   event (any key has been pressed). If this event is handled and not skipped,   wxEVT_CHAR   will not be generated at all for this key press (but   wxEVT_KEY_UP   will be).
@@ -13865,8 +14294,7 @@ EVT_CHAR_HOOK: int  #  Process a  wxEVT_CHAR_HOOK   event. Unlike all the other 
 
 
 class LanguageInfo:
-    """ Encapsulates a Language identifier together with OS-specific
-
+    """ Encapsulates a Language identifier together with OS-specific
 information related to that language.
     """
     def GetCanonicalWithRegion(self) -> str:
@@ -14781,7 +15209,7 @@ class LayoutConstraints(Object):
     """ bool
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def AreSatisfied(self) -> bool:
@@ -14795,8 +15223,7 @@ class LayoutConstraints(Object):
 
 
 class LinuxDistributionInfo:
-    """ A structure containing information about a Linux distribution as
-
+    """ A structure containing information about a Linux distribution as
 returned by the lsb_release utility.
     """
     def __ne__(self) -> None:
@@ -14810,8 +15237,7 @@ returned by the lsb_release utility.
 
 
 class ListCtrl(Control):
-    """ A list control presents lists in a number of formats: list view,
-
+    """ A list control presents lists in a number of formats: list view,
 report view, icon view and small icon view.
     """
     def __init__(self, *args, **kw) -> None:
@@ -14819,12 +15245,11 @@ report view, icon view and small icon view.
         """
 
     def Append(self, entry) -> None:
-        """ Append an item to the list control.  The entry parameter should be a
-
+        """ Append an item to the list control.  The entry parameter should be a
 sequence with an item for each column
         """
 
-    def AppendColumn(self, heading, format=LIST_FORMAT_LEFT, width=-1) -> long:
+    def AppendColumn(self, heading, format=LIST_FORMAT_LEFT, width=-1) -> int:
         """ Adds a new column to the list control in report view mode.
         """
 
@@ -14845,7 +15270,7 @@ sequence with an item for each column
         """
 
     def ClearColumnImage(self, col) -> None:
-        """
+        """ 
         """
 
     def Create(self, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=LC_ICON, validator=DefaultValidator, name=ListCtrlNameStr) -> bool:
@@ -14864,11 +15289,11 @@ sequence with an item for each column
         """ Deletes a column.
         """
 
-    def DeleteItem(self, item: long) -> bool:
+    def DeleteItem(self, item: int) -> bool:
         """ Deletes the specified item.
         """
 
-    def EditLabel(self, item: long) -> 'TextCtrl':
+    def EditLabel(self, item: int) -> 'TextCtrl':
         """ Starts editing the label of the given item.
         """
 
@@ -14888,7 +15313,7 @@ sequence with an item for each column
         """ Can be used to disable the system theme of controls using it by default.
         """
 
-    def EnsureVisible(self, item: long) -> bool:
+    def EnsureVisible(self, item: int) -> bool:
         """ Ensures this item is visible.
         """
 
@@ -14896,7 +15321,7 @@ sequence with an item for each column
         """ Extend rules and alternate rows background to the entire client area.
         """
 
-    def FindItem(self, *args, **kw) -> long:
+    def FindItem(self, *args, **kw) -> int:
         """ Overloaded Implementations:
         """
 
@@ -14909,7 +15334,7 @@ sequence with an item for each column
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -14961,7 +15386,7 @@ sequence with an item for each column
         """ Gets information about the item. See SetItem() for more information.
         """
 
-    def GetItemBackgroundColour(self, item: long) -> 'Colour':
+    def GetItemBackgroundColour(self, item: int) -> 'Colour':
         """ Returns the colour for this item.
         """
 
@@ -14969,11 +15394,11 @@ sequence with an item for each column
         """ Returns the number of items in the list control.
         """
 
-    def GetItemData(self, item: long) -> long:
+    def GetItemData(self, item: int) -> int:
         """ Gets the application-defined data associated with this item.
         """
 
-    def GetItemFont(self, item: long) -> 'Font':
+    def GetItemFont(self, item: int) -> 'Font':
         """ Returns the itemâs font.
         """
 
@@ -14982,8 +15407,7 @@ sequence with an item for each column
         """
 
     def GetItemRect(self, item, code=LIST_RECT_BOUNDS) -> 'Rect':
-        """ Returns the rectangle representing the itemâs size and position, in physical coordinates.
-
+        """ Returns the rectangle representing the itemâs size and position, in physical coordinates.
 code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIST_RECT_LABEL``.
         """
 
@@ -14999,7 +15423,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
         """ Gets the item text for this item.
         """
 
-    def GetItemTextColour(self, item: long) -> 'Colour':
+    def GetItemTextColour(self, item: int) -> 'Colour':
         """ Returns the colour for this item.
         """
 
@@ -15007,7 +15431,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
         """ wx.Window
         """
 
-    def GetNextItem(self, item, geometry=LIST_NEXT_ALL, state=LIST_STATE_DONTCARE) -> long:
+    def GetNextItem(self, item, geometry=LIST_NEXT_ALL, state=LIST_STATE_DONTCARE) -> int:
         """ Searches for an item with the given geometry or state, starting from item  but excluding the item  itself.
         """
 
@@ -15031,7 +15455,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
         """ Gets the text colour of the list control.
         """
 
-    def GetTopItem(self) -> long:
+    def GetTopItem(self) -> int:
         """ Gets the index of the topmost visible item when in list or report view.
         """
 
@@ -15092,22 +15516,74 @@ EVT_LIST_COL_END_DRAG: int  #  A column has been resized by the user. Processes 
 EVT_LIST_CACHE_HINT: int  #  Prepare cache for a virtual list control. Processes a  wxEVT_LIST_CACHE_HINT   event type.
 EVT_LIST_ITEM_CHECKED: int  #  The item has been checked. Processes a  wxEVT_LIST_ITEM_CHECKED   event type (new since wxWidgets 3.1.0).
 EVT_LIST_ITEM_UNCHECKED: int  #  The item has been unchecked. Processes a  wxEVT_LIST_ITEM_UNCHECKED   event type (new since wxWidgets 3.1.0). ^^
+LC_LIST: int
+LC_REPORT: int
+LC_VIRTUAL: int
+LC_ICON: int
+LC_SMALL_ICON: int
+LC_ALIGN_TOP: int
+LC_ALIGN_LEFT: int
+LC_AUTOARRANGE: int
+LC_EDIT_LABELS: int
+LC_NO_HEADER: int
+LC_SINGLE_SEL: int
+LC_SORT_ASCENDING: int
+LC_SORT_DESCENDING: int
+LC_HRULES: int
+LC_VRULES: int
+ID_ANY: int
+LIST_ALIGN_DEFAULT: int
+LIST_ALIGN_LEFT: int
+LIST_ALIGN_TOP: int
+LIST_ALIGN_SNAP_TO_GRID: int
+LC_VIRTUAL: int
+LC_HRULES: int
+LC_VRULES: int
+LC_REPORT: int
+LC_LIST: int
+LC_SMALL_ICON: int
+LC_ICON: int
+IMAGE_LIST_NORMAL: int
+IMAGE_LIST_SMALL: int
+IMAGE_LIST_STATE: int
+LIST_NEXT_ABOVE: int
+LIST_NEXT_ALL: int
+LIST_NEXT_BELOW: int
+LIST_NEXT_LEFT: int
+LIST_NEXT_RIGHT: int
+LIST_STATE_DONTCARE: int
+LIST_STATE_DROPHILITED: int
+LIST_STATE_FOCUSED: int
+LIST_STATE_SELECTED: int
+LIST_STATE_CUT: int
+LIST_HITTEST_ABOVE: int
+LIST_HITTEST_BELOW: int
+LIST_HITTEST_TOLEFT: int
+LIST_HITTEST_TORIGHT: int
+LIST_HITTEST_NOWHERE: int
+LIST_HITTEST_ONITEMICON: int
+LIST_HITTEST_ONITEMLABEL: int
+LIST_HITTEST_ONITEMSTATEICON: int
+LIST_HITTEST_ONITEM: int
+LC_ICON: int
+LC_SMALL_ICON: int
+LC_REPORT: int
+LC_ICON: int
 
 
 class ListEvent(NotifyEvent):
-    """ A list event holds information about events associated with ListCtrl
-
+    """ A list event holds information about events associated with ListCtrl
 objects.
     """
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
         """
 
-    def GetCacheFrom(self) -> long:
+    def GetCacheFrom(self) -> int:
         """ For  EVT_LIST_CACHE_HINT   event only: return the first item which the list control advises us to cache.
         """
 
-    def GetCacheTo(self) -> long:
+    def GetCacheTo(self) -> int:
         """ For  EVT_LIST_CACHE_HINT   event only: return the last item (inclusive) which the list control advises us to cache.
         """
 
@@ -15123,7 +15599,7 @@ objects.
         """ The image.
         """
 
-    def GetIndex(self) -> long:
+    def GetIndex(self) -> int:
         """ The item index.
         """
 
@@ -15139,7 +15615,7 @@ objects.
         """ The (new) item label for  EVT_LIST_END_LABEL_EDIT   event.
         """
 
-    def GetMask(self) -> long:
+    def GetMask(self) -> int:
         """ The mask.
         """
 
@@ -15155,11 +15631,11 @@ objects.
         """ This method only makes sense for  EVT_LIST_END_LABEL_EDIT   message and returns True if it the label editing has been cancelled by the user ( GetLabel   returns an empty string in this case but it doesnât allow the application to distinguish between really cancelling the edit and the admittedly rare case when the user wants to rename it to an empty string).
         """
 
-    def SetCacheFrom(self, cacheFrom: long) -> None:
+    def SetCacheFrom(self, cacheFrom: int) -> None:
         """ cacheFrom (long) â
         """
 
-    def SetCacheTo(self, cacheTo: long) -> None:
+    def SetCacheTo(self, cacheTo: int) -> None:
         """ cacheTo (long) â
         """
 
@@ -15167,7 +15643,7 @@ objects.
         """ col (int) â
         """
 
-    def SetIndex(self, index: long) -> None:
+    def SetIndex(self, index: int) -> None:
         """ index (long) â
         """
 
@@ -15230,7 +15706,7 @@ class ListItem(Object):
         """ Returns the zero-based column; meaningful only in report mode.
         """
 
-    def GetData(self) -> long:
+    def GetData(self) -> int:
         """ Returns client data associated with the control.
         """
 
@@ -15238,7 +15714,7 @@ class ListItem(Object):
         """ Returns the font used to display the item.
         """
 
-    def GetId(self) -> long:
+    def GetId(self) -> int:
         """ Returns the zero-based item position.
         """
 
@@ -15246,11 +15722,11 @@ class ListItem(Object):
         """ Returns the zero-based index of the image associated with the item into the image list.
         """
 
-    def GetMask(self) -> long:
+    def GetMask(self) -> int:
         """ Returns a bit mask indicating which fields of the structure are valid.
         """
 
-    def GetState(self) -> long:
+    def GetState(self) -> int:
         """ Returns a bit field representing the state of the item.
         """
 
@@ -15278,7 +15754,7 @@ class ListItem(Object):
         """ Sets the zero-based column.
         """
 
-    def SetData(self, data: long) -> None:
+    def SetData(self, data: int) -> None:
         """ Sets client data for the item.
         """
 
@@ -15286,7 +15762,7 @@ class ListItem(Object):
         """ Sets the font for the item.
         """
 
-    def SetId(self, id: long) -> None:
+    def SetId(self, id: int) -> None:
         """ Sets the zero-based item position.
         """
 
@@ -15294,15 +15770,15 @@ class ListItem(Object):
         """ Sets the zero-based index of the image associated with the item into the image list.
         """
 
-    def SetMask(self, mask: long) -> None:
+    def SetMask(self, mask: int) -> None:
         """ Sets the mask of valid fields.
         """
 
-    def SetState(self, state: long) -> None:
+    def SetState(self, state: int) -> None:
         """ Sets the item state flags (note that the valid state flags are influenced by the value of the state mask, see wx.ListItem.SetStateMask ).
         """
 
-    def SetStateMask(self, stateMask: long) -> None:
+    def SetStateMask(self, stateMask: int) -> None:
         """ Sets the bitmask that is used to determine which of the state flags are to be set.
         """
 
@@ -15318,13 +15794,22 @@ class ListItem(Object):
         """ Meaningful only for column headers in report mode.
         """
 
+LIST_MASK_STATE: int
+LIST_MASK_TEXT: int
+LIST_MASK_IMAGE: int
+LIST_MASK_DATA: int
+LIST_MASK_WIDTH: int
+LIST_MASK_FORMAT: int
+LIST_STATE_DONTCARE: int
+LIST_STATE_DROPHILITED: int
+LIST_STATE_FOCUSED: int
+LIST_STATE_SELECTED: int
+LIST_STATE_CUT: int
 
 
 class ListView(ListCtrl):
-    """ This class currently simply presents a simpler to use interface for
-
-the ListCtrl  it can be thought of as a faÃ§ade for that complicated
-
+    """ This class currently simply presents a simpler to use interface for
+the ListCtrl  it can be thought of as a faÃ§ade for that complicated
 class.
     """
     def __init__(self, *args, **kw) -> None:
@@ -15335,28 +15820,28 @@ class.
         """ Resets the column image â  after calling this function, no image will be shown.
         """
 
-    def Focus(self, index: long) -> None:
+    def Focus(self, index: int) -> None:
         """ Sets focus to the item with the given index.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
-    def GetFirstSelected(self) -> long:
+    def GetFirstSelected(self) -> int:
         """ Returns the first selected item in a (presumably) multiple selection control.
         """
 
-    def GetFocusedItem(self) -> long:
+    def GetFocusedItem(self) -> int:
         """ Returns the currently focused item or -1 if none.
         """
 
-    def GetNextSelected(self, item: long) -> long:
+    def GetNextSelected(self, item: int) -> int:
         """ Used together with GetFirstSelected   to iterate over all selected items in the control.
         """
 
-    def IsSelected(self, index: long) -> bool:
+    def IsSelected(self, index: int) -> bool:
         """ Returns True if the item with the given index  is selected, False otherwise.
         """
 
@@ -15368,11 +15853,11 @@ class.
         """ Sets the column image for the specified column.
         """
 
+ID_ANY: int
 
 
 class Locale:
-    """ Locale class encapsulates all language-dependent settings and is a
-
+    """ Locale class encapsulates all language-dependent settings and is a
 generalization of the C locale concept.
     """
     def __init__(self, *args, **kw) -> None:
@@ -15491,11 +15976,14 @@ generalization of the C locale concept.
         """ int
         """
 
+LOCALE_CAT_DEFAULT: int
+LOCALE_LOAD_DEFAULT: int
+LOCALE_DONT_LOAD_DEFAULT: int
+LOCALE_LOAD_DEFAULT: int
 
 
 class Log:
-    """ Log class defines the interface for the log targets used by
-
+    """ Log class defines the interface for the log targets used by
 wxWidgets logging functions as explained in the Logging Overview.
     """
     @staticmethod
@@ -15649,6 +16137,8 @@ wxWidgets logging functions as explained in the Logging Overview.
 
 
 
+LOG_Warning: int
+LOG_COMPONENT: int
 KILL_CHILDREN: int
 EXEC_ASYNC: int
 EXEC_SYNC: int
@@ -15674,12 +16164,9 @@ ID_ANY: int
 
 
 class LogBuffer(Log):
-    """ LogBuffer is a very simple implementation of log sink which simply
-
-collects all the logged messages in a string (except the debug
-
-messages which are output in the usual way immediately as weâre
-
+    """ LogBuffer is a very simple implementation of log sink which simply
+collects all the logged messages in a string (except the debug
+messages which are output in the usual way immediately as weâre
 presumably not interested in collecting them for later).
     """
     def __init__(self) -> None:
@@ -15697,10 +16184,8 @@ presumably not interested in collecting them for later).
 
 
 class LogChain(Log):
-    """ This simple class allows you to chain log sinks, that is to install a
-
-new sink but keep passing log messages to the old one instead of
-
+    """ This simple class allows you to chain log sinks, that is to install a
+new sink but keep passing log messages to the old one instead of
 replacing it completely as Log.SetActiveTarget does.
     """
     def __init__(self, logger: 'Log') -> None:
@@ -15760,8 +16245,7 @@ class LogGui(Log):
 
 
 class LogInterposer(LogChain):
-    """ A special version of LogChain which uses itself as the new log
-
+    """ A special version of LogChain which uses itself as the new log
 target.
     """
     def __init__(self) -> None:
@@ -15771,8 +16255,7 @@ target.
 
 
 class LogInterposerTemp(LogChain):
-    """ A special version of LogChain which uses itself as the new log
-
+    """ A special version of LogChain which uses itself as the new log
 target.
     """
     def __init__(self) -> None:
@@ -15789,11 +16272,11 @@ class LogNull:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -15804,8 +16287,7 @@ class LogRecordInfo:
 
 
 class LogStderr(Log):
-    """ This class can be used to redirect the log messages to a C file stream
-
+    """ This class can be used to redirect the log messages to a C file stream
 (not to be confused with C++ streams).
     """
     def __init__(self) -> None:
@@ -15815,8 +16297,7 @@ class LogStderr(Log):
 
 
 class LogTextCtrl(Log):
-    """ Using these target all the log messages can be redirected to a text
-
+    """ Using these target all the log messages can be redirected to a text
 control.
     """
     def __init__(self, pTextCtrl: 'TextCtrl') -> None:
@@ -15826,12 +16307,9 @@ control.
 
 
 class LogWindow(LogInterposer):
-    """ This class represents a background log window: to be precise, it
-
-collects all log messages in the log frame which it manages but also
-
-passes them on to the log target which was active at the moment of its
-
+    """ This class represents a background log window: to be precise, it
+collects all log messages in the log frame which it manages but also
+passes them on to the log target which was active at the moment of its
 creation.
     """
     def __init__(self, pParent, szTitle, show=True, passToOld=True) -> None:
@@ -15857,8 +16335,7 @@ creation.
 
 
 class LongPressEvent(GestureEvent):
-    """ This event is generated when one finger touches the surface and
-
+    """ This event is generated when one finger touches the surface and
 remains stationary.
     """
     def __init__(self, windid: 'WindowID'=0) -> None:
@@ -15869,8 +16346,7 @@ EVT_LONG_PRESS: int  #  Process a  wxEVT_LONG_PRESS . ^^
 
 
 class Mask(Object):
-    """ This class encapsulates a monochrome mask bitmap, where the masked
-
+    """ This class encapsulates a monochrome mask bitmap, where the masked
 area is black and the unmasked area is white.
     """
     def __init__(self, *args, **kw) -> None:
@@ -15903,8 +16379,7 @@ EVT_MAXIMIZE: int  #  Process a  wxEVT_MAXIMIZE   event. ^^
 
 
 class MDIChildFrame(Frame):
-    """ An MDI child frame is a frame that can only exist inside a
-
+    """ An MDI child frame is a frame that can only exist inside a
 MDIClientWindow, which is itself a child of MDIParentFrame.
     """
     def __init__(self, *args, **kw) -> None:
@@ -15920,7 +16395,7 @@ MDIClientWindow, which is itself a child of MDIParentFrame.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -15943,8 +16418,7 @@ MDIClientWindow, which is itself a child of MDIParentFrame.
 
 
 class MDIClientWindow(Window):
-    """ An MDI client window is a child of MDIParentFrame, and manages zero
-
+    """ An MDI client window is a child of MDIParentFrame, and manages zero
 or more MDIChildFrame objects.
     """
     def __init__(self) -> None:
@@ -15956,17 +16430,17 @@ or more MDIChildFrame objects.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+HSCROLL: int
+VSCROLL: int
 
 
 class MDIParentFrame(Frame):
-    """ An MDI (Multiple Document Interface) parent frame is a window which
-
-can contain MDI child frames in its client area which emulates the
-
+    """ An MDI (Multiple Document Interface) parent frame is a window which
+can contain MDI child frames in its client area which emulates the
 full desktop.
     """
     def __init__(self, *args, **kw) -> None:
@@ -15998,7 +16472,7 @@ full desktop.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -16027,11 +16501,16 @@ full desktop.
         """ Tiles the MDI child windows either horizontally or vertically depending on whether orient  is  HORIZONTAL   or   VERTICAL .
         """
 
+HSCROLL: int
+VSCROLL: int
+HSCROLL: int
+VSCROLL: int
+FRAME_NO_WINDOW_MENU: int
+FRAME_NO_WINDOW_MENU: int
 
 
 class MemoryDC(DC):
-    """ A memory device context provides a means to draw graphics onto a
-
+    """ A memory device context provides a means to draw graphics onto a
 bitmap.
     """
     def __init__(self, *args, **kw) -> None:
@@ -16053,8 +16532,7 @@ bitmap.
 
 
 class MemoryFSHandler(FileSystemHandler):
-    """ This FileSystem handler can store arbitrary data in memory stream
-
+    """ This FileSystem handler can store arbitrary data in memory stream
 and make them accessible via an URL.
     """
     def __init__(self) -> None:
@@ -16079,10 +16557,8 @@ and make them accessible via an URL.
 
 
 class Menu(EvtHandler):
-    """ A menu is a popup (or pull down) list of items, one of which may be
-
-selected before the menu goes away (clicking elsewhere dismisses the
-
+    """ A menu is a popup (or pull down) list of items, one of which may be
+selected before the menu goes away (clicking elsewhere dismisses the
 menu).
     """
     def __init__(self, *args, **kw) -> None:
@@ -16130,7 +16606,7 @@ menu).
         """
 
     def Detach(self) -> None:
-        """
+        """ 
         """
 
     def Enable(self, id, enable) -> None:
@@ -16181,7 +16657,7 @@ menu).
         """ wx.Menu
         """
 
-    def GetStyle(self) -> long:
+    def GetStyle(self) -> int:
         """ long
         """
 
@@ -16265,12 +16741,18 @@ menu).
         """ Update the state of all menu items, recursively, by generating  wxEVT_UPDATE_UI   events for them.
         """
 
+ID_SEPARATOR: int
+ID_ABOUT: int
+ID_EXIT: int
+MENU_TEAROFF: int
+MENU_TEAROFF: int
+NOT_FOUND: int
 
 
 class MenuBar(Window):
     """ A menu bar is a series of menus accessible from the top of a frame.
     """
-    def __init__(self, style: long=0) -> None:
+    def __init__(self, style: int=0) -> None:
         """ Construct an empty menu bar.
         """
 
@@ -16287,7 +16769,7 @@ class MenuBar(Window):
         """
 
     def Detach(self) -> None:
-        """
+        """ 
         """
 
     def Enable(self, id, enable) -> None:
@@ -16408,6 +16890,8 @@ class MenuBar(Window):
         """ SetMenus()
         """
 
+MB_DOCKABLE: int
+NOT_FOUND: int
 
 
 class MenuEvent(Event):
@@ -16605,11 +17089,84 @@ EVT_MENU_OPEN: int  #  A menu is about to be opened. On Windows, this is only se
 EVT_MENU_CLOSE: int  #  A menu has been just closed. This type of event is sent as   wx.MenuEvent.
 EVT_MENU_HIGHLIGHT: int  #  The menu item with the specified id has been highlighted. If the id is ID_NONE, highlighting has been removed from the previously highlighted menu item and there is no highlighted item any more. This is used by   wx.Frame  to show help prompts in the status bar. This type of event is sent as   wx.MenuEvent.
 EVT_MENU_HIGHLIGHT_ALL: int  #  A menu item has been highlighted, i.e. the currently selected menu item has changed. This type of event is sent as   wx.MenuEvent. ^^
+WXK_DELETE: int
+WXK_BACK: int
+WXK_INSERT: int
+WXK_RETURN: int
+WXK_PAGEUP: int
+WXK_PAGEDOWN: int
+WXK_LEFT: int
+WXK_RIGHT: int
+WXK_UP: int
+WXK_DOWN: int
+WXK_HOME: int
+WXK_END: int
+WXK_SPACE: int
+WXK_TAB: int
+WXK_ESCAPE: int
+WXK_CANCEL: int
+WXK_CLEAR: int
+WXK_MENU: int
+WXK_PAUSE: int
+WXK_CAPITAL: int
+WXK_SELECT: int
+WXK_PRINT: int
+WXK_EXECUTE: int
+WXK_SNAPSHOT: int
+WXK_HELP: int
+WXK_ADD: int
+WXK_SEPARATOR: int
+WXK_SUBTRACT: int
+WXK_DECIMAL: int
+WXK_DIVIDE: int
+WXK_NUMLOCK: int
+WXK_SCROLL: int
+WXK_NUMPAD_SPACE: int
+WXK_NUMPAD_TAB: int
+WXK_NUMPAD_ENTER: int
+WXK_NUMPAD_HOME: int
+WXK_NUMPAD_LEFT: int
+WXK_NUMPAD_UP: int
+WXK_NUMPAD_RIGHT: int
+WXK_NUMPAD_DOWN: int
+WXK_NUMPAD_PAGEUP: int
+WXK_NUMPAD_PAGEDOWN: int
+WXK_NUMPAD_PAGEUP: int
+WXK_NUMPAD_PAGEDOWN: int
+WXK_NUMPAD_END: int
+WXK_NUMPAD_BEGIN: int
+WXK_NUMPAD_INSERT: int
+WXK_NUMPAD_DELETE: int
+WXK_NUMPAD_EQUAL: int
+WXK_NUMPAD_MULTIPLY: int
+WXK_NUMPAD_ADD: int
+WXK_NUMPAD_SEPARATOR: int
+WXK_NUMPAD_SUBTRACT: int
+WXK_NUMPAD_DECIMAL: int
+WXK_NUMPAD_DIVIDE: int
+WXK_WINDOWS_LEFT: int
+WXK_WINDOWS_RIGHT: int
+WXK_WINDOWS_MENU: int
+WXK_COMMAND: int
+WXK_SHIFT: int
+WXK_ALT: int
+WXK_SCROLL: int
+WXK_CAPITAL: int
+WXK_NUMLOCK: int
+WXK_NUMPAD_TAB: int
+WXK_TAB: int
+WXK_WINDOWS_LEFT: int
+WXK_WINDOWS_RIGHT: int
+WXK_ADD: int
+WXK_SEPARATOR: int
+WXK_SUBTRACT: int
+WXK_DECIMAL: int
+WXK_DIVIDE: int
+WXK_SNAPSHOT: int
 
 
 class MessageDialog(Dialog):
-    """ This class represents a dialog that shows a single or multi-line
-
+    """ This class represents a dialog that shows a single or multi-line
 message, with a choice of wx.OK, Yes, No and Cancel buttons.
     """
     def __init__(self, parent, message, caption=MessageBoxCaptionStr, style=OK|CENTRE, pos=DefaultPosition) -> None:
@@ -16625,11 +17182,11 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
-    def GetEffectiveIcon(self) -> long:
+    def GetEffectiveIcon(self) -> int:
         """ long
         """
 
@@ -16645,7 +17202,7 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
         """ string
         """
 
-    def GetMessageDialogStyle(self) -> long:
+    def GetMessageDialogStyle(self) -> int:
         """ long
         """
 
@@ -16715,11 +17272,47 @@ ICON_HAND: int  #  Alias for  ICON_ERROR .
 ICON_AUTH_NEEDED: int  #  Displays an authentication needed symbol. This style is only supported for message dialogs under wxMSW when a task dialog is used to implement them (i.e. when running under Windows Vista or later). In other cases the default icon selection logic will be used. Note this can be combined with other styles to provide a fallback. For instance, using wx.ICON_AUTH_NEEDED | wx.ICON_QUESTION will show a shield symbol on Windows Vista or above and a question symbol on other platforms. Available since wxWidgets 2.9.5
 STAY_ON_TOP: int  #  Makes the message box stay on top of all other windows and not only just its parent (currently implemented only under MSW and GTK).
 CENTRE: int  #  Centre the message box on its parent or on the screen if parent is not specified. Setting this style under MSW makes no differences as the dialog is always centered on the parent. ^^
+OK: int
+OK: int
+CANCEL: int
+YES_NO: int
+HELP: int
+NO_DEFAULT: int
+CANCEL_DEFAULT: int
+YES_DEFAULT: int
+OK_DEFAULT: int
+OK: int
+ICON_NONE: int
+ICON_ERROR: int
+ICON_WARNING: int
+ICON_QUESTION: int
+ICON_INFORMATION: int
+ICON_EXCLAMATION: int
+ICON_HAND: int
+ICON_AUTH_NEEDED: int
+ICON_AUTH_NEEDED: int
+ICON_QUESTION: int
+STAY_ON_TOP: int
+CENTRE: int
+OK: int
+OK: int
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
+ID_HELP: int
+OK: int
+OK: int
+OK: int
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
+ID_HELP: int
 
 
 class Metafile(Object):
-    """ A Metafile represents the MS Windows metafile object, so metafile
-
+    """ A Metafile represents the MS Windows metafile object, so metafile
 operations have no effect in X.
     """
     def __init__(self, filename: str="") -> None:
@@ -16741,10 +17334,8 @@ operations have no effect in X.
 
 
 class MetafileDC(DC):
-    """ This is a type of device context that allows a metafile object to be
-
-created (Windows only), and has most of the characteristics of a
-
+    """ This is a type of device context that allows a metafile object to be
+created (Windows only), and has most of the characteristics of a
 normal DC.
     """
     def __init__(self, filename: str="") -> None:
@@ -16758,10 +17349,8 @@ normal DC.
 
 
 class MimeTypesManager:
-    """ This class allows the application to retrieve information about all
-
-known MIME types from a system-specific location and the filename
-
+    """ This class allows the application to retrieve information about all
+known MIME types from a system-specific location and the filename
 extensions to the MIME types and vice versa.
     """
     def __init__(self) -> None:
@@ -16811,7 +17400,7 @@ class MiniFrame(Frame):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -16825,17 +17414,24 @@ CLOSE_BOX: int  #  Displays a close box on the frame.
 STAY_ON_TOP: int  #  Stay on top of other windows (Windows only).
 SYSTEM_MENU: int  #  Displays a system menu (Windows and Motif only).
 RESIZE_BORDER: int  #  Displays a resizable border around the window. ^^
+ICONIZE: int
+CAPTION: int
+MINIMIZE: int
+ICONIZE: int
+MINIMIZE_BOX: int
+MAXIMIZE: int
+MAXIMIZE_BOX: int
+CLOSE_BOX: int
+STAY_ON_TOP: int
+SYSTEM_MENU: int
+RESIZE_BORDER: int
 
 
 class MirrorDC(DC):
-    """ MirrorDC is a simple wrapper class which is always associated with a
-
-real DC object and either forwards all of its operations to it
-
-without changes (no mirroring takes place) or exchanges x and y
-
-coordinates which makes it possible to reuse the same code to draw a
-
+    """ MirrorDC is a simple wrapper class which is always associated with a
+real DC object and either forwards all of its operations to it
+without changes (no mirroring takes place) or exchanges x and y
+coordinates which makes it possible to reuse the same code to draw a
 figure and its mirror  i.e.
     """
     def __init__(self, dc, mirror) -> None:
@@ -16867,11 +17463,11 @@ class ModalDialogHook:
         """ Unregister this hook.
         """
 
+ID_NONE: int
 
 
 class MouseCaptureChangedEvent(Event):
-    """ A mouse capture changed event is sent to a window that loses its mouse
-
+    """ A mouse capture changed event is sent to a window that loses its mouse
 capture.
     """
     def __init__(self, windowId=0, gainedCapture=None) -> None:
@@ -16886,12 +17482,9 @@ EVT_MOUSE_CAPTURE_CHANGED: int  #  Process a  wxEVT_MOUSE_CAPTURE_CHANGED   even
 
 
 class MouseCaptureLostEvent(Event):
-    """ A mouse capture lost event is sent to a window that had obtained mouse
-
-capture, which was subsequently lost due to an âexternalâ event (for
-
-example, when a dialog box is shown or if another application captures
-
+    """ A mouse capture lost event is sent to a window that had obtained mouse
+capture, which was subsequently lost due to an âexternalâ event (for
+example, when a dialog box is shown or if another application captures
 the mouse).
     """
     def __init__(self, windowId: 'WindowID'=0) -> None:
@@ -16902,13 +17495,11 @@ EVT_MOUSE_CAPTURE_LOST: int  #  Process a  wxEVT_MOUSE_CAPTURE_LOST   event. ^^
 
 
 class MouseEvent(Event):
-    """ This event class contains information about the events generated by
-
-the mouse: they include mouse buttons press and release events and
-
+    """ This event class contains information about the events generated by
+the mouse: they include mouse buttons press and release events and
 mouse move events.
     """
-    def __init__(self, mouseEventType: 'EventType'=wxEVT_NULL) -> None:
+    def __init__(self, mouseEventType: int=wxEVT_NULL) -> None:
         """ Constructor.
         """
 
@@ -17061,23 +17652,23 @@ mouse move events.
         """
 
     def SetColumnsPerAction(self, columnsPerAction) -> None:
-        """
+        """ 
         """
 
     def SetLinesPerAction(self, linesPerAction) -> None:
-        """
+        """ 
         """
 
     def SetWheelAxis(self, wheelAxis) -> None:
-        """
+        """ 
         """
 
     def SetWheelDelta(self, wheelDelta) -> None:
-        """
+        """ 
         """
 
     def SetWheelRotation(self, wheelRotation) -> None:
-        """
+        """ 
         """
 
 EVT_LEFT_DOWN: int  #  Process a  wxEVT_LEFT_DOWN   event. The handler of this event should normally call event.Skip() to allow the default processing to take place as otherwise the window under mouse wouldnât get the focus.
@@ -17104,8 +17695,7 @@ EVT_MAGNIFY: int  #  Process a  wxEVT_MAGNIFY   event (new since wxWidgets 3.1.0
 
 
 class MouseEventsManager(EvtHandler):
-    """ Helper for handling mouse input events in windows containing multiple
-
+    """ Helper for handling mouse input events in windows containing multiple
 items.
     """
     def __init__(self, *args, **kw) -> None:
@@ -17148,6 +17738,7 @@ items.
         """ Must be overridden to return the item at the given position.
         """
 
+NOT_FOUND: int
 
 
 class MouseState(KeyboardState):
@@ -17257,8 +17848,7 @@ EVT_MOVE_END: int  #  Process a  wxEVT_MOVE_END   event, which is generated when
 
 
 class MultiChoiceDialog(Dialog):
-    """ This class represents a dialog that shows a list of strings, and
-
+    """ This class represents a dialog that shows a list of strings, and
 allows the user to select one or more.
     """
     def __init__(self, *args, **kw) -> None:
@@ -17266,7 +17856,7 @@ allows the user to select one or more.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -17285,17 +17875,31 @@ allows the user to select one or more.
 OK: int  #  Show an wx.OK button.
 CANCEL: int  #  Show a Cancel button.
 CENTRE: int  #  Centre the message. ^^
+OK: int
+OK: int
+CANCEL: int
+CENTRE: int
+ID_OK: int
+ID_CANCEL: int
+DEFAULT_DIALOG_STYLE: int
+RESIZE_BORDER: int
+OK: int
+CANCEL: int
+CENTRE: int
+DEFAULT_DIALOG_STYLE: int
+RESIZE_BORDER: int
+OK: int
+CANCEL: int
+CENTRE: int
+ID_OK: int
+ID_CANCEL: int
 
 
 class NativeFontInfo:
-    """ NativeFontInfo is platform-specific font representation: this class
-
-should be considered as an opaque font description only used by the
-
-native functions, the user code can only get the objects of this type
-
-from somewhere and pass it somewhere else (possibly save them
-
+    """ NativeFontInfo is platform-specific font representation: this class
+should be considered as an opaque font description only used by the
+native functions, the user code can only get the objects of this type
+from somewhere and pass it somewhere else (possibly save them
 somewhere using ToString() and restore them using FromString())
     """
     def __init__(self, *args, **kw) -> None:
@@ -17347,7 +17951,7 @@ somewhere using ToString() and restore them using FromString())
         """
 
     def Init(self) -> None:
-        """
+        """ 
         """
 
     def InitFromFont(self, font: 'Font') -> None:
@@ -17405,8 +18009,7 @@ somewhere using ToString() and restore them using FromString())
 
 
 class NativePixelData:
-    """ A class providing direct access to a wx.Bitmapâs
-
+    """ A class providing direct access to a wx.Bitmapâs
 internal data without alpha channel (RGB).
     """
     def __init__(self, *args, **kw) -> None:
@@ -17434,7 +18037,7 @@ class NativePixelData_Accessor:
         """ Overloaded Implementations:
         """
 
-    def Get(self) -> PyObject:
+    def Get(self) -> Any:
         """ PyObject
         """
 
@@ -17463,7 +18066,7 @@ class NativePixelData_Accessor:
         """
 
     def Set(self, red, green, blue) -> None:
-        """
+        """ 
         """
 
     def __bool__(self) -> int:
@@ -17475,14 +18078,13 @@ class NativePixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """
+        """ 
         """
 
 
 
 class NavigationKeyEvent(Event):
-    """ This event class contains information about navigation events,
-
+    """ This event class contains information about navigation events,
 generated by navigation keys such as tab and page down.
     """
     def __init__(self, *args, **kw) -> None:
@@ -17513,7 +18115,7 @@ generated by navigation keys such as tab and page down.
         """ Sets the direction to forward if direction  is True, or backward if False.
         """
 
-    def SetFlags(self, flags: long) -> None:
+    def SetFlags(self, flags: int) -> None:
         """ Sets the flags for this event.
         """
 
@@ -17538,8 +18140,7 @@ class NonOwnedWindow(Window):
 
 
 class NotifyEvent(CommandEvent):
-    """ This class is not used by the event handlers by itself, but is a base
-
+    """ This class is not used by the event handlers by itself, but is a base
 class for other event classes (such as BookCtrlEvent).
     """
     def __init__(self, eventType=wxEVT_NULL, id=0) -> None:
@@ -17561,8 +18162,7 @@ class for other event classes (such as BookCtrlEvent).
 
 
 class NumberEntryDialog(Dialog):
-    """ This class represents a dialog that requests a numeric input from the
-
+    """ This class represents a dialog that requests a numeric input from the
 user.
     """
     def __init__(self, *args, **kw) -> None:
@@ -17574,14 +18174,16 @@ user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
-    def GetValue(self) -> long:
+    def GetValue(self) -> int:
         """ Returns the value that the user has entered if the user has pressed wx.OK, or the original value if the user has pressed Cancel.
         """
 
+OK: int
+OK: int
 
 
 class Object:
@@ -17630,8 +18232,7 @@ class Object:
 
 
 class OutputStream(StreamBase):
-    """ OutputStream is an abstract base class which may not be used
-
+    """ OutputStream is an abstract base class which may not be used
 directly.
     """
     def __init__(self) -> None:
@@ -17667,7 +18268,7 @@ directly.
         """
 
     def close(self) -> None:
-        """
+        """ 
         """
 
     def eof(self) -> bool:
@@ -17675,30 +18276,29 @@ directly.
         """
 
     def flush(self) -> None:
-        """
+        """ 
         """
 
     def seek(self, offset, whence=0) -> None:
-        """
+        """ 
         """
 
     def tell(self) -> 'FileOffset':
         """ wx.FileOffset
         """
 
-    def write(self, data) -> PyObject:
+    def write(self, data) -> Any:
         """ PyObject
         """
 
 
 
 class Overlay:
-    """ Creates an overlay over an existing window, allowing for manipulations
-
+    """ Creates an overlay over an existing window, allowing for manipulations
 like rubberbanding, etc.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def Reset(self) -> None:
@@ -17722,11 +18322,13 @@ class PageSetupDialog(Object):
         """ Shows the dialog, returning  ID_OK   if the user pressed wx.OK, and   ID_CANCEL   otherwise.
         """
 
+OK: int
+OK: int
+OK: int
 
 
 class PageSetupDialogData(Object):
-    """ This class holds a variety of information related to
-
+    """ This class holds a variety of information related to
 PageSetupDialog.
     """
     def __init__(self, *args, **kw) -> None:
@@ -17860,8 +18462,7 @@ PageSetupDialog.
 
 
 class PaintDC(ClientDC):
-    """ A PaintDC must be constructed if an application wishes to paint on
-
+    """ A PaintDC must be constructed if an application wishes to paint on
 the client area of a window from within an EVT_PAINT() event handler.
     """
     def __init__(self, window: 'Window') -> None:
@@ -17910,7 +18511,7 @@ class Palette(GDIObject):
 
 
 class PaletteChangedEvent(Event):
-    """ winid (wx.WindowID) â
+    """ winid (wx.WindowID) â 
     """
     def __init__(self, winid: 'WindowID'=0) -> None:
         """ winid (wx.WindowID) â
@@ -17942,7 +18543,7 @@ class Panel(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -17984,8 +18585,7 @@ EVT_GESTURE_PAN: int  #  Process a  wxEVT_GESTURE_PAN . ^^
 
 
 class PasswordEntryDialog(TextEntryDialog):
-    """ This class represents a dialog that requests a one-line password
-
+    """ This class represents a dialog that requests a one-line password
 string from the user.
     """
     def __init__(self, parent, message, caption=GetPasswordFromUserPromptStr, defaultValue="", style=TextEntryDialogStyle, pos=DefaultPosition) -> None:
@@ -17993,10 +18593,13 @@ string from the user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+CANCEL: int
+CENTRE: int
+TE_PASSWORD: int
 
 
 class PCXHandler(ImageHandler):
@@ -18021,12 +18624,9 @@ class PCXHandler(ImageHandler):
 
 
 class PenInfo:
-    """ This class is a helper used for Pen creation using named parameter
-
-idiom: it allows specifying various Pen attributes using the chained
-
-calls to its clearly named methods instead of passing them in the
-
+    """ This class is a helper used for Pen creation using named parameter
+idiom: it allows specifying various Pen attributes using the chained
+calls to its clearly named methods instead of passing them in the
 fixed order to Pen constructors.
     """
 
@@ -18045,12 +18645,11 @@ class PenList:
 
 
 class PickerBase(Control):
-    """ Base abstract class for all pickers which support an auxiliary text
-
+    """ Base abstract class for all pickers which support an auxiliary text
 control.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def CreateBase(self, parent, id=ID_ANY, text="", pos=DefaultPosition, size=DefaultSize, style=0, validator=DefaultValidator, name=ButtonNameStr) -> bool:
@@ -18069,7 +18668,7 @@ control.
         """ Returns the proportion value of the picker.
         """
 
-    def GetPickerStyle(self, style: long) -> long:
+    def GetPickerStyle(self, style: int) -> int:
         """ style (long) â
         """
 
@@ -18081,7 +18680,7 @@ control.
         """ Returns the proportion value of the text control.
         """
 
-    def GetTextCtrlStyle(self, style: long) -> long:
+    def GetTextCtrlStyle(self, style: int) -> int:
         """ style (long) â
         """
 
@@ -18098,7 +18697,7 @@ control.
         """
 
     def PostCreation(self) -> None:
-        """
+        """ 
         """
 
     def SetInternalMargin(self, margin: int) -> None:
@@ -18130,14 +18729,15 @@ control.
         """
 
     def UpdatePickerFromTextCtrl(self) -> None:
-        """
+        """ 
         """
 
     def UpdateTextCtrlFromPicker(self) -> None:
-        """
+        """ 
         """
 
 PB_USE_TEXTCTRL: int  #  Creates a text control to the left of the picker which is completely managed by this   wx.PickerBase  class. ^^
+PB_USE_TEXTCTRL: int
 
 
 class PixelDataBase:
@@ -18164,13 +18764,12 @@ class PixelDataBase:
         """
 
     def __iter__(self) -> None:
-        """ Create and return an iterator/generator object for traversing
-
+        """ Create and return an iterator/generator object for traversing
 this pixel data object.
         """
 
     def __init__(self) -> None:
-        """
+        """ 
         """
 
 
@@ -18181,8 +18780,7 @@ class PlatformId:
 
 
 class PlatformInformation:
-    """ PlatformInfo()
-
+    """ PlatformInfo()
 PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1, bitness=BITNESS_INVALID, endian=ENDIAN_INVALID)
     """
     def __init__(self, *args, **kw) -> None:
@@ -18433,11 +19031,11 @@ class Point:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self, other) -> bool:
@@ -18445,19 +19043,19 @@ class Point:
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __iadd__(self, *args, **kw) -> None:
@@ -18468,6 +19066,9 @@ class Point:
         """ Overloaded Implementations:
         """
 
+Point: int
+Point: int
+Point: int
 
 
 class Point2D:
@@ -18477,7 +19078,7 @@ class Point2D:
         """ Overloaded Implementations:
         """
 
-    def Get(self) -> PyObject:
+    def Get(self) -> Any:
         """ Get() . (x,y)
         """
 
@@ -18518,7 +19119,7 @@ class Point2D:
         """
 
     def Normalize(self) -> None:
-        """
+        """ 
         """
 
     def SetVectorAngle(self, degrees: 'Double') -> None:
@@ -18530,35 +19131,35 @@ class Point2D:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self) -> None:
@@ -18574,7 +19175,7 @@ class Point2D:
         """
 
     def __sub__(self) -> None:
-        """
+        """ 
         """
 
     def __isub__(self) -> None:
@@ -18589,11 +19190,13 @@ class Point2D:
         """ pt (Point2DDouble) â
         """
 
+Point2D: int
+Point2D: int
+Point2D: int
 
 
 class PopupTransientWindow(PopupWindow):
-    """ A PopupWindow which disappears automatically when the user clicks
-
+    """ A PopupWindow which disappears automatically when the user clicks
 mouse outside it or if it loses focus in any other way.
     """
     def __init__(self, *args, **kw) -> None:
@@ -18605,7 +19208,7 @@ mouse outside it or if it loses focus in any other way.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18624,8 +19227,7 @@ mouse outside it or if it loses focus in any other way.
 
 
 class PopupWindow(NonOwnedWindow):
-    """ A special kind of top level window used for popup menus, combobox
-
+    """ A special kind of top level window used for popup menus, combobox
 popups and such.
     """
     def __init__(self, *args, **kw) -> None:
@@ -18637,7 +19239,7 @@ popups and such.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18646,11 +19248,11 @@ popups and such.
         """
 
 PU_CONTAINS_CONTROLS: int  #  By default in wxMSW, a popup window will not take focus from its parent window. However many standard controls, including common ones such as   wx.TextCtrl, need focus to function correctly and will not work when placed on a default popup. This flag can be used to make the popup take focus and let all controls work but at the price of not allowing the parent window to keep focus while the popup is shown, which can also be sometimes desirable. This style is currently only implemented in MSW and simply does nothing under the other platforms (itâs new since wxWidgets 3.1.3). ^^
+PU_CONTAINS_CONTROLS: int
 
 
 class Position:
-    """ This class represents the position of an item in any kind of grid of
-
+    """ This class represents the position of an item in any kind of grid of
 rows and columns such as GridBagSizer, or HVScrolledWindow.
     """
     def __init__(self, *args, **kw) -> None:
@@ -18690,35 +19292,35 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self) -> None:
@@ -18745,11 +19347,13 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """ pos (wx.Position) â
         """
 
+Position: int
+Position: int
+Position: int
 
 
 class PostScriptDC(DC):
-    """ This defines the wxWidgets Encapsulated PostScript device context,
-
+    """ This defines the wxWidgets Encapsulated PostScript device context,
 which can write PostScript files on any platform.
     """
     def __init__(self, *args, **kw) -> None:
@@ -18759,8 +19363,7 @@ which can write PostScript files on any platform.
 
 
 class PowerEvent(Event):
-    """ The power events are generated when the system power state changes,
-
+    """ The power events are generated when the system power state changes,
 e.g.
     """
     def __init__(self, *args, **kw) -> None:
@@ -18775,7 +19378,7 @@ e.g.
         """ Call this to prevent suspend from taking place in  wxEVT_POWER_SUSPENDING   handler (it is ignored for all the others).
         """
 
-EVT_POWER_SUSPENDING: int  #
+EVT_POWER_SUSPENDING: int  # 
 EVT_POWER_SUSPENDED: int  #  System is about to suspend: int  #  normally the application should quickly (i.e. without user intervention) close all the open files and network connections here, possibly remembering them to reopen them later when the system is resumed.
 EVT_POWER_SUSPEND_CANCEL: int  #  System suspension was cancelled because some application vetoed it.
 EVT_POWER_RESUME: int  #  System resumed from suspend: int  #  normally the application should restore the state in which it had been before the suspension. ^^
@@ -18808,11 +19411,11 @@ class PowerResourceBlocker:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -18846,6 +19449,8 @@ class PreferencesEditor:
         """ Returns whether the preferences dialog is shown modally.
         """
 
+OK: int
+OK: int
 
 
 class PreferencesPage:
@@ -18874,8 +19479,7 @@ class PreferencesPage:
 
 
 class PressAndTapEvent(GestureEvent):
-    """ This event is generated when the user press the surface with one
-
+    """ This event is generated when the user press the surface with one
 finger and taps with another.
     """
     def __init__(self, windid: 'WindowID'=0) -> None:
@@ -18886,8 +19490,7 @@ EVT_PRESS_AND_TAP: int  #  Process a  wxEVT_PRESS_AND_TAP . ^^
 
 
 class PreviewCanvas(Scrolled):
-    """ A preview canvas is the default canvas used by the print preview
-
+    """ A preview canvas is the default canvas used by the print preview
 system to display the preview.
     """
     def __init__(self, preview, parent, pos=DefaultPosition, size=DefaultSize, style=0, name="canvas") -> None:
@@ -18895,7 +19498,7 @@ system to display the preview.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18906,8 +19509,7 @@ system to display the preview.
 
 
 class PreviewControlBar(Panel):
-    """ This is the default implementation of the preview control bar, a panel
-
+    """ This is the default implementation of the preview control bar, a panel
 with buttons and a zoom control.
     """
     def __init__(self, preview, buttons, parent, pos=DefaultPosition, size=DefaultSize, style=0, name="panel") -> None:
@@ -18919,7 +19521,7 @@ with buttons and a zoom control.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18935,11 +19537,15 @@ with buttons and a zoom control.
         """ Sets the zoom control.
         """
 
+PREVIEW_PRINT: int
+PREVIEW_NEXT: int
+PREVIEW_PREVIOUS: int
+PREVIEW_ZOOM: int
+PREVIEW_DEFAULT: int
 
 
 class PreviewFrame(Frame):
-    """ This class provides the default method of managing the print preview
-
+    """ This class provides the default method of managing the print preview
 interface.
     """
     def __init__(self, preview, parent, title="PrintPreview", pos=DefaultPosition, size=DefaultSize, style=DEFAULT_FRAME_STYLE, name=FrameNameStr) -> None:
@@ -18955,7 +19561,7 @@ interface.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18974,8 +19580,7 @@ interface.
 
 
 class PrintAbortDialog(Dialog):
-    """ The dialog created by default by the print framework that enables
-
+    """ The dialog created by default by the print framework that enables
 aborting the printing process.
     """
     def __init__(self, parent, documentTitle, pos=DefaultPosition, size=DefaultSize, style=DEFAULT_DIALOG_STYLE, name="dialog") -> None:
@@ -18983,7 +19588,7 @@ aborting the printing process.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -18994,8 +19599,7 @@ aborting the printing process.
 
 
 class PrintData(Object):
-    """ This class holds a variety of information related to printers and
-
+    """ This class holds a variety of information related to printers and
 printer device contexts.
     """
     def __init__(self, *args, **kw) -> None:
@@ -19046,7 +19650,7 @@ printer device contexts.
         """ Returns the printer name.
         """
 
-    def GetPrivData(self) -> PyObject:
+    def GetPrivData(self) -> Any:
         """ PyObject
         """
 
@@ -19103,7 +19707,7 @@ printer device contexts.
         """
 
     def SetPrivData(self, data) -> None:
-        """
+        """ 
         """
 
     def SetQuality(self, quality: 'PrintQuality') -> None:
@@ -19118,6 +19722,24 @@ printer device contexts.
         """ int
         """
 
+DUPLEX_SIMPLEX: int
+DUPLEX_HORIZONTAL: int
+DUPLEX_VERTICAL: int
+LANDSCAPE: int
+PORTRAIT: int
+PRINT_QUALITY_HIGH: int
+PRINT_QUALITY_MEDIUM: int
+PRINT_QUALITY_LOW: int
+PRINT_QUALITY_DRAFT: int
+DUPLEX_SIMPLEX: int
+DUPLEX_HORIZONTAL: int
+DUPLEX_VERTICAL: int
+LANDSCAPE: int
+PORTRAIT: int
+PRINT_QUALITY_HIGH: int
+PRINT_QUALITY_MEDIUM: int
+PRINT_QUALITY_LOW: int
+PRINT_QUALITY_DRAFT: int
 
 
 class PrintDialog(Object):
@@ -19143,11 +19765,12 @@ class PrintDialog(Object):
         """ Shows the dialog, returning  ID_OK   if the user pressed wx.OK, and   ID_CANCEL   otherwise.
         """
 
+OK: int
+OK: int
 
 
 class PrintDialogData(Object):
-    """ This class holds information related to the visual characteristics of
-
+    """ This class holds information related to the visual characteristics of
 PrintDialog.
     """
     def __init__(self, *args, **kw) -> None:
@@ -19261,8 +19884,7 @@ PrintDialog.
 
 
 class Printer(Object):
-    """ This class represents the Windows or PostScript printer, and is the
-
+    """ This class represents the Windows or PostScript printer, and is the
 vehicle through which printing may be launched by an application.
     """
     def __init__(self, data: Optional['PrintDialogData']=None) -> None:
@@ -19302,11 +19924,13 @@ vehicle through which printing may be launched by an application.
         """ Invokes the print setup dialog.
         """
 
+PRINTER_NO_ERROR: int
+PRINTER_CANCELLED: int
+PRINTER_ERROR: int
 
 
 class PrinterDC(DC):
-    """ A printer device context is specific to MSW and Mac, and allows access
-
+    """ A printer device context is specific to MSW and Mac, and allows access
 to any printer with a Windows or Macintosh driver.
     """
     def __init__(self, printData: 'PrintData') -> None:
@@ -19320,8 +19944,7 @@ to any printer with a Windows or Macintosh driver.
 
 
 class Printout(Object):
-    """ This class encapsulates the functionality of printing out an
-
+    """ This class encapsulates the functionality of printing out an
 application document.
     """
     def __init__(self, title: str="Printout") -> None:
@@ -19528,8 +20151,7 @@ class PrintPreview(Object):
 
 
 class Process(EvtHandler):
-    """ The objects of this class are used in conjunction with the Execute()
-
+    """ The objects of this class are used in conjunction with the Execute()
 function.
     """
     def __init__(self, *args, **kw) -> None:
@@ -19565,7 +20187,7 @@ function.
         """ It returns an output stream corresponding to the input stream of the subprocess.
         """
 
-    def GetPid(self) -> long:
+    def GetPid(self) -> int:
         """ Returns the process ID of the process launched by Open   or set by wx.Execute       (if you passed this   wx.Process  as argument).
         """
 
@@ -19607,8 +20229,7 @@ EVT_END_PROCESS: int  #  Process a  wxEVT_END_PROCESS   event, sent by  wx.Proce
 
 
 class ProcessEvent(Event):
-    """ A process event is sent to the EvtHandler specified to Process
-
+    """ A process event is sent to the EvtHandler specified to Process
 when a process is terminated.
     """
     def __init__(self, id=0, pid=0, exitcode=0) -> None:
@@ -19627,10 +20248,8 @@ EVT_END_PROCESS: int  #  Process a  wxEVT_END_PROCESS   event.  id  is the ident
 
 
 class ProgressDialog(GenericProgressDialog):
-    """ If supported by the platform this class will provide the platformâs
-
-native progress dialog, else it will simply be the
-
+    """ If supported by the platform this class will provide the platformâs
+native progress dialog, else it will simply be the
 GenericProgressDialog.
     """
     def __init__(self, title, message, maximum=100, parent=None, style=PD_APP_MODAL|PD_AUTO_HIDE) -> None:
@@ -19638,7 +20257,7 @@ GenericProgressDialog.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -19688,11 +20307,11 @@ class PropagateOnce:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -19705,11 +20324,11 @@ class PropagationDisabler:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
 
@@ -19732,8 +20351,7 @@ class PyApp(AppConsole):
 
     @staticmethod
     def GetComCtl32Version() -> int:
-        """ Returns 400, 470, 471, etc. for comctl32.dll 4.00, 4.70, 4.71 or 0 if
-
+        """ Returns 400, 470, 471, etc. for comctl32.dll 4.00, 4.70, 4.71 or 0 if
 it wasnât found at all.  Raises an exception on non-Windows platforms.
         """
 
@@ -19745,7 +20363,7 @@ it wasnât found at all.  Raises an exception on non-Windows platforms.
         """ Returns True if the application will exit when the top-level frame is deleted.
         """
 
-    def GetLayoutDirection(self) -> 'LayoutDirection':
+    def GetLayoutDirection(self) -> int:
         """ Return the layout direction for the current locale or  Layout_Default   if itâs unknown.
         """
 
@@ -19768,14 +20386,12 @@ it wasnât found at all.  Raises an exception on non-Windows platforms.
 
     @staticmethod
     def IsDisplayAvailable() -> bool:
-        """ Returns True if the application is able to connect to the systemâs
-
+        """ Returns True if the application is able to connect to the systemâs
 display, or whatever the equivallent is for the platform.
         """
 
     def MacHideApp(self) -> None:
-        """ Hide all application windows just as the user can do with the
-
+        """ Hide all application windows just as the user can do with the
 system Hide command.  Mac only.
         """
 
@@ -19820,8 +20436,7 @@ system Hide command.  Mac only.
         """
 
     def SetAssertMode(self, wxAppAssertMode: AppAssertMode) -> None:
-        """ Set the mode indicating how the application responds to  assertion
-
+        """ Set the mode indicating how the application responds to  assertion
 statements. Valid settings are a combination of these flags:
         """
 
@@ -19855,22 +20470,14 @@ EVT_IDLE: int  #  Process a  wxEVT_IDLE   event. See    wx.IdleEvent. ^^
 
 
 class PyCommandEvent:
-    """ PyCommandEvent can be used as a base class for implementing
-
-custom event types in Python. You should derive from this class
-
-instead of CommandEvent because this class is Python-aware
-
-and is able to transport its Python bits safely through the
-
-wxWidgets event system and have them still be there when the
-
-event handler is invoked. Note that since PyCommandEvent is
-
-taking care of preserving the extra attributes that have been set
-
-then you do not need to override the Clone method in your
-
+    """ PyCommandEvent can be used as a base class for implementing
+custom event types in Python. You should derive from this class
+instead of CommandEvent because this class is Python-aware
+and is able to transport its Python bits safely through the
+wxWidgets event system and have them still be there when the
+event handler is invoked. Note that since PyCommandEvent is
+taking care of preserving the extra attributes that have been set
+then you do not need to override the Clone method in your
 derived classes.
     """
     def __init__(self, eventType=wxEVT_NULL, id=0) -> None:
@@ -19881,11 +20488,11 @@ derived classes.
         """ Make a new instance of the event that is a copy of self.
         """
 
-    def __delattr__(self, name: PyObject) -> None:
+    def __delattr__(self, name: Any) -> None:
         """ name (PyObject) â
         """
 
-    def __getattr__(self, name: PyObject) -> PyObject:
+    def __getattr__(self, name: Any) -> Any:
         """ name (PyObject) â
         """
 
@@ -19893,27 +20500,20 @@ derived classes.
         """ name (PyObject) â
         """
 
-    def _getAttrDict(self) -> PyObject:
+    def _getAttrDict(self) -> Any:
         """ Gives access to the internal object that is tracking the eventâs python attributes.
         """
 
 
 
 class PyEvent:
-    """ PyEvent can be used as a base class for implementing custom
-
-event types in Python. You should derive from this class instead
-
-of Event because this class is Python-aware and is able to
-
-transport its Python bits safely through the wxWidgets event
-
-system and have them still be there when the event handler is
-
-invoked. Note that since PyEvent is taking care of preserving
-
-the extra attributes that have been set then you do not need to
-
+    """ PyEvent can be used as a base class for implementing custom
+event types in Python. You should derive from this class instead
+of Event because this class is Python-aware and is able to
+transport its Python bits safely through the wxWidgets event
+system and have them still be there when the event handler is
+invoked. Note that since PyEvent is taking care of preserving
+the extra attributes that have been set then you do not need to
 override the Clone method in your derived classes.
     """
     def __init__(self, id=0, eventType=wxEVT_NULL) -> None:
@@ -19924,11 +20524,11 @@ override the Clone method in your derived classes.
         """ Make a new instance of the event that is a copy of self.
         """
 
-    def __delattr__(self, name: PyObject) -> None:
+    def __delattr__(self, name: Any) -> None:
         """ name (PyObject) â
         """
 
-    def __getattr__(self, name: PyObject) -> PyObject:
+    def __getattr__(self, name: Any) -> Any:
         """ name (PyObject) â
         """
 
@@ -19936,7 +20536,7 @@ override the Clone method in your derived classes.
         """ name (PyObject) â
         """
 
-    def _getAttrDict(self) -> PyObject:
+    def _getAttrDict(self) -> Any:
         """ Gives access to the internal object that is tracking the eventâs python attributes.
         """
 
@@ -19946,7 +20546,7 @@ class PyEventBinder:
     """ Instances of this class are used to bind specific events to event handlers.
     """
     def __init__(self, evtType, expectedIDs=0) -> None:
-        """
+        """ 
         """
 
     def Bind(self, target, id1, id2, function) -> None:
@@ -19958,42 +20558,35 @@ class PyEventBinder:
         """
 
     def __call__(self, *args) -> None:
-        """ For backwards compatibility with the old EVT_* functions.
-
-Should be called with either (window, func), (window, ID,
-
-func) or (window, ID1, ID2, func) parameters depending on the
-
+        """ For backwards compatibility with the old EVT_* functions.
+Should be called with either (window, func), (window, ID,
+func) or (window, ID1, ID2, func) parameters depending on the
 type of the event.
         """
 
     def _getEvtType(self) -> None:
-        """ Make it easy to get to the default wxEventType typeID for this
-
+        """ Make it easy to get to the default wxEventType typeID for this
 event binder.
         """
 
 
 
 class PyOnDemandOutputWindow:
-    """ A class that can be used for redirecting Pythonâs stdout and
-
-stderr streams.  It will do nothing until something is wrriten to
-
-the stream at which point it will create a Frame with a text area
-
+    """ A class that can be used for redirecting Pythonâs stdout and
+stderr streams.  It will do nothing until something is wrriten to
+the stream at which point it will create a Frame with a text area
 and write the text there.
     """
     def __init__(self, title="wxPython: stdout/stderr") -> None:
-        """
+        """ 
         """
 
     def CreateOutputWindow(self, txt) -> None:
-        """
+        """ 
         """
 
     def OnCloseWindow(self, event) -> None:
-        """
+        """ 
         """
 
     def SetParent(self, parent) -> None:
@@ -20001,18 +20594,16 @@ and write the text there.
         """
 
     def close(self) -> None:
-        """
+        """ 
         """
 
     def flush(self) -> None:
-        """
+        """ 
         """
 
     def write(self, text) -> None:
-        """ Create the output window if needed and write the string to it.
-
-If not called in the context of the gui thread then CallAfter is
-
+        """ Create the output window if needed and write the string to it.
+If not called in the context of the gui thread then CallAfter is
 used to do the work there.
         """
 
@@ -20022,13 +20613,13 @@ class PySimpleApp(App):
     """ This class is deprecated.  Please use App instead.
     """
     def __init__(self, *args, **kw) -> None:
-        """
+        """ 
         """
 
 
 
 class QueryNewPaletteEvent(Event):
-    """ winid (wx.WindowID) â
+    """ winid (wx.WindowID) â 
     """
     def __init__(self, winid: 'WindowID'=0) -> None:
         """ winid (wx.WindowID) â
@@ -20045,8 +20636,7 @@ class QueryNewPaletteEvent(Event):
 
 
 class RadioBox(Control):
-    """ A radio box item is used to select one of number of mutually exclusive
-
+    """ A radio box item is used to select one of number of mutually exclusive
 choices.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20066,7 +20656,7 @@ choices.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -20141,11 +20731,12 @@ choices.
 RA_SPECIFY_ROWS: int  #  The major dimension parameter refers to the maximum number of rows.
 RA_SPECIFY_COLS: int  #  The major dimension parameter refers to the maximum number of columns. ^^
 EVT_RADIOBOX: int  #  Process a  wxEVT_RADIOBOX   event, when a radiobutton is clicked. ^^
+RA_SPECIFY_ROWS: int
+RA_SPECIFY_COLS: int
 
 
 class RadioButton(Control):
-    """ A radio button item is a button which usually denotes one of several
-
+    """ A radio button item is a button which usually denotes one of several
 mutually exclusive options.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20157,7 +20748,7 @@ mutually exclusive options.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -20188,6 +20779,8 @@ mutually exclusive options.
 RB_GROUP: int  #  Marks the beginning of a new group of radio buttons.
 RB_SINGLE: int  #  Creates a radio button which is not part of any radio button group. When this style is used, no other radio buttons will be turned off automatically when this button is turned on and such behaviour will need to be implemented manually, in the event handler for this button. ^^
 EVT_RADIOBUTTON: int  #  Process a  wxEVT_RADIOBUTTON   event, when the radiobutton is clicked. ^^
+RB_GROUP: int
+RB_SINGLE: int
 
 
 class RealPoint:
@@ -20206,7 +20799,7 @@ class RealPoint:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __eq__(self, other) -> bool:
@@ -20214,11 +20807,11 @@ class RealPoint:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __mul__(self, d) -> 'RealPoint':
@@ -20230,23 +20823,23 @@ class RealPoint:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __iadd__(self, *args, **kw) -> None:
@@ -20257,11 +20850,13 @@ class RealPoint:
         """ Overloaded Implementations:
         """
 
+RealPoint: int
+RealPoint: int
+RealPoint: int
 
 
 class RearrangeCtrl(Panel):
-    """ A composite control containing a RearrangeList and the buttons
-
+    """ A composite control containing a RearrangeList and the buttons
 allowing to move the items in it.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20273,7 +20868,7 @@ allowing to move the items in it.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -20284,8 +20879,7 @@ allowing to move the items in it.
 
 
 class RearrangeList(CheckListBox):
-    """ A listbox-like control allowing the user to rearrange the items and to
-
+    """ A listbox-like control allowing the user to rearrange the items and to
 enable or disable them.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20305,7 +20899,7 @@ enable or disable them.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -20339,7 +20933,7 @@ class RearrangeDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -20521,7 +21115,7 @@ class Rect:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __eq__(self, other) -> bool:
@@ -20529,11 +21123,11 @@ class Rect:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self, other) -> bool:
@@ -20541,23 +21135,23 @@ class Rect:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __imul__(self) -> None:
@@ -20568,6 +21162,9 @@ class Rect:
         """ Like Union , but doesnât treat empty rectangles specially.
         """
 
+Rect: int
+Rect: int
+Rect: int
 
 
 class Rect2D:
@@ -20593,7 +21190,7 @@ class Rect2D:
         """ otherRect (Rect2DDouble) â
         """
 
-    def Get(self) -> PyObject:
+    def Get(self) -> Any:
         """ Get() . (x, y, width, height)
         """
 
@@ -20762,35 +21359,35 @@ class Rect2D:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self) -> None:
@@ -20801,11 +21398,13 @@ class Rect2D:
         """ rect (Rect2DDouble) â
         """
 
+Rect2D: int
+Rect2D: int
+Rect2D: int
 
 
 class RefCounter:
-    """ This class is used to manage reference-counting providing a simple
-
+    """ This class is used to manage reference-counting providing a simple
 interface and a counter.
     """
     def __init__(self) -> None:
@@ -20827,8 +21426,7 @@ interface and a counter.
 
 
 class Region(GDIObject):
-    """ A Region represents a simple or complex region on a device context
-
+    """ A Region represents a simple or complex region on a device context
 or window.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20880,18 +21478,15 @@ or window.
         """
 
     def __iter__(self) -> None:
-        """ Returns a rectangle iterator conforming to the Python iterator
-
+        """ Returns a rectangle iterator conforming to the Python iterator
 protocol.
         """
 
 
 
 class RegionIterator(Object):
-    """ This class is used to iterate through the rectangles in a region,
-
-typically when examining the damaged regions of a window within an
-
+    """ This class is used to iterate through the rectangles in a region,
+typically when examining the damaged regions of a window within an
 OnPaint call.
     """
     def __init__(self, *args, **kw) -> None:
@@ -20949,10 +21544,8 @@ OnPaint call.
 
 
 class RendererVersion:
-    """ This simple struct represents the RendererNative interface version
-
-and is only used as the return value of
-
+    """ This simple struct represents the RendererNative interface version
+and is only used as the return value of
 RendererNative.GetVersion().
     """
     def __init__(self, version_, age_) -> None:
@@ -20978,7 +21571,7 @@ class RichMessageDialog:
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21018,11 +21611,18 @@ class RichMessageDialog:
         """ Shows the dialog, returning one of wx.ID_OK, wx.ID_CANCEL, wx.ID_YES, wx.ID_NO.
         """
 
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
+ID_OK: int
+ID_CANCEL: int
+ID_YES: int
+ID_NO: int
 
 
 class RotateGestureEvent(GestureEvent):
-    """ This event is generated when two fingers move in opposite directions
-
+    """ This event is generated when two fingers move in opposite directions
 on the surface.
     """
     def __init__(self, windid: 'WindowID'=0) -> None:
@@ -21060,8 +21660,7 @@ class ScreenDC(DC):
 
 
 class ScrollBar(Control):
-    """ A ScrollBar is a control that represents a horizontal or vertical
-
+    """ A ScrollBar is a control that represents a horizontal or vertical
 scrollbar.
     """
     def __init__(self, *args, **kw) -> None:
@@ -21073,7 +21672,7 @@ scrollbar.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21127,15 +21726,15 @@ EVT_COMMAND_SCROLL_PAGEDOWN: int  #  Process  wxEVT_SCROLL_PAGEDOWN   page down 
 EVT_COMMAND_SCROLL_THUMBTRACK: int  #  Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
 EVT_COMMAND_SCROLL_THUMBRELEASE: int  #  Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
 EVT_COMMAND_SCROLL_CHANGED: int  #  Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only). ^^
+SB_HORIZONTAL: int
+SB_VERTICAL: int
+ID_ANY: int
 
 
 class Scrolled:
-    """ The Scrolled class manages scrolling for its client area,
-
-transforming the coordinates according to the scrollbar positions, and
-
-setting the scroll positions, thumb sizes and ranges according to the
-
+    """ The Scrolled class manages scrolling for its client area,
+transforming the coordinates according to the scrollbar positions, and
+setting the scroll positions, thumb sizes and ranges according to the
 area in view.
     """
     def __init__(self, *args, **kw) -> None:
@@ -21143,7 +21742,7 @@ area in view.
         """
 
     def AdjustScrollbars(self) -> None:
-        """
+        """ 
         """
 
     def CalcScrolledPosition(self, *args, **kw) -> 'Point':
@@ -21171,7 +21770,7 @@ area in view.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21284,17 +21883,20 @@ EVT_SCROLLWIN_PAGEUP: int  #  Process  wxEVT_SCROLLWIN_PAGEUP   page up events.
 EVT_SCROLLWIN_PAGEDOWN: int  #  Process  wxEVT_SCROLLWIN_PAGEDOWN   page down events.
 EVT_SCROLLWIN_THUMBTRACK: int  #  Process  wxEVT_SCROLLWIN_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
 EVT_SCROLLWIN_THUMBRELEASE: int  #  Process  wxEVT_SCROLLWIN_THUMBRELEASE   thumb release events. ^^
+HSCROLL: int
+VSCROLL: int
+ALWAYS_SHOW_SB: int
+RETAINED: int
+SHOW_SB_ALWAYS: int
+SHOW_SB_NEVER: int
+SHOW_SB_DEFAULT: int
 
 
 class ScrolledCanvas(Window):
-    """ The ScrolledCanvas      class is a combination of the Window      and
-
-Scrolled      classes, and manages scrolling for its client area,
-
-transforming the coordinates according to the scrollbar positions,
-
-and setting the scroll positions, thumb sizes and ranges according to
-
+    """ The ScrolledCanvas      class is a combination of the Window      and
+Scrolled      classes, and manages scrolling for its client area,
+transforming the coordinates according to the scrollbar positions,
+and setting the scroll positions, thumb sizes and ranges according to
 the area in view.
     """
 
@@ -21307,21 +21909,19 @@ class ScrolledWindow:
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
     def SetFocusIgnoringChildren(self) -> None:
-        """ In contrast to SetFocus() this will set the focus to the panel even if
-
+        """ In contrast to SetFocus() this will set the focus to the panel even if
 there are child windows in the panel. This is only rarely needed.
         """
 
 
 
 class ScrollEvent(CommandEvent):
-    """ A scroll event holds information about events sent from stand-alone
-
+    """ A scroll event holds information about events sent from stand-alone
 scrollbars (see ScrollBar) and sliders (see Slider).
     """
     def __init__(self, commandType=wxEVT_NULL, id=0, pos=0, orientation=0) -> None:
@@ -21364,11 +21964,14 @@ EVT_COMMAND_SCROLL_PAGEDOWN: int  #  Process  wxEVT_SCROLL_PAGEDOWN   page down 
 EVT_COMMAND_SCROLL_THUMBTRACK: int  #  Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
 EVT_COMMAND_SCROLL_THUMBRELEASE: int  #  Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
 EVT_COMMAND_SCROLL_CHANGED: int  #  Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only). ^^
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
 
 
 class Slider(Control):
-    """ A slider is a control with a handle which can be pulled back and forth
-
+    """ A slider is a control with a handle which can be pulled back and forth
 to change the value.
     """
     def __init__(self, *args, **kw) -> None:
@@ -21388,7 +21991,7 @@ to change the value.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21409,7 +22012,7 @@ to change the value.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
         """
 
     def GetSelEnd(self) -> int:
@@ -21506,11 +22109,30 @@ EVT_COMMAND_SCROLL_THUMBTRACK: int  #  Process  wxEVT_SCROLL_THUMBTRACK   thumbt
 EVT_COMMAND_SCROLL_THUMBRELEASE: int  #  Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
 EVT_COMMAND_SCROLL_CHANGED: int  #  Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only).
 EVT_SLIDER: int  #  Process  wxEVT_SLIDER   which is generated after any change of    wx.Slider  position in addition to one of the events above. Notice that the handler of this event receives a   wx.CommandEvent  as argument and not   wx.ScrollEvent, as all the other handlers. ^^
+SL_HORIZONTAL: int
+SL_VERTICAL: int
+SL_AUTOTICKS: int
+SL_MIN_MAX_LABELS: int
+SL_VALUE_LABEL: int
+SL_LABELS: int
+SL_VALUE_LABEL: int
+SL_MIN_MAX_LABELS: int
+SL_LEFT: int
+SL_RIGHT: int
+SL_TOP: int
+SL_BOTTOM: int
+SL_BOTH: int
+SL_SELRANGE: int
+SL_INVERSE: int
+SL_SELRANGE: int
+SL_RIGHT: int
+SL_SELRANGE: int
+ID_ANY: int
+SL_SELRANGE: int
 
 
 class ScrollWinEvent(Event):
-    """ A scroll event holds information about events sent from scrolling
-
+    """ A scroll event holds information about events sent from scrolling
 windows.
     """
     def __init__(self, commandType=wxEVT_NULL, pos=0, orientation=0) -> None:
@@ -21542,11 +22164,16 @@ EVT_SCROLLWIN_PAGEUP: int  #  Process  wxEVT_SCROLLWIN_PAGEUP   page up events.
 EVT_SCROLLWIN_PAGEDOWN: int  #  Process  wxEVT_SCROLLWIN_PAGEDOWN   page down events.
 EVT_SCROLLWIN_THUMBTRACK: int  #  Process  wxEVT_SCROLLWIN_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
 EVT_SCROLLWIN_THUMBRELEASE: int  #  Process  wxEVT_SCROLLWIN_THUMBRELEASE   thumb release events. ^^
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
+HORIZONTAL: int
+VERTICAL: int
 
 
 class SearchCtrl(TextCtrl):
-    """ A search control is a composite control with a search button, a text
-
+    """ A search control is a composite control with a search button, a text
 control, and a cancel button.
     """
     def __init__(self, *args, **kw) -> None:
@@ -21614,7 +22241,7 @@ control, and a cancel button.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21626,7 +22253,7 @@ control, and a cancel button.
         """ Returns the current hint string.
         """
 
-    def GetInsertionPoint(self) -> long:
+    def GetInsertionPoint(self) -> int:
         """ Returns the insertion point, or cursor, position.
         """
 
@@ -21699,7 +22326,7 @@ control, and a cancel button.
         """
 
     def SetCancelBitmap(self, bmp) -> None:
-        """
+        """ 
         """
 
     def SetDescriptiveText(self, text: str) -> None:
@@ -21714,7 +22341,7 @@ control, and a cancel button.
         """ Sets a hint shown in an empty unfocused text control.
         """
 
-    def SetInsertionPoint(self, pos: long) -> None:
+    def SetInsertionPoint(self, pos: int) -> None:
         """ Sets the insertion point at the given position.
         """
 
@@ -21726,7 +22353,7 @@ control, and a cancel button.
         """ Attempts to set the control margins.
         """
 
-    def SetMaxLength(self, len: long) -> None:
+    def SetMaxLength(self, len: int) -> None:
         """ This function sets the maximum number of characters the user can enter into the control.
         """
 
@@ -21735,11 +22362,11 @@ control, and a cancel button.
         """
 
     def SetSearchBitmap(self, bmp) -> None:
-        """
+        """ 
         """
 
     def SetSearchMenuBitmap(self, bmp) -> None:
-        """
+        """ 
         """
 
     def SetSelection(self, from_, to_) -> None:
@@ -21772,13 +22399,19 @@ TE_LEFT: int  #  The text in the control will be left-justified (default).
 TE_CENTRE: int  #  The text in the control will be centered (currently wxMSW and wxGTK2 only).
 TE_RIGHT: int  #  The text in the control will be right-justified (currently wxMSW and wxGTK2 only).
 TE_CAPITALIZE: int  #  On PocketPC and Smartphone, causes the first letter to be capitalized. ^^
-EVT_SEARCH: int  #  Respond to a  wxEVT_SEARCH   event, generated when the search button is clicked. Note that this does not initiate a search on its own, you need to perform the appropriate action in your event handler. You may use: int  #
+EVT_SEARCH: int  #  Respond to a  wxEVT_SEARCH   event, generated when the search button is clicked. Note that this does not initiate a search on its own, you need to perform the appropriate action in your event handler. You may use: int  # 
 EVT_SEARCH_CANCEL: int  #  Respond to a  wxEVT_SEARCH_CANCEL   event, generated when the cancel button is clicked. ^^
+TE_PROCESS_TAB: int
+TE_NOHIDESEL: int
+TE_LEFT: int
+TE_CENTRE: int
+TE_RIGHT: int
+TE_READONLY: int
+TE_READONLY: int
 
 
 class SetCursorEvent(Event):
-    """ A SetCursorEvent is generated from Window when the mouse cursor is
-
+    """ A SetCursorEvent is generated from Window when the mouse cursor is
 about to be set as a result of mouse motion.
     """
     def __init__(self, x=0, y=0) -> None:
@@ -21819,7 +22452,7 @@ class SettableHeaderColumn(HeaderColumn):
         """ Clear the specified flag for the column.
         """
 
-    def SetAlignment(self, align: Alignment) -> None:
+    def SetAlignment(self, align: int) -> None:
         """ Set the alignment of the column header.
         """
 
@@ -21879,13 +22512,24 @@ class SettableHeaderColumn(HeaderColumn):
         """ Donât use this column for sorting.
         """
 
+ALIGN_NOT: int
+ALIGN_CENTRE: int
+ALIGN_LEFT: int
+ALIGN_RIGHT: int
+ALIGN_CENTRE_HORIZONTAL: int
+ALIGN_CENTRE: int
+COL_RESIZABLE: int
+COL_SORTABLE: int
+COL_REORDERABLE: int
+COL_HIDDEN: int
+COL_RESIZABLE: int
+COL_WIDTH_DEFAULT: int
+COL_WIDTH_AUTOSIZE: int
 
 
 class SharedClientDataContainer:
-    """ This class is a replacement for ClientDataContainer, and unlike
-
-ClientDataContainer the SharedClientDataContainer client data is
-
+    """ This class is a replacement for ClientDataContainer, and unlike
+ClientDataContainer the SharedClientDataContainer client data is
 copiable, so it can be copied when objects containing it are cloned.
     """
     def GetClientData(self) -> None:
@@ -21936,7 +22580,7 @@ class Simplebook(BookCtrlBase):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -21963,10 +22607,8 @@ class Simplebook(BookCtrlBase):
 
 
 class SimpleHelpProvider(HelpProvider):
-    """ SimpleHelpProvider is an implementation of HelpProvider which
-
-supports only plain text help strings, and shows the string associated
-
+    """ SimpleHelpProvider is an implementation of HelpProvider which
+supports only plain text help strings, and shows the string associated
 with the control (if any) in a tooltip.
     """
 
@@ -21979,7 +22621,7 @@ class SingleChoiceDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -22002,11 +22644,24 @@ class SingleChoiceDialog(Dialog):
 OK: int  #  Show an wx.OK button.
 CANCEL: int  #  Show a Cancel button.
 CENTRE: int  #  Centre the message. ^^
+OK: int
+OK: int
+OK: int
+CANCEL: int
+CENTRE: int
+ID_OK: int
+ID_CANCEL: int
+DEFAULT_DIALOG_STYLE: int
+RESIZE_BORDER: int
+OK: int
+CANCEL: int
+CENTRE: int
+ID_OK: int
+ID_CANCEL: int
 
 
 class SingleInstanceChecker:
-    """ SingleInstanceChecker class allows checking that only a single
-
+    """ SingleInstanceChecker class allows checking that only a single
 instance of a program is running.
     """
     def __init__(self, *args, **kw) -> None:
@@ -22095,7 +22750,7 @@ class Size:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
         """
 
     def __eq__(self, other) -> bool:
@@ -22103,11 +22758,11 @@ class Size:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
         """
 
     def __len__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self, other) -> bool:
@@ -22115,23 +22770,23 @@ class Size:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
         """
 
     def __str__(self) -> None:
-        """
+        """ 
         """
 
     def __imul__(self) -> None:
@@ -22150,6 +22805,9 @@ class Size:
         """ factor (int) â
         """
 
+Size: int
+Size: int
+Size: int
 
 
 class SizeEvent(Event):
@@ -22283,8 +22941,7 @@ class SizerFlags:
 
 
 class SizerItem(Object):
-    """ The SizerItem class is used to track the position, size and other
-
+    """ The SizerItem class is used to track the position, size and other
 attributes of each item managed by a Sizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -22426,8 +23083,7 @@ attributes of each item managed by a Sizer.
 
 
 class SpinButton(Control):
-    """ A SpinButton has two small up and down (or left and right) arrow
-
+    """ A SpinButton has two small up and down (or left and right) arrow
 buttons.
     """
     def __init__(self, *args, **kw) -> None:
@@ -22439,7 +23095,7 @@ buttons.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -22456,7 +23112,7 @@ buttons.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
         """
 
     def GetValue(self) -> int:
@@ -22468,11 +23124,11 @@ buttons.
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
         """
 
     def SetRange(self, min, max) -> None:
@@ -22490,6 +23146,13 @@ SP_WRAP: int  #  The value wraps at the minimum and maximum. ^^
 EVT_SPIN: int  #  Generated whenever pressing an arrow changed the spin button value.
 EVT_SPIN_UP: int  #  Generated whenever pressing left/up arrow changed the spin button value.
 EVT_SPIN_DOWN: int  #  Generated whenever pressing right/down arrow changed the spin button value. ^^
+SP_HORIZONTAL: int
+SP_VERTICAL: int
+SP_ARROW_KEYS: int
+SP_WRAP: int
+UP: int
+DOWN: int
+ID_ANY: int
 
 
 class SpinCtrl(Control):
@@ -22508,7 +23171,7 @@ class SpinCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -22525,7 +23188,7 @@ class SpinCtrl(Control):
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
         """
 
     def GetTextValue(self) -> str:
@@ -22545,11 +23208,11 @@ class SpinCtrl(Control):
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
         """
 
     def SetRange(self, minVal, maxVal) -> None:
@@ -22571,11 +23234,20 @@ ALIGN_LEFT: int  #  Same as wx.TE_LEFT for   wx.TextCtrl: int  #  the text is le
 ALIGN_CENTRE_HORIZONTAL: int  #  Same as wx.TE_CENTRE for   wx.TextCtrl: int  #  the text is centered.
 ALIGN_RIGHT: int  #  Same as wx.TE_RIGHT for   wx.TextCtrl: int  #  the text is right aligned. ^^
 EVT_SPINCTRL: int  #  Process a wxEVT_SPINCTRL event, which is generated whenever the numeric value of the spin control is updated. ^^
+SP_ARROW_KEYS: int
+SP_WRAP: int
+TE_PROCESS_ENTER: int
+ALIGN_LEFT: int
+TE_LEFT: int
+ALIGN_CENTRE_HORIZONTAL: int
+TE_CENTRE: int
+ALIGN_RIGHT: int
+TE_RIGHT: int
+ID_ANY: int
 
 
 class SpinCtrlDouble(Control):
-    """ SpinCtrlDouble combines TextCtrl and SpinButton in one control
-
+    """ SpinCtrlDouble combines TextCtrl and SpinButton in one control
 and displays a real number.
     """
     def __init__(self, *args, **kw) -> None:
@@ -22587,7 +23259,7 @@ and displays a real number.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -22608,7 +23280,7 @@ and displays a real number.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
         """
 
     def GetTextValue(self) -> str:
@@ -22628,11 +23300,11 @@ and displays a real number.
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
         """
 
     def SetRange(self, minVal, maxVal) -> None:
@@ -22646,6 +23318,9 @@ and displays a real number.
 SP_ARROW_KEYS: int  #  The user can use arrow keys to change the value.
 SP_WRAP: int  #  The value wraps at the minimum and maximum. ^^
 EVT_SPINCTRLDOUBLE: int  #  Generated whenever the numeric value of the spin control is changed, that is, when the up/down spin button is clicked, when ENTER is pressed, or the control loses focus and the new value is different from the last. See   wx.SpinDoubleEvent. ^^
+SP_ARROW_KEYS: int
+SP_WRAP: int
+ID_ANY: int
 
 
 class SpinDoubleEvent(NotifyEvent):
@@ -22667,8 +23342,7 @@ EVT_SPINCTRLDOUBLE: int  #  Generated whenever the numeric value of the spin con
 
 
 class SpinEvent(NotifyEvent):
-    """ This event class is used for the events generated by SpinButton and
-
+    """ This event class is used for the events generated by SpinButton and
 SpinCtrl.
     """
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
@@ -22686,6 +23360,8 @@ SpinCtrl.
 EVT_SPIN: int  #  Generated whenever an arrow is pressed.
 EVT_SPIN_UP: int  #  Generated when left/up arrow is pressed.
 EVT_SPIN_DOWN: int  #  Generated when right/down arrow is pressed. ^^
+UP: int
+DOWN: int
 
 
 class SplitterEvent(NotifyEvent):
@@ -22730,8 +23406,7 @@ EVT_SPLITTER_DCLICK: int  #  The sash was double clicked. The default behaviour 
 
 
 class SplitterRenderParams:
-    """ This is just a simple struct used as a return value of
-
+    """ This is just a simple struct used as a return value of
 RendererNative.GetSplitterParams().
     """
     def __init__(self, widthSash_, border_, isSens_) -> None:
@@ -22752,7 +23427,7 @@ class SplitterWindow(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -22854,13 +23529,25 @@ EVT_SPLITTER_SASH_POS_RESIZE: int  #  The sash position is in the process of bei
 EVT_SPLITTER_SASH_POS_CHANGED: int  #  The sash position was changed. May be used to modify the sash position before it is set, or to prevent the change from taking place. Processes a  wxEVT_SPLITTER_SASH_POS_CHANGED   event.
 EVT_SPLITTER_UNSPLIT: int  #  The splitter has been just unsplit. Processes a  wxEVT_SPLITTER_UNSPLIT   event.
 EVT_SPLITTER_DCLICK: int  #  The sash was double clicked. The default behaviour is to unsplit the window when this happens (unless the minimum pane size has been set to a value greater than zero). Processes a  wxEVT_SPLITTER_DOUBLECLICKED   event. ^^
+SP_3D: int
+SP_THIN_SASH: int
+SP_3DSASH: int
+SP_3DBORDER: int
+SP_BORDER: int
+SP_BORDER: int
+SP_NOBORDER: int
+SP_NO_XP_THEME: int
+SP_PERMIT_UNSPLIT: int
+SP_LIVE_UPDATE: int
+XOR: int
+SP_PERMIT_UNSPLIT: int
+SPLIT_VERTICAL: int
+SPLIT_HORIZONTAL: int
 
 
 class StandardPaths:
-    """ StandardPaths returns the standard locations in the file system and
-
-should be used by applications to find their data files in a portable
-
+    """ StandardPaths returns the standard locations in the file system and
+should be used by applications to find their data files in a portable
 way.
     """
     @staticmethod
@@ -22975,7 +23662,7 @@ class StaticBitmap(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -23002,8 +23689,7 @@ class StaticBitmap(Control):
 
 
 class StaticBox(Control):
-    """ A static box is a rectangle drawn around other windows to denote a
-
+    """ A static box is a rectangle drawn around other windows to denote a
 logical grouping of items.
     """
     def __init__(self, *args, **kw) -> None:
@@ -23023,15 +23709,15 @@ logical grouping of items.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
+ID_ANY: int
 
 
 class StaticBoxSizer(BoxSizer):
-    """ StaticBoxSizer is a sizer derived from BoxSizer but adds a static
-
+    """ StaticBoxSizer is a sizer derived from BoxSizer but adds a static
 box around the sizer.
     """
     def __init__(self, *args, **kw) -> None:
@@ -23053,8 +23739,7 @@ box around the sizer.
 
 
 class StaticLine(Control):
-    """ A static line is just a line which may be used in a dialog to separate
-
+    """ A static line is just a line which may be used in a dialog to separate
 the groups of controls.
     """
     def __init__(self, *args, **kw) -> None:
@@ -23066,7 +23751,7 @@ the groups of controls.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -23081,6 +23766,11 @@ the groups of controls.
 
 LI_HORIZONTAL: int  #  Creates a horizontal line.
 LI_VERTICAL: int  #  Creates a vertical line. ^^
+LI_HORIZONTAL: int
+LI_VERTICAL: int
+ID_ANY: int
+LI_HORIZONTAL: int
+LI_VERTICAL: int
 
 
 class StaticText(Control):
@@ -23095,7 +23785,7 @@ class StaticText(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -23118,11 +23808,17 @@ ST_NO_AUTORESIZE: int  #  By default, the control will adjust its size to exactl
 ST_ELLIPSIZE_START: int  #  If the labeltext width exceeds the control width, replace the beginning of the label with an ellipsis; uses wx.Control.Ellipsize .
 ST_ELLIPSIZE_MIDDLE: int  #  If the label text width exceeds the control width, replace the middle of the label with an ellipsis; uses wx.Control.Ellipsize .
 ST_ELLIPSIZE_END: int  #  If the label text width exceeds the control width, replace the end of the label with an ellipsis; uses wx.Control.Ellipsize . ^^
+ALIGN_LEFT: int
+ALIGN_RIGHT: int
+ALIGN_CENTRE_HORIZONTAL: int
+ST_NO_AUTORESIZE: int
+ST_ELLIPSIZE_START: int
+ST_ELLIPSIZE_MIDDLE: int
+ST_ELLIPSIZE_END: int
 
 
 class StatusBar(Control):
-    """ A status bar is a narrow window that can be placed along the bottom of
-
+    """ A status bar is a narrow window that can be placed along the bottom of
 a frame to give small amounts of status information.
     """
     def __init__(self, *args, **kw) -> None:
@@ -23138,7 +23834,7 @@ a frame to give small amounts of status information.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -23200,6 +23896,12 @@ STB_ELLIPSIZE_START: int  #  Replace the beginning of the status texts with an e
 STB_ELLIPSIZE_MIDDLE: int  #  Replace the middle of the status texts with an ellipsis when the status text widths exceed the status bar paneâs widths (uses wx.Control.Ellipsize ).
 STB_ELLIPSIZE_END: int  #  Replace the end of the status texts with an ellipsis when the status text widths exceed the status bar paneâs widths (uses wx.Control.Ellipsize ).
 STB_DEFAULT_STYLE: int  #  The default style: int  #  includes  STB_SIZEGRIP|wxSTB_SHOW_TIPS|wxSTB_ELLIPSIZE_END|wxFULL_REPAINT_ON_RESIZE . ^^
+STB_SIZEGRIP: int
+STB_SHOW_TIPS: int
+STB_ELLIPSIZE_START: int
+STB_ELLIPSIZE_MIDDLE: int
+STB_ELLIPSIZE_END: int
+STB_DEFAULT_STYLE: int
 
 
 class StatusBarPane:
@@ -23224,10 +23926,8 @@ class StatusBarPane:
 
 
 class StdDialogButtonSizer(BoxSizer):
-    """ This class creates button layouts which conform to the standard button
-
-spacing and ordering defined by the platform or toolkitâs user
-
+    """ This class creates button layouts which conform to the standard button
+spacing and ordering defined by the platform or toolkitâs user
 interface guidelines (if such things exist).
     """
     def __init__(self) -> None:
@@ -23262,11 +23962,21 @@ interface guidelines (if such things exist).
         """ Sets the negative button for the sizer.
         """
 
+ID_SAVE: int
+ID_NO: int
+ID_OK: int
+ID_YES: int
+ID_SAVE: int
+ID_APPLY: int
+ID_CLOSE: int
+ID_NO: int
+ID_CANCEL: int
+ID_HELP: int
+ID_CONTEXT_HELP: int
 
 
 class StockPreferencesPage(PreferencesPage):
-    """ Specialization of PreferencesPage useful for certain commonly used
-
+    """ Specialization of PreferencesPage useful for certain commonly used
 preferences page.
     """
     def __init__(self, kind: Kind) -> None:
@@ -23302,23 +24012,22 @@ class StopWatch:
         """ Resumes the stop watch which had been paused with Pause .
         """
 
-    def Start(self, milliseconds: long=0) -> None:
+    def Start(self, milliseconds: int=0) -> None:
         """ (Re)starts the stop watch with a given initial value.
         """
 
-    def Time(self) -> long:
+    def Time(self) -> int:
         """ Returns the time in milliseconds since the start (or restart) or the last call of Pause .
         """
 
-    def TimeInMicro(self) -> long:
+    def TimeInMicro(self) -> int:
         """ Returns elapsed time in microseconds.
         """
 
 
 
 class StreamBase:
-    """ This class is the base class of most stream related classes in
-
+    """ This class is the base class of most stream related classes in
 wxWidgets.
     """
     def __init__(self) -> None:
@@ -23361,8 +24070,7 @@ class SVGBitmapEmbedHandler(SVGBitmapHandler):
 
 
 class SVGBitmapFileHandler(SVGBitmapHandler):
-    """ Handler saving bitmaps to external PNG files and linking to it from
-
+    """ Handler saving bitmaps to external PNG files and linking to it from
 the SVG.
     """
     def __init__(self, path: str) -> None:
@@ -23385,8 +24093,7 @@ class SVGBitmapHandler:
 
 
 class SVGFileDC(DC):
-    """ A SVGFileDC is a device context onto which graphics and text can be
-
+    """ A SVGFileDC is a device context onto which graphics and text can be
 drawn, and the output produced as a vector file, in SVG format.
     """
     def __init__(self, filename, width=320, height=240, dpi=72, title="") -> None:
@@ -23453,13 +24160,12 @@ drawn, and the output produced as a vector file, in SVG format.
         """ Function not implemented in this DC class.
         """
 
+SVG_SHAPE_RENDERING_AUTO: int
 
 
 class SysColourChangedEvent(Event):
-    """ This class is used for system colour change events, which are
-
-generated when the user changes the colour settings or when the system
-
+    """ This class is used for system colour change events, which are
+generated when the user changes the colour settings or when the system
 theme changes (e.g.
     """
     def __init__(self) -> None:
@@ -23487,8 +24193,7 @@ class SystemAppearance:
 
 
 class SystemOptions(Object):
-    """ SystemOptions stores option/value pairs that wxWidgets itself or
-
+    """ SystemOptions stores option/value pairs that wxWidgets itself or
 applications can use to alter behaviour at run-time.
     """
     def __init__(self) -> None:
@@ -23520,11 +24225,13 @@ applications can use to alter behaviour at run-time.
         """ Sets an option.
         """
 
+CLIP_CHILDREN: int
+BG_STYLE_COLOUR: int
+FD_OPEN: int
 
 
 class SystemSettings:
-    """ SystemSettings allows the application to ask for details about the
-
+    """ SystemSettings allows the application to ask for details about the
 system.
     """
     def __init__(self) -> None:
@@ -23561,11 +24268,12 @@ system.
         """ Returns True if the port has certain feature.
         """
 
+SYS_CAPTION_Y: int
+SYS_CURSOR_X: int
 
 
 class TextAttr:
-    """ TextAttr represents the character and paragraph attributes, or
-
+    """ TextAttr represents the character and paragraph attributes, or
 style, for a range of text in a TextCtrl or RichTextCtrl.
     """
     def __init__(self, *args, **kw) -> None:
@@ -23580,7 +24288,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Partial equality test.
         """
 
-    def GetAlignment(self) -> 'TextAttrAlignment':
+    def GetAlignment(self) -> int:
         """ Returns the alignment flags.
         """
 
@@ -23612,7 +24320,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the name of the character style.
         """
 
-    def GetFlags(self) -> long:
+    def GetFlags(self) -> int:
         """ Returns flags indicating which attributes are applicable.
         """
 
@@ -23652,11 +24360,11 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the font weight.
         """
 
-    def GetLeftIndent(self) -> long:
+    def GetLeftIndent(self) -> int:
         """ Returns the left indent in tenths of a millimetre.
         """
 
-    def GetLeftSubIndent(self) -> long:
+    def GetLeftSubIndent(self) -> int:
         """ Returns the left sub-indent in tenths of a millimetre.
         """
 
@@ -23684,7 +24392,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the name of the paragraph style.
         """
 
-    def GetRightIndent(self) -> long:
+    def GetRightIndent(self) -> int:
         """ Returns the right indent in tenths of a millimeter.
         """
 
@@ -23744,7 +24452,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns True if the attribute object specifies a character style name.
         """
 
-    def HasFlag(self, flag: long) -> bool:
+    def HasFlag(self, flag: int) -> bool:
         """ Returns True if the flag  is present in the attribute objectâs flag bitlist.
         """
 
@@ -23856,7 +24564,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Overloaded Implementations:
         """
 
-    def SetAlignment(self, alignment: TextAttrAlignment) -> None:
+    def SetAlignment(self, alignment: int) -> None:
         """ Sets the paragraph alignment.
         """
 
@@ -23888,7 +24596,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the character style name.
         """
 
-    def SetFlags(self, flags: long) -> None:
+    def SetFlags(self, flags: int) -> None:
         """ Sets the flags determining which styles are being specified.
         """
 
@@ -23992,6 +24700,28 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the URL for the content.
         """
 
+TEXT_ATTR_BULLET_STYLE_STANDARD: int
+TEXT_ATTR_BULLET_STYLE_STANDARD: int
+TEXT_ATTR_BULLET_STYLE_STANDARD: int
+TEXT_ATTR_URL: int
+TEXT_ALIGNMENT_JUSTIFIED: int
+TEXT_ATTR_BULLET_STYLE_STANDARD: int
+TEXT_ATTR_BULLET_STYLE_BITMAP: int
+TEXT_ATTR_UNDERLINE_DOUBLE: int
+TEXT_ATTR_UNDERLINE_SOLID: int
+TEXT_ATTR_UNDERLINE_SPECIAL: int
+TEXT_ATTR_UNDERLINE_SPECIAL: int
+TEXT_ATTR_UNDERLINE_SPECIAL: int
+TEXT_ATTR_UNDERLINE_SPECIAL: int
+TEXT_ATTR_EFFECTS: int
+TEXT_ATTR_EFFECT_CAPITALS: int
+TEXT_ATTR_EFFECT_STRIKETHROUGH: int
+TEXT_ATTR_EFFECT_SUPERSCRIPT: int
+TEXT_ATTR_EFFECT_SUBSCRIPT: int
+TEXT_ATTR_EFFECT_CAPITALS: int
+TEXT_ATTR_EFFECT_STRIKETHROUGH: int
+TEXT_ATTR_EFFECTS: int
+TEXT_ATTR_URL: int
 
 
 class TextCompleter:
@@ -24025,8 +24755,7 @@ class TextCompleterSimple(TextCompleter):
 
 
 class TextDataObject(DataObjectSimple):
-    """ TextDataObject is a specialization of DataObjectSimple for text
-
+    """ TextDataObject is a specialization of DataObjectSimple for text
 data.
     """
     def __init__(self, text: str="") -> None:
@@ -24034,8 +24763,7 @@ data.
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -24043,7 +24771,7 @@ supports transferring in the given direction.
         """ Returns the preferred format supported by this object.
         """
 
-    def GetFormatCount(self, dir: DataObject.Direction=DataObject.Get) -> int:
+    def GetFormatCount(self, dir: int=DataObject.Get) -> int:
         """ Returns 2 under Mac and wxGTK, where text data coming from the clipboard may be provided as ANSI ( DF_TEXT ) or as Unicode text ( DF_UNICODETEXT , but only when   USE_UNICODE==1 ).
         """
 
@@ -24145,7 +24873,7 @@ class TextEntry:
         """ Returns the current hint string.
         """
 
-    def GetInsertionPoint(self) -> long:
+    def GetInsertionPoint(self) -> int:
         """ Returns the insertion point, or cursor, position.
         """
 
@@ -24213,7 +24941,7 @@ class TextEntry:
         """ Sets a hint shown in an empty unfocused text control.
         """
 
-    def SetInsertionPoint(self, pos: long) -> None:
+    def SetInsertionPoint(self, pos: int) -> None:
         """ Sets the insertion point at the given position.
         """
 
@@ -24225,7 +24953,7 @@ class TextEntry:
         """ Attempts to set the control margins.
         """
 
-    def SetMaxLength(self, len: long) -> None:
+    def SetMaxLength(self, len: int) -> None:
         """ This function sets the maximum number of characters the user can enter into the control.
         """
 
@@ -24245,11 +24973,12 @@ class TextEntry:
         """ Writes the text into the text control at the current insertion position.
         """
 
+TE_READONLY: int
+TE_READONLY: int
 
 
 class TextEntryDialog(Dialog):
-    """ This class represents a dialog that requests a one-line text string
-
+    """ This class represents a dialog that requests a one-line text string
 from the user.
     """
     def __init__(self, *args, **kw) -> None:
@@ -24265,7 +24994,7 @@ from the user.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -24273,7 +25002,7 @@ from the user.
         """ Returns the text that the user has entered if the user has pressed wx.OK, or the original value if the user has pressed Cancel.
         """
 
-    def SetMaxLength(self, len: long) -> None:
+    def SetMaxLength(self, len: int) -> None:
         """ This function sets the maximum number of characters the user can enter into this dialog.
         """
 
@@ -24285,6 +25014,16 @@ from the user.
         """ Shows the dialog, returning wx.ID_OK if the user pressed wx.OK, and wx.ID_CANCEL otherwise.
         """
 
+OK: int
+ID_OK: int
+OK: int
+ID_CANCEL: int
+CANCEL: int
+CENTRE: int
+OK: int
+ID_OK: int
+OK: int
+ID_CANCEL: int
 
 
 class TextUrlEvent(CommandEvent):
@@ -24302,11 +25041,11 @@ class TextUrlEvent(CommandEvent):
         """ wx.MouseEvent
         """
 
-    def GetURLEnd(self) -> long:
+    def GetURLEnd(self) -> int:
         """ long
         """
 
-    def GetURLStart(self) -> long:
+    def GetURLStart(self) -> int:
         """ long
         """
 
@@ -24351,8 +25090,7 @@ class TIFFHandler(ImageHandler):
 
 
 class TimerEvent(Event):
-    """ TimerEvent object is passed to the event handler of timer events
-
+    """ TimerEvent object is passed to the event handler of timer events
 (see Timer.SetOwner).
     """
     def __init__(self, timer: 'Timer') -> None:
@@ -24403,7 +25141,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Days(days: long) -> 'TimeSpan':
+    def Days(days: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of days.
         """
 
@@ -24419,7 +25157,7 @@ class TimeSpan:
         """ Returns the difference in number of hours.
         """
 
-    def GetMilliseconds(self) -> long:
+    def GetMilliseconds(self) -> int:
         """ Returns the difference in number of milliseconds.
         """
 
@@ -24427,11 +25165,11 @@ class TimeSpan:
         """ Returns the difference in number of minutes.
         """
 
-    def GetSeconds(self) -> long:
+    def GetSeconds(self) -> int:
         """ Returns the difference in number of seconds.
         """
 
-    def GetValue(self) -> long:
+    def GetValue(self) -> int:
         """ Returns the internal representation of timespan.
         """
 
@@ -24445,7 +25183,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Hours(hours: long) -> 'TimeSpan':
+    def Hours(hours: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of hours.
         """
 
@@ -24479,7 +25217,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Milliseconds(ms: long) -> 'TimeSpan':
+    def Milliseconds(ms: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of milliseconds.
         """
 
@@ -24489,7 +25227,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Minutes(min: long) -> 'TimeSpan':
+    def Minutes(min: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of minutes.
         """
 
@@ -24511,7 +25249,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Seconds(sec: long) -> 'TimeSpan':
+    def Seconds(sec: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of seconds.
         """
 
@@ -24525,7 +25263,7 @@ class TimeSpan:
         """
 
     @staticmethod
-    def Weeks(weeks: long) -> 'TimeSpan':
+    def Weeks(weeks: int) -> 'TimeSpan':
         """ Returns the timespan for the given number of weeks.
         """
 
@@ -24539,7 +25277,7 @@ class TipWindow(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -24550,8 +25288,7 @@ class TipWindow(Window):
 
 
 class ToolBar(Control):
-    """ A toolbar is a bar of buttons and/or other controls usually placed
-
+    """ A toolbar is a bar of buttons and/or other controls usually placed
 below the menu bar in a Frame.
     """
     def __init__(self, *args, **kw) -> None:
@@ -24627,7 +25364,7 @@ below the menu bar in a Frame.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -24781,6 +25518,20 @@ EVT_TOOL_RCLICKED: int  #  Process a  wxEVT_TOOL_RCLICKED   event. Pass the id o
 EVT_TOOL_RCLICKED_RANGE: int  #  Process a  wxEVT_TOOL_RCLICKED   event for a range of ids. Pass the ids of the tools. (Not available on wxOSX.)
 EVT_TOOL_ENTER: int  #  Process a  wxEVT_TOOL_ENTER   event. Pass the id of the toolbar itself. The value of  wx.CommandEvent.GetSelection   is the tool id, or -1 if the mouse cursor has moved off a tool. (Not available on wxOSX.)
 EVT_TOOL_DROPDOWN: int  #  Process a  wxEVT_TOOL_DROPDOWN   event. If unhandled, displays the default dropdown menu set using  wx.ToolBar.SetDropdownMenu . ^^
+TB_FLAT: int
+TB_DOCKABLE: int
+TB_HORIZONTAL: int
+TB_VERTICAL: int
+TB_TEXT: int
+TB_NOICONS: int
+TB_NODIVIDER: int
+TB_NOALIGN: int
+TB_HORZ_LAYOUT: int
+TB_HORZ_TEXT: int
+TB_NO_TOOLTIPS: int
+TB_BOTTOM: int
+TB_RIGHT: int
+TB_DEFAULT_STYLE: int
 
 
 class ToolBarToolBase(Object):
@@ -24799,7 +25550,7 @@ class ToolBarToolBase(Object):
         """
 
     def Detach(self) -> None:
-        """
+        """ 
         """
 
     def Enable(self, enable: bool) -> bool:
@@ -24895,7 +25646,7 @@ class ToolBarToolBase(Object):
         """
 
     def MakeStretchable(self) -> None:
-        """
+        """ 
         """
 
     def SetClientData(self, clientData: PyUserData) -> None:
@@ -24937,8 +25688,7 @@ class ToolBarToolBase(Object):
 
 
 class Toolbook(BookCtrlBase):
-    """ Toolbook is a class similar to Notebook but which uses a ToolBar
-
+    """ Toolbook is a class similar to Notebook but which uses a ToolBar
 to show the labels instead of the tabs.
     """
     def __init__(self, *args, **kw) -> None:
@@ -24954,7 +25704,7 @@ to show the labels instead of the tabs.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -24966,11 +25716,12 @@ TBK_BUTTONBAR: int  #  Use ButtonToolBar-based implementation under macOS (ignor
 TBK_HORZ_LAYOUT: int  #  Shows the text and the icons alongside, not vertically stacked (only implement under Windows and GTK 2 platforms as it relies on  TB_HORZ_LAYOUT   flag support). ^^
 EVT_TOOLBOOK_PAGE_CHANGED: int  #  The page selection was changed. Processes a  wxEVT_TOOLBOOK_PAGE_CHANGED   event.
 EVT_TOOLBOOK_PAGE_CHANGING: int  #  The page selection is about to be changed. Processes a  wxEVT_TOOLBOOK_PAGE_CHANGING   event. This event can be vetoed (using  wx.NotifyEvent.Veto ). ^^
+TBK_BUTTONBAR: int
+TBK_HORZ_LAYOUT: int
 
 
 class ToolTip(Object):
-    """ This class holds information about a tooltip associated with a window
-
+    """ This class holds information about a tooltip associated with a window
 (see Window.SetToolTip()).
     """
     def __init__(self, tip: str) -> None:
@@ -24991,12 +25742,12 @@ class ToolTip(Object):
         """
 
     @staticmethod
-    def SetAutoPop(msecs: long) -> None:
+    def SetAutoPop(msecs: int) -> None:
         """ Set the delay after which the tooltip disappears or how long a tooltip remains visible.
         """
 
     @staticmethod
-    def SetDelay(msecs: long) -> None:
+    def SetDelay(msecs: int) -> None:
         """ Set the delay after which the tooltip appears.
         """
 
@@ -25006,7 +25757,7 @@ class ToolTip(Object):
         """
 
     @staticmethod
-    def SetReshow(msecs: long) -> None:
+    def SetReshow(msecs: int) -> None:
         """ Set the delay between subsequent tooltips to appear.
         """
 
@@ -25056,7 +25807,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -25122,7 +25873,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacGetTopLevelWindowRef(self) -> None:
-        """
+        """ 
         """
 
     def MacGetUnifiedAppearance(self) -> bool:
@@ -25130,7 +25881,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacSetMetalAppearance(self, on) -> None:
-        """
+        """ 
         """
 
     def Maximize(self, maximize: bool=True) -> None:
@@ -25223,6 +25974,8 @@ EVT_MOVE_START: int  #  Process a  wxEVT_MOVE_START   event, which is generated 
 EVT_MOVE_END: int  #  Process a  wxEVT_MOVE_END   event, which is generated when the user stops moving or sizing a window. wxMSW only. See    wx.MoveEvent.
 EVT_SHOW: int  #  Process a  wxEVT_SHOW   event. See    wx.ShowEvent.
 EVT_FULLSCREEN: int  #  Process a  wxEVT_FULLSCREEN   event. See    wx.FullScreenEvent. ^^
+MAXIMIZE_BOX: int
+MINIMIZE_BOX: int
 
 
 class Trackable:
@@ -25283,11 +26036,12 @@ class Translations:
         """ Changes loader use to read catalogs to a non-default one.
         """
 
+LANGUAGE_DEFAULT: int
+LANGUAGE_DEFAULT: int
 
 
 class TreeCtrl(Control):
-    """ A tree control presents information as a hierarchy, with items that
-
+    """ A tree control presents information as a hierarchy, with items that
 may be expanded to show further items.
     """
     def __init__(self, *args, **kw) -> None:
@@ -25374,15 +26128,11 @@ may be expanded to show further items.
         """ Expands the given item and all its children recursively.
         """
 
-    def GetBoundingRect(self, item, textOnly=False) -> PyObject:
-        """ Returns the rectangle bounding the item. If textOnly is True,
-
-only the rectangle around the itemâs label will be returned, otherwise
-
-the itemâs image is also taken into account. The return value may be None
-
-if the rectangle was not successfully retrieved, such as if the item is
-
+    def GetBoundingRect(self, item, textOnly=False) -> Any:
+        """ Returns the rectangle bounding the item. If textOnly is True,
+only the rectangle around the itemâs label will be returned, otherwise
+the itemâs image is also taken into account. The return value may be None
+if the rectangle was not successfully retrieved, such as if the item is
 currently not visible.
         """
 
@@ -25391,7 +26141,7 @@ currently not visible.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -25487,7 +26237,7 @@ currently not visible.
         """ Returns the selection, or an invalid item if there is no selection.
         """
 
-    def GetSelections(self) -> PyObject:
+    def GetSelections(self) -> Any:
         """ Returns a list of currently selected items in the tree.  This function can be called only if the control has the wx.``wx.TR_MULTIPLE`` style.
         """
 
@@ -25611,7 +26361,7 @@ currently not visible.
         """ Sets the state image list (from which application-defined state images are taken).
         """
 
-    def SetWindowStyle(self, styles: long) -> None:
+    def SetWindowStyle(self, styles: int) -> None:
         """ Sets the mode flags associated with the display of the tree control.
         """
 
@@ -25673,11 +26423,24 @@ EVT_TREE_KEY_DOWN: int  #  A key has been pressed. Processes a  wxEVT_TREE_KEY_D
 EVT_TREE_ITEM_GETTOOLTIP: int  #  The opportunity to set the item tooltip is being given to the application (call wx.TreeEvent.SetToolTip ). Windows only. Processes a  wxEVT_TREE_ITEM_GETTOOLTIP   event type.
 EVT_TREE_ITEM_MENU: int  #  The context menu for the selected item has been requested, either by a right click or by using the menu key. Notice that these events always carry a valid tree item and so are not generated when (right) clicking outside of the items area. If you need to handle such events, consider using  wxEVT_CONTEXT_MENU   instead. Processes a   wxEVT_TREE_ITEM_MENU   event type.
 EVT_TREE_STATE_IMAGE_CLICK: int  #  The state image has been clicked. Processes a  wxEVT_TREE_STATE_IMAGE_CLICK   event type. ^^
+TR_EDIT_LABELS: int
+TR_NO_BUTTONS: int
+TR_HAS_BUTTONS: int
+TR_TWIST_BUTTONS: int
+TR_NO_LINES: int
+TR_FULL_ROW_HIGHLIGHT: int
+TR_LINES_AT_ROOT: int
+TR_HIDE_ROOT: int
+TR_ROW_LINES: int
+TR_HAS_VARIABLE_ROW_HEIGHT: int
+TR_SINGLE: int
+TR_MULTIPLE: int
+TR_DEFAULT_STYLE: int
+TR_HIDE_ROOT: int
 
 
 class TreeEvent(NotifyEvent):
-    """ A tree event holds information about events associated with TreeCtrl
-
+    """ A tree event holds information about events associated with TreeCtrl
 objects.
     """
 EVT_TREE_BEGIN_DRAG: int  #  Begin dragging with the left mouse button. If you want to enable left-dragging you need to intercept this event and explicitly call wx.TreeEvent.Allow , as itâs vetoed by default. Also notice that the control must have an associated image list (see SetImageList()) to drag its items under MSW.
@@ -25711,7 +26474,7 @@ class TreeItemId:
         """
 
     def GetID(self) -> None:
-        """
+        """ 
         """
 
     def IsOk(self) -> bool:
@@ -25719,7 +26482,7 @@ class TreeItemId:
         """
 
     def Unset(self) -> None:
-        """
+        """ 
         """
 
     def __bool__(self) -> int:
@@ -25731,7 +26494,7 @@ class TreeItemId:
         """
 
     def __hash__(self) -> None:
-        """
+        """ 
         """
 
     def __ne__(self, other) -> bool:
@@ -25745,8 +26508,7 @@ class TreeItemId:
 
 
 class TwoFingerTapEvent(GestureEvent):
-    """ This event is generated when two fingers touch the surface at the same
-
+    """ This event is generated when two fingers touch the surface at the same
 time.
     """
     def __init__(self, windid: 'WindowID'=0) -> None:
@@ -25757,8 +26519,7 @@ EVT_TWO_FINGER_TAP: int  #  Process a  wxEVT_TWO_FINGER_TAP . ^^
 
 
 class UIActionSimulator:
-    """ UIActionSimulator is a class used to simulate user interface actions
-
+    """ UIActionSimulator is a class used to simulate user interface actions
 such as a mouse click or a key press.
     """
     def __init__(self) -> None:
@@ -25849,10 +26610,8 @@ class UniChar:
 
 
 class UpdateUIEvent(CommandEvent):
-    """ This class is used for pseudo-events which are called by wxWidgets to
-
-give an application the chance to update various user interface
-
+    """ This class is used for pseudo-events which are called by wxWidgets to
+give an application the chance to update various user interface
 elements.
     """
     def __init__(self, commandId: 'WindowID'=0) -> None:
@@ -25910,7 +26669,7 @@ elements.
         """
 
     @staticmethod
-    def GetUpdateInterval() -> long:
+    def GetUpdateInterval() -> int:
         """ Returns the current interval between updates in milliseconds.
         """
 
@@ -25933,7 +26692,7 @@ elements.
         """
 
     @staticmethod
-    def SetUpdateInterval(updateInterval: long) -> None:
+    def SetUpdateInterval(updateInterval: int) -> None:
         """ Sets the interval between updates in milliseconds.
         """
 
@@ -25943,11 +26702,15 @@ elements.
 
 EVT_UPDATE_UI: int  #  Process a  wxEVT_UPDATE_UI   event for the command with the given id.
 EVT_UPDATE_UI_RANGE: int  #  Process a  wxEVT_UPDATE_UI   event for any command with id included in the given range. ^^
+UPDATE_UI_PROCESS_SPECIFIED: int
+WS_EX_PROCESS_UI_UPDATES: int
+WS_EX_PROCESS_UI_UPDATES: int
+UPDATE_UI_PROCESS_ALL: int
+UPDATE_UI_PROCESS_ALL: int
 
 
 class URLDataObject(DataObject):
-    """ URLDataObject is a DataObject containing an URL and can be used
-
+    """ URLDataObject is a DataObject containing an URL and can be used
 e.g.
     """
     def __init__(self, url: str="") -> None:
@@ -25955,8 +26718,7 @@ e.g.
         """
 
     def GetAllFormats(self, dir=DataObject.Get) -> None:
-        """ Returns a list of wx.DataFormat objects which this data object
-
+        """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
         """
 
@@ -25975,15 +26737,14 @@ supports transferring in the given direction.
 
 
 class Validator(EvtHandler):
-    """ Validator is the base class for a family of validator classes that
-
+    """ Validator is the base class for a family of validator classes that
 mediate between a class of control, and application data.
     """
     def __init__(self) -> None:
         """ Constructor.
         """
 
-    def Clone(self) -> 'Object':
+    def Clone(self) -> 'Window':
         """ All validator classes must implement the Clone   function, which returns an identical copy of itself.
         """
 
@@ -26020,8 +26781,7 @@ mediate between a class of control, and application data.
 
 
 class VarHScrollHelper(VarScrollHelperBase):
-    """ This class provides functions wrapping the VarScrollHelperBase
-
+    """ This class provides functions wrapping the VarScrollHelperBase
 class, targeted for horizontal-specific scrolling.
     """
     def __init__(self, winToScroll: 'Window') -> None:
@@ -26083,16 +26843,11 @@ class, targeted for horizontal-specific scrolling.
 
 
 class VarScrollHelperBase:
-    """ This class provides all common base functionality for scroll
-
-calculations shared among all variable scrolled window implementations
-
-as well as automatic scrollbar functionality, saved scroll positions,
-
-controlling target windows to be scrolled, as well as defining all
-
-required virtual functions that need to be implemented for any
-
+    """ This class provides all common base functionality for scroll
+calculations shared among all variable scrolled window implementations
+as well as automatic scrollbar functionality, saved scroll positions,
+controlling target windows to be scrolled, as well as defining all
+required virtual functions that need to be implemented for any
 orientation specific work.
     """
     def __init__(self, winToScroll: 'Window') -> None:
@@ -26170,10 +26925,8 @@ orientation specific work.
 
 
 class VarHVScrollHelper(VarVScrollHelper):
-    """ This class provides functions wrapping the VarHScrollHelper and
-
-VarVScrollHelper classes, targeted for scrolling a window in both
-
+    """ This class provides functions wrapping the VarHScrollHelper and
+VarVScrollHelper classes, targeted for scrolling a window in both
 axis.
     """
     def __init__(self, winToScroll: 'Window') -> None:
@@ -26223,8 +26976,7 @@ axis.
 
 
 class VarVScrollHelper(VarScrollHelperBase):
-    """ This class provides functions wrapping the VarScrollHelperBase
-
+    """ This class provides functions wrapping the VarScrollHelperBase
 class, targeted for vertical-specific scrolling.
     """
     def __init__(self, winToScroll: 'Window') -> None:
@@ -26339,8 +27091,7 @@ class VersionInfo:
 
 
 class VideoMode:
-    """ Determines the sizes and locations of displays connected to the
-
+    """ Determines the sizes and locations of displays connected to the
 system.
     """
     def __init__(self, width=0, height=0, depth=0, freq=0) -> None:
@@ -26391,16 +27142,11 @@ class VisualAttributes:
 
 
 class VListBox(VScrolledWindow):
-    """ VListBox is a ListBox-like control with the following two main
-
-differences from a regular ListBox: it can have an arbitrarily huge
-
-number of items because it doesnât store them itself but uses the
-
-OnDrawItem() callback to draw them (so it is a virtual listbox) and
-
-its items can have variable height as determined by OnMeasureItem()
-
+    """ VListBox is a ListBox-like control with the following two main
+differences from a regular ListBox: it can have an arbitrarily huge
+number of items because it doesnât store them itself but uses the
+OnDrawItem() callback to draw them (so it is a virtual listbox) and
+its items can have variable height as determined by OnMeasureItem()
 (so it is also a listbox with the lines of variable height).
     """
     def __init__(self, *args, **kw) -> None:
@@ -26420,7 +27166,7 @@ its items can have variable height as determined by OnMeasureItem()
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -26440,7 +27186,7 @@ its items can have variable height as determined by OnMeasureItem()
         """ Returns the margins used by the control.
         """
 
-    def GetNextSelected(self, cookie: long) -> tuple:
+    def GetNextSelected(self, cookie: int) -> tuple:
         """ Returns the index of the next selected item or  NOT_FOUND   if there are no more.
         """
 
@@ -26519,14 +27265,10 @@ its items can have variable height as determined by OnMeasureItem()
 
 
 class VScrolledWindow(Panel):
-    """ In the name of this class, âVâ may stand for âvariableâ because it can
-
-be used for scrolling rows of variable heights; âvirtualâ, because it
-
-is not necessary to know the heights of all rows in advance  only
-
-those which are shown on the screen need to be measured; or even
-
+    """ In the name of this class, âVâ may stand for âvariableâ because it can
+be used for scrolling rows of variable heights; âvirtualâ, because it
+is not necessary to know the heights of all rows in advance  only
+those which are shown on the screen need to be measured; or even
 âverticalâ, because this class only supports scrolling vertically.
     """
     def __init__(self, *args, **kw) -> None:
@@ -26538,7 +27280,7 @@ those which are shown on the screen need to be measured; or even
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
         """
 
@@ -26582,10 +27324,11 @@ those which are shown on the screen need to be measured; or even
         """ Deprecated compatibility helper.
         """
 
+ID_ANY: int
 
 
 class WindowBase:
-    """ child (wx.WindowBase) â
+    """ child (wx.WindowBase) â 
     """
     def AddChild(self, child: 'WindowBase') -> None:
         """ child (wx.WindowBase) â
@@ -26598,8 +27341,7 @@ class WindowBase:
 
 
 class WindowCreateEvent(CommandEvent):
-    """ This event is sent just after the actual window associated with a
-
+    """ This event is sent just after the actual window associated with a
 Window object has been created.
     """
     def __init__(self, win: Optional['Window']=None) -> None:
@@ -26614,8 +27356,7 @@ EVT_WINDOW_CREATE: int  #  Process a  wxEVT_CREATE   event. ^^
 
 
 class WindowDC(DC):
-    """ A WindowDC must be constructed if an application wishes to paint on
-
+    """ A WindowDC must be constructed if an application wishes to paint on
 the whole area of a window (client and decorations).
     """
     def __init__(self, window: 'Window') -> None:
@@ -26625,8 +27366,7 @@ the whole area of a window (client and decorations).
 
 
 class WindowDestroyEvent(CommandEvent):
-    """ This event is sent as early as possible during the window destruction
-
+    """ This event is sent as early as possible during the window destruction
 process.
     """
     def __init__(self, win: Optional['Window']=None) -> None:
@@ -26640,10 +27380,8 @@ process.
 
 
 class WindowDisabler:
-    """ This class disables all top level windows of the application (maybe
-
-with the exception of one of them) in its constructor and enables them
-
+    """ This class disables all top level windows of the application (maybe
+with the exception of one of them) in its constructor and enables them
 back in its destructor.
     """
     def __init__(self, *args, **kw) -> None:
@@ -26651,18 +27389,19 @@ back in its destructor.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
         """
 
+FRAME_TOOL_WINDOW: int
+FRAME_NO_TASKBAR: int
 
 
 class WindowIDRef:
-    """ A WindowIDRef object wraps an ID value and marks it as being in-use
-
+    """ A WindowIDRef object wraps an ID value and marks it as being in-use
 until all references to that ID are gone.
     """
     def __init__(self, *args, **kw) -> None:
@@ -26690,7 +27429,7 @@ until all references to that ID are gone.
         """
 
     def __hash__(self) -> None:
-        """
+        """ 
         """
 
     def __index__(self) -> int:
@@ -26714,7 +27453,7 @@ until all references to that ID are gone.
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
         """
 
 
@@ -26744,7 +27483,7 @@ class WithImages:
     """ A mixin class to be used with other classes that use a ImageList.
     """
     def __init__(self) -> None:
-        """
+        """ 
         """
 
     def AssignImageList(self, imageList: 'ImageList') -> None:
@@ -26775,11 +27514,11 @@ class WithImages:
         """ Set the images to use for the items in the control.
         """
 
+NO_IMAGE: int
 
 
 class WrapSizer(BoxSizer):
-    """ A wrap sizer lays out its items in a single line, like a box sizer  as
-
+    """ A wrap sizer lays out its items in a single line, like a box sizer  as
 long as there is space available in that direction.
     """
     def __init__(self, orient=HORIZONTAL, flags=WRAPSIZER_DEFAULT_FLAGS) -> None:
@@ -26826,8 +27565,7 @@ class XPMHandler(ImageHandler):
 
 
 class ZoomGestureEvent(GestureEvent):
-    """ This event is generated when two fingers pinch the surface to zoom in
-
+    """ This event is generated when two fingers pinch the surface to zoom in
 or out.
     """
     def __init__(self, windid: 'WindowID'=0) -> None:

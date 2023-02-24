@@ -362,7 +362,7 @@ tabular data.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
         """ variant (WindowVariant) â
         """
 
@@ -650,7 +650,7 @@ tabular data.
         """ Returns an array of individually selected cells.
         """
 
-    def GetSelectedColBlocks(self) -> PyObject:
+    def GetSelectedColBlocks(self) -> Any:
         """ Returns an ordered range of non-overlapping selected columns.
         """
 
@@ -658,7 +658,7 @@ tabular data.
         """ Returns an array of selected columns.
         """
 
-    def GetSelectedRowBlocks(self) -> PyObject:
+    def GetSelectedRowBlocks(self) -> Any:
         """ Returns an ordered range of non-overlapping selected rows.
         """
 

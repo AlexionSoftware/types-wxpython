@@ -104,7 +104,7 @@ is reference counted so it can be shared with other views.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
         """ variant (WindowVariant) â
         """
 
@@ -180,7 +180,7 @@ is reference counted so it can be shared with other views.
         """ Returns True if any items are currently selected.
         """
 
-    def HitTest(self, point) -> PyObject:
+    def HitTest(self, point) -> Any:
         """ HitTest(point) . (item, col)
         """
 
@@ -301,5 +301,17 @@ EVT_DATAVIEW_COLUMN_REORDERED: int  #  Process a  wxEVT_DATAVIEW_COLUMN_REORDERE
 EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  #  Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
 EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
 EVT_DATAVIEW_ITEM_DROP: int  #  Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
+dataview.DV_SINGLE: int
+dataview.DV_MULTIPLE: int
+dataview.DV_ROW_LINES: int
+dataview.DV_HORIZ_RULES: int
+dataview.DV_VERT_RULES: int
+dataview.DV_VARIABLE_LINE_HEIGHT: int
+dataview.DV_NO_HEADER: int
+dataview.DV_ROW_LINES: int
+DF_INVALID: int
+dataview.DV_ROW_LINES: int
+dataview.DV_ROW_LINES: int
+dataview.DV_VARIABLE_LINE_HEIGHT: int
 
 

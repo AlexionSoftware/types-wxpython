@@ -21,7 +21,7 @@ control capable of showing multiple styles and images.
         """ Sets the insertion point to the end of the buffer and writes the text.
         """
 
-    def ApplyAlignmentToSelection(self, alignment: TextAttrAlignment) -> bool:
+    def ApplyAlignmentToSelection(self, alignment: int) -> bool:
         """ Applies the given alignment to the selection or the default style (undoable).
         """
 
@@ -65,7 +65,7 @@ control capable of showing multiple styles and images.
         """ Returns True if undo commands are being batched.
         """
 
-    def BeginAlignment(self, alignment: TextAttrAlignment) -> bool:
+    def BeginAlignment(self, alignment: int) -> bool:
         """ Begins using alignment.
         """
 
@@ -382,7 +382,7 @@ control capable of showing multiple styles and images.
         """ Helper function for extending the selection, returning True if the selection was changed.
         """
 
-    def FindCaretPositionForCharacterPosition(self, position, hitTestFlags, container, caretLineStart) -> long:
+    def FindCaretPositionForCharacterPosition(self, position, hitTestFlags, container, caretLineStart) -> int:
         """ Find the caret position for the combination of hit-test flags and character position.
         """
 
@@ -390,7 +390,7 @@ control capable of showing multiple styles and images.
         """ Finds the container at the given point, which is assumed to be in client coordinates.
         """
 
-    def FindNextWordPosition(self, direction: int=1) -> long:
+    def FindNextWordPosition(self, direction: int=1) -> int:
         """ Helper function for finding the caret position for the next word.
         """
 
@@ -406,7 +406,7 @@ control capable of showing multiple styles and images.
         """ Convert all text entered into the control to upper case.
         """
 
-    def GetAdjustedCaretPosition(self, caretPos: long) -> long:
+    def GetAdjustedCaretPosition(self, caretPos: int) -> int:
         """ The adjusted caret position is the character position adjusted to take into account whether weâre at the start of a paragraph, in which case style information should be taken from the next position, not current one.
         """
 
@@ -427,11 +427,11 @@ control capable of showing multiple styles and images.
         """ Returns True if we are showing the caret position at the start of a line instead of at the end of the previous one.
         """
 
-    def GetCaretPosition(self) -> long:
+    def GetCaretPosition(self) -> int:
         """ Returns the current caret position.
         """
 
-    def GetCaretPositionForDefaultStyle(self) -> long:
+    def GetCaretPositionForDefaultStyle(self) -> int:
         """ Returns the caret position since the default formatting was changed.
         """
 
@@ -440,7 +440,7 @@ control capable of showing multiple styles and images.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
         """ variant (WindowVariant) â
         """
 
@@ -468,11 +468,11 @@ control capable of showing multiple styles and images.
         """ Gets the flag indicating that delayed image processing is required.
         """
 
-    def GetDelayedImageProcessingTime(self) -> long:
+    def GetDelayedImageProcessingTime(self) -> int:
         """ Returns the last time delayed image processing was performed.
         """
 
-    def GetDelayedLayoutThreshold(self) -> long:
+    def GetDelayedLayoutThreshold(self) -> int:
         """ Gets the size of the buffer beyond which layout is delayed during resizing.
         """
 
@@ -500,7 +500,7 @@ control capable of showing multiple styles and images.
         """ Returns the first visible point in the window.
         """
 
-    def GetFirstVisiblePosition(self) -> long:
+    def GetFirstVisiblePosition(self) -> int:
         """ Returns the first visible position in the current view.
         """
 
@@ -516,11 +516,11 @@ control capable of showing multiple styles and images.
         """ bool
         """
 
-    def GetFullLayoutSavedPosition(self) -> long:
+    def GetFullLayoutSavedPosition(self) -> int:
         """ long
         """
 
-    def GetFullLayoutTime(self) -> long:
+    def GetFullLayoutTime(self) -> int:
         """ long
         """
 
@@ -536,7 +536,7 @@ control capable of showing multiple styles and images.
         """ Returns True if images are enabled.
         """
 
-    def GetInsertionPoint(self) -> long:
+    def GetInsertionPoint(self) -> int:
         """ Returns the current insertion point.
         """
 
@@ -548,11 +548,11 @@ control capable of showing multiple styles and images.
         """ Returns the last position in the buffer.
         """
 
-    def GetLineLength(self, lineNo: long) -> int:
+    def GetLineLength(self, lineNo: int) -> int:
         """ Returns the length of the specified line in characters.
         """
 
-    def GetLineText(self, lineNo: long) -> str:
+    def GetLineText(self, lineNo: int) -> str:
         """ Returns the text for the given line.
         """
 
@@ -604,7 +604,7 @@ control capable of showing multiple styles and images.
         """ Returns the range of the current selection.
         """
 
-    def GetSelectionAnchor(self) -> long:
+    def GetSelectionAnchor(self) -> int:
         """ Returns an anchor so we know how to extend the selection.
         """
 
@@ -668,7 +668,7 @@ control capable of showing multiple styles and images.
         """ Returns True if this control can use virtual attributes and virtual text.
         """
 
-    def GetVisibleLineForCaretPosition(self, caretPosition: long) -> 'richtext.RichTextLine':
+    def GetVisibleLineForCaretPosition(self, caretPosition: int) -> 'richtext.RichTextLine':
         """ Internal helper function returning the line for the visible caret position.
         """
 
@@ -724,11 +724,11 @@ control capable of showing multiple styles and images.
         """ Returns True if the control is multiline.
         """
 
-    def IsPositionVisible(self, pos: long) -> bool:
+    def IsPositionVisible(self, pos: int) -> bool:
         """ Returns True if the given position is visible on the screen.
         """
 
-    def IsSelectionAligned(self, alignment: TextAttrAlignment) -> bool:
+    def IsSelectionAligned(self, alignment: int) -> bool:
         """ Returns True if all of the selection is aligned according to the specified flag.
         """
 
@@ -772,11 +772,11 @@ control capable of showing multiple styles and images.
         """ Move the caret to the given character position.
         """
 
-    def MoveCaretBack(self, oldPosition: long) -> None:
+    def MoveCaretBack(self, oldPosition: int) -> None:
         """ Move the caret one visual step forward: this may mean setting a flag and keeping the same position if weâre going from the end of one line to the start of the next, which may be the exact same caret position.
         """
 
-    def MoveCaretForward(self, oldPosition: long) -> None:
+    def MoveCaretForward(self, oldPosition: int) -> None:
         """ Move the caret one visual step forward: this may mean setting a flag and keeping the same position if weâre going from the end of one line to the start of the next, which may be the exact same caret position.
         """
 
@@ -996,7 +996,7 @@ control capable of showing multiple styles and images.
         """ Internal function to position the visible caret according to the current caret position.
         """
 
-    def PositionToXY(self, pos: long) -> tuple:
+    def PositionToXY(self, pos: int) -> tuple:
         """ Converts a text position to zero-based column and line numbers.
         """
 
@@ -1064,7 +1064,7 @@ control capable of showing multiple styles and images.
         """ Cancels any selection.
         """
 
-    def SelectWord(self, position: long) -> bool:
+    def SelectWord(self, position: int) -> bool:
         """ Selects the word at the given character position.
         """
 
@@ -1088,7 +1088,7 @@ control capable of showing multiple styles and images.
         """ Sets up the caret for the given position and container, after a mouse click.
         """
 
-    def SetCaretPositionForDefaultStyle(self, pos: long) -> None:
+    def SetCaretPositionForDefaultStyle(self, pos: int) -> None:
         """ Set the caret position for the default style that the user is selecting.
         """
 
@@ -1108,11 +1108,11 @@ control capable of showing multiple styles and images.
         """ Sets the flag indicating that delayed image processing is required.
         """
 
-    def SetDelayedImageProcessingTime(self, t: long) -> None:
+    def SetDelayedImageProcessingTime(self, t: int) -> None:
         """ Sets the last time delayed image processing was performed.
         """
 
-    def SetDelayedLayoutThreshold(self, threshold: long) -> None:
+    def SetDelayedLayoutThreshold(self, threshold: int) -> None:
         """ Sets the size of the buffer beyond which layout is delayed during resizing.
         """
 
@@ -1156,11 +1156,11 @@ control capable of showing multiple styles and images.
         """ b (bool) â
         """
 
-    def SetFullLayoutSavedPosition(self, p: long) -> None:
+    def SetFullLayoutSavedPosition(self, p: int) -> None:
         """ p (long) â
         """
 
-    def SetFullLayoutTime(self, t: long) -> None:
+    def SetFullLayoutTime(self, t: int) -> None:
         """ t (long) â
         """
 
@@ -1172,7 +1172,7 @@ control capable of showing multiple styles and images.
         """ Sets a hint shown in an empty unfocused text control.
         """
 
-    def SetInsertionPoint(self, pos: long) -> None:
+    def SetInsertionPoint(self, pos: int) -> None:
         """ Sets the insertion point and causes the current editing style to be taken from the new position (unlike wx.richtext.RichTextCtrl.SetCaretPosition ).
         """
 
@@ -1192,7 +1192,7 @@ control capable of showing multiple styles and images.
         """ Attempts to set the control margins.
         """
 
-    def SetMaxLength(self, len: long) -> None:
+    def SetMaxLength(self, len: int) -> None:
         """ Sets the maximum number of characters that may be entered in a single line text control.
         """
 
@@ -1216,7 +1216,7 @@ control capable of showing multiple styles and images.
         """ Sets the selection to the given range.
         """
 
-    def SetSelectionAnchor(self, anchor: long) -> None:
+    def SetSelectionAnchor(self, anchor: int) -> None:
         """ Sets an anchor so we know how to extend the selection.
         """
 
@@ -1264,7 +1264,7 @@ control capable of showing multiple styles and images.
         """ Shows the given context menu, optionally adding appropriate property-editing commands for the current position in the object hierarchy.
         """
 
-    def ShowPosition(self, pos: long) -> None:
+    def ShowPosition(self, pos: int) -> None:
         """ Scrolls the buffer so that the given position is in view.
         """
 
@@ -1295,5 +1295,65 @@ control capable of showing multiple styles and images.
 richtext.RE_CENTRE_CARET: int  #  The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
 richtext.RE_MULTILINE: int  #  The control will be multiline (mandatory).
 richtext.RE_READONLY: int  #  The control will not be editable. ^^
+richtext.RE_CENTRE_CARET: int
+richtext.RE_CENTER_CARET: int
+richtext.RE_MULTILINE: int
+richtext.RE_READONLY: int
+TEXT_ATTR_URL: int
+ID_CLEAR: int
+ID_COPY: int
+ID_CUT: int
+ID_PASTE: int
+ID_REDO: int
+ID_SELECTALL: int
+ID_UNDO: int
+ID_CLEAR: int
+ID_COPY: int
+ID_CUT: int
+ID_PASTE: int
+ID_REDO: int
+ID_SELECTALL: int
+ID_UNDO: int
+TEXT_ATTR_URL: int
+richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
+richtext.RICHTEXT_TYPE_ANY: int
+richtext.RICHTEXT_TYPE_ANY: int
+richtext.RICHTEXT_TYPE_ANY: int
+richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
+richtext.RICHTEXT_SETSTYLE_RENUMBER: int
+richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+ID_CLEAR: int
+ID_COPY: int
+ID_CUT: int
+ID_PASTE: int
+ID_REDO: int
+ID_SELECTALL: int
+ID_UNDO: int
+ID_CLEAR: int
+ID_COPY: int
+ID_CUT: int
+ID_PASTE: int
+ID_REDO: int
+ID_SELECTALL: int
+ID_UNDO: int
+richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
+richtext.RICHTEXT_SETSTYLE_RENUMBER: int
+richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+richtext.RICHTEXT_TYPE_ANY: int
+richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
+richtext.RICHTEXT_SETSTYLE_RENUMBER: int
+richtext.RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
+richtext.RICHTEXT_SETPROPERTIES_WITH_UNDO: int
+richtext.RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
+richtext.RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
+richtext.RICHTEXT_SETPROPERTIES_RESET: int
+richtext.RICHTEXT_SETPROPERTIES_REMOVE: int
+richtext.RICHTEXT_SETSTYLE_NONE: int
+richtext.RICHTEXT_SETSTYLE_WITH_UNDO: int
+richtext.RICHTEXT_SETSTYLE_OPTIMIZE: int
+richtext.RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
+richtext.RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
+richtext.RICHTEXT_SETSTYLE_RESET: int
+richtext.RICHTEXT_SETSTYLE_REMOVE: int
 
 
