@@ -504,6 +504,8 @@ class DocumentationGenerator:
 			"FontWeight": "int",
 			"DefaultPosition": "Union[tuple[int, int], wx.Position]",
 			"DefaultSize": "Union[tuple[int, int], wx.Size]",
+			"WindowID": "int",
+			"wx.WindowID": "int",
 		}
 		for typingKey, typingReplace in typingMap.items():
 			if typingKey in typing:
