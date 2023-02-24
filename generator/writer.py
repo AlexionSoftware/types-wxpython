@@ -37,7 +37,7 @@ class TypingWriter:
 			item = typings.get()
 			fileName = item["moduleName"]
 			if fileName.startswith("wx."):
-				fileName = fileName.replace("wx.", "").replace(".", "\\")
+				fileName = fileName.replace("wx.", "").replace(".", os.sep)
 			else:
 				fileName = ""
 
