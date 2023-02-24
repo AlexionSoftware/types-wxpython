@@ -60,6 +60,11 @@ class Parser:
 		className = classFullName.split(".")[-1]
 		moduleName = ".".join(classFullName.split(".")[:-1])
 
+		# Check if there is an module name found
+		if className == "wx":
+			className = ""		
+			moduleName = "wx"
+
 		# Build the list with items
 		result: list[ITyping] = []
 
