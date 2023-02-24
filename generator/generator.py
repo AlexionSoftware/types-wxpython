@@ -244,6 +244,12 @@ class DocumentationGenerator:
 			if methodName.startswith("~"):
 				continue
 
+			# Check if this is a __eq__ or __ne__ method
+			if methodName.startswith("__eq__") or methodName.startswith("__ne__"):
+				# Make sure the compare is there
+				methodName = methodName[:6] + "(self, item: Any)"
+				returnType = "bool"
+
 			# Find the parts
 			fieldListElem = methodTag.find("dl", class_="field-list")
 			if fieldListElem:
@@ -316,7 +322,7 @@ class DocumentationGenerator:
 				break
 
 			# Check if there is a star
-			if paramList != "*args, **kwargs":
+			if paramList != "*args, **kwargs" and ":" not in paramList:
 				for paramKey, paramType in params.items():
 					# Check if the key is optional
 					if "%s=None" % paramKey in paramList:
