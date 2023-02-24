@@ -31,6 +31,7 @@ RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL\n
 RA_VERTICAL: int  # Synonym of wx.VERTICAL\n
 NORMAL: int\n
 DEFAULT: int\n
+wxEVT_COMMAND_BUTTON_CLICKED: int\n
 """
 
 
