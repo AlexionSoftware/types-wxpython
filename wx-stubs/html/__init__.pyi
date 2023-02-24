@@ -1279,13 +1279,13 @@ filters).
             Source: https://docs.wxpython.org/wx.html.HtmlWindow.html
         """
 
-    def SelectLine(self, pos: 'Point') -> None:
+    def SelectLine(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Selects the line of text that pos  points at.
 
             Source: https://docs.wxpython.org/wx.html.HtmlWindow.html
         """
 
-    def SelectWord(self, pos: 'Point') -> None:
+    def SelectWord(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Selects the word at position pos.
 
             Source: https://docs.wxpython.org/wx.html.HtmlWindow.html

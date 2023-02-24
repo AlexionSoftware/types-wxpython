@@ -843,7 +843,7 @@ def FindMenuItemId(frame, menuString, itemString) -> int:
     """
 
 
-def FindWindowAtPoint(pt: 'Point') -> 'Window':
+def FindWindowAtPoint(pt: Union[tuple[int, int], 'Point']) -> 'Window':
     """ Find the deepest window at the given mouse position in screen coordinates, returning the window if found, or None if not.
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -892,7 +892,7 @@ def GetActiveWindow() -> 'Window':
     """
 
 
-def GetApp() -> 'AppConsole':
+def GetApp() -> 'PyApp':
     """ Returns the current application object.
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -1397,7 +1397,7 @@ def NewId() -> int:
     """
 
 
-def NewIdRef(count=1) -> None:
+def NewIdRef(count=1) -> int:
     """ Reserves a new Window ID (or range of WindowIDs) and returns a
 wx.WindowIDRef object (or list of them) that will help
 manage the reservation of that ID.
@@ -4742,7 +4742,7 @@ information, displayed one page at a time.
             Source: https://docs.wxpython.org/wx.BookCtrlBase.html
         """
 
-    def HitTest(self, pt: 'Point') -> tuple:
+    def HitTest(self, pt: Union[tuple[int, int], 'Point']) -> tuple:
         """ Returns the index of the tab at the specified position or  NOT_FOUND   if none.
 
             Source: https://docs.wxpython.org/wx.BookCtrlBase.html
@@ -9066,7 +9066,7 @@ application a chance to show a context (popup) menu for a Window.
             Source: https://docs.wxpython.org/wx.ContextMenuEvent.html
         """
 
-    def SetPosition(self, point: 'Point') -> None:
+    def SetPosition(self, point: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the position at which the menu should be shown.
 
             Source: https://docs.wxpython.org/wx.ContextMenuEvent.html
@@ -10487,7 +10487,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def SetPosition(self, pt: 'Point') -> None:
+    def SetPosition(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Moves the window to the specified position.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -13481,7 +13481,7 @@ system.
         """
 
     @staticmethod
-    def GetFromPoint(pt: 'Point') -> int:
+    def GetFromPoint(pt: Union[tuple[int, int], 'Point']) -> int:
         """ Returns the index of the display on which the given point lies, or  NOT_FOUND   if the point is not on any connected display.
 
             Source: https://docs.wxpython.org/wx.Display.html
@@ -13632,7 +13632,7 @@ a simple cursor is not enough.
             Source: https://docs.wxpython.org/wx.DragImage.html
         """
 
-    def Move(self, pt: 'Point') -> bool:
+    def Move(self, pt: Union[tuple[int, int], 'Point']) -> bool:
         """ Call this to move the image to a new position.
 
             Source: https://docs.wxpython.org/wx.DragImage.html
@@ -17756,7 +17756,7 @@ one row and/or column using GBSpan.
             Source: https://docs.wxpython.org/wx.GridBagSizer.html
         """
 
-    def FindItemAtPoint(self, pt: 'Point') -> 'GBSizerItem':
+    def FindItemAtPoint(self, pt: Union[tuple[int, int], 'Point']) -> 'GBSizerItem':
         """ Return the sizer item located at the point given in pt, or None if there is no item at that point.
 
             Source: https://docs.wxpython.org/wx.GridBagSizer.html
@@ -18830,7 +18830,7 @@ a simple cursor is not enough.
             Source: https://docs.wxpython.org/wx.GenericDragImage.html
         """
 
-    def GetImageRect(self, pos: 'Point') -> 'Rect':
+    def GetImageRect(self, pos: Union[tuple[int, int], 'Point']) -> 'Rect':
         """ Returns the rectangle enclosing the image, assuming that the image is drawn with its top-left corner at the given point.
 
             Source: https://docs.wxpython.org/wx.GenericDragImage.html
@@ -18842,7 +18842,7 @@ a simple cursor is not enough.
             Source: https://docs.wxpython.org/wx.GenericDragImage.html
         """
 
-    def Move(self, pt: 'Point') -> bool:
+    def Move(self, pt: Union[tuple[int, int], 'Point']) -> bool:
         """ Call this to move the image to a new position.
 
             Source: https://docs.wxpython.org/wx.GenericDragImage.html
@@ -19267,7 +19267,7 @@ class GestureEvent(Event):
             Source: https://docs.wxpython.org/wx.GestureEvent.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the position where the event took effect, in client coordinates: position of Pan event, center of zoom for Zoom event, center of rotation for Rotate event.
 
             Source: https://docs.wxpython.org/wx.GestureEvent.html
@@ -21141,7 +21141,7 @@ help.
             Source: https://docs.wxpython.org/wx.HelpEvent.html
         """
 
-    def SetPosition(self, pt: 'Point') -> None:
+    def SetPosition(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the left-click position of the mouse, in screen coordinates.
 
             Source: https://docs.wxpython.org/wx.HelpEvent.html
@@ -25565,13 +25565,13 @@ sequence with an item for each column
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def GetFirstSelected(self, *args) -> None:
+    def GetFirstSelected(self, *args) -> int:
         """ Returns the first selected item, or -1 when none is selected.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def GetFocusedItem(self) -> None:
+    def GetFocusedItem(self) -> int:
         """ Gets the currently focused item or -1 if none is focused.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -25788,7 +25788,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def OnGetItemAttr(self, item: int) -> 'ItemAttr':
+    def OnGetItemAttr(self, item: int) -> Optional['ItemAttr']:
         """ This function may be overridden in the derived class for a control with  LC_VIRTUAL   style.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -26312,7 +26312,7 @@ objects.
             Source: https://docs.wxpython.org/wx.ListEvent.html
         """
 
-    def SetPoint(self, point: 'Point') -> None:
+    def SetPoint(self, point: Union[tuple[int, int], 'Point']) -> None:
         """ point (wx.Point) â
 
             Source: https://docs.wxpython.org/wx.ListEvent.html
@@ -29449,7 +29449,7 @@ items.
             Source: https://docs.wxpython.org/wx.MouseEventsManager.html
         """
 
-    def MouseHitTest(self, pos: 'Point') -> int:
+    def MouseHitTest(self, pos: Union[tuple[int, int], 'Point']) -> int:
         """ Must be overridden to return the item at the given position.
 
             Source: https://docs.wxpython.org/wx.MouseEventsManager.html
@@ -29542,7 +29542,7 @@ class MouseState(KeyboardState):
             Source: https://docs.wxpython.org/wx.MouseState.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ pos (wx.Point) â
 
             Source: https://docs.wxpython.org/wx.MouseState.html
@@ -29597,7 +29597,7 @@ class MoveEvent(Event):
             Source: https://docs.wxpython.org/wx.MoveEvent.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ pos (wx.Point) â
 
             Source: https://docs.wxpython.org/wx.MoveEvent.html
@@ -30484,25 +30484,25 @@ PageSetupDialog.
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
         """
 
-    def SetMarginBottomRight(self, pt: 'Point') -> None:
+    def SetMarginBottomRight(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the right (x) and bottom (y) margins in millimetres.
 
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
         """
 
-    def SetMarginTopLeft(self, pt: 'Point') -> None:
+    def SetMarginTopLeft(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the left (x) and top (y) margins in millimetres.
 
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
         """
 
-    def SetMinMarginBottomRight(self, pt: 'Point') -> None:
+    def SetMinMarginBottomRight(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the right (x) and bottom (y) minimum margins the user can enter (Windows only).
 
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
         """
 
-    def SetMinMarginTopLeft(self, pt: 'Point') -> None:
+    def SetMinMarginTopLeft(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the left (x) and top (y) minimum margins the user can enter (Windows only).
 
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
@@ -30712,7 +30712,7 @@ class PanGestureEvent(GestureEvent):
             Source: https://docs.wxpython.org/wx.PanGestureEvent.html
         """
 
-    def SetDelta(self, delta: 'Point') -> None:
+    def SetDelta(self, delta: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the distance covered since the previous panning event.
 
             Source: https://docs.wxpython.org/wx.PanGestureEvent.html
@@ -31479,7 +31479,7 @@ class Point:
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
-    def SetDefaults(self, pt: 'Point') -> None:
+    def SetDefaults(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Combine this object with another one replacing the uninitialized values.
 
             Source: https://docs.wxpython.org/wx.Point.html
@@ -33924,7 +33924,7 @@ choices.
             Source: https://docs.wxpython.org/wx.RadioBox.html
         """
 
-    def GetItemFromPoint(self, pt: 'Point') -> int:
+    def GetItemFromPoint(self, pt: Union[tuple[int, int], 'Point']) -> int:
         """ Returns a radio box item under the point, a zero-based item index, or  NOT_FOUND   if no item is under the point.
 
             Source: https://docs.wxpython.org/wx.RadioBox.html
@@ -34509,13 +34509,13 @@ class Rect:
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
-    def SetBottomLeft(self, p: 'Point') -> None:
+    def SetBottomLeft(self, p: Union[tuple[int, int], 'Point']) -> None:
         """ Set the bottom-left point of the rectangle.
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
-    def SetBottomRight(self, p: 'Point') -> None:
+    def SetBottomRight(self, p: Union[tuple[int, int], 'Point']) -> None:
         """ Set the bottom-right point of the rectangle.
 
             Source: https://docs.wxpython.org/wx.Rect.html
@@ -34533,7 +34533,7 @@ class Rect:
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the position.
 
             Source: https://docs.wxpython.org/wx.Rect.html
@@ -34557,13 +34557,13 @@ class Rect:
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
-    def SetTopLeft(self, p: 'Point') -> None:
+    def SetTopLeft(self, p: Union[tuple[int, int], 'Point']) -> None:
         """ Set the top-left point of the rectangle.
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
-    def SetTopRight(self, p: 'Point') -> None:
+    def SetTopRight(self, p: Union[tuple[int, int], 'Point']) -> None:
         """ Set the top-right point of the rectangle.
 
             Source: https://docs.wxpython.org/wx.Rect.html
@@ -42259,7 +42259,7 @@ currently not visible.
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
         """
 
-    def GetFirstChild(self, item) -> None:
+    def GetFirstChild(self, item) -> Optional['TreeItemId']:
         """ Returns the first child; call GetNextChild   for the next child.
 
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
@@ -42289,7 +42289,7 @@ currently not visible.
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
         """
 
-    def GetItemData(self, item) -> None:
+    def GetItemData(self, item) -> Any:
         """ Returns the tree item data associated with the item.
 
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
@@ -42337,7 +42337,7 @@ currently not visible.
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
         """
 
-    def GetNextChild(self, item, cookie) -> None:
+    def GetNextChild(self, item, cookie) -> Optional['TreeItemId']:
         """ Returns the next child; call GetFirstChild   for the first child.
 
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
@@ -46863,4 +46863,31 @@ NORMAL: int
 DEFAULT: int
 
 wxEVT_COMMAND_BUTTON_CLICKED: int
+
+RED: int
+
+YELLOW: int
+
+BLACK: int
+
+WHITE: int
+
+BLUE: int
+
+GREEN: int
+
+CYAN: int
+
+OPEN: int
+
+EVT_TIMER: int
+
+def FrozenWindow(window: 'Window') -> None:
+    """ Freeze the window and all its children.
+    """
+
+
+NullCursor: int
+
+LIST_AUTOSIZE: int
 

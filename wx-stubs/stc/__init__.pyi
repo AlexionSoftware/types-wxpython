@@ -3255,7 +3255,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def PositionFromPoint(self, pt: 'Point') -> int:
+    def PositionFromPoint(self, pt: Union[tuple[int, int], 'Point']) -> int:
         """ Find the position from a point within the window.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html

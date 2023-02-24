@@ -966,7 +966,7 @@ class CalendarCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def HitTest(self, pos: 'Point') -> tuple:
+    def HitTest(self, pos: Union[tuple[int, int], 'Point']) -> tuple:
         """ Returns one of CalendarHitTestResult constants and fills either date  or wd  pointer with the corresponding value depending on the hit test code.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html

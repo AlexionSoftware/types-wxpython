@@ -134,7 +134,7 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetTabCtrlFromPoint(self, pt: 'Point') -> 'aui.AuiTabCtrl':
+    def GetTabCtrlFromPoint(self, pt: Union[tuple[int, int], 'Point']) -> 'aui.AuiTabCtrl':
         """ Returns tab control based on point coordinates inside the tab frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
@@ -1714,7 +1714,7 @@ class AuiToolBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
         """
 
-    def SetClickPoint(self, p: 'Point') -> None:
+    def SetClickPoint(self, p: Union[tuple[int, int], 'Point']) -> None:
         """ p (wx.Point) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html

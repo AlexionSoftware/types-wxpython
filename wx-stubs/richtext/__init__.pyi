@@ -832,7 +832,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetLogicalPoint(self, ptPhysical: 'Point') -> Point:
+    def GetLogicalPoint(self, ptPhysical: Union[tuple[int, int], 'Point']) -> Point:
         """ Transforms physical window position to logical (unscrolled) position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -850,7 +850,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetPhysicalPoint(self, ptLogical: 'Point') -> Point:
+    def GetPhysicalPoint(self, ptLogical: Union[tuple[int, int], 'Point']) -> Point:
         """ Transforms logical (unscrolled) position to physical window position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -880,7 +880,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetScaledPoint(self, pt: 'Point') -> Point:
+    def GetScaledPoint(self, pt: Union[tuple[int, int], 'Point']) -> Point:
         """ Returns a scaled point.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -964,7 +964,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetUnscaledPoint(self, pt: 'Point') -> Point:
+    def GetUnscaledPoint(self, pt: Union[tuple[int, int], 'Point']) -> Point:
         """ Returns an unscaled point.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1030,13 +1030,13 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def HitTest(self, pt: 'Point') -> tuple:
+    def HitTest(self, pt: Union[tuple[int, int], 'Point']) -> tuple:
         """ Finds the character at the given position in pixels.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def HitTestXY(self, pt: 'Point') -> tuple:
+    def HitTestXY(self, pt: Union[tuple[int, int], 'Point']) -> tuple:
         """ Finds the character at the given position in pixels.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1678,7 +1678,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def SetDragStartPoint(self, sp: 'Point') -> None:
+    def SetDragStartPoint(self, sp: Union[tuple[int, int], 'Point']) -> None:
         """ Set the possible DragânâDrop start point.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -4028,7 +4028,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def Move(self, pt: 'Point') -> None:
+    def Move(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Moves the object recursively, by adding the offset from old to new.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -4094,7 +4094,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the object position in pixels.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -6853,7 +6853,7 @@ the line.
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
         """
 
-    def SetPosition(self, pos: 'Point') -> None:
+    def SetPosition(self, pos: Union[tuple[int, int], 'Point']) -> None:
         """ Sets the object position relative to the parent.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
@@ -8115,7 +8115,7 @@ class RichTextCompositeObject(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
         """
 
-    def Move(self, pt: 'Point') -> None:
+    def Move(self, pt: Union[tuple[int, int], 'Point']) -> None:
         """ Moves the object recursively, by adding the offset from old to new.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html

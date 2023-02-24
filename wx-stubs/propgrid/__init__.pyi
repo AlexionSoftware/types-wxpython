@@ -2110,7 +2110,7 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def HitTest(self, pt: 'Point') -> 'propgrid.PropertyGridHitTestResult':
+    def HitTest(self, pt: Union[tuple[int, int], 'Point']) -> 'propgrid.PropertyGridHitTestResult':
         """ Returns information about arbitrary position in the grid.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -3390,7 +3390,7 @@ widths, etc.) of a single PropertyGrid or single PropertyGridPage.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridPageState.html
         """
 
-    def HitTest(self, pt: 'Point') -> 'propgrid.PropertyGridHitTestResult':
+    def HitTest(self, pt: Union[tuple[int, int], 'Point']) -> 'propgrid.PropertyGridHitTestResult':
         """ Returns information about arbitrary position in the grid.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridPageState.html
