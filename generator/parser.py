@@ -462,6 +462,7 @@ class Parser:
 			"list of strings": "list[str]",
 			"list of integers": "list[int]",
 			"list of floats": "list[float]",
+			"String": "str",
 			"string": "str",
 			"long": "int",
 			"True": "bool",
