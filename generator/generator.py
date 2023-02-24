@@ -506,7 +506,7 @@ class DocumentationGenerator:
 				typing = "wx.Window"
 
 		# Check if there is a weird thing
-		if "[" in typing:
+		if "[" in typing and "]" not in typing:
 			typing = "Any"
 
 		# Check if WX is in the list
