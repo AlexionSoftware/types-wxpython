@@ -51,7 +51,11 @@ class Parser:
 		self._findInternalReference(soup)
 
 		# Find the name of the class
-		classFullName = soup.find("title").get_text()
+		titleElem = soup.find("title")
+		if titleElem is None:
+			self.logger.error("This page '%s' doesnt work!" % url)
+			return None
+		classFullName = titleElem.get_text()
 		classFullName = classFullName[:classFullName.find(" ")]
 		className = classFullName.split(".")[-1]
 		moduleName = ".".join(classFullName.split(".")[:-1])
