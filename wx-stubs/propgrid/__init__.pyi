@@ -99,31 +99,31 @@ PropertyGrid objects.
 
 
 
-EVT_PG_SELECTED : int  # : Respond to  wxEVT_PG_SELECTED   event, generated when a property selection has been changed, either by user action or by indirect program function. For instance, collapsing a parent property programmatically causes any selected child property to become unselected, and may therefore cause this event to be generated.
+EVT_PG_SELECTED : int  # Respond to  wxEVT_PG_SELECTED   event, generated when a property selection has been changed, either by user action or by indirect program function. For instance, collapsing a parent property programmatically causes any selected child property to become unselected, and may therefore cause this event to be generated.
 
-EVT_PG_CHANGED: int  # : Respond to  wxEVT_PG_CHANGED   event, generated when property value has been changed by the user.
+EVT_PG_CHANGED: int  # Respond to  wxEVT_PG_CHANGED   event, generated when property value has been changed by the user.
 
-EVT_PG_CHANGING: int  # : Respond to  wxEVT_PG_CHANGING   event, generated when property value is about to be changed by user. Use  wx.propgrid.PropertyGridEvent.GetValue   to take a peek at the pending value, and wx.propgrid.PropertyGridEvent.Veto   to prevent change from taking place, if necessary.
+EVT_PG_CHANGING: int  # Respond to  wxEVT_PG_CHANGING   event, generated when property value is about to be changed by user. Use  wx.propgrid.PropertyGridEvent.GetValue   to take a peek at the pending value, and wx.propgrid.PropertyGridEvent.Veto   to prevent change from taking place, if necessary.
 
-EVT_PG_HIGHLIGHTED: int  # : Respond to  wxEVT_PG_HIGHLIGHTED   event, which occurs when mouse moves over a property. Eventâs property is None if hovered area does not belong to any property.
+EVT_PG_HIGHLIGHTED: int  # Respond to  wxEVT_PG_HIGHLIGHTED   event, which occurs when mouse moves over a property. Eventâs property is None if hovered area does not belong to any property.
 
-EVT_PG_RIGHT_CLICK: int  # : Respond to  wxEVT_PG_RIGHT_CLICK   event, which occurs when property is clicked on with right mouse button.
+EVT_PG_RIGHT_CLICK: int  # Respond to  wxEVT_PG_RIGHT_CLICK   event, which occurs when property is clicked on with right mouse button.
 
-EVT_PG_DOUBLE_CLICK: int  # : Respond to  wxEVT_PG_DOUBLE_CLICK   event, which occurs when property is double-clicked on with left mouse button.
+EVT_PG_DOUBLE_CLICK: int  # Respond to  wxEVT_PG_DOUBLE_CLICK   event, which occurs when property is double-clicked on with left mouse button.
 
-EVT_PG_ITEM_COLLAPSED: int  # : Respond to  wxEVT_PG_ITEM_COLLAPSED   event, generated when user collapses a property or category.
+EVT_PG_ITEM_COLLAPSED: int  # Respond to  wxEVT_PG_ITEM_COLLAPSED   event, generated when user collapses a property or category.
 
-EVT_PG_ITEM_EXPANDED: int  # : Respond to  wxEVT_PG_ITEM_EXPANDED   event, generated when user expands a property or category.
+EVT_PG_ITEM_EXPANDED: int  # Respond to  wxEVT_PG_ITEM_EXPANDED   event, generated when user expands a property or category.
 
-EVT_PG_LABEL_EDIT_BEGIN: int  # : Respond to  wxEVT_PG_LABEL_EDIT_BEGIN   event, generated when user is about to begin editing a property label. You can veto this event to prevent the action.
+EVT_PG_LABEL_EDIT_BEGIN: int  # Respond to  wxEVT_PG_LABEL_EDIT_BEGIN   event, generated when user is about to begin editing a property label. You can veto this event to prevent the action.
 
-EVT_PG_LABEL_EDIT_ENDING: int  # : Respond to  wxEVT_PG_LABEL_EDIT_ENDING   event, generated when user is about to end editing of a property label. You can veto this event to prevent the action.
+EVT_PG_LABEL_EDIT_ENDING: int  # Respond to  wxEVT_PG_LABEL_EDIT_ENDING   event, generated when user is about to end editing of a property label. You can veto this event to prevent the action.
 
-EVT_PG_COL_BEGIN_DRAG: int  # : Respond to  wxEVT_PG_COL_BEGIN_DRAG   event, generated when user starts resizing a column - can be vetoed.
+EVT_PG_COL_BEGIN_DRAG: int  # Respond to  wxEVT_PG_COL_BEGIN_DRAG   event, generated when user starts resizing a column - can be vetoed.
 
-EVT_PG_COL_DRAGGING, : int  # : Respond to  wxEVT_PG_COL_DRAGGING , event, generated when a column resize by user is in progress. This event is also generated when user double-clicks the splitter in order to recenter it.
+EVT_PG_COL_DRAGGING, : int  # Respond to  wxEVT_PG_COL_DRAGGING , event, generated when a column resize by user is in progress. This event is also generated when user double-clicks the splitter in order to recenter it.
 
-EVT_PG_COL_END_DRAG: int  # : Respond to  wxEVT_PG_COL_END_DRAG   event, generated after column resize by user has finished. ^^
+EVT_PG_COL_END_DRAG: int  # Respond to  wxEVT_PG_COL_END_DRAG   event, generated after column resize by user has finished. ^^
 
 class PGMultiButton(Window):
     """ This class can be used to have multiple buttons in a property editor.

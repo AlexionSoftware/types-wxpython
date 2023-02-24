@@ -320,83 +320,73 @@ class StyledTextEvent(CommandEvent):
 
 
 
-EVT_STC_AUTOCOMP_CANCELLED(id,  fn): int  # : Process a  wxEVT_STC_AUTOCOMP_CANCELLED   event.
+EVT_STC_AUTOCOMP_CANCELLED(id,  fn): int  # Process a  wxEVT_STC_AUTOCOMP_CANCELLED   event.
 
-EVT_STC_AUTOCOMP_CHAR_DELETED(id,  fn): int  # : Process a  wxEVT_STC_AUTOCOMP_CHAR_DELETED   event.
+EVT_STC_AUTOCOMP_CHAR_DELETED(id,  fn): int  # Process a  wxEVT_STC_AUTOCOMP_CHAR_DELETED   event.
 
-EVT_STC_AUTOCOMP_COMPLETED(id,  fn): int  # : Process a  wxEVT_STC_AUTOCOMP_COMPLETED   event.
+EVT_STC_AUTOCOMP_COMPLETED(id,  fn): int  # Process a  wxEVT_STC_AUTOCOMP_COMPLETED   event.
 
-New in version 4.1/wxWidgets-3.1.1.
+EVT_STC_AUTOCOMP_SELECTION(id,  fn): int  # Process a  wxEVT_STC_AUTOCOMP_SELECTION   event.
 
-EVT_STC_AUTOCOMP_SELECTION(id,  fn): int  # : Process a  wxEVT_STC_AUTOCOMP_SELECTION   event.
+EVT_STC_AUTOCOMP_SELECTION_CHANGE(id,  fn): int  # Process a  wxEVT_STC_AUTOCOMP_SELECTION_CHANGE   event.
 
-EVT_STC_AUTOCOMP_SELECTION_CHANGE(id,  fn): int  # : Process a  wxEVT_STC_AUTOCOMP_SELECTION_CHANGE   event.
+EVT_STC_CALLTIP_CLICK(id,  fn): int  # Process a  wxEVT_STC_CALLTIP_CLICK   event.
 
-New in version 4.1/wxWidgets-3.1.3.
+EVT_STC_CHANGE(id,  fn): int  # Process a  wxEVT_STC_CHANGE   event.
 
-EVT_STC_CALLTIP_CLICK(id,  fn): int  # : Process a  wxEVT_STC_CALLTIP_CLICK   event.
+EVT_STC_CHARADDED(id,  fn): int  # Process a  wxEVT_STC_CHARADDED   event.
 
-EVT_STC_CHANGE(id,  fn): int  # : Process a  wxEVT_STC_CHANGE   event.
+EVT_STC_CLIPBOARD_COPY(id,  fn): int  # Process a  wxEVT_STC_CLIPBOARD_COPY   event.
 
-EVT_STC_CHARADDED(id,  fn): int  # : Process a  wxEVT_STC_CHARADDED   event.
+EVT_STC_CLIPBOARD_PASTE(id,  fn): int  # Process a  wxEVT_STC_CLIPBOARD_PASTE   event.
 
-EVT_STC_CLIPBOARD_COPY(id,  fn): int  # : Process a  wxEVT_STC_CLIPBOARD_COPY   event.
+EVT_STC_DO_DROP(id,  fn): int  # Process a  wxEVT_STC_DO_DROP   event.
 
-New in version 4.1/wxWidgets-3.1.0.
+EVT_STC_DOUBLECLICK(id,  fn): int  # Process a  wxEVT_STC_DOUBLECLICK   event.
 
-EVT_STC_CLIPBOARD_PASTE(id,  fn): int  # : Process a  wxEVT_STC_CLIPBOARD_PASTE   event.
+EVT_STC_DRAG_OVER(id,  fn): int  # Process a  wxEVT_STC_DRAG_OVER   event.
 
-New in version 4.1/wxWidgets-3.1.0.
+EVT_STC_DWELLEND(id,  fn): int  # Process a  wxEVT_STC_DWELLEND   event.
 
-EVT_STC_DO_DROP(id,  fn): int  # : Process a  wxEVT_STC_DO_DROP   event.
+EVT_STC_DWELLSTART(id,  fn): int  # Process a  wxEVT_STC_DWELLSTART   event.
 
-EVT_STC_DOUBLECLICK(id,  fn): int  # : Process a  wxEVT_STC_DOUBLECLICK   event.
+EVT_STC_HOTSPOT_CLICK(id,  fn): int  # Process a  wxEVT_STC_HOTSPOT_CLICK   event.
 
-EVT_STC_DRAG_OVER(id,  fn): int  # : Process a  wxEVT_STC_DRAG_OVER   event.
+EVT_STC_HOTSPOT_DCLICK(id,  fn): int  # Process a  wxEVT_STC_HOTSPOT_DCLICK   event.
 
-EVT_STC_DWELLEND(id,  fn): int  # : Process a  wxEVT_STC_DWELLEND   event.
+EVT_STC_HOTSPOT_RELEASE_CLICK(id,  fn): int  # Process a  wxEVT_STC_HOTSPOT_RELEASE_CLICK   event.
 
-EVT_STC_DWELLSTART(id,  fn): int  # : Process a  wxEVT_STC_DWELLSTART   event.
+EVT_STC_INDICATOR_CLICK(id,  fn): int  # Process a  wxEVT_STC_INDICATOR_CLICK   event.
 
-EVT_STC_HOTSPOT_CLICK(id,  fn): int  # : Process a  wxEVT_STC_HOTSPOT_CLICK   event.
+EVT_STC_INDICATOR_RELEASE(id,  fn): int  # Process a  wxEVT_STC_INDICATOR_RELEASE   event.
 
-EVT_STC_HOTSPOT_DCLICK(id,  fn): int  # : Process a  wxEVT_STC_HOTSPOT_DCLICK   event.
+EVT_STC_MACRORECORD(id,  fn): int  # Process a  wxEVT_STC_MACRORECORD   event.
 
-EVT_STC_HOTSPOT_RELEASE_CLICK(id,  fn): int  # : Process a  wxEVT_STC_HOTSPOT_RELEASE_CLICK   event.
+EVT_STC_MARGIN_RIGHT_CLICK(id,  fn): int  # Process a  wxEVT_STC_MARGIN_RIGHT_CLICK   event.
 
-EVT_STC_INDICATOR_CLICK(id,  fn): int  # : Process a  wxEVT_STC_INDICATOR_CLICK   event.
+EVT_STC_MARGINCLICK(id,  fn): int  # Process a  wxEVT_STC_MARGINCLICK   event.
 
-EVT_STC_INDICATOR_RELEASE(id,  fn): int  # : Process a  wxEVT_STC_INDICATOR_RELEASE   event.
+EVT_STC_MODIFIED(id,  fn): int  # Process a  wxEVT_STC_MODIFIED   event.
 
-EVT_STC_MACRORECORD(id,  fn): int  # : Process a  wxEVT_STC_MACRORECORD   event.
+EVT_STC_NEEDSHOWN(id,  fn): int  # Process a  wxEVT_STC_NEEDSHOWN   event.
 
-EVT_STC_MARGIN_RIGHT_CLICK(id,  fn): int  # : Process a  wxEVT_STC_MARGIN_RIGHT_CLICK   event.
+EVT_STC_PAINTED(id,  fn): int  # Process a  wxEVT_STC_PAINTED   event.
 
-New in version 4.1/wxWidgets-3.1.1.
+EVT_STC_ROMODIFYATTEMPT(id,  fn): int  # Process a  wxEVT_STC_ROMODIFYATTEMPT   event.
 
-EVT_STC_MARGINCLICK(id,  fn): int  # : Process a  wxEVT_STC_MARGINCLICK   event.
+EVT_STC_SAVEPOINTLEFT(id,  fn): int  # Process a  wxEVT_STC_SAVEPOINTLEFT   event.
 
-EVT_STC_MODIFIED(id,  fn): int  # : Process a  wxEVT_STC_MODIFIED   event.
+EVT_STC_SAVEPOINTREACHED(id,  fn): int  # Process a  wxEVT_STC_SAVEPOINTREACHED   event.
 
-EVT_STC_NEEDSHOWN(id,  fn): int  # : Process a  wxEVT_STC_NEEDSHOWN   event.
+EVT_STC_START_DRAG(id,  fn): int  # Process a  wxEVT_STC_START_DRAG   event.
 
-EVT_STC_PAINTED(id,  fn): int  # : Process a  wxEVT_STC_PAINTED   event.
+EVT_STC_STYLENEEDED(id,  fn): int  # Process a  wxEVT_STC_STYLENEEDED   event.
 
-EVT_STC_ROMODIFYATTEMPT(id,  fn): int  # : Process a  wxEVT_STC_ROMODIFYATTEMPT   event.
+EVT_STC_UPDATEUI(id,  fn): int  # Process a  wxEVT_STC_UPDATEUI   event.
 
-EVT_STC_SAVEPOINTLEFT(id,  fn): int  # : Process a  wxEVT_STC_SAVEPOINTLEFT   event.
+EVT_STC_USERLISTSELECTION(id,  fn): int  # Process a  wxEVT_STC_USERLISTSELECTION   event.
 
-EVT_STC_SAVEPOINTREACHED(id,  fn): int  # : Process a  wxEVT_STC_SAVEPOINTREACHED   event.
-
-EVT_STC_START_DRAG(id,  fn): int  # : Process a  wxEVT_STC_START_DRAG   event.
-
-EVT_STC_STYLENEEDED(id,  fn): int  # : Process a  wxEVT_STC_STYLENEEDED   event.
-
-EVT_STC_UPDATEUI(id,  fn): int  # : Process a  wxEVT_STC_UPDATEUI   event.
-
-EVT_STC_USERLISTSELECTION(id,  fn): int  # : Process a  wxEVT_STC_USERLISTSELECTION   event.
-
-EVT_STC_ZOOM(id,  fn): int  # : Process a  wxEVT_STC_ZOOM   event. ^^
+EVT_STC_ZOOM(id,  fn): int  # Process a  wxEVT_STC_ZOOM   event. ^^
 
 class StyledTextCtrl(Control,TextEntry):
     """ A wxWidgets implementation of the Scintilla source code editing

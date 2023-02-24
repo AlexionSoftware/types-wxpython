@@ -412,23 +412,23 @@ documents.
 
 
 
-EVT_WEBVIEW_NAVIGATING: int  # : Process a  wxEVT_WEBVIEW_NAVIGATING   event, generated before trying to get a resource. This event may be vetoed to prevent navigating to this resource. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_NAVIGATING: int  # Process a  wxEVT_WEBVIEW_NAVIGATING   event, generated before trying to get a resource. This event may be vetoed to prevent navigating to this resource. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_NAVIGATED: int  # : Process a  wxEVT_WEBVIEW_NAVIGATED   event generated after it was confirmed that a resource would be requested. This event may not be vetoed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_NAVIGATED: int  # Process a  wxEVT_WEBVIEW_NAVIGATED   event generated after it was confirmed that a resource would be requested. This event may not be vetoed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_LOADED: int  # : Process a  wxEVT_WEBVIEW_LOADED   event generated when the document is fully loaded and displayed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_LOADED: int  # Process a  wxEVT_WEBVIEW_LOADED   event generated when the document is fully loaded and displayed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_ERROR: int  # : Process a  wxEVT_WEBVIEW_ERROR   event generated when a navigation error occurs. The integer associated with this event will be a WebNavigationError item. The string associated with this event may contain a backend-specific more precise error message/code.
+EVT_WEBVIEW_ERROR: int  # Process a  wxEVT_WEBVIEW_ERROR   event generated when a navigation error occurs. The integer associated with this event will be a WebNavigationError item. The string associated with this event may contain a backend-specific more precise error message/code.
 
-EVT_WEBVIEW_NEWWINDOW: int  # : Process a  wxEVT_WEBVIEW_NEWWINDOW   event, generated when a new window is created. You must handle this event if you want anything to happen, for example to load the page in a new window or tab.
+EVT_WEBVIEW_NEWWINDOW: int  # Process a  wxEVT_WEBVIEW_NEWWINDOW   event, generated when a new window is created. You must handle this event if you want anything to happen, for example to load the page in a new window or tab.
 
-EVT_WEBVIEW_TITLE_CHANGED: int  # : Process a  wxEVT_WEBVIEW_TITLE_CHANGED   event, generated when the page title changes. Use GetString to get the title.
+EVT_WEBVIEW_TITLE_CHANGED: int  # Process a  wxEVT_WEBVIEW_TITLE_CHANGED   event, generated when the page title changes. Use GetString to get the title.
 
-EVT_WEBVIEW_FULL_SCREEN_CHANGED: int  # : Process a  EVT_WEBVIEW_FULL_SCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
+EVT_WEBVIEW_FULL_SCREEN_CHANGED: int  # Process a  EVT_WEBVIEW_FULL_SCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
 
-EVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED: int  # : Process a  wxEVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED   event only available in wxWidgets 3.1.5 or later. For usage details see  AddScriptMessageHandler.
+EVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED: int  # Process a  wxEVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED   event only available in wxWidgets 3.1.5 or later. For usage details see  AddScriptMessageHandler.
 
-wxEVT_WEBVIEW_SCRIPT_RESULT: int  # : Process a  wxEVT_WEBVIEW_SCRIPT_RESULT   event only available in wxWidgets 3.1.6 or later. For usage details see  RunScriptAsync. ^^
+wxEVT_WEBVIEW_SCRIPT_RESULT: int  # Process a  wxEVT_WEBVIEW_SCRIPT_RESULT   event only available in wxWidgets 3.1.6 or later. For usage details see  RunScriptAsync. ^^
 
 WEBVIEW_INJECT_AT_DOCUMENT_START: int
 
@@ -476,23 +476,23 @@ WebView objects.
 
 
 
-EVT_WEBVIEW_NAVIGATING: int  # : Process a  wxEVT_WEBVIEW_NAVIGATING   event, generated before trying to get a resource. This event may be vetoed to prevent navigating to this resource. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_NAVIGATING: int  # Process a  wxEVT_WEBVIEW_NAVIGATING   event, generated before trying to get a resource. This event may be vetoed to prevent navigating to this resource. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_NAVIGATED: int  # : Process a  wxEVT_WEBVIEW_NAVIGATED   event generated after it was confirmed that a resource would be requested. This event may not be vetoed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_NAVIGATED: int  # Process a  wxEVT_WEBVIEW_NAVIGATED   event generated after it was confirmed that a resource would be requested. This event may not be vetoed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_LOADED: int  # : Process a  wxEVT_WEBVIEW_LOADED   event generated when the document is fully loaded and displayed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
+EVT_WEBVIEW_LOADED: int  # Process a  wxEVT_WEBVIEW_LOADED   event generated when the document is fully loaded and displayed. Note that if the displayed HTML document has several frames, one such event will be generated per frame.
 
-EVT_WEBVIEW_ERROR: int  # : Process a  wxEVT_WEBVIEW_ERROR   event generated when a navigation error occurs. The integer associated with this event will be a    wx.html2.WebViewNavigationError  item. The string associated with this event may contain a backend-specific more precise error message/code.
+EVT_WEBVIEW_ERROR: int  # Process a  wxEVT_WEBVIEW_ERROR   event generated when a navigation error occurs. The integer associated with this event will be a    wx.html2.WebViewNavigationError  item. The string associated with this event may contain a backend-specific more precise error message/code.
 
-EVT_WEBVIEW_NEWWINDOW: int  # : Process a  wxEVT_WEBVIEW_NEWWINDOW   event, generated when a new window is created. You must handle this event if you want anything to happen, for example to load the page in a new window or tab.
+EVT_WEBVIEW_NEWWINDOW: int  # Process a  wxEVT_WEBVIEW_NEWWINDOW   event, generated when a new window is created. You must handle this event if you want anything to happen, for example to load the page in a new window or tab.
 
-EVT_WEBVIEW_TITLE_CHANGED: int  # : Process a  wxEVT_WEBVIEW_TITLE_CHANGED   event, generated when the page title changes. Use GetString to get the title.
+EVT_WEBVIEW_TITLE_CHANGED: int  # Process a  wxEVT_WEBVIEW_TITLE_CHANGED   event, generated when the page title changes. Use GetString to get the title.
 
-EVT_WEBVIEW_FULL_SCREEN_CHANGED: int  # : Process a  EVT_WEBVIEW_FULL_SCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
+EVT_WEBVIEW_FULL_SCREEN_CHANGED: int  # Process a  EVT_WEBVIEW_FULL_SCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
 
-EVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED: int  # : Process a  wxEVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED   event only available in wxWidgets 3.1.5 or later. For usage details see  wx.html2.WebView.AddScriptMessageHandler .
+EVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED: int  # Process a  wxEVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED   event only available in wxWidgets 3.1.5 or later. For usage details see  wx.html2.WebView.AddScriptMessageHandler .
 
-wxEVT_WEBVIEW_SCRIPT_RESULT: int  # : Process a  wxEVT_WEBVIEW_SCRIPT_RESULT   event only available in wxWidgets 3.1.6 or later. For usage details see  wx.html2.WebView.RunScriptAsync . ^^
+wxEVT_WEBVIEW_SCRIPT_RESULT: int  # Process a  wxEVT_WEBVIEW_SCRIPT_RESULT   event only available in wxWidgets 3.1.6 or later. For usage details see  wx.html2.WebView.RunScriptAsync . ^^
 
 class WebViewFactory(Object):
     """ An abstract factory class for creating WebView backends.

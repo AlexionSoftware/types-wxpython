@@ -117,7 +117,7 @@ videos, audio files, natively through native codecs.
 
 
 
-MC_NO_AUTORESIZE: int  # : By default, the control will automatically adjust its size to exactly fit the size of a loaded video as soon as a video is loaded. If this flag is given, the control will not change its size automatically and it must be done manually (if desired) using Layout. It is strongly recommended to use this flag and handle control resizing manually (note that this style is only available in wxWidgets 3.1.6, so it is only possible to do it when using this or later version). ^^
+MC_NO_AUTORESIZE: int  # By default, the control will automatically adjust its size to exactly fit the size of a loaded video as soon as a video is loaded. If this flag is given, the control will not change its size automatically and it must be done manually (if desired) using Layout. It is strongly recommended to use this flag and handle control resizing manually (note that this style is only available in wxWidgets 3.1.6, so it is only possible to do it when using this or later version). ^^
 
 MC_NO_AUTORESIZE: int
 
@@ -140,17 +140,17 @@ class MediaEvent(NotifyEvent):
 
 
 
-EVT_MEDIA_LOADED: int  # : Sent when a media has loaded enough data that it can start playing. Processes a  wxEVT_MEDIA_LOADED   event type.
+EVT_MEDIA_LOADED: int  # Sent when a media has loaded enough data that it can start playing. Processes a  wxEVT_MEDIA_LOADED   event type.
 
-EVT_MEDIA_STOP: int  # : Sent when a media has switched to the  MEDIASTATE_STOPPED   state. You may be able to Veto this event to prevent it from stopping, causing it to continue playing - even if it has reached that end of the media (note that this may not have the desired effect - if you want to loop the media, for example, catch the   EVT_MEDIA_FINISHED   and play there instead). Processes a   wxEVT_MEDIA_STOP   event type.
+EVT_MEDIA_STOP: int  # Sent when a media has switched to the  MEDIASTATE_STOPPED   state. You may be able to Veto this event to prevent it from stopping, causing it to continue playing - even if it has reached that end of the media (note that this may not have the desired effect - if you want to loop the media, for example, catch the   EVT_MEDIA_FINISHED   and play there instead). Processes a   wxEVT_MEDIA_STOP   event type.
 
-EVT_MEDIA_FINISHED: int  # : Sent when a media has finished playing in a   wx.media.MediaCtrl. Processes a  wxEVT_MEDIA_FINISHED   event type.
+EVT_MEDIA_FINISHED: int  # Sent when a media has finished playing in a   wx.media.MediaCtrl. Processes a  wxEVT_MEDIA_FINISHED   event type.
 
-EVT_MEDIA_STATECHANGED: int  # : Sent when a media has switched its state (from any media state). Processes a  wxEVT_MEDIA_STATECHANGED   event type.
+EVT_MEDIA_STATECHANGED: int  # Sent when a media has switched its state (from any media state). Processes a  wxEVT_MEDIA_STATECHANGED   event type.
 
-EVT_MEDIA_PLAY: int  # : Sent when a media has switched to the  MEDIASTATE_PLAYING   state. Processes a   wxEVT_MEDIA_PLAY   event type.
+EVT_MEDIA_PLAY: int  # Sent when a media has switched to the  MEDIASTATE_PLAYING   state. Processes a   wxEVT_MEDIA_PLAY   event type.
 
-EVT_MEDIA_PAUSE: int  # : Sent when a media has switched to the  MEDIASTATE_PAUSED   state. Processes a   wxEVT_MEDIA_PAUSE   event type. ^^
+EVT_MEDIA_PAUSE: int  # Sent when a media has switched to the  MEDIASTATE_PAUSED   state. Processes a   wxEVT_MEDIA_PAUSE   event type. ^^
 
 MEDIASTATE_STOPPED: int
 

@@ -1920,9 +1920,9 @@ class GridEditorCreatedEvent(CommandEvent):
 
 
 
-EVT_GRID_EDITOR_CREATED: int  # : The editor for a cell was created. Processes a  wxEVT_GRID_EDITOR_CREATED   event type.
+EVT_GRID_EDITOR_CREATED: int  # The editor for a cell was created. Processes a  wxEVT_GRID_EDITOR_CREATED   event type.
 
-EVT_GRID_CMD_EDITOR_CREATED: int  # : The editor for a cell was created; variant taking a window identifier. Processes a  wxEVT_GRID_EDITOR_CREATED   event type. ^^
+EVT_GRID_CMD_EDITOR_CREATED: int  # The editor for a cell was created; variant taking a window identifier. Processes a  wxEVT_GRID_EDITOR_CREATED   event type. ^^
 
 class GridTableBase(Object):
     """ The almost abstract base class for grid tables.
@@ -3093,39 +3093,39 @@ class GridEvent(NotifyEvent):
 
 
 
-EVT_GRID_CELL_CHANGING: int  # : The user is about to change the data in a cell. The new cell value as string is available from GetString  event object method. This event can be vetoed if the change is not allowed. Processes a  wxEVT_GRID_CELL_CHANGING   event type.
+EVT_GRID_CELL_CHANGING: int  # The user is about to change the data in a cell. The new cell value as string is available from GetString  event object method. This event can be vetoed if the change is not allowed. Processes a  wxEVT_GRID_CELL_CHANGING   event type.
 
-EVT_GRID_CELL_CHANGED: int  # : The user changed the data in a cell. The old cell value as string is available from GetString  event object method. Notice that vetoing this event still works for backwards compatibility reasons but any new code should only veto EVT_GRID_CELL_CHANGING event and not this one. Processes a  wxEVT_GRID_CELL_CHANGED   event type.
+EVT_GRID_CELL_CHANGED: int  # The user changed the data in a cell. The old cell value as string is available from GetString  event object method. Notice that vetoing this event still works for backwards compatibility reasons but any new code should only veto EVT_GRID_CELL_CHANGING event and not this one. Processes a  wxEVT_GRID_CELL_CHANGED   event type.
 
-EVT_GRID_CELL_LEFT_CLICK: int  # : The user clicked a cell with the left mouse button. Processes a  wxEVT_GRID_CELL_LEFT_CLICK   event type.
+EVT_GRID_CELL_LEFT_CLICK: int  # The user clicked a cell with the left mouse button. Processes a  wxEVT_GRID_CELL_LEFT_CLICK   event type.
 
-EVT_GRID_CELL_LEFT_DCLICK: int  # : The user double-clicked a cell with the left mouse button. Processes a  wxEVT_GRID_CELL_LEFT_DCLICK   event type.
+EVT_GRID_CELL_LEFT_DCLICK: int  # The user double-clicked a cell with the left mouse button. Processes a  wxEVT_GRID_CELL_LEFT_DCLICK   event type.
 
-EVT_GRID_CELL_RIGHT_CLICK: int  # : The user clicked a cell with the right mouse button. Processes a  wxEVT_GRID_CELL_RIGHT_CLICK   event type.
+EVT_GRID_CELL_RIGHT_CLICK: int  # The user clicked a cell with the right mouse button. Processes a  wxEVT_GRID_CELL_RIGHT_CLICK   event type.
 
-EVT_GRID_CELL_RIGHT_DCLICK: int  # : The user double-clicked a cell with the right mouse button. Processes a  wxEVT_GRID_CELL_RIGHT_DCLICK   event type.
+EVT_GRID_CELL_RIGHT_DCLICK: int  # The user double-clicked a cell with the right mouse button. Processes a  wxEVT_GRID_CELL_RIGHT_DCLICK   event type.
 
-EVT_GRID_EDITOR_HIDDEN: int  # : The editor for a cell was hidden. Processes a  wxEVT_GRID_EDITOR_HIDDEN   event type.
+EVT_GRID_EDITOR_HIDDEN: int  # The editor for a cell was hidden. Processes a  wxEVT_GRID_EDITOR_HIDDEN   event type.
 
-EVT_GRID_EDITOR_SHOWN: int  # : The editor for a cell was shown. Processes a  wxEVT_GRID_EDITOR_SHOWN   event type.
+EVT_GRID_EDITOR_SHOWN: int  # The editor for a cell was shown. Processes a  wxEVT_GRID_EDITOR_SHOWN   event type.
 
-EVT_GRID_LABEL_LEFT_CLICK: int  # : The user clicked a label with the left mouse button. Processes a  wxEVT_GRID_LABEL_LEFT_CLICK   event type.
+EVT_GRID_LABEL_LEFT_CLICK: int  # The user clicked a label with the left mouse button. Processes a  wxEVT_GRID_LABEL_LEFT_CLICK   event type.
 
-EVT_GRID_LABEL_LEFT_DCLICK: int  # : The user double-clicked a label with the left mouse button. Processes a  wxEVT_GRID_LABEL_LEFT_DCLICK   event type.
+EVT_GRID_LABEL_LEFT_DCLICK: int  # The user double-clicked a label with the left mouse button. Processes a  wxEVT_GRID_LABEL_LEFT_DCLICK   event type.
 
-EVT_GRID_LABEL_RIGHT_CLICK: int  # : The user clicked a label with the right mouse button. Processes a  wxEVT_GRID_LABEL_RIGHT_CLICK   event type.
+EVT_GRID_LABEL_RIGHT_CLICK: int  # The user clicked a label with the right mouse button. Processes a  wxEVT_GRID_LABEL_RIGHT_CLICK   event type.
 
-EVT_GRID_LABEL_RIGHT_DCLICK: int  # : The user double-clicked a label with the right mouse button. Processes a  wxEVT_GRID_LABEL_RIGHT_DCLICK   event type.
+EVT_GRID_LABEL_RIGHT_DCLICK: int  # The user double-clicked a label with the right mouse button. Processes a  wxEVT_GRID_LABEL_RIGHT_DCLICK   event type.
 
-EVT_GRID_SELECT_CELL: int  # : The given cell was made current, either by user or by the program via a call to SetGridCursor() or GoToCell(). Processes a  wxEVT_GRID_SELECT_CELL   event type.
+EVT_GRID_SELECT_CELL: int  # The given cell was made current, either by user or by the program via a call to SetGridCursor() or GoToCell(). Processes a  wxEVT_GRID_SELECT_CELL   event type.
 
-EVT_GRID_ROW_MOVE: int  # : The user tries to change the order of the rows in the grid by dragging the row specified by GetRow. This event can be vetoed to either prevent the user from reordering the row change completely (but notice that if you donât want to allow it at all, you simply shouldnât call wx.grid.Grid.EnableDragRowMove   in the first place), vetoed but handled in some way in the handler, e.g. by really moving the row to the new position at the associated table level, or allowed to proceed in which case wx.grid.Grid.SetRowPos   is used to reorder the rows display order without affecting the use of the row indices otherwise. This event macro corresponds to  wxEVT_GRID_ROW_MOVE   event type. It is only available since wxWidgets 3.1.7.
+EVT_GRID_ROW_MOVE: int  # The user tries to change the order of the rows in the grid by dragging the row specified by GetRow. This event can be vetoed to either prevent the user from reordering the row change completely (but notice that if you donât want to allow it at all, you simply shouldnât call wx.grid.Grid.EnableDragRowMove   in the first place), vetoed but handled in some way in the handler, e.g. by really moving the row to the new position at the associated table level, or allowed to proceed in which case wx.grid.Grid.SetRowPos   is used to reorder the rows display order without affecting the use of the row indices otherwise. This event macro corresponds to  wxEVT_GRID_ROW_MOVE   event type. It is only available since wxWidgets 3.1.7.
 
-EVT_GRID_COL_MOVE: int  # : The user tries to change the order of the columns in the grid by dragging the column specified by GetCol. This event can be vetoed to either prevent the user from reordering the column change completely (but notice that if you donât want to allow it at all, you simply shouldnât call wx.grid.Grid.EnableDragColMove   in the first place), vetoed but handled in some way in the handler, e.g. by really moving the column to the new position at the associated table level, or allowed to proceed in which case wx.grid.Grid.SetColPos   is used to reorder the columns display order without affecting the use of the column indices otherwise. This event macro corresponds to  wxEVT_GRID_COL_MOVE   event type.
+EVT_GRID_COL_MOVE: int  # The user tries to change the order of the columns in the grid by dragging the column specified by GetCol. This event can be vetoed to either prevent the user from reordering the column change completely (but notice that if you donât want to allow it at all, you simply shouldnât call wx.grid.Grid.EnableDragColMove   in the first place), vetoed but handled in some way in the handler, e.g. by really moving the column to the new position at the associated table level, or allowed to proceed in which case wx.grid.Grid.SetColPos   is used to reorder the columns display order without affecting the use of the column indices otherwise. This event macro corresponds to  wxEVT_GRID_COL_MOVE   event type.
 
-EVT_GRID_COL_SORT: int  # : This event is generated when a column is clicked by the user and its name is explained by the fact that the custom reaction to a click on a column is to sort the grid contents by this column. However the grid itself has no special support for sorting and itâs up to the handler of this event to update the associated table. But if the event is handled (and not vetoed) the grid supposes that the table was indeed resorted and updates the column to indicate the new sort order and refreshes itself. This event macro corresponds to  wxEVT_GRID_COL_SORT   event type.
+EVT_GRID_COL_SORT: int  # This event is generated when a column is clicked by the user and its name is explained by the fact that the custom reaction to a click on a column is to sort the grid contents by this column. However the grid itself has no special support for sorting and itâs up to the handler of this event to update the associated table. But if the event is handled (and not vetoed) the grid supposes that the table was indeed resorted and updates the column to indicate the new sort order and refreshes itself. This event macro corresponds to  wxEVT_GRID_COL_SORT   event type.
 
-EVT_GRID_TABBING: int  # : This event is generated when the user presses TAB or Shift-TAB in the grid. It can be used to customize the simple default TAB handling logic, e.g. to go to the next non-empty cell instead of just the next cell. See also wx.grid.Grid.SetTabBehaviour . This event is new since wxWidgets 2.9.5. ^^
+EVT_GRID_TABBING: int  # This event is generated when the user presses TAB or Shift-TAB in the grid. It can be used to customize the simple default TAB handling logic, e.g. to go to the next non-empty cell instead of just the next cell. See also wx.grid.Grid.SetTabBehaviour . This event is new since wxWidgets 2.9.5. ^^
 
 class GridSizeEvent(NotifyEvent):
     """ This event class contains information about a row/column resize event.
@@ -3176,17 +3176,17 @@ class GridSizeEvent(NotifyEvent):
 
 
 
-EVT_GRID_CMD_COL_SIZE: int  # : The user resized a column, corresponds to  wxEVT_GRID_COL_SIZE   event type.
+EVT_GRID_CMD_COL_SIZE: int  # The user resized a column, corresponds to  wxEVT_GRID_COL_SIZE   event type.
 
-EVT_GRID_CMD_ROW_SIZE: int  # : The user resized a row, corresponds to  wxEVT_GRID_ROW_SIZE   event type.
+EVT_GRID_CMD_ROW_SIZE: int  # The user resized a row, corresponds to  wxEVT_GRID_ROW_SIZE   event type.
 
-EVT_GRID_ROW_AUTO_SIZE: int  # : This event is sent when a row must be resized to its best size, e.g. when the user double clicks the row divider. The default implementation simply resizes the row to fit the row label (but not its contents as this could be too slow for big grids). This macro corresponds to  wxEVT_GRID_ROW_AUTO_SIZE   event type and is new since wxWidgets 3.1.7.
+EVT_GRID_ROW_AUTO_SIZE: int  # This event is sent when a row must be resized to its best size, e.g. when the user double clicks the row divider. The default implementation simply resizes the row to fit the row label (but not its contents as this could be too slow for big grids). This macro corresponds to  wxEVT_GRID_ROW_AUTO_SIZE   event type and is new since wxWidgets 3.1.7.
 
-EVT_GRID_COL_SIZE: int  # : Same as EVT_GRID_CMD_COL_SIZE() but uses  ID_ANY   id.
+EVT_GRID_COL_SIZE: int  # Same as EVT_GRID_CMD_COL_SIZE() but uses  ID_ANY   id.
 
-EVT_GRID_COL_AUTO_SIZE: int  # : This event is sent when a column must be resized to its best size, e.g. when the user double clicks the column divider. The default implementation simply resizes the column to fit the column label (but not its contents as this could be too slow for big grids). This macro corresponds to  wxEVT_GRID_COL_AUTO_SIZE   event type and is new since wxWidgets 2.9.5.
+EVT_GRID_COL_AUTO_SIZE: int  # This event is sent when a column must be resized to its best size, e.g. when the user double clicks the column divider. The default implementation simply resizes the column to fit the column label (but not its contents as this could be too slow for big grids). This macro corresponds to  wxEVT_GRID_COL_AUTO_SIZE   event type and is new since wxWidgets 2.9.5.
 
-EVT_GRID_ROW_SIZE: int  # : Same as EVT_GRID_CMD_ROW_SIZE() but uses  ID_ANY   id. ^^
+EVT_GRID_ROW_SIZE: int  # Same as EVT_GRID_CMD_ROW_SIZE() but uses  ID_ANY   id. ^^
 
 class GridRangeSelectEvent(NotifyEvent):
     """ Events of this class notify about a range of cells being selected.
@@ -3267,13 +3267,13 @@ class GridRangeSelectEvent(NotifyEvent):
 
 
 
-EVT_GRID_RANGE_SELECTING: int  # : The user is selecting a group of contiguous cells. Processes a  wxEVT_GRID_RANGE_SELECTING   event type. This event is available in wxWidgets 3.1.5 and later only.
+EVT_GRID_RANGE_SELECTING: int  # The user is selecting a group of contiguous cells. Processes a  wxEVT_GRID_RANGE_SELECTING   event type. This event is available in wxWidgets 3.1.5 and later only.
 
-EVT_GRID_CMD_RANGE_SELECTING: int  # : The user is selecting a group of contiguous cells; variant taking a window identifier. Processes a  wxEVT_GRID_RANGE_SELECTING   event type. This event is available in wxWidgets 3.1.5 and later only.
+EVT_GRID_CMD_RANGE_SELECTING: int  # The user is selecting a group of contiguous cells; variant taking a window identifier. Processes a  wxEVT_GRID_RANGE_SELECTING   event type. This event is available in wxWidgets 3.1.5 and later only.
 
-EVT_GRID_RANGE_SELECTED: int  # : The user selected a group of contiguous cells. Processes a  wxEVT_GRID_RANGE_SELECTED   event type. This event is available in wxWidgets 3.1.5 and later only and was called   wxEVT_GRID_RANGE_SELECT   in the previous versions.
+EVT_GRID_RANGE_SELECTED: int  # The user selected a group of contiguous cells. Processes a  wxEVT_GRID_RANGE_SELECTED   event type. This event is available in wxWidgets 3.1.5 and later only and was called   wxEVT_GRID_RANGE_SELECT   in the previous versions.
 
-EVT_GRID_CMD_RANGE_SELECTED: int  # : The user selected a group of contiguous cells; variant taking a window identifier. Processes a  wxEVT_GRID_RANGE_SELECTED   event type. This event is available in wxWidgets 3.1.5 and later only and was called   wxEVT_GRID_CMD_RANGE_SELECT   in the previous versions. ^^
+EVT_GRID_CMD_RANGE_SELECTED: int  # The user selected a group of contiguous cells; variant taking a window identifier. Processes a  wxEVT_GRID_RANGE_SELECTED   event type. This event is available in wxWidgets 3.1.5 and later only and was called   wxEVT_GRID_CMD_RANGE_SELECT   in the previous versions. ^^
 
 class GridUpdateLocker:
     """ This small class can be used to prevent Grid from redrawing during

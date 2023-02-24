@@ -1974,11 +1974,11 @@ control capable of showing multiple styles and images.
 
 
 
-RE_CENTRE_CARET: int  # : The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
+RE_CENTRE_CARET: int  # The control will try to keep the caret line centred vertically while editing. wx.richtext.RE_CENTER_CARET is a synonym for this style.
 
-RE_MULTILINE: int  # : The control will be multiline (mandatory).
+RE_MULTILINE: int  # The control will be multiline (mandatory).
 
-RE_READONLY: int  # : The control will not be editable. ^^
+RE_READONLY: int  # The control will not be editable. ^^
 
 RE_CENTRE_CARET: int
 
@@ -2282,7 +2282,7 @@ that allows the user to select the category of style to view.
 
 
 
-RICHTEXTSTYLELIST_HIDE_TYPE_SELECTOR: int  # : This style hides the category selection control. ^^
+RICHTEXTSTYLELIST_HIDE_TYPE_SELECTOR: int  # This style hides the category selection control. ^^
 
 class RichTextBufferDataObject(DataObjectSimple):
     """ Implements a rich text data object for clipboard transfer.
@@ -2678,43 +2678,43 @@ class RichTextEvent(NotifyEvent):
 
 
 
-EVT_RICHTEXT_LEFT_CLICK: int  # : Process a  wxEVT_RICHTEXT_LEFT_CLICK   event, generated when the user releases the left mouse button over an object.
+EVT_RICHTEXT_LEFT_CLICK: int  # Process a  wxEVT_RICHTEXT_LEFT_CLICK   event, generated when the user releases the left mouse button over an object.
 
-EVT_RICHTEXT_RIGHT_CLICK: int  # : Process a  wxEVT_RICHTEXT_RIGHT_CLICK   event, generated when the user releases the right mouse button over an object.
+EVT_RICHTEXT_RIGHT_CLICK: int  # Process a  wxEVT_RICHTEXT_RIGHT_CLICK   event, generated when the user releases the right mouse button over an object.
 
-EVT_RICHTEXT_MIDDLE_CLICK: int  # : Process a  wxEVT_RICHTEXT_MIDDLE_CLICK   event, generated when the user releases the middle mouse button over an object.
+EVT_RICHTEXT_MIDDLE_CLICK: int  # Process a  wxEVT_RICHTEXT_MIDDLE_CLICK   event, generated when the user releases the middle mouse button over an object.
 
-EVT_RICHTEXT_LEFT_DCLICK: int  # : Process a  wxEVT_RICHTEXT_LEFT_DCLICK   event, generated when the user double-clicks an object.
+EVT_RICHTEXT_LEFT_DCLICK: int  # Process a  wxEVT_RICHTEXT_LEFT_DCLICK   event, generated when the user double-clicks an object.
 
-EVT_RICHTEXT_RETURN: int  # : Process a  wxEVT_RICHTEXT_RETURN   event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition.
+EVT_RICHTEXT_RETURN: int  # Process a  wxEVT_RICHTEXT_RETURN   event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition.
 
-EVT_RICHTEXT_CHARACTER: int  # : Process a  wxEVT_RICHTEXT_CHARACTER   event, generated when the user presses a character key. Valid event functions: GetFlags, GetPosition, GetCharacter.
+EVT_RICHTEXT_CHARACTER: int  # Process a  wxEVT_RICHTEXT_CHARACTER   event, generated when the user presses a character key. Valid event functions: GetFlags, GetPosition, GetCharacter.
 
-EVT_RICHTEXT_CONSUMING_CHARACTER: int  # : Process a  wxEVT_RICHTEXT_CONSUMING_CHARACTER   event, generated when the user presses a character key but before it is processed and inserted into the control. Call Veto to prevent normal processing. Valid event functions: GetFlags, GetPosition, GetCharacter, Veto.
+EVT_RICHTEXT_CONSUMING_CHARACTER: int  # Process a  wxEVT_RICHTEXT_CONSUMING_CHARACTER   event, generated when the user presses a character key but before it is processed and inserted into the control. Call Veto to prevent normal processing. Valid event functions: GetFlags, GetPosition, GetCharacter, Veto.
 
-EVT_RICHTEXT_DELETE: int  # : Process a  wxEVT_RICHTEXT_DELETE   event, generated when the user presses the backspace or delete key. Valid event functions: GetFlags, GetPosition.
+EVT_RICHTEXT_DELETE: int  # Process a  wxEVT_RICHTEXT_DELETE   event, generated when the user presses the backspace or delete key. Valid event functions: GetFlags, GetPosition.
 
-EVT_RICHTEXT_RETURN: int  # : Process a  wxEVT_RICHTEXT_RETURN   event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition.
+EVT_RICHTEXT_RETURN: int  # Process a  wxEVT_RICHTEXT_RETURN   event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition.
 
-EVT_RICHTEXT_STYLE_CHANGED: int  # : Process a  wxEVT_RICHTEXT_STYLE_CHANGED   event, generated when styling has been applied to the control. Valid event functions: GetPosition, GetRange.
+EVT_RICHTEXT_STYLE_CHANGED: int  # Process a  wxEVT_RICHTEXT_STYLE_CHANGED   event, generated when styling has been applied to the control. Valid event functions: GetPosition, GetRange.
 
-EVT_RICHTEXT_STYLESHEET_CHANGED: int  # : Process a  wxEVT_RICHTEXT_STYLESHEET_CHANGING   event, generated when the controlâs stylesheet has changed, for example the user added, edited or deleted a style. Valid event functions: GetRange, GetPosition.
+EVT_RICHTEXT_STYLESHEET_CHANGED: int  # Process a  wxEVT_RICHTEXT_STYLESHEET_CHANGING   event, generated when the controlâs stylesheet has changed, for example the user added, edited or deleted a style. Valid event functions: GetRange, GetPosition.
 
-EVT_RICHTEXT_STYLESHEET_REPLACING: int  # : Process a  wxEVT_RICHTEXT_STYLESHEET_REPLACING   event, generated when the controlâs stylesheet is about to be replaced, for example when a file is loaded into the control. Valid event functions: Veto, GetOldStyleSheet, GetNewStyleSheet.
+EVT_RICHTEXT_STYLESHEET_REPLACING: int  # Process a  wxEVT_RICHTEXT_STYLESHEET_REPLACING   event, generated when the controlâs stylesheet is about to be replaced, for example when a file is loaded into the control. Valid event functions: Veto, GetOldStyleSheet, GetNewStyleSheet.
 
-EVT_RICHTEXT_STYLESHEET_REPLACED: int  # : Process a  wxEVT_RICHTEXT_STYLESHEET_REPLACED   event, generated when the controlâs stylesheet has been replaced, for example when a file is loaded into the control. Valid event functions: GetOldStyleSheet, GetNewStyleSheet.
+EVT_RICHTEXT_STYLESHEET_REPLACED: int  # Process a  wxEVT_RICHTEXT_STYLESHEET_REPLACED   event, generated when the controlâs stylesheet has been replaced, for example when a file is loaded into the control. Valid event functions: GetOldStyleSheet, GetNewStyleSheet.
 
-EVT_RICHTEXT_PROPERTIES_CHANGED: int  # : Process a  wxEVT_RICHTEXT_PROPERTIES_CHANGED   event, generated when properties have been applied to the control. Valid event functions: GetPosition, GetRange.
+EVT_RICHTEXT_PROPERTIES_CHANGED: int  # Process a  wxEVT_RICHTEXT_PROPERTIES_CHANGED   event, generated when properties have been applied to the control. Valid event functions: GetPosition, GetRange.
 
-EVT_RICHTEXT_CONTENT_INSERTED: int  # : Process a  wxEVT_RICHTEXT_CONTENT_INSERTED   event, generated when content has been inserted into the control. Valid event functions: GetPosition, GetRange.
+EVT_RICHTEXT_CONTENT_INSERTED: int  # Process a  wxEVT_RICHTEXT_CONTENT_INSERTED   event, generated when content has been inserted into the control. Valid event functions: GetPosition, GetRange.
 
-EVT_RICHTEXT_CONTENT_DELETED: int  # : Process a  wxEVT_RICHTEXT_CONTENT_DELETED   event, generated when content has been deleted from the control. Valid event functions: GetPosition, GetRange.
+EVT_RICHTEXT_CONTENT_DELETED: int  # Process a  wxEVT_RICHTEXT_CONTENT_DELETED   event, generated when content has been deleted from the control. Valid event functions: GetPosition, GetRange.
 
-EVT_RICHTEXT_BUFFER_RESET: int  # : Process a  wxEVT_RICHTEXT_BUFFER_RESET   event, generated when the buffer has been reset by deleting all content. You can use this to set a default style for the first new paragraph.
+EVT_RICHTEXT_BUFFER_RESET: int  # Process a  wxEVT_RICHTEXT_BUFFER_RESET   event, generated when the buffer has been reset by deleting all content. You can use this to set a default style for the first new paragraph.
 
-EVT_RICHTEXT_SELECTION_CHANGED: int  # : Process a  wxEVT_RICHTEXT_SELECTION_CHANGED   event, generated when the selection range has changed.
+EVT_RICHTEXT_SELECTION_CHANGED: int  # Process a  wxEVT_RICHTEXT_SELECTION_CHANGED   event, generated when the selection range has changed.
 
-EVT_RICHTEXT_FOCUS_OBJECT_CHANGED: int  # : Process a  wxEVT_RICHTEXT_FOCUS_OBJECT_CHANGED   event, generated when the current focus object has changed. ^^
+EVT_RICHTEXT_FOCUS_OBJECT_CHANGED: int  # Process a  wxEVT_RICHTEXT_FOCUS_OBJECT_CHANGED   event, generated when the current focus object has changed. ^^
 
 class RichTextAction(Object):
     """ Implements a part of a command.
@@ -7241,15 +7241,15 @@ that can be used for start and end tags.
 
 
 
-RICHTEXT_FIELD_STYLE_COMPOSITE: int  # : Creates a composite field; you will probably need to derive a new class to implement UpdateField.
+RICHTEXT_FIELD_STYLE_COMPOSITE: int  # Creates a composite field; you will probably need to derive a new class to implement UpdateField.
 
-RICHTEXT_FIELD_STYLE_RECTANGLE: int  # : Shows a rounded rectangle background.
+RICHTEXT_FIELD_STYLE_RECTANGLE: int  # Shows a rounded rectangle background.
 
-RICHTEXT_FIELD_STYLE_NO_BORDER: int  # : Suppresses the background and border; mostly used with a bitmap label.
+RICHTEXT_FIELD_STYLE_NO_BORDER: int  # Suppresses the background and border; mostly used with a bitmap label.
 
-RICHTEXT_FIELD_STYLE_START_TAG: int  # : Shows a start tag background, with the pointy end facing right.
+RICHTEXT_FIELD_STYLE_START_TAG: int  # Shows a start tag background, with the pointy end facing right.
 
-RICHTEXT_FIELD_STYLE_END_TAG: int  # : Shows an end tag background, with the pointy end facing left. ^^
+RICHTEXT_FIELD_STYLE_END_TAG: int  # Shows an end tag background, with the pointy end facing left. ^^
 
 class RichTextBox(RichTextParagraphLayoutBox):
     """ This class implements a floating or inline text box, containing

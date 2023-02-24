@@ -453,9 +453,9 @@ class RibbonButtonBar(RibbonControl):
 
 
 
-EVT_RIBBONBUTTONBAR_CLICKED: int  # : Triggered when the normal (non-dropdown) region of a button on the button bar is clicked.
+EVT_RIBBONBUTTONBAR_CLICKED: int  # Triggered when the normal (non-dropdown) region of a button on the button bar is clicked.
 
-EVT_RIBBONBUTTONBAR_DROPDOWN_CLICKED: int  # : Triggered when the dropdown region of a button on the button bar is clicked. wx.ribbon.RibbonButtonBarEvent.PopupMenu   should be called by the event handler if it wants to display a popup menu (which is what most dropdown buttons should be doing). ^^
+EVT_RIBBONBUTTONBAR_DROPDOWN_CLICKED: int  # Triggered when the dropdown region of a button on the button bar is clicked. wx.ribbon.RibbonButtonBarEvent.PopupMenu   should be called by the event handler if it wants to display a popup menu (which is what most dropdown buttons should be doing). ^^
 
 RIBBON_BUTTONBAR_BUTTON_SMALL: int
 
@@ -621,43 +621,43 @@ class RibbonBar(RibbonControl):
 
 
 
-RIBBON_BAR_DEFAULT_STYLE: int  # : Defined as wx.ribbon.RIBBON_BAR_FLOW_HORIZONTAL | wx.ribbon.RIBBON_BAR_SHOW_PAGE_LABELS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS | wx.ribbon.RIBBON_BAR_SHOW_TOGGLE_BUTTON | wx.ribbon.RIBBON_BAR_SHOW_HELP_BUTTON.
+RIBBON_BAR_DEFAULT_STYLE: int  # Defined as wx.ribbon.RIBBON_BAR_FLOW_HORIZONTAL | wx.ribbon.RIBBON_BAR_SHOW_PAGE_LABELS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS | wx.ribbon.RIBBON_BAR_SHOW_TOGGLE_BUTTON | wx.ribbon.RIBBON_BAR_SHOW_HELP_BUTTON.
 
-RIBBON_BAR_FOLDBAR_STYLE: int  # : Defined as wx.ribbon.RIBBON_BAR_FLOW_VERTICAL | wx.ribbon.RIBBON_BAR_SHOW_PAGE_ICONS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS
+RIBBON_BAR_FOLDBAR_STYLE: int  # Defined as wx.ribbon.RIBBON_BAR_FLOW_VERTICAL | wx.ribbon.RIBBON_BAR_SHOW_PAGE_ICONS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS
 
-RIBBON_BAR_SHOW_PAGE_LABELS: int  # : Causes labels to be shown on the tabs in the ribbon bar.
+RIBBON_BAR_SHOW_PAGE_LABELS: int  # Causes labels to be shown on the tabs in the ribbon bar.
 
-RIBBON_BAR_SHOW_PAGE_ICONS: int  # : Causes icons to be shown on the tabs in the ribbon bar.
+RIBBON_BAR_SHOW_PAGE_ICONS: int  # Causes icons to be shown on the tabs in the ribbon bar.
 
-RIBBON_BAR_FLOW_HORIZONTAL: int  # : Causes panels within pages to stack horizontally.
+RIBBON_BAR_FLOW_HORIZONTAL: int  # Causes panels within pages to stack horizontally.
 
-RIBBON_BAR_FLOW_VERTICAL: int  # : Causes panels within pages to stack vertically.
+RIBBON_BAR_FLOW_VERTICAL: int  # Causes panels within pages to stack vertically.
 
-RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int  # : Causes extension buttons to be shown on panels (where the panel has such a button).
+RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS: int  # Causes extension buttons to be shown on panels (where the panel has such a button).
 
-RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int  # : Causes minimise buttons to be shown on panels (where the panel has such a button).
+RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS: int  # Causes minimise buttons to be shown on panels (where the panel has such a button).
 
-RIBBON_BAR_SHOW_TOGGLE_BUTTON: int  # : Causes a toggle button to appear on the ribbon bar at top-right corner. This style is new since wxWidgets 2.9.5.
+RIBBON_BAR_SHOW_TOGGLE_BUTTON: int  # Causes a toggle button to appear on the ribbon bar at top-right corner. This style is new since wxWidgets 2.9.5.
 
-RIBBON_BAR_SHOW_HELP_BUTTON: int  # : Causes a help button to appear on the ribbon bar at the top-right corner. This style is new since wxWidgets 2.9.5. ^^
+RIBBON_BAR_SHOW_HELP_BUTTON: int  # Causes a help button to appear on the ribbon bar at the top-right corner. This style is new since wxWidgets 2.9.5. ^^
 
-EVT_RIBBONBAR_PAGE_CHANGED: int  # : Triggered after the transition from one page being active to a different page being active.
+EVT_RIBBONBAR_PAGE_CHANGED: int  # Triggered after the transition from one page being active to a different page being active.
 
-EVT_RIBBONBAR_PAGE_CHANGING: int  # : Triggered prior to the transition from one page being active to a different page being active, and can veto the change.
+EVT_RIBBONBAR_PAGE_CHANGING: int  # Triggered prior to the transition from one page being active to a different page being active, and can veto the change.
 
-EVT_RIBBONBAR_TAB_MIDDLE_DOWN: int  # : Triggered when the middle mouse button is pressed on a tab.
+EVT_RIBBONBAR_TAB_MIDDLE_DOWN: int  # Triggered when the middle mouse button is pressed on a tab.
 
-EVT_RIBBONBAR_TAB_MIDDLE_UP: int  # : Triggered when the middle mouse button is released on a tab.
+EVT_RIBBONBAR_TAB_MIDDLE_UP: int  # Triggered when the middle mouse button is released on a tab.
 
-EVT_RIBBONBAR_TAB_RIGHT_DOWN: int  # : Triggered when the right mouse button is pressed on a tab.
+EVT_RIBBONBAR_TAB_RIGHT_DOWN: int  # Triggered when the right mouse button is pressed on a tab.
 
-EVT_RIBBONBAR_TAB_RIGHT_UP: int  # : Triggered when the right mouse button is released on a tab.
+EVT_RIBBONBAR_TAB_RIGHT_UP: int  # Triggered when the right mouse button is released on a tab.
 
-EVT_RIBBONBAR_TAB_LEFT_DCLICK: int  # : Triggered when the left mouse button is double clicked on a tab.
+EVT_RIBBONBAR_TAB_LEFT_DCLICK: int  # Triggered when the left mouse button is double clicked on a tab.
 
-EVT_RIBBONBAR_TOGGLED: int  # : Triggered when the button triggering the ribbon bar is clicked. This event is new since wxWidgets 2.9.5.
+EVT_RIBBONBAR_TOGGLED: int  # Triggered when the button triggering the ribbon bar is clicked. This event is new since wxWidgets 2.9.5.
 
-EVT_RIBBONBAR_HELP_CLICK: int  # : Triggered when the help button is clicked. This even is new since wxWidgets 2.9.5. ^^
+EVT_RIBBONBAR_HELP_CLICK: int  # Triggered when the help button is clicked. This even is new since wxWidgets 2.9.5. ^^
 
 RIBBON_BAR_DEFAULT_STYLE: int
 
@@ -832,11 +832,11 @@ strings.
 
 
 
-EVT_RIBBONGALLERY_SELECTED: int  # : Triggered when the user selects an item from the gallery. Note that the ID is that of the gallery, not of the item.
+EVT_RIBBONGALLERY_SELECTED: int  # Triggered when the user selects an item from the gallery. Note that the ID is that of the gallery, not of the item.
 
-EVT_RIBBONGALLERY_CLICKED: int  # : Similar to EVT_RIBBONGALLERY_SELECTED but triggered every time a gallery item is clicked, even if it is already selected. Note that the ID of the event is that of the gallery, not of the item, just as above. This event is available since wxWidgets 2.9.2.
+EVT_RIBBONGALLERY_CLICKED: int  # Similar to EVT_RIBBONGALLERY_SELECTED but triggered every time a gallery item is clicked, even if it is already selected. Note that the ID of the event is that of the gallery, not of the item, just as above. This event is available since wxWidgets 2.9.2.
 
-EVT_RIBBONGALLERY_HOVER_CHANGED: int  # : Triggered when the item being hovered over by the user changes. The item in the event will be the new item being hovered, or None if there is no longer an item being hovered. Note that the ID is that of the gallery, not of the item. ^^ ^^
+EVT_RIBBONGALLERY_HOVER_CHANGED: int  # Triggered when the item being hovered over by the user changes. The item in the event will be the new item being hovered, or None if there is no longer an item being hovered. Note that the ID is that of the gallery, not of the item. ^^ ^^
 
 class RibbonPanel(RibbonControl):
     """ Serves as a container for a group of (ribbon) controls.
@@ -936,19 +936,19 @@ class RibbonPanel(RibbonControl):
 
 
 
-RIBBON_PANEL_DEFAULT_STYLE: int  # : Defined as no other flags set.
+RIBBON_PANEL_DEFAULT_STYLE: int  # Defined as no other flags set.
 
-RIBBON_PANEL_NO_AUTO_MINIMISE: int  # : Prevents the panel from automatically minimising to conserve screen space.
+RIBBON_PANEL_NO_AUTO_MINIMISE: int  # Prevents the panel from automatically minimising to conserve screen space.
 
-RIBBON_PANEL_EXT_BUTTON: int  # : Causes an extension button to be shown in the panelâs chrome (if the bar in which it is contained has wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS set). The behaviour of this button is application controlled, but typically will show an extended drop-down menu relating to the panel.
+RIBBON_PANEL_EXT_BUTTON: int  # Causes an extension button to be shown in the panelâs chrome (if the bar in which it is contained has wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS set). The behaviour of this button is application controlled, but typically will show an extended drop-down menu relating to the panel.
 
-RIBBON_PANEL_MINIMISE_BUTTON: int  # : Causes a (de)minimise button to be shown in the panelâs chrome (if the bar in which it is contained has the wx.ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS style set). This flag is typically combined with wx.ribbon.RIBBON_PANEL_NO_AUTO_MINIMISE to make a panel which the user always has manual control over when it minimises.
+RIBBON_PANEL_MINIMISE_BUTTON: int  # Causes a (de)minimise button to be shown in the panelâs chrome (if the bar in which it is contained has the wx.ribbon.RIBBON_BAR_SHOW_PANEL_MINIMISE_BUTTONS style set). This flag is typically combined with wx.ribbon.RIBBON_PANEL_NO_AUTO_MINIMISE to make a panel which the user always has manual control over when it minimises.
 
-RIBBON_PANEL_STRETCH: int  # : Stretches a single panel to fit the parent page.
+RIBBON_PANEL_STRETCH: int  # Stretches a single panel to fit the parent page.
 
-RIBBON_PANEL_FLEXIBLE: int  # : Allows the panel to size in both directions; currently only useful when a single   wx.ribbon.RibbonToolBar  is the child of the panel, particularly in vertical orientation where the number of rows is dependent on the amount of horizontal space available. Set the minimum and maximum toolbar rows to take full advantage of this wrapping behaviour. ^^
+RIBBON_PANEL_FLEXIBLE: int  # Allows the panel to size in both directions; currently only useful when a single   wx.ribbon.RibbonToolBar  is the child of the panel, particularly in vertical orientation where the number of rows is dependent on the amount of horizontal space available. Set the minimum and maximum toolbar rows to take full advantage of this wrapping behaviour. ^^
 
-EVT_RIBBONPANEL_EXTBUTTON_ACTIVATED: int  # : Triggered when the user activate the panel extension button. ^^
+EVT_RIBBONPANEL_EXTBUTTON_ACTIVATED: int  # Triggered when the user activate the panel extension button. ^^
 
 RIBBON_PANEL_DEFAULT_STYLE: int
 
@@ -1193,9 +1193,9 @@ labels.
 
 
 
-EVT_RIBBONTOOLBAR_CLICKED: int  # : Triggered when the normal (non-dropdown) region of a tool on the tool bar is clicked.
+EVT_RIBBONTOOLBAR_CLICKED: int  # Triggered when the normal (non-dropdown) region of a tool on the tool bar is clicked.
 
-EVT_RIBBONTOOLBAR_DROPDOWN_CLICKED: int  # : Triggered when the dropdown region of a tool on the tool bar is clicked. wx.ribbon.RibbonToolBarEvent.PopupMenu   should be called by the event handler if it wants to display a popup menu (which is what most dropdown tools should be doing). ^^
+EVT_RIBBONTOOLBAR_DROPDOWN_CLICKED: int  # Triggered when the dropdown region of a tool on the tool bar is clicked. wx.ribbon.RibbonToolBarEvent.PopupMenu   should be called by the event handler if it wants to display a popup menu (which is what most dropdown tools should be doing). ^^
 
 class RibbonArtProvider:
     """ RibbonArtProvider is responsible for drawing all the components of

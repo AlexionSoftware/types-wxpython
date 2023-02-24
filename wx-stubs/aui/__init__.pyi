@@ -244,61 +244,61 @@ notebook control, managing multiple windows with associated tabs.
 
 
 
-AUI_NB_DEFAULT_STYLE: int  # : Defined as wx.aui.AUI_NB_TOP | wx.aui.AUI_NB_TAB_SPLIT | wx.aui.AUI_NB_TAB_MOVE | wx.aui.AUI_NB_SCROLL_BUTTONS | wx.aui.AUI_NB_CLOSE_ON_ACTIVE_TAB | wx.aui.AUI_NB_MIDDLE_CLICK_CLOSE.
+AUI_NB_DEFAULT_STYLE: int  # Defined as wx.aui.AUI_NB_TOP | wx.aui.AUI_NB_TAB_SPLIT | wx.aui.AUI_NB_TAB_MOVE | wx.aui.AUI_NB_SCROLL_BUTTONS | wx.aui.AUI_NB_CLOSE_ON_ACTIVE_TAB | wx.aui.AUI_NB_MIDDLE_CLICK_CLOSE.
 
-AUI_NB_TAB_SPLIT: int  # : Allows the tab control to be split by dragging a tab.
+AUI_NB_TAB_SPLIT: int  # Allows the tab control to be split by dragging a tab.
 
-AUI_NB_TAB_MOVE: int  # : Allows a tab to be moved horizontally by dragging.
+AUI_NB_TAB_MOVE: int  # Allows a tab to be moved horizontally by dragging.
 
-AUI_NB_TAB_EXTERNAL_MOVE: int  # : Allows a tab to be moved to another tab control.
+AUI_NB_TAB_EXTERNAL_MOVE: int  # Allows a tab to be moved to another tab control.
 
-AUI_NB_TAB_FIXED_WIDTH: int  # : With this style, all tabs have the same width.
+AUI_NB_TAB_FIXED_WIDTH: int  # With this style, all tabs have the same width.
 
-AUI_NB_SCROLL_BUTTONS: int  # : With this style, left and right scroll buttons are displayed.
+AUI_NB_SCROLL_BUTTONS: int  # With this style, left and right scroll buttons are displayed.
 
-AUI_NB_WINDOWLIST_BUTTON: int  # : With this style, a drop-down list of windows is available.
+AUI_NB_WINDOWLIST_BUTTON: int  # With this style, a drop-down list of windows is available.
 
-AUI_NB_CLOSE_BUTTON: int  # : With this style, a close button is available on the tab bar.
+AUI_NB_CLOSE_BUTTON: int  # With this style, a close button is available on the tab bar.
 
-AUI_NB_CLOSE_ON_ACTIVE_TAB: int  # : With this style, the close button is visible on the active tab.
+AUI_NB_CLOSE_ON_ACTIVE_TAB: int  # With this style, the close button is visible on the active tab.
 
-AUI_NB_CLOSE_ON_ALL_TABS: int  # : With this style, the close button is visible on all tabs.
+AUI_NB_CLOSE_ON_ALL_TABS: int  # With this style, the close button is visible on all tabs.
 
-AUI_NB_MIDDLE_CLICK_CLOSE: int  # : With this style, middle click on a tab closes the tab.
+AUI_NB_MIDDLE_CLICK_CLOSE: int  # With this style, middle click on a tab closes the tab.
 
-AUI_NB_TOP: int  # : With this style, tabs are drawn along the top of the notebook.
+AUI_NB_TOP: int  # With this style, tabs are drawn along the top of the notebook.
 
-AUI_NB_BOTTOM: int  # : With this style, tabs are drawn along the bottom of the notebook. ^^
+AUI_NB_BOTTOM: int  # With this style, tabs are drawn along the bottom of the notebook. ^^
 
-EVT_AUINOTEBOOK_PAGE_CLOSE: int  # : A page is about to be closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSE   event.
+EVT_AUINOTEBOOK_PAGE_CLOSE: int  # A page is about to be closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSE   event.
 
-EVT_AUINOTEBOOK_PAGE_CLOSED(winid,  fn): int  # : A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
+EVT_AUINOTEBOOK_PAGE_CLOSED(winid,  fn): int  # A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
 
-EVT_AUINOTEBOOK_PAGE_CHANGED: int  # : The page selection was changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGED   event.
+EVT_AUINOTEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGED   event.
 
-EVT_AUINOTEBOOK_PAGE_CHANGING: int  # : The page selection is about to be changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGING   event. This event can be vetoed.
+EVT_AUINOTEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGING   event. This event can be vetoed.
 
-EVT_AUINOTEBOOK_BUTTON: int  # : The window list button has been pressed. Processes a  wxEVT_AUINOTEBOOK_BUTTON   event.
+EVT_AUINOTEBOOK_BUTTON: int  # The window list button has been pressed. Processes a  wxEVT_AUINOTEBOOK_BUTTON   event.
 
-EVT_AUINOTEBOOK_BEGIN_DRAG: int  # : Dragging is about to begin. Processes a  wxEVT_AUINOTEBOOK_BEGIN_DRAG   event.
+EVT_AUINOTEBOOK_BEGIN_DRAG: int  # Dragging is about to begin. Processes a  wxEVT_AUINOTEBOOK_BEGIN_DRAG   event.
 
-EVT_AUINOTEBOOK_END_DRAG: int  # : Dragging has ended. Processes a  wxEVT_AUINOTEBOOK_END_DRAG   event.
+EVT_AUINOTEBOOK_END_DRAG: int  # Dragging has ended. Processes a  wxEVT_AUINOTEBOOK_END_DRAG   event.
 
-EVT_AUINOTEBOOK_DRAG_MOTION: int  # : Emitted during a drag and drop operation. Processes a  wxEVT_AUINOTEBOOK_DRAG_MOTION   event.
+EVT_AUINOTEBOOK_DRAG_MOTION: int  # Emitted during a drag and drop operation. Processes a  wxEVT_AUINOTEBOOK_DRAG_MOTION   event.
 
-EVT_AUINOTEBOOK_ALLOW_DND: int  # : Whether to allow a tab to be dropped. Processes a  wxEVT_AUINOTEBOOK_ALLOW_DND   event. This event must be specially allowed.
+EVT_AUINOTEBOOK_ALLOW_DND: int  # Whether to allow a tab to be dropped. Processes a  wxEVT_AUINOTEBOOK_ALLOW_DND   event. This event must be specially allowed.
 
-EVT_AUINOTEBOOK_DRAG_DONE(winid,  fn): int  # : Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
+EVT_AUINOTEBOOK_DRAG_DONE(winid,  fn): int  # Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN(winid,  fn): int  # : The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN(winid,  fn): int  # The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  # : The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  # The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  # : The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  # The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  # : The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  # The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
 
-EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  # : Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
+EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  # Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
 
 AUI_NB_DEFAULT_STYLE: int
 
@@ -367,35 +367,35 @@ class AuiNotebookEvent(BookCtrlEvent):
 
 
 
-EVT_AUINOTEBOOK_PAGE_CLOSE: int  # : A page is about to be closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSE   event.
+EVT_AUINOTEBOOK_PAGE_CLOSE: int  # A page is about to be closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSE   event.
 
-EVT_AUINOTEBOOK_PAGE_CLOSED(winid,  fn): int  # : A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
+EVT_AUINOTEBOOK_PAGE_CLOSED(winid,  fn): int  # A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
 
-EVT_AUINOTEBOOK_PAGE_CHANGED: int  # : The page selection was changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGED   event.
+EVT_AUINOTEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGED   event.
 
-EVT_AUINOTEBOOK_PAGE_CHANGING: int  # : The page selection is about to be changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGING   event. This event can be vetoed.
+EVT_AUINOTEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGING   event. This event can be vetoed.
 
-EVT_AUINOTEBOOK_BUTTON: int  # : The window list button has been pressed. Processes a  wxEVT_AUINOTEBOOK_BUTTON   event.
+EVT_AUINOTEBOOK_BUTTON: int  # The window list button has been pressed. Processes a  wxEVT_AUINOTEBOOK_BUTTON   event.
 
-EVT_AUINOTEBOOK_BEGIN_DRAG: int  # : Dragging is about to begin. Processes a  wxEVT_AUINOTEBOOK_BEGIN_DRAG   event.
+EVT_AUINOTEBOOK_BEGIN_DRAG: int  # Dragging is about to begin. Processes a  wxEVT_AUINOTEBOOK_BEGIN_DRAG   event.
 
-EVT_AUINOTEBOOK_END_DRAG: int  # : Dragging has ended. Processes a  wxEVT_AUINOTEBOOK_END_DRAG   event.
+EVT_AUINOTEBOOK_END_DRAG: int  # Dragging has ended. Processes a  wxEVT_AUINOTEBOOK_END_DRAG   event.
 
-EVT_AUINOTEBOOK_DRAG_MOTION: int  # : Emitted during a drag and drop operation. Processes a  wxEVT_AUINOTEBOOK_DRAG_MOTION   event.
+EVT_AUINOTEBOOK_DRAG_MOTION: int  # Emitted during a drag and drop operation. Processes a  wxEVT_AUINOTEBOOK_DRAG_MOTION   event.
 
-EVT_AUINOTEBOOK_ALLOW_DND: int  # : Whether to allow a tab to be dropped. Processes a  wxEVT_AUINOTEBOOK_ALLOW_DND   event. This event must be specially allowed.
+EVT_AUINOTEBOOK_ALLOW_DND: int  # Whether to allow a tab to be dropped. Processes a  wxEVT_AUINOTEBOOK_ALLOW_DND   event. This event must be specially allowed.
 
-EVT_AUINOTEBOOK_DRAG_DONE(winid,  fn): int  # : Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
+EVT_AUINOTEBOOK_DRAG_DONE(winid,  fn): int  # Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN(winid,  fn): int  # : The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN(winid,  fn): int  # The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  # : The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  # The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  # : The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  # The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  # : The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  # The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
 
-EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  # : Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
+EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  # Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
 
 class AuiDefaultTabArt(AuiTabArt):
     """ Default art provider for AuiNotebook.
@@ -1084,37 +1084,37 @@ class AuiToolBar(Control):
 
 
 
-AUI_TB_TEXT: int  # : Display the label strings on the toolbar buttons.
+AUI_TB_TEXT: int  # Display the label strings on the toolbar buttons.
 
-AUI_TB_NO_TOOLTIPS: int  # : Do not show tooltips for the toolbar items.
+AUI_TB_NO_TOOLTIPS: int  # Do not show tooltips for the toolbar items.
 
-AUI_TB_NO_AUTORESIZE: int  # : Do not automatically resize the toolbar when new tools are added.
+AUI_TB_NO_AUTORESIZE: int  # Do not automatically resize the toolbar when new tools are added.
 
-AUI_TB_GRIPPER: int  # : Show the toolbarâs gripper control. If the toolbar is added to an AUI pane that contains a gripper, this style will be automatically set.
+AUI_TB_GRIPPER: int  # Show the toolbarâs gripper control. If the toolbar is added to an AUI pane that contains a gripper, this style will be automatically set.
 
-AUI_TB_OVERFLOW: int  # : Show an overflow menu containing toolbar items that canât fit on the toolbar if it is too small.
+AUI_TB_OVERFLOW: int  # Show an overflow menu containing toolbar items that canât fit on the toolbar if it is too small.
 
-AUI_TB_VERTICAL: int  # : Using this style forces the toolbar to be vertical and be only dockable to the left or right sides of the window whereas by default it can be horizontal or vertical and be docked anywhere.
+AUI_TB_VERTICAL: int  # Using this style forces the toolbar to be vertical and be only dockable to the left or right sides of the window whereas by default it can be horizontal or vertical and be docked anywhere.
 
-AUI_TB_HORZ_LAYOUT: int  # :
+AUI_TB_HORZ_LAYOUT: int
 
-AUI_TB_HORIZONTAL: int  # : Analogous to wx.aui.AUI_TB_VERTICAL, but forces the toolbar to be horizontal.
+AUI_TB_HORIZONTAL: int  # Analogous to wx.aui.AUI_TB_VERTICAL, but forces the toolbar to be horizontal.
 
-AUI_TB_PLAIN_BACKGROUND: int  # : Draw a plain background (based on parent) instead of the default gradient background.
+AUI_TB_PLAIN_BACKGROUND: int  # Draw a plain background (based on parent) instead of the default gradient background.
 
-AUI_TB_HORZ_TEXT: int  # : Equivalent to wx.aui.AUI_TB_HORZ_LAYOUT | wx.aui.AUI_TB_TEXT
+AUI_TB_HORZ_TEXT: int  # Equivalent to wx.aui.AUI_TB_HORZ_LAYOUT | wx.aui.AUI_TB_TEXT
 
-AUI_TB_DEFAULT_STYLE: int  # : The default is to have no styles. ^^
+AUI_TB_DEFAULT_STYLE: int  # The default is to have no styles. ^^
 
-EVT_AUITOOLBAR_TOOL_DROPDOWN: int  # : Process a wxEVT_AUITOOLBAR_TOOL_DROPDOWN event
+EVT_AUITOOLBAR_TOOL_DROPDOWN: int  # Process a wxEVT_AUITOOLBAR_TOOL_DROPDOWN event
 
-EVT_AUITOOLBAR_OVERFLOW_CLICK: int  # : Process a wxEVT_AUITOOLBAR_OVERFLOW_CLICK event
+EVT_AUITOOLBAR_OVERFLOW_CLICK: int  # Process a wxEVT_AUITOOLBAR_OVERFLOW_CLICK event
 
-EVT_AUITOOLBAR_RIGHT_CLICK: int  # : Process a wxEVT_AUITOOLBAR_RIGHT_CLICK event
+EVT_AUITOOLBAR_RIGHT_CLICK: int  # Process a wxEVT_AUITOOLBAR_RIGHT_CLICK event
 
-EVT_AUITOOLBAR_MIDDLE_CLICK: int  # : Process a wxEVT_AUITOOLBAR_MIDDLE_CLICK event
+EVT_AUITOOLBAR_MIDDLE_CLICK: int  # Process a wxEVT_AUITOOLBAR_MIDDLE_CLICK event
 
-EVT_AUITOOLBAR_BEGIN_DRAG: int  # : Process a wxEVT_AUITOOLBAR_BEGIN_DRAG event ^^
+EVT_AUITOOLBAR_BEGIN_DRAG: int  # Process a wxEVT_AUITOOLBAR_BEGIN_DRAG event ^^
 
 AUI_TB_TEXT: int
 
@@ -1231,17 +1231,17 @@ class AuiManagerEvent(Event):
 
 
 
-EVT_AUI_PANE_BUTTON: int  # : Triggered when any button is pressed for any docked panes.
+EVT_AUI_PANE_BUTTON: int  # Triggered when any button is pressed for any docked panes.
 
-EVT_AUI_PANE_CLOSE: int  # : Triggered when a docked or floating pane is closed.
+EVT_AUI_PANE_CLOSE: int  # Triggered when a docked or floating pane is closed.
 
-EVT_AUI_PANE_MAXIMIZE: int  # : Triggered when a pane is maximized.
+EVT_AUI_PANE_MAXIMIZE: int  # Triggered when a pane is maximized.
 
-EVT_AUI_PANE_RESTORE: int  # : Triggered when a pane is restored.
+EVT_AUI_PANE_RESTORE: int  # Triggered when a pane is restored.
 
-EVT_AUI_PANE_ACTIVATED: int  # : Triggered when a pane is made âactiveâ. This event is new since wxWidgets 2.9.4.
+EVT_AUI_PANE_ACTIVATED: int  # Triggered when a pane is made âactiveâ. This event is new since wxWidgets 2.9.4.
 
-EVT_AUI_RENDER: int  # : This event can be caught to override the default renderer in order to custom draw your   wx.aui.AuiManager  window (not recommended). ^^
+EVT_AUI_RENDER: int  # This event can be caught to override the default renderer in order to custom draw your   wx.aui.AuiManager  window (not recommended). ^^
 
 class AuiManager(EvtHandler):
     """ AuiManager is the central class of the AUI class framework.
@@ -1462,37 +1462,37 @@ class AuiManager(EvtHandler):
 
 
 
-AUI_MGR_ALLOW_FLOATING: int  # : Allow a pane to be undocked to take the form of a   wx.MiniFrame.
+AUI_MGR_ALLOW_FLOATING: int  # Allow a pane to be undocked to take the form of a   wx.MiniFrame.
 
-AUI_MGR_ALLOW_ACTIVE_PANE: int  # : Change the color of the title bar of the pane when it is activated.
+AUI_MGR_ALLOW_ACTIVE_PANE: int  # Change the color of the title bar of the pane when it is activated.
 
-AUI_MGR_TRANSPARENT_DRAG: int  # : Make the pane transparent during its movement.
+AUI_MGR_TRANSPARENT_DRAG: int  # Make the pane transparent during its movement.
 
-AUI_MGR_TRANSPARENT_HINT: int  # : The possible location for docking is indicated by a translucent area.
+AUI_MGR_TRANSPARENT_HINT: int  # The possible location for docking is indicated by a translucent area.
 
-AUI_MGR_VENETIAN_BLINDS_HINT: int  # : The possible location for docking is indicated by gradually appearing partially transparent hint.
+AUI_MGR_VENETIAN_BLINDS_HINT: int  # The possible location for docking is indicated by gradually appearing partially transparent hint.
 
-AUI_MGR_RECTANGLE_HINT: int  # : The possible location for docking is indicated by a rectangular outline.
+AUI_MGR_RECTANGLE_HINT: int  # The possible location for docking is indicated by a rectangular outline.
 
-AUI_MGR_HINT_FADE: int  # : The translucent area where the pane could be docked appears gradually.
+AUI_MGR_HINT_FADE: int  # The translucent area where the pane could be docked appears gradually.
 
-AUI_MGR_NO_VENETIAN_BLINDS_FADE: int  # : Used in complement of wx.aui.AUI_MGR_VENETIAN_BLINDS_HINT to show the docking hint immediately.
+AUI_MGR_NO_VENETIAN_BLINDS_FADE: int  # Used in complement of wx.aui.AUI_MGR_VENETIAN_BLINDS_HINT to show the docking hint immediately.
 
-AUI_MGR_LIVE_RESIZE: int  # : When a docked pane is resized, its content is refreshed in live (instead of moving the border alone and refreshing the content at the end).
+AUI_MGR_LIVE_RESIZE: int  # When a docked pane is resized, its content is refreshed in live (instead of moving the border alone and refreshing the content at the end).
 
-AUI_MGR_DEFAULT: int  # : Default behaviour, combines: wx.aui.AUI_MGR_ALLOW_FLOATING | wx.aui.AUI_MGR_TRANSPARENT_HINT | wx.aui.AUI_MGR_HINT_FADE | wx.aui.AUI_MGR_NO_VENETIAN_BLINDS_FADE. ^^
+AUI_MGR_DEFAULT: int  # Default behaviour, combines: wx.aui.AUI_MGR_ALLOW_FLOATING | wx.aui.AUI_MGR_TRANSPARENT_HINT | wx.aui.AUI_MGR_HINT_FADE | wx.aui.AUI_MGR_NO_VENETIAN_BLINDS_FADE. ^^
 
-EVT_AUI_PANE_BUTTON: int  # : Triggered when any button is pressed for any docked panes.
+EVT_AUI_PANE_BUTTON: int  # Triggered when any button is pressed for any docked panes.
 
-EVT_AUI_PANE_CLOSE: int  # : Triggered when a docked or floating pane is closed.
+EVT_AUI_PANE_CLOSE: int  # Triggered when a docked or floating pane is closed.
 
-EVT_AUI_PANE_MAXIMIZE: int  # : Triggered when a pane is maximized.
+EVT_AUI_PANE_MAXIMIZE: int  # Triggered when a pane is maximized.
 
-EVT_AUI_PANE_RESTORE: int  # : Triggered when a pane is restored.
+EVT_AUI_PANE_RESTORE: int  # Triggered when a pane is restored.
 
-EVT_AUI_PANE_ACTIVATED: int  # : Triggered when a pane is made âactiveâ. This event is new since wxWidgets 2.9.4.
+EVT_AUI_PANE_ACTIVATED: int  # Triggered when a pane is made âactiveâ. This event is new since wxWidgets 2.9.4.
 
-EVT_AUI_RENDER: int  # : This event can be caught to override the default renderer in order to custom draw your   wx.aui.AuiManager  window (not recommended). ^^
+EVT_AUI_RENDER: int  # This event can be caught to override the default renderer in order to custom draw your   wx.aui.AuiManager  window (not recommended). ^^
 
 AUI_MGR_ALLOW_FLOATING: int
 

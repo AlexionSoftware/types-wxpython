@@ -414,55 +414,55 @@ is reference counted so it can be shared with other views.
 
 
 
-DV_SINGLE: int  # : Single selection mode. This is the default.
+DV_SINGLE: int  # Single selection mode. This is the default.
 
-DV_MULTIPLE: int  # : Multiple selection mode.
+DV_MULTIPLE: int  # Multiple selection mode.
 
-DV_ROW_LINES: int  # : Use alternating colours for odd and even rows.
+DV_ROW_LINES: int  # Use alternating colours for odd and even rows.
 
-DV_HORIZ_RULES: int  # : Display the separator lines between rows.
+DV_HORIZ_RULES: int  # Display the separator lines between rows.
 
-DV_VERT_RULES: int  # : Display the separator lines between columns.
+DV_VERT_RULES: int  # Display the separator lines between columns.
 
-DV_VARIABLE_LINE_HEIGHT: int  # : Allow variable line heights. This can be inefficient when displaying large number of items.
+DV_VARIABLE_LINE_HEIGHT: int  # Allow variable line heights. This can be inefficient when displaying large number of items.
 
-DV_NO_HEADER: int  # : Do not show column headers (which are shown by default). ^^
+DV_NO_HEADER: int  # Do not show column headers (which are shown by default). ^^
 
-EVT_DATAVIEW_SELECTION_CHANGED: int  # : Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
+EVT_DATAVIEW_SELECTION_CHANGED: int  # Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
 
-EVT_DATAVIEW_ITEM_ACTIVATED: int  # : Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event. This event is triggered by double clicking an item or pressing some special key (usually âEnterâ) when it is focused.
+EVT_DATAVIEW_ITEM_ACTIVATED: int  # Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event. This event is triggered by double clicking an item or pressing some special key (usually âEnterâ) when it is focused.
 
-EVT_DATAVIEW_ITEM_START_EDITING: int  # : Process a  wxEVT_DATAVIEW_ITEM_START_EDITING   event. This event can be vetoed in order to prevent editing on an item by item basis.
+EVT_DATAVIEW_ITEM_START_EDITING: int  # Process a  wxEVT_DATAVIEW_ITEM_START_EDITING   event. This event can be vetoed in order to prevent editing on an item by item basis.
 
-EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
+EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
 
-EVT_DATAVIEW_ITEM_EDITING_DONE: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
+EVT_DATAVIEW_ITEM_EDITING_DONE: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
 
-EVT_DATAVIEW_ITEM_COLLAPSING: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
+EVT_DATAVIEW_ITEM_COLLAPSING: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
 
-EVT_DATAVIEW_ITEM_COLLAPSED: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
+EVT_DATAVIEW_ITEM_COLLAPSED: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
 
-EVT_DATAVIEW_ITEM_EXPANDING: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
+EVT_DATAVIEW_ITEM_EXPANDING: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
 
-EVT_DATAVIEW_ITEM_EXPANDED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
+EVT_DATAVIEW_ITEM_EXPANDED: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
 
-EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # : Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
+EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
 
-EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # : Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didnât occur on any valid item, in this case  wx.dataview.DataViewEvent.GetItem   simply returns an invalid item.
+EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didnât occur on any valid item, in this case  wx.dataview.DataViewEvent.GetItem   simply returns an invalid item.
 
-EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
+EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
 
-EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event. Notice that currently this event is not generated in the native macOS versions of the control.
+EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event. Notice that currently this event is not generated in the native macOS versions of the control.
 
-EVT_DATAVIEW_COLUMN_SORTED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
+EVT_DATAVIEW_COLUMN_SORTED: int  # Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
 
-EVT_DATAVIEW_COLUMN_REORDERED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event.
+EVT_DATAVIEW_COLUMN_REORDERED: int  # Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event.
 
-EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # : Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
+EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
 
-EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
+EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
 
-EVT_DATAVIEW_ITEM_DROP: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
+EVT_DATAVIEW_ITEM_DROP: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
 
 DV_SINGLE: int
 
@@ -797,33 +797,33 @@ both single and multi-selection case.
 
 
 
-TL_SINGLE: int  # : Single selection, this is the default.
+TL_SINGLE: int  # Single selection, this is the default.
 
-TL_MULTIPLE: int  # : Allow multiple selection, see GetSelections.
+TL_MULTIPLE: int  # Allow multiple selection, see GetSelections.
 
-TL_CHECKBOX: int  # : Show the usual, 2 state, checkboxes for the items in the first column.
+TL_CHECKBOX: int  # Show the usual, 2 state, checkboxes for the items in the first column.
 
-TL_3STATE: int  # : Show the checkboxes that can possibly be set by the program, but not the user, to a third, undetermined, state, for the items in the first column. Implies wx.dataview.TL_CHECKBOX.
+TL_3STATE: int  # Show the checkboxes that can possibly be set by the program, but not the user, to a third, undetermined, state, for the items in the first column. Implies wx.dataview.TL_CHECKBOX.
 
-TL_USER_3STATE: int  # : Same as wx.dataview.TL_3STATE but the user can also set the checkboxes to the undetermined state. Implies wx.dataview.TL_3STATE.
+TL_USER_3STATE: int  # Same as wx.dataview.TL_3STATE but the user can also set the checkboxes to the undetermined state. Implies wx.dataview.TL_3STATE.
 
-TL_NO_HEADER: int  # : Donât show the column headers, that are shown by default. Notice that this style is only available since wxWidgets 2.9.5.
+TL_NO_HEADER: int  # Donât show the column headers, that are shown by default. Notice that this style is only available since wxWidgets 2.9.5.
 
-TL_DEFAULT_STYLE: int  # : Style used by the control by default, just wx.dataview.TL_SINGLE currently. ^^
+TL_DEFAULT_STYLE: int  # Style used by the control by default, just wx.dataview.TL_SINGLE currently. ^^
 
-EVT_TREELIST_SELECTION_CHANGED: int  # : Process  wxEVT_TREELIST_SELECTION_CHANGED   event and notifies about the selection change in the control. In the single selection case the item indicated by the event has been selected and previously selected item, if any, was deselected. In multiple selection case, the selection of this item has just changed (it may have been either selected or deselected) but notice that the selection of other items could have changed as well, use  wx.dataview.TreeListCtrl.GetSelections   to retrieve the new selection if necessary.
+EVT_TREELIST_SELECTION_CHANGED: int  # Process  wxEVT_TREELIST_SELECTION_CHANGED   event and notifies about the selection change in the control. In the single selection case the item indicated by the event has been selected and previously selected item, if any, was deselected. In multiple selection case, the selection of this item has just changed (it may have been either selected or deselected) but notice that the selection of other items could have changed as well, use  wx.dataview.TreeListCtrl.GetSelections   to retrieve the new selection if necessary.
 
-EVT_TREELIST_ITEM_EXPANDING: int  # : Process  wxEVT_TREELIST_ITEM_EXPANDING   event notifying about the given branch being expanded. This event is sent before the expansion occurs and can be vetoed to prevent it from happening.
+EVT_TREELIST_ITEM_EXPANDING: int  # Process  wxEVT_TREELIST_ITEM_EXPANDING   event notifying about the given branch being expanded. This event is sent before the expansion occurs and can be vetoed to prevent it from happening.
 
-EVT_TREELIST_ITEM_EXPANDED: int  # : Process  wxEVT_TREELIST_ITEM_EXPANDED   event notifying about the expansion of the given branch. This event is sent after the expansion occurs and canât be vetoed.
+EVT_TREELIST_ITEM_EXPANDED: int  # Process  wxEVT_TREELIST_ITEM_EXPANDED   event notifying about the expansion of the given branch. This event is sent after the expansion occurs and canât be vetoed.
 
-EVT_TREELIST_ITEM_CHECKED: int  # : Process  wxEVT_TREELIST_ITEM_CHECKED   event notifying about the user checking or unchecking the item. You can use  wx.dataview.TreeListCtrl.GetCheckedState   to retrieve the new item state and wx.dataview.TreeListEvent.GetOldCheckedState   to get the previous one.
+EVT_TREELIST_ITEM_CHECKED: int  # Process  wxEVT_TREELIST_ITEM_CHECKED   event notifying about the user checking or unchecking the item. You can use  wx.dataview.TreeListCtrl.GetCheckedState   to retrieve the new item state and wx.dataview.TreeListEvent.GetOldCheckedState   to get the previous one.
 
-EVT_TREELIST_ITEM_ACTIVATED: int  # : Process  wxEVT_TREELIST_ITEM_ACTIVATED   event notifying about the user double clicking the item or activating it from keyboard.
+EVT_TREELIST_ITEM_ACTIVATED: int  # Process  wxEVT_TREELIST_ITEM_ACTIVATED   event notifying about the user double clicking the item or activating it from keyboard.
 
-EVT_TREELIST_ITEM_CONTEXT_MENU: int  # : Process  wxEVT_TREELIST_ITEM_CONTEXT_MENU   event indicating that the popup menu for the given item should be displayed.
+EVT_TREELIST_ITEM_CONTEXT_MENU: int  # Process  wxEVT_TREELIST_ITEM_CONTEXT_MENU   event indicating that the popup menu for the given item should be displayed.
 
-EVT_TREELIST_COLUMN_SORTED: int  # : Process  wxEVT_TREELIST_COLUMN_SORTED   event indicating that the control contents has just been resorted using the specified column. The event doesnât carry the sort direction, use  GetSortColumn  method if you need to know it. ^^
+EVT_TREELIST_COLUMN_SORTED: int  # Process  wxEVT_TREELIST_COLUMN_SORTED   event indicating that the control contents has just been resorted using the specified column. The event doesnât carry the sort direction, use  GetSortColumn  method if you need to know it. ^^
 
 COL_SORTABLE: int
 
@@ -1957,41 +1957,41 @@ class DataViewEvent(NotifyEvent):
 
 
 
-EVT_DATAVIEW_SELECTION_CHANGED: int  # : Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
+EVT_DATAVIEW_SELECTION_CHANGED: int  # Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
 
-EVT_DATAVIEW_ITEM_ACTIVATED: int  # : Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event.
+EVT_DATAVIEW_ITEM_ACTIVATED: int  # Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event.
 
-EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
+EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
 
-EVT_DATAVIEW_ITEM_EDITING_DONE: int  # : Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
+EVT_DATAVIEW_ITEM_EDITING_DONE: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
 
-EVT_DATAVIEW_ITEM_COLLAPSING: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
+EVT_DATAVIEW_ITEM_COLLAPSING: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
 
-EVT_DATAVIEW_ITEM_COLLAPSED: int  # : Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
+EVT_DATAVIEW_ITEM_COLLAPSED: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
 
-EVT_DATAVIEW_ITEM_EXPANDING: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
+EVT_DATAVIEW_ITEM_EXPANDING: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
 
-EVT_DATAVIEW_ITEM_EXPANDED: int  # : Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
+EVT_DATAVIEW_ITEM_EXPANDED: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
 
-EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # : Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
+EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
 
-EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # : Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event.
+EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event.
 
-EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
+EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
 
-EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # : Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event.
+EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event.
 
-EVT_DATAVIEW_COLUMN_SORTED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
+EVT_DATAVIEW_COLUMN_SORTED: int  # Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
 
-EVT_DATAVIEW_COLUMN_REORDERED: int  # : Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event. Currently this event is not generated when using the native GTK+ version of the control.
+EVT_DATAVIEW_COLUMN_REORDERED: int  # Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event. Currently this event is not generated when using the native GTK+ version of the control.
 
-EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # : Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
+EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
 
-EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
+EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
 
-EVT_DATAVIEW_ITEM_DROP: int  # : Process a  wxEVT_DATAVIEW_ITEM_DROP   event.
+EVT_DATAVIEW_ITEM_DROP: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP   event.
 
-EVT_DATAVIEW_CACHE_HINT: int  # : Process a  wxEVT_DATAVIEW_CACHE_HINT   event. ^^
+EVT_DATAVIEW_CACHE_HINT: int  # Process a  wxEVT_DATAVIEW_CACHE_HINT   event. ^^
 
 NOT_FOUND: int
 
