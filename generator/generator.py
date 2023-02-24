@@ -18,6 +18,10 @@ BASE_INDEX_URLS: list[str] = [
 SPACER = "    "
 EXTRA_TYPING = """
 GROW: int  # Synonym for wx.EXPAND\n
+RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL\n
+RA_VERTICAL: int  # Synonym of wx.VERTICAL\n
+NORMAL: int\n
+DEFAULT: int\n
 """
 
 
