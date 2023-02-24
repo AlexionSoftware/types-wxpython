@@ -170,13 +170,8 @@ class Parser:
 		# Make a list
 		result: list[ITypingFunction] = []
 
-		# Find the API
-		apiTable = apiTableElem.find("dd")
-		if apiTable is None:
-			return result
-
 		# Find all the methods
-		methodTags: list[Tag] = apiTable.find_all("dl", class_=methodIdName)
+		methodTags: list[Tag] = apiTableElem.find_all("dl", class_=methodIdName)
 		for methodTag in methodTags:
 			# Create the method
 			methodType: ITypingFunction = {
