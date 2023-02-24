@@ -124,7 +124,7 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 				"params": {
 					"window": "'Window'",
 				},
-				"paramStr": "window: 'Window'",
+				"paramStr": "self, window: 'Window'",
 
 			}
 		],
