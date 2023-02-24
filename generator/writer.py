@@ -62,7 +62,17 @@ class TypingWriter:
 
 		# Create the filedir
 		if os.path.exists(os.path.dirname(filePath)) is False:
-			os.makedirs(os.path.dirname(filePath))
+			# Walk through the paths and create them
+			mkPath = ""
+			for path in os.path.dirname(filePath).split(os.sep):
+				mkPath = os.path.join(mkPath, path)
+				if os.path.exists(mkPath) is False:
+					# Create the directory
+					os.makedirs(mkPath)
+
+					# Create an empty file
+					with open(os.path.join(mkPath, "__init__.py"), "w", encoding="utf-8") as fileHandler:
+						fileHandler.write("")
 
 		# Combine the data
 		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, Optional, Union\n\n\n"
