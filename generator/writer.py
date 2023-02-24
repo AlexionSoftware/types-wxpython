@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from logging import Logger
 import os
+from queue import Queue
 
 from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral
 
@@ -15,7 +16,7 @@ class TypingWriter:
 		"""
 		self.logger = logger
 
-	def write(self, typings: list[ITyping]) -> bool:
+	def write(self, typings: Queue[ITyping]) -> bool:
 		""" Write the typing to a pyi
 		"""
 		# Make a dict per file
@@ -27,12 +28,13 @@ class TypingWriter:
 			# Write the file
 			self._writeToFile(moduleName, typings)
 
-	def _convertToPerFile(self, typings: list[ITyping], contentPerFileType: dict[str, list[ITyping]]) -> None:
+	def _convertToPerFile(self, typings: Queue[ITyping], contentPerFileType: dict[str, list[ITyping]]) -> None:
 		""" Conver the list to a dict
 		"""
 		# Walk through all the files
-		for item in typings:
+		while not typings.empty():
 			# Make the modulename right
+			item = typings.get()
 			fileName = item["moduleName"]
 			if fileName.startswith("wx."):
 				fileName = fileName.replace("wx.", "").replace(".", "\\")

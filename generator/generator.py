@@ -67,14 +67,15 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 class DocumentationGenerator:
 	""" Generate the documentation
 	"""
-
-	def generate(self) -> None:
-		""" Generate
+	def __init__(self) -> None:
+		""" Constructor
 		"""
 		# Create a Queue with classes
 		self.classQueue: Queue[str] = Queue()
 
 		# Remember the whole file
+		self.typings: Queue[ITyping] = Queue()
+
 		# Create a logger
 		self.logger = logging.Logger("WXPythonTypingGenerator")
 		handler = logging.StreamHandler(sys.stdout)
@@ -84,8 +85,11 @@ class DocumentationGenerator:
 		self.logger.addHandler(handler)
 
 		# Create a parser
-		self.parser = Parser(self.logger)
+		self.parser = Parser(self.classQueue, self.logger)
 
+	def generate(self) -> None:
+		""" Generate
+		"""
 		# Add the extra classes to the queue
 		# This classes are not found by default
 		# So we add them manually
@@ -108,10 +112,14 @@ class DocumentationGenerator:
 				typingList = self.parser.processClassApi(classUrl)
 				if typingList is None:
 					continue
-				self.typings.extend(typingList)
+
+				# Put the items in the queue
+				for typing in typingList:
+					self.typings.put(typing)
 
 		# Add the extra typing to the list
-		self.typings.extend(EXTRA_KNOWN_ITEMS)
+		for typing in EXTRA_KNOWN_ITEMS:
+			self.typings.put(typing)
 
 		# Write to files
 		TypingWriter(self.logger).write(self.typings)
