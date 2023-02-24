@@ -117,10 +117,15 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 		"params": {
 			"window": "'Window'",
 		},
-		"paramString": "window: 'Window'",
+		"paramStr": "window: 'Window'",
 	}, {
 		"type": "literal",
 		"name": "NullCursor",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "LIST_AUTOSIZE",
 		"moduleName": "wx",
 		"returnType": "int",
 	}
