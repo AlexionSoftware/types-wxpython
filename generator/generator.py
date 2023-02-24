@@ -451,6 +451,8 @@ class DocumentationGenerator:
 				typing = "Union[tuple[int, int], 'Size']"
 			elif typing == "wx.Position":
 				typing = "Union[tuple[int, int], 'Position']"
+			elif typing == "wx.Colour":
+				typing = "Union[int, str, 'Colour']"
 
 		# Check if this is a return
 		if typingType == "return":
