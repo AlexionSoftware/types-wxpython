@@ -124,7 +124,10 @@ class DocumentationGenerator:
 
 		# Check each row
 		for aTag in indexTable.find_all("a", class_="reference"):
-			self.classQueue.put(aTag["href"])
+			aHref: str = aTag["href"]
+			if "#" in aHref:
+				aHref = aHref[:aHref.find("#")]
+			self.classQueue.put(aHref)
 
 	def _processClassApi(self, url: str) -> None:
 		""" Process a Class API
