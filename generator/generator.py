@@ -63,6 +63,67 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 		"moduleName": "wx",
 		"returnType": "int",
 	}
+	, {
+		"type": "literal",
+		"name": "RED",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "YELLOW",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "BLACK",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "WHITE",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "BLUE",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "GREEN",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "CYAN",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "OPEN",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "literal",
+		"name": "EVT_TIMER",
+		"moduleName": "wx",
+		"returnType": "int",
+	}, {
+		"type": "function",
+		"name": "FrozenWindow",
+		"moduleName": "wx",
+		"returnType": "None",
+		"docstring": "Freeze the window and all its children.",
+		"params": {
+			"window": "'Window'",
+		},
+		"paramString": "window: 'Window'",
+	}, {
+		"type": "literal",
+		"name": "NullCursor",
+		"moduleName": "wx",
+		"returnType": "int",
+	}
 ]
 
 
