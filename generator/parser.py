@@ -32,7 +32,8 @@ class Parser:
 			return None
 
 		# Retrieve the page
-		r = requests.get(BASE_URL + url)
+		fullUrl = BASE_URL + url
+		r = requests.get(fullUrl)
 		if r.status_code != 200:
 			self.logger.error("This page '%s' doesnt work!" % url)
 			return None
@@ -60,6 +61,7 @@ class Parser:
 				"type": "class",
 				"name": className,
 				"moduleName": moduleName,
+				"source": fullUrl,
 			}
 
 			# Find the superclass
@@ -69,14 +71,14 @@ class Parser:
 			classType["docstring"] = self._processClassDocstring(apiTableElem)
 
 			# Fill the class
-			functions = self._processTypingClassMethod(classFullName, soup, apiTableElem)
+			functions = self._processTypingMethod(classFullName, soup, apiTableElem, source=fullUrl)
 			classType["functions"] = functions
 
 			# Add to the list
 			result.append(classType)
 
 		# Check for functions
-		functions = self._processTypingClassMethod(moduleName, soup, soup, methodIdName="function")
+		functions = self._processTypingMethod(moduleName, soup, soup, methodIdName="function", source=fullUrl)
 		result.extend(functions)
 
 		# Check for events
@@ -147,7 +149,7 @@ class Parser:
 				return ps[0].get_text()
 		return ""
 
-	def _processTypingClassMethod(self, className: str, soup: Tag, apiTableElem: Tag, methodIdName: str = "method") -> list[ITypingFunction]:
+	def _processTypingMethod(self, className: str, soup: Tag, apiTableElem: Tag, methodIdName: str = "method", source: str = "") -> list[ITypingFunction]:
 		""" Process a class with methods
 		"""
 		# Make a list
@@ -162,7 +164,11 @@ class Parser:
 		methodTags: list[Tag] = apiTable.find_all("dl", class_=methodIdName)
 		for methodTag in methodTags:
 			# Create the method
-			methodType: ITypingFunction = {"type": "function", "moduleName": className}
+			methodType: ITypingFunction = {
+				"type": "function", 
+				"moduleName": className, 
+				"source": source,
+			}
 
 			# Find the name
 			methodName: str = methodTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()

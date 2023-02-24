@@ -8,6 +8,7 @@ class ITyping(TypedDict):
 	name: str
 	moduleName: str
 	docstring: str
+	source: str
 
 
 class ITypingFunction(ITyping):
