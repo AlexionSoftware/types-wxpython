@@ -331,15 +331,21 @@ class Parser:
 					# Find the name of the element
 					styleName = liElem.get_text().strip()
 					styleDef = ""
+
+					# Check if there is a definition
 					if ":" in styleName:
-						styleDef = styleName[styleName.find(":"):]
+						styleDef = styleName[(styleName.find(":") + 1):]
 						styleName = styleName[:styleName.find(":")]
+
+					# Check if there is a wx prefix
 					if styleName.startswith("wx."):
 						styleName = styleName.split(".")[-1]
 
 					# Check if there is an enter
 					if "\n" in styleName:
 						styleName = styleName[:styleName.find("\n")]
+					if "\n" in styleDef:
+						styleDef = styleDef[:styleDef.find("\n")]
 
 					# Add to the output
 					literalObj: ITypingLiteral = {
@@ -347,7 +353,7 @@ class Parser:
 						"name": styleName,
 						"moduleName": moduleName,
 						"returnType": "int",
-						"docstring": styleDef,
+						"docstring": styleDef.strip(),
 					}
 					result.append(literalObj)
 
@@ -370,7 +376,7 @@ class Parser:
 					eventName = liElem.get_text().strip()
 					eventDef = ""
 					if ":" in eventName:
-						eventDef = eventName[eventName.find(":"):]
+						eventDef = eventName[(eventName.find(":") + 1):]
 						eventName = eventName[:eventName.find(":")]
 					if eventName.startswith(moduleName):
 						eventName = eventName.split(".")[-1]
@@ -382,6 +388,8 @@ class Parser:
 					# Check if there is an enter
 					if "\n" in eventName:
 						eventName = eventName[:eventName.find("\n")]
+					if "\n" in eventDef:
+						eventDef = eventDef[:eventDef.find("\n")]
 
 					# Add to the output
 					literalObj: ITypingLiteral = {
@@ -389,7 +397,7 @@ class Parser:
 						"name": eventName,
 						"moduleName": moduleName,
 						"returnType": "int",
-						"docstring": eventDef,
+						"docstring": eventDef.strip(),
 					}
 					result.append(literalObj)
 
