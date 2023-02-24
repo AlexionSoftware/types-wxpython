@@ -109,20 +109,30 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "function",
+		"type": "class",
 		"name": "FrozenWindow",
 		"moduleName": "wx",
-		"returnType": "None",
+		"superClass": ["ContextManager"],
 		"docstring": "Freeze the window and all its children.",
-		"params": {
-			"window": "'Window'",
-		},
-		"paramStr": "window: 'Window'",
+		"functions": [
+			{
+				"type": "function",
+				"name": "__init__",
+				"moduleName": "wx.FrozenWindow",
+				"returnType": "None",
+				"docstring": "Constructor",
+				"params": {
+					"window": "'Window'",
+				},
+				"paramStr": "window: 'Window'",
+
+			}
+		],
 	}, {
 		"type": "literal",
 		"name": "NullCursor",
 		"moduleName": "wx",
-		"returnType": "int",
+		"returnType": "'Cursor'",
 	}, {
 		"type": "literal",
 		"name": "LIST_AUTOSIZE",
@@ -147,10 +157,10 @@ OVERRIDES: dict[str, ITyping] = {
 		"returnType": "Any",
 	},
 	"wx.TreeCtrl.GetFirstChild": {
-		"returnType": "Optional['TreeItemId']",
+		"returnType": "tuple['TreeItemId', str]",
 	},
 	"wx.TreeCtrl.GetNextChild": {
-		"returnType": "Optional['TreeItemId']",
+		"returnType": "tuple['TreeItemId', str]",
 	},
 	"wx.GetApp": {
 		"returnType": "'PyApp'",

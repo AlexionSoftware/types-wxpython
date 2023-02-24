@@ -79,7 +79,7 @@ class TypingWriter:
 						fileHandler.write("")
 
 		# Combine the data
-		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, Optional, Union\n\n\n"
+		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, ContextManager, Optional, Union\n\n\n"
 		for item in typings:
 			typingStr = self._convertTypingToStr(item)
 			data += typingStr + "\n\n"
