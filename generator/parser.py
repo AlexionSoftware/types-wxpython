@@ -29,7 +29,8 @@ class Parser:
 		if url in self.foundTypingUrls:
 			self.logger.warn("Already found this url: '%s'" % url)
 			return None
-		if url.endswith(".png"):
+		if not url.endswith(".html"):
+			self.logger.error("Cannot process this url: This is not HTML '%s'" % url)
 			return None
 
 		# Retrieve the page
