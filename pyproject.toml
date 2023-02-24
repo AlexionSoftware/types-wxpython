@@ -22,8 +22,20 @@ python = "^3.8"
 [tool.poetry.dev-dependencies]
 requests = "^2.28.2"
 bs4 = "^0.0.1"
+isort = "^5.12.0"
+yapf = "^0.32.0"
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.yapf]
+based_on_style = "pep8"
+use_tabs = false
+indent_width = 4
+continuation_align_style = "space"
+dedent_closing_brackets = true
+coalesce_brackets = true
+column_limit = 1000
+blank_lines_between_top_level_imports_and_variables = 2
