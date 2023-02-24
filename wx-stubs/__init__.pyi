@@ -11,6 +11,341 @@ NORMAL: int
 
 DEFAULT: int
 
+FONTFAMILY_DEFAULT: int
+FONTFAMILY_DECORATIVE: int
+FONTFAMILY_ROMAN: int
+FONTFAMILY_SCRIPT: int
+FONTFAMILY_SWISS: int
+FONTFAMILY_MODERN: int
+FONTFAMILY_TELETYPE: int
+FONTFAMILY_MAX: int
+FONTFAMILY_UNKNOWN: int
+
+
+FONTWEIGHT_INVALID: int
+FONTWEIGHT_THIN: int
+FONTWEIGHT_EXTRALIGHT: int
+FONTWEIGHT_LIGHT: int
+FONTWEIGHT_NORMAL: int
+FONTWEIGHT_MEDIUM: int
+FONTWEIGHT_SEMIBOLD: int
+FONTWEIGHT_BOLD: int
+FONTWEIGHT_EXTRABOLD: int
+FONTWEIGHT_HEAVY: int
+FONTWEIGHT_EXTRAHEAVY: int
+FONTWEIGHT_MAX: int
+
+
+CURSOR_NONE: int
+CURSOR_ARROW: int
+CURSOR_RIGHT_ARROW: int
+CURSOR_BULLSEYE: int
+CURSOR_CHAR: int
+CURSOR_CROSS: int
+CURSOR_HAND: int
+CURSOR_IBEAM: int
+CURSOR_LEFT_BUTTON: int
+CURSOR_MAGNIFIER: int
+CURSOR_MIDDLE_BUTTON: int
+CURSOR_NO_ENTRY: int
+CURSOR_PAINT_BRUSH: int
+CURSOR_PENCIL: int
+CURSOR_POINT_LEFT: int
+CURSOR_POINT_RIGHT: int
+CURSOR_QUESTION_ARROW: int
+CURSOR_RIGHT_BUTTON: int
+CURSOR_SIZENESW: int
+CURSOR_SIZENS: int
+CURSOR_SIZENWSE: int
+CURSOR_SIZEWE: int
+CURSOR_SIZING: int
+CURSOR_SPRAYCAN: int
+CURSOR_WAIT: int
+CURSOR_WATCH: int
+CURSOR_BLANK: int
+CURSOR_DEFAULT: int
+CURSOR_COPY_ARROW: int
+CURSOR_ARROWWAIT: int
+CURSOR_MAX: int
+
+
+ID_AUTO_LOWEST: int
+ID_ANY: int
+ID_AUTO_HIGHEST: int
+ID_ANY: int
+ID_NONE: int
+ID_SEPARATOR: int
+ID_ANY: int
+ID_LOWEST: int
+ID_OPEN: int
+ID_CLOSE: int
+ID_NEW: int
+ID_SAVE: int
+ID_SAVEAS: int
+ID_REVERT: int
+ID_EXIT: int
+ID_UNDO: int
+ID_REDO: int
+ID_HELP: int
+ID_PRINT: int
+ID_PRINT_SETUP: int
+ID_PAGE_SETUP: int
+ID_PREVIEW: int
+ID_ABOUT: int
+ID_HELP_CONTENTS: int
+ID_HELP_INDEX: int
+ID_HELP_SEARCH: int
+ID_HELP_COMMANDS: int
+ID_HELP_PROCEDURES: int
+ID_HELP_CONTEXT: int
+ID_CLOSE_ALL: int
+ID_PREFERENCES: int
+ID_EDIT: int
+ID_CUT: int
+ID_COPY: int
+ID_PASTE: int
+ID_CLEAR: int
+ID_FIND: int
+ID_DUPLICATE: int
+ID_SELECTALL: int
+ID_DELETE: int
+ID_REPLACE: int
+ID_REPLACE_ALL: int
+ID_PROPERTIES: int
+ID_VIEW_DETAILS: int
+ID_VIEW_LARGEICONS: int
+ID_VIEW_SMALLICONS: int
+ID_VIEW_LIST: int
+ID_VIEW_SORTDATE: int
+ID_VIEW_SORTNAME: int
+ID_VIEW_SORTSIZE: int
+ID_VIEW_SORTTYPE: int
+ID_FILE: int
+ID_FILE1: int
+ID_FILE2: int
+ID_FILE3: int
+ID_FILE4: int
+ID_FILE5: int
+ID_FILE6: int
+ID_FILE7: int
+ID_FILE8: int
+ID_FILE9: int
+ID_OK: int
+ID_CANCEL: int
+ID_APPLY: int
+ID_YES: int
+ID_NO: int
+ID_STATIC: int
+ID_FORWARD: int
+ID_BACKWARD: int
+ID_DEFAULT: int
+ID_MORE: int
+ID_SETUP: int
+ID_RESET: int
+ID_CONTEXT_HELP: int
+ID_YESTOALL: int
+ID_NOTOALL: int
+ID_ABORT: int
+ID_RETRY: int
+ID_IGNORE: int
+ID_ADD: int
+ID_REMOVE: int
+ID_UP: int
+ID_DOWN: int
+ID_HOME: int
+ID_REFRESH: int
+ID_STOP: int
+ID_INDEX: int
+ID_BOLD: int
+ID_ITALIC: int
+ID_JUSTIFY_CENTER: int
+ID_JUSTIFY_FILL: int
+ID_JUSTIFY_RIGHT: int
+ID_JUSTIFY_LEFT: int
+ID_UNDERLINE: int
+ID_INDENT: int
+ID_UNINDENT: int
+ID_ZOOM_100: int
+ID_ZOOM_FIT: int
+ID_ZOOM_IN: int
+ID_ZOOM_OUT: int
+ID_UNDELETE: int
+ID_REVERT_TO_SAVED: int
+ID_CDROM: int
+ID_CONVERT: int
+ID_EXECUTE: int
+ID_FLOPPY: int
+ID_HARDDISK: int
+ID_BOTTOM: int
+ID_FIRST: int
+ID_LAST: int
+ID_TOP: int
+ID_INFO: int
+ID_JUMP_TO: int
+ID_NETWORK: int
+ID_SELECT_COLOR: int
+ID_SELECT_FONT: int
+ID_SORT_ASCENDING: int
+ID_SORT_DESCENDING: int
+ID_SPELL_CHECK: int
+ID_STRIKETHROUGH: int
+ID_SYSTEM_MENU: int
+ID_CLOSE_FRAME: int
+ID_MOVE_FRAME: int
+ID_RESIZE_FRAME: int
+ID_MAXIMIZE_FRAME: int
+ID_ICONIZE_FRAME: int
+ID_RESTORE_FRAME: int
+ID_MDI_WINDOW_FIRST: int
+ID_MDI_WINDOW_CASCADE: int
+ID_MDI_WINDOW_TILE_HORZ: int
+ID_MDI_WINDOW_TILE_VERT: int
+ID_MDI_WINDOW_ARRANGE_ICONS: int
+ID_MDI_WINDOW_PREV: int
+ID_MDI_WINDOW_NEXT: int
+ID_MDI_WINDOW_LAST: int
+ID_FILEDLGG: int
+ID_FILECTRL: int
+ID_HIGHEST: int
+
+
+FONTENCODING_SYSTEM: int
+FONTENCODING_DEFAULT: int
+FONTENCODING_ISO8859_1: int
+FONTENCODING_ISO8859_2: int
+FONTENCODING_ISO8859_3: int
+FONTENCODING_ISO8859_4: int
+FONTENCODING_ISO8859_5: int
+FONTENCODING_ISO8859_6: int
+FONTENCODING_ISO8859_7: int
+FONTENCODING_ISO8859_8: int
+FONTENCODING_ISO8859_9: int
+FONTENCODING_ISO8859_10: int
+FONTENCODING_ISO8859_11: int
+FONTENCODING_ISO8859_12: int
+FONTENCODING_ISO8859_13: int
+FONTENCODING_ISO8859_14: int
+FONTENCODING_ISO8859_15: int
+FONTENCODING_ISO8859_MAX: int
+FONTENCODING_KOI8: int
+FONTENCODING_KOI8_U: int
+FONTENCODING_ALTERNATIVE: int
+FONTENCODING_BULGARIAN: int
+FONTENCODING_CP437: int
+FONTENCODING_CP850: int
+FONTENCODING_CP852: int
+FONTENCODING_CP855: int
+FONTENCODING_CP866: int
+FONTENCODING_CP874: int
+FONTENCODING_CP932: int
+FONTENCODING_CP936: int
+FONTENCODING_CP949: int
+FONTENCODING_CP950: int
+FONTENCODING_CP1250: int
+FONTENCODING_CP1251: int
+FONTENCODING_CP1252: int
+FONTENCODING_CP1253: int
+FONTENCODING_CP1254: int
+FONTENCODING_CP1255: int
+FONTENCODING_CP1256: int
+FONTENCODING_CP1257: int
+FONTENCODING_CP1258: int
+FONTENCODING_CP1361: int
+FONTENCODING_CP12_MAX: int
+FONTENCODING_UTF7: int
+FONTENCODING_UTF8: int
+FONTENCODING_EUC_JP: int
+FONTENCODING_UTF16BE: int
+FONTENCODING_UTF16LE: int
+FONTENCODING_UTF32BE: int
+FONTENCODING_UTF32LE: int
+FONTENCODING_MACROMAN: int
+FONTENCODING_MACJAPANESE: int
+FONTENCODING_MACCHINESETRAD: int
+FONTENCODING_MACKOREAN: int
+FONTENCODING_MACARABIC: int
+FONTENCODING_MACHEBREW: int
+FONTENCODING_MACGREEK: int
+FONTENCODING_MACCYRILLIC: int
+FONTENCODING_MACDEVANAGARI: int
+FONTENCODING_MACGURMUKHI: int
+FONTENCODING_MACGUJARATI: int
+FONTENCODING_MACORIYA: int
+FONTENCODING_MACBENGALI: int
+FONTENCODING_MACTAMIL: int
+FONTENCODING_MACTELUGU: int
+FONTENCODING_MACKANNADA: int
+FONTENCODING_MACMALAJALAM: int
+FONTENCODING_MACSINHALESE: int
+FONTENCODING_MACBURMESE: int
+FONTENCODING_MACKHMER: int
+FONTENCODING_MACTHAI: int
+FONTENCODING_MACLAOTIAN: int
+FONTENCODING_MACGEORGIAN: int
+FONTENCODING_MACARMENIAN: int
+FONTENCODING_MACCHINESESIMP: int
+FONTENCODING_MACTIBETAN: int
+FONTENCODING_MACMONGOLIAN: int
+FONTENCODING_MACETHIOPIC: int
+FONTENCODING_MACCENTRALEUR: int
+FONTENCODING_MACVIATNAMESE: int
+FONTENCODING_MACARABICEXT: int
+FONTENCODING_MACSYMBOL: int
+FONTENCODING_MACDINGBATS: int
+FONTENCODING_MACTURKISH: int
+FONTENCODING_MACCROATIAN: int
+FONTENCODING_MACICELANDIC: int
+FONTENCODING_MACROMANIAN: int
+FONTENCODING_MACCELTIC: int
+FONTENCODING_MACGAELIC: int
+FONTENCODING_MACKEYBOARD: int
+FONTENCODING_ISO2022_JP: int
+FONTENCODING_MAX: int
+FONTENCODING_MACMIN: int
+FONTENCODING_MACMAX: int
+FONTENCODING_UTF16: int
+FONTENCODING_UTF32: int
+FONTENCODING_UNICODE: int
+FONTENCODING_GB2312: int
+FONTENCODING_BIG5: int
+FONTENCODING_SHIFT_JIS: int
+FONTENCODING_EUC_KR: int
+FONTENCODING_JOHAB: int
+FONTENCODING_VIETNAMESE: int
+
+
+FONTSTYLE_NORMAL: int
+FONTSTYLE_ITALIC: int
+FONTSTYLE_SLANT: int
+FONTSTYLE_MAX: int
+
+
+KILL_CHILDREN: int
+EXEC_ASYNC: int
+EXEC_SYNC: int
+EXEC_SHOW_CONSOLE: int
+EXEC_HIDE_CONSOLE: int
+EXEC_MAKE_GROUP_LEADER: int
+EXEC_NODISABLE: int
+EXEC_NOEVENTS: int
+EXEC_BLOCK: int
+EXEC_SYNC: int
+FD_OPEN: int
+FD_SAVE: int
+FD_OVERWRITE_PROMPT: int
+FD_FILE_MUST_EXIST: int
+FD_MULTIPLE: int
+OK: int
+OK: int
+KILL_NOCHILDREN: int
+KILL_CHILDREN: int
+KILL_CHILDREN: int
+EXEC_MAKE_GROUP_LEADER: int
+ID_ANY: int
+LOG_Warning: int
+LOG_COMPONENT: int
+
+
 class AcceleratorEntry:
     """ An object used by an application wishing to create an accelerator
 table (see AcceleratorTable).
@@ -3235,7 +3570,7 @@ dataâ.
         """ Get a pointer to the client data object.
         """
 
-    def GetClientObject(self) -> None:
+    def GetClientObject(self) -> Any:
         """ Alias for GetClientData
         """
 
@@ -3243,7 +3578,7 @@ dataâ.
         """ Set the client data object.
         """
 
-    def SetClientObject(self, data) -> None:
+    def SetClientObject(self, data) -> Any:
         """ Alias for SetClientData
         """
 
@@ -4411,7 +4746,7 @@ originate from a variety of simple controls.
         """ Returns client object pointer for a listbox or choice selection event (not valid for a deselection).
         """
 
-    def GetClientObject(self) -> None:
+    def GetClientObject(self) -> Any:
         """ Alias for GetClientData
         """
 
@@ -4443,7 +4778,7 @@ originate from a variety of simple controls.
         """ Sets the client object for this event.
         """
 
-    def SetClientObject(self, data) -> None:
+    def SetClientObject(self, data) -> Any:
         """ Alias for SetClientData
         """
 
@@ -6127,7 +6462,7 @@ Choice.
         """ Overloaded Implementations:
         """
 
-    def AppendItems(self, items) -> None:
+    def AppendItems(self, items) -> Any:
         """ Alias for Append
         """
 
@@ -6147,11 +6482,11 @@ Choice.
         """ Returns a pointer to the client data associated with the given item (if any).
         """
 
-    def GetClientObject(self, n) -> None:
+    def GetClientObject(self, n) -> Any:
         """ Alias for GetClientData
         """
 
-    def GetItems(self) -> None:
+    def GetItems(self) -> Any:
         """ Alias for GetStrings
         """
 
@@ -6179,11 +6514,11 @@ Choice.
         """ Associates the given typed client data pointer with the given item: the data  object will be deleted when the item is deleted (either explicitly by using Delete   or implicitly when the control itself is destroyed).
         """
 
-    def SetClientObject(self, n, data) -> None:
+    def SetClientObject(self, n, data) -> Any:
         """ Alias for SetClientData
         """
 
-    def SetItems(self, items) -> None:
+    def SetItems(self, items) -> Any:
         """ Alias for Set
         """
 
@@ -9604,11 +9939,11 @@ class Font(GDIObject):
         """
 
     @staticmethod
-    def GetDefaultEncoding() -> 'FontEncoding':
+    def GetDefaultEncoding() -> int:
         """ Returns the current applicationâs default encoding.
         """
 
-    def GetEncoding(self) -> 'FontEncoding':
+    def GetEncoding(self) -> int:
         """ Returns the encoding of this font.
         """
 
@@ -9616,7 +9951,7 @@ class Font(GDIObject):
         """ Returns the face name associated with the font, or the empty string if there is no face information.
         """
 
-    def GetFamily(self) -> 'FontFamily':
+    def GetFamily(self) -> int:
         """ Gets the font family if possible.
         """
 
@@ -9645,7 +9980,7 @@ class Font(GDIObject):
         """
 
     @staticmethod
-    def GetNumericWeightOf(weight: FontWeight) -> int:
+    def GetNumericWeightOf(weight: int) -> int:
         """ Get the raw weight value corresponding to the given symbolic constant.
         """
 
@@ -9665,7 +10000,7 @@ class Font(GDIObject):
         """ Returns True if the font is stricken-through, False otherwise.
         """
 
-    def GetStyle(self) -> 'FontStyle':
+    def GetStyle(self) -> int:
         """ Gets the font style.
         """
 
@@ -9673,7 +10008,7 @@ class Font(GDIObject):
         """ Returns True if the font is underlined, False otherwise.
         """
 
-    def GetWeight(self) -> 'FontWeight':
+    def GetWeight(self) -> int:
         """ Gets the font weight.
         """
 
@@ -9735,11 +10070,11 @@ class Font(GDIObject):
         """
 
     @staticmethod
-    def SetDefaultEncoding(encoding: FontEncoding) -> None:
+    def SetDefaultEncoding(encoding: int) -> None:
         """ Sets the default font encoding.
         """
 
-    def SetEncoding(self, encoding: FontEncoding) -> None:
+    def SetEncoding(self, encoding: int) -> None:
         """ Sets the encoding for this font.
         """
 
@@ -9747,7 +10082,7 @@ class Font(GDIObject):
         """ Sets the facename for the font.
         """
 
-    def SetFamily(self, family: FontFamily) -> None:
+    def SetFamily(self, family: int) -> None:
         """ Sets the font family.
         """
 
@@ -9779,7 +10114,7 @@ class Font(GDIObject):
         """ Sets strike-through attribute of the font.
         """
 
-    def SetStyle(self, style: FontStyle) -> None:
+    def SetStyle(self, style: int) -> None:
         """ Sets the font style.
         """
 
@@ -9795,7 +10130,7 @@ class Font(GDIObject):
         """ Sets underlining.
         """
 
-    def SetWeight(self, weight: FontWeight) -> None:
+    def SetWeight(self, weight: int) -> None:
         """ Sets the font weight.
         """
 
@@ -10003,7 +10338,7 @@ the fixed order to Font constructors.
         """ Use a bold version of the font.
         """
 
-    def Encoding(self, encoding: FontEncoding) -> 'FontInfo':
+    def Encoding(self, encoding: int) -> 'FontInfo':
         """ Set the font encoding to use.
         """
 
@@ -10011,12 +10346,12 @@ the fixed order to Font constructors.
         """ Set the font face name to use.
         """
 
-    def Family(self, family: FontFamily) -> 'FontInfo':
+    def Family(self, family: int) -> 'FontInfo':
         """ Set the font family.
         """
 
     @staticmethod
-    def GetWeightClosestToNumericValue(numWeight: int) -> 'FontWeight':
+    def GetWeightClosestToNumericValue(numWeight: int) -> int:
         """ Get the symbolic weight closest to the given raw weight value.
         """
 
@@ -10036,7 +10371,7 @@ the fixed order to Font constructors.
         """ Use a strike-through version of the font.
         """
 
-    def Style(self, style: FontStyle) -> 'FontInfo':
+    def Style(self, style: int) -> 'FontInfo':
         """ Specify the style of the font using one of FontStyle constants.
         """
 
@@ -10071,7 +10406,7 @@ font names and the fonts present on the machine.
         """ Default constructor.
         """
 
-    def CharsetToEncoding(self, charset, interactive=True) -> 'FontEncoding':
+    def CharsetToEncoding(self, charset, interactive=True) -> int:
         """ Returns the encoding for the given charset (in the form of RFC 2046) or  FONTENCODING_SYSTEM   if couldnât decode it.
         """
 
@@ -10092,22 +10427,22 @@ i.e. the same string as returned by GetEncodingName()
         """
 
     @staticmethod
-    def GetEncoding(n: int) -> 'FontEncoding':
+    def GetEncoding(n: int) -> int:
         """ Returns the n-th  supported encoding.
         """
 
     @staticmethod
-    def GetEncodingDescription(encoding: FontEncoding) -> str:
+    def GetEncodingDescription(encoding: int) -> str:
         """ Return user-readable string describing the given encoding.
         """
 
     @staticmethod
-    def GetEncodingFromName(encoding: str) -> 'FontEncoding':
+    def GetEncodingFromName(encoding: str) -> int:
         """ Return the encoding corresponding to the given internal name.
         """
 
     @staticmethod
-    def GetEncodingName(encoding: FontEncoding) -> str:
+    def GetEncodingName(encoding: int) -> str:
         """ Return internal string identifier for the encoding (see also wx.FontMapper.GetEncodingDescription ).
         """
 
@@ -15945,7 +16280,7 @@ generalization of the C locale concept.
         """
 
     @staticmethod
-    def GetSystemEncoding() -> 'FontEncoding':
+    def GetSystemEncoding() -> int:
         """ Tries to detect the userâs default font encoding.
         """
 
@@ -16143,32 +16478,6 @@ wxWidgets logging functions as explained in the Logging Overview.
         """ Suspends the logging until Resume   is called.
         """
 
-
-
-LOG_Warning: int
-LOG_COMPONENT: int
-KILL_CHILDREN: int
-EXEC_ASYNC: int
-EXEC_SYNC: int
-EXEC_SHOW_CONSOLE: int
-EXEC_HIDE_CONSOLE: int
-EXEC_MAKE_GROUP_LEADER: int
-EXEC_NODISABLE: int
-EXEC_NOEVENTS: int
-EXEC_BLOCK: int
-EXEC_SYNC: int
-FD_OPEN: int
-FD_SAVE: int
-FD_OVERWRITE_PROMPT: int
-FD_FILE_MUST_EXIST: int
-FD_MULTIPLE: int
-OK: int
-OK: int
-KILL_NOCHILDREN: int
-KILL_CHILDREN: int
-KILL_CHILDREN: int
-EXEC_MAKE_GROUP_LEADER: int
-ID_ANY: int
 
 
 class LogBuffer(Log):
@@ -17922,7 +18231,7 @@ somewhere using ToString() and restore them using FromString())
         """ s (string) â
         """
 
-    def GetEncoding(self) -> 'FontEncoding':
+    def GetEncoding(self) -> int:
         """ wx.FontEncoding
         """
 
@@ -17930,7 +18239,7 @@ somewhere using ToString() and restore them using FromString())
         """ string
         """
 
-    def GetFamily(self) -> 'FontFamily':
+    def GetFamily(self) -> int:
         """ wx.FontFamily
         """
 
@@ -17946,7 +18255,7 @@ somewhere using ToString() and restore them using FromString())
         """ int
         """
 
-    def GetStyle(self) -> 'FontStyle':
+    def GetStyle(self) -> int:
         """ wx.FontStyle
         """
 
@@ -17954,7 +18263,7 @@ somewhere using ToString() and restore them using FromString())
         """ bool
         """
 
-    def GetWeight(self) -> 'FontWeight':
+    def GetWeight(self) -> int:
         """ wx.FontWeight
         """
 
@@ -17966,7 +18275,7 @@ somewhere using ToString() and restore them using FromString())
         """ font (wx.Font) â
         """
 
-    def SetEncoding(self, encoding: FontEncoding) -> None:
+    def SetEncoding(self, encoding: int) -> None:
         """ encoding (FontEncoding) â
         """
 
@@ -17974,7 +18283,7 @@ somewhere using ToString() and restore them using FromString())
         """ Overloaded Implementations:
         """
 
-    def SetFamily(self, family: FontFamily) -> None:
+    def SetFamily(self, family: int) -> None:
         """ family (FontFamily) â
         """
 
@@ -17990,7 +18299,7 @@ somewhere using ToString() and restore them using FromString())
         """ pointsize (int) â
         """
 
-    def SetStyle(self, style: FontStyle) -> None:
+    def SetStyle(self, style: int) -> None:
         """ style (FontStyle) â
         """
 
@@ -17998,7 +18307,7 @@ somewhere using ToString() and restore them using FromString())
         """ underlined (bool) â
         """
 
-    def SetWeight(self, weight: FontWeight) -> None:
+    def SetWeight(self, weight: int) -> None:
         """ weight (FontWeight) â
         """
 
@@ -24340,7 +24649,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Gets the font attributes from the given font, using only the attributes specified by flags.
         """
 
-    def GetFontEncoding(self) -> 'FontEncoding':
+    def GetFontEncoding(self) -> int:
         """ Returns the font encoding.
         """
 
@@ -24348,7 +24657,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the font face name.
         """
 
-    def GetFontFamily(self) -> 'FontFamily':
+    def GetFontFamily(self) -> int:
         """ Returns the font family.
         """
 
@@ -24356,7 +24665,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns the font size in points.
         """
 
-    def GetFontStyle(self) -> 'FontStyle':
+    def GetFontStyle(self) -> int:
         """ Returns the font style.
         """
 
@@ -24364,7 +24673,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Returns True if the font is underlined.
         """
 
-    def GetFontWeight(self) -> 'FontWeight':
+    def GetFontWeight(self) -> int:
         """ Returns the font weight.
         """
 
@@ -24612,7 +24921,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the attributes for the given font.
         """
 
-    def SetFontEncoding(self, encoding: FontEncoding) -> None:
+    def SetFontEncoding(self, encoding: int) -> None:
         """ Sets the font encoding.
         """
 
@@ -24620,7 +24929,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the font face name.
         """
 
-    def SetFontFamily(self, family: FontFamily) -> None:
+    def SetFontFamily(self, family: int) -> None:
         """ Sets the font family.
         """
 
@@ -24636,7 +24945,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the font size in points.
         """
 
-    def SetFontStyle(self, fontStyle: FontStyle) -> None:
+    def SetFontStyle(self, fontStyle: int) -> None:
         """ Sets the font style (normal, italic or slanted).
         """
 
@@ -24648,7 +24957,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """ Sets the font underlining.
         """
 
-    def SetFontWeight(self, fontWeight: FontWeight) -> None:
+    def SetFontWeight(self, fontWeight: int) -> None:
         """ Sets the font weight.
         """
 
