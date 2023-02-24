@@ -428,6 +428,12 @@ class DocumentationGenerator:
 			elif typing == "wx.Position":
 				typing = "Union[tuple[int, int], 'Position']"
 
+		# Check if this is a return
+		if typingType == "return":
+			# Check if Object, this is usally a Window
+			if typing == "wx.Object":
+				typing = "wx.Window"
+
 		# Check if there is a weird thing
 		if "[" in typing:
 			typing = "Any"
