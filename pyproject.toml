@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "types-wxpython"
-version = "0.3.5"
+version = "0.4.0"
 description = "Typing stubs for wxPython"
 authors = ["Alexion Software <info@alexion.nl>"]
 homepage = "https://github.com/AlexionSoftware/types-wxpython"
