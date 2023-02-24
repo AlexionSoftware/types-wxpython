@@ -165,7 +165,11 @@ class DocumentationGenerator:
 				hierarchItems = hierarchMap.find_all("area")
 				if len(hierarchItems) > 1:
 					# Find the parent class name
-					parentClass = hierarchItems[1]["href"].replace(".html", "")[3:]
+					parentClass = hierarchItems[1]["href"].replace(".html", "")
+
+					# Check if the class starts with wx.
+					if parentClass.startswith("wx."):
+						parentClass = parentClass[3:]
 
 					# Check if there is a < in it
 					if "<" in parentClass:
