@@ -13,6 +13,7 @@ BASE_URL = "https://docs.wxpython.org/"
 BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.1moduleindex.html",
 	"https://docs.wxpython.org/wx.ribbon.1moduleindex.html",
+	"https://docs.wxpython.org/wx.lib.buttons.html",
 ]
 SPACER = "    "
 
@@ -92,6 +93,8 @@ class DocumentationGenerator:
 		# Process the HTML
 		soup = BeautifulSoup(r.text, 'html.parser')
 		indexTable = soup.find(id="class-summary")
+		if indexTable is None:
+			indexTable = soup.find(id="class-summary-classes-summary")
 
 		# Check each row
 		for aTag in indexTable.find_all("a", class_="reference"):
@@ -102,6 +105,8 @@ class DocumentationGenerator:
 		"""
 		# Check if we already know this
 		if url in self.foundTypingUrls:
+			return
+		if url.endswith(".png"):
 			return
 
 		# Retrieve the page
