@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class __ThemedMixin:
     """ Uses the native renderer to draw the bezel, also handle mouse-overs.

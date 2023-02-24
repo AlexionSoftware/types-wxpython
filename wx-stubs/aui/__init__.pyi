@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class AuiNotebook(BookCtrlBase):
     """ AuiNotebook is part of the AUI class framework, which represents a

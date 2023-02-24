@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class ScrolledPanel(ScrolledWindow):
     """ ScrolledPanel fills a âholeâ in the implementation of

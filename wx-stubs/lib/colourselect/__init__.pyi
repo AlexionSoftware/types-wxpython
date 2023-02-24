@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class ColourSelect(GenBitmapButton):
     """ A subclass of wx.lib.buttons.GenBitmapButton that,

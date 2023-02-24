@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class XmlDocument(Object):
     """ This class holds XML data/document as parsed by XML parser in the root

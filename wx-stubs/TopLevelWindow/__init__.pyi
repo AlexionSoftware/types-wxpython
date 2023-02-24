@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class GeometrySerializer:
     """ Class used with SaveGeometry() and RestoreToGeometry().

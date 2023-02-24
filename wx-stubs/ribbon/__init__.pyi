@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Optional, Union
+from typing import Any, ContextManager, Optional, Union
 
 class RibbonButtonBarEvent(CommandEvent):
     """ Event used to indicate various actions relating to a button on a
