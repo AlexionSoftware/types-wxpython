@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from typing import Optional, Any
-
+from typing import Any, Optional, Union
 
 class GeometrySerializer:
-	""" Class used with SaveGeometry() and RestoreToGeometry().
-	"""
+    """ Class used with SaveGeometry() and RestoreToGeometry().
+    """
 
 

@@ -1,6 +1,6 @@
 from typing import Any, Optional
-from .. import Window, Icon, ICON_INFORMATION, EvtHandler
 
+from .. import ICON_INFORMATION, EvtHandler, Icon, Window
 
 EVT_TASKBAR_LEFT_DCLICK: int
 EVT_TASKBAR_RIGHT_UP: int

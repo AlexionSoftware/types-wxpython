@@ -1,281 +1,280 @@
 # -*- coding: utf-8 -*-
-from typing import Optional, Any
+from typing import Any, Optional, Union
 
-
-class DataViewCtrl('Control'):
-	""" DataViewCtrl is a control to display data either in a tree like
+class DataViewCtrl(Control):
+    """ DataViewCtrl is a control to display data either in a tree like
 fashion or in a tabular form or both.
-	"""
-	def __init__(self, *args, **kw) -> None:
-		""" Overloaded Implementations:
-		"""
+    """
+    def __init__(self, *args, **kw) -> None:
+        """ Overloaded Implementations:
+        """
 
-	def AllowMultiColumnSort(self, allow: bool) -> bool:
-		""" Call to allow using multiple columns for sorting.
-		"""
+    def AllowMultiColumnSort(self, allow: bool) -> bool:
+        """ Call to allow using multiple columns for sorting.
+        """
 
-	def AppendBitmapColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering a bitmap.
-		"""
+    def AppendBitmapColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering a bitmap.
+        """
 
-	def AppendColumn(self, col: 'dataview.DataViewColumn') -> bool:
-		""" Appends a   wx.dataview.DataViewColumn  to the control.
-		"""
+    def AppendColumn(self, col: 'dataview.DataViewColumn') -> bool:
+        """ Appends a   wx.dataview.DataViewColumn  to the control.
+        """
 
-	def AppendDateColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering a date.
-		"""
+    def AppendDateColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering a date.
+        """
 
-	def AppendIconTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering text with an icon.
-		"""
+    def AppendIconTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering text with an icon.
+        """
 
-	def AppendProgressColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering a progress indicator.
-		"""
+    def AppendProgressColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering a progress indicator.
+        """
 
-	def AppendTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering text.
-		"""
+    def AppendTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering text.
+        """
 
-	def AppendToggleColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Appends a column for rendering a toggle.
-		"""
+    def AppendToggleColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Appends a column for rendering a toggle.
+        """
 
-	def _AssociateModel(self, model: 'dataview.DataViewModel') -> bool:
-		""" Associates a   wx.dataview.DataViewModel  with the control.
-		"""
+    def _AssociateModel(self, model: 'dataview.DataViewModel') -> bool:
+        """ Associates a   wx.dataview.DataViewModel  with the control.
+        """
 
-	def AssociateModel(self, model) -> None:
-		""" Associates a DataViewModel with the control.
+    def AssociateModel(self, model) -> None:
+        """ Associates a DataViewModel with the control.
 Ownership of the model object is passed to C++, however it
 is reference counted so it can be shared with other views.
-		"""
+        """
 
-	def ClearColumns(self) -> bool:
-		""" Removes all columns.
-		"""
+    def ClearColumns(self) -> bool:
+        """ Removes all columns.
+        """
 
-	def Collapse(self, item: 'dataview.DataViewItem') -> None:
-		""" Collapses the item.
-		"""
+    def Collapse(self, item: 'dataview.DataViewItem') -> None:
+        """ Collapses the item.
+        """
 
-	def Create(self, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=0, validator=DefaultValidator, name=DataViewCtrlNameStr) -> bool:
-		""" Create the control.
-		"""
+    def Create(self, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=0, validator=DefaultValidator, name=DataViewCtrlNameStr) -> bool:
+        """ Create the control.
+        """
 
-	def DeleteColumn(self, column: 'dataview.DataViewColumn') -> bool:
-		""" Deletes given column.
-		"""
+    def DeleteColumn(self, column: 'dataview.DataViewColumn') -> bool:
+        """ Deletes given column.
+        """
 
-	def EditItem(self, item, column) -> None:
-		""" Programmatically starts editing given cell of item.
-		"""
+    def EditItem(self, item, column) -> None:
+        """ Programmatically starts editing given cell of item.
+        """
 
-	def EnableDragSource(self, format: 'DataFormat') -> bool:
-		""" Enable drag operations using the given format.
-		"""
+    def EnableDragSource(self, format: 'DataFormat') -> bool:
+        """ Enable drag operations using the given format.
+        """
 
-	def EnableDropTarget(self, format: 'DataFormat') -> bool:
-		""" Enable drop operations using the given format.
-		"""
+    def EnableDropTarget(self, format: 'DataFormat') -> bool:
+        """ Enable drop operations using the given format.
+        """
 
-	def EnableDropTargets(self, formats: Vector) -> bool:
-		""" Enable drop operations using any of the specified formats.
-		"""
+    def EnableDropTargets(self, formats: Vector) -> bool:
+        """ Enable drop operations using any of the specified formats.
+        """
 
-	def EnableSystemTheme(self, enable: bool=True) -> None:
-		""" Can be used to disable the system theme of controls using it by default.
-		"""
+    def EnableSystemTheme(self, enable: bool=True) -> None:
+        """ Can be used to disable the system theme of controls using it by default.
+        """
 
-	def EnsureVisible(self, item, column=None) -> None:
-		""" Call this to ensure that the given item is visible.
-		"""
+    def EnsureVisible(self, item, column=None) -> None:
+        """ Call this to ensure that the given item is visible.
+        """
 
-	def Expand(self, item: 'dataview.DataViewItem') -> None:
-		""" Expands the item.
-		"""
+    def Expand(self, item: 'dataview.DataViewItem') -> None:
+        """ Expands the item.
+        """
 
-	def ExpandAncestors(self, item: 'dataview.DataViewItem') -> None:
-		""" Expands all ancestors of the item.
-		"""
+    def ExpandAncestors(self, item: 'dataview.DataViewItem') -> None:
+        """ Expands all ancestors of the item.
+        """
 
-	def ExpandChildren(self, item: 'dataview.DataViewItem') -> None:
-		""" Expand all children of the given item recursively.
-		"""
+    def ExpandChildren(self, item: 'dataview.DataViewItem') -> None:
+        """ Expand all children of the given item recursively.
+        """
 
-	@staticmethod
-	def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
-		""" variant (WindowVariant) â
-		"""
+    @staticmethod
+    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+        """ variant (WindowVariant) â
+        """
 
-	def GetColumn(self, pos: int) -> 'dataview.DataViewColumn':
-		""" Returns pointer to the column.
-		"""
+    def GetColumn(self, pos: int) -> 'dataview.DataViewColumn':
+        """ Returns pointer to the column.
+        """
 
-	def GetColumnCount(self) -> int:
-		""" Returns the number of columns.
-		"""
+    def GetColumnCount(self) -> int:
+        """ Returns the number of columns.
+        """
 
-	def GetColumnPosition(self, column: 'dataview.DataViewColumn') -> int:
-		""" Returns the position of the column or -1 if not found in the control.
-		"""
+    def GetColumnPosition(self, column: 'dataview.DataViewColumn') -> int:
+        """ Returns the position of the column or -1 if not found in the control.
+        """
 
-	def GetColumns(self) -> None:
-		""" Returns a list of column objects.
-		"""
+    def GetColumns(self) -> None:
+        """ Returns a list of column objects.
+        """
 
-	def GetCountPerPage(self) -> int:
-		""" Return the number of items that can fit vertically in the visible area of the control.
-		"""
+    def GetCountPerPage(self) -> int:
+        """ Return the number of items that can fit vertically in the visible area of the control.
+        """
 
-	def GetCurrentColumn(self) -> 'dataview.DataViewColumn':
-		""" Returns the column that currently has focus.
-		"""
+    def GetCurrentColumn(self) -> 'dataview.DataViewColumn':
+        """ Returns the column that currently has focus.
+        """
 
-	def GetCurrentItem(self) -> 'dataview.DataViewItem':
-		""" Returns the currently focused item.
-		"""
+    def GetCurrentItem(self) -> 'dataview.DataViewItem':
+        """ Returns the currently focused item.
+        """
 
-	def GetExpanderColumn(self) -> 'dataview.DataViewColumn':
-		""" Returns column containing the expanders.
-		"""
+    def GetExpanderColumn(self) -> 'dataview.DataViewColumn':
+        """ Returns column containing the expanders.
+        """
 
-	def GetIndent(self) -> int:
-		""" Returns indentation.
-		"""
+    def GetIndent(self) -> int:
+        """ Returns indentation.
+        """
 
-	def GetItemRect(self, item, col=None) -> Rect:
-		""" Returns item rectangle.
-		"""
+    def GetItemRect(self, item, col=None) -> Rect:
+        """ Returns item rectangle.
+        """
 
-	def GetMainWindow(self) -> Window:
-		""" Returns the window corresponding to the main area of the control.
-		"""
+    def GetMainWindow(self) -> Window:
+        """ Returns the window corresponding to the main area of the control.
+        """
 
-	def GetModel(self) -> 'dataview.DataViewModel':
-		""" Returns pointer to the data model associated with the control (if any).
-		"""
+    def GetModel(self) -> 'dataview.DataViewModel':
+        """ Returns pointer to the data model associated with the control (if any).
+        """
 
-	def GetSelectedItemsCount(self) -> int:
-		""" Returns the number of currently selected items.
-		"""
+    def GetSelectedItemsCount(self) -> int:
+        """ Returns the number of currently selected items.
+        """
 
-	def GetSelection(self) -> 'dataview.DataViewItem':
-		""" Returns first selected item or an invalid item if none is selected.
-		"""
+    def GetSelection(self) -> 'dataview.DataViewItem':
+        """ Returns first selected item or an invalid item if none is selected.
+        """
 
-	def GetSelections(self) -> DataViewItemArray:
-		""" Returns a list of the currently selected items.
-		"""
+    def GetSelections(self) -> DataViewItemArray:
+        """ Returns a list of the currently selected items.
+        """
 
-	def GetSortingColumn(self) -> 'dataview.DataViewColumn':
-		""" Returns the   wx.dataview.DataViewColumn  currently responsible for sorting or None if none has been selected.
-		"""
+    def GetSortingColumn(self) -> 'dataview.DataViewColumn':
+        """ Returns the   wx.dataview.DataViewColumn  currently responsible for sorting or None if none has been selected.
+        """
 
-	def GetTopItem(self) -> 'dataview.DataViewItem':
-		""" Return the topmost visible item.
-		"""
+    def GetTopItem(self) -> 'dataview.DataViewItem':
+        """ Return the topmost visible item.
+        """
 
-	def HasSelection(self) -> bool:
-		""" Returns True if any items are currently selected.
-		"""
+    def HasSelection(self) -> bool:
+        """ Returns True if any items are currently selected.
+        """
 
-	def HitTest(self, point) -> PyObject:
-		""" HitTest(point) . (item, col)
-		"""
+    def HitTest(self, point) -> PyObject:
+        """ HitTest(point) . (item, col)
+        """
 
-	def InsertColumn(self, pos, col) -> bool:
-		""" Inserts a   wx.dataview.DataViewColumn  to the control.
-		"""
+    def InsertColumn(self, pos, col) -> bool:
+        """ Inserts a   wx.dataview.DataViewColumn  to the control.
+        """
 
-	def IsExpanded(self, item: 'dataview.DataViewItem') -> bool:
-		""" Return True if the item is expanded.
-		"""
+    def IsExpanded(self, item: 'dataview.DataViewItem') -> bool:
+        """ Return True if the item is expanded.
+        """
 
-	def IsMultiColumnSortAllowed(self) -> bool:
-		""" Return True if using more than one column for sorting is allowed.
-		"""
+    def IsMultiColumnSortAllowed(self) -> bool:
+        """ Return True if using more than one column for sorting is allowed.
+        """
 
-	def IsSelected(self, item: 'dataview.DataViewItem') -> bool:
-		""" Return True if the item is selected.
-		"""
+    def IsSelected(self, item: 'dataview.DataViewItem') -> bool:
+        """ Return True if the item is selected.
+        """
 
-	def PrependBitmapColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering a bitmap.
-		"""
+    def PrependBitmapColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering a bitmap.
+        """
 
-	def PrependColumn(self, col: 'dataview.DataViewColumn') -> bool:
-		""" Prepends a   wx.dataview.DataViewColumn  to the control.
-		"""
+    def PrependColumn(self, col: 'dataview.DataViewColumn') -> bool:
+        """ Prepends a   wx.dataview.DataViewColumn  to the control.
+        """
 
-	def PrependDateColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering a date.
-		"""
+    def PrependDateColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering a date.
+        """
 
-	def PrependIconTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering text with an icon.
-		"""
+    def PrependIconTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering text with an icon.
+        """
 
-	def PrependProgressColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering a progress indicator.
-		"""
+    def PrependProgressColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering a progress indicator.
+        """
 
-	def PrependTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering text.
-		"""
+    def PrependTextColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering text.
+        """
 
-	def PrependToggleColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
-		""" Prepends a column for rendering a toggle.
-		"""
+    def PrependToggleColumn(self, *args, **kw) -> 'dataview.DataViewColumn':
+        """ Prepends a column for rendering a toggle.
+        """
 
-	def Select(self, item: 'dataview.DataViewItem') -> None:
-		""" Select the given item.
-		"""
+    def Select(self, item: 'dataview.DataViewItem') -> None:
+        """ Select the given item.
+        """
 
-	def SelectAll(self) -> None:
-		""" Select all items.
-		"""
+    def SelectAll(self) -> None:
+        """ Select all items.
+        """
 
-	def SetAlternateRowColour(self, colour: 'Colour') -> bool:
-		""" Set custom colour for the alternate rows used with wx.dataview.DV_ROW_LINES style.
-		"""
+    def SetAlternateRowColour(self, colour: 'Colour') -> bool:
+        """ Set custom colour for the alternate rows used with wx.dataview.DV_ROW_LINES style.
+        """
 
-	def SetCurrentItem(self, item: 'dataview.DataViewItem') -> None:
-		""" Changes the currently focused item.
-		"""
+    def SetCurrentItem(self, item: 'dataview.DataViewItem') -> None:
+        """ Changes the currently focused item.
+        """
 
-	def SetExpanderColumn(self, col: 'dataview.DataViewColumn') -> None:
-		""" Set which column shall contain the tree-like expanders.
-		"""
+    def SetExpanderColumn(self, col: 'dataview.DataViewColumn') -> None:
+        """ Set which column shall contain the tree-like expanders.
+        """
 
-	def SetHeaderAttr(self, attr: 'ItemAttr') -> bool:
-		""" Set custom colours and/or font to use for the header.
-		"""
+    def SetHeaderAttr(self, attr: 'ItemAttr') -> bool:
+        """ Set custom colours and/or font to use for the header.
+        """
 
-	def SetIndent(self, indent: int) -> None:
-		""" Sets the indentation.
-		"""
+    def SetIndent(self, indent: int) -> None:
+        """ Sets the indentation.
+        """
 
-	def SetRowHeight(self, rowHeight: int) -> bool:
-		""" Sets the row height.
-		"""
+    def SetRowHeight(self, rowHeight: int) -> bool:
+        """ Sets the row height.
+        """
 
-	def SetSelections(self, sel: DataViewItemArray) -> None:
-		""" Sets the selection to the array of DataViewItems.
-		"""
+    def SetSelections(self, sel: DataViewItemArray) -> None:
+        """ Sets the selection to the array of DataViewItems.
+        """
 
-	def ToggleSortByColumn(self, column: int) -> None:
-		""" Toggle sorting by the given column.
-		"""
+    def ToggleSortByColumn(self, column: int) -> None:
+        """ Toggle sorting by the given column.
+        """
 
-	def Unselect(self, item: 'dataview.DataViewItem') -> None:
-		""" Unselect the given item.
-		"""
+    def Unselect(self, item: 'dataview.DataViewItem') -> None:
+        """ Unselect the given item.
+        """
 
-	def UnselectAll(self) -> None:
-		""" Unselect all item.
-		"""
+    def UnselectAll(self) -> None:
+        """ Unselect all item.
+        """
 
 dataview.DV_SINGLE: int  #  Single selection mode. This is the default.
 dataview.DV_MULTIPLE: int  #  Multiple selection mode.

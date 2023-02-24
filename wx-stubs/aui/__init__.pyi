@@ -1,167 +1,166 @@
 # -*- coding: utf-8 -*-
-from typing import Optional, Any
+from typing import Any, Optional, Union
 
-
-class AuiNotebook('BookCtrlBase'):
-	""" AuiNotebook is part of the AUI class framework, which represents a
+class AuiNotebook(BookCtrlBase):
+    """ AuiNotebook is part of the AUI class framework, which represents a
 notebook control, managing multiple windows with associated tabs.
-	"""
-	def __init__(self, *args, **kw) -> None:
-		""" Overloaded Implementations:
-		"""
+    """
+    def __init__(self, *args, **kw) -> None:
+        """ Overloaded Implementations:
+        """
 
-	def AddPage(self, *args, **kw) -> bool:
-		""" Overloaded Implementations:
-		"""
+    def AddPage(self, *args, **kw) -> bool:
+        """ Overloaded Implementations:
+        """
 
-	def AdvanceSelection(self, forward: bool=True) -> None:
-		""" Sets the selection to the next or previous page.
-		"""
+    def AdvanceSelection(self, forward: bool=True) -> None:
+        """ Sets the selection to the next or previous page.
+        """
 
-	def ChangeSelection(self, n: int) -> int:
-		""" Changes the selection for the given page, returning the previous selection.
-		"""
+    def ChangeSelection(self, n: int) -> int:
+        """ Changes the selection for the given page, returning the previous selection.
+        """
 
-	def Create(self, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=0) -> bool:
-		""" Creates the notebook window.
-		"""
+    def Create(self, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=0) -> bool:
+        """ Creates the notebook window.
+        """
 
-	def DeleteAllPages(self) -> bool:
-		""" Deletes all pages.
-		"""
+    def DeleteAllPages(self) -> bool:
+        """ Deletes all pages.
+        """
 
-	def DeletePage(self, page: int) -> bool:
-		""" Deletes a page at the given index.
-		"""
+    def DeletePage(self, page: int) -> bool:
+        """ Deletes a page at the given index.
+        """
 
-	def FindTab(self, page, ctrl, idx) -> bool:
-		""" Finds tab control associated with a given window and its tab index.
-		"""
+    def FindTab(self, page, ctrl, idx) -> bool:
+        """ Finds tab control associated with a given window and its tab index.
+        """
 
-	def GetActiveTabCtrl(self) -> 'aui.AuiTabCtrl':
-		""" Returns active tab control for this notebook.
-		"""
+    def GetActiveTabCtrl(self) -> 'aui.AuiTabCtrl':
+        """ Returns active tab control for this notebook.
+        """
 
-	def GetArtProvider(self) -> 'aui.AuiTabArt':
-		""" Returns the associated art provider.
-		"""
+    def GetArtProvider(self) -> 'aui.AuiTabArt':
+        """ Returns the associated art provider.
+        """
 
-	@staticmethod
-	def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
-		""" variant (WindowVariant) â
-		"""
+    @staticmethod
+    def GetClassDefaultAttributes(variant: WindowVariant=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+        """ variant (WindowVariant) â
+        """
 
-	def GetCurrentPage(self) -> Window:
-		""" Returns the currently selected page or None.
-		"""
+    def GetCurrentPage(self) -> Window:
+        """ Returns the currently selected page or None.
+        """
 
-	def GetHeightForPageHeight(self, pageHeight: int) -> int:
-		""" Returns the desired height of the notebook for the given page height.
-		"""
+    def GetHeightForPageHeight(self, pageHeight: int) -> int:
+        """ Returns the desired height of the notebook for the given page height.
+        """
 
-	def GetPage(self, page_idx: int) -> Window:
-		""" Returns the page specified by the given index.
-		"""
+    def GetPage(self, page_idx: int) -> Window:
+        """ Returns the page specified by the given index.
+        """
 
-	def GetPageBitmap(self, page: int) -> Bitmap:
-		""" Returns the tab bitmap for the page.
-		"""
+    def GetPageBitmap(self, page: int) -> Bitmap:
+        """ Returns the tab bitmap for the page.
+        """
 
-	def GetPageCount(self) -> int:
-		""" Returns the number of pages in the notebook.
-		"""
+    def GetPageCount(self) -> int:
+        """ Returns the number of pages in the notebook.
+        """
 
-	def GetPageImage(self, nPage: int) -> int:
-		""" Returns the image index for the given page.
-		"""
+    def GetPageImage(self, nPage: int) -> int:
+        """ Returns the image index for the given page.
+        """
 
-	def GetPageIndex(self, page_wnd: 'Window') -> int:
-		""" Returns the page index for the specified window.
-		"""
+    def GetPageIndex(self, page_wnd: 'Window') -> int:
+        """ Returns the page index for the specified window.
+        """
 
-	def GetPageText(self, page: int) -> str:
-		""" Returns the tab label for the page.
-		"""
+    def GetPageText(self, page: int) -> str:
+        """ Returns the tab label for the page.
+        """
 
-	def GetPageToolTip(self, pageIdx: int) -> str:
-		""" Returns the tooltip for the tab label of the page.
-		"""
+    def GetPageToolTip(self, pageIdx: int) -> str:
+        """ Returns the tooltip for the tab label of the page.
+        """
 
-	def GetSelection(self) -> int:
-		""" Returns the currently selected page.
-		"""
+    def GetSelection(self) -> int:
+        """ Returns the currently selected page.
+        """
 
-	def GetTabCtrlFromPoint(self, pt: 'Point') -> 'aui.AuiTabCtrl':
-		""" Returns tab control based on point coordinates inside the tab frame.
-		"""
+    def GetTabCtrlFromPoint(self, pt: 'Point') -> 'aui.AuiTabCtrl':
+        """ Returns tab control based on point coordinates inside the tab frame.
+        """
 
-	def GetTabCtrlHeight(self) -> int:
-		""" Returns the height of the tab control.
-		"""
+    def GetTabCtrlHeight(self) -> int:
+        """ Returns the height of the tab control.
+        """
 
-	def InsertPage(self, *args, **kw) -> bool:
-		""" Overloaded Implementations:
-		"""
+    def InsertPage(self, *args, **kw) -> bool:
+        """ Overloaded Implementations:
+        """
 
-	def RemovePage(self, page: int) -> bool:
-		""" Removes a page, without deleting the window pointer.
-		"""
+    def RemovePage(self, page: int) -> bool:
+        """ Removes a page, without deleting the window pointer.
+        """
 
-	def SetArtProvider(self, art: 'aui.AuiTabArt') -> None:
-		""" Sets the art provider to be used by the notebook.
-		"""
+    def SetArtProvider(self, art: 'aui.AuiTabArt') -> None:
+        """ Sets the art provider to be used by the notebook.
+        """
 
-	def SetFont(self, font: 'Font') -> bool:
-		""" Sets the font for drawing the tab labels, using a bold version of the font for selected tab labels.
-		"""
+    def SetFont(self, font: 'Font') -> bool:
+        """ Sets the font for drawing the tab labels, using a bold version of the font for selected tab labels.
+        """
 
-	def SetMeasuringFont(self, font: 'Font') -> None:
-		""" Sets the font for measuring tab labels.
-		"""
+    def SetMeasuringFont(self, font: 'Font') -> None:
+        """ Sets the font for measuring tab labels.
+        """
 
-	def SetNormalFont(self, font: 'Font') -> None:
-		""" Sets the font for drawing unselected tab labels.
-		"""
+    def SetNormalFont(self, font: 'Font') -> None:
+        """ Sets the font for drawing unselected tab labels.
+        """
 
-	def SetPageBitmap(self, page, bitmap) -> bool:
-		""" Sets the bitmap for the page.
-		"""
+    def SetPageBitmap(self, page, bitmap) -> bool:
+        """ Sets the bitmap for the page.
+        """
 
-	def SetPageImage(self, n, imageId) -> bool:
-		""" Sets the image index for the given page.
-		"""
+    def SetPageImage(self, n, imageId) -> bool:
+        """ Sets the image index for the given page.
+        """
 
-	def SetPageText(self, page, text) -> bool:
-		""" Sets the tab label for the page.
-		"""
+    def SetPageText(self, page, text) -> bool:
+        """ Sets the tab label for the page.
+        """
 
-	def SetPageToolTip(self, page, text) -> bool:
-		""" Sets the tooltip displayed when hovering over the tab label of the page.
-		"""
+    def SetPageToolTip(self, page, text) -> bool:
+        """ Sets the tooltip displayed when hovering over the tab label of the page.
+        """
 
-	def SetSelectedFont(self, font: 'Font') -> None:
-		""" Sets the font for drawing selected tab labels.
-		"""
+    def SetSelectedFont(self, font: 'Font') -> None:
+        """ Sets the font for drawing selected tab labels.
+        """
 
-	def SetSelection(self, new_page: int) -> int:
-		""" Sets the page selection.
-		"""
+    def SetSelection(self, new_page: int) -> int:
+        """ Sets the page selection.
+        """
 
-	def SetTabCtrlHeight(self, height: int) -> None:
-		""" Sets the tab height.
-		"""
+    def SetTabCtrlHeight(self, height: int) -> None:
+        """ Sets the tab height.
+        """
 
-	def SetUniformBitmapSize(self, size: 'Size') -> None:
-		""" Ensure that all tabs have the same height, even if some of them donât have bitmaps.
-		"""
+    def SetUniformBitmapSize(self, size: Any) -> None:
+        """ Ensure that all tabs have the same height, even if some of them donât have bitmaps.
+        """
 
-	def ShowWindowMenu(self) -> bool:
-		""" Shows the window menu for the active tab control associated with this notebook, and returns True if a selection was made.
-		"""
+    def ShowWindowMenu(self) -> bool:
+        """ Shows the window menu for the active tab control associated with this notebook, and returns True if a selection was made.
+        """
 
-	def Split(self, page, direction) -> None:
-		""" Split performs a split operation programmatically.
-		"""
+    def Split(self, page, direction) -> None:
+        """ Split performs a split operation programmatically.
+        """
 
 aui.AUI_NB_DEFAULT_STYLE: int  #  Defined as wx.aui.AUI_NB_TOP | wx.aui.AUI_NB_TAB_SPLIT | wx.aui.AUI_NB_TAB_MOVE | wx.aui.AUI_NB_SCROLL_BUTTONS | wx.aui.AUI_NB_CLOSE_ON_ACTIVE_TAB | wx.aui.AUI_NB_MIDDLE_CLICK_CLOSE.
 aui.AUI_NB_TAB_SPLIT: int  #  Allows the tab control to be split by dragging a tab.
