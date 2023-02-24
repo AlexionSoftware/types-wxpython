@@ -113,7 +113,7 @@ class DocumentationGenerator:
 		# Retrieve the page
 		r = requests.get(url)
 		if r.status_code != 200:
-			print("This page '%s' doesnt work!" % url)
+			print("This index '%s' doesnt work!" % url)
 			return
 
 		# Process the HTML
@@ -142,7 +142,7 @@ class DocumentationGenerator:
 		r = requests.get(BASE_URL + url)
 		if r.status_code != 200:
 			print("This page '%s' doesnt work!" % url)
-			return
+			raise
 
 		# Process the HTML
 		soup = BeautifulSoup(r.text, 'html.parser')
