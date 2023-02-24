@@ -14,6 +14,7 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.1moduleindex.html",
 	"https://docs.wxpython.org/wx.ribbon.1moduleindex.html",
 ]
+SPACER = "    "
 
 
 class DocumentationGenerator:
@@ -182,9 +183,9 @@ class DocumentationGenerator:
 		ps: list[Tag] = apiTable.find_all("p")
 		if len(ps) > 0:
 			if "constructors" in ps[0].get_text():
-				typingOutput += '\t""" ' + ps[1].get_text() + "\n" + '\t"""\n'
+				typingOutput += SPACER + '""" ' + ps[1].get_text() + "\n" + SPACER + '"""\n'
 			else:
-				typingOutput += '\t""" ' + ps[0].get_text() + "\n" + '\t"""\n'
+				typingOutput += SPACER + '""" ' + ps[0].get_text() + "\n" + SPACER + '"""\n'
 
 		# Find all the methods
 		methodTags: list[Tag] = apiTable.find_all("dl", class_="method")
@@ -258,7 +259,7 @@ class DocumentationGenerator:
 
 			# Check if static
 			if methodName.startswith("static"):
-				typingOutput += "\t@staticmethod\n"
+				typingOutput += SPACER + "@staticmethod\n"
 				methodName = methodName[7:]
 
 			# Build the param list
@@ -288,8 +289,8 @@ class DocumentationGenerator:
 						continue
 
 			# Build the method
-			typingOutput += "\tdef %s(%s) -> %s:\n" % (methodName, paramList, returnType)
-			typingOutput += '\t\t""" ' + methodDef + '\n\t\t"""\n\n'
+			typingOutput += SPACER + "def %s(%s) -> %s:\n" % (methodName, paramList, returnType)
+			typingOutput += SPACER + SPACER + '""" ' + methodDef + '\n' + SPACER + SPACER + '"""\n\n'
 
 		# Check for events
 		typingOutput += self._processClassWindowStyles(soup)
