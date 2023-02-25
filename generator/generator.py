@@ -7,7 +7,7 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral
+from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral, ITypingFunction
 from .parser import Parser
 from .writer import TypingWriter
 
@@ -229,6 +229,30 @@ lObj = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+fObj: ITypingFunction = {
+	"type": TypingType.FUNCTION,
+	"name": "NewCommandEvent",
+	"methodType": "normal",
+	"moduleName": "wx.lib.newevent",
+	"returnType": "tuple['Event', int]",
+	"params": {},
+	"paramStr": "",
+	"docstring": "Generates a new (command_event, binder) tuple.",
+	"source": "https://docs.wxpython.org/wx.lib.newevent.html",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+fObj = {
+	"type": TypingType.FUNCTION,
+	"name": "NewEvent",
+	"methodType": "normal",
+	"moduleName": "wx.lib.newevent",
+	"returnType": "tuple['Event', int]",
+	"params": {},
+	"paramStr": "",
+	"docstring": "Generates a new (event, binder) tuple.",
+	"source": "https://docs.wxpython.org/wx.lib.newevent.html",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
 OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.ListCtrl.GetFirstSelected": {
 		"returnType": "int",
