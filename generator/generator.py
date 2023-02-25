@@ -163,7 +163,13 @@ OVERRIDES: dict[str, ITyping] = {
 		"returnType": "tuple['TreeItemId', str]",
 	},
 	"wx.GetApp": {
-		"returnType": "'PyApp'",
+		"returnType": "'App'",
+	},
+	"wx.App": {
+		"superClass": ["PyApp", "AppConsole"],
+	},
+	"wx.App.Get": {
+		"returnType": "'App'",
 	}
 }
 
