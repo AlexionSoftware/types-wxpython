@@ -287,13 +287,12 @@ class DocumentationGenerator:
 				self.logger.info("Fetching documentation: " + classUrl)
 
 				# Process the data
-				typingList = self.parser.processClassApi(classUrl)
-				if typingList is None:
-					continue
+				self.parser.processClassApi(classUrl)
 
-				# Put the items in the queue
-				for typing in typingList:
-					self.typings.put(typing)
+		# Retrieve the parse data and put it in the queue
+		typingDict = self.parser.retrieveFoundClasses()
+		for typing in typingDict.values():
+			self.typings.put(typing)
 
 		# Add the extra typing to the list
 		for typing in EXTRA_KNOWN_ITEMS:

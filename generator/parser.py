@@ -4,10 +4,10 @@ import re
 from queue import Queue
 from typing import Optional
 
-import requests
+import requests  # type: ignore
 from bs4 import BeautifulSoup, Tag
 
-from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral
+from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral, TypingType
 
 
 BASE_URL = "https://docs.wxpython.org/"
@@ -19,33 +19,45 @@ class Parser:
 	def __init__(self, fetchQueue: Queue, logger: Logger) -> None:
 		""" Constructor
 		"""
-		self.foundTypingUrls: list[str] = []
+		# Store the params
 		self.fetchQueue = fetchQueue
 		self.logger = logger
 
-	def processClassApi(self, url: str) -> Optional[list[ITyping]]:
+		# Keep track of the found urls
+		self.foundTypingUrls: list[str] = []
+
+		# Keep track of the found classes
+		self.foundTypings: dict[str, ITyping] = {}
+		self.foundTypingTypes: dict[str, TypingType] = {}
+
+	def retrieveFoundClasses(self) -> dict[str, ITyping]:
+		""" Retrieve the found classes
+		"""
+		return self.foundTypings
+
+	def processClassApi(self, url: str) -> None:
 		""" Process a Class API
 		"""
 		# Check if we already know this
 		if url in self.foundTypingUrls:
 			self.logger.warn("Already found this url: '%s'" % url)
-			return None
+			return
 		if not url.endswith(".html"):
 			self.logger.error("Cannot process this url: This is not HTML '%s'" % url)
-			return None
+			return
 
 		# Retrieve the page
 		fullUrl = BASE_URL + url
 		r = requests.get(fullUrl)
 		if r.status_code != 200:
 			self.logger.error("This page '%s' doesnt work!" % url)
-			return None
+			return
 
 		# Process the HTML
 		soup = BeautifulSoup(r.text, 'html.parser')
 		if soup is None:
 			self.logger.error("This page '%s' doesnt work!" % url)
-			return None
+			return
 
 		# Find all the reference to other classes
 		self._findInternalReference(soup)
@@ -54,7 +66,7 @@ class Parser:
 		titleElem = soup.find("title")
 		if titleElem is None:
 			self.logger.error("This page '%s' doesnt work!" % url)
-			return None
+			return
 		classFullName = titleElem.get_text()
 		classFullName = classFullName[:classFullName.find(" ")]
 		className = classFullName.split(".")[-1]
@@ -64,9 +76,6 @@ class Parser:
 		if className == "wx":
 			className = ""
 			moduleName = "wx"
-
-		# Build the list with items
-		result: list[ITyping] = []
 
 		# Find the place with all the classes
 		apiTableElem = soup.find(id="api-class-api")
@@ -86,41 +95,32 @@ class Parser:
 			classType["docstring"] = self._processClassDocstring(apiTableElem)
 
 			# Fill the class
-			functions = self._processTypingMethod(classFullName, soup, apiTableElem, source=fullUrl)
+			functions = self._processTypingMethod(classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
 			classType["functions"] = functions
 
 			# Add to the list
-			result.append(classType)
+			self._addToResultList(classType)
 
 		# Check for functions
-		functions = self._processTypingMethod(moduleName, soup, soup, methodIdName="function", source=fullUrl)
-		result.extend(functions)
+		self._processTypingMethod(moduleName, soup, soup, methodIdName="function", source=fullUrl, addToList=True)
 
 		# Check for events
-		styles = self._processClassWindowStyles(moduleName, soup, url)
-		result.extend(styles)
+		self._processClassWindowStyles(moduleName, soup, url)
 
 		# Check for styles
-		events = self._processClassWindowEvents(moduleName, soup, url)
-		result.extend(events)
+		self._processClassWindowEvents(moduleName, soup, url)
 
 		# Check if there are literals
 		literals = soup.find_all(class_="literal")
 		if len(literals) > 0:
-			literals = self._processLiterals(moduleName, soup, source=url)
-			result.extend(literals)
+			self._processLiterals(moduleName, soup, source=url)
 
 		# Remember we already processed this one
 		self.foundTypingUrls.append(url)
 
-		return result
-
-	def _processLiterals(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
+	def _processLiterals(self, moduleName: str, soup: Tag, source: str = "") -> None:
 		""" Process literals in a table
 		"""
-		# Make the output
-		result: list[ITypingLiteral] = []
-
 		# Check every literal
 		literals: list[Tag] = soup.find_all(class_="literal")
 		for literalElem in literals:
@@ -147,9 +147,9 @@ class Parser:
 					"docstring": "",
 					"source": source,
 				}
-				result.append(literalObj)
 
-		return result
+				# Add to the list
+				self._addToResultList(literalObj)
 
 	def _processClassDocstring(self, apiTableElem: Tag) -> str:
 		""" Find the class docstring
@@ -166,7 +166,7 @@ class Parser:
 				return ps[0].get_text()
 		return ""
 
-	def _processTypingMethod(self, className: str, soup: Tag, apiTableElem: Tag, methodIdName: str = "method", source: str = "") -> list[ITypingFunction]:
+	def _processTypingMethod(self, className: str, soup: Tag, apiTableElem: Tag, methodIdName: str = "method", source: str = "", addToList: bool = False) -> list[ITypingFunction]:
 		""" Process a class with methods
 		"""
 		# Make a list
@@ -312,18 +312,16 @@ class Parser:
 				# We should be able to find all the params
 				self.logger.error("Could not find all the params for %s.%s" % (methodType["moduleName"], methodType["name"]))
 
-			# Add the method to the list
+			# Add to the list
 			result.append(methodType)
+			self._addToResultList(methodType, addToList)
 
 		# Save the output
 		return result
 
-	def _processClassWindowStyles(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
+	def _processClassWindowStyles(self, moduleName: str, soup: Tag, source: str = "") -> None:
 		""" Find window classes
 		"""
-		# Build the typing output
-		result = []
-
 		# Find the window styles
 		styleElem = soup.find(id="styles-window-styles")
 		if styleElem:
@@ -359,16 +357,13 @@ class Parser:
 						"docstring": styleDef.strip(),
 						"source": source,
 					}
-					result.append(literalObj)
 
-		return result
+					# Add to the list
+					self._addToResultList(literalObj)
 
-	def _processClassWindowEvents(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
+	def _processClassWindowEvents(self, moduleName: str, soup: Tag, source: str = "") -> None:
 		""" Find window events
 		"""
-		# Build the typing output
-		result: list[ITypingLiteral] = []
-
 		# Find the window styles
 		eventElem = soup.find(id="events-events-emitted-by-this-class")
 		if eventElem:
@@ -404,9 +399,9 @@ class Parser:
 						"docstring": eventDef.strip(),
 						"source": source,
 					}
-					result.append(literalObj)
 
-		return result
+					# Add to the list
+					self._addToResultList(literalObj)
 
 	def _findParentClass(self, soup: Tag) -> Optional[list[str]]:
 		""" Find the parent class
@@ -571,3 +566,48 @@ class Parser:
 
 			# Add to the queue
 			self.fetchQueue.put(href)
+
+	def _addToResultList(self, typing: ITyping, addToList: bool = True) -> None:
+		""" Add a typing to the result
+		"""
+		# Check if we already have this item
+		if self._hasItem(typing):
+			return
+
+		# Build the full class name
+		fullClassName = typing["moduleName"] + "." + typing["name"]
+
+		# Add the item to the list
+		if addToList is True:
+			self.foundTypings[fullClassName] = typing
+
+		# Add to the found typing types
+		self.foundTypingTypes[fullClassName] = typing["type"]
+
+	def _hasItem(self, typing: ITyping) -> bool:
+		""" Check if we already know this item
+		"""
+		# Build the full class name
+		fullClassName = typing["moduleName"] + "." + typing["name"]
+
+		# Check if we already have this item
+		if fullClassName in self.foundTypingTypes:
+			# Retrieve the item
+			itemType = self.foundTypingTypes[fullClassName]
+
+			# Check if the item is the same
+			if itemType == typing["type"]:
+				# We already have this item
+				return True
+
+			# Check if the item is a literal, and the new item is a class
+			if itemType == TypingType.LITERAL and typing["type"] == TypingType.CLASS:
+				# We should override this
+				return False
+
+			# Check if the item is a literal, and the new item is a function
+			if itemType == TypingType.LITERAL and typing["type"] == TypingType.FUNCTION:
+				# We should override this
+				return False
+			return True
+		return False
