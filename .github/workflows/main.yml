@@ -1,0 +1,22 @@
+name: CQ
+on:
+  push:
+    branches:
+      - main
+  
+jobs:
+  code_quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: poetry
+        run: poetry install
+      - name: python-flake8
+        uses: julianwachholz/flake8-action@v2.0.2
+        with:
+          checkName: flake8
+          path: .
+          config: .flake8
+      - name: Mypy Check
+        uses: jpetrucciani/mypy-check@0.991
+        with:
+          path: .
