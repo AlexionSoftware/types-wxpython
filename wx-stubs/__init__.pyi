@@ -44015,9 +44015,19 @@ class FrozenWindow(ContextManager):
         """ Constructor
         """
 
+    def __enter__(self) -> None:
+        """ Enter the context manager.
+        """
+
+    def __exit__(self, *args, **kwargs) -> None:
+        """ Exit the context manager.
+        """
+
 
 
 NullCursor: 'Cursor'
+
+LIST_AUTOSIZE: int
 
 LIST_AUTOSIZE: int
 
