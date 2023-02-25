@@ -4,7 +4,7 @@ import re
 from queue import Queue
 from typing import Optional
 
-import requests  # type: ignore
+import requests
 from bs4 import BeautifulSoup, Tag
 
 from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral, TypingType
@@ -80,6 +80,10 @@ class Parser:
 		# Find the place with all the classes
 		apiTableElem = soup.find(id="api-class-api")
 		if apiTableElem is not None:
+			# Check if table is a tag
+			if not isinstance(apiTableElem, Tag):
+				return
+
 			# Build the class
 			classType: ITypingClass = {  # type: ignore
 				"type": TypingType.CLASS,
@@ -157,6 +161,10 @@ class Parser:
 		# Find the API
 		apiTable = apiTableElem.find("dd")
 
+		# Check if is a tag or None
+		if apiTable is None or not isinstance(apiTable, Tag):
+			return ""
+
 		# The first p is the class def
 		ps: list[Tag] = apiTable.find_all("p")
 		if len(ps) > 0:
@@ -218,8 +226,8 @@ class Parser:
 
 			# Find the parts
 			fieldListElem = methodTag.find("dl", class_="field-list")
-			if fieldListElem:
-				parts: list[Tag] = fieldListElem.children
+			if fieldListElem is not None and isinstance(fieldListElem, Tag):
+				parts: list[Tag] = fieldListElem.children  # type: ignore
 				nextPart = ""
 				for part in parts:
 					# Check if header
@@ -326,7 +334,7 @@ class Parser:
 		styleElem = soup.find(id="styles-window-styles")
 		if styleElem:
 			ulElem = styleElem.find("ul")
-			if ulElem:
+			if ulElem and isinstance(ulElem, Tag):
 				liElems: list[Tag] = ulElem.find_all("li")
 				for liElem in liElems:
 					# Find the name of the element
@@ -368,17 +376,27 @@ class Parser:
 		eventElem = soup.find(id="events-events-emitted-by-this-class")
 		if eventElem:
 			ulElem = eventElem.find("ul")
-			if ulElem:
+			if ulElem and isinstance(ulElem, Tag):
 				liElems: list[Tag] = ulElem.find_all("li")
 				for liElem in liElems:
 					# Find the name of the element
 					eventName = liElem.get_text().strip()
 					eventDef = ""
+
+					# Check if there is a definition
 					if ":" in eventName:
 						eventDef = eventName[(eventName.find(":") + 1):]
 						eventName = eventName[:eventName.find(":")]
+
+					# Check if there is a wx prefix
 					if eventName.startswith(moduleName):
 						eventName = eventName.split(".")[-1]
+
+					# Check if there are weird characters in the name
+					if "(" in eventName:
+						eventName = eventName[:eventName.find("(")]
+					if "," in eventName:
+						eventName = eventName[:eventName.find(",")]
 
 					# Check if there is a *
 					if "*" in eventName:
@@ -414,7 +432,7 @@ class Parser:
 		if hierarchTable:
 			# Find the map element
 			hierarchMap = hierarchTable.find("map")
-			if hierarchMap:
+			if hierarchMap and isinstance(hierarchMap, Tag):
 				# Find all the area, each area is a subclass
 				hierarchItems = hierarchMap.find_all("area")
 

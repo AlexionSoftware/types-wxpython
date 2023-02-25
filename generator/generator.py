@@ -4,8 +4,8 @@ import sys
 from queue import Queue
 from typing import Any
 
-import requests  # type: ignore
-from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup, Tag
 
 from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral
 from .parser import Parser
@@ -315,6 +315,10 @@ class DocumentationGenerator:
 		indexTable = soup.find(id="class-summary")
 		if indexTable is None:
 			indexTable = soup.find(id="class-summary-classes-summary")
+		if indexTable is None:
+			return
+		if not isinstance(indexTable, Tag):
+			return
 
 		# Check each row
 		for aTag in indexTable.find_all("a", class_="reference"):
