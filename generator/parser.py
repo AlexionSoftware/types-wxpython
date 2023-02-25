@@ -73,7 +73,7 @@ class Parser:
 		if apiTableElem is not None:
 			# Build the class
 			classType: ITypingClass = {
-				"type": "class",
+				"type": TypingType.CLASS,
 				"name": className,
 				"moduleName": moduleName,
 				"source": fullUrl,
@@ -140,7 +140,7 @@ class Parser:
 
 				# Make the item
 				literalObj: ITypingLiteral = {
-					"type": "literal",
+					"type": TypingType.LITERAL,
 					"name": literalName,
 					"moduleName": moduleName,
 					"returnType": "int",
@@ -175,7 +175,7 @@ class Parser:
 		for methodTag in methodTags:
 			# Create the method
 			methodType: ITypingFunction = {
-				"type": "function",
+				"type": TypingType.FUNCTION,
 				"moduleName": className,
 				"source": source,
 			}
@@ -349,7 +349,7 @@ class Parser:
 
 					# Add to the output
 					literalObj: ITypingLiteral = {
-						"type": "literal",
+						"type": TypingType.LITERAL,
 						"name": styleName,
 						"moduleName": moduleName,
 						"returnType": "int",
@@ -393,7 +393,7 @@ class Parser:
 
 					# Add to the output
 					literalObj: ITypingLiteral = {
-						"type": "literal",
+						"type": TypingType.LITERAL,
 						"name": eventName,
 						"moduleName": moduleName,
 						"returnType": "int",

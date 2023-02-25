@@ -1,10 +1,20 @@
 # -*- coding: utf-8 -*-
+from enum import Enum
 from typing import Optional, TypedDict
+
+
+class TypingType(Enum):
+	""" Type of typings
+	"""
+	LITERAL = "literal"
+	FUNCTION = "function"
+	CLASS = "class"
+
 
 class ITyping(TypedDict):
 	""" Base voor all items
 	"""
-	type: str
+	type: TypingType
 	name: str
 	moduleName: str
 	docstring: str
@@ -14,7 +24,6 @@ class ITyping(TypedDict):
 class ITypingFunction(ITyping):
 	""" Interface for classes
 	"""
-	type: str
 	methodType: str
 	params: dict[str, str]
 	paramStr: str

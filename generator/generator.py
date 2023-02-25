@@ -6,7 +6,7 @@ from queue import Queue
 import requests
 from bs4 import BeautifulSoup
 
-from .interfaces import ITyping
+from .interfaces import ITyping, TypingType
 from .parser import Parser
 from .writer import TypingWriter
 
@@ -30,93 +30,93 @@ EXTRA_CLASS_URLS: list[str] = [
 ]
 EXTRA_KNOWN_ITEMS: list[ITyping] = [
 	{
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "GROW",
 		"moduleName": "wx",
 		"returnType": "int",
 		"docstring": "Synonym of wx.EXPAND"
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "RA_HORIZONTAL",
 		"moduleName": "wx",
 		"returnType": "int",
 		"docstring": "Synonym of wx.HORIZONTAL"
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "RA_VERTICAL",
 		"moduleName": "wx",
 		"returnType": "int",
 		"docstring": "Synonym of wx.VERTICAL"
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "NORMAL",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "DEFAULT",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "wxEVT_COMMAND_BUTTON_CLICKED",
 		"moduleName": "wx",
 		"returnType": "int",
 	}
 	, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "RED",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "YELLOW",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "BLACK",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "WHITE",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "BLUE",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "GREEN",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "CYAN",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "OPEN",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "EVT_TIMER",
 		"moduleName": "wx",
 		"returnType": "int",
 	}, {
-		"type": "class",
+		"type": TypingType.CLASS,
 		"name": "FrozenWindow",
 		"moduleName": "wx",
 		"superClass": ["ContextManager"],
 		"docstring": "Freeze the window and all its children.",
 		"functions": [
 			{
-				"type": "function",
+				"type": TypingType.FUNCTION,
 				"name": "__init__",
 				"moduleName": "wx.FrozenWindow",
 				"returnType": "None",
@@ -129,12 +129,12 @@ EXTRA_KNOWN_ITEMS: list[ITyping] = [
 			}
 		],
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "NullCursor",
 		"moduleName": "wx",
 		"returnType": "'Cursor'",
 	}, {
-		"type": "literal",
+		"type": TypingType.LITERAL,
 		"name": "LIST_AUTOSIZE",
 		"moduleName": "wx",
 		"returnType": "int",

@@ -3,7 +3,7 @@ from logging import Logger
 import os
 from queue import Queue
 
-from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral
+from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral, TypingType
 
 SPACER = "    "
 
@@ -93,7 +93,7 @@ class TypingWriter:
 		""" Convert the typing dict to a str
 		"""
 		# Check the type: Literal
-		if typing["type"] == "literal":
+		if typing["type"] == TypingType.LITERAL:
 			typingObj: ITypingLiteral = typing
 			output = typingObj["name"]
 			output += ": " + typingObj["returnType"]
@@ -102,7 +102,7 @@ class TypingWriter:
 			return output
 
 		# Check the type: Function
-		elif typing["type"] == "function":
+		elif typing["type"] == TypingType.FUNCTION:
 			typingObj: ITypingFunction = typing
 			output = ""
 			if "methodType" in typingObj and typingObj["methodType"]:
@@ -116,7 +116,7 @@ class TypingWriter:
 			return output
 
 		# Check the type: Class
-		elif typing["type"] == "class":
+		elif typing["type"] == TypingType.CLASS:
 			typingObj: ITypingClass = typing
 			output = (SPACER * depth) + "class " + typingObj["name"]
 			if typingObj["superClass"]:
@@ -146,7 +146,7 @@ class TypingWriter:
 			typing.update(OVERRIDES[fullModuleName])
 
 		# Check if the type is a class
-		if typing["type"] == "class":
+		if typing["type"] == TypingType.CLASS:
 			# Check the overrides for all the functions
 			for functionTyping in typing["functions"]:
 				self._overrideItemData(functionTyping)
