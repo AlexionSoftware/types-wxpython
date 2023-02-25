@@ -157,18 +157,6 @@ EL_NO_REORDER: int  # Does not allow the user to reorder the strings.
 
 EL_DEFAULT_STYLE: int  # Default style: EL_ALLOW_NEW|wxEL_ALLOW_EDIT|wxEL_ALLOW_DELETE. ^^
 
-EL_ALLOW_NEW: int
-
-EL_ALLOW_EDIT: int
-
-EL_ALLOW_DELETE: int
-
-EL_NO_REORDER: int
-
-EL_DEFAULT_STYLE: int
-
-ID_ANY: int
-
 class OwnerDrawnComboBox(ComboCtrl,ItemContainer):
     """ OwnerDrawnComboBox is a combobox with owner-drawn list items.
 
@@ -249,13 +237,9 @@ ODCB_STD_CONTROL_PAINT: int  # Control itself is not custom painted using OnDraw
 
 EVT_COMBOBOX: int  # Process a wxEVT_COMBOBOX event, when an item on the list is selected. Note that calling GetValue  returns the new value of selection. ^^
 
-ODCB_DCLICK_CYCLES: int
-
 CB_READONLY: int
 
 CC_SPECIAL_DCLICK: int
-
-ODCB_STD_CONTROL_PAINT: int
 
 class BitmapComboBox(ComboBox):
     """ A combobox that displays bitmap in front of the list items.
@@ -397,27 +381,13 @@ class BitmapComboBox(ComboBox):
 
 
 
-CB_READONLY: int  # Creates a combobox without a text editor. On some platforms the control may appear very different when this style is used.
-
 CB_SORT: int  # Sorts the entries in the list alphabetically.
 
 TE_PROCESS_ENTER: int  # The control will generate the event wxEVT_TEXT_ENTER (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls). Windows only. ^^
 
-EVT_COMBOBOX: int  # Process a  wxEVT_COMBOBOX   event, when an item on the list is selected.
-
 EVT_TEXT: int  # Process a  wxEVT_TEXT   event, when the combobox text changes.
 
 EVT_TEXT_ENTER: int  # Process a  wxEVT_TEXT_ENTER   event, when RETURN is pressed in the combobox. ^^
-
-CB_READONLY: int
-
-CB_SORT: int
-
-TE_PROCESS_ENTER: int
-
-TE_PROCESS_ENTER: int
-
-ID_ANY: int
 
 NOT_FOUND: int
 
@@ -540,10 +510,6 @@ SASH_STATUS_OK: int
 
 SASH_STATUS_OUT_OF_RANGE: int
 
-SASH_STATUS_OK: int
-
-SASH_STATUS_OUT_OF_RANGE: int
-
 SASH_TOP: int
 
 SASH_RIGHT: int
@@ -599,16 +565,6 @@ class BannerWindow(Window):
 TOP: int
 
 LEFT: int
-
-TOP: int
-
-BOTTOM: int
-
-RIGHT: int
-
-LEFT: int
-
-TOP: int
 
 BOTTOM: int
 
@@ -745,34 +701,6 @@ SW_3DBORDER: int  # Draws a 3D effect border.
 
 SW_BORDER: int  # Draws a thin black border. ^^
 
-EVT_SASH_DRAGGED: int  # Process a  wxEVT_SASH_DRAGGED   event, when the user has finished dragging a sash.
-
-EVT_SASH_DRAGGED_RANGE: int  # Process a  wxEVT_SASH_DRAGGED_RANGE   event, when the user has finished dragging a sash. The event handler is called when windows with ids in the given range have their sashes dragged. ^^
-
-SW_3D: int
-
-SW_3DSASH: int
-
-SW_3DBORDER: int
-
-SW_BORDER: int
-
-SASH_TOP: int
-
-SASH_RIGHT: int
-
-SASH_BOTTOM: int
-
-SASH_LEFT: int
-
-SASH_TOP: int
-
-SASH_RIGHT: int
-
-SASH_BOTTOM: int
-
-SASH_LEFT: int
-
 class AnimationCtrl(Control):
     """ This is a static control which displays an animation.
 
@@ -870,11 +798,7 @@ AC_DEFAULT_STYLE: int  # The default style: wx.BORDER_NONE.
 
 AC_NO_AUTORESIZE: int  # By default, the control will adjust its size to exactly fit to the size of the animation when SetAnimation is called. If this style flag is given, the control will not change its size ^^
 
-AC_DEFAULT_STYLE: int
-
 BORDER_NONE: int
-
-AC_NO_AUTORESIZE: int
 
 class CalendarCtrl(Control):
     """ The calendar control allows the user to pick a date.
@@ -1060,22 +984,6 @@ EVT_CALENDAR_WEEKDAY_CLICKED: int  # User clicked on the week day header (only g
 
 EVT_CALENDAR_WEEK_CLICKED: int  # User clicked on the week of the year number (only generic). ^^
 
-CAL_SUNDAY_FIRST: int
-
-CAL_MONDAY_FIRST: int
-
-CAL_SHOW_HOLIDAYS: int
-
-CAL_NO_YEAR_CHANGE: int
-
-CAL_NO_MONTH_CHANGE: int
-
-CAL_SHOW_SURROUNDING_WEEKS: int
-
-CAL_SEQUENTIAL_MONTH_SELECTION: int
-
-CAL_SHOW_WEEK_NUMBERS: int
-
 class DatePickerCtrl(Control):
     """ This control allows the user to select a date.
 
@@ -1143,20 +1051,6 @@ DP_ALLOWNONE: int  # With this style, the control allows the user to not enter a
 DP_SHOWCENTURY: int  # Forces display of the century in the default date format. Without this style the century could be displayed, or not, depending on the default date representation in the system. This style is not supported in OSX/Cocoa native version currently. ^^
 
 EVT_DATE_CHANGED: int  # Process a wxEVT_DATE_CHANGED event, which fires when the user changes the current selection in the control. ^^
-
-DP_SPIN: int
-
-DP_DROPDOWN: int
-
-DP_DEFAULT: int
-
-DP_SPIN: int
-
-DP_DROPDOWN: int
-
-DP_ALLOWNONE: int
-
-DP_SHOWCENTURY: int
 
 class HyperlinkCtrl(Control):
     """ This class shows a static text element which links to an URL.
@@ -1253,20 +1147,6 @@ HL_ALIGN_CENTRE: int  # Center the text (horizontally). This style is not suppor
 HL_CONTEXTMENU: int  # Pop up a context menu when the hyperlink is right-clicked. The context menu contains a âCopy URLâ menu item which is automatically handled by the hyperlink and which just copies in the clipboard the URL (not the label) of the control.
 
 HL_DEFAULT_STYLE: int  # The default style for   wx.adv.HyperlinkCtrl: BORDER_NONE|wxHL_CONTEXTMENU|wxHL_ALIGN_CENTRE. ^^
-
-EVT_HYPERLINK: int  # The hyperlink was (left) clicked. If this event is not handled in userâs code (or itâs skipped; see wx.Event.Skip ), then a call to LaunchDefaultBrowser is done with the hyperlinkâs URL. ^^
-
-HL_ALIGN_LEFT: int
-
-HL_ALIGN_RIGHT: int
-
-HL_ALIGN_CENTRE: int
-
-HL_CONTEXTMENU: int
-
-HL_DEFAULT_STYLE: int
-
-ID_ANY: int
 
 class TimePickerCtrl(Control):
     """ This control allows the user to enter time.
@@ -1595,8 +1475,6 @@ WIZARD_EX_HELPBUTTON: int
 
 ID_HELP: int
 
-ID_ANY: int
-
 WIZARD_VALIGN_TOP: int
 
 WIZARD_VALIGN_CENTRE: int
@@ -1726,18 +1604,6 @@ orientation and alignment of a window.
 
 
 EVT_QUERY_LAYOUT_INFO: int  # Process a  wxEVT_QUERY_LAYOUT_INFO   event, to get size, orientation and alignment from a window. ^^
-
-LAYOUT_TOP: int
-
-LAYOUT_LEFT: int
-
-LAYOUT_RIGHT: int
-
-LAYOUT_BOTTOM: int
-
-LAYOUT_HORIZONTAL: int
-
-LAYOUT_VERTICAL: int
 
 LAYOUT_TOP: int
 
@@ -2377,20 +2243,6 @@ there, goes up the window hierarchy as usual.
 
 
 
-EVT_WIZARD_PAGE_CHANGED: int  # The page has been just changed (this event cannot be vetoed).
-
-EVT_WIZARD_PAGE_CHANGING: int  # The page is being changed (this event can be vetoed).
-
-EVT_WIZARD_BEFORE_PAGE_CHANGED: int  # Called after Next is clicked but before GetNext is called. Unlike EVT_WIZARD_CHANGING, the handler for this function can change state that might affect the return value of GetNext. This event can be vetoed.
-
-EVT_WIZARD_PAGE_SHOWN: int  # The page was shown and laid out (this event cannot be vetoed).
-
-EVT_WIZARD_CANCEL: int  # The user attempted to cancel the wizard (this event may also be vetoed).
-
-EVT_WIZARD_HELP: int  # The wizard help button was pressed.
-
-EVT_WIZARD_FINISHED: int  # The wizard finished button was pressed. ^^
-
 class Animation(Object):
     """ The Animation class handles the interface between the animation
 control and the details of the animation image or data.
@@ -2497,8 +2349,6 @@ control and the details of the animation image or data.
 
 ANIMATION_TYPE_ANY: int
 
-ANIMATION_TYPE_ANY: int
-
 class LayoutAlgorithm(Object):
     """ LayoutAlgorithm implements layout of subwindows in MDI or SDI
 frames.
@@ -2530,10 +2380,6 @@ frames.
         """
 
 
-
-EVT_QUERY_LAYOUT_INFO: int  # Process a  wxEVT_QUERY_LAYOUT_INFO   event, to get size, orientation and alignment from a window. See    wx.adv.QueryLayoutInfoEvent.
-
-EVT_CALCULATE_LAYOUT: int  # Process a  wxEVT_CALCULATE_LAYOUT   event, which asks the window to take a âbiteâ out of a rectangle provided by the algorithm. See    wx.adv.CalculateLayoutEvent. ^^
 
 class Sound(Object):
     """ This class represents a short sound (loaded from Windows WAV file),
@@ -2598,10 +2444,6 @@ that can be stored in memory and played.
         """
 
 
-
-SOUND_SYNC: int
-
-SOUND_ASYNC: int
 
 SOUND_SYNC: int
 
@@ -2682,19 +2524,7 @@ class CalendarEvent(DateEvent):
 
 
 
-SASH_TOP: int
-
-SASH_RIGHT: int
-
-SASH_BOTTOM: int
-
-SASH_LEFT: int
-
 SASH_NONE: int
-
-SASH_STATUS_OK: int
-
-SASH_STATUS_OUT_OF_RANGE: int
 
 class SashLayoutWindow(SashWindow):
     """ SashLayoutWindow responds to OnCalculateLayout events generated by
@@ -2764,42 +2594,6 @@ LayoutAlgorithm.
         """
 
 
-
-LAYOUT_TOP: int
-
-LAYOUT_LEFT: int
-
-LAYOUT_RIGHT: int
-
-LAYOUT_BOTTOM: int
-
-LAYOUT_HORIZONTAL: int
-
-LAYOUT_VERTICAL: int
-
-LAYOUT_TOP: int
-
-LAYOUT_LEFT: int
-
-LAYOUT_RIGHT: int
-
-LAYOUT_BOTTOM: int
-
-LAYOUT_HORIZONTAL: int
-
-LAYOUT_VERTICAL: int
-
-LAYOUT_TOP: int
-
-LAYOUT_LEFT: int
-
-LAYOUT_RIGHT: int
-
-LAYOUT_BOTTOM: int
-
-LAYOUT_HORIZONTAL: int
-
-LAYOUT_VERTICAL: int
 
 class GenericAnimationCtrl(AnimationCtrl):
     """ Generic implementation of AnimationCtrl interface.
@@ -2923,8 +2717,6 @@ ANIMATION_TYPE_INVALID: int
 ANIMATION_TYPE_GIF: int
 
 ANIMATION_TYPE_ANI: int
-
-ANIMATION_TYPE_ANY: int
 
 class CalendarDateAttr:
     """ CalendarDateAttr is a custom attributes for a calendar date.
@@ -3086,18 +2878,6 @@ PROPSHEET_TREEBOOK: int
 PROPSHEET_SHRINKTOFIT: int
 
 LAYOUT_NONE: int
-
-LAYOUT_TOP: int
-
-LAYOUT_LEFT: int
-
-LAYOUT_RIGHT: int
-
-LAYOUT_BOTTOM: int
-
-LAYOUT_HORIZONTAL: int
-
-LAYOUT_VERTICAL: int
 
 TBI_DOCK: int
 

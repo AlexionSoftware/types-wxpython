@@ -3423,12 +3423,6 @@ class GridCellCoords:
 
 
 
-GridCellCoords: int
-
-GridCellCoords: int
-
-GridCellCoords: int
-
 class GridFitMode:
     """ Allows to specify the behaviour when the cell contents doesnât fit
 into its allotted space.

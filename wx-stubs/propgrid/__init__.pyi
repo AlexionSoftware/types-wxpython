@@ -1413,8 +1413,6 @@ such it is not intended to be instantiated directly.
 
 NOT_FOUND: int
 
-NOT_FOUND: int
-
 class PropertyGridManager(Panel,PropertyGridInterface):
     """ PropertyGridManager is an efficient multi-page version of
 PropertyGrid, which can optionally have toolbar for mode and page
@@ -1670,10 +1668,6 @@ selection, a help text box, and a header.
         """
 
 
-
-NOT_FOUND: int
-
-NOT_FOUND: int
 
 class PropertyGrid(Scrolled,PropertyGridInterface):
     """ PropertyGrid is a specialized grid for editing properties - in other
@@ -3224,25 +3218,7 @@ categories and private child properties. Usage is simple:
 
 PG_VFB_STAY_IN_PROPERTY: int
 
-PG_VFB_STAY_IN_PROPERTY: int
-
-PG_VFB_STAY_IN_PROPERTY: int
-
-PG_VFB_STAY_IN_PROPERTY: int
-
-PG_VFB_STAY_IN_PROPERTY: int
-
-PG_VFB_STAY_IN_PROPERTY: int
-
-PG_VFB_STAY_IN_PROPERTY: int
-
 PG_ITERATE_DEFAULT: int
-
-PG_ITERATE_DEFAULT: int
-
-TOP: int
-
-BOTTOM: int
 
 TOP: int
 
@@ -3252,29 +3228,17 @@ PG_EX_MULTIPLE_SELECTION: int
 
 PG_DONT_RECURSE: int
 
-PG_VFB_STAY_IN_PROPERTY: int
-
 PG_SPLITTER_AUTO_CENTER: int
-
-PG_RECURSE: int
 
 PG_RECURSE: int
 
 PG_LABEL: int
 
-PG_DONT_RECURSE: int
-
 PG_EX_HELP_AS_TOOLTIPS: int
-
-PG_DONT_RECURSE: int
-
-PG_RECURSE: int
 
 PG_SORT_TOP_LEVEL_ONLY: int
 
 PG_AUTO_SORT: int
-
-PG_RECURSE: int
 
 class PropertyGridPageState:
     """ Contains low-level property page information (properties, column
@@ -5151,8 +5115,6 @@ PG_ITERATE_VISIBLE: int
 PG_ITERATE_ALL: int
 
 PG_ITERATE_NORMAL: int
-
-PG_ITERATE_DEFAULT: int
 
 class PropertyGridIterator(PropertyGridIteratorBase):
     """  Overloaded Implementations:

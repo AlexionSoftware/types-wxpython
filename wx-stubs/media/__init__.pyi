@@ -119,8 +119,6 @@ videos, audio files, natively through native codecs.
 
 MC_NO_AUTORESIZE: int  # By default, the control will automatically adjust its size to exactly fit the size of a loaded video as soon as a video is loaded. If this flag is given, the control will not change its size automatically and it must be done manually (if desired) using Layout. It is strongly recommended to use this flag and handle control resizing manually (note that this style is only available in wxWidgets 3.1.6, so it is only possible to do it when using this or later version). ^^
 
-MC_NO_AUTORESIZE: int
-
 MEDIASTATE_STOPPED: int
 
 MEDIASTATE_PAUSED: int
@@ -151,12 +149,6 @@ EVT_MEDIA_STATECHANGED: int  # Sent when a media has switched its state (from an
 EVT_MEDIA_PLAY: int  # Sent when a media has switched to the  MEDIASTATE_PLAYING   state. Processes a   wxEVT_MEDIA_PLAY   event type.
 
 EVT_MEDIA_PAUSE: int  # Sent when a media has switched to the  MEDIASTATE_PAUSED   state. Processes a   wxEVT_MEDIA_PAUSE   event type. ^^
-
-MEDIASTATE_STOPPED: int
-
-MEDIASTATE_PAUSED: int
-
-MEDIASTATE_PLAYING: int
 
 MEDIACTRLPLAYERCONTROLS_NONE: int
 

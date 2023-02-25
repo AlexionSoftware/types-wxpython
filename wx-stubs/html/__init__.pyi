@@ -224,17 +224,7 @@ EVT_LISTBOX: int  # Process a  wxEVT_LISTBOX   event, when an item on the list i
 
 EVT_LISTBOX_DCLICK: int  # Process a  wxEVT_LISTBOX_DCLICK   event, when the listbox is double-clicked. See    wx.CommandEvent.
 
-EVT_HTML_CELL_CLICKED: int  # A   wx.html.HtmlCell  was clicked. See   wx.html.HtmlCellEvent.
-
-EVT_HTML_CELL_HOVER: int  # The mouse passed over a   wx.html.HtmlCell. See   wx.html.HtmlCellEvent.
-
-EVT_HTML_LINK_CLICKED: int  # A   wx.html.HtmlCell  which contains a hyperlink was clicked. See   wx.html.HtmlLinkEvent  ^^
-
-HLB_DEFAULT_STYLE: int
-
 BORDER_SUNKEN: int
-
-HLB_MULTIPLE: int
 
 class HtmlHelpDialog(Dialog):
     """ This class is used by HtmlHelpController to display help.
@@ -476,35 +466,13 @@ HF_ICONS_FOLDER: int
 
 HF_ICONS_BOOK_CHAPTER: int
 
-HF_EMBEDDED: int
-
 HF_DIALOG: int
 
 HF_FRAME: int
 
-HF_DIALOG: int
-
-HF_EMBEDDED: int
-
 HF_MODAL: int
 
-HF_DIALOG: int
-
 HF_DEFAULT_STYLE: int
-
-HF_TOOLBAR: int
-
-HF_CONTENTS: int
-
-HF_INDEX: int
-
-HF_SEARCH: int
-
-HF_BOOKMARKS: int
-
-HF_PRINT: int
-
-HF_EMBEDDED: int
 
 class HtmlCell(Object):
     """ Internal data structure.
@@ -871,12 +839,6 @@ PAGE_EVEN: int
 
 PAGE_ALL: int
 
-PAGE_ODD: int
-
-PAGE_EVEN: int
-
-PAGE_ALL: int
-
 class HtmlFilter(Object):
     """ This class is the parent class of input filters for HtmlWindow.
 
@@ -1100,18 +1062,6 @@ class HtmlPrintout(Printout):
         """
 
 
-
-PAGE_ODD: int
-
-PAGE_EVEN: int
-
-PAGE_ALL: int
-
-PAGE_ODD: int
-
-PAGE_EVEN: int
-
-PAGE_ALL: int
 
 class HtmlWindow(Scrolled,HtmlWindowInterface):
     """ HtmlWindow is probably the only class you will directly use unless
@@ -1360,18 +1310,6 @@ HW_SCROLLBAR_AUTO: int  # Display scrollbars only if pageâs size exceeds wi
 
 HW_NO_SELECTION: int  # Donât allow the user to select text. ^^
 
-EVT_HTML_CELL_CLICKED: int  # A   wx.html.HtmlCell  was clicked.
-
-EVT_HTML_CELL_HOVER: int  # The mouse passed over a   wx.html.HtmlCell.
-
-EVT_HTML_LINK_CLICKED: int  # A   wx.html.HtmlCell  which contains a hyperlink was clicked. ^^
-
-HW_SCROLLBAR_NEVER: int
-
-HW_SCROLLBAR_AUTO: int
-
-HW_NO_SELECTION: int
-
 HTML_URL_PAGE: int
 
 HTML_URL_IMAGE: int
@@ -1446,12 +1384,6 @@ content in the listbox rows.
         """
 
 
-
-EVT_HTML_CELL_CLICKED: int  # A   wx.html.HtmlCell  was clicked.
-
-EVT_HTML_CELL_HOVER: int  # The mouse passed over a   wx.html.HtmlCell.
-
-EVT_HTML_LINK_CLICKED: int  # A   wx.html.HtmlCell  which contains a hyperlink was clicked. ^^
 
 class HtmlModalHelp:
     """ This class uses HtmlHelpController to display help in a modal
@@ -1566,12 +1498,6 @@ between these two tags).
         """
 
 
-
-HTML_URL_PAGE: int
-
-HTML_URL_IMAGE: int
-
-HTML_URL_OTHER: int
 
 class HtmlWinParser(HtmlParser):
     """ This class is derived from HtmlParser and its main goal is to parse
@@ -1887,8 +1813,6 @@ HTML_ALIGN_RIGHT: int
 
 HTML_ALIGN_BOTTOM: int
 
-HTML_ALIGN_CENTER: int
-
 HTML_ALIGN_TOP: int
 
 OR: int
@@ -1906,10 +1830,6 @@ HTML_INDENT_HORIZONTAL: int
 HTML_INDENT_VERTICAL: int
 
 HTML_INDENT_ALL: int
-
-HTML_UNITS_PIXELS: int
-
-HTML_UNITS_PERCENT: int
 
 HTML_UNITS_PIXELS: int
 
@@ -2203,8 +2123,6 @@ HtmlListBox) that is passed to HtmlWinParser.
 
 
 
-HTML_REDIRECT: int
-
 class HtmlTag:
     """ This class represents a single HTML tag.
 
@@ -2266,18 +2184,6 @@ class HtmlTag:
         """
 
 
-
-HTML_URL_PAGE: int
-
-HTML_URL_IMAGE: int
-
-HTML_URL_OTHER: int
-
-HTML_OPEN: int
-
-HTML_BLOCK: int
-
-HTML_REDIRECT: int
 
 class HtmlBookRecord:
     """ Helper class for HtmlHelpData.

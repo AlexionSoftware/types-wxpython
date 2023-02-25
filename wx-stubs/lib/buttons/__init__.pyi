@@ -31,10 +31,6 @@ EVT_ENTER_WINDOW: int
 
 EVT_LEAVE_WINDOW: int
 
-EVT_ENTER_WINDOW: int
-
-EVT_LEAVE_WINDOW: int
-
 class __ToggleMixin:
     """ A mixin that allows to transform GenButton in the corresponding
 toggle button.
@@ -84,16 +80,6 @@ toggle button.
         """
 
 
-
-EVT_KEY_DOWN: int
-
-EVT_KEY_UP: int
-
-EVT_LEFT_DOWN: int
-
-EVT_LEFT_UP: int
-
-EVT_MOTION: int
 
 EVT_KEY_DOWN: int
 
@@ -311,41 +297,9 @@ EVT_BUTTON: int
 
 EVT_SET_FOCUS: int
 
-EVT_KEY_DOWN: int
-
-EVT_KEY_UP: int
-
-EVT_LEFT_DOWN: int
-
-EVT_LEFT_UP: int
-
 EVT_MOUSE_CAPTURE_LOST: int
 
 EVT_KILL_FOCUS: int
-
-EVT_MOTION: int
-
-EVT_PAINT: int
-
-EVT_SIZE: int
-
-EVT_BUTTON: int
-
-EVT_SET_FOCUS: int
-
-EVT_KEY_DOWN: int
-
-EVT_KEY_UP: int
-
-EVT_LEFT_DOWN: int
-
-EVT_LEFT_UP: int
-
-EVT_MOUSE_CAPTURE_LOST: int
-
-EVT_KILL_FOCUS: int
-
-EVT_MOTION: int
 
 EVT_PAINT: int
 

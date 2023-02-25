@@ -464,29 +464,7 @@ EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP_POSS
 
 EVT_DATAVIEW_ITEM_DROP: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP   event. ^^
 
-DV_SINGLE: int
-
-DV_MULTIPLE: int
-
-DV_ROW_LINES: int
-
-DV_HORIZ_RULES: int
-
-DV_VERT_RULES: int
-
-DV_VARIABLE_LINE_HEIGHT: int
-
-DV_NO_HEADER: int
-
-DV_ROW_LINES: int
-
 DF_INVALID: int
-
-DV_ROW_LINES: int
-
-DV_ROW_LINES: int
-
-DV_VARIABLE_LINE_HEIGHT: int
 
 class TreeListCtrl(Window):
     """ A control combining TreeCtrl and ListCtrl features.
@@ -827,36 +805,6 @@ EVT_TREELIST_COLUMN_SORTED: int  # Process  wxEVT_TREELIST_COLUMN_SORTED   event
 
 COL_SORTABLE: int
 
-TL_USER_3STATE: int
-
-TL_3STATE: int
-
-TL_3STATE: int
-
-TL_CHECKBOX: int
-
-TL_SINGLE: int
-
-TL_MULTIPLE: int
-
-TL_CHECKBOX: int
-
-TL_3STATE: int
-
-TL_CHECKBOX: int
-
-TL_USER_3STATE: int
-
-TL_3STATE: int
-
-TL_3STATE: int
-
-TL_NO_HEADER: int
-
-TL_DEFAULT_STYLE: int
-
-TL_SINGLE: int
-
 TLI_LAST: int
 
 TLI_FIRST: int
@@ -865,37 +813,13 @@ COL_WIDTH_AUTOSIZE: int
 
 COL_RESIZABLE: int
 
-COL_SORTABLE: int
-
-TLI_LAST: int
-
-CHK_CHECKED: int
-
-CHK_UNCHECKED: int
-
-TL_3STATE: int
-
-TL_USER_3STATE: int
-
-CHK_UNDETERMINED: int
-
 CHK_CHECKED: int
 
 CHK_UNCHECKED: int
 
 CHK_UNDETERMINED: int
-
-TLI_FIRST: int
-
-TLI_LAST: int
 
 NO_IMAGE: int
-
-TLI_FIRST: int
-
-COL_WIDTH_AUTOSIZE: int
-
-TL_3STATE: int
 
 class DataViewTreeCtrl(DataViewCtrl):
     """ This class is a DataViewCtrl which internally uses a
@@ -1262,12 +1186,6 @@ DataViewListStore and forwards most of its API to that class.
         """
 
 
-
-NOT_FOUND: int
-
-NOT_FOUND: int
-
-NOT_FOUND: int
 
 NOT_FOUND: int
 
@@ -1671,8 +1589,6 @@ ELLIPSIZE_MIDDLE: int
 
 ELLIPSIZE_NONE: int
 
-ELLIPSIZE_NONE: int
-
 class DataViewCustomRenderer(DataViewRenderer):
     """ You need to derive a new class from DataViewCustomRenderer in order
 to write a new renderer.
@@ -1957,49 +1873,9 @@ class DataViewEvent(NotifyEvent):
 
 
 
-EVT_DATAVIEW_SELECTION_CHANGED: int  # Process a  wxEVT_DATAVIEW_SELECTION_CHANGED   event.
-
-EVT_DATAVIEW_ITEM_ACTIVATED: int  # Process a  wxEVT_DATAVIEW_ITEM_ACTIVATED   event.
-
-EVT_DATAVIEW_ITEM_EDITING_STARTED: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_STARTED   event.
-
-EVT_DATAVIEW_ITEM_EDITING_DONE: int  # Process a  wxEVT_DATAVIEW_ITEM_EDITING_DONE   event.
-
-EVT_DATAVIEW_ITEM_COLLAPSING: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSING   event.
-
-EVT_DATAVIEW_ITEM_COLLAPSED: int  # Process a  wxEVT_DATAVIEW_ITEM_COLLAPSED   event.
-
-EVT_DATAVIEW_ITEM_EXPANDING: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDING   event.
-
-EVT_DATAVIEW_ITEM_EXPANDED: int  # Process a  wxEVT_DATAVIEW_ITEM_EXPANDED   event.
-
-EVT_DATAVIEW_ITEM_VALUE_CHANGED: int  # Process a  wxEVT_DATAVIEW_ITEM_VALUE_CHANGED   event.
-
-EVT_DATAVIEW_ITEM_CONTEXT_MENU: int  # Process a  wxEVT_DATAVIEW_ITEM_CONTEXT_MENU   event.
-
-EVT_DATAVIEW_COLUMN_HEADER_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_CLICK   event.
-
-EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK: int  # Process a  wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK   event.
-
-EVT_DATAVIEW_COLUMN_SORTED: int  # Process a  wxEVT_DATAVIEW_COLUMN_SORTED   event.
-
-EVT_DATAVIEW_COLUMN_REORDERED: int  # Process a  wxEVT_DATAVIEW_COLUMN_REORDERED   event. Currently this event is not generated when using the native GTK+ version of the control.
-
-EVT_DATAVIEW_ITEM_BEGIN_DRAG: int  # Process a  wxEVT_DATAVIEW_ITEM_BEGIN_DRAG   event which is generated when the user starts dragging a valid item. This event must be processed and  wx.dataview.DataViewEvent.SetDataObject   must be called to actually start dragging the item.
-
-EVT_DATAVIEW_ITEM_DROP_POSSIBLE: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE   event.
-
-EVT_DATAVIEW_ITEM_DROP: int  # Process a  wxEVT_DATAVIEW_ITEM_DROP   event.
-
 EVT_DATAVIEW_CACHE_HINT: int  # Process a  wxEVT_DATAVIEW_CACHE_HINT   event. ^^
 
-NOT_FOUND: int
-
 DATAVIEW_CELL_INERT: int
-
-DATAVIEW_CELL_ACTIVATABLE: int
-
-DATAVIEW_CELL_EDITABLE: int
 
 class DataViewIconTextRenderer(DataViewRenderer):
     """ The DataViewIconTextRenderer class is used to display text with a
@@ -2840,8 +2716,6 @@ checkbox.
         """
 
 
-
-CHK_UNDETERMINED: int
 
 class DataViewProgressRenderer(DataViewRenderer):
     """ This class is used by DataViewCtrl to render progress bars.

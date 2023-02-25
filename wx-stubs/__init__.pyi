@@ -111,13 +111,9 @@ ID_ANY: int
 
 ID_AUTO_HIGHEST: int
 
-ID_ANY: int
-
 ID_NONE: int
 
 ID_SEPARATOR: int
-
-ID_ANY: int
 
 ID_LOWEST: int
 
@@ -892,7 +888,7 @@ def GetActiveWindow() -> 'Window':
     """
 
 
-def GetApp() -> 'PyApp':
+def GetApp() -> 'App':
     """ Returns the current application object.
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -1578,8 +1574,6 @@ EXEC_NOEVENTS: int
 
 EXEC_BLOCK: int
 
-EXEC_SYNC: int
-
 FD_OPEN: int
 
 FD_SAVE: int
@@ -1592,17 +1586,7 @@ FD_MULTIPLE: int
 
 OK: int
 
-OK: int
-
 KILL_NOCHILDREN: int
-
-KILL_CHILDREN: int
-
-KILL_CHILDREN: int
-
-EXEC_MAKE_GROUP_LEADER: int
-
-ID_ANY: int
 
 class AcceleratorEntry:
     """ An object used by an application wishing to create an accelerator
@@ -1703,8 +1687,6 @@ keyboard shortcuts for menu or button commands.
         """
 
 
-
-OK: int
 
 class Accessible(Object):
     """ The Accessible class allows wxWidgets applications, and wxWidgets
@@ -1849,8 +1831,6 @@ to client applications such as screen readers.
 
 
 ACC_NOT_SUPPORTED: int
-
-ACC_OK: int
 
 ACC_OK: int
 
@@ -2130,12 +2110,6 @@ class AffineMatrix2DBase:
         """
 
 
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
 
 class AlphaPixelData:
     """ A class providing direct access to a wx.Bitmapâs
@@ -2693,13 +2667,7 @@ BOTTOM: int
 
 LEFT: int
 
-RIGHT: int
-
-TOP: int
-
-BOTTOM: int
-
-class App(AppConsole):
+class App(PyApp,AppConsole):
     """ The wx.App class represents the application and is used to:
 
         Source: https://docs.wxpython.org/wx.App.html
@@ -2711,7 +2679,7 @@ class App(AppConsole):
         """
 
     @staticmethod
-    def Get() -> None:
+    def Get() -> 'App':
         """ A staticmethod returning the currently active application object.
 Essentially just a more pythonic version of GetApp.
 
@@ -2785,33 +2753,194 @@ an explicit parent set.
 
 
 
-App: int
+class PyApp(AppConsole):
+    """ The App class represents the application itself when USE_GUI=1.
 
-App: int
+        Source: https://docs.wxpython.org/wx.PyApp.html
+    """
+    def __init__(self) -> None:
+        """ Constructor.
 
-App: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-App: int
+    @staticmethod
+    def GTKSuppressDiagnostics(flags: int=-1) -> None:
+        """ Disables the printing of various GTK messages.
 
-App: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-PyApp: int
+    def GetAssertMode(self) -> 'AppAssertMode':
+        """ Returns the current mode for how the application responds to  asserts.
 
-App: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-App: int
+    @staticmethod
+    def GetComCtl32Version() -> int:
+        """ Returns 400, 470, 471, etc. for comctl32.dll 4.00, 4.70, 4.71 or 0 if
+it wasnât found at all.  Raises an exception on non-Windows platforms.
 
-App: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-App: int
+    def GetDisplayMode(self) -> 'VideoMode':
+        """ Get display mode that is used use.
 
-App: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-App: int
+    def GetExitOnFrameDelete(self) -> bool:
+        """ Returns True if the application will exit when the top-level frame is deleted.
 
-PyApp: int
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
 
-App: int
+    def GetLayoutDirection(self) -> int:
+        """ Return the layout direction for the current locale or  Layout_Default   if itâs unknown.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    @staticmethod
+    def GetMainTopWindow() -> 'Window':
+        """ Returns a pointer to the top application window if any.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def GetTopWindow(self) -> 'Window':
+        """ Returns a pointer to the top window.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def GetUseBestVisual(self) -> bool:
+        """ Returns True if the application will use the best visual on systems that support different visuals, False otherwise.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def IsActive(self) -> bool:
+        """ Returns True if the application is active, i.e. if one of its windows is currently in the foreground.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    @staticmethod
+    def IsDisplayAvailable() -> bool:
+        """ Returns True if the application is able to connect to the systemâs
+display, or whatever the equivallent is for the platform.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacHideApp(self) -> None:
+        """ Hide all application windows just as the user can do with the
+system Hide command.  Mac only.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacNewFile(self) -> None:
+        """ Called in response of an âopen-applicationâ Apple event.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacOpenFile(self, fileName: str) -> None:
+        """ Called in response of an âopen-documentâ Apple event.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacOpenFiles(self, fileNames: list[str]) -> None:
+        """ Called in response of an openFiles message.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacOpenURL(self, url: str) -> None:
+        """ Called in response of a âget-urlâ Apple event.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacPrintFile(self, fileName: str) -> None:
+        """ Called in response of a âprint-documentâ Apple event.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def MacReopenApp(self) -> None:
+        """ Called in response of a âreopen-applicationâ Apple event.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def OSXEnableAutomaticTabbing(self, enable: bool) -> None:
+        """ Enable the automatic tabbing features of macOS.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def OSXIsGUIApplication(self) -> bool:
+        """ May be overridden to indicate that the application is not a foreground GUI application under macOS.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SafeYield(self, win, onlyIfNeeded) -> bool:
+        """ This function is similar to wx.Yield     , except that it disables the user input to all program windows before calling wx.AppConsole.Yield   and re-enables it again afterwards.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SafeYieldFor(self, win, eventsToProcess) -> bool:
+        """ Works like wx.SafeYield       with onlyIfNeeded  == True except that it allows the caller to specify a mask of events to be processed.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetAssertMode(self, wxAppAssertMode: AppAssertMode) -> None:
+        """ Set the mode indicating how the application responds to  assertion
+statements. Valid settings are a combination of these flags:
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetDisplayMode(self, info: 'VideoMode') -> bool:
+        """ Set display mode to use.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetExitOnFrameDelete(self, flag: bool) -> None:
+        """ Allows the programmer to specify whether the application will exit when the top-level frame is deleted.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetNativeTheme(self, theme: str) -> bool:
+        """ Allows runtime switching of the UI environment theme.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetTopWindow(self, window: 'Window') -> None:
+        """ Sets the âtopâ window.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    def SetUseBestVisual(self, flag, forceTrueColour=False) -> None:
+        """ Allows the programmer to specify whether the application will use the best visual on systems that support several visual on the same display.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+
 
 class AppConsole(EvtHandler,EventFilter):
     """ This class is essential for writing console-only or hybrid apps
@@ -3351,8 +3480,6 @@ ART_FILE_OPEN: int
 ART_GOTO_FIRST: int
 
 ART_FILE_SAVE: int
-
-ART_FILE_OPEN: int
 
 ART_OTHER: int
 
@@ -4177,14 +4304,6 @@ BLACK: int
 
 WHITE: int
 
-BLACK: int
-
-BLACK: int
-
-BLACK: int
-
-WHITE: int
-
 ODDEVEN_RULE: int
 
 WINDING_RULE: int
@@ -4193,25 +4312,56 @@ FLOOD_SURFACE: int
 
 FLOOD_BORDER: int
 
-PostScriptDC: int
+class PostScriptDC(DC):
+    """ This defines the wxWidgets Encapsulated PostScript device context,
+which can write PostScript files on any platform.
 
-MetafileDC: int
+        Source: https://docs.wxpython.org/wx.PostScriptDC.html
+    """
+    def __init__(self, *args, **kw) -> None:
+        """ Overloaded Implementations:
+
+            Source: https://docs.wxpython.org/wx.PostScriptDC.html
+        """
+
+
+
+class MetafileDC(DC):
+    """ This is a type of device context that allows a metafile object to be
+created (Windows only), and has most of the characteristics of a
+normal DC.
+
+        Source: https://docs.wxpython.org/wx.MetafileDC.html
+    """
+    def __init__(self, filename: str="") -> None:
+        """ Constructor.
+
+            Source: https://docs.wxpython.org/wx.MetafileDC.html
+        """
+
+    def Close(self) -> 'Metafile':
+        """ This must be called after the device context is finished with.
+
+            Source: https://docs.wxpython.org/wx.MetafileDC.html
+        """
+
+
 
 NullColour: int
 
-PaintDC: int
+class PaintDC(ClientDC):
+    """ A PaintDC must be constructed if an application wishes to paint on
+the client area of a window from within an EVT_PAINT() event handler.
 
-BLACK: int
+        Source: https://docs.wxpython.org/wx.PaintDC.html
+    """
+    def __init__(self, window: 'Window') -> None:
+        """ Constructor.
 
-WHITE: int
+            Source: https://docs.wxpython.org/wx.PaintDC.html
+        """
 
-BLACK: int
 
-BLACK: int
-
-BLACK: int
-
-WHITE: int
 
 class BitmapBundle:
     """ Contains representations of the same bitmap in different resolutions.
@@ -4454,17 +4604,7 @@ BU_BOTTOM: int  # Aligns the bitmap label to the bottom of the button. ^^
 
 EVT_BUTTON: int  # Process a  wxEVT_BUTTON   event, when the button is clicked. ^^
 
-BU_LEFT: int
-
-BU_TOP: int
-
-BU_RIGHT: int
-
-BU_BOTTOM: int
-
 BU_EXACTFIT: int
-
-ID_ANY: int
 
 class BitmapDataObject(DataObjectSimple):
     """ BitmapDataObject is a specialization of DataObject for bitmap
@@ -4647,10 +4787,6 @@ user.
         """
 
 
-
-EVT_TOGGLEBUTTON: int  # Handles a wxEVT_TOGGLEBUTTON event. ^^
-
-ID_ANY: int
 
 class BookCtrlBase(Control,WithImages):
     """ A book control is a convenient way of displaying multiple pages of
@@ -4935,26 +5071,6 @@ EVT_NOTEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  w
 
 EVT_NOTEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_NOTEBOOK_PAGE_CHANGING   event. This event can be vetoed. ^^
 
-NB_TOP: int
-
-NB_LEFT: int
-
-NB_RIGHT: int
-
-NB_BOTTOM: int
-
-NB_FIXEDWIDTH: int
-
-NB_MULTILINE: int
-
-NB_NOPAGETHEME: int
-
-NB_LEFT: int
-
-RIGHT: int
-
-BOTTOM: int
-
 CLIP_CHILDREN: int
 
 class Listbook(BookCtrlBase):
@@ -5004,16 +5120,6 @@ EVT_LISTBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  w
 
 EVT_LISTBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_LISTBOOK_PAGE_CHANGING   event. This event can be vetoed. ^^
 
-LB_DEFAULT: int
-
-LB_TOP: int
-
-LB_LEFT: int
-
-LB_RIGHT: int
-
-LB_BOTTOM: int
-
 class Choicebook(BookCtrlBase):
     """ Choicebook is a class similar to Notebook, but uses a Choice
 control to show the labels instead of the tabs.
@@ -5060,18 +5166,6 @@ CHB_BOTTOM: int  # Place labels below the page area. ^^
 EVT_CHOICEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGED   event.
 
 EVT_CHOICEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGING   event. This event can be vetoed (using  wx.NotifyEvent.Veto ). ^^
-
-CHB_DEFAULT: int
-
-CHB_TOP: int
-
-CHB_TOP: int
-
-CHB_LEFT: int
-
-CHB_RIGHT: int
-
-CHB_BOTTOM: int
 
 class Treebook(BookCtrlBase):
     """ This class is an extension of the Notebook class that allows a tree
@@ -5219,26 +5313,6 @@ column or several hierarchies of either.
 
 
 
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
 class Brush(GDIObject):
     """ A brush is a drawing tool for filling in areas.
 
@@ -5350,10 +5424,6 @@ class Brush(GDIObject):
 
 BRUSHSTYLE_TRANSPARENT: int
 
-BRUSHSTYLE_TRANSPARENT: int
-
-BRUSHSTYLE_TRANSPARENT: int
-
 class BrushList:
     """ A brush list is a list containing all brushes which have been created.
 
@@ -5411,10 +5481,6 @@ BUFFER_CLIENT_AREA: int
 
 BUFFER_VIRTUAL_AREA: int
 
-BUFFER_CLIENT_AREA: int
-
-BUFFER_VIRTUAL_AREA: int
-
 class BufferedPaintDC(BufferedDC):
     """ This is a subclass of BufferedDC which can be used inside of an
 EVT_PAINT() event handler to achieve double-buffered drawing.
@@ -5428,12 +5494,6 @@ EVT_PAINT() event handler to achieve double-buffered drawing.
         """
 
 
-
-BG_STYLE_PAINT: int
-
-BUFFER_CLIENT_AREA: int
-
-BUFFER_VIRTUAL_AREA: int
 
 class BusyCursor:
     """ This class makes it easy to tell your user that the program is
@@ -5562,8 +5622,6 @@ class BusyInfoFlags:
 
 ALPHA_TRANSPARENT: int
 
-ALPHA_OPAQUE: int
-
 class Button(AnyButton):
     """ A button is a control that contains a text string, and is one of the
 most common elements of a GUI.
@@ -5628,35 +5686,9 @@ most common elements of a GUI.
 
 
 
-BU_LEFT: int  # Left-justifies the label. Windows and GTK+ only.
-
-BU_TOP: int  # Aligns the label to the top of the button. Windows and GTK+ only.
-
-BU_RIGHT: int  # Right-justifies the bitmap label. Windows and GTK+ only.
-
-BU_BOTTOM: int  # Aligns the label to the bottom of the button. Windows and GTK+ only.
-
-BU_EXACTFIT: int  # By default, all buttons are made of at least the standard button size, even if their contents is small enough to fit into a smaller size. This is done for consistency as most platforms use buttons of the same size in the native dialogs, but can be overridden by specifying this flag. If it is given, the button will be made just big enough for its contents. Notice that under MSW the button will still have at least the standard height, even with this style, if it has a non-empty label.
-
 BU_NOTEXT: int  # Disables the display of the text label in the button even if it has one or its id is one of the standard stock ids with an associated label: without using this style a button which is only supposed to show a bitmap but uses a standard id would display a label too.
 
 BORDER_NONE: int  # Creates a button without border. This is currently implemented in MSW, GTK2 and OSX/Cocoa. ^^
-
-EVT_BUTTON: int  # Process a  wxEVT_BUTTON   event, when the button is clicked. ^^
-
-BU_LEFT: int
-
-BU_TOP: int
-
-BU_RIGHT: int
-
-BU_BOTTOM: int
-
-BU_EXACTFIT: int
-
-BU_NOTEXT: int
-
-BORDER_NONE: int
 
 class CallLater:
     """ A convenience class for wx.Timer, that calls the given callable
@@ -5988,18 +6020,6 @@ ALIGN_RIGHT: int  # Makes the text appear on the left of the checkbox. ^^
 
 EVT_CHECKBOX: int  # Process a  wxEVT_CHECKBOX   event, when the checkbox is clicked. ^^
 
-CHK_3STATE: int
-
-CHK_2STATE: int
-
-CHK_3STATE: int
-
-CHK_ALLOW_3RD_STATE_FOR_USER: int
-
-ALIGN_RIGHT: int
-
-ID_ANY: int
-
 CHK_UNDETERMINED: int
 
 class CheckListBox(ListBox):
@@ -6072,8 +6092,6 @@ or unchecked.
 
 
 EVT_CHECKLISTBOX: int  # Process a  wxEVT_CHECKLISTBOX   event, when an item in the check list box is checked or unchecked.  wx.CommandEvent.GetInt   will contain the index of the item that was checked or unchecked. wx.CommandEvent.IsChecked   is not valid! Use wx.CheckListBox.IsChecked   instead. ^^
-
-ID_ANY: int
 
 class ListBox(Control,ItemContainer):
     """ A listbox is used to select one or more of a list of strings.
@@ -6250,33 +6268,7 @@ EVT_LISTBOX: int  # Process a  wxEVT_LISTBOX   event, when an item on the list i
 
 EVT_LISTBOX_DCLICK: int  # Process a  wxEVT_LISTBOX_DCLICK   event, when the listbox is double-clicked. On some platforms (notably wxGTK2) pressing the enter key is handled as an equivalent of a double-click. ^^
 
-LB_SINGLE: int
-
-LB_MULTIPLE: int
-
-LB_EXTENDED: int
-
-LB_EXTENDED: int
-
-LB_HSCROLL: int
-
-LB_ALWAYS_SB: int
-
-LB_NEEDED_SB: int
-
-LB_NO_SB: int
-
-LB_SORT: int
-
 NOT_FOUND: int
-
-LB_MULTIPLE: int
-
-NOT_FOUND: int
-
-LB_OWNERDRAW: int
-
-LB_OWNERDRAW: int
 
 LB_OWNERDRAW: int
 
@@ -6392,12 +6384,6 @@ class Choice(Control,ItemContainer):
 CB_SORT: int  # Sorts the entries alphabetically. ^^
 
 EVT_CHOICE: int  # Process a  wxEVT_CHOICE   event, when an item on the list is selected. ^^
-
-CB_SORT: int
-
-ID_ANY: int
-
-NOT_FOUND: int
 
 class ClassInfo:
     """ This class stores meta-information about classes.
@@ -6885,66 +6871,6 @@ EVT_TEXT_URL: int  # A mouse event occurred over an URL in the text control.
 
 EVT_TEXT_MAXLEN: int  # This event is generated when the user tries to enter more text into the control than the limit set by wx.TextCtrl.SetMaxLength , see its description. ^^
 
-TE_PROCESS_ENTER: int
-
-TE_PROCESS_TAB: int
-
-TE_MULTILINE: int
-
-TE_PASSWORD: int
-
-TE_READONLY: int
-
-TE_RICH: int
-
-TE_RICH2: int
-
-TE_RICH2: int
-
-TE_RICH: int
-
-TE_AUTO_URL: int
-
-TE_NOHIDESEL: int
-
-HSCROLL: int
-
-TE_NO_VSCROLL: int
-
-TE_LEFT: int
-
-TE_CENTRE: int
-
-TE_RIGHT: int
-
-TE_DONTWRAP: int
-
-HSCROLL: int
-
-TE_CHARWRAP: int
-
-TE_WORDWRAP: int
-
-TE_BESTWRAP: int
-
-TE_CENTRE: int
-
-TE_RIGHT: int
-
-TE_READONLY: int
-
-TE_PASSWORD: int
-
-TE_PROCESS_ENTER: int
-
-TE_RICH2: int
-
-TE_MULTILINE: int
-
-TE_MULTILINE: int
-
-TE_MULTILINE: int
-
 class CloseEvent(Event):
     """ This event class contains information about window and session close
 events.
@@ -7107,13 +7033,7 @@ EVT_COLLAPSIBLEPANE_CHANGED: int  # The user expanded or collapsed the collapsib
 
 EVT_NAVIGATION_KEY: int  # Process a navigation key event. ^^
 
-CP_DEFAULT_STYLE: int
-
 TAB_TRAVERSAL: int
-
-BORDER_NONE: int
-
-CP_NO_TLW_RESIZE: int
 
 class CollapsiblePaneEvent(CommandEvent):
     """ This event class is used for the events generated by
@@ -7140,8 +7060,6 @@ CollapsiblePane.
         """
 
 
-
-EVT_COLLAPSIBLEPANE_CHANGED: int  # The user expanded or collapsed the collapsible pane. ^^
 
 class Colour(Object):
     """ A colour is an object representing a combination of Red, Green, and
@@ -7377,20 +7295,6 @@ determine drawing colours.
 
 
 
-ALPHA_OPAQUE: int
-
-ALPHA_OPAQUE: int
-
-Colour: int
-
-ALPHA_OPAQUE: int
-
-ALPHA_OPAQUE: int
-
-Colour: int
-
-Colour: int
-
 class ColourData(Object):
     """ This class holds a variety of information related to colour dialogs.
 
@@ -7540,18 +7444,6 @@ class ColourDialog(Dialog):
 
 
 
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
-
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
-
 class ColourDialogEvent(CommandEvent):
     """ This event class is used for the events generated by ColourDialog.
 
@@ -7631,14 +7523,6 @@ EVT_COLOURPICKER_CURRENT_CHANGED: int  # The user changed the currently selected
 
 EVT_COLOURPICKER_DIALOG_CANCELLED: int  # The user cancelled the colour dialog associated with the control, i.e. closed it without accepting the selection. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW. ^^
 
-CLRP_DEFAULT_STYLE: int
-
-CLRP_USE_TEXTCTRL: int
-
-CLRP_SHOW_LABEL: int
-
-CLRP_SHOW_ALPHA: int
-
 class ColourPickerEvent(CommandEvent):
     """ This event class is used for the events generated by
 ColourPickerCtrl.
@@ -7664,12 +7548,6 @@ ColourPickerCtrl.
         """
 
 
-
-EVT_COLOURPICKER_CHANGED: int  # Generated whenever the selected colour changes.
-
-EVT_COLOURPICKER_CURRENT_CHANGED: int  # Generated whenever the currently selected colour in the dialog shown by the picker changes. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW.
-
-EVT_COLOURPICKER_DIALOG_CANCELLED: int  # Generated when the user cancels the colour dialog associated with the control, i.e. closes it without accepting the selection. This event is new since wxWidgets 3.1.3 and currently is only implemented in wxMSW. ^^
 
 class ComboBox(Control,ItemContainer,TextEntry):
     """ A combobox is like a combination of an edit control and a listbox.
@@ -7797,39 +7675,11 @@ CB_SIMPLE: int  # Creates a combobox with a permanently displayed list. Windows 
 
 CB_DROPDOWN: int  # Creates a combobox with a drop-down list. MSW and Motif only.
 
-CB_READONLY: int  # A combobox with this style behaves like a   wx.Choice  (and may look in the same way as well, although this is platform-dependent), i.e. it allows the user to choose from the list of options but doesnât allow to enter a value not present in the list.
-
-CB_SORT: int  # Sorts the entries in the list alphabetically.
-
-TE_PROCESS_ENTER: int  # The control will generate the event  wxEVT_TEXT_ENTER   that can be handled by the program. Otherwise, i.e. either if this style not specified at all, or it is used, but there is no event handler for this event or the event handler called  wx.Event.Skip   to avoid overriding the default handling, pressing Enter key is either processed internally by the control or used to activate the default button of the dialog, if any. ^^
-
 EVT_COMBOBOX: int  # Process a  wxEVT_COMBOBOX   event, when an item on the list is selected. Note that calling  GetValue  returns the new value of selection.
-
-EVT_TEXT: int  # Process a  wxEVT_TEXT   event, when the combobox text changes.
-
-EVT_TEXT_ENTER: int  # Process a  wxEVT_TEXT_ENTER   event, when RETURN is pressed in the combobox (notice that the combobox must have been created with wx.TE_PROCESS_ENTER style to receive this event).
 
 EVT_COMBOBOX_DROPDOWN: int  # Process a  wxEVT_COMBOBOX_DROPDOWN   event, which is generated when the list box part of the combo box is shown (drops down). Notice that this event is only supported by wxMSW, wxGTK with GTK+ 2.10 or later, and OSX/Cocoa.
 
 EVT_COMBOBOX_CLOSEUP: int  # Process a  wxEVT_COMBOBOX_CLOSEUP   event, which is generated when the list box of the combo box disappears (closes up). This event is only generated for the same platforms as   wxEVT_COMBOBOX_DROPDOWN   above. ^^
-
-CB_READONLY: int
-
-CB_SIMPLE: int
-
-CB_DROPDOWN: int
-
-CB_READONLY: int
-
-CB_SORT: int
-
-TE_PROCESS_ENTER: int
-
-TE_PROCESS_ENTER: int
-
-ID_ANY: int
-
-NOT_FOUND: int
 
 class ComboCtrl(Control,TextEntry):
     """ A combo control is a generic combobox that allows totally custom
@@ -8189,47 +8039,15 @@ popup.
 
 
 
-CB_READONLY: int  # Text will not be editable.
-
-CB_SORT: int  # Sorts the entries in the list alphabetically.
-
-TE_PROCESS_ENTER: int  # The control will generate the event  wxEVT_TEXT_ENTER   (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls). Windows only.
-
 CC_SPECIAL_DCLICK: int  # Double-clicking triggers a call to popupâs OnComboDoubleClick. Actual behaviour is defined by a derived class. For instance,   wx.adv.OwnerDrawnComboBox  will cycle an item. This style only applies if wx.CB_READONLY is used as well.
 
 CC_STD_BUTTON: int  # Drop button will behave more like a standard push button. ^^
-
-EVT_TEXT: int  # Process a  wxEVT_TEXT   event, when the text changes.
-
-EVT_TEXT_ENTER: int  # Process a  wxEVT_TEXT_ENTER   event, when RETURN is pressed in the combo control.
-
-EVT_COMBOBOX_DROPDOWN: int  # Process a  wxEVT_COMBOBOX_DROPDOWN   event, which is generated when the popup window is shown (drops down).
-
-EVT_COMBOBOX_CLOSEUP: int  # Process a  wxEVT_COMBOBOX_CLOSEUP   event, which is generated when the popup window of the combo control disappears (closes up). You should avoid adding or deleting items in this event. ^^
-
-CB_READONLY: int
-
-CB_SORT: int
-
-TE_PROCESS_ENTER: int
-
-CC_SPECIAL_DCLICK: int
-
-CB_READONLY: int
-
-CC_STD_BUTTON: int
-
-ID_ANY: int
 
 CONTROL_ISSUBMENU: int
 
 CONTROL_SELECTED: int
 
 CONTROL_DISABLED: int
-
-LEFT: int
-
-RIGHT: int
 
 class ComboCtrlFeatures:
     """ Features enabled for ComboCtrl.
@@ -8490,20 +8308,6 @@ EVT_COMMAND: int  # Process a command, supplying the window identifier, command 
 
 EVT_COMMAND_RANGE: int  # Process a command for a range of window identifiers, supplying the minimum and maximum window identifiers, command event identifier, and member function.
 
-EVT_BUTTON: int  # Process a  wxEVT_BUTTON   command, which is generated by a    wx.Button  control.
-
-EVT_CHECKBOX: int  # Process a  wxEVT_CHECKBOX   command, which is generated by a    wx.CheckBox  control.
-
-EVT_CHOICE: int  # Process a  wxEVT_CHOICE   command, which is generated by a    wx.Choice  control.
-
-EVT_COMBOBOX: int  # Process a  wxEVT_COMBOBOX   command, which is generated by a    wx.ComboBox  control.
-
-EVT_LISTBOX: int  # Process a  wxEVT_LISTBOX   command, which is generated by a    wx.ListBox  control.
-
-EVT_LISTBOX_DCLICK: int  # Process a  wxEVT_LISTBOX_DCLICK   command, which is generated by a    wx.ListBox  control.
-
-EVT_CHECKLISTBOX: int  # Process a  wxEVT_CHECKLISTBOX   command, which is generated by a    wx.CheckListBox  control.
-
 EVT_MENU: int  # Process a  wxEVT_MENU   command, which is generated by a menu item.
 
 EVT_MENU_RANGE: int  # Process a  wxEVT_MENU   command, which is generated by a range of menu items.
@@ -8517,14 +8321,6 @@ EVT_RADIOBUTTON: int  # Process a  wxEVT_RADIOBUTTON   command, which is generat
 EVT_SCROLLBAR: int  # Process a  wxEVT_SCROLLBAR   command, which is generated by a    wx.ScrollBar  control. This is provided for compatibility only; more specific scrollbar event macros should be used instead (see   wx.ScrollEvent).
 
 EVT_SLIDER: int  # Process a  wxEVT_SLIDER   command, which is generated by a    wx.Slider  control.
-
-EVT_TEXT: int  # Process a  wxEVT_TEXT   command, which is generated by a    wx.TextCtrl  control.
-
-EVT_TEXT_ENTER: int  # Process a  wxEVT_TEXT_ENTER   command, which is generated by a    wx.TextCtrl  control. Note that you must use wx.TE_PROCESS_ENTER flag when creating the control if you want it to generate such events.
-
-EVT_TEXT_MAXLEN: int  # Process a  wxEVT_TEXT_MAXLEN   command, which is generated by a    wx.TextCtrl  control when the user tries to enter more characters into it than the limit previously set with SetMaxLength().
-
-EVT_TOGGLEBUTTON: int  # Process a  wxEVT_TOGGLEBUTTON   event.
 
 EVT_TOOL: int  # Process a  wxEVT_TOOL   event (a synonym for   wxEVT_MENU ). Pass the id of the tool.
 
@@ -8547,8 +8343,6 @@ EVT_COMMAND_SET_FOCUS: int  # Process a  wxEVT_COMMAND_SET_FOCUS   command, whic
 EVT_COMMAND_KILL_FOCUS: int  # Process a  wxEVT_COMMAND_KILL_FOCUS   command, which is generated by a control (wxMSW only).
 
 EVT_COMMAND_ENTER: int  # Process a  wxEVT_COMMAND_ENTER   command, which is generated by a control. ^^
-
-TE_PROCESS_ENTER: int
 
 class CommandProcessor(Object):
     """ CommandProcessor is a class that maintains a history of Commands,
@@ -9019,8 +8813,6 @@ a âcontext-sensitive help modeâ.
 
 DIALOG_EX_CONTEXTHELP: int
 
-DIALOG_EX_CONTEXTHELP: int
-
 class ContextHelpButton(BitmapButton):
     """ Instances of this class may be used to add a question mark button that
 when pressed, puts the application into context-help mode.
@@ -9041,12 +8833,6 @@ when pressed, puts the application into context-help mode.
         """
 
 
-
-DIALOG_EX_CONTEXTHELP: int
-
-OK: int
-
-ID_CONTEXT_HELP: int
 
 class ContextMenuEvent(CommandEvent):
     """ This class is used for context menu events, sent to give the
@@ -9073,8 +8859,6 @@ application a chance to show a context (popup) menu for a Window.
         """
 
 
-
-EVT_CONTEXT_MENU: int  # A right click (or other context menu command depending on platform) has been detected. ^^
 
 class Window(EvtHandler):
     """ Window is the base class for all windows and represents any visible
@@ -10731,13 +10515,9 @@ BORDER_STATIC: int  # Displays a border suitable for a static control. wx.STATIC
 
 BORDER_THEME: int  # Displays a native border suitable for a control, on the current platform. On Windows, this will be a themed border; on most other platforms a sunken border will be used. For more information for themed borders on Windows, please see Themed borders on Windows.
 
-BORDER_NONE: int  # Displays no border, overriding the default border style for the window. wx.NO_BORDER is the old name for this style.
-
 BORDER_DOUBLE: int  # This style is obsolete and should not be used.
 
 TRANSPARENT_WINDOW: int  # The window is transparent, that is, it will not receive paint events. Windows only.
-
-TAB_TRAVERSAL: int  # This style is used by wxWidgets for the windows supporting TAB navigation among their children, such as   wx.Dialog  and   wx.Panel. It should almost never be used in the application code.
 
 WANTS_CHARS: int  # Use this to indicate that the window wants to get all char/key events for all keys - even for keys like TAB or ENTER which are usually used for dialog navigation and which wouldnât be generated without this style. If you need to use this style in order to get the arrows or etc., but would still like to have normal keyboard navigation take place, you should call Navigate in response to the key events for Tab and Shift-Tab.
 
@@ -10745,19 +10525,9 @@ NO_FULL_REPAINT_ON_RESIZE: int  # On Windows, this style used to disable repaint
 
 VSCROLL: int  # Use this style to enable a vertical scrollbar. Notice that this style cannot be used with native controls which donât support scrollbars nor with top-level windows in most ports.
 
-HSCROLL: int  # Use this style to enable a horizontal scrollbar. The same limitations as for wx.VSCROLL apply to this style.
-
 ALWAYS_SHOW_SB: int  # If a window has scrollbars, disable them instead of hiding them when they are not needed (i.e. when the size of the window is big enough to not require the scrollbars to navigate it). This style is currently implemented for wxMSW, wxGTK and wxUniversal and does nothing on the other platforms.
 
-CLIP_CHILDREN: int  # Use this style to eliminate flicker caused by the background being repainted, then children being painted over them. Windows only.
-
 FULL_REPAINT_ON_RESIZE: int  # Use this style to force a complete redraw of the window whenever it is resized instead of redrawing just the part of the window affected by resizing. Note that this was the behaviour by default before 2.5.1 release and that if you experience redraw problems with code which previously used to work you may want to try this. Currently this style applies on GTK+ 2 and Windows only, and full repainting is always done on other platforms. ^^
-
-EVT_ACTIVATE: int  # Process a  wxEVT_ACTIVATE   event. See    wx.ActivateEvent.
-
-EVT_CHILD_FOCUS: int  # Process a  wxEVT_CHILD_FOCUS   event. See    wx.ChildFocusEvent.
-
-EVT_CONTEXT_MENU: int  # A right click (or other context menu command depending on platform) has been detected. See   wx.ContextMenuEvent.
 
 EVT_HELP: int  # Process a  wxEVT_HELP   event. See    wx.HelpEvent.
 
@@ -10793,51 +10563,15 @@ EVT_SIZE: int  # Process a  wxEVT_SIZE   event. See    wx.SizeEvent.
 
 EVT_SYS_COLOUR_CHANGED: int  # Process a  wxEVT_SYS_COLOUR_CHANGED   event. See    wx.SysColourChangedEvent. ^^
 
-BORDER_DEFAULT: int
-
-BORDER_SIMPLE: int
-
 SIMPLE_BORDER: int
-
-BORDER_SUNKEN: int
 
 SUNKEN_BORDER: int
 
-BORDER_RAISED: int
-
 RAISED_BORDER: int
-
-BORDER_STATIC: int
 
 STATIC_BORDER: int
 
-BORDER_THEME: int
-
-BORDER_NONE: int
-
 NO_BORDER: int
-
-BORDER_DOUBLE: int
-
-TRANSPARENT_WINDOW: int
-
-TAB_TRAVERSAL: int
-
-WANTS_CHARS: int
-
-NO_FULL_REPAINT_ON_RESIZE: int
-
-VSCROLL: int
-
-HSCROLL: int
-
-VSCROLL: int
-
-ALWAYS_SHOW_SB: int
-
-CLIP_CHILDREN: int
-
-FULL_REPAINT_ON_RESIZE: int
 
 WS_EX_BLOCK_EVENTS: int
 
@@ -10851,49 +10585,9 @@ WS_EX_PROCESS_UI_UPDATES: int
 
 BORDER_MASK: int
 
-BORDER_DEFAULT: int
-
-ID_ANY: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
-
-ID_CANCEL: int
-
 TOUCH_NONE: int
 
 TOUCH_ALL_GESTURES: int
-
-BORDER_MASK: int
-
-BORDER_DEFAULT: int
-
-ID_ANY: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-TE_PROCESS_TAB: int
-
-ID_NONE: int
 
 MOD_SHIFT: int
 
@@ -10902,14 +10596,6 @@ MOD_CONTROL: int
 MOD_ALT: int
 
 MOD_WIN: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
 
 UPDATE_UI_FROMIDLE: int
 
@@ -11007,14 +10693,6 @@ class Control(Window):
         """
 
 
-
-EVT_TEXT_COPY: int  # Some or all of the controls content was copied to the clipboard.
-
-EVT_TEXT_CUT: int  # Some or all of the controls content was cut (i.e. copied and deleted).
-
-EVT_TEXT_PASTE: int  # Clipboard content was pasted into the control. ^^
-
-ID_ANY: int
 
 class ControlWithItems(Control,ItemContainer):
     """ This is convenience class that derives from both Control and
@@ -11128,8 +10806,6 @@ Choice.
         """
 
 
-
-OK: int
 
 class Cursor(GDIObject):
     """ A cursor is a small bitmap usually used for denoting where the mouse
@@ -13124,58 +12800,10 @@ NO_3D: int  # This style is obsolete and doesnât do anything any more, don�
 
 DIALOG_NO_PARENT: int  # By default, a dialog created with a None parent window will be given the applicationâs top level window  as parent. Use this style to prevent this from happening and create an orphan dialog. This is not recommended for modal dialogs.
 
-DIALOG_EX_CONTEXTHELP: int  # Under Windows, puts a query button on the caption. When pressed, Windows will go into a context-sensitive help mode and wxWidgets will send a  wxEVT_HELP   event if the user clicked on an application window. Note that this is an extended style and must be set by calling  SetExtraStyle  before Create is called (two-step construction).
-
 DIALOG_EX_METAL: int  # On macOS, frames with this style will be shown with a metallic look. This is an extra style. ^^
-
-EVT_CLOSE: int  # The dialog is being closed by the user or programmatically (see wx.Window.Close ). The user may generate this event clicking the close button (typically the âXâ on the top-right of the title bar) if itâs present (see the  CLOSE_BOX   style).
 
 EVT_INIT_DIALOG: int  # Process a  wxEVT_INIT_DIALOG   event. See    wx.InitDialogEvent. ^^
 
-ID_OK: int
-
-ID_CANCEL: int
-
-CAPTION: int
-
-DEFAULT_DIALOG_STYLE: int
-
-CAPTION: int
-
-CLOSE_BOX: int
-
-SYSTEM_MENU: int
-
-RESIZE_BORDER: int
-
-SYSTEM_MENU: int
-
-CLOSE_BOX: int
-
-MAXIMIZE_BOX: int
-
-MINIMIZE_BOX: int
-
-STAY_ON_TOP: int
-
-DIALOG_NO_PARENT: int
-
-DIALOG_EX_CONTEXTHELP: int
-
-DIALOG_EX_METAL: int
-
-OK: int
-
-OK: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
-
-OK: int
-
 CANCEL: int
 
 YES: int
@@ -13189,38 +12817,6 @@ CLOSE: int
 HELP: int
 
 NO_DEFAULT: int
-
-OK: int
-
-CANCEL: int
-
-YES: int
-
-NO: int
-
-APPLY: int
-
-CLOSE: int
-
-HELP: int
-
-NO_DEFAULT: int
-
-OK: int
-
-OK: int
-
-OK: int
-
-OK: int
-
-ID_OK: int
-
-ID_ANY: int
-
-ID_CANCEL: int
-
-ID_NONE: int
 
 class DialogLayoutAdapter:
     """ This abstract class is the base for classes that help wxWidgets
@@ -13314,32 +12910,6 @@ DD_MULTIPLE: int  # Allow the user to select multiple directories. This flag is 
 
 DD_SHOW_HIDDEN: int  # Show hidden and system folders. This flag is only available since wxWidgets 3.1.4 ^^
 
-DD_DEFAULT_STYLE: int
-
-DEFAULT_DIALOG_STYLE: int
-
-RESIZE_BORDER: int
-
-DD_DIR_MUST_EXIST: int
-
-DD_CHANGE_DIR: int
-
-DD_MULTIPLE: int
-
-DD_SHOW_HIDDEN: int
-
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
-
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
-
 class DirFilterListCtrl(Choice):
     """  Overloaded Implementations:
 
@@ -13426,22 +12996,6 @@ DIRP_CHANGE_DIR: int  # Change current working directory on each user directory 
 DIRP_SMALL: int  # Use smaller version of the control with a small ââ¦â button instead of the normal âBrowseâ one. This flag is new since wxWidgets 2.9.3. ^^
 
 EVT_DIRPICKER_CHANGED: int  # The user changed the directory selected in the control either using the button or using text control (see wx.DIRP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, e.g. an existing directory path). ^^
-
-DIRP_DEFAULT_STYLE: int
-
-DIRP_DIR_MUST_EXIST: int
-
-DIRP_USE_TEXTCTRL: int
-
-DIRP_USE_TEXTCTRL: int
-
-DIRP_DIR_MUST_EXIST: int
-
-DIRP_CHANGE_DIR: int
-
-DIRP_SMALL: int
-
-DIRP_USE_TEXTCTRL: int
 
 class Display:
     """ Determines the sizes and locations of displays connected to the
@@ -13678,8 +13232,6 @@ been dropped onto the window.
 
 
 
-EVT_DROP_FILES: int  # Process a  wxEVT_DROP_FILES   event. ^^
-
 class DropSource:
     """ This class represents a source for a drag and drop operation.
 
@@ -13821,8 +13373,6 @@ repainted.
         """
 
 
-
-EVT_ERASE_BACKGROUND: int  # Process a  wxEVT_ERASE_BACKGROUND   event. ^^
 
 class Event(Object):
     """ An event is a structure holding information about an event passed to a
@@ -14538,24 +14088,6 @@ EVT_FILECTRL_FOLDERCHANGED: int  # The current folder of the file control has be
 
 EVT_FILECTRL_FILTERCHANGED: int  # The current file filter of the file control has been changed.
 
-FC_DEFAULT_STYLE: int
-
-FC_OPEN: int
-
-FC_OPEN: int
-
-FC_SAVE: int
-
-FC_SAVE: int
-
-FC_OPEN: int
-
-FC_MULTIPLE: int
-
-FC_SAVE: int
-
-FC_NOSHOWHIDDEN: int
-
 class FileCtrlEvent(CommandEvent):
     """ A file control event holds information about events associated with
 FileCtrl objects.
@@ -14611,14 +14143,6 @@ FileCtrl objects.
         """
 
 
-
-EVT_FILECTRL_FILEACTIVATED: int  # The user activated a file(by double-clicking or pressing Enter)
-
-EVT_FILECTRL_SELECTIONCHANGED: int  # The user changed the current selection(by selecting or deselecting a file)
-
-EVT_FILECTRL_FOLDERCHANGED: int  # The current folder of the file control has been changed
-
-EVT_FILECTRL_FILTERCHANGED: int  # The current file filter of the file control has been changed ^^
 
 class FileDataObject(DataObjectSimple):
     """ FileDataObject is a specialization of DataObject for file names.
@@ -14798,49 +14322,13 @@ GetPath for the others.
 
 FD_DEFAULT_STYLE: int  # Equivalent to  FD_OPEN .
 
-FD_OPEN: int  # This is an open dialog; usually this means that the default buttonâs label of the dialog is âOpenâ. Cannot be combined with  FD_SAVE .
-
-FD_SAVE: int  # This is a save dialog; usually this means that the default buttonâs label of the dialog is âSaveâ. Cannot be combined with  FD_OPEN .
-
-FD_OVERWRITE_PROMPT: int  # For save dialog only: prompt for a confirmation if a file will be overwritten. This style is always enabled on wxOSX and cannot be disabled.
-
 FD_NO_FOLLOW: int  # Directs the dialog to return the path and file name of the selected shortcut file, not its target as it does by default. Currently this flag is only implemented in wxMSW and wxOSX (where it prevents aliases from being resolved). The non-dereferenced link path is always returned, even without this flag, under Unix and so using it there doesnât do anything. This flag was added in wxWidgets 3.1.0.
-
-FD_FILE_MUST_EXIST: int  # For open dialog only: the user may only select files that actually exist. Notice that under macOS the file dialog with  FD_OPEN   style always behaves as if this style was specified, because it is impossible to choose a file that doesnât exist from a standard macOS file dialog.
-
-FD_MULTIPLE: int  # For open dialog only: allows selecting multiple files.
 
 FD_CHANGE_DIR: int  # Change the current working directory (when the dialog is dismissed) to the directory where the file(s) chosen by the user are.
 
 FD_PREVIEW: int  # Show the preview of the selected files (currently only supported by wxGTK).
 
 FD_SHOW_HIDDEN: int  # Show hidden files. This flag was added in wxWidgets 3.1.3 ^^
-
-FD_DEFAULT_STYLE: int
-
-FD_OPEN: int
-
-FD_SAVE: int
-
-FD_OVERWRITE_PROMPT: int
-
-FD_NO_FOLLOW: int
-
-FD_FILE_MUST_EXIST: int
-
-FD_MULTIPLE: int
-
-FD_CHANGE_DIR: int
-
-FD_PREVIEW: int
-
-FD_SHOW_HIDDEN: int
-
-OK: int
-
-NOT_FOUND: int
-
-OK: int
 
 class FileDialogButton(FileDialogCustomControl):
     """ Represents a custom button inside FileDialog.
@@ -14886,10 +14374,6 @@ class FileDialogChoice(FileDialogCustomControl):
         """
 
 
-
-NOT_FOUND: int
-
-NOT_FOUND: int
 
 class FileDialogCustomControl(EvtHandler):
     """ The base class for all FileDialog custom controls.
@@ -15070,8 +14554,6 @@ and by DirPickerCtrl.
 
 EVT_FILEPICKER_CHANGED: int  # Generated whenever the selected file changes.
 
-EVT_DIRPICKER_CHANGED: int  # Generated whenever the selected directory changes. ^^
-
 class FilePickerCtrl(PickerBase):
     """ This control allows the user to select a file.
 
@@ -15131,38 +14613,6 @@ FLP_FILE_MUST_EXIST: int  # Can be combined with wx.FLP_OPEN only: the file sele
 FLP_CHANGE_DIR: int  # Change current working directory on each user file selection change.
 
 FLP_SMALL: int  # Use smaller version of the control with a small ââ¦â button instead of the normal âBrowseâ one. This flag is new since wxWidgets 2.9.3. ^^
-
-EVT_FILEPICKER_CHANGED: int  # The user changed the file selected in the control either using the button or using text control (see wx.FLP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, e.g. an existing file path if wx.FLP_FILE_MUST_EXIST was given). ^^
-
-FLP_DEFAULT_STYLE: int
-
-FLP_OPEN: int
-
-FLP_FILE_MUST_EXIST: int
-
-FLP_USE_TEXTCTRL: int
-
-FLP_USE_TEXTCTRL: int
-
-FLP_OPEN: int
-
-FLP_SAVE: int
-
-FLP_OVERWRITE_PROMPT: int
-
-FLP_SAVE: int
-
-FLP_FILE_MUST_EXIST: int
-
-FLP_OPEN: int
-
-FLP_CHANGE_DIR: int
-
-FLP_SMALL: int
-
-FLP_USE_TEXTCTRL: int
-
-FLP_FILE_MUST_EXIST: int
 
 class FileDropTarget(DropTarget):
     """ This is a drop target which accepts files (dragged from File Manager
@@ -15294,8 +14744,6 @@ menu).
         """
 
 
-
-ID_FILE1: int
 
 class FileSystem(Object):
     """ This class provides an interface for opening files on different file
@@ -16063,12 +15511,6 @@ the GridSizer.
 
 
 
-VERTICAL: int
-
-HORIZONTAL: int
-
-BOTH: int
-
 FLEX_GROWMODE_NONE: int
 
 FLEX_GROWMODE_SPECIFIED: int
@@ -16193,10 +15635,6 @@ class FocusEvent(Event):
         """
 
 
-
-EVT_SET_FOCUS: int  # Process a  wxEVT_SET_FOCUS   event.
-
-EVT_KILL_FOCUS: int  # Process a  wxEVT_KILL_FOCUS   event. ^^
 
 class Font(GDIObject):
     """ A font is an object which determines the appearance of text.
@@ -16680,14 +16118,6 @@ class FontData(Object):
 
 
 
-OK: int
-
-ID_OK: int
-
-OK: int
-
-ID_OK: int
-
 class FontDialog(Dialog):
     """ This class represents the font chooser dialog.
 
@@ -16725,8 +16155,6 @@ class FontDialog(Dialog):
         """
 
 
-
-OK: int
 
 class FontEnumerator:
     """ FontEnumerator enumerates either all available fonts on the system
@@ -17121,22 +16549,6 @@ FNTP_USEFONT_FOR_LABEL: int  # Uses the currently selected font to draw the labe
 
 EVT_FONTPICKER_CHANGED: int  # The user changed the font selected in the control either using the button or using text control (see wx.FNTP_USE_TEXTCTRL; note that in this case the event is fired only if the userâs input is valid, i.e. recognizable). ^^
 
-FNTP_DEFAULT_STYLE: int
-
-FNTP_FONTDESC_AS_LABEL: int
-
-FNTP_USEFONT_FOR_LABEL: int
-
-FNTP_USE_TEXTCTRL: int
-
-FNTP_FONTDESC_AS_LABEL: int
-
-FNTP_USEFONT_FOR_LABEL: int
-
-FNTP_USE_TEXTCTRL: int
-
-FNTP_USE_TEXTCTRL: int
-
 class FontPickerEvent(CommandEvent):
     """ This event class is used for the events generated by FontPickerCtrl.
 
@@ -17161,8 +16573,6 @@ class FontPickerEvent(CommandEvent):
         """
 
 
-
-EVT_FONTPICKER_CHANGED: int  # Generated whenever the selected font changes. ^^
 
 class Frame(TopLevelWindow):
     """ A frame is a window whose size and position can (usually) be changed
@@ -17315,23 +16725,9 @@ DEFAULT_FRAME_STYLE: int  # Defined as wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RE
 
 ICONIZE: int  # Display the frame iconized (minimized). Windows only.
 
-CAPTION: int  # Puts a caption on the frame. Notice that this flag is required by wx.MINIMIZE_BOX, wx.MAXIMIZE_BOX and wx.CLOSE_BOX on most systems as the corresponding buttons cannot be shown if the window has no title bar at all. I.e. if wx.CAPTION is not specified those styles would be simply ignored.
-
 MINIMIZE: int  # Identical to wx.ICONIZE. Windows only.
 
-MINIMIZE_BOX: int  # Displays a minimize box on the frame.
-
 MAXIMIZE: int  # Displays the frame maximized. Windows and GTK+ only.
-
-MAXIMIZE_BOX: int  # Displays a maximize box on the frame. Notice that under wxGTK wx.RESIZE_BORDER must be used as well or this style is ignored.
-
-CLOSE_BOX: int  # Displays a close box on the frame.
-
-STAY_ON_TOP: int  # Stay on top of all other windows, see also wx.FRAME_FLOAT_ON_PARENT.
-
-SYSTEM_MENU: int  # Displays a system menu containing the list of various windows commands in the window title bar. Unlike wx.MINIMIZE_BOX, wx.MAXIMIZE_BOX and wx.CLOSE_BOX styles this style can be used without wx.CAPTION, at least under Windows, and makes the system menu available without showing it on screen in this case. However it is recommended to only use it together with wx.CAPTION for consistent behaviour under all platforms.
-
-RESIZE_BORDER: int  # Displays a resizable border around the window.
 
 FRAME_TOOL_WINDOW: int  # Causes a frame with a small title bar to be created; the frame does not appear in the taskbar under Windows or GTK+.
 
@@ -17340,8 +16736,6 @@ FRAME_NO_TASKBAR: int  # Creates an otherwise normal frame but it does not appea
 FRAME_FLOAT_ON_PARENT: int  # The frame will always be on top of its parent (unlike wx.STAY_ON_TOP). A frame created with this style must have a not None parent.
 
 FRAME_SHAPED: int  # Windows with this style are allowed to have their shape changed with the SetShape  method. ^^
-
-EVT_CLOSE: int  # Process a  wxEVT_CLOSE_WINDOW   event when the frame is being closed by the user or programmatically (see  wx.Window.Close ). The user may generate this event clicking the close button (typically the âXâ on the top-right of the title bar) if itâs present (see the  CLOSE_BOX   style). See    wx.CloseEvent.
 
 EVT_ICONIZE: int  # Process a  wxEVT_ICONIZE   event. See    wx.IconizeEvent.
 
@@ -17353,95 +16747,9 @@ EVT_MENU_HIGHLIGHT: int  # The menu item with the specified id has been highligh
 
 EVT_MENU_HIGHLIGHT_ALL: int  # A menu item has been highlighted, i.e. the currently selected menu item has changed. See   wx.MenuEvent. ^^
 
-DEFAULT_FRAME_STYLE: int
-
-MINIMIZE_BOX: int
-
-MAXIMIZE_BOX: int
-
-RESIZE_BORDER: int
-
-SYSTEM_MENU: int
-
-CAPTION: int
-
-CLOSE_BOX: int
-
-CLIP_CHILDREN: int
-
-ICONIZE: int
-
-CAPTION: int
-
-MINIMIZE_BOX: int
-
-MAXIMIZE_BOX: int
-
-CLOSE_BOX: int
-
-CAPTION: int
-
-MINIMIZE: int
-
-ICONIZE: int
-
-MINIMIZE_BOX: int
-
-MAXIMIZE: int
-
-MAXIMIZE_BOX: int
-
-RESIZE_BORDER: int
-
-CLOSE_BOX: int
-
-STAY_ON_TOP: int
-
-FRAME_FLOAT_ON_PARENT: int
-
-SYSTEM_MENU: int
-
-MINIMIZE_BOX: int
-
-MAXIMIZE_BOX: int
-
-CLOSE_BOX: int
-
-CAPTION: int
-
-CAPTION: int
-
-RESIZE_BORDER: int
-
-FRAME_TOOL_WINDOW: int
-
-FRAME_NO_TASKBAR: int
-
-MINIMIZE_BOX: int
-
-FRAME_FLOAT_ON_PARENT: int
-
-STAY_ON_TOP: int
-
-FRAME_SHAPED: int
-
 FRAME_EX_CONTEXTHELP: int
 
-MAXIMIZE_BOX: int
-
-MINIMIZE_BOX: int
-
-DEFAULT_FRAME_STYLE: int
-
-MAXIMIZE_BOX: int
-
 FRAME_EX_METAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
 
 class FSFile(Object):
     """ This class represents a single file opened by FileSystem.
@@ -17586,16 +16894,6 @@ GA_TEXT: int  # Display the current value in percents in the gauge itself. This 
 
 GA_PROGRESS: int  # Reflect the value of gauge in the application taskbar button under Windows 7 and later and the dock icon under macOS, ignored under the other platforms. This flag is only available in wxWidgets 3.1.0 and later. ^^
 
-GA_HORIZONTAL: int
-
-GA_VERTICAL: int
-
-GA_SMOOTH: int
-
-GA_TEXT: int
-
-GA_PROGRESS: int
-
 class GBPosition:
     """ This class represents the position of an item in a virtual grid of
 rows and columns managed by a GridBagSizer.
@@ -17711,12 +17009,6 @@ rows and columns managed by a GridBagSizer.
         """
 
 
-
-GBPosition: int
-
-GBPosition: int
-
-GBPosition: int
 
 class GridBagSizer(FlexGridSizer):
     """ A Sizer that can lay out items in a virtual grid like a
@@ -18001,12 +17293,6 @@ items in a GridBagSizer.
         """
 
 
-
-GBSpan: int
-
-GBSpan: int
-
-GBSpan: int
 
 class GCDC(DC):
     """ GCDC is a device context that draws on a GraphicsContext.
@@ -18601,10 +17887,6 @@ class Pen(GDIObject):
 
 PENSTYLE_TRANSPARENT: int
 
-PENSTYLE_TRANSPARENT: int
-
-PENSTYLE_TRANSPARENT: int
-
 class GenericDirCtrl(Control):
     """ This control can be used to place a directory listing (with optional
 files) on an arbitrary window.
@@ -18785,20 +18067,6 @@ DIRCTRL_MULTIPLE: int  # Allows multiple files and folders to be selected. ^^
 EVT_DIRCTRL_SELECTIONCHANGED: int  # Selected directory has changed. Processes a  wxEVT_DIRCTRL_SELECTIONCHANGED   event type. Notice that this event is generated even for the changes done by the program itself and not only those done by the user. Available since wxWidgets 2.9.5.
 
 EVT_DIRCTRL_FILEACTIVATED: int  # The user activated a file by double-clicking or pressing Enter. Available since wxWidgets 2.9.5. ^^
-
-DIRCTRL_DIR_ONLY: int
-
-DIRCTRL_3D_INTERNAL: int
-
-DIRCTRL_SELECT_FIRST: int
-
-DIRCTRL_SHOW_FILTERS: int
-
-DIRCTRL_EDIT_LABELS: int
-
-DIRCTRL_MULTIPLE: int
-
-DIRCTRL_MULTIPLE: int
 
 class GenericDragImage(Object):
     """ This class is used when you wish to drag an object on the screen, and
@@ -19009,15 +18277,7 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
 
 
 
-OK: int  # Puts an Ok button in the message box. May be combined with  CANCEL .
-
-CANCEL: int  # Puts a Cancel button in the message box. Must be combined with either  OK   or   YES_NO .
-
 YES_NO: int  # Puts Yes and No buttons in the message box. It is recommended to always use  CANCEL   with this style as otherwise the message box wonât have a close button under wxMSW and the user will be forced to answer it.
-
-HELP: int  # Puts a Help button to the message box. This button can have special appearance or be specially positioned if its label is not changed from the default one. Notice that using this button is not supported when showing a message box from non-main thread in OSX/Cocoa. Available since wxWidgets 2.9.3.
-
-NO_DEFAULT: int  # Makes the âNoâ button default, can only be used with  YES_NO .
 
 CANCEL_DEFAULT: int  # Makes the âCancelâ button default, can only be used with  CANCEL . This style is currently not supported (and ignored) in wxOSX.
 
@@ -19041,83 +18301,7 @@ ICON_HAND: int  # Alias for  ICON_ERROR .
 
 ICON_AUTH_NEEDED: int  # Displays an authentication needed symbol. This style is only supported for message dialogs under wxMSW when a task dialog is used to implement them (i.e. when running under Windows Vista or later). In other cases the default icon selection logic will be used. Note this can be combined with other styles to provide a fallback. For instance, using wx.ICON_AUTH_NEEDED | wx.ICON_QUESTION will show a shield symbol on Windows Vista or above and a question symbol on other platforms. Available since wxWidgets 2.9.5
 
-STAY_ON_TOP: int  # Makes the message box stay on top of all other windows and not only just its parent (currently implemented only under MSW and GTK).
-
 CENTRE: int  # Centre the message box on its parent or on the screen if parent is not specified. Setting this style under MSW makes no differences as the dialog is always centered on the parent. ^^
-
-OK: int
-
-OK: int
-
-CANCEL: int
-
-YES_NO: int
-
-HELP: int
-
-NO_DEFAULT: int
-
-CANCEL_DEFAULT: int
-
-YES_DEFAULT: int
-
-OK_DEFAULT: int
-
-OK: int
-
-ICON_NONE: int
-
-ICON_ERROR: int
-
-ICON_WARNING: int
-
-ICON_QUESTION: int
-
-ICON_INFORMATION: int
-
-ICON_EXCLAMATION: int
-
-ICON_HAND: int
-
-ICON_AUTH_NEEDED: int
-
-ICON_AUTH_NEEDED: int
-
-ICON_QUESTION: int
-
-STAY_ON_TOP: int
-
-CENTRE: int
-
-OK: int
-
-OK: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
-ID_HELP: int
-
-OK: int
-
-OK: int
-
-OK: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
-ID_HELP: int
 
 class GenericProgressDialog(Dialog):
     """ This class represents a dialog that shows a short message and a
@@ -19209,22 +18393,6 @@ PD_ELAPSED_TIME: int  # This flag tells the dialog that it should show elapsed t
 PD_ESTIMATED_TIME: int  # This flag tells the dialog that it should show estimated time.
 
 PD_REMAINING_TIME: int  # This flag tells the dialog that it should show remaining time. ^^
-
-PD_APP_MODAL: int
-
-PD_AUTO_HIDE: int
-
-PD_SMOOTH: int
-
-PD_CAN_ABORT: int
-
-PD_CAN_SKIP: int
-
-PD_ELAPSED_TIME: int
-
-PD_ESTIMATED_TIME: int
-
-PD_REMAINING_TIME: int
 
 class GestureEvent(Event):
     """ This is the base class for all supported gesture events.
@@ -20311,21 +19479,11 @@ code like this:
 
 
 
-TOP: int
-
-BOTTOM: int
-
-LEFT: int
-
-RIGHT: int
-
 ALL: int
 
 EXPAND: int
 
 SHAPED: int
-
-FIXED_MINSIZE: int
 
 FIXED_MINSIZE: int
 
@@ -20336,10 +19494,6 @@ ALIGN_CENTER: int
 ALIGN_CENTRE: int
 
 ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_RIGHT: int
 
 ALIGN_TOP: int
 
@@ -20479,12 +19633,6 @@ DataViewCtrl or Grid.
 
 
 
-ALIGN_CENTRE: int
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
 COL_WIDTH_DEFAULT: int
 
 COL_WIDTH_AUTOSIZE: int
@@ -20492,8 +19640,6 @@ COL_WIDTH_AUTOSIZE: int
 COL_HIDDEN: int
 
 COL_REORDERABLE: int
-
-COL_HIDDEN: int
 
 COL_SORTABLE: int
 
@@ -20782,30 +19928,6 @@ EVT_HEADER_END_REORDER: int  # The user dropped the column in its new location. 
 
 EVT_HEADER_DRAGGING_CANCELLED: int  # The resizing or reordering operation currently in progress was cancelled. This can happen if the user pressed Esc key while dragging the mouse or the mouse capture was lost for some other reason. You only need to handle this event if your application entered into some modal mode when resizing or reordering began, in which case it should handle this event in addition to the matching end resizing or reordering ones. ^^
 
-HD_ALLOW_REORDER: int
-
-HD_ALLOW_HIDE: int
-
-HD_BITMAP_ON_RIGHT: int
-
-HD_DEFAULT_STYLE: int
-
-HD_ALLOW_REORDER: int
-
-HD_ALLOW_REORDER: int
-
-HD_ALLOW_REORDER: int
-
-HD_ALLOW_HIDE: int
-
-HD_ALLOW_REORDER: int
-
-HD_ALLOW_HIDE: int
-
-HD_ALLOW_HIDE: int
-
-HD_ALLOW_REORDER: int
-
 class HeaderCtrlEvent(NotifyEvent):
     """ Event class representing the events generated by HeaderCtrl.
 
@@ -20924,8 +20046,6 @@ HeaderCtrl itself.
         """
 
 
-
-COL_HIDDEN: int
 
 class HelpControllerBase(Object):
     """ This is the abstract base class a family of classes by which
@@ -21149,10 +20269,6 @@ help.
 
 
 
-EVT_HELP: int  # Process a  wxEVT_HELP   event.
-
-EVT_HELP_RANGE: int  # Process a  wxEVT_HELP   event for a range of ids. ^^
-
 class HScrolledWindow(Panel,VarHScrollHelper):
     """ In the name of this class, âHâ stands for âhorizontalâ because it can
 be used for scrolling columns of variable widths.
@@ -21179,8 +20295,6 @@ be used for scrolling columns of variable widths.
         """
 
 
-
-ID_ANY: int
 
 class HTMLDataObject(DataObjectSimple):
     """ HTMLDataObject is used for working with HTML-formatted text.
@@ -21246,8 +20360,6 @@ horizontal, variable scrolled windows.
         """
 
 
-
-ID_ANY: int
 
 class Icon(GDIObject):
     """ An icon is a small rectangular bitmap usually used for denoting a
@@ -21446,8 +20558,6 @@ restored.
 
 
 
-EVT_ICONIZE: int  # Process a  wxEVT_ICONIZE   event. ^^
-
 class IconLocation:
     """ IconLocation is a tiny class describing the location of an
 (external, i.e.
@@ -21544,11 +20654,7 @@ system becomes idle.
 
 
 
-EVT_IDLE: int  # Process a  wxEVT_IDLE   event. ^^
-
 IDLE_PROCESS_SPECIFIED: int
-
-WS_EX_PROCESS_IDLE: int
 
 IDLE_PROCESS_ALL: int
 
@@ -21572,8 +20678,6 @@ class IdManager:
         """
 
 
-
-ID_NONE: int
 
 class IFFHandler(ImageHandler):
     """ This is the image handler for the IFF format.
@@ -22207,76 +21311,6 @@ BITMAP_TYPE_ANI: int
 
 BITMAP_TYPE_ANY: int
 
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_GIF: int
-
-BITMAP_TYPE_JPEG: int
-
-BITMAP_TYPE_PNG: int
-
-BITMAP_TYPE_PCX: int
-
-BITMAP_TYPE_PNM: int
-
-BITMAP_TYPE_TIFF: int
-
-BITMAP_TYPE_TGA: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_ICO: int
-
-BITMAP_TYPE_CUR: int
-
-BITMAP_TYPE_ANI: int
-
-BITMAP_TYPE_ANY: int
-
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_GIF: int
-
-BITMAP_TYPE_JPEG: int
-
-BITMAP_TYPE_PNG: int
-
-BITMAP_TYPE_PCX: int
-
-BITMAP_TYPE_PNM: int
-
-BITMAP_TYPE_TIFF: int
-
-BITMAP_TYPE_TGA: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_ICO: int
-
-BITMAP_TYPE_CUR: int
-
-BITMAP_TYPE_ANI: int
-
-BITMAP_TYPE_ANY: int
-
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_JPEG: int
-
-BITMAP_TYPE_PNG: int
-
-BITMAP_TYPE_PCX: int
-
-BITMAP_TYPE_PNM: int
-
-BITMAP_TYPE_TIFF: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_ICO: int
-
-BITMAP_TYPE_CUR: int
-
 class ImageDataObject(CustomDataObject):
     """ ImageDataObject is a specialization of DataObject for image data.
 
@@ -22813,25 +21847,11 @@ window to display non-critical information to the user.
 
 
 
-ID_NONE: int
-
 SHOW_EFFECT_NONE: int
 
 SHOW_EFFECT_SLIDE_TO_BOTTOM: int
 
 SHOW_EFFECT_SLIDE_TO_TOP: int
-
-ICON_NONE: int
-
-ICON_INFORMATION: int
-
-ICON_QUESTION: int
-
-ICON_WARNING: int
-
-ICON_ERROR: int
-
-ICON_NONE: int
 
 class InitDialogEvent(Event):
     """ A InitDialogEvent is sent as a dialog or panel is being initialised.
@@ -22845,8 +21865,6 @@ class InitDialogEvent(Event):
         """
 
 
-
-EVT_INIT_DIALOG: int  # Process a  wxEVT_INIT_DIALOG   event. ^^
 
 class InputStream(StreamBase):
     """ InputStream is an abstract base class which may not be used
@@ -23155,8 +22173,6 @@ controls which have string subitems each of which may be selected.
 
 
 
-NOT_FOUND: int
-
 class JoystickEvent(Event):
     """ This event class contains information about joystick events,
 particularly events received by windows.
@@ -23252,10 +22268,6 @@ EVT_JOY_MOVE: int  # Process a  wxEVT_JOY_MOVE   event.
 EVT_JOY_ZMOVE: int  # Process a  wxEVT_JOY_ZMOVE   event.
 
 EVT_JOYSTICK_EVENTS: int  # Processes all joystick events. ^^
-
-JOYSTICK1: int
-
-JOYSTICK2: int
 
 JOYSTICK1: int
 
@@ -23499,14 +22511,6 @@ events.
         """
 
 
-
-EVT_KEY_DOWN: int  # Process a  wxEVT_KEY_DOWN   event (any key has been pressed). If this event is handled and not skipped,   wxEVT_CHAR   will not be generated at all for this key press (but   wxEVT_KEY_UP   will be).
-
-EVT_KEY_UP: int  # Process a  wxEVT_KEY_UP   event (any key has been released).
-
-EVT_CHAR: int  # Process a  wxEVT_CHAR   event.
-
-EVT_CHAR_HOOK: int  # Process a  wxEVT_CHAR_HOOK   event. Unlike all the other key events, this event is propagated upwards the window hierarchy which allows intercepting it in the parent window of the focused window to which it is sent initially (if there is no focused window, this event is sent to the    wx.App  global object). It is also generated before any other key events and so gives the parent window an opportunity to modify the keyboard handling of its children, e.g. it is used internally by wxWidgets in some ports to intercept pressing Esc key in any child of a dialog to close the dialog itself when itâs pressed. By default, if this event is handled, i.e. the handler doesnât call wx.Event.Skip , neither  wxEVT_KEY_DOWN   nor   wxEVT_CHAR   events will be generated (although   wxEVT_KEY_UP   still will be), i.e. it replaces the normal key events. However by calling the special  DoAllowNextEvent  method you can handle  wxEVT_CHAR_HOOK   and still allow normal events generation. This is something that is rarely useful but can be required if you need to prevent a parent   wxEVT_CHAR_HOOK   handler from running without suppressing the normal key events. Finally notice that this event is not generated when the mouse is captured as it is considered that the window which has the capture should receive all the keyboard events too without allowing its parent    wx.TopLevelWindow  to interfere with their processing. ^^
 
 class LanguageInfo:
     """ Encapsulates a Language identifier together with OS-specific
@@ -26080,38 +25084,6 @@ EVT_LIST_ITEM_CHECKED: int  # The item has been checked. Processes a  wxEVT_LIST
 
 EVT_LIST_ITEM_UNCHECKED: int  # The item has been unchecked. Processes a  wxEVT_LIST_ITEM_UNCHECKED   event type (new since wxWidgets 3.1.0). ^^
 
-LC_LIST: int
-
-LC_REPORT: int
-
-LC_VIRTUAL: int
-
-LC_ICON: int
-
-LC_SMALL_ICON: int
-
-LC_ALIGN_TOP: int
-
-LC_ALIGN_LEFT: int
-
-LC_AUTOARRANGE: int
-
-LC_EDIT_LABELS: int
-
-LC_NO_HEADER: int
-
-LC_SINGLE_SEL: int
-
-LC_SORT_ASCENDING: int
-
-LC_SORT_DESCENDING: int
-
-LC_HRULES: int
-
-LC_VRULES: int
-
-ID_ANY: int
-
 LIST_ALIGN_DEFAULT: int
 
 LIST_ALIGN_LEFT: int
@@ -26119,20 +25091,6 @@ LIST_ALIGN_LEFT: int
 LIST_ALIGN_TOP: int
 
 LIST_ALIGN_SNAP_TO_GRID: int
-
-LC_VIRTUAL: int
-
-LC_HRULES: int
-
-LC_VRULES: int
-
-LC_REPORT: int
-
-LC_LIST: int
-
-LC_SMALL_ICON: int
-
-LC_ICON: int
 
 IMAGE_LIST_NORMAL: int
 
@@ -26177,14 +25135,6 @@ LIST_HITTEST_ONITEMLABEL: int
 LIST_HITTEST_ONITEMSTATEICON: int
 
 LIST_HITTEST_ONITEM: int
-
-LC_ICON: int
-
-LC_SMALL_ICON: int
-
-LC_REPORT: int
-
-LC_ICON: int
 
 class ListEvent(NotifyEvent):
     """ A list event holds information about events associated with ListCtrl
@@ -26319,50 +25269,6 @@ objects.
         """
 
 
-
-EVT_LIST_BEGIN_DRAG: int  # Begin dragging with the left mouse button.
-
-EVT_LIST_BEGIN_RDRAG: int  # Begin dragging with the right mouse button.
-
-EVT_LIST_BEGIN_LABEL_EDIT: int  # Begin editing a label. This can be prevented by calling Veto
-
-EVT_LIST_END_LABEL_EDIT: int  # Finish editing a label. This can be prevented by calling Veto
-
-EVT_LIST_DELETE_ITEM: int  # Delete an item.
-
-EVT_LIST_DELETE_ALL_ITEMS: int  # Delete all items.
-
-EVT_LIST_ITEM_SELECTED: int  # The item has been selected. Notice that the mouse is captured by the control itself when this event is generated, see event handling overview.
-
-EVT_LIST_ITEM_DESELECTED: int  # The item has been deselected. GetIndex  may be -1 with virtual lists.
-
-EVT_LIST_ITEM_ACTIVATED: int  # The item has been activated (ENTER or double click).
-
-EVT_LIST_ITEM_FOCUSED: int  # The currently focused item has changed.
-
-EVT_LIST_ITEM_MIDDLE_CLICK: int  # The middle mouse button has been clicked on an item.
-
-EVT_LIST_ITEM_RIGHT_CLICK: int  # The right mouse button has been clicked on an item.
-
-EVT_LIST_KEY_DOWN: int  # A key has been pressed. GetIndex  may be -1 if no item is selected.
-
-EVT_LIST_INSERT_ITEM: int  # An item has been inserted.
-
-EVT_LIST_COL_CLICK: int  # A column (m_col) has been left-clicked.
-
-EVT_LIST_COL_RIGHT_CLICK: int  # A column (m_col) (which can be -1 if the click occurred outside any column) has been right-clicked.
-
-EVT_LIST_COL_BEGIN_DRAG: int  # The user started resizing a column - can be vetoed.
-
-EVT_LIST_COL_DRAGGING: int  # The divider between columns is being dragged.
-
-EVT_LIST_COL_END_DRAG: int  # A column has been resized by the user.
-
-EVT_LIST_CACHE_HINT: int  # Prepare cache for a virtual list control
-
-EVT_LIST_ITEM_CHECKED: int  # The item has been checked (new since wxWidgets 3.1.0).
-
-EVT_LIST_ITEM_UNCHECKED: int  # The item has been unchecked (new since wxWidgets 3.1.0). ^^
 
 class ListItem(Object):
     """ This class stores information about a ListCtrl item or column.
@@ -26545,16 +25451,6 @@ LIST_MASK_WIDTH: int
 
 LIST_MASK_FORMAT: int
 
-LIST_STATE_DONTCARE: int
-
-LIST_STATE_DROPHILITED: int
-
-LIST_STATE_FOCUSED: int
-
-LIST_STATE_SELECTED: int
-
-LIST_STATE_CUT: int
-
 class ListView(ListCtrl):
     """ This class currently simply presents a simpler to use interface for
 the ListCtrl  it can be thought of as a faÃ§ade for that complicated
@@ -26624,8 +25520,6 @@ class.
         """
 
 
-
-ID_ANY: int
 
 class Locale:
     """ Locale class encapsulates all language-dependent settings and is a
@@ -26808,8 +25702,6 @@ LOCALE_CAT_DEFAULT: int
 LOCALE_LOAD_DEFAULT: int
 
 LOCALE_DONT_LOAD_DEFAULT: int
-
-LOCALE_LOAD_DEFAULT: int
 
 class Log:
     """ Log class defines the interface for the log targets used by
@@ -27427,10 +26319,6 @@ or more MDIChildFrame objects.
 
 
 
-HSCROLL: int
-
-VSCROLL: int
-
 class MDIParentFrame(Frame):
     """ An MDI (Multiple Document Interface) parent frame is a window which
 can contain MDI child frames in its client area which emulates the
@@ -27525,16 +26413,6 @@ full desktop.
         """
 
 
-
-HSCROLL: int
-
-VSCROLL: int
-
-HSCROLL: int
-
-VSCROLL: int
-
-FRAME_NO_WINDOW_MENU: int
 
 FRAME_NO_WINDOW_MENU: int
 
@@ -27884,17 +26762,7 @@ menu).
 
 
 
-ID_SEPARATOR: int
-
-ID_ABOUT: int
-
-ID_EXIT: int
-
 MENU_TEAROFF: int
-
-MENU_TEAROFF: int
-
-NOT_FOUND: int
 
 class MenuBar(Window):
     """ A menu bar is a series of menus accessible from the top of a frame.
@@ -28111,8 +26979,6 @@ class MenuBar(Window):
 
 MB_DOCKABLE: int
 
-NOT_FOUND: int
-
 class MenuEvent(Event):
     """ This class is used for a variety of menu-related events.
 
@@ -28143,14 +27009,6 @@ class MenuEvent(Event):
         """
 
 
-
-EVT_MENU_OPEN: int  # A menu is about to be opened. On Windows, this is only sent once for each navigation of the menubar (up until all menus have closed).
-
-EVT_MENU_CLOSE: int  # A menu has been just closed. Notice that this event is currently being sent before the menu selection ( wxEVT_MENU ) event, if any.
-
-EVT_MENU_HIGHLIGHT: int  # The menu item with the specified id has been highlighted: used to show help prompts in the status bar by   wx.Frame
-
-EVT_MENU_HIGHLIGHT_ALL: int  # A menu item has been highlighted, i.e. the currently selected menu item has changed. ^^
 
 class MenuItem(Object):
     """ A menu item represents an item in a menu.
@@ -28400,18 +27258,6 @@ class MenuItem(Object):
 
 
 
-EVT_MENU: int  # Process a  wxEVT_MENU   command, which is generated by a menu item. This type of event is sent as    wx.CommandEvent.
-
-EVT_MENU_RANGE: int  # Process a  wxEVT_MENU   command, which is generated by a range of menu items. This type of event is sent as    wx.CommandEvent.
-
-EVT_MENU_OPEN: int  # A menu is about to be opened. On Windows, this is only sent once for each navigation of the menubar (up until all menus have closed). This type of event is sent as   wx.MenuEvent.
-
-EVT_MENU_CLOSE: int  # A menu has been just closed. This type of event is sent as   wx.MenuEvent.
-
-EVT_MENU_HIGHLIGHT: int  # The menu item with the specified id has been highlighted. If the id is ID_NONE, highlighting has been removed from the previously highlighted menu item and there is no highlighted item any more. This is used by   wx.Frame  to show help prompts in the status bar. This type of event is sent as   wx.MenuEvent.
-
-EVT_MENU_HIGHLIGHT_ALL: int  # A menu item has been highlighted, i.e. the currently selected menu item has changed. This type of event is sent as   wx.MenuEvent. ^^
-
 WXK_DELETE: int
 
 WXK_BACK: int
@@ -28496,10 +27342,6 @@ WXK_NUMPAD_PAGEUP: int
 
 WXK_NUMPAD_PAGEDOWN: int
 
-WXK_NUMPAD_PAGEUP: int
-
-WXK_NUMPAD_PAGEDOWN: int
-
 WXK_NUMPAD_END: int
 
 WXK_NUMPAD_BEGIN: int
@@ -28533,32 +27375,6 @@ WXK_COMMAND: int
 WXK_SHIFT: int
 
 WXK_ALT: int
-
-WXK_SCROLL: int
-
-WXK_CAPITAL: int
-
-WXK_NUMLOCK: int
-
-WXK_NUMPAD_TAB: int
-
-WXK_TAB: int
-
-WXK_WINDOWS_LEFT: int
-
-WXK_WINDOWS_RIGHT: int
-
-WXK_ADD: int
-
-WXK_SEPARATOR: int
-
-WXK_SUBTRACT: int
-
-WXK_DECIMAL: int
-
-WXK_DIVIDE: int
-
-WXK_SNAPSHOT: int
 
 class MessageDialog(Dialog):
     """ This class represents a dialog that shows a single or multi-line
@@ -28695,116 +27511,6 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
 
 
 
-OK: int  # Puts an Ok button in the message box. May be combined with  CANCEL .
-
-CANCEL: int  # Puts a Cancel button in the message box. Must be combined with either  OK   or   YES_NO .
-
-YES_NO: int  # Puts Yes and No buttons in the message box. It is recommended to always use  CANCEL   with this style as otherwise the message box wonât have a close button under wxMSW and the user will be forced to answer it.
-
-HELP: int  # Puts a Help button to the message box. This button can have special appearance or be specially positioned if its label is not changed from the default one. Notice that using this button is not supported when showing a message box from non-main thread in OSX/Cocoa. Available since wxWidgets 2.9.3.
-
-NO_DEFAULT: int  # Makes the âNoâ button default, can only be used with  YES_NO .
-
-CANCEL_DEFAULT: int  # Makes the âCancelâ button default, can only be used with  CANCEL . This style is currently not supported (and ignored) in wxOSX.
-
-YES_DEFAULT: int  # Makes the âYesâ button default, this is the default behaviour and this flag exists solely for symmetry with  NO_DEFAULT .
-
-OK_DEFAULT: int  # Makes the âwx.OKâ button default, this is the default behaviour and this flag exists solely for symmetry with  CANCEL_DEFAULT .
-
-ICON_NONE: int  # Displays no icon in the dialog if possible (an icon might still be displayed if the current platform mandates its use). This style may be used to prevent the dialog from using the default icon based on  YES_NO   presence as explained in   ICON_QUESTION   and   ICON_INFORMATION   documentation below.
-
-ICON_ERROR: int  # Displays an error icon in the dialog.
-
-ICON_WARNING: int  # Displays a warning icon in the dialog. This style should be used for informative warnings or, in combination with  YES_NO   or   CANCEL , for questions that have potentially serious consequences (caution icon is used on macOS in this case).
-
-ICON_QUESTION: int  # Displays a question mark symbol. This icon is automatically used with  YES_NO   so itâs usually unnecessary to specify it explicitly. This style is not supported for message dialogs under wxMSW when a task dialog is used to implement them (i.e. when running under Windows Vista or later) because  Microsoft guidelines  indicate that no icon should be used for routine confirmations. If it is specified, no icon will be displayed.
-
-ICON_INFORMATION: int  # Displays an information symbol. This icon is used by default if  YES_NO   is not given so it is usually unnecessary to specify it explicitly.
-
-ICON_EXCLAMATION: int  # Alias for  ICON_WARNING .
-
-ICON_HAND: int  # Alias for  ICON_ERROR .
-
-ICON_AUTH_NEEDED: int  # Displays an authentication needed symbol. This style is only supported for message dialogs under wxMSW when a task dialog is used to implement them (i.e. when running under Windows Vista or later). In other cases the default icon selection logic will be used. Note this can be combined with other styles to provide a fallback. For instance, using wx.ICON_AUTH_NEEDED | wx.ICON_QUESTION will show a shield symbol on Windows Vista or above and a question symbol on other platforms. Available since wxWidgets 2.9.5
-
-STAY_ON_TOP: int  # Makes the message box stay on top of all other windows and not only just its parent (currently implemented only under MSW and GTK).
-
-CENTRE: int  # Centre the message box on its parent or on the screen if parent is not specified. Setting this style under MSW makes no differences as the dialog is always centered on the parent. ^^
-
-OK: int
-
-OK: int
-
-CANCEL: int
-
-YES_NO: int
-
-HELP: int
-
-NO_DEFAULT: int
-
-CANCEL_DEFAULT: int
-
-YES_DEFAULT: int
-
-OK_DEFAULT: int
-
-OK: int
-
-ICON_NONE: int
-
-ICON_ERROR: int
-
-ICON_WARNING: int
-
-ICON_QUESTION: int
-
-ICON_INFORMATION: int
-
-ICON_EXCLAMATION: int
-
-ICON_HAND: int
-
-ICON_AUTH_NEEDED: int
-
-ICON_AUTH_NEEDED: int
-
-ICON_QUESTION: int
-
-STAY_ON_TOP: int
-
-CENTRE: int
-
-OK: int
-
-OK: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
-ID_HELP: int
-
-OK: int
-
-OK: int
-
-OK: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
-ID_HELP: int
-
 class Metafile(Object):
     """ A Metafile represents the MS Windows metafile object, so metafile
 operations have no effect in X.
@@ -28833,27 +27539,6 @@ operations have no effect in X.
         """ Passes the metafile data to the clipboard.
 
             Source: https://docs.wxpython.org/wx.Metafile.html
-        """
-
-
-
-class MetafileDC(DC):
-    """ This is a type of device context that allows a metafile object to be
-created (Windows only), and has most of the characteristics of a
-normal DC.
-
-        Source: https://docs.wxpython.org/wx.MetafileDC.html
-    """
-    def __init__(self, filename: str="") -> None:
-        """ Constructor.
-
-            Source: https://docs.wxpython.org/wx.MetafileDC.html
-        """
-
-    def Close(self) -> 'Metafile':
-        """ This must be called after the device context is finished with.
-
-            Source: https://docs.wxpython.org/wx.MetafileDC.html
         """
 
 
@@ -28942,48 +27627,6 @@ class MiniFrame(Frame):
 
 
 
-ICONIZE: int  # Display the frame iconized (minimized) (Windows only).
-
-CAPTION: int  # Puts a caption on the frame.
-
-MINIMIZE: int  # Identical to wx.ICONIZE.
-
-MINIMIZE_BOX: int  # Displays a minimize box on the frame (Windows and Motif only).
-
-MAXIMIZE: int  # Displays the frame maximized (Windows only).
-
-MAXIMIZE_BOX: int  # Displays a maximize box on the frame (Windows and Motif only).
-
-CLOSE_BOX: int  # Displays a close box on the frame.
-
-STAY_ON_TOP: int  # Stay on top of other windows (Windows only).
-
-SYSTEM_MENU: int  # Displays a system menu (Windows and Motif only).
-
-RESIZE_BORDER: int  # Displays a resizable border around the window. ^^
-
-ICONIZE: int
-
-CAPTION: int
-
-MINIMIZE: int
-
-ICONIZE: int
-
-MINIMIZE_BOX: int
-
-MAXIMIZE: int
-
-MAXIMIZE_BOX: int
-
-CLOSE_BOX: int
-
-STAY_ON_TOP: int
-
-SYSTEM_MENU: int
-
-RESIZE_BORDER: int
-
 class MirrorDC(DC):
     """ MirrorDC is a simple wrapper class which is always associated with a
 real DC object and either forwards all of its operations to it
@@ -29038,8 +27681,6 @@ class ModalDialogHook:
 
 
 
-ID_NONE: int
-
 class MouseCaptureChangedEvent(Event):
     """ A mouse capture changed event is sent to a window that loses its mouse
 capture.
@@ -29060,8 +27701,6 @@ capture.
 
 
 
-EVT_MOUSE_CAPTURE_CHANGED: int  # Process a  wxEVT_MOUSE_CAPTURE_CHANGED   event. ^^
-
 class MouseCaptureLostEvent(Event):
     """ A mouse capture lost event is sent to a window that had obtained mouse
 capture, which was subsequently lost due to an âexternalâ event (for
@@ -29077,8 +27716,6 @@ the mouse).
         """
 
 
-
-EVT_MOUSE_CAPTURE_LOST: int  # Process a  wxEVT_MOUSE_CAPTURE_LOST   event. ^^
 
 class MouseEvent(Event,MouseState):
     """ This event class contains information about the events generated by
@@ -29457,8 +28094,6 @@ items.
 
 
 
-NOT_FOUND: int
-
 class MouseState(KeyboardState):
     """ Represents the mouse state.
 
@@ -29657,48 +28292,6 @@ allows the user to select one or more.
         """
 
 
-
-OK: int  # Show an wx.OK button.
-
-CANCEL: int  # Show a Cancel button.
-
-CENTRE: int  # Centre the message. ^^
-
-OK: int
-
-OK: int
-
-CANCEL: int
-
-CENTRE: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-DEFAULT_DIALOG_STYLE: int
-
-RESIZE_BORDER: int
-
-OK: int
-
-CANCEL: int
-
-CENTRE: int
-
-DEFAULT_DIALOG_STYLE: int
-
-RESIZE_BORDER: int
-
-OK: int
-
-CANCEL: int
-
-CENTRE: int
-
-ID_OK: int
-
-ID_CANCEL: int
 
 class NativeFontInfo:
     """ NativeFontInfo is platform-specific font representation: this class
@@ -30046,8 +28639,6 @@ generated by navigation keys such as tab and page down.
 
 
 
-EVT_NAVIGATION_KEY: int  # Process a navigation key event. ^^
-
 class NonOwnedWindow(Window):
     """ Common base class for all non-child windows.
 
@@ -30125,10 +28716,6 @@ user.
         """
 
 
-
-OK: int
-
-OK: int
 
 class Object:
     """ This is the root class of many of the wxWidgets classes.
@@ -30334,12 +28921,6 @@ class PageSetupDialog(Object):
 
 
 
-OK: int
-
-OK: int
-
-OK: int
-
 class PageSetupDialogData(Object):
     """ This class holds a variety of information related to
 PageSetupDialog.
@@ -30540,20 +29121,6 @@ PageSetupDialog.
 
 
 
-class PaintDC(ClientDC):
-    """ A PaintDC must be constructed if an application wishes to paint on
-the client area of a window from within an EVT_PAINT() event handler.
-
-        Source: https://docs.wxpython.org/wx.PaintDC.html
-    """
-    def __init__(self, window: 'Window') -> None:
-        """ Constructor.
-
-            Source: https://docs.wxpython.org/wx.PaintDC.html
-        """
-
-
-
 class PaintEvent(Event):
     """ A paint event is sent when a windowâs contents needs to be repainted.
 
@@ -30566,8 +29133,6 @@ class PaintEvent(Event):
         """
 
 
-
-EVT_PAINT: int  # Process a  wxEVT_PAINT   event. ^^
 
 class Palette(GDIObject):
     """ A palette is a table that maps pixel values to RGB colours.
@@ -30693,8 +29258,6 @@ class Panel(Window):
 
 
 
-EVT_NAVIGATION_KEY: int  # Process a navigation key event. ^^
-
 class PanGestureEvent(GestureEvent):
     """ This event is generated when the user moves a finger on the surface.
 
@@ -30742,12 +29305,6 @@ string from the user.
         """
 
 
-
-CANCEL: int
-
-CENTRE: int
-
-TE_PASSWORD: int
 
 class PCXHandler(ImageHandler):
     """ This is the image handler for the PCX format.
@@ -31058,8 +29615,6 @@ control.
 
 
 PB_USE_TEXTCTRL: int  # Creates a text control to the left of the picker which is completely managed by this   wx.PickerBase  class. ^^
-
-PB_USE_TEXTCTRL: int
 
 class PixelDataBase:
     """ Return the height of the area this pixel data represents.
@@ -31547,12 +30102,6 @@ class Point:
 
 
 
-Point: int
-
-Point: int
-
-Point: int
-
 class Point2D:
     """  Overloaded Implementations:
 
@@ -31734,12 +30283,6 @@ class Point2D:
 
 
 
-Point2D: int
-
-Point2D: int
-
-Point2D: int
-
 class PopupTransientWindow(PopupWindow):
     """ A PopupWindow which disappears automatically when the user clicks
 mouse outside it or if it loses focus in any other way.
@@ -31819,8 +30362,6 @@ popups and such.
 
 
 PU_CONTAINS_CONTROLS: int  # By default in wxMSW, a popup window will not take focus from its parent window. However many standard controls, including common ones such as   wx.TextCtrl, need focus to function correctly and will not work when placed on a default popup. This flag can be used to make the popup take focus and let all controls work but at the price of not allowing the parent window to keep focus while the popup is shown, which can also be sometimes desirable. This style is currently only implemented in MSW and simply does nothing under the other platforms (itâs new since wxWidgets 3.1.3). ^^
-
-PU_CONTAINS_CONTROLS: int
 
 class Position:
     """ This class represents the position of an item in any kind of grid of
@@ -31968,26 +30509,6 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
 
 
 
-Position: int
-
-Position: int
-
-Position: int
-
-class PostScriptDC(DC):
-    """ This defines the wxWidgets Encapsulated PostScript device context,
-which can write PostScript files on any platform.
-
-        Source: https://docs.wxpython.org/wx.PostScriptDC.html
-    """
-    def __init__(self, *args, **kw) -> None:
-        """ Overloaded Implementations:
-
-            Source: https://docs.wxpython.org/wx.PostScriptDC.html
-        """
-
-
-
 class PowerEvent(Event):
     """ The power events are generated when the system power state changes,
 e.g.
@@ -32118,10 +30639,6 @@ class PreferencesEditor:
         """
 
 
-
-OK: int
-
-OK: int
 
 class PreferencesPage:
     """ One page of preferences dialog.
@@ -32542,24 +31059,6 @@ PRINT_QUALITY_LOW: int
 
 PRINT_QUALITY_DRAFT: int
 
-DUPLEX_SIMPLEX: int
-
-DUPLEX_HORIZONTAL: int
-
-DUPLEX_VERTICAL: int
-
-LANDSCAPE: int
-
-PORTRAIT: int
-
-PRINT_QUALITY_HIGH: int
-
-PRINT_QUALITY_MEDIUM: int
-
-PRINT_QUALITY_LOW: int
-
-PRINT_QUALITY_DRAFT: int
-
 class PrintDialog(Object):
     """ This class represents the print and print setup common dialogs.
 
@@ -32596,10 +31095,6 @@ class PrintDialog(Object):
         """
 
 
-
-OK: int
-
-OK: int
 
 class PrintDialogData(Object):
     """ This class holds information related to the visual characteristics of
@@ -33310,8 +31805,6 @@ when a process is terminated.
 
 
 
-EVT_END_PROCESS: int  # Process a  wxEVT_END_PROCESS   event.  id  is the identifier of the process object (the id passed to the   wx.Process  constructor) or a window to receive the event. ^^
-
 class ProgressDialog(GenericProgressDialog):
     """ If supported by the platform this class will provide the platformâs
 native progress dialog, else it will simply be the
@@ -33438,208 +31931,9 @@ class PropagationDisabler:
 
 
 
-class PyApp(AppConsole):
-    """ The App class represents the application itself when USE_GUI=1.
-
-        Source: https://docs.wxpython.org/wx.PyApp.html
-    """
-    def __init__(self) -> None:
-        """ Constructor.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    @staticmethod
-    def GTKSuppressDiagnostics(flags: int=-1) -> None:
-        """ Disables the printing of various GTK messages.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetAssertMode(self) -> 'AppAssertMode':
-        """ Returns the current mode for how the application responds to  asserts.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    @staticmethod
-    def GetComCtl32Version() -> int:
-        """ Returns 400, 470, 471, etc. for comctl32.dll 4.00, 4.70, 4.71 or 0 if
-it wasnât found at all.  Raises an exception on non-Windows platforms.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetDisplayMode(self) -> 'VideoMode':
-        """ Get display mode that is used use.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetExitOnFrameDelete(self) -> bool:
-        """ Returns True if the application will exit when the top-level frame is deleted.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetLayoutDirection(self) -> int:
-        """ Return the layout direction for the current locale or  Layout_Default   if itâs unknown.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    @staticmethod
-    def GetMainTopWindow() -> 'Window':
-        """ Returns a pointer to the top application window if any.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetTopWindow(self) -> 'Window':
-        """ Returns a pointer to the top window.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def GetUseBestVisual(self) -> bool:
-        """ Returns True if the application will use the best visual on systems that support different visuals, False otherwise.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def IsActive(self) -> bool:
-        """ Returns True if the application is active, i.e. if one of its windows is currently in the foreground.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    @staticmethod
-    def IsDisplayAvailable() -> bool:
-        """ Returns True if the application is able to connect to the systemâs
-display, or whatever the equivallent is for the platform.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacHideApp(self) -> None:
-        """ Hide all application windows just as the user can do with the
-system Hide command.  Mac only.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacNewFile(self) -> None:
-        """ Called in response of an âopen-applicationâ Apple event.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacOpenFile(self, fileName: str) -> None:
-        """ Called in response of an âopen-documentâ Apple event.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacOpenFiles(self, fileNames: list[str]) -> None:
-        """ Called in response of an openFiles message.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacOpenURL(self, url: str) -> None:
-        """ Called in response of a âget-urlâ Apple event.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacPrintFile(self, fileName: str) -> None:
-        """ Called in response of a âprint-documentâ Apple event.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def MacReopenApp(self) -> None:
-        """ Called in response of a âreopen-applicationâ Apple event.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def OSXEnableAutomaticTabbing(self, enable: bool) -> None:
-        """ Enable the automatic tabbing features of macOS.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def OSXIsGUIApplication(self) -> bool:
-        """ May be overridden to indicate that the application is not a foreground GUI application under macOS.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SafeYield(self, win, onlyIfNeeded) -> bool:
-        """ This function is similar to wx.Yield     , except that it disables the user input to all program windows before calling wx.AppConsole.Yield   and re-enables it again afterwards.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SafeYieldFor(self, win, eventsToProcess) -> bool:
-        """ Works like wx.SafeYield       with onlyIfNeeded  == True except that it allows the caller to specify a mask of events to be processed.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetAssertMode(self, wxAppAssertMode: AppAssertMode) -> None:
-        """ Set the mode indicating how the application responds to  assertion
-statements. Valid settings are a combination of these flags:
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetDisplayMode(self, info: 'VideoMode') -> bool:
-        """ Set display mode to use.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetExitOnFrameDelete(self, flag: bool) -> None:
-        """ Allows the programmer to specify whether the application will exit when the top-level frame is deleted.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetNativeTheme(self, theme: str) -> bool:
-        """ Allows runtime switching of the UI environment theme.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetTopWindow(self, window: 'Window') -> None:
-        """ Sets the âtopâ window.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-    def SetUseBestVisual(self, flag, forceTrueColour=False) -> None:
-        """ Allows the programmer to specify whether the application will use the best visual on systems that support several visual on the same display.
-
-            Source: https://docs.wxpython.org/wx.PyApp.html
-        """
-
-
-
-EVT_QUERY_END_SESSION: int  # Process a query end session event, supplying the member function. See   wx.CloseEvent.
-
-EVT_END_SESSION: int  # Process an end session event, supplying the member function. See   wx.CloseEvent.
-
-EVT_ACTIVATE_APP: int  # Process a  wxEVT_ACTIVATE_APP   event. See    wx.ActivateEvent.
-
-EVT_HIBERNATE: int  # Process a hibernate event. See   wx.ActivateEvent.
-
 EVT_DIALUP_CONNECTED: int  # A connection with the network was established. See DialUpEvent     .
 
 EVT_DIALUP_DISCONNECTED: int  # The connection with the network was lost. See DialUpEvent     .
-
-EVT_IDLE: int  # Process a  wxEVT_IDLE   event. See    wx.IdleEvent. ^^
 
 class PyCommandEvent:
     """ PyCommandEvent can be used as a base class for implementing
@@ -34020,12 +32314,6 @@ RA_SPECIFY_ROWS: int  # The major dimension parameter refers to the maximum numb
 
 RA_SPECIFY_COLS: int  # The major dimension parameter refers to the maximum number of columns. ^^
 
-EVT_RADIOBOX: int  # Process a  wxEVT_RADIOBOX   event, when a radiobutton is clicked. ^^
-
-RA_SPECIFY_ROWS: int
-
-RA_SPECIFY_COLS: int
-
 class RadioButton(Control):
     """ A radio button item is a button which usually denotes one of several
 mutually exclusive options.
@@ -34092,12 +32380,6 @@ mutually exclusive options.
 RB_GROUP: int  # Marks the beginning of a new group of radio buttons.
 
 RB_SINGLE: int  # Creates a radio button which is not part of any radio button group. When this style is used, no other radio buttons will be turned off automatically when this button is turned on and such behaviour will need to be implemented manually, in the event handler for this button. ^^
-
-EVT_RADIOBUTTON: int  # Process a  wxEVT_RADIOBUTTON   event, when the radiobutton is clicked. ^^
-
-RB_GROUP: int
-
-RB_SINGLE: int
 
 class RealPoint:
     """ A RealPoint is a useful data structure for graphics operations.
@@ -34201,12 +32483,6 @@ class RealPoint:
         """
 
 
-
-RealPoint: int
-
-RealPoint: int
-
-RealPoint: int
 
 class RearrangeCtrl(Panel):
     """ A composite control containing a RearrangeList and the buttons
@@ -34667,12 +32943,6 @@ class Rect:
 
 
 
-Rect: int
-
-Rect: int
-
-Rect: int
-
 class Rect2D:
     """  Overloaded Implementations:
 
@@ -35022,12 +33292,6 @@ class Rect2D:
 
 
 
-Rect2D: int
-
-Rect2D: int
-
-Rect2D: int
-
 class RefCounter:
     """ This class is used to manage reference-counting providing a simple
 interface and a counter.
@@ -35336,22 +33600,6 @@ class RichMessageDialog:
 
 
 
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-ID_YES: int
-
-ID_NO: int
-
 class RotateGestureEvent(GestureEvent):
     """ This event is generated when two fingers move in opposite directions
 on the surface.
@@ -35519,12 +33767,6 @@ EVT_COMMAND_SCROLL_THUMBTRACK: int  # Process  wxEVT_SCROLL_THUMBTRACK   thumbtr
 EVT_COMMAND_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
 
 EVT_COMMAND_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only). ^^
-
-SB_HORIZONTAL: int
-
-SB_VERTICAL: int
-
-ID_ANY: int
 
 class Scrolled:
     """ The Scrolled class manages scrolling for its client area,
@@ -35735,12 +33977,6 @@ area in view.
 
 
 
-HSCROLL: int  # If this style is specified and VSCROLL  isnât, the window will be scrollable only in horizontal direction (by default, i.e. if neither this style nor VSCROLL  is specified, it scrolls in both directions).
-
-VSCROLL: int  # If this style is specified and HSCROLL  isnât, the window will be scrollable only in vertical direction (by default, i.e. if neither this style nor HSCROLL  is specified, it scrolls in both directions).
-
-ALWAYS_SHOW_SB: int  # Since wxWidgets 2.9.5, specifying this style makes the window always show its scrollbars, even if they are not used. See ShowScrollbars.
-
 RETAINED: int  # Uses a backing pixmap to speed refreshes. Motif only. ^^
 
 EVT_SCROLLWIN: int  # Process all scroll events.
@@ -35760,14 +33996,6 @@ EVT_SCROLLWIN_PAGEDOWN: int  # Process  wxEVT_SCROLLWIN_PAGEDOWN   page down eve
 EVT_SCROLLWIN_THUMBTRACK: int  # Process  wxEVT_SCROLLWIN_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
 
 EVT_SCROLLWIN_THUMBRELEASE: int  # Process  wxEVT_SCROLLWIN_THUMBRELEASE   thumb release events. ^^
-
-HSCROLL: int
-
-VSCROLL: int
-
-ALWAYS_SHOW_SB: int
-
-RETAINED: int
 
 SHOW_SB_ALWAYS: int
 
@@ -35850,54 +34078,6 @@ scrollbars (see ScrollBar) and sliders (see Slider).
         """
 
 
-
-EVT_SCROLL: int  # Process all scroll events.
-
-EVT_SCROLL_TOP: int  # Process  wxEVT_SCROLL_TOP   scroll-to-top events (minimum position).
-
-EVT_SCROLL_BOTTOM: int  # Process  wxEVT_SCROLL_BOTTOM   scroll-to-bottom events (maximum position).
-
-EVT_SCROLL_LINEUP: int  # Process  wxEVT_SCROLL_LINEUP   line up events.
-
-EVT_SCROLL_LINEDOWN: int  # Process  wxEVT_SCROLL_LINEDOWN   line down events.
-
-EVT_SCROLL_PAGEUP: int  # Process  wxEVT_SCROLL_PAGEUP   page up events.
-
-EVT_SCROLL_PAGEDOWN: int  # Process  wxEVT_SCROLL_PAGEDOWN   page down events.
-
-EVT_SCROLL_THUMBTRACK: int  # Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
-
-EVT_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
-
-EVT_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only).
-
-EVT_COMMAND_SCROLL: int  # Process all scroll events.
-
-EVT_COMMAND_SCROLL_TOP: int  # Process  wxEVT_SCROLL_TOP   scroll-to-top events (minimum position).
-
-EVT_COMMAND_SCROLL_BOTTOM: int  # Process  wxEVT_SCROLL_BOTTOM   scroll-to-bottom events (maximum position).
-
-EVT_COMMAND_SCROLL_LINEUP: int  # Process  wxEVT_SCROLL_LINEUP   line up events.
-
-EVT_COMMAND_SCROLL_LINEDOWN: int  # Process  wxEVT_SCROLL_LINEDOWN   line down events.
-
-EVT_COMMAND_SCROLL_PAGEUP: int  # Process  wxEVT_SCROLL_PAGEUP   page up events.
-
-EVT_COMMAND_SCROLL_PAGEDOWN: int  # Process  wxEVT_SCROLL_PAGEDOWN   page down events.
-
-EVT_COMMAND_SCROLL_THUMBTRACK: int  # Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
-
-EVT_COMMAND_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
-
-EVT_COMMAND_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only). ^^
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
 
 class Slider(Control):
     """ A slider is a control with a handle which can be pulled back and forth
@@ -36084,88 +34264,6 @@ SL_SELRANGE: int  # Displays a highlighted selection range. Windows only.
 
 SL_INVERSE: int  # Inverses the minimum and maximum endpoints on the slider. Not compatible with wx.SL_SELRANGE. ^^
 
-EVT_SCROLL: int  # Process all scroll events.
-
-EVT_SCROLL_TOP: int  # Process  wxEVT_SCROLL_TOP   scroll-to-top events (minimum position).
-
-EVT_SCROLL_BOTTOM: int  # Process  wxEVT_SCROLL_BOTTOM   scroll-to-bottom events (maximum position).
-
-EVT_SCROLL_LINEUP: int  # Process  wxEVT_SCROLL_LINEUP   line up events.
-
-EVT_SCROLL_LINEDOWN: int  # Process  wxEVT_SCROLL_LINEDOWN   line down events.
-
-EVT_SCROLL_PAGEUP: int  # Process  wxEVT_SCROLL_PAGEUP   page up events.
-
-EVT_SCROLL_PAGEDOWN: int  # Process  wxEVT_SCROLL_PAGEDOWN   page down events.
-
-EVT_SCROLL_THUMBTRACK: int  # Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
-
-EVT_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
-
-EVT_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only).
-
-EVT_COMMAND_SCROLL: int  # Process all scroll events.
-
-EVT_COMMAND_SCROLL_TOP: int  # Process  wxEVT_SCROLL_TOP   scroll-to-top events (minimum position).
-
-EVT_COMMAND_SCROLL_BOTTOM: int  # Process  wxEVT_SCROLL_BOTTOM   scroll-to-bottom events (maximum position).
-
-EVT_COMMAND_SCROLL_LINEUP: int  # Process  wxEVT_SCROLL_LINEUP   line up events.
-
-EVT_COMMAND_SCROLL_LINEDOWN: int  # Process  wxEVT_SCROLL_LINEDOWN   line down events.
-
-EVT_COMMAND_SCROLL_PAGEUP: int  # Process  wxEVT_SCROLL_PAGEUP   page up events.
-
-EVT_COMMAND_SCROLL_PAGEDOWN: int  # Process  wxEVT_SCROLL_PAGEDOWN   page down events.
-
-EVT_COMMAND_SCROLL_THUMBTRACK: int  # Process  wxEVT_SCROLL_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
-
-EVT_COMMAND_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thumb release events.
-
-EVT_COMMAND_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only).
-
-EVT_SLIDER: int  # Process  wxEVT_SLIDER   which is generated after any change of    wx.Slider  position in addition to one of the events above. Notice that the handler of this event receives a   wx.CommandEvent  as argument and not   wx.ScrollEvent, as all the other handlers. ^^
-
-SL_HORIZONTAL: int
-
-SL_VERTICAL: int
-
-SL_AUTOTICKS: int
-
-SL_MIN_MAX_LABELS: int
-
-SL_VALUE_LABEL: int
-
-SL_LABELS: int
-
-SL_VALUE_LABEL: int
-
-SL_MIN_MAX_LABELS: int
-
-SL_LEFT: int
-
-SL_RIGHT: int
-
-SL_TOP: int
-
-SL_BOTTOM: int
-
-SL_BOTH: int
-
-SL_SELRANGE: int
-
-SL_INVERSE: int
-
-SL_SELRANGE: int
-
-SL_RIGHT: int
-
-SL_SELRANGE: int
-
-ID_ANY: int
-
-SL_SELRANGE: int
-
 class ScrollWinEvent(Event):
     """ A scroll event holds information about events sent from scrolling
 windows.
@@ -36203,36 +34301,6 @@ windows.
         """
 
 
-
-EVT_SCROLLWIN: int  # Process all scroll events.
-
-EVT_SCROLLWIN_TOP: int  # Process  wxEVT_SCROLLWIN_TOP   scroll-to-top events.
-
-EVT_SCROLLWIN_BOTTOM: int  # Process  wxEVT_SCROLLWIN_BOTTOM   scroll-to-bottom events.
-
-EVT_SCROLLWIN_LINEUP: int  # Process  wxEVT_SCROLLWIN_LINEUP   line up events.
-
-EVT_SCROLLWIN_LINEDOWN: int  # Process  wxEVT_SCROLLWIN_LINEDOWN   line down events.
-
-EVT_SCROLLWIN_PAGEUP: int  # Process  wxEVT_SCROLLWIN_PAGEUP   page up events.
-
-EVT_SCROLLWIN_PAGEDOWN: int  # Process  wxEVT_SCROLLWIN_PAGEDOWN   page down events.
-
-EVT_SCROLLWIN_THUMBTRACK: int  # Process  wxEVT_SCROLLWIN_THUMBTRACK   thumbtrack events (frequent events sent as the user drags the thumbtrack).
-
-EVT_SCROLLWIN_THUMBRELEASE: int  # Process  wxEVT_SCROLLWIN_THUMBRELEASE   thumb release events. ^^
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
-
-HORIZONTAL: int
-
-VERTICAL: int
 
 class SearchCtrl(TextCtrl):
     """ A search control is a composite control with a search button, a text
@@ -36567,35 +34635,9 @@ control, and a cancel button.
 
 
 
-TE_PROCESS_TAB: int  # The control will receive  wxEVT_CHAR   events for TAB pressed - normally, TAB is used for passing to the next control in a dialog instead. For the control created with this style, you can still use Ctrl-Enter to pass to the next control from the keyboard.
-
-TE_NOHIDESEL: int  # By default, the Windows text control doesnât show the selection when it doesnât have focus - use this style to force it to always show it. It doesnât do anything under other platforms.
-
-TE_LEFT: int  # The text in the control will be left-justified (default).
-
-TE_CENTRE: int  # The text in the control will be centered (currently wxMSW and wxGTK2 only).
-
-TE_RIGHT: int  # The text in the control will be right-justified (currently wxMSW and wxGTK2 only).
-
-TE_CAPITALIZE: int  # On PocketPC and Smartphone, causes the first letter to be capitalized. ^^
-
 EVT_SEARCH: int  # Respond to a  wxEVT_SEARCH   event, generated when the search button is clicked. Note that this does not initiate a search on its own, you need to perform the appropriate action in your event handler. You may use:
 
 EVT_SEARCH_CANCEL: int  # Respond to a  wxEVT_SEARCH_CANCEL   event, generated when the cancel button is clicked. ^^
-
-TE_PROCESS_TAB: int
-
-TE_NOHIDESEL: int
-
-TE_LEFT: int
-
-TE_CENTRE: int
-
-TE_RIGHT: int
-
-TE_READONLY: int
-
-TE_READONLY: int
 
 class SetCursorEvent(Event):
     """ A SetCursorEvent is generated from Window when the mouse cursor is
@@ -36640,8 +34682,6 @@ about to be set as a result of mouse motion.
         """
 
 
-
-EVT_SET_CURSOR: int  # Process a  wxEVT_SET_CURSOR   event. ^^
 
 class SettableHeaderColumn(HeaderColumn):
     """ Adds methods to set the column attributes to HeaderColumn.
@@ -36754,29 +34794,7 @@ class SettableHeaderColumn(HeaderColumn):
 
 ALIGN_NOT: int
 
-ALIGN_CENTRE: int
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-ALIGN_CENTRE: int
-
 COL_RESIZABLE: int
-
-COL_SORTABLE: int
-
-COL_REORDERABLE: int
-
-COL_HIDDEN: int
-
-COL_RESIZABLE: int
-
-COL_WIDTH_DEFAULT: int
-
-COL_WIDTH_AUTOSIZE: int
 
 class SharedClientDataContainer:
     """ This class is a replacement for ClientDataContainer, and unlike
@@ -36946,40 +34964,6 @@ class SingleChoiceDialog(Dialog):
         """
 
 
-
-OK: int  # Show an wx.OK button.
-
-CANCEL: int  # Show a Cancel button.
-
-CENTRE: int  # Centre the message. ^^
-
-OK: int
-
-OK: int
-
-OK: int
-
-CANCEL: int
-
-CENTRE: int
-
-ID_OK: int
-
-ID_CANCEL: int
-
-DEFAULT_DIALOG_STYLE: int
-
-RESIZE_BORDER: int
-
-OK: int
-
-CANCEL: int
-
-CENTRE: int
-
-ID_OK: int
-
-ID_CANCEL: int
 
 class SingleInstanceChecker:
     """ SingleInstanceChecker class allows checking that only a single
@@ -37200,12 +35184,6 @@ class Size:
 
 
 
-Size: int
-
-Size: int
-
-Size: int
-
 class SizeEvent(Event):
     """ A size event holds information about size change events of Window.
 
@@ -37242,8 +35220,6 @@ class SizeEvent(Event):
         """
 
 
-
-EVT_SIZE: int  # Process a  wxEVT_SIZE   event. ^^
 
 class SizerFlags:
     """ Container for sizer items flags providing readable names for them.
@@ -37712,19 +35688,9 @@ EVT_SPIN_UP: int  # Generated whenever pressing left/up arrow changed the spin b
 
 EVT_SPIN_DOWN: int  # Generated whenever pressing right/down arrow changed the spin button value. ^^
 
-SP_HORIZONTAL: int
-
-SP_VERTICAL: int
-
-SP_ARROW_KEYS: int
-
-SP_WRAP: int
-
 UP: int
 
 DOWN: int
-
-ID_ANY: int
 
 class SpinCtrl(Control):
     """ SpinCtrl combines TextCtrl and SpinButton in one control.
@@ -37836,39 +35802,7 @@ class SpinCtrl(Control):
 
 
 
-SP_ARROW_KEYS: int  # The user can use arrow keys to change the value.
-
-SP_WRAP: int  # The value wraps at the minimum and maximum.
-
-TE_PROCESS_ENTER: int  # Indicates that the control should generate  wxEVT_TEXT_ENTER   events. Using this style will prevent the user from using the Enter key for dialog navigation (e.g. activating the default button in the dialog) under MSW.
-
-ALIGN_LEFT: int  # Same as wx.TE_LEFT for   wx.TextCtrl: the text is left aligned (this is the default).
-
-ALIGN_CENTRE_HORIZONTAL: int  # Same as wx.TE_CENTRE for   wx.TextCtrl: the text is centered.
-
-ALIGN_RIGHT: int  # Same as wx.TE_RIGHT for   wx.TextCtrl: the text is right aligned. ^^
-
 EVT_SPINCTRL: int  # Process a wxEVT_SPINCTRL event, which is generated whenever the numeric value of the spin control is updated. ^^
-
-SP_ARROW_KEYS: int
-
-SP_WRAP: int
-
-TE_PROCESS_ENTER: int
-
-ALIGN_LEFT: int
-
-TE_LEFT: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-TE_CENTRE: int
-
-ALIGN_RIGHT: int
-
-TE_RIGHT: int
-
-ID_ANY: int
 
 class SpinCtrlDouble(Control):
     """ SpinCtrlDouble combines TextCtrl and SpinButton in one control
@@ -37975,17 +35909,7 @@ and displays a real number.
 
 
 
-SP_ARROW_KEYS: int  # The user can use arrow keys to change the value.
-
-SP_WRAP: int  # The value wraps at the minimum and maximum. ^^
-
 EVT_SPINCTRLDOUBLE: int  # Generated whenever the numeric value of the spin control is changed, that is, when the up/down spin button is clicked, when ENTER is pressed, or the control loses focus and the new value is different from the last. See   wx.SpinDoubleEvent. ^^
-
-SP_ARROW_KEYS: int
-
-SP_WRAP: int
-
-ID_ANY: int
 
 class SpinDoubleEvent(NotifyEvent):
     """ This event class is used for the events generated by SpinCtrlDouble.
@@ -38012,8 +35936,6 @@ class SpinDoubleEvent(NotifyEvent):
 
 
 
-EVT_SPINCTRLDOUBLE: int  # Generated whenever the numeric value of the spin control is changed, that is, when the up/down spin button is clicked or when the control loses focus and the new value is different from the last one. See   wx.SpinDoubleEvent. ^^
-
 class SpinEvent(NotifyEvent):
     """ This event class is used for the events generated by SpinButton and
 SpinCtrl.
@@ -38039,16 +35961,6 @@ SpinCtrl.
         """
 
 
-
-EVT_SPIN: int  # Generated whenever an arrow is pressed.
-
-EVT_SPIN_UP: int  # Generated when left/up arrow is pressed.
-
-EVT_SPIN_DOWN: int  # Generated when right/down arrow is pressed. ^^
-
-UP: int
-
-DOWN: int
 
 class SplitterEvent(NotifyEvent):
     """ This class represents the events generated by a splitter control.
@@ -38297,39 +36209,9 @@ SP_PERMIT_UNSPLIT: int  # Always allow to unsplit, even with the minimum pane si
 
 SP_LIVE_UPDATE: int  # Donât draw wx.XOR line but resize the child windows immediately. ^^
 
-EVT_SPLITTER_SASH_POS_CHANGING: int  # The sash position is in the process of being changed. May be used to modify the position of the tracking bar to properly reflect the position that would be set if the drag were to be completed at this point. Processes a  wxEVT_SPLITTER_SASH_POS_CHANGING   event.
-
 EVT_SPLITTER_SASH_POS_RESIZE: int  # The sash position is in the process of being updated. May be used to modify the position of the tracking bar to properly reflect the position that would be set if the update were to be completed. This can happen e.g. when the window is resized and the sash is moved according to the gravity setting. This event is sent when the window is resized and allows the application to select the desired new sash position. If it doesnât process the event, the position is determined by the gravity setting. Processes a  wxEVT_SPLITTER_SASH_POS_RESIZE   event and is only available in wxWidgets 3.1.6 or newer.
 
-EVT_SPLITTER_SASH_POS_CHANGED: int  # The sash position was changed. May be used to modify the sash position before it is set, or to prevent the change from taking place. Processes a  wxEVT_SPLITTER_SASH_POS_CHANGED   event.
-
-EVT_SPLITTER_UNSPLIT: int  # The splitter has been just unsplit. Processes a  wxEVT_SPLITTER_UNSPLIT   event.
-
-EVT_SPLITTER_DCLICK: int  # The sash was double clicked. The default behaviour is to unsplit the window when this happens (unless the minimum pane size has been set to a value greater than zero). Processes a  wxEVT_SPLITTER_DOUBLECLICKED   event. ^^
-
-SP_3D: int
-
-SP_THIN_SASH: int
-
-SP_3DSASH: int
-
-SP_3DBORDER: int
-
-SP_BORDER: int
-
-SP_BORDER: int
-
-SP_NOBORDER: int
-
-SP_NO_XP_THEME: int
-
-SP_PERMIT_UNSPLIT: int
-
-SP_LIVE_UPDATE: int
-
 XOR: int
-
-SP_PERMIT_UNSPLIT: int
 
 SPLIT_VERTICAL: int
 
@@ -38585,8 +36467,6 @@ logical grouping of items.
 
 
 
-ID_ANY: int
-
 class StaticBoxSizer(BoxSizer):
     """ StaticBoxSizer is a sizer derived from BoxSizer but adds a static
 box around the sizer.
@@ -38663,16 +36543,6 @@ LI_HORIZONTAL: int  # Creates a horizontal line.
 
 LI_VERTICAL: int  # Creates a vertical line. ^^
 
-LI_HORIZONTAL: int
-
-LI_VERTICAL: int
-
-ID_ANY: int
-
-LI_HORIZONTAL: int
-
-LI_VERTICAL: int
-
 class StaticText(Control):
     """ A static text control displays one or more lines of read-only text.
 
@@ -38717,12 +36587,6 @@ class StaticText(Control):
 
 
 
-ALIGN_LEFT: int  # Align the text to the left.
-
-ALIGN_RIGHT: int  # Align the text to the right.
-
-ALIGN_CENTRE_HORIZONTAL: int  # Center the text (horizontally).
-
 ST_NO_AUTORESIZE: int  # By default, the control will adjust its size to exactly fit to the size of the text when SetLabel  is called. If this style flag is given, the control will not change its size (this style is especially useful with controls which also have the  ALIGN_RIGHT   or the   ALIGN_CENTRE_HORIZONTAL   style because otherwise they wonât make sense any longer after a call to  SetLabel).
 
 ST_ELLIPSIZE_START: int  # If the labeltext width exceeds the control width, replace the beginning of the label with an ellipsis; uses wx.Control.Ellipsize .
@@ -38730,20 +36594,6 @@ ST_ELLIPSIZE_START: int  # If the labeltext width exceeds the control width, rep
 ST_ELLIPSIZE_MIDDLE: int  # If the label text width exceeds the control width, replace the middle of the label with an ellipsis; uses wx.Control.Ellipsize .
 
 ST_ELLIPSIZE_END: int  # If the label text width exceeds the control width, replace the end of the label with an ellipsis; uses wx.Control.Ellipsize . ^^
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-ST_NO_AUTORESIZE: int
-
-ST_ELLIPSIZE_START: int
-
-ST_ELLIPSIZE_MIDDLE: int
-
-ST_ELLIPSIZE_END: int
 
 class StatusBar(Control):
     """ A status bar is a narrow window that can be placed along the bottom of
@@ -38868,18 +36718,6 @@ STB_ELLIPSIZE_END: int  # Replace the end of the status texts with an ellipsis w
 
 STB_DEFAULT_STYLE: int  # The default style: includes  STB_SIZEGRIP|wxSTB_SHOW_TIPS|wxSTB_ELLIPSIZE_END|wxFULL_REPAINT_ON_RESIZE . ^^
 
-STB_SIZEGRIP: int
-
-STB_SHOW_TIPS: int
-
-STB_ELLIPSIZE_START: int
-
-STB_ELLIPSIZE_MIDDLE: int
-
-STB_ELLIPSIZE_END: int
-
-STB_DEFAULT_STYLE: int
-
 class StatusBarPane:
     """ A status bar pane data container used by StatusBar.
 
@@ -38967,28 +36805,6 @@ interface guidelines (if such things exist).
         """
 
 
-
-ID_SAVE: int
-
-ID_NO: int
-
-ID_OK: int
-
-ID_YES: int
-
-ID_SAVE: int
-
-ID_APPLY: int
-
-ID_CLOSE: int
-
-ID_NO: int
-
-ID_CANCEL: int
-
-ID_HELP: int
-
-ID_CONTEXT_HELP: int
 
 class StockPreferencesPage(PreferencesPage):
     """ Specialization of PreferencesPage useful for certain commonly used
@@ -39282,8 +37098,6 @@ theme changes (e.g.
 
 
 
-EVT_SYS_COLOUR_CHANGED: int  # Process a  wxEVT_SYS_COLOUR_CHANGED   event. ^^
-
 class SystemAppearance:
     """ Provides information about the current system appearance.
 
@@ -39358,11 +37172,7 @@ applications can use to alter behaviour at run-time.
 
 
 
-CLIP_CHILDREN: int
-
 BG_STYLE_COLOUR: int
-
-FD_OPEN: int
 
 class SystemSettings:
     """ SystemSettings allows the application to ask for details about the
@@ -40070,27 +37880,15 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
 
 TEXT_ATTR_BULLET_STYLE_STANDARD: int
 
-TEXT_ATTR_BULLET_STYLE_STANDARD: int
-
-TEXT_ATTR_BULLET_STYLE_STANDARD: int
-
 TEXT_ATTR_URL: int
 
 TEXT_ALIGNMENT_JUSTIFIED: int
-
-TEXT_ATTR_BULLET_STYLE_STANDARD: int
 
 TEXT_ATTR_BULLET_STYLE_BITMAP: int
 
 TEXT_ATTR_UNDERLINE_DOUBLE: int
 
 TEXT_ATTR_UNDERLINE_SOLID: int
-
-TEXT_ATTR_UNDERLINE_SPECIAL: int
-
-TEXT_ATTR_UNDERLINE_SPECIAL: int
-
-TEXT_ATTR_UNDERLINE_SPECIAL: int
 
 TEXT_ATTR_UNDERLINE_SPECIAL: int
 
@@ -40103,14 +37901,6 @@ TEXT_ATTR_EFFECT_STRIKETHROUGH: int
 TEXT_ATTR_EFFECT_SUPERSCRIPT: int
 
 TEXT_ATTR_EFFECT_SUBSCRIPT: int
-
-TEXT_ATTR_EFFECT_CAPITALS: int
-
-TEXT_ATTR_EFFECT_STRIKETHROUGH: int
-
-TEXT_ATTR_EFFECTS: int
-
-TEXT_ATTR_URL: int
 
 class TextCompleter:
     """ Base class for custom text completer objects.
@@ -40485,10 +38275,6 @@ class TextEntry:
 
 
 
-TE_READONLY: int
-
-TE_READONLY: int
-
 class TextEntryDialog(Dialog):
     """ This class represents a dialog that requests a one-line text string
 from the user.
@@ -40545,26 +38331,6 @@ from the user.
         """
 
 
-
-OK: int
-
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
-
-CANCEL: int
-
-CENTRE: int
-
-OK: int
-
-ID_OK: int
-
-OK: int
-
-ID_CANCEL: int
 
 class TextUrlEvent(CommandEvent):
     """  Overloaded Implementations:
@@ -41290,49 +39056,7 @@ TB_RIGHT: int  # Align the toolbar at the right side of parent window.
 
 TB_DEFAULT_STYLE: int  # The  TB_HORIZONTAL   style. This style is new since wxWidgets 2.9.5. ^^
 
-EVT_TOOL: int  # Process a  wxEVT_TOOL   event (a synonym for   wxEVT_MENU ). Pass the id of the tool.
-
-EVT_MENU: int  # The same as EVT_TOOL().
-
-EVT_TOOL_RANGE: int  # Process a  wxEVT_TOOL   event for a range of identifiers. Pass the ids of the tools.
-
-EVT_MENU_RANGE: int  # The same as EVT_TOOL_RANGE().
-
-EVT_TOOL_RCLICKED: int  # Process a  wxEVT_TOOL_RCLICKED   event. Pass the id of the tool. (Not available on wxOSX.)
-
-EVT_TOOL_RCLICKED_RANGE: int  # Process a  wxEVT_TOOL_RCLICKED   event for a range of ids. Pass the ids of the tools. (Not available on wxOSX.)
-
-EVT_TOOL_ENTER: int  # Process a  wxEVT_TOOL_ENTER   event. Pass the id of the toolbar itself. The value of  wx.CommandEvent.GetSelection   is the tool id, or -1 if the mouse cursor has moved off a tool. (Not available on wxOSX.)
-
 EVT_TOOL_DROPDOWN: int  # Process a  wxEVT_TOOL_DROPDOWN   event. If unhandled, displays the default dropdown menu set using  wx.ToolBar.SetDropdownMenu . ^^
-
-TB_FLAT: int
-
-TB_DOCKABLE: int
-
-TB_HORIZONTAL: int
-
-TB_VERTICAL: int
-
-TB_TEXT: int
-
-TB_NOICONS: int
-
-TB_NODIVIDER: int
-
-TB_NOALIGN: int
-
-TB_HORZ_LAYOUT: int
-
-TB_HORZ_TEXT: int
-
-TB_NO_TOOLTIPS: int
-
-TB_BOTTOM: int
-
-TB_RIGHT: int
-
-TB_DEFAULT_STYLE: int
 
 class ToolBarToolBase(Object):
     """ A toolbar tool represents one item on the toolbar.
@@ -41609,10 +39333,6 @@ TBK_HORZ_LAYOUT: int  # Shows the text and the icons alongside, not vertically s
 EVT_TOOLBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_TOOLBOOK_PAGE_CHANGED   event.
 
 EVT_TOOLBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_TOOLBOOK_PAGE_CHANGING   event. This event can be vetoed (using  wx.NotifyEvent.Veto ). ^^
-
-TBK_BUTTONBAR: int
-
-TBK_HORZ_LAYOUT: int
 
 class ToolTip(Object):
     """ This class holds information about a tooltip associated with a window
@@ -41984,22 +39704,6 @@ class TopLevelWindow(NonOwnedWindow):
 
 
 
-EVT_MAXIMIZE: int  # Process a  wxEVT_MAXIMIZE   event. See    wx.MaximizeEvent.
-
-EVT_MOVE: int  # Process a  wxEVT_MOVE   event, which is generated when a window is moved. See    wx.MoveEvent.
-
-EVT_MOVE_START: int  # Process a  wxEVT_MOVE_START   event, which is generated when the user starts to move or size a window. wxMSW only. See    wx.MoveEvent.
-
-EVT_MOVE_END: int  # Process a  wxEVT_MOVE_END   event, which is generated when the user stops moving or sizing a window. wxMSW only. See    wx.MoveEvent.
-
-EVT_SHOW: int  # Process a  wxEVT_SHOW   event. See    wx.ShowEvent.
-
-EVT_FULLSCREEN: int  # Process a  wxEVT_FULLSCREEN   event. See    wx.FullScreenEvent. ^^
-
-MAXIMIZE_BOX: int
-
-MINIMIZE_BOX: int
-
 class Trackable:
     """ Add-on base class for a trackable object.
 
@@ -42087,10 +39791,6 @@ class Translations:
         """
 
 
-
-LANGUAGE_DEFAULT: int
-
-LANGUAGE_DEFAULT: int
 
 class TreeCtrl(Control,WithImages):
     """ A tree control presents information as a hierarchy, with items that
@@ -42683,34 +40383,6 @@ EVT_TREE_ITEM_MENU: int  # The context menu for the selected item has been reque
 
 EVT_TREE_STATE_IMAGE_CLICK: int  # The state image has been clicked. Processes a  wxEVT_TREE_STATE_IMAGE_CLICK   event type. ^^
 
-TR_EDIT_LABELS: int
-
-TR_NO_BUTTONS: int
-
-TR_HAS_BUTTONS: int
-
-TR_TWIST_BUTTONS: int
-
-TR_NO_LINES: int
-
-TR_FULL_ROW_HIGHLIGHT: int
-
-TR_LINES_AT_ROOT: int
-
-TR_HIDE_ROOT: int
-
-TR_ROW_LINES: int
-
-TR_HAS_VARIABLE_ROW_HEIGHT: int
-
-TR_SINGLE: int
-
-TR_MULTIPLE: int
-
-TR_DEFAULT_STYLE: int
-
-TR_HIDE_ROOT: int
-
 class TreeEvent(NotifyEvent):
     """ A tree event holds information about events associated with TreeCtrl
 objects.
@@ -42772,48 +40444,6 @@ objects.
         """
 
 
-
-EVT_TREE_BEGIN_DRAG: int  # Begin dragging with the left mouse button. If you want to enable left-dragging you need to intercept this event and explicitly call wx.TreeEvent.Allow , as itâs vetoed by default. Also notice that the control must have an associated image list (see SetImageList()) to drag its items under MSW.
-
-EVT_TREE_BEGIN_RDRAG: int  # Begin dragging with the right mouse button. If you want to enable right-dragging you need to intercept this event and explicitly call wx.TreeEvent.Allow , as itâs vetoed by default.
-
-EVT_TREE_END_DRAG: int  # End dragging with the left or right mouse button.
-
-EVT_TREE_BEGIN_LABEL_EDIT: int  # Begin editing a label. This can be prevented by calling Veto
-
-EVT_TREE_END_LABEL_EDIT: int  # Finish editing a label. This can be prevented by calling Veto
-
-EVT_TREE_DELETE_ITEM: int  # Delete an item.
-
-EVT_TREE_GET_INFO: int  # Request information from the application.
-
-EVT_TREE_SET_INFO: int  # Information is being supplied.
-
-EVT_TREE_ITEM_ACTIVATED: int  # The item has been activated, i.e. chosen by double clicking it with mouse or from keyboard.
-
-EVT_TREE_ITEM_COLLAPSED: int  # The item has been collapsed.
-
-EVT_TREE_ITEM_COLLAPSING: int  # The item is being collapsed. This can be prevented by calling Veto
-
-EVT_TREE_ITEM_EXPANDED: int  # The item has been expanded.
-
-EVT_TREE_ITEM_EXPANDING: int  # The item is being expanded. This can be prevented by calling Veto
-
-EVT_TREE_ITEM_RIGHT_CLICK: int  # The user has clicked the item with the right mouse button.
-
-EVT_TREE_ITEM_MIDDLE_CLICK: int  # The user has clicked the item with the middle mouse button.
-
-EVT_TREE_SEL_CHANGED: int  # Selection has changed.
-
-EVT_TREE_SEL_CHANGING: int  # Selection is changing. This can be prevented by calling Veto
-
-EVT_TREE_KEY_DOWN: int  # A key has been pressed.
-
-EVT_TREE_ITEM_GETTOOLTIP: int  # The opportunity to set the item tooltip is being given to the application (call SetToolTip). Windows only.
-
-EVT_TREE_ITEM_MENU: int  # The context menu for the selected item has been requested, either by a right click or by using the menu key.
-
-EVT_TREE_STATE_IMAGE_CLICK: int  # The state image has been clicked. ^^
 
 class TreeItemId:
     """ An opaque reference to a tree item.
@@ -43167,12 +40797,6 @@ EVT_UPDATE_UI: int  # Process a  wxEVT_UPDATE_UI   event for the command with th
 EVT_UPDATE_UI_RANGE: int  # Process a  wxEVT_UPDATE_UI   event for any command with id included in the given range. ^^
 
 UPDATE_UI_PROCESS_SPECIFIED: int
-
-WS_EX_PROCESS_UI_UPDATES: int
-
-WS_EX_PROCESS_UI_UPDATES: int
-
-UPDATE_UI_PROCESS_ALL: int
 
 UPDATE_UI_PROCESS_ALL: int
 
@@ -44083,8 +41707,6 @@ those which are shown on the screen need to be measured; or even
 
 
 
-ID_ANY: int
-
 class WindowBase:
     """ child (wx.WindowBase) â 
 
@@ -44186,10 +41808,6 @@ back in its destructor.
         """
 
 
-
-FRAME_TOOL_WINDOW: int
-
-FRAME_NO_TASKBAR: int
 
 class WindowIDRef:
     """ A WindowIDRef object wraps an ID value and marks it as being in-use
@@ -44526,73 +42144,17 @@ WXK_CONTROL_Y: int
 
 WXK_CONTROL_Z: int
 
-WXK_BACK: int
-
-WXK_TAB: int
-
-WXK_RETURN: int
-
-WXK_ESCAPE: int
-
-WXK_SPACE: int
-
-WXK_DELETE: int
-
 WXK_START: int
 
 WXK_LBUTTON: int
 
 WXK_RBUTTON: int
 
-WXK_CANCEL: int
-
 WXK_MBUTTON: int
 
-WXK_CLEAR: int
-
-WXK_SHIFT: int
-
-WXK_ALT: int
-
-WXK_CONTROL: int
-
 WXK_CONTROL: int
 
 WXK_RAW_CONTROL: int
-
-WXK_RAW_CONTROL: int
-
-WXK_CONTROL: int
-
-WXK_MENU: int
-
-WXK_PAUSE: int
-
-WXK_CAPITAL: int
-
-WXK_END: int
-
-WXK_HOME: int
-
-WXK_LEFT: int
-
-WXK_UP: int
-
-WXK_RIGHT: int
-
-WXK_DOWN: int
-
-WXK_SELECT: int
-
-WXK_PRINT: int
-
-WXK_EXECUTE: int
-
-WXK_SNAPSHOT: int
-
-WXK_INSERT: int
-
-WXK_HELP: int
 
 WXK_NUMPAD0: int
 
@@ -44615,16 +42177,6 @@ WXK_NUMPAD8: int
 WXK_NUMPAD9: int
 
 WXK_MULTIPLY: int
-
-WXK_ADD: int
-
-WXK_SEPARATOR: int
-
-WXK_SUBTRACT: int
-
-WXK_DECIMAL: int
-
-WXK_DIVIDE: int
 
 WXK_F1: int
 
@@ -44674,20 +42226,6 @@ WXK_F23: int
 
 WXK_F24: int
 
-WXK_NUMLOCK: int
-
-WXK_SCROLL: int
-
-WXK_PAGEUP: int
-
-WXK_PAGEDOWN: int
-
-WXK_NUMPAD_SPACE: int
-
-WXK_NUMPAD_TAB: int
-
-WXK_NUMPAD_ENTER: int
-
 WXK_NUMPAD_F1: int
 
 WXK_NUMPAD_F2: int
@@ -44695,50 +42233,6 @@ WXK_NUMPAD_F2: int
 WXK_NUMPAD_F3: int
 
 WXK_NUMPAD_F4: int
-
-WXK_NUMPAD_HOME: int
-
-WXK_NUMPAD_LEFT: int
-
-WXK_NUMPAD_UP: int
-
-WXK_NUMPAD_RIGHT: int
-
-WXK_NUMPAD_DOWN: int
-
-WXK_NUMPAD_PAGEUP: int
-
-WXK_NUMPAD_PAGEDOWN: int
-
-WXK_NUMPAD_END: int
-
-WXK_NUMPAD_BEGIN: int
-
-WXK_NUMPAD_INSERT: int
-
-WXK_NUMPAD_DELETE: int
-
-WXK_NUMPAD_EQUAL: int
-
-WXK_NUMPAD_MULTIPLY: int
-
-WXK_NUMPAD_ADD: int
-
-WXK_NUMPAD_SEPARATOR: int
-
-WXK_NUMPAD_SUBTRACT: int
-
-WXK_NUMPAD_DECIMAL: int
-
-WXK_NUMPAD_DIVIDE: int
-
-WXK_WINDOWS_LEFT: int
-
-WXK_WINDOWS_RIGHT: int
-
-WXK_WINDOWS_MENU: int
-
-WXK_COMMAND: int
 
 WXK_SPECIAL1: int
 
@@ -44858,8 +42352,6 @@ OS_WINDOWS_NT: int
 
 OS_WINDOWS: int
 
-OS_WINDOWS_NT: int
-
 OS_UNIX_LINUX: int
 
 OS_UNIX_FREEBSD: int
@@ -44940,11 +42432,7 @@ ACC_FAIL: int
 
 ACC_FALSE: int
 
-ACC_OK: int
-
 ACC_NOT_IMPLEMENTED: int
-
-ACC_NOT_SUPPORTED: int
 
 ACC_INVALID_ARG: int
 
@@ -45006,8 +42494,6 @@ ID_OK: int
 
 ID_ANY: int
 
-ID_ANY: int
-
 ID_HIGHEST: int
 
 ID_LOWEST: int
@@ -45024,47 +42510,21 @@ WINDOW_VARIANT_MAX: int
 
 BITMAP_TYPE_INVALID: int
 
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_ICO: int
-
-BITMAP_TYPE_CUR: int
-
 BITMAP_TYPE_XBM: int
 
 BITMAP_TYPE_XBM_DATA: int
 
-BITMAP_TYPE_XPM: int
-
 BITMAP_TYPE_XPM_DATA: int
 
-BITMAP_TYPE_TIFF: int
-
 BITMAP_TYPE_TIF: int
-
-BITMAP_TYPE_GIF: int
-
-BITMAP_TYPE_PNG: int
-
-BITMAP_TYPE_JPEG: int
-
-BITMAP_TYPE_PNM: int
-
-BITMAP_TYPE_PCX: int
 
 BITMAP_TYPE_PICT: int
 
 BITMAP_TYPE_ICON: int
 
-BITMAP_TYPE_ANI: int
-
 BITMAP_TYPE_IFF: int
 
-BITMAP_TYPE_TGA: int
-
 BITMAP_TYPE_MACCURSOR: int
-
-BITMAP_TYPE_ANY: int
 
 BITMAP_TYPE_BMP_RESOURCE: int
 
@@ -45072,27 +42532,15 @@ BITMAP_TYPE_BMP: int
 
 BITMAP_TYPE_XPM: int
 
-BITMAP_TYPE_XPM: int
-
 BITMAP_TYPE_XBM: int
-
-BITMAP_TYPE_XPM: int
 
 BITMAP_TYPE_ICO_RESOURCE: int
 
 BITMAP_TYPE_ICO: int
 
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_XPM: int
-
 BITMAP_TYPE_CUR_RESOURCE: int
 
 BITMAP_TYPE_CUR: int
-
-BITMAP_TYPE_ICO: int
-
-BITMAP_TYPE_BMP: int
 
 PORT_UNKNOWN: int
 
@@ -45101,8 +42549,6 @@ PORT_BASE: int
 PORT_MSW: int
 
 PORT_MOTIF: int
-
-PORT_GTK: int
 
 PORT_DFB: int
 
@@ -45192,8 +42638,6 @@ ID_NEW: int
 
 ID_NO: int
 
-ID_OK: int
-
 ID_OPEN: int
 
 ID_PASTE: int
@@ -45260,10 +42704,6 @@ ID_ZOOM_OUT: int
 
 CLEAR: int
 
-XOR: int
-
-XOR: int
-
 INVERT: int
 
 OR_REVERSE: int
@@ -45274,45 +42714,21 @@ AND_REVERSE: int
 
 AND: int
 
-COPY: int
-
-AND: int
-
-AND: int
-
 AND_INVERT: int
-
-AND: int
 
 NO_OP: int
 
 NOR: int
 
-AND: int
-
 EQUIV: int
-
-XOR: int
 
 SRC_INVERT: int
 
 OR_INVERT: int
 
-OR: int
-
 NAND: int
 
-OR: int
-
-OR: int
-
-OR: int
-
 SET: int
-
-FLOOD_SURFACE: int
-
-FLOOD_BORDER: int
 
 MM_TEXT: int
 
@@ -45324,18 +42740,6 @@ MM_TWIPS: int
 
 MM_POINTS: int
 
-LEFT: int
-
-RIGHT: int
-
-UP: int
-
-DOWN: int
-
-TOP: int
-
-BOTTOM: int
-
 NORTH: int
 
 SOUTH: int
@@ -45343,8 +42747,6 @@ SOUTH: int
 WEST: int
 
 EAST: int
-
-ALL: int
 
 DIRECTION_MASK: int
 
@@ -45385,8 +42787,6 @@ SHAPED: int
 
 FIXED_MINSIZE: int
 
-FIXED_MINSIZE: int
-
 RESERVE_SPACE_EVEN_IF_HIDDEN: int
 
 ALIGN_CENTER: int
@@ -45394,8 +42794,6 @@ ALIGN_CENTER: int
 ALIGN_CENTRE: int
 
 ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
 
 ALIGN_RIGHT: int
 
@@ -45411,57 +42809,7 @@ ALIGN_CENTER_HORIZONTAL: int
 
 ALIGN_CENTRE_HORIZONTAL: int
 
-EXPAND: int
-
 GROW: int
-
-EXPAND: int
-
-SHAPED: int
-
-EXPAND: int
-
-GROW: int
-
-EXPAND: int
-
-SHAPED: int
-
-GROW: int
-
-ALIGN_LEFT: int
-
-ALIGN_TOP: int
-
-ALIGN_RIGHT: int
-
-ALIGN_BOTTOM: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_CENTRE: int
-
-ALIGN_CENTER: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_LEFT: int
-
-ALIGN_TOP: int
-
-TOP: int
-
-LEFT: int
-
-RIGHT: int
-
-BOTTOM: int
-
-ALL: int
 
 NORTH: int
 
@@ -45470,8 +42818,6 @@ WEST: int
 BRUSHSTYLE_INVALID: int
 
 BRUSHSTYLE_SOLID: int
-
-BRUSHSTYLE_TRANSPARENT: int
 
 BRUSHSTYLE_STIPPLE_MASK_OPAQUE: int
 
@@ -45498,8 +42844,6 @@ BRUSHSTYLE_LAST_HATCH: int
 CHK_UNCHECKED: int
 
 CHK_CHECKED: int
-
-CHK_UNDETERMINED: int
 
 HT_NOWHERE: int
 
@@ -45535,14 +42879,6 @@ HT_MAX: int
 
 EVT_CLOSE: int
 
-EVT_CLOSE: int
-
-EVT_CLOSE: int
-
-ID_CANCEL: int
-
-ID_CANCEL: int
-
 FD_OPEN: int
 
 FD_SAVE: int
@@ -45567,41 +42903,11 @@ DefaultSize: int
 
 EVT_SIZE: int
 
-ID_OPEN: int
-
-ID_ANY: int
-
 BG_STYLE_ERASE: int
 
 BG_STYLE_SYSTEM: int
 
-BG_STYLE_PAINT: int
-
-BG_STYLE_COLOUR: int
-
 BG_STYLE_TRANSPARENT: int
-
-BORDER_DEFAULT: int
-
-BORDER_NONE: int
-
-BORDER_NONE: int
-
-BORDER_STATIC: int
-
-BORDER_SIMPLE: int
-
-BORDER_RAISED: int
-
-BORDER_SUNKEN: int
-
-BORDER_DOUBLE: int
-
-BORDER_THEME: int
-
-BORDER_MASK: int
-
-SHOW_EFFECT_NONE: int
 
 SHOW_EFFECT_ROLL_TO_LEFT: int
 
@@ -45614,10 +42920,6 @@ SHOW_EFFECT_ROLL_TO_BOTTOM: int
 SHOW_EFFECT_SLIDE_TO_LEFT: int
 
 SHOW_EFFECT_SLIDE_TO_RIGHT: int
-
-SHOW_EFFECT_SLIDE_TO_TOP: int
-
-SHOW_EFFECT_SLIDE_TO_BOTTOM: int
 
 SHOW_EFFECT_BLEND: int
 
@@ -45632,8 +42934,6 @@ HORIZONTAL: int
 UPDATE_UI_NONE: int
 
 UPDATE_UI_RECURSE: int
-
-UPDATE_UI_FROMIDLE: int
 
 ELLIPSIZE_NONE: int
 
@@ -45650,14 +42950,6 @@ ELLIPSIZE_FLAGS_PROCESS_MNEMONICS: int
 ELLIPSIZE_FLAGS_EXPAND_TABS: int
 
 ELLIPSIZE_FLAGS_DEFAULT: int
-
-DF_INVALID: int
-
-DF_TEXT: int
-
-DF_BITMAP: int
-
-DF_METAFILE: int
 
 DF_SYLK: int
 
@@ -45677,19 +42969,11 @@ DF_RIFF: int
 
 DF_WAVE: int
 
-DF_UNICODETEXT: int
-
 DF_ENHMETAFILE: int
-
-DF_FILENAME: int
 
 DF_LOCALE: int
 
 DF_PRIVATE: int
-
-DF_HTML: int
-
-DF_PNG: int
 
 DF_MAX: int
 
@@ -45699,12 +42983,6 @@ HDR_SORT_ICON_UP: int
 
 HDR_SORT_ICON_DOWN: int
 
-HORIZONTAL: int
-
-VERTICAL: int
-
-BOTH: int
-
 ORIENTATION_MASK: int
 
 DIALOG_ADAPTATION_MODE_DEFAULT: int
@@ -45712,10 +42990,6 @@ DIALOG_ADAPTATION_MODE_DEFAULT: int
 DIALOG_ADAPTATION_MODE_ENABLED: int
 
 DIALOG_ADAPTATION_MODE_DISABLED: int
-
-ID_OK: int
-
-ID_CANCEL: int
 
 DIALOG_ADAPTATION_MODE_DEFAULT: int
 
@@ -45729,10 +43003,6 @@ FH_PATH_SHOW_NEVER: int
 
 FH_PATH_SHOW_ALWAYS: int
 
-FS_READ: int
-
-FS_SEEKABLE: int
-
 FSW_WARNING_NONE: int
 
 FSW_WARNING_GENERAL: int
@@ -45744,12 +43014,6 @@ FR_DOWN: int
 FR_WHOLEWORD: int
 
 FR_MATCHCASE: int
-
-FLEX_GROWMODE_NONE: int
-
-FLEX_GROWMODE_SPECIFIED: int
-
-FLEX_GROWMODE_ALL: int
 
 DEFAULT: int
 
@@ -45763,15 +43027,11 @@ SWISS: int
 
 MODERN: int
 
-MODERN: int
-
 NORMAL: int
 
 SLANT: int
 
 ITALIC: int
-
-NORMAL: int
 
 LIGHT: int
 
@@ -45783,8 +43043,6 @@ FONTENCODING_SYSTEM: int
 
 FONTENCODING_DEFAULT: int
 
-FONTENCODING_SYSTEM: int
-
 FONTENCODING_KOI8: int
 
 FONTENCODING_ISO8859_5: int
@@ -45792,8 +43050,6 @@ FONTENCODING_ISO8859_5: int
 FONTENCODING_CP1251: int
 
 FONTENCODING_CP1250: int
-
-FONTENCODING_CP1251: int
 
 FONTENCODING_CP1252: int
 
@@ -45830,10 +43086,6 @@ FONTFLAG_UNDERLINED: int
 FONTFLAG_STRIKETHROUGH: int
 
 FONTFLAG_MASK: int
-
-ODDEVEN_RULE: int
-
-WINDING_RULE: int
 
 ANTIALIAS_NONE: int
 
@@ -45893,8 +43145,6 @@ PENSTYLE_DOT_DASH: int
 
 PENSTYLE_USER_DASH: int
 
-PENSTYLE_TRANSPARENT: int
-
 PENSTYLE_STIPPLE_MASK_OPAQUE: int
 
 PENSTYLE_STIPPLE_MASK: int
@@ -45947,39 +43197,11 @@ GRADIENT_RADIAL: int
 
 ALIGN_INVALID: int
 
-ALIGN_NOT: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-ALIGN_LEFT: int
-
-ALIGN_TOP: int
-
-ALIGN_RIGHT: int
-
-ALIGN_BOTTOM: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_CENTRE_VERTICAL: int
-
-ALIGN_CENTER: int
-
-ALIGN_CENTRE: int
-
 ALIGN_MASK: int
 
 HELP_SEARCH_INDEX: int
 
 HELP_SEARCH_ALL: int
-
-IDLE_PROCESS_ALL: int
-
-IDLE_PROCESS_SPECIFIED: int
-
-WS_EX_PROCESS_IDLE: int
 
 IMAGE_ALPHA_BLEND_OVER: int
 
@@ -45988,10 +43210,6 @@ IMAGE_ALPHA_BLEND_COMPOSE: int
 IMAGE_QUALITY_NEAREST: int
 
 IMAGE_QUALITY_BILINEAR: int
-
-IMAGE_QUALITY_NEAREST: int
-
-IMAGE_QUALITY_BICUBIC: int
 
 IMAGE_QUALITY_BICUBIC: int
 
@@ -46003,17 +43221,9 @@ IMAGE_QUALITY_HIGH: int
 
 MOD_NONE: int
 
-MOD_ALT: int
-
-MOD_CONTROL: int
-
 MOD_ALTGR: int
 
-MOD_SHIFT: int
-
 MOD_META: int
-
-MOD_WIN: int
 
 MOD_RAW_CONTROL: int
 
@@ -46032,12 +43242,6 @@ WXK_CATEGORY_TAB: int
 WXK_CATEGORY_CUT: int
 
 WXK_CATEGORY_NAVIGATION: int
-
-WXK_CATEGORY_ARROW: int
-
-WXK_CATEGORY_PAGING: int
-
-WXK_CATEGORY_JUMP: int
 
 LIST_FORMAT_LEFT: int
 
@@ -46064,8 +43268,6 @@ LOCALE_CAT_NUMBER: int
 LOCALE_CAT_DATE: int
 
 LOCALE_CAT_MONEY: int
-
-LOCALE_CAT_DEFAULT: int
 
 ITEM_SEPARATOR: int
 
@@ -46393,16 +43595,6 @@ PRINTBIN_FORMSOURCE: int
 
 PRINTBIN_USER: int
 
-DUPLEX_SIMPLEX: int
-
-DUPLEX_HORIZONTAL: int
-
-DUPLEX_VERTICAL: int
-
-PORTRAIT: int
-
-LANDSCAPE: int
-
 PRINT_MODE_NONE: int
 
 PRINT_MODE_PREVIEW: int
@@ -46413,12 +43605,6 @@ PRINT_MODE_PRINTER: int
 
 PRINT_MODE_STREAM: int
 
-PRINTER_NO_ERROR: int
-
-PRINTER_CANCELLED: int
-
-PRINTER_ERROR: int
-
 APP_ASSERT_SUPPRESS: int
 
 APP_ASSERT_EXCEPTION: int
@@ -46427,17 +43613,7 @@ APP_ASSERT_DIALOG: int
 
 APP_ASSERT_LOG: int
 
-SHOW_SB_NEVER: int
-
-SHOW_SB_DEFAULT: int
-
-SHOW_SB_ALWAYS: int
-
 SP_3D: int
-
-SPLIT_HORIZONTAL: int
-
-SPLIT_VERTICAL: int
 
 STREAM_NO_ERROR: int
 
@@ -46446,8 +43622,6 @@ STREAM_EOF: int
 STREAM_WRITE_ERROR: int
 
 STREAM_READ_ERROR: int
-
-SVG_SHAPE_RENDERING_AUTO: int
 
 SVG_SHAPE_RENDERING_OPTIMIZE_SPEED: int
 
@@ -46555,8 +43729,6 @@ SYS_BORDER_X: int
 
 SYS_BORDER_Y: int
 
-SYS_CURSOR_X: int
-
 SYS_CURSOR_Y: int
 
 SYS_DCLICK_X: int
@@ -46611,8 +43783,6 @@ SYS_VSCROLL_ARROW_Y: int
 
 SYS_VTHUMB_Y: int
 
-SYS_CAPTION_Y: int
-
 SYS_MENU_Y: int
 
 SYS_NETWORK_PRESENT: int
@@ -46663,10 +43833,6 @@ TEXT_ALIGNMENT_CENTER: int
 
 TEXT_ALIGNMENT_RIGHT: int
 
-TEXT_ALIGNMENT_JUSTIFIED: int
-
-TEXT_ALIGNMENT_JUSTIFIED: int
-
 TEXT_ATTR_BULLET_STYLE_NONE: int
 
 TEXT_ATTR_BULLET_STYLE_ARABIC: int
@@ -46681,15 +43847,9 @@ TEXT_ATTR_BULLET_STYLE_ROMAN_LOWER: int
 
 TEXT_ATTR_BULLET_STYLE_SYMBOL: int
 
-TEXT_ATTR_BULLET_STYLE_BITMAP: int
-
-TEXT_ATTR_BULLET_STYLE_BITMAP: int
-
 TEXT_ATTR_BULLET_STYLE_PARENTHESES: int
 
 TEXT_ATTR_BULLET_STYLE_PERIOD: int
-
-TEXT_ATTR_BULLET_STYLE_STANDARD: int
 
 TEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS: int
 
@@ -46704,12 +43864,6 @@ TEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE: int
 TEXT_ATTR_BULLET_STYLE_CONTINUATION: int
 
 TEXT_ATTR_UNDERLINE_NONE: int
-
-TEXT_ATTR_UNDERLINE_SOLID: int
-
-TEXT_ATTR_UNDERLINE_DOUBLE: int
-
-TEXT_ATTR_UNDERLINE_SPECIAL: int
 
 TEXT_ATTR_TEXT_COLOUR: int
 
@@ -46767,11 +43921,7 @@ TEXT_ATTR_BULLET_NAME: int
 
 TEXT_ATTR_BULLET: int
 
-TEXT_ATTR_URL: int
-
 TEXT_ATTR_PAGE_BREAK: int
-
-TEXT_ATTR_EFFECTS: int
 
 TEXT_ATTR_OUTLINE_LEVEL: int
 
@@ -46787,11 +43937,7 @@ TEXT_ATTR_ALL: int
 
 TEXT_ATTR_EFFECT_NONE: int
 
-TEXT_ATTR_EFFECT_CAPITALS: int
-
 TEXT_ATTR_EFFECT_SMALL_CAPITALS: int
-
-TEXT_ATTR_EFFECT_STRIKETHROUGH: int
 
 TEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH: int
 
@@ -46802,10 +43948,6 @@ TEXT_ATTR_EFFECT_EMBOSS: int
 TEXT_ATTR_EFFECT_OUTLINE: int
 
 TEXT_ATTR_EFFECT_ENGRAVE: int
-
-TEXT_ATTR_EFFECT_SUPERSCRIPT: int
-
-TEXT_ATTR_EFFECT_SUBSCRIPT: int
 
 TEXT_ATTR_EFFECT_RTL: int
 
@@ -46827,21 +43969,7 @@ CONTENT_PROTECTION_ENABLED: int
 
 EVT_TREE_ITEM_EXPANDING: int
 
-UPDATE_UI_PROCESS_ALL: int
-
-UPDATE_UI_PROCESS_SPECIFIED: int
-
-WS_EX_PROCESS_UI_UPDATES: int
-
-ID_ANY: int
-
-ID_ANY: int
-
 ID_NONE: int
-
-ID_LOWEST: int
-
-ID_HIGHEST: int
 
 def HtmlWinParser_AddTagHandler(tagHandlerClass) -> None:
     """ 

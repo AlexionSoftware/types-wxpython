@@ -93,8 +93,6 @@ SetColour.
 
 EVT_BUTTON: int
 
-EVT_BUTTON: int
-
 class CustomColourData:
     """ A simple container for tracking custom colours to be shown in the colour
 dialog, and which facilitates reuse of this collection across multiple

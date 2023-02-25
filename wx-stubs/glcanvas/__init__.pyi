@@ -333,5 +333,3 @@ class GLAttribsBase:
 
 OR: int
 
-OR: int
-

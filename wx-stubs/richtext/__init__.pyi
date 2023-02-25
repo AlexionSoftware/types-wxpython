@@ -1980,14 +1980,8 @@ RE_MULTILINE: int  # The control will be multiline (mandatory).
 
 RE_READONLY: int  # The control will not be editable. ^^
 
-RE_CENTRE_CARET: int
-
 RE_CENTER_CARET: int
 
-RE_MULTILINE: int
-
-RE_READONLY: int
-
 TEXT_ATTR_URL: int
 
 ID_CLEAR: int
@@ -2004,73 +1998,9 @@ ID_SELECTALL: int
 
 ID_UNDO: int
 
-ID_CLEAR: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_PASTE: int
-
-ID_REDO: int
-
-ID_SELECTALL: int
-
-ID_UNDO: int
-
-TEXT_ATTR_URL: int
-
 RICHTEXT_SETSTYLE_WITH_UNDO: int
 
 RICHTEXT_TYPE_ANY: int
-
-RICHTEXT_TYPE_ANY: int
-
-RICHTEXT_TYPE_ANY: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_RENUMBER: int
-
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-
-ID_CLEAR: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_PASTE: int
-
-ID_REDO: int
-
-ID_SELECTALL: int
-
-ID_UNDO: int
-
-ID_CLEAR: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_PASTE: int
-
-ID_REDO: int
-
-ID_SELECTALL: int
-
-ID_UNDO: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_RENUMBER: int
-
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-
-RICHTEXT_TYPE_ANY: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
 
 RICHTEXT_SETSTYLE_RENUMBER: int
 
@@ -2087,8 +2017,6 @@ RICHTEXT_SETPROPERTIES_RESET: int
 RICHTEXT_SETPROPERTIES_REMOVE: int
 
 RICHTEXT_SETSTYLE_NONE: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
 
 RICHTEXT_SETSTYLE_OPTIMIZE: int
 
@@ -2694,8 +2622,6 @@ EVT_RICHTEXT_CONSUMING_CHARACTER: int  # Process a  wxEVT_RICHTEXT_CONSUMING_CHA
 
 EVT_RICHTEXT_DELETE: int  # Process a  wxEVT_RICHTEXT_DELETE   event, generated when the user presses the backspace or delete key. Valid event functions: GetFlags, GetPosition.
 
-EVT_RICHTEXT_RETURN: int  # Process a  wxEVT_RICHTEXT_RETURN   event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition.
-
 EVT_RICHTEXT_STYLE_CHANGED: int  # Process a  wxEVT_RICHTEXT_STYLE_CHANGED   event, generated when styling has been applied to the control. Valid event functions: GetPosition, GetRange.
 
 EVT_RICHTEXT_STYLESHEET_CHANGED: int  # Process a  wxEVT_RICHTEXT_STYLESHEET_CHANGING   event, generated when the controlâs stylesheet has changed, for example the user added, edited or deleted a style. Valid event functions: GetRange, GetPosition.
@@ -2866,8 +2792,6 @@ class RichTextAction(Object):
         """
 
 
-
-RICHTEXT_CHANGE_OBJECT: int
 
 RICHTEXT_CHANGE_OBJECT: int
 
@@ -5634,10 +5558,6 @@ those filter types to the file handler type.
 
 
 
-TEXT_ATTR_URL: int
-
-TEXT_ATTR_URL: int
-
 class RichTextRange:
     """ This stores beginning and end positions for a range of data.
 
@@ -5812,12 +5732,6 @@ class RichTextRange:
         """
 
 
-
-RichTextRange: int
-
-RichTextRange: int
-
-RichTextRange: int
 
 class RichTextParagraphLayoutBox(RichTextCompositeObject):
     """ This class knows how to lay out paragraphs.
@@ -6330,53 +6244,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
 
 
 
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_OPTIMIZE: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_RENUMBER: int
-
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_RENUMBER: int
-
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_RENUMBER: int
-
-RICHTEXT_SETSTYLE_SPECIFY_LEVEL: int
-
 RICHTEXT_SETPROPERTIES_NONE: int
-
-RICHTEXT_SETPROPERTIES_WITH_UNDO: int
-
-RICHTEXT_SETPROPERTIES_PARAGRAPHS_ONLY: int
-
-RICHTEXT_SETPROPERTIES_CHARACTERS_ONLY: int
-
-RICHTEXT_SETPROPERTIES_RESET: int
-
-RICHTEXT_SETPROPERTIES_REMOVE: int
-
-RICHTEXT_SETSTYLE_NONE: int
-
-RICHTEXT_SETSTYLE_WITH_UNDO: int
-
-RICHTEXT_SETSTYLE_OPTIMIZE: int
-
-RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY: int
-
-RICHTEXT_SETSTYLE_CHARACTERS_ONLY: int
-
-RICHTEXT_SETSTYLE_RESET: int
-
-RICHTEXT_SETSTYLE_REMOVE: int
 
 class RichTextTable(RichTextBox):
     """ RichTextTable represents a table with arbitrary columns and rows.
@@ -7433,8 +7301,6 @@ RICHTEXT_CHANGE_ATTRIBUTES: int
 
 RICHTEXT_CHANGE_STYLE: int
 
-RICHTEXT_CHANGE_OBJECT: int
-
 class RichTextFormattingDialog(PropertySheetDialog):
     """ This dialog allows the user to edit a character and/or paragraph
 style.
@@ -7880,8 +7746,6 @@ RICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64: int
 RICHTEXT_HANDLER_SAVE_IMAGES_TO_MEMORY: int
 
 RICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES: int
-
-RICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64: int
 
 RICHTEXT_HANDLER_NO_HEADER_FOOTER: int
 
@@ -9155,8 +9019,6 @@ class TextBoxAttr:
         """
 
 
-
-RICHTEXT_TYPE_ANY: int
 
 RICHTEXT_TYPE_TEXT: int
 
