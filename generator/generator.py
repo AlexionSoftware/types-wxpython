@@ -185,7 +185,26 @@ cObj: ITypingClass = {
 				"window": "'Window'",
 			},
 			"paramStr": "self, window: 'Window'",
-
+		}, {
+			"type": TypingType.FUNCTION,
+			"name": "__enter__",
+			"moduleName": "wx.FrozenWindow",
+			"returnType": "None",
+			"methodType": "normal",
+			"source": "",
+			"docstring": "Enter the context manager.",
+			"params": {},
+			"paramStr": "self",
+		}, {
+			"type": TypingType.FUNCTION,
+			"name": "__exit__",
+			"moduleName": "wx.FrozenWindow",
+			"returnType": "None",
+			"methodType": "normal",
+			"source": "",
+			"docstring": "Exit the context manager.",
+			"params": {},
+			"paramStr": "self, *args, **kwargs",
 		}
 	],
 }
