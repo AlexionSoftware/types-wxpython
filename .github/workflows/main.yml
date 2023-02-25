@@ -8,6 +8,13 @@ jobs:
   code_quality:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       - name: Setup Poetry
         uses: Gr1N/setup-poetry@v8
       - name: Poetry install
