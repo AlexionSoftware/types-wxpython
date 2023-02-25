@@ -19,6 +19,8 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.lib.buttons.html",
 	"https://docs.wxpython.org/wx.lib.calendar.html",
 	"https://docs.wxpython.org/wx.lib.scrolledpanel.html",
+	"https://docs.wxpython.org/wx.lib.dialogs.html",
+	"https://docs.wxpython.org/wx.lib.newevent.html",
 ]
 EXTRA_CLASS_URLS: list[str] = [
 	"wx.FontFamily.enumeration.html",
