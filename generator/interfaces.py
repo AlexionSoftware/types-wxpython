@@ -40,3 +40,4 @@ class ITypingClass(ITyping):
 class ITypingLiteral(ITyping):
 	""" Interface for literals
 	"""
+	returnType: str

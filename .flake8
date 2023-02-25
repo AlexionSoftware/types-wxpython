@@ -1,0 +1,4 @@
+[flake8]
+extend-ignore = W191,E501,E203,E231,E741
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,wx-stubs
+max-complexity = 50

@@ -72,7 +72,7 @@ class Parser:
 		apiTableElem = soup.find(id="api-class-api")
 		if apiTableElem is not None:
 			# Build the class
-			classType: ITypingClass = {
+			classType: ITypingClass = {  # type: ignore
 				"type": TypingType.CLASS,
 				"name": className,
 				"moduleName": moduleName,
@@ -97,17 +97,17 @@ class Parser:
 		result.extend(functions)
 
 		# Check for events
-		styles = self._processClassWindowStyles(moduleName, soup)
+		styles = self._processClassWindowStyles(moduleName, soup, url)
 		result.extend(styles)
 
 		# Check for styles
-		events = self._processClassWindowEvents(moduleName, soup)
+		events = self._processClassWindowEvents(moduleName, soup, url)
 		result.extend(events)
 
 		# Check if there are literals
 		literals = soup.find_all(class_="literal")
 		if len(literals) > 0:
-			literals = self._processLiterals(moduleName, soup)
+			literals = self._processLiterals(moduleName, soup, source=url)
 			result.extend(literals)
 
 		# Remember we already processed this one
@@ -115,7 +115,7 @@ class Parser:
 
 		return result
 
-	def _processLiterals(self, moduleName: str, soup: Tag) -> list[ITypingLiteral]:
+	def _processLiterals(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
 		""" Process literals in a table
 		"""
 		# Make the output
@@ -144,6 +144,8 @@ class Parser:
 					"name": literalName,
 					"moduleName": moduleName,
 					"returnType": "int",
+					"docstring": "",
+					"source": source,
 				}
 				result.append(literalObj)
 
@@ -174,10 +176,11 @@ class Parser:
 		methodTags: list[Tag] = apiTableElem.find_all("dl", class_=methodIdName)
 		for methodTag in methodTags:
 			# Create the method
-			methodType: ITypingFunction = {
+			methodType: ITypingFunction = {  # type: ignore
 				"type": TypingType.FUNCTION,
 				"moduleName": className,
 				"source": source,
+				"methodType": "normal",
 			}
 
 			# Find the name
@@ -254,12 +257,12 @@ class Parser:
 							# Check if there is a single param
 							elif part.find("p"):
 								# Retrieve information
-								paramName: str = part.find_all("strong", limit=1)[0].get_text().strip()
+								paramName = part.find_all("strong", limit=1)[0].get_text().strip()
 								paramType = "Any"
 								if len(part.find_all("em", limit=1)) > 0:
-									paramType: str = self._ensureTyping(part.find_all("em", limit=1)[0].get_text().strip())
+									paramType = self._ensureTyping(part.find_all("em", limit=1)[0].get_text().strip())
 								elif len(part.find_all("span", limit=1)) > 0:
-									paramType: str = self._ensureTyping(part.find_all("span", limit=1)[0].get_text().strip())
+									paramType = self._ensureTyping(part.find_all("span", limit=1)[0].get_text().strip())
 
 								methodType["params"][paramName] = paramType
 
@@ -315,7 +318,7 @@ class Parser:
 		# Save the output
 		return result
 
-	def _processClassWindowStyles(self, moduleName: str, soup: Tag) -> list[ITypingLiteral]:
+	def _processClassWindowStyles(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
 		""" Find window classes
 		"""
 		# Build the typing output
@@ -354,12 +357,13 @@ class Parser:
 						"moduleName": moduleName,
 						"returnType": "int",
 						"docstring": styleDef.strip(),
+						"source": source,
 					}
 					result.append(literalObj)
 
 		return result
 
-	def _processClassWindowEvents(self, moduleName: str, soup: Tag) -> list[ITypingLiteral]:
+	def _processClassWindowEvents(self, moduleName: str, soup: Tag, source: str = "") -> list[ITypingLiteral]:
 		""" Find window events
 		"""
 		# Build the typing output
@@ -398,6 +402,7 @@ class Parser:
 						"moduleName": moduleName,
 						"returnType": "int",
 						"docstring": eventDef.strip(),
+						"source": source,
 					}
 					result.append(literalObj)
 

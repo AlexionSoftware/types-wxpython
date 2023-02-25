@@ -20,13 +20,14 @@ class TypingWriter:
 		""" Write the typing to a pyi
 		"""
 		# Make a dict per file
-		contentPerFileType: dict[str, dict[str, str]] = {}
+		contentPerFileType: dict[str, list[ITyping]] = {}
 		self._convertToPerFile(typings, contentPerFileType)
 
 		# Write the files
-		for moduleName, typings in contentPerFileType.items():
+		for moduleName, typingList in contentPerFileType.items():
 			# Write the file
-			self._writeToFile(moduleName, typings)
+			self._writeToFile(moduleName, typingList)
+		return True
 
 	def _convertToPerFile(self, typings: Queue[ITyping], contentPerFileType: dict[str, list[ITyping]]) -> None:
 		""" Conver the list to a dict
@@ -94,43 +95,44 @@ class TypingWriter:
 		"""
 		# Check the type: Literal
 		if typing["type"] == TypingType.LITERAL:
-			typingObj: ITypingLiteral = typing
-			output = typingObj["name"]
-			output += ": " + typingObj["returnType"]
-			if "docstring" in typingObj and typingObj["docstring"]:
-				output += "  # " + typingObj["docstring"]
+			lTypingObj: ITypingLiteral = typing  # type: ignore
+			output = lTypingObj["name"]
+			output += ": " + lTypingObj["returnType"]
+			if "docstring" in lTypingObj and lTypingObj["docstring"]:
+				output += "  # " + lTypingObj["docstring"]
 			return output
 
 		# Check the type: Function
 		elif typing["type"] == TypingType.FUNCTION:
-			typingObj: ITypingFunction = typing
+			fTypingObj: ITypingFunction = typing  # type: ignore
 			output = ""
-			if "methodType" in typingObj and typingObj["methodType"]:
-				if typingObj["methodType"] == "static":
+			if "methodType" in fTypingObj and fTypingObj["methodType"]:
+				if fTypingObj["methodType"] == "static":
 					output += (SPACER * depth) + "@staticmethod\n"
-			output += (SPACER * depth) + "def " + typingObj["name"] + "(" + typingObj["paramStr"] +  ") -> " + typingObj["returnType"] + ":\n"
-			output += (SPACER * (depth + 1)) + '""" ' + typingObj["docstring"] + "\n"
-			if "source" in typingObj and typingObj["source"]:
-				output += "\n" + (SPACER * (depth + 2)) + "Source: " + typingObj["source"] + "\n"
+			output += (SPACER * depth) + "def " + fTypingObj["name"] + "(" + fTypingObj["paramStr"] + ") -> " + fTypingObj["returnType"] + ":\n"
+			output += (SPACER * (depth + 1)) + '""" ' + fTypingObj["docstring"] + "\n"
+			if "source" in fTypingObj and fTypingObj["source"]:
+				output += "\n" + (SPACER * (depth + 2)) + "Source: " + fTypingObj["source"] + "\n"
 			output += (SPACER * (depth + 1)) + '"""\n'
 			return output
 
 		# Check the type: Class
 		elif typing["type"] == TypingType.CLASS:
-			typingObj: ITypingClass = typing
-			output = (SPACER * depth) + "class " + typingObj["name"]
-			if typingObj["superClass"]:
-				output += "(" + ",".join(typingObj["superClass"]) +  ")"
+			cTypingObj: ITypingClass = typing  # type: ignore
+			output = (SPACER * depth) + "class " + cTypingObj["name"]
+			if cTypingObj["superClass"]:
+				output += "(" + ",".join(cTypingObj["superClass"]) + ")"
 			output += ":\n"
-			output += (SPACER * (depth + 1)) + '""" ' + typingObj["docstring"] + "\n"
-			if "source" in typingObj and typingObj["source"]:
-				output += "\n" + (SPACER * (depth + 2)) + "Source: " + typingObj["source"] + "\n"
+			output += (SPACER * (depth + 1)) + '""" ' + cTypingObj["docstring"] + "\n"
+			if "source" in cTypingObj and cTypingObj["source"]:
+				output += "\n" + (SPACER * (depth + 2)) + "Source: " + cTypingObj["source"] + "\n"
 			output += (SPACER * (depth + 1)) + '"""\n'
 
 			# Check all the functions
-			for functionTyping in typingObj["functions"]:
+			for functionTyping in cTypingObj["functions"]:
 				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
 			return output
+		return ""
 
 	def _overrideItemData(self, typing: ITyping) -> None:
 		""" Override the item data
@@ -143,10 +145,11 @@ class TypingWriter:
 		# Check if we have an override
 		if fullModuleName in OVERRIDES:
 			# Override the info
-			typing.update(OVERRIDES[fullModuleName])
+			typing.update(OVERRIDES[fullModuleName])  # type: ignore
 
 		# Check if the type is a class
 		if typing["type"] == TypingType.CLASS:
 			# Check the overrides for all the functions
-			for functionTyping in typing["functions"]:
+			cTypeObject: ITypingClass = typing  # type: ignore
+			for functionTyping in cTypeObject["functions"]:
 				self._overrideItemData(functionTyping)
