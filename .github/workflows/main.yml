@@ -8,8 +8,8 @@ jobs:
   code_quality:
     runs-on: ubuntu-latest
     steps:
-      - name: poetry
-        run: poetry install
+      - name: Setup Poetry
+        uses: Gr1N/setup-poetry@v8
       - name: python-flake8
         uses: julianwachholz/flake8-action@v2.0.2
         with:
