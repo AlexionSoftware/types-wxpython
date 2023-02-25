@@ -272,7 +272,7 @@ AUI_NB_BOTTOM: int  # With this style, tabs are drawn along the bottom of the no
 
 EVT_AUINOTEBOOK_PAGE_CLOSE: int  # A page is about to be closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSE   event.
 
-EVT_AUINOTEBOOK_PAGE_CLOSED(winid,  fn): int  # A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
+EVT_AUINOTEBOOK_PAGE_CLOSED: int  # A page has been closed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CLOSED   event.
 
 EVT_AUINOTEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_AUINOTEBOOK_PAGE_CHANGED   event.
 
@@ -288,17 +288,17 @@ EVT_AUINOTEBOOK_DRAG_MOTION: int  # Emitted during a drag and drop operation. Pr
 
 EVT_AUINOTEBOOK_ALLOW_DND: int  # Whether to allow a tab to be dropped. Processes a  wxEVT_AUINOTEBOOK_ALLOW_DND   event. This event must be specially allowed.
 
-EVT_AUINOTEBOOK_DRAG_DONE(winid,  fn): int  # Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
+EVT_AUINOTEBOOK_DRAG_DONE: int  # Notify that the tab has been dragged. Processes a  wxEVT_AUINOTEBOOK_DRAG_DONE   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN(winid,  fn): int  # The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN: int  # The middle mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_MIDDLE_UP(winid,  fn): int  # The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
+EVT_AUINOTEBOOK_TAB_MIDDLE_UP: int  # The middle mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_DOWN(winid,  fn): int  # The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_DOWN: int  # The right mouse button is pressed on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN   event.
 
-EVT_AUINOTEBOOK_TAB_RIGHT_UP(winid,  fn): int  # The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
+EVT_AUINOTEBOOK_TAB_RIGHT_UP: int  # The right mouse button is released on a tab. Processes a  wxEVT_AUINOTEBOOK_TAB_RIGHT_UP   event.
 
-EVT_AUINOTEBOOK_BG_DCLICK(winid,  fn): int  # Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
+EVT_AUINOTEBOOK_BG_DCLICK: int  # Double clicked on the tabs background area. Processes a  wxEVT_AUINOTEBOOK_BG_DCLICK   event. ^^
 
 NOT_FOUND: int
 

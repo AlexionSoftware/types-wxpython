@@ -121,7 +121,7 @@ EVT_PG_LABEL_EDIT_ENDING: int  # Respond to  wxEVT_PG_LABEL_EDIT_ENDING   event,
 
 EVT_PG_COL_BEGIN_DRAG: int  # Respond to  wxEVT_PG_COL_BEGIN_DRAG   event, generated when user starts resizing a column - can be vetoed.
 
-EVT_PG_COL_DRAGGING, : int  # Respond to  wxEVT_PG_COL_DRAGGING , event, generated when a column resize by user is in progress. This event is also generated when user double-clicks the splitter in order to recenter it.
+EVT_PG_COL_DRAGGING: int  # Respond to  wxEVT_PG_COL_DRAGGING , event, generated when a column resize by user is in progress. This event is also generated when user double-clicks the splitter in order to recenter it.
 
 EVT_PG_COL_END_DRAG: int  # Respond to  wxEVT_PG_COL_END_DRAG   event, generated after column resize by user has finished. ^^
 
