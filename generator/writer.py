@@ -137,7 +137,7 @@ class TypingWriter:
 	def _overrideItemData(self, typing: ITyping) -> None:
 		""" Override the item data
 		"""
-		from .generator import OVERRIDES
+		from .overrides import OVERRIDES
 
 		# Generate the full module name
 		fullModuleName = typing["moduleName"] + "." + typing["name"]

@@ -2,7 +2,7 @@
 import logging
 import sys
 from queue import Queue
-from typing import Any
+
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -253,44 +253,7 @@ fObj = {
 	"source": "https://docs.wxpython.org/wx.lib.newevent.html",
 }
 EXTRA_KNOWN_ITEMS.append(fObj)
-OVERRIDES: dict[str, dict[str, Any]] = {
-	"wx.ListCtrl.GetFirstSelected": {
-		"returnType": "int",
-	},
-	"wx.ListCtrl.GetFocusedItem": {
-		"returnType": "int",
-	},
-	"wx.NewIdRef": {
-		"returnType": "int",
-	},
-	"wx.ListCtrl.OnGetItemAttr": {
-		"returnType": "Optional['ItemAttr']",
-	},
-	"wx.TreeCtrl.GetItemData": {
-		"returnType": "Any",
-	},
-	"wx.TreeCtrl.GetFirstChild": {
-		"returnType": "tuple['TreeItemId', str]",
-	},
-	"wx.TreeCtrl.GetNextChild": {
-		"returnType": "tuple['TreeItemId', str]",
-	},
-	"wx.GetApp": {
-		"returnType": "'App'",
-	},
-	"wx.App": {
-		"superClass": ["PyApp", "AppConsole"],
-	},
-	"wx.App.Get": {
-		"returnType": "'App'",
-	},
-	"wx.Object.Destroy": {
-		"returnType": "Optional[bool]",
-	},
-	"wx.Window.Destroy": {
-		"returnType": "Optional[bool]",
-	},
-}
+
 
 
 class DocumentationGenerator:
