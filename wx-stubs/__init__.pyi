@@ -9028,7 +9028,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def Destroy(self) -> bool:
+    def Destroy(self) -> Optional[bool]:
         """ Destroys the window safely.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -28728,7 +28728,7 @@ class Object:
             Source: https://docs.wxpython.org/wx.Object.html
         """
 
-    def Destroy(self) -> None:
+    def Destroy(self) -> Optional[bool]:
         """ Deletes the C++ object this Python object is a proxy for.
 
             Source: https://docs.wxpython.org/wx.Object.html
@@ -44026,8 +44026,6 @@ class FrozenWindow(ContextManager):
 
 
 NullCursor: 'Cursor'
-
-LIST_AUTOSIZE: int
 
 LIST_AUTOSIZE: int
 
