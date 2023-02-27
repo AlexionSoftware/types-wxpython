@@ -283,7 +283,13 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	},
 	"wx.App.Get": {
 		"returnType": "'App'",
-	}
+	},
+	"wx.Object.Destroy": {
+		"returnType": "Optional[bool]",
+	},
+	"wx.Window.Destroy": {
+		"returnType": "Optional[bool]",
+	},
 }
 
 
