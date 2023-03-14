@@ -38,4 +38,10 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.Window.Destroy": {
 		"returnType": "Optional[bool]",
 	},
+	"wx.StaticBitmap.SetBitmap": {
+		"params": {
+			"label": "Union['Bitmap', 'BitmapBundle']"
+		},
+		"paramStr": "self, label: Union['Bitmap', 'BitmapBundle']",
+	}
 }
