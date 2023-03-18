@@ -96,7 +96,7 @@ class TypingWriter:
 		# Check the type: Literal
 		if typing["type"] == TypingType.LITERAL:
 			lTypingObj: ITypingLiteral = typing  # type: ignore
-			output = lTypingObj["name"]
+			output = (SPACER * depth) + lTypingObj["name"]
 			output += ": " + lTypingObj["returnType"]
 			if "docstring" in lTypingObj and lTypingObj["docstring"]:
 				output += "  # " + lTypingObj["docstring"]
@@ -128,9 +128,16 @@ class TypingWriter:
 				output += "\n" + (SPACER * (depth + 2)) + "Source: " + cTypingObj["source"] + "\n"
 			output += (SPACER * (depth + 1)) + '"""\n'
 
+			# Check all the properties
+			for propertyTyping in cTypingObj["properties"]:
+				output += self._convertTypingToStr(propertyTyping, depth+1) + "\n"
+			if len(cTypingObj["properties"]) > 0:
+				output += "\n"
+
 			# Check all the functions
 			for functionTyping in cTypingObj["functions"]:
 				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
+
 			return output
 		return ""
 

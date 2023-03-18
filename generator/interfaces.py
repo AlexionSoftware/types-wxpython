@@ -35,6 +35,7 @@ class ITypingClass(ITyping):
 	"""
 	superClass: Optional[list[str]]
 	functions: list[ITypingFunction]
+	properties: list['ITypingLiteral']
 
 
 class ITypingLiteral(ITyping):
