@@ -98,13 +98,13 @@ class Parser:
 			# Find the class doc
 			classType["docstring"] = self._processClassDocstring(apiTableElem)
 
-			# Fill the properties
-			properties = self._processTypingAttribute(classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
-			classType["properties"] = properties
-
 			# Fill the class
 			functions = self._processTypingMethod(classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
 			classType["functions"] = functions
+
+			# Fill the properties
+			properties = self._processTypingAttribute(classType, classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
+			classType["properties"] = properties
 
 			# Add to the list
 			self._addToResultList(classType)
@@ -331,7 +331,7 @@ class Parser:
 		# Save the output
 		return result
 
-	def _processTypingAttribute(self, className: str, soup: Tag, apiTableElem: Tag, literalIdName: str = "attribute", source: str = "", addToList: bool = False) -> list[ITypingLiteral]:
+	def _processTypingAttribute(self, parentClass: ITypingClass, className: str, soup: Tag, apiTableElem: Tag, literalIdName: str = "attribute", source: str = "", addToList: bool = False) -> list[ITypingLiteral]:
 		""" Process a class with attributes
 		"""
 		# Make a list
@@ -359,6 +359,25 @@ class Parser:
 			# Set the return type
 			literalType["returnType"] = "Any"
 
+			# Check if the docstring contains a reference to the Get method
+			if "Get%s" % literalName in literalType["docstring"] or "Set%s" % literalName in literalType["docstring"]:
+				# Find the Set method
+				returnTypeHasBeenSet: bool = False
+				setMethod = self._findMethodInTyping(parentClass, "Set%s" % literalName)
+				if setMethod is not None:
+					# Check if we have 1 param, they will be more accurate because
+					# they will contain Unions for Size
+					#
+					if len(setMethod["params"]) == 1:
+						literalType["returnType"] = list(setMethod["params"].values())[0]
+						returnTypeHasBeenSet = True
+
+				# Find the Get method
+				if returnTypeHasBeenSet is False:
+					getMethod = self._findMethodInTyping(parentClass, "Get%s" % literalName)
+					if getMethod is not None:
+						literalType["returnType"] = getMethod["returnType"]
+
 			# Check if static
 			if literalName.startswith("static"):
 				literalName = literalType["name"][7:]
@@ -374,6 +393,17 @@ class Parser:
 
 		# Save the output
 		return result
+
+	def _findMethodInTyping(self, parentClass: ITypingClass, moduleName: str) -> Optional[ITypingFunction]:
+		""" Find a method in the typing
+		"""
+		# Find the method
+		for method in parentClass["functions"]:
+			if method["name"].lower() == moduleName.lower():
+				return method
+
+		# Return none
+		return None
 
 	def _processClassWindowStyles(self, moduleName: str, soup: Tag, source: str = "") -> None:
 		""" Find window classes
