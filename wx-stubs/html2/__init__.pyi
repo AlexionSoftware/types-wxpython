@@ -7,6 +7,20 @@ documents.
 
         Source: https://docs.wxpython.org/wx.html2.WebView.html
     """
+    BackwardHistory: Any  # See GetBackwardHistory
+    CurrentTitle: str  # See GetCurrentTitle
+    CurrentURL: str  # See GetCurrentURL
+    ForwardHistory: Any  # See GetForwardHistory
+    NativeBackend: None  # See GetNativeBackend
+    PageSource: str  # See GetPageSource
+    PageText: str  # See GetPageText
+    SelectedSource: str  # See GetSelectedSource
+    SelectedText: str  # See GetSelectedText
+    UserAgent: str  # See GetUserAgent and SetUserAgent
+    Zoom: WebViewZoom  # See GetZoom and SetZoom
+    ZoomFactor: float  # See GetZoomFactor and SetZoomFactor
+    ZoomType: WebViewZoomType  # See GetZoomType and SetZoomType
+
     def AddScriptMessageHandler(self, name: str) -> bool:
         """ Add a script message handler with the given name.
 
@@ -438,6 +452,11 @@ WebView objects.
 
         Source: https://docs.wxpython.org/wx.html2.WebViewEvent.html
     """
+    MessageHandler: str  # See GetMessageHandler
+    NavigationAction: 'html2.WebViewNavigationActionFlags'  # See GetNavigationAction
+    Target: str  # See GetTarget
+    URL: str  # See GetURL
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -481,6 +500,8 @@ class WebViewFactory(Object):
 
         Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
     """
+    VersionInfo: VersionInfo  # See GetVersionInfo
+
     def Create(self, *args, **kw) -> 'html2.WebView':
         """ Overloaded Implementations:
 
@@ -507,6 +528,9 @@ to allow virtual file system support.
 
         Source: https://docs.wxpython.org/wx.html2.WebViewHandler.html
     """
+    Name: str  # See GetName
+    SecurityURL: str  # See GetSecurityURL and SetSecurityURL
+
     def __init__(self, scheme: str) -> None:
         """ Constructor.
 

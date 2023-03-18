@@ -7,6 +7,68 @@ tabular data.
 
         Source: https://docs.wxpython.org/wx.grid.Grid.html
     """
+    BatchCount: int  # See GetBatchCount
+    CellHighlightColour: Union[int, str, 'Colour']  # See GetCellHighlightColour and SetCellHighlightColour
+    CellHighlightPenWidth: int  # See GetCellHighlightPenWidth and SetCellHighlightPenWidth
+    CellHighlightROPenWidth: int  # See GetCellHighlightROPenWidth and SetCellHighlightROPenWidth
+    ColLabelSize: int  # See GetColLabelSize and SetColLabelSize
+    ColLabelTextOrientation: int  # See GetColLabelTextOrientation and SetColLabelTextOrientation
+    ColMinimalAcceptableWidth: int  # See GetColMinimalAcceptableWidth and SetColMinimalAcceptableWidth
+    ColSizes: 'grid.GridSizesInfo'  # See GetColSizes and SetColSizes
+    CornerLabelTextOrientation: int  # See GetCornerLabelTextOrientation and SetCornerLabelTextOrientation
+    CornerLabelValue: str  # See GetCornerLabelValue and SetCornerLabelValue
+    DefaultCellBackgroundColour: Union[int, str, 'Colour']  # See GetDefaultCellBackgroundColour and SetDefaultCellBackgroundColour
+    DefaultCellFitMode: 'grid.GridFitMode'  # See GetDefaultCellFitMode and SetDefaultCellFitMode
+    DefaultCellFont: 'Font'  # See GetDefaultCellFont and SetDefaultCellFont
+    DefaultCellOverflow: bool  # See GetDefaultCellOverflow and SetDefaultCellOverflow
+    DefaultCellTextColour: Union[int, str, 'Colour']  # See GetDefaultCellTextColour and SetDefaultCellTextColour
+    DefaultColLabelSize: int  # See GetDefaultColLabelSize
+    DefaultColSize: int  # See GetDefaultColSize and SetDefaultColSize
+    DefaultEditor: 'grid.GridCellEditor'  # See GetDefaultEditor and SetDefaultEditor
+    DefaultGridLinePen: Pen  # See GetDefaultGridLinePen
+    DefaultRenderer: 'grid.GridCellRenderer'  # See GetDefaultRenderer and SetDefaultRenderer
+    DefaultRowLabelSize: int  # See GetDefaultRowLabelSize
+    DefaultRowSize: int  # See GetDefaultRowSize and SetDefaultRowSize
+    FirstFullyVisibleColumn: int  # See GetFirstFullyVisibleColumn
+    FirstFullyVisibleRow: int  # See GetFirstFullyVisibleRow
+    FrozenColGridWindow: Window  # See GetFrozenColGridWindow
+    FrozenCornerGridWindow: Window  # See GetFrozenCornerGridWindow
+    FrozenRowGridWindow: Window  # See GetFrozenRowGridWindow
+    GridColHeader: HeaderCtrl  # See GetGridColHeader
+    GridColLabelWindow: Window  # See GetGridColLabelWindow
+    GridCornerLabelWindow: Window  # See GetGridCornerLabelWindow
+    GridCursorCol: int  # See GetGridCursorCol
+    GridCursorCoords: 'grid.GridCellCoords'  # See GetGridCursorCoords
+    GridCursorRow: int  # See GetGridCursorRow
+    GridLineColour: Union[int, str, 'Colour']  # See GetGridLineColour and SetGridLineColour
+    GridRowLabelWindow: Window  # See GetGridRowLabelWindow
+    GridWindow: Window  # See GetGridWindow
+    LabelBackgroundColour: Union[int, str, 'Colour']  # See GetLabelBackgroundColour and SetLabelBackgroundColour
+    LabelFont: 'Font'  # See GetLabelFont and SetLabelFont
+    LabelTextColour: Union[int, str, 'Colour']  # See GetLabelTextColour and SetLabelTextColour
+    NumberCols: int  # See GetNumberCols
+    NumberFrozenCols: int  # See GetNumberFrozenCols
+    NumberFrozenRows: int  # See GetNumberFrozenRows
+    NumberRows: int  # See GetNumberRows
+    RowLabelSize: int  # See GetRowLabelSize and SetRowLabelSize
+    RowMinimalAcceptableHeight: int  # See GetRowMinimalAcceptableHeight and SetRowMinimalAcceptableHeight
+    RowSizes: 'grid.GridSizesInfo'  # See GetRowSizes and SetRowSizes
+    ScrollLineX: int  # See GetScrollLineX and SetScrollLineX
+    ScrollLineY: int  # See GetScrollLineY and SetScrollLineY
+    SelectedBlocks: 'grid.GridBlocks'  # See GetSelectedBlocks
+    SelectedCells: GridCellCoordsArray  # See GetSelectedCells
+    SelectedColBlocks: Any  # See GetSelectedColBlocks
+    SelectedCols: list[int]  # See GetSelectedCols
+    SelectedRowBlocks: Any  # See GetSelectedRowBlocks
+    SelectedRows: list[int]  # See GetSelectedRows
+    SelectionBackground: Union[int, str, 'Colour']  # See GetSelectionBackground and SetSelectionBackground
+    SelectionBlockBottomRight: GridCellCoordsArray  # See GetSelectionBlockBottomRight
+    SelectionBlockTopLeft: GridCellCoordsArray  # See GetSelectionBlockTopLeft
+    SelectionForeground: Union[int, str, 'Colour']  # See GetSelectionForeground and SetSelectionForeground
+    SelectionMode: GridSelectionModes  # See GetSelectionMode and SetSelectionMode
+    SortingColumn: int  # See GetSortingColumn and SetSortingColumn
+    Table: 'grid.GridTableBase'  # See GetTable and SetTable
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1803,6 +1865,8 @@ class GridCellAttrProvider(ClientDataContainer):
 
         Source: https://docs.wxpython.org/wx.grid.GridCellAttrProvider.html
     """
+    CornerRenderer: 'grid.GridCornerHeaderRenderer'  # See GetCornerRenderer
+
     def __init__(self) -> None:
         """ Trivial default constructor.
 
@@ -1864,6 +1928,11 @@ class GridEditorCreatedEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.grid.GridEditorCreatedEvent.html
     """
+    Col: int  # See GetCol and SetCol
+    Control: 'Control'  # See GetControl and SetControl
+    Row: int  # See GetRow and SetRow
+    Window: 'Window'  # See GetWindow and SetWindow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1929,6 +1998,14 @@ class GridTableBase(Object):
 
         Source: https://docs.wxpython.org/wx.grid.GridTableBase.html
     """
+    AttrProvider: 'grid.GridCellAttrProvider'  # See GetAttrProvider and SetAttrProvider
+    ColsCount: int  # See GetColsCount
+    CornerLabelValue: str  # See GetCornerLabelValue and SetCornerLabelValue
+    NumberCols: int  # See GetNumberCols
+    NumberRows: int  # See GetNumberRows
+    RowsCount: int  # See GetRowsCount
+    View: 'grid.Grid'  # See GetView and SetView
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -2189,6 +2266,10 @@ that are stored in memory.
 
         Source: https://docs.wxpython.org/wx.grid.GridStringTable.html
     """
+    CornerLabelValue: str  # See GetCornerLabelValue and SetCornerLabelValue
+    NumberCols: int  # See GetNumberCols
+    NumberRows: int  # See GetNumberRows
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2366,6 +2447,10 @@ class GridCellFloatRenderer(GridCellStringRenderer):
 
         Source: https://docs.wxpython.org/wx.grid.GridCellFloatRenderer.html
     """
+    Format: int  # See GetFormat and SetFormat
+    Precision: int  # See GetPrecision and SetPrecision
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, width=-1, precision=-1, format=GRID_FLOAT_FORMAT_DEFAULT) -> None:
         """ Float cell renderer constructor.
 
@@ -2481,6 +2566,13 @@ changing their attributes from the defaults.
 
         Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
     """
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    FitMode: 'grid.GridFitMode'  # See GetFitMode and SetFitMode
+    Font: 'Font'  # See GetFont and SetFont
+    Kind: AttrKind  # See GetKind and SetKind
+    Overflow: bool  # See GetOverflow and SetOverflow
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2733,6 +2825,10 @@ edit controls for the grid.
 
         Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
     """
+    Control: 'Control'  # See GetControl and SetControl
+    Value: str  # See GetValue
+    Window: 'Window'  # See GetWindow and SetWindow
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -3037,6 +3133,10 @@ class GridEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.grid.GridEvent.html
     """
+    Col: int  # See GetCol
+    Position: Point  # See GetPosition
+    Row: int  # See GetRow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3132,6 +3232,9 @@ class GridSizeEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.grid.GridSizeEvent.html
     """
+    Position: Point  # See GetPosition
+    RowOrCol: int  # See GetRowOrCol
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3193,6 +3296,13 @@ class GridRangeSelectEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.grid.GridRangeSelectEvent.html
     """
+    BottomRightCoords: 'grid.GridCellCoords'  # See GetBottomRightCoords
+    BottomRow: int  # See GetBottomRow
+    LeftCol: int  # See GetLeftCol
+    RightCol: int  # See GetRightCol
+    TopLeftCoords: 'grid.GridCellCoords'  # See GetTopLeftCoords
+    TopRow: int  # See GetTopRow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3313,6 +3423,9 @@ class GridCellCoords:
 
         Source: https://docs.wxpython.org/wx.grid.GridCellCoords.html
     """
+    Col: int  # See GetCol and SetCol
+    Row: int  # See GetRow and SetRow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3429,6 +3542,8 @@ into its allotted space.
 
         Source: https://docs.wxpython.org/wx.grid.GridFitMode.html
     """
+    EllipsizeMode: 'EllipsizeMode'  # See GetEllipsizeMode
+
     def __init__(self) -> None:
         """ Default constructor creates an object not specifying any behaviour.
 
@@ -3488,6 +3603,8 @@ columns.
 
         Source: https://docs.wxpython.org/wx.grid.GridSizesInfo.html
     """
+    m_sizeDefault: Any  # A public C++ attribute of type int. Default size.
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3533,6 +3650,11 @@ notifications to the grid view.
 
         Source: https://docs.wxpython.org/wx.grid.GridTableMessage.html
     """
+    CommandInt: int  # See GetCommandInt and SetCommandInt
+    CommandInt2: int  # See GetCommandInt2 and SetCommandInt2
+    Id: int  # See GetId and SetId
+    TableObject: 'grid.GridTableBase'  # See GetTableObject and SetTableObject
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -3756,6 +3878,9 @@ event (mouse or keyboard) or the program itself.
 
         Source: https://docs.wxpython.org/wx.grid.GridActivationSource.html
     """
+    KeyEvent: KeyEvent  # See GetKeyEvent
+    MouseEvent: MouseEvent  # See GetMouseEvent
+
     def GetKeyEvent(self) -> KeyEvent:
         """ Get the key event corresponding to the key press activating the cell.
 

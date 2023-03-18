@@ -812,7 +812,7 @@ def Exit() -> None:
 
 
 def FFont(pointSize, family, flags=FONTFLAG_DEFAULT, faceName="", encoding=FONTENCODING_DEFAULT) -> None:
-    """
+    """ 
 
         Source: https://docs.wxpython.org/wx.functions.html
     """
@@ -875,7 +875,7 @@ def FindWindowByName(name, parent=None) -> 'Window':
 
 
 def GetAccelFromString(label) -> None:
-    """
+    """ 
 
         Source: https://docs.wxpython.org/wx.functions.html
     """
@@ -1594,6 +1594,11 @@ table (see AcceleratorTable).
 
         Source: https://docs.wxpython.org/wx.AcceleratorEntry.html
     """
+    Command: int  # See GetCommand
+    Flags: int  # See GetFlags
+    KeyCode: int  # See GetKeyCode
+    MenuItem: 'MenuItem'  # See GetMenuItem
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1695,6 +1700,8 @@ to client applications such as screen readers.
 
         Source: https://docs.wxpython.org/wx.Accessible.html
     """
+    Window: 'Window'  # See GetWindow and SetWindow
+
     def __init__(self, win: Optional['Window']=None) -> None:
         """ Constructor, taking an optional window.
 
@@ -1840,6 +1847,8 @@ activated or deactivated.
 
         Source: https://docs.wxpython.org/wx.ActivateEvent.html
     """
+    Active: bool  # See GetActive
+
     def __init__(self, eventType=wxEVT_NULL, active=True, id=0, ActivationReason=Reason_Unknown) -> None:
         """ Constructor.
 
@@ -2117,6 +2126,8 @@ internal data including the alpha channel (RGBA).
 
         Source: https://docs.wxpython.org/wx.AlphaPixelData.html
     """
+    Pixels: 'AlphaPixelData_Accessor'  # See GetPixels
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2149,6 +2160,22 @@ either monochrome or colour or colour with alpha channel support.
 
         Source: https://docs.wxpython.org/wx.Bitmap.html
     """
+    DIPSize: 'Size'  # See GetDIPSize
+    Depth: int  # See GetDepth and SetDepth
+    Handle: int  # See GetHandle and SetHandle
+    Height: int  # See GetHeight and SetHeight
+    LogicalHeight: float  # See GetLogicalHeight
+    LogicalSize: 'Size'  # See GetLogicalSize
+    LogicalWidth: float  # See GetLogicalWidth
+    Mask: 'Mask'  # See GetMask and SetMask
+    Palette: 'Palette'  # See GetPalette and SetPalette
+    ScaleFactor: float  # See GetScaleFactor and SetScaleFactor
+    ScaledHeight: float  # See GetScaledHeight
+    ScaledSize: 'Size'  # See GetScaledSize
+    ScaledWidth: float  # See GetScaledWidth
+    Size: 'Size'  # See GetSize and SetSize
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2530,7 +2557,7 @@ class AlphaPixelData_Accessor:
         """
 
     def Set(self, red, green, blue, alpha) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.AlphaPixelData_Accessor.html
         """
@@ -2548,7 +2575,7 @@ class AlphaPixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.AlphaPixelData_Accessor.html
         """
@@ -2561,8 +2588,16 @@ various button classes.
 
         Source: https://docs.wxpython.org/wx.AnyButton.html
     """
+    Bitmap: 'Bitmap'  # See GetBitmap and SetBitmap
+    BitmapCurrent: 'BitmapBundle'  # See GetBitmapCurrent and SetBitmapCurrent
+    BitmapDisabled: 'BitmapBundle'  # See GetBitmapDisabled and SetBitmapDisabled
+    BitmapFocus: 'BitmapBundle'  # See GetBitmapFocus and SetBitmapFocus
+    BitmapLabel: 'BitmapBundle'  # See GetBitmapLabel and SetBitmapLabel
+    BitmapMargins: 'Size'  # See GetBitmapMargins and SetBitmapMargins
+    BitmapPressed: 'BitmapBundle'  # See GetBitmapPressed and SetBitmapPressed
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.AnyButton.html
         """
@@ -2724,7 +2759,7 @@ this method from there.
         """
 
     def RestoreStdio(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.App.html
         """
@@ -2746,7 +2781,7 @@ an explicit parent set.
         """
 
     def __del__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.App.html
         """
@@ -2758,6 +2793,13 @@ class PyApp(AppConsole):
 
         Source: https://docs.wxpython.org/wx.PyApp.html
     """
+    AssertMode: AppAssertMode  # See GetAssertMode and SetAssertMode
+    DisplayMode: 'VideoMode'  # See GetDisplayMode and SetDisplayMode
+    ExitOnFrameDelete: bool  # See GetExitOnFrameDelete and SetExitOnFrameDelete
+    LayoutDirection: int  # See GetLayoutDirection
+    TopWindow: 'Window'  # See GetTopWindow and SetTopWindow
+    UseBestVisual: bool  # See GetUseBestVisual and SetUseBestVisual
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -2948,6 +2990,13 @@ without having to define USE_GUI=0.
 
         Source: https://docs.wxpython.org/wx.AppConsole.html
     """
+    AppDisplayName: str  # See GetAppDisplayName and SetAppDisplayName
+    AppName: str  # See GetAppName and SetAppName
+    ClassName: str  # See GetClassName and SetClassName
+    Traits: 'AppTraits'  # See GetTraits
+    VendorDisplayName: str  # See GetVendorDisplayName and SetVendorDisplayName
+    VendorName: str  # See GetVendorName and SetVendorName
+
     def DeletePendingEvents(self) -> None:
         """ Deletes the pending events of all EvtHandlers of this application.
 
@@ -3156,6 +3205,11 @@ class AppTraits:
 
         Source: https://docs.wxpython.org/wx.AppTraits.html
     """
+    AssertStackTrace: str  # See GetAssertStackTrace
+    DesktopEnvironment: str  # See GetDesktopEnvironment
+    StandardPaths: 'StandardPaths'  # See GetStandardPaths
+    ToolkitVersion: tuple  # See GetToolkitVersion
+
     def CreateConfig(self) -> 'ConfigBase':
         """ Called by wxWidgets to create the default configuration object for the application.
 
@@ -3232,13 +3286,13 @@ class ArchiveFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
         """
 
     def Cleanup(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
         """
@@ -3507,6 +3561,38 @@ drawn.
 
         Source: https://docs.wxpython.org/wx.DC.html
     """
+    AsBitmap: 'Bitmap'  # See GetAsBitmap
+    Background: 'Brush'  # See GetBackground and SetBackground
+    BackgroundMode: int  # See GetBackgroundMode and SetBackgroundMode
+    BoundingBox: None  # See GetBoundingBox
+    Brush: 'Brush'  # See GetBrush and SetBrush
+    CGContext: 'UIntPtr'  # See GetCGContext
+    CharHeight: 'Coord'  # See GetCharHeight
+    CharWidth: 'Coord'  # See GetCharWidth
+    ClippingRect: None  # See GetClippingRect
+    ContentScaleFactor: float  # See GetContentScaleFactor
+    Depth: int  # See GetDepth
+    DeviceOrigin: 'Point'  # See GetDeviceOrigin and SetDeviceOrigin
+    Font: 'Font'  # See GetFont and SetFont
+    FontMetrics: 'FontMetrics'  # See GetFontMetrics
+    GdkDrawable: 'UIntPtr'  # See GetGdkDrawable
+    GraphicsContext: 'GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
+    HDC: int  # See GetHDC
+    Handle: 'UIntPtr'  # See GetHandle
+    LayoutDirection: int  # See GetLayoutDirection and SetLayoutDirection
+    LogicalFunction: RasterOperationMode  # See GetLogicalFunction and SetLogicalFunction
+    MapMode: MappingMode  # See GetMapMode and SetMapMode
+    MultiLineTextExtent: None  # See GetMultiLineTextExtent
+    PPI: 'Size'  # See GetPPI
+    Pen: 'Pen'  # See GetPen and SetPen
+    Pixel: 'Colour'  # See GetPixel
+    Size: 'Size'  # See GetSize
+    SizeMM: 'Size'  # See GetSizeMM
+    TextBackground: Union[int, str, 'Colour']  # See GetTextBackground and SetTextBackground
+    TextExtent: None  # See GetTextExtent
+    TextForeground: Union[int, str, 'Colour']  # See GetTextForeground and SetTextForeground
+    TransformMatrix: 'AffineMatrix2D'  # See GetTransformMatrix and SetTransformMatrix
+
     def Blit(self, xdest, ydest, width, height, source, xsrc, ysrc, logicalFunc=COPY, useMask=False, xsrcMask=DefaultCoord, ysrcMask=DefaultCoord) -> bool:
         """ Copy from a source DC to this DC.
 
@@ -4281,13 +4367,13 @@ currently selected font.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DC.html
         """
@@ -4368,6 +4454,8 @@ class BitmapBundle:
 
         Source: https://docs.wxpython.org/wx.BitmapBundle.html
     """
+    DefaultSize: 'Size'  # See GetDefaultSize
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -4517,6 +4605,8 @@ class BitmapBundleImpl(RefCounter):
 
         Source: https://docs.wxpython.org/wx.BitmapBundleImpl.html
     """
+    DefaultSize: 'Size'  # See GetDefaultSize
+
     def DoGetPreferredSize(self, scale: float) -> 'Size':
         """ Helper for implementing GetPreferredBitmapSizeAtScale   in the derived classes.
 
@@ -4612,6 +4702,9 @@ data.
 
         Source: https://docs.wxpython.org/wx.BitmapDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    Bitmap: 'Bitmap'  # See GetBitmap and SetBitmap
+
     def __init__(self, bitmap: 'Bitmap'=NullBitmap) -> None:
         """ Constructor, optionally passing a bitmap (otherwise use SetBitmap   later).
 
@@ -4651,6 +4744,11 @@ clipboard, or dragged and dropped.
 
         Source: https://docs.wxpython.org/wx.DataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    DataHere: bool  # See GetDataHere
+    FormatCount: int  # See GetFormatCount
+    PreferredFormat: 'DataFormat'  # See GetPreferredFormat
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -4701,7 +4799,7 @@ supports transferring in the given direction.
         """
 
     def _testGetAllFormats(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
@@ -4714,6 +4812,8 @@ instead of text.
 
         Source: https://docs.wxpython.org/wx.BitmapToggleButton.html
     """
+    Value: bool  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -4755,6 +4855,8 @@ user.
 
         Source: https://docs.wxpython.org/wx.ToggleButton.html
     """
+    Value: bool  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -4794,6 +4896,10 @@ information, displayed one page at a time.
 
         Source: https://docs.wxpython.org/wx.BookCtrlBase.html
     """
+    CurrentPage: 'Window'  # See GetCurrentPage
+    PageCount: int  # See GetPageCount
+    Selection: int  # See GetSelection and SetSelection
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -4928,6 +5034,9 @@ class BookCtrlEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.BookCtrlEvent.html
     """
+    OldSelection: int  # See GetOldSelection and SetOldSelection
+    Selection: int  # See GetSelection and SetSelection
+
     def __init__(self, eventType=wxEVT_NULL, id=0, sel=NOT_FOUND, oldSel=NOT_FOUND) -> None:
         """ Constructor (used internally by wxWidgets only).
 
@@ -4966,6 +5075,10 @@ windows with associated tabs.
 
         Source: https://docs.wxpython.org/wx.Notebook.html
     """
+    RowCount: int  # See GetRowCount
+    Selection: int  # See GetSelection and SetSelection
+    ThemeBackgroundColour: 'Colour'  # See GetThemeBackgroundColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5079,6 +5192,8 @@ ListCtrl to show the labels instead of the tabs.
 
         Source: https://docs.wxpython.org/wx.Listbook.html
     """
+    ListView: 'ListView'  # See GetListView
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5126,6 +5241,8 @@ control to show the labels instead of the tabs.
 
         Source: https://docs.wxpython.org/wx.Choicebook.html
     """
+    ChoiceCtrl: 'Choice'  # See GetChoiceCtrl
+
     def __init__(self, *args, **kw) -> None:
         """ Constructs a choicebook control.
 
@@ -5173,6 +5290,9 @@ structured set of pages to be shown in a control.
 
         Source: https://docs.wxpython.org/wx.Treebook.html
     """
+    Selection: int  # See GetSelection
+    TreeCtrl: 'TreeCtrl'  # See GetTreeCtrl
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5275,6 +5395,8 @@ column or several hierarchies of either.
 
         Source: https://docs.wxpython.org/wx.BoxSizer.html
     """
+    Orientation: int  # See GetOrientation and SetOrientation
+
     def __init__(self, orient: int=HORIZONTAL) -> None:
         """ Constructor for a   wx.BoxSizer.
 
@@ -5318,6 +5440,10 @@ class Brush(GDIObject):
 
         Source: https://docs.wxpython.org/wx.Brush.html
     """
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Stipple: 'Bitmap'  # See GetStipple and SetStipple
+    Style: BrushStyle  # See GetStyle and SetStyle
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5367,7 +5493,7 @@ class Brush(GDIObject):
         """
 
     def MacSetTheme(self, macThemeBrushID) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Brush.html
         """
@@ -5445,6 +5571,8 @@ when this object is destroyed.
 
         Source: https://docs.wxpython.org/wx.BufferedDC.html
     """
+    Style: int  # See GetStyle and SetStyle
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5508,13 +5636,13 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.BusyCursor.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.BusyCursor.html
         """
@@ -5546,13 +5674,13 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.BusyInfo.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.BusyInfo.html
         """
@@ -5628,6 +5756,9 @@ most common elements of a GUI.
 
         Source: https://docs.wxpython.org/wx.Button.html
     """
+    AuthNeeded: bool  # See GetAuthNeeded and SetAuthNeeded
+    Label: str  # See GetLabel and SetLabel
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5699,6 +5830,9 @@ method.
 
         Source: https://docs.wxpython.org/wx.CallLater.html
     """
+    Interval: None  # See GetInterval
+    Result: Any  # See GetResult
+
     def __init__(self, millis, callableObj, *args, **kwargs) -> None:
         """ Constructs a new wx.CallLater object.
 
@@ -5706,7 +5840,7 @@ method.
         """
 
     def GetInterval(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -5724,7 +5858,7 @@ method.
         """
 
     def IsRunning(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -5757,7 +5891,7 @@ object but with different parameters.
         """
 
     def __del__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -5769,6 +5903,10 @@ class Timer(EvtHandler):
 
         Source: https://docs.wxpython.org/wx.Timer.html
     """
+    Id: int  # See GetId
+    Interval: int  # See GetInterval
+    Owner: 'EvtHandler'  # See GetOwner and SetOwner
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5847,6 +5985,10 @@ will appear.
 
         Source: https://docs.wxpython.org/wx.Caret.html
     """
+    Position: None  # See GetPosition
+    Size: None  # See GetSize and SetSize
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -5947,6 +6089,9 @@ is visible) or off (no checkmark).
 
         Source: https://docs.wxpython.org/wx.CheckBox.html
     """
+    ThreeStateValue: Any  # See Get3StateValue and Set3StateValue
+    Value: bool  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -6028,6 +6173,10 @@ or unchecked.
 
         Source: https://docs.wxpython.org/wx.CheckListBox.html
     """
+    Checked: Any  # See GetChecked and SetChecked
+    CheckedItems: None  # See GetCheckedItems and SetCheckedItems
+    CheckedStrings: None  # See GetCheckedStrings and SetCheckedStrings
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -6098,6 +6247,12 @@ class ListBox(Control,ItemContainer):
 
         Source: https://docs.wxpython.org/wx.ListBox.html
     """
+    Count: int  # See GetCount
+    CountPerPage: int  # See GetCountPerPage
+    Selection: int  # See GetSelection and SetSelection
+    Selections: list[int]  # See GetSelections
+    TopItem: int  # See GetTopItem
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -6196,7 +6351,7 @@ class ListBox(Control,ItemContainer):
         """
 
     def MSWSetTabStops(self, tabStops) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ListBox.html
         """
@@ -6279,6 +6434,8 @@ to its corresponding child if it loses it now and regains later.
 
         Source: https://docs.wxpython.org/wx.ChildFocusEvent.html
     """
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, win: Optional['Window']=None) -> None:
         """ Constructor.
 
@@ -6300,6 +6457,11 @@ class Choice(Control,ItemContainer):
 
         Source: https://docs.wxpython.org/wx.Choice.html
     """
+    Columns: int  # See GetColumns and SetColumns
+    Count: int  # See GetCount
+    CurrentSelection: int  # See GetCurrentSelection
+    Selection: int  # See GetSelection and SetSelection
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -6390,6 +6552,11 @@ class ClassInfo:
 
         Source: https://docs.wxpython.org/wx.ClassInfo.html
     """
+    BaseClassName1: 'Char'  # See GetBaseClassName1
+    BaseClassName2: 'Char'  # See GetBaseClassName2
+    ClassName: 'Char'  # See GetClassName
+    Size: int  # See GetSize
+
     def CreateObject(self) -> 'Window':
         """ Creates an object of the appropriate kind.
 
@@ -6447,6 +6614,8 @@ dataâ.
 
         Source: https://docs.wxpython.org/wx.ClientDataContainer.html
     """
+    ClientData: ClientData  # See GetClientData and SetClientData
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -6609,6 +6778,9 @@ class TextCtrl(Control,TextEntry):
 
         Source: https://docs.wxpython.org/wx.TextCtrl.html
     """
+    DefaultStyle: 'TextAttr'  # See GetDefaultStyle and SetDefaultStyle
+    NumberOfLines: int  # See GetNumberOfLines
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -6877,6 +7049,8 @@ events.
 
         Source: https://docs.wxpython.org/wx.CloseEvent.html
     """
+    LoggingOff: bool  # See GetLoggingOff and SetLoggingOff
+
     def __init__(self, commandEventType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
 
@@ -6974,6 +7148,8 @@ contents.
 
         Source: https://docs.wxpython.org/wx.CollapsiblePane.html
     """
+    Pane: 'Window'  # See GetPane
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7041,6 +7217,8 @@ CollapsiblePane.
 
         Source: https://docs.wxpython.org/wx.CollapsiblePaneEvent.html
     """
+    Collapsed: bool  # See GetCollapsed and SetCollapsed
+
     def __init__(self, generator, id, collapsed) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -7068,6 +7246,14 @@ determine drawing colours.
 
         Source: https://docs.wxpython.org/wx.Colour.html
     """
+    Pixel: 'IntPtr'  # See GetPixel
+    RGB: 'int'  # See GetRGB and SetRGB
+    RGBA: 'int'  # See GetRGBA and SetRGBA
+    alpha: Any  # See Alpha
+    blue: Any  # See Blue
+    green: Any  # See Green
+    red: Any  # See Red
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7234,13 +7420,13 @@ determine drawing colours.
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
@@ -7252,25 +7438,25 @@ determine drawing colours.
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
@@ -7300,6 +7486,10 @@ class ColourData(Object):
 
         Source: https://docs.wxpython.org/wx.ColourData.html
     """
+    ChooseAlpha: bool  # See GetChooseAlpha and SetChooseAlpha
+    ChooseFull: bool  # See GetChooseFull and SetChooseFull
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -7393,7 +7583,7 @@ predefined set of named colours.
         """
 
     def FindColour(self, colour) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ColourDatabase.html
         """
@@ -7411,6 +7601,8 @@ class ColourDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.ColourDialog.html
     """
+    ColourData: 'ColourData'  # See GetColourData
+
     def __init__(self, parent, data=None) -> None:
         """ Constructor.
 
@@ -7449,6 +7641,8 @@ class ColourDialogEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ColourDialogEvent.html
     """
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7476,6 +7670,8 @@ class ColourPickerCtrl(PickerBase):
 
         Source: https://docs.wxpython.org/wx.ColourPickerCtrl.html
     """
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7529,6 +7725,8 @@ ColourPickerCtrl.
 
         Source: https://docs.wxpython.org/wx.ColourPickerEvent.html
     """
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7554,6 +7752,12 @@ class ComboBox(Control,ItemContainer,TextEntry):
 
         Source: https://docs.wxpython.org/wx.ComboBox.html
     """
+    Count: int  # See GetCount
+    CurrentSelection: int  # See GetCurrentSelection
+    InsertionPoint: int  # See GetInsertionPoint
+    Selection: int  # See GetSelection and SetSelection
+    StringSelection: str  # See GetStringSelection
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -7687,6 +7891,22 @@ popup.
 
         Source: https://docs.wxpython.org/wx.ComboCtrl.html
     """
+    BitmapDisabled: 'Bitmap'  # See GetBitmapDisabled
+    BitmapHover: 'Bitmap'  # See GetBitmapHover
+    BitmapNormal: 'Bitmap'  # See GetBitmapNormal
+    BitmapPressed: 'Bitmap'  # See GetBitmapPressed
+    ButtonSize: 'Size'  # See GetButtonSize
+    CustomPaintWidth: int  # See GetCustomPaintWidth and SetCustomPaintWidth
+    Hint: str  # See GetHint and SetHint
+    InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
+    LastPosition: int  # See GetLastPosition
+    Margins: 'Point'  # See GetMargins and SetMargins
+    PopupControl: 'ComboPopup'  # See GetPopupControl and SetPopupControl
+    PopupWindow: 'Window'  # See GetPopupWindow
+    TextCtrl: 'TextCtrl'  # See GetTextCtrl
+    TextRect: 'Rect'  # See GetTextRect
+    Value: str  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -8062,6 +8282,10 @@ must be derived from ComboPopup.
 
         Source: https://docs.wxpython.org/wx.ComboPopup.html
     """
+    ComboCtrl: 'ComboCtrl'  # See GetComboCtrl
+    Control: 'Window'  # See GetControl
+    StringValue: str  # See GetStringValue and SetStringValue
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -8180,6 +8404,8 @@ change the data or view.
 
         Source: https://docs.wxpython.org/wx.Command.html
     """
+    Name: str  # See GetName
+
     def __init__(self, canUndo=False, name="") -> None:
         """ Constructor.
 
@@ -8218,6 +8444,12 @@ originate from a variety of simple controls.
 
         Source: https://docs.wxpython.org/wx.CommandEvent.html
     """
+    ClientData: ClientData  # See GetClientData and SetClientData
+    ExtraLong: int  # See GetExtraLong and SetExtraLong
+    Int: int  # See GetInt and SetInt
+    Selection: int  # See GetSelection
+    String: str  # See GetString and SetString
+
     def __init__(self, commandEventType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
 
@@ -8350,6 +8582,15 @@ with undo/redo functionality built-in.
 
         Source: https://docs.wxpython.org/wx.CommandProcessor.html
     """
+    Commands: CommandList  # See GetCommands
+    CurrentCommand: 'Command'  # See GetCurrentCommand
+    EditMenu: 'Menu'  # See GetEditMenu and SetEditMenu
+    MaxCommands: int  # See GetMaxCommands
+    RedoAccelerator: str  # See GetRedoAccelerator and SetRedoAccelerator
+    RedoMenuLabel: str  # See GetRedoMenuLabel
+    UndoAccelerator: str  # See GetUndoAccelerator and SetUndoAccelerator
+    UndoMenuLabel: str  # See GetUndoMenuLabel
+
     def __init__(self, maxCommands: int=-1) -> None:
         """ Constructor.
 
@@ -8495,6 +8736,16 @@ class ConfigBase(Object):
 
         Source: https://docs.wxpython.org/wx.ConfigBase.html
     """
+    AppName: str  # See GetAppName
+    FirstEntry: Any  # See GetFirstEntry
+    FirstGroup: Any  # See GetFirstGroup
+    NextEntry: Any  # See GetNextEntry
+    NextGroup: Any  # See GetNextGroup
+    NumberOfEntries: int  # See GetNumberOfEntries
+    NumberOfGroups: int  # See GetNumberOfGroups
+    Path: str  # See GetPath and SetPath
+    VendorName: str  # See GetVendorName
+
     def __init__(self, appName="", vendorName="", localFilename="", globalFilename="", style=0) -> None:
         """ This is the default and only constructor of the   wx.ConfigBase  class, and derived classes.
 
@@ -8661,7 +8912,7 @@ class ConfigBase(Object):
         """
 
     def ReadInt(self, key, defaultVal=0) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ConfigBase.html
         """
@@ -8772,13 +9023,13 @@ object and restores it in dtor.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ConfigPathChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ConfigPathChanger.html
         """
@@ -8840,6 +9091,8 @@ application a chance to show a context (popup) menu for a Window.
 
         Source: https://docs.wxpython.org/wx.ContextMenuEvent.html
     """
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+
     def __init__(self, type=wxEVT_NULL, id=0, pos=DefaultPosition) -> None:
         """ Constructor.
 
@@ -8866,6 +9119,66 @@ object on screen.
 
         Source: https://docs.wxpython.org/wx.Window.html
     """
+    AcceleratorTable: 'AcceleratorTable'  # See GetAcceleratorTable and SetAcceleratorTable
+    AutoLayout: bool  # See GetAutoLayout and SetAutoLayout
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    BackgroundStyle: BackgroundStyle  # See GetBackgroundStyle and SetBackgroundStyle
+    BestSize: 'Size'  # See GetBestSize
+    BestVirtualSize: 'Size'  # See GetBestVirtualSize
+    Border: 'Border'  # See GetBorder
+    Caret: 'Caret'  # See GetCaret and SetCaret
+    CharHeight: int  # See GetCharHeight
+    CharWidth: int  # See GetCharWidth
+    Children: WindowList  # See GetChildren
+    ClientAreaOrigin: 'Point'  # See GetClientAreaOrigin
+    ClientRect: 'Rect'  # See GetClientRect and SetClientRect
+    ClientSize: None  # See GetClientSize and SetClientSize
+    Constraints: 'LayoutConstraints'  # See GetConstraints and SetConstraints
+    ContainingSizer: 'Sizer'  # See GetContainingSizer and SetContainingSizer
+    Cursor: 'Cursor'  # See GetCursor and SetCursor
+    DefaultAttributes: 'VisualAttributes'  # See GetDefaultAttributes
+    DropTarget: 'DropTarget'  # See GetDropTarget and SetDropTarget
+    EffectiveMinSize: 'Size'  # See GetEffectiveMinSize
+    Enabled: Any  # See IsEnabled and Enable
+    EventHandler: 'EvtHandler'  # See GetEventHandler and SetEventHandler
+    ExtraStyle: int  # See GetExtraStyle and SetExtraStyle
+    Font: 'Font'  # See GetFont and SetFont
+    ForegroundColour: Union[int, str, 'Colour']  # See GetForegroundColour and SetForegroundColour
+    GrandParent: 'Window'  # See GetGrandParent
+    Handle: None  # See GetHandle
+    HelpText: str  # See GetHelpText and SetHelpText
+    Id: int  # See GetId and SetId
+    Label: str  # See GetLabel and SetLabel
+    LayoutDirection: int  # See GetLayoutDirection and SetLayoutDirection
+    MaxClientSize: Union[tuple[int, int], 'Size']  # See GetMaxClientSize and SetMaxClientSize
+    MaxHeight: int  # See GetMaxHeight
+    MaxSize: Union[tuple[int, int], 'Size']  # See GetMaxSize and SetMaxSize
+    MaxWidth: int  # See GetMaxWidth
+    MinClientSize: Union[tuple[int, int], 'Size']  # See GetMinClientSize and SetMinClientSize
+    MinHeight: int  # See GetMinHeight
+    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    MinWidth: int  # See GetMinWidth
+    Name: str  # See GetName and SetName
+    Parent: 'Window'  # See GetParent
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Rect: 'Rect'  # See GetRect and SetRect
+    ScreenPosition: 'Point'  # See GetScreenPosition
+    ScreenRect: 'Rect'  # See GetScreenRect
+    Shown: Any  # See IsShown and Show
+    Size: 'Size'  # See GetSize and SetSize
+    Sizer: 'Sizer'  # See GetSizer and SetSizer
+    ThemeEnabled: bool  # See GetThemeEnabled and SetThemeEnabled
+    ToolTip: str  # See GetToolTip and SetToolTip
+    TopLevel: Any  # See IsTopLevel
+    TopLevelParent: 'Window'  # See GetTopLevelParent
+    UpdateClientRect: 'Rect'  # See GetUpdateClientRect
+    UpdateRegion: 'Region'  # See GetUpdateRegion
+    Validator: 'Validator'  # See GetValidator and SetValidator
+    VirtualSize: 'Size'  # See GetVirtualSize and SetVirtualSize
+    WindowStyle: int  # See GetWindowStyle and SetWindowStyle
+    WindowStyleFlag: int  # See GetWindowStyleFlag and SetWindowStyleFlag
+    WindowVariant: int  # See GetWindowVariant and SetWindowVariant
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -9377,7 +9690,7 @@ object on screen.
         """
 
     def GetGtkWidget(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10098,7 +10411,7 @@ object on screen.
         """
 
     def SetClientRect(self, rect) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10128,7 +10441,7 @@ object on screen.
         """
 
     def SetDimensions(self, x, y, width, height, sizeFlags=SIZE_AUTO) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10284,7 +10597,7 @@ object on screen.
         """
 
     def SetRect(self, rect) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10604,6 +10917,9 @@ class Control(Window):
 
         Source: https://docs.wxpython.org/wx.Control.html
     """
+    Label: str  # See GetLabel and SetLabel
+    LabelText: str  # See GetLabelText and SetLabelText
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -10709,6 +11025,8 @@ Choice.
 
         Source: https://docs.wxpython.org/wx.ItemContainer.html
     """
+    Items: Any  # See GetItems and SetItems
+
     def Append(self, *args, **kw) -> int:
         """ Overloaded Implementations:
 
@@ -10814,6 +11132,9 @@ mouse click.
 
         Source: https://docs.wxpython.org/wx.Cursor.html
     """
+    Handle: int  # See GetHandle and SetHandle
+    HotSpot: 'Point'  # See GetHotSpot
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -10871,6 +11192,10 @@ standard ones).
 
         Source: https://docs.wxpython.org/wx.CustomDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    Data: Any  # See GetData and SetData
+    Size: int  # See GetSize
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -10910,6 +11235,11 @@ class.
 
         Source: https://docs.wxpython.org/wx.DataObjectSimple.html
     """
+    AllFormats: None  # See GetAllFormats
+    DataHere: bool  # See GetDataHere
+    DataSize: int  # See GetDataSize
+    Format: 'DataFormat'  # See GetFormat and SetFormat
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -10962,6 +11292,9 @@ operations.
 
         Source: https://docs.wxpython.org/wx.DataFormat.html
     """
+    Id: str  # See GetId and SetId
+    Type: DataFormatId  # See GetType and SetType
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -11028,6 +11361,9 @@ may be used to support multiple formats.
 
         Source: https://docs.wxpython.org/wx.DataObjectComposite.html
     """
+    AllFormats: None  # See GetAllFormats
+    ReceivedFormat: 'DataFormat'  # See GetReceivedFormat
+
     def __init__(self) -> None:
         """ The default constructor.
 
@@ -11236,6 +11572,24 @@ class DateTime:
 
         Source: https://docs.wxpython.org/wx.DateTime.html
     """
+    DayOfYear: intshort  # See GetDayOfYear
+    JDN: float  # See GetJDN and SetJDN
+    JulianDayNumber: float  # See GetJulianDayNumber
+    LastMonthDay: 'DateTime'  # See GetLastMonthDay
+    MJD: float  # See GetMJD
+    ModifiedJulianDayNumber: float  # See GetModifiedJulianDayNumber
+    RataDie: float  # See GetRataDie
+    Ticks: int  # See GetTicks
+    WeekOfMonth: intshort  # See GetWeekOfMonth
+    WeekOfYear: intshort  # See GetWeekOfYear
+    day: Any  # See GetDay and SetDay
+    hour: Any  # See GetHour and SetHour
+    millisecond: Any  # See GetMillisecond and SetMillisecond
+    minute: Any  # See GetMinute and SetMinute
+    month: Any  # See GetMonth and SetMonth
+    second: Any  # See GetSecond and SetSecond
+    year: Any  # See GetYear and SetYear
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -11935,13 +12289,13 @@ class DateTime:
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
@@ -11962,13 +12316,13 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCBrushChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCBrushChanger.html
         """
@@ -11988,13 +12342,13 @@ during its lifetime.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCClipper.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCClipper.html
         """
@@ -12021,13 +12375,13 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCFontChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCFontChanger.html
         """
@@ -12067,13 +12421,13 @@ one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCPenChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCPenChanger.html
         """
@@ -12100,13 +12454,13 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextBgColourChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextBgColourChanger.html
         """
@@ -12121,13 +12475,13 @@ restoring the previous one.
         Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
     """
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
         """
@@ -12154,13 +12508,13 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextColourChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DCTextColourChanger.html
         """
@@ -12175,6 +12529,8 @@ all of them.
 
         Source: https://docs.wxpython.org/wx.DelegateRendererNative.html
     """
+    Version: 'RendererVersion'  # See GetVersion
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -12308,6 +12664,8 @@ class RendererNative:
 
         Source: https://docs.wxpython.org/wx.RendererNative.html
     """
+    Version: 'RendererVersion'  # See GetVersion
+
     def DrawCheckBox(self, win, dc, rect, flags=0) -> None:
         """ Draw a check box.
 
@@ -12519,6 +12877,15 @@ which can be moved around the screen.
 
         Source: https://docs.wxpython.org/wx.Dialog.html
     """
+    AffirmativeId: int  # See GetAffirmativeId and SetAffirmativeId
+    ContentWindow: 'Window'  # See GetContentWindow
+    EscapeId: int  # See GetEscapeId and SetEscapeId
+    LayoutAdaptationDone: bool  # See GetLayoutAdaptationDone and SetLayoutAdaptationDone
+    LayoutAdaptationLevel: int  # See GetLayoutAdaptationLevel and SetLayoutAdaptationLevel
+    LayoutAdaptationMode: DialogLayoutAdaptationMode  # See GetLayoutAdaptationMode and SetLayoutAdaptationMode
+    MainButtonIds: list[int]  # See GetMainButtonIds
+    ReturnCode: int  # See GetReturnCode and SetReturnCode
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -12765,13 +13132,13 @@ which can be moved around the screen.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Dialog.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Dialog.html
         """
@@ -12849,6 +13216,9 @@ class DirDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.DirDialog.html
     """
+    Message: str  # See GetMessage and SetMessage
+    Path: str  # See GetPath and SetPath
+
     def __init__(self, parent, message=DirSelectorPromptStr, defaultPath="", style=DD_DEFAULT_STYLE, pos=DefaultPosition, size=DefaultSize, name=DirDialogNameStr) -> None:
         """ Constructor.
 
@@ -12934,7 +13304,7 @@ class DirFilterListCtrl(Choice):
         """
 
     def Init(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DirFilterListCtrl.html
         """
@@ -12946,6 +13316,8 @@ class DirPickerCtrl(PickerBase):
 
         Source: https://docs.wxpython.org/wx.DirPickerCtrl.html
     """
+    Path: str  # See GetPath and SetPath
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -13003,6 +13375,11 @@ system.
 
         Source: https://docs.wxpython.org/wx.Display.html
     """
+    ClientArea: 'Rect'  # See GetClientArea
+    CurrentMode: 'VideoMode'  # See GetCurrentMode
+    Geometry: 'Rect'  # See GetGeometry
+    Name: str  # See GetName
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -13107,7 +13484,7 @@ resolution has changed.
         Source: https://docs.wxpython.org/wx.DisplayChangedEvent.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.DisplayChangedEvent.html
         """
@@ -13122,6 +13499,9 @@ dots-per-inch, or DPI) of the monitor a window is on changes.
 
         Source: https://docs.wxpython.org/wx.DPIChangedEvent.html
     """
+    NewDPI: 'Size'  # See GetNewDPI
+    OldDPI: 'Size'  # See GetOldDPI
+
     def GetNewDPI(self) -> 'Size':
         """ Returns the new DPI.
 
@@ -13206,6 +13586,10 @@ been dropped onto the window.
 
         Source: https://docs.wxpython.org/wx.DropFilesEvent.html
     """
+    Files: Any  # See GetFiles
+    NumberOfFiles: int  # See GetNumberOfFiles
+    Position: 'Point'  # See GetPosition
+
     def __init__(self, id=0, files=None) -> None:
         """ Constructor.
 
@@ -13237,6 +13621,8 @@ class DropSource:
 
         Source: https://docs.wxpython.org/wx.DropSource.html
     """
+    DataObject: 'DataObject'  # See GetDataObject
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -13286,6 +13672,10 @@ class DropTarget:
 
         Source: https://docs.wxpython.org/wx.DropTarget.html
     """
+    Data: bool  # See GetData
+    DataObject: 'DataObject'  # See GetDataObject and SetDataObject
+    DefaultAction: DragResult  # See GetDefaultAction and SetDefaultAction
+
     def __init__(self, data: Optional['DataObject']=None) -> None:
         """ Constructor.
 
@@ -13360,6 +13750,8 @@ repainted.
 
         Source: https://docs.wxpython.org/wx.EraseEvent.html
     """
+    DC: 'DC'  # See GetDC
+
     def __init__(self, id=0, dc=None) -> None:
         """ Constructor.
 
@@ -13380,6 +13772,12 @@ callback or member function.
 
         Source: https://docs.wxpython.org/wx.Event.html
     """
+    EventObject: 'Object'  # See GetEventObject and SetEventObject
+    EventType: int  # See GetEventType and SetEventType
+    Id: int  # See GetId and SetId
+    Skipped: bool  # See GetSkipped
+    Timestamp: int  # See GetTimestamp and SetTimestamp
+
     def __init__(self, id=0, eventType=wxEVT_NULL) -> None:
         """ Constructor.
 
@@ -13503,13 +13901,13 @@ event (or a set of event types) directed to a specific window.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.EventBlocker.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.EventBlocker.html
         """
@@ -13548,13 +13946,13 @@ class EventLoopActivator:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.EventLoopActivator.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.EventLoopActivator.html
         """
@@ -13689,6 +14087,10 @@ class EvtHandler(Object,Trackable):
 
         Source: https://docs.wxpython.org/wx.EvtHandler.html
     """
+    EvtHandlerEnabled: bool  # See GetEvtHandlerEnabled and SetEvtHandlerEnabled
+    NextHandler: 'EvtHandler'  # See GetNextHandler and SetNextHandler
+    PreviousHandler: 'EvtHandler'  # See GetPreviousHandler and SetPreviousHandler
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -13844,6 +14246,10 @@ retrieving configuration information using plain text files.
 
         Source: https://docs.wxpython.org/wx.FileConfig.html
     """
+    NumberOfEntries: int  # See GetNumberOfEntries
+    NumberOfGroups: int  # See GetNumberOfGroups
+    Path: str  # See GetPath and SetPath
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -13967,6 +14373,14 @@ class FileCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.FileCtrl.html
     """
+    Directory: str  # See GetDirectory and SetDirectory
+    Filename: str  # See GetFilename and SetFilename
+    Filenames: list[str]  # See GetFilenames
+    FilterIndex: int  # See GetFilterIndex and SetFilterIndex
+    Path: str  # See GetPath and SetPath
+    Paths: list[str]  # See GetPaths
+    Wildcard: str  # See GetWildcard and SetWildcard
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -14094,6 +14508,11 @@ FileCtrl objects.
 
         Source: https://docs.wxpython.org/wx.FileCtrlEvent.html
     """
+    Directory: str  # See GetDirectory and SetDirectory
+    File: str  # See GetFile
+    Files: list[str]  # See GetFiles and SetFiles
+    FilterIndex: int  # See GetFilterIndex and SetFilterIndex
+
     def __init__(self, type, evtObject, id) -> None:
         """ Constructor.
 
@@ -14149,6 +14568,9 @@ class FileDataObject(DataObjectSimple):
 
         Source: https://docs.wxpython.org/wx.FileDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    Filenames: list[str]  # See GetFilenames
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -14187,6 +14609,18 @@ class FileDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.FileDialog.html
     """
+    CurrentlySelectedFilename: str  # See GetCurrentlySelectedFilename
+    CurrentlySelectedFilterIndex: int  # See GetCurrentlySelectedFilterIndex
+    Directory: str  # See GetDirectory and SetDirectory
+    ExtraControl: 'Window'  # See GetExtraControl
+    Filename: str  # See GetFilename and SetFilename
+    Filenames: list[str]  # See GetFilenames
+    FilterIndex: int  # See GetFilterIndex and SetFilterIndex
+    Message: str  # See GetMessage and SetMessage
+    Path: str  # See GetPath and SetPath
+    Paths: list[str]  # See GetPaths
+    Wildcard: str  # See GetWildcard and SetWildcard
+
     def __init__(self, parent, message=FileSelectorPromptStr, defaultDir="", defaultFile="", wildcard=FileSelectorDefaultWildcardStr, style=FD_DEFAULT_STYLE, pos=DefaultPosition, size=DefaultSize, name=FileDialogNameStr) -> None:
         """ Constructor.
 
@@ -14342,6 +14776,8 @@ class FileDialogCheckBox(FileDialogCustomControl):
 
         Source: https://docs.wxpython.org/wx.FileDialogCheckBox.html
     """
+    Value: bool  # See GetValue and SetValue
+
     def GetValue(self) -> bool:
         """ Return True if the checkbox is checked.
 
@@ -14361,6 +14797,8 @@ class FileDialogChoice(FileDialogCustomControl):
 
         Source: https://docs.wxpython.org/wx.FileDialogChoice.html
     """
+    Selection: int  # See GetSelection and SetSelection
+
     def GetSelection(self) -> int:
         """ Return the index of the selected item, possibly wx.NOT_FOUND.
 
@@ -14480,6 +14918,8 @@ class FileDialogRadioButton(FileDialogCustomControl):
 
         Source: https://docs.wxpython.org/wx.FileDialogRadioButton.html
     """
+    Value: bool  # See GetValue and SetValue
+
     def GetValue(self) -> bool:
         """ Return True if the radio button is selected.
 
@@ -14512,6 +14952,8 @@ class FileDialogTextCtrl(FileDialogCustomControl):
 
         Source: https://docs.wxpython.org/wx.FileDialogTextCtrl.html
     """
+    Value: str  # See GetValue and SetValue
+
     def GetValue(self) -> str:
         """ Get the current value entered into the control.
 
@@ -14532,6 +14974,8 @@ and by DirPickerCtrl.
 
         Source: https://docs.wxpython.org/wx.FileDirPickerEvent.html
     """
+    Path: str  # See GetPath and SetPath
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -14559,6 +15003,8 @@ class FilePickerCtrl(PickerBase):
 
         Source: https://docs.wxpython.org/wx.FilePickerCtrl.html
     """
+    Path: str  # See GetPath and SetPath
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -14647,6 +15093,12 @@ menu).
 
         Source: https://docs.wxpython.org/wx.FileHistory.html
     """
+    BaseId: int  # See GetBaseId and SetBaseId
+    Count: int  # See GetCount
+    MaxFiles: int  # See GetMaxFiles
+    MenuPathStyle: FileHistoryMenuPathStyle  # See GetMenuPathStyle and SetMenuPathStyle
+    Menus: FileHistoryMenuList  # See GetMenus
+
     def __init__(self, maxFiles=9, idBase=ID_FILE1) -> None:
         """ Constructor.
 
@@ -14751,6 +15203,8 @@ systems.
 
         Source: https://docs.wxpython.org/wx.FileSystem.html
     """
+    Path: str  # See GetPath
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -14913,6 +15367,8 @@ system changes.
 
         Source: https://docs.wxpython.org/wx.FileSystemWatcher.html
     """
+    WatchedPathsCount: int  # See GetWatchedPathsCount
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -14974,6 +15430,12 @@ class FileSystemWatcherEvent(Event):
 
         Source: https://docs.wxpython.org/wx.FileSystemWatcherEvent.html
     """
+    ChangeType: int  # See GetChangeType
+    ErrorDescription: str  # See GetErrorDescription
+    NewPath: str  # See GetNewPath
+    Path: str  # See GetPath
+    WarningType: 'FSWWarningType'  # See GetWarningType
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -15074,6 +15536,16 @@ class FileType:
 
         Source: https://docs.wxpython.org/wx.FileType.html
     """
+    Description: str  # See GetDescription
+    Extensions: list[str]  # See GetExtensions
+    Icon: 'Icon'  # See GetIcon
+    IconInfo: Any  # See GetIconInfo
+    IconLocation: 'IconLocation'  # See GetIconLocation
+    MimeType: str  # See GetMimeType
+    MimeTypes: list[str]  # See GetMimeTypes
+    OpenCommand: str  # See GetOpenCommand
+    PrintCommand: str  # See GetPrintCommand
+
     def __init__(self, ftInfo: 'FileTypeInfo') -> None:
         """ Copy constructor.
 
@@ -15169,6 +15641,16 @@ class FileTypeInfo:
 
         Source: https://docs.wxpython.org/wx.FileTypeInfo.html
     """
+    Description: str  # See GetDescription and SetDescription
+    Extensions: list[str]  # See GetExtensions
+    ExtensionsCount: int  # See GetExtensionsCount
+    IconFile: str  # See GetIconFile
+    IconIndex: int  # See GetIconIndex
+    MimeType: str  # See GetMimeType
+    OpenCommand: str  # See GetOpenCommand and SetOpenCommand
+    PrintCommand: str  # See GetPrintCommand and SetPrintCommand
+    ShortDesc: str  # See GetShortDesc and SetShortDesc
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -15273,7 +15755,7 @@ class FilterFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.FilterFSHandler.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.FilterFSHandler.html
         """
@@ -15285,6 +15767,11 @@ class FindDialogEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.FindDialogEvent.html
     """
+    Dialog: 'FindReplaceDialog'  # See GetDialog
+    FindString: str  # See GetFindString
+    Flags: int  # See GetFlags
+    ReplaceString: str  # See GetReplaceString
+
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
         """ Constructor used by wxWidgets only.
 
@@ -15334,6 +15821,8 @@ something else).
 
         Source: https://docs.wxpython.org/wx.FindReplaceDialog.html
     """
+    Data: 'FindReplaceData'  # See GetData
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -15366,6 +15855,10 @@ class FindReplaceData(Object):
 
         Source: https://docs.wxpython.org/wx.FindReplaceData.html
     """
+    FindString: str  # See GetFindString and SetFindString
+    Flags: 'int'  # See GetFlags and SetFlags
+    ReplaceString: str  # See GetReplaceString and SetReplaceString
+
     def __init__(self, flags: 'int'=0) -> None:
         """ Constructor initializes the flags to default value (0).
 
@@ -15419,6 +15912,11 @@ the GridSizer.
 
         Source: https://docs.wxpython.org/wx.FlexGridSizer.html
     """
+    ColWidths: list[int]  # See GetColWidths
+    FlexibleDirection: int  # See GetFlexibleDirection and SetFlexibleDirection
+    NonFlexibleGrowMode: FlexSizerGrowMode  # See GetNonFlexibleGrowMode and SetNonFlexibleGrowMode
+    RowHeights: list[int]  # See GetRowHeights
+
     def __init__(self, *args, **kw) -> None:
         """ wx.FlexGridSizer  constructors.
 
@@ -15523,6 +16021,13 @@ dimensional table with all table fields having the same size, i.e.
 
         Source: https://docs.wxpython.org/wx.GridSizer.html
     """
+    Cols: int  # See GetCols and SetCols
+    EffectiveColsCount: int  # See GetEffectiveColsCount
+    EffectiveRowsCount: int  # See GetEffectiveRowsCount
+    HGap: int  # See GetHGap and SetHGap
+    Rows: int  # See GetRows and SetRows
+    VGap: int  # See GetVGap and SetVGap
+
     def __init__(self, *args, **kw) -> None:
         """ wx.GridSizer  constructors.
 
@@ -15616,6 +16121,8 @@ class FocusEvent(Event):
 
         Source: https://docs.wxpython.org/wx.FocusEvent.html
     """
+    Window: 'Window'  # See GetWindow and SetWindow
+
     def __init__(self, eventType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
 
@@ -15641,6 +16148,16 @@ class Font(GDIObject):
 
         Source: https://docs.wxpython.org/wx.Font.html
     """
+    Encoding: int  # See GetEncoding and SetEncoding
+    FaceName: str  # See GetFaceName and SetFaceName
+    Family: int  # See GetFamily and SetFamily
+    NativeFontInfoDesc: str  # See GetNativeFontInfoDesc and SetNativeFontInfo
+    NativeFontInfoUserDesc: str  # See GetNativeFontInfoUserDesc and SetNativeFontInfoUserDesc
+    PixelSize: Union[tuple[int, int], 'Size']  # See GetPixelSize and SetPixelSize
+    PointSize: int  # See GetPointSize and SetPointSize
+    Style: int  # See GetStyle and SetStyle
+    Weight: int  # See GetWeight and SetWeight
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16020,6 +16537,12 @@ class FontData(Object):
 
         Source: https://docs.wxpython.org/wx.FontData.html
     """
+    AllowSymbols: bool  # See GetAllowSymbols and SetAllowSymbols
+    ChosenFont: 'Font'  # See GetChosenFont and SetChosenFont
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    InitialFont: 'Font'  # See GetInitialFont and SetInitialFont
+    ShowHelp: bool  # See GetShowHelp and SetShowHelp
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -16123,6 +16646,8 @@ class FontDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.FontDialog.html
     """
+    FontData: 'FontData'  # See GetFontData
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16165,7 +16690,7 @@ or the fonts available in the given encoding).
         Source: https://docs.wxpython.org/wx.FontEnumerator.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.FontEnumerator.html
         """
@@ -16457,6 +16982,13 @@ class FontMetrics:
 
         Source: https://docs.wxpython.org/wx.FontMetrics.html
     """
+    ascent: Any  # A public C++ attribute of type int. Part of the height above the baseline.
+    averageWidth: Any  # A public C++ attribute of type int. Average font width, a.k.a. âx-widthâ.
+    descent: Any  # A public C++ attribute of type int. Part of the height below the baseline.
+    externalLeading: Any  # A public C++ attribute of type int. Inter-line spacing.
+    height: Any  # A public C++ attribute of type int. Total character height.
+    internalLeading: Any  # A public C++ attribute of type int. Intra-line spacing.
+
     def __init__(self) -> None:
         """ Constructor initializes all fields to 0.
 
@@ -16470,6 +17002,11 @@ class FontPickerCtrl(PickerBase):
 
         Source: https://docs.wxpython.org/wx.FontPickerCtrl.html
     """
+    MaxPointSize: int  # See GetMaxPointSize and SetMaxPointSize
+    MinPointSize: int  # See GetMinPointSize and SetMinPointSize
+    SelectedColour: Union[int, str, 'Colour']  # See GetSelectedColour and SetSelectedColour
+    SelectedFont: 'Font'  # See GetSelectedFont and SetSelectedFont
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16554,6 +17091,8 @@ class FontPickerEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.FontPickerEvent.html
     """
+    Font: 'Font'  # See GetFont and SetFont
+
     def __init__(self, generator, id, font) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -16580,6 +17119,11 @@ by the user.
 
         Source: https://docs.wxpython.org/wx.Frame.html
     """
+    MenuBar: 'MenuBar'  # See GetMenuBar and SetMenuBar
+    StatusBar: 'StatusBar'  # See GetStatusBar and SetStatusBar
+    StatusBarPane: int  # See GetStatusBarPane and SetStatusBarPane
+    ToolBar: 'ToolBar'  # See GetToolBar and SetToolBar
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16756,6 +17300,12 @@ class FSFile(Object):
 
         Source: https://docs.wxpython.org/wx.FSFile.html
     """
+    Anchor: str  # See GetAnchor
+    Location: str  # See GetLocation
+    MimeType: str  # See GetMimeType
+    ModificationTime: 'DateTime'  # See GetModificationTime
+    Stream: 'InputStream'  # See GetStream
+
     def __init__(self, stream, location, mimetype, anchor, modif) -> None:
         """ Constructor.
 
@@ -16827,6 +17377,9 @@ time).
 
         Source: https://docs.wxpython.org/wx.Gauge.html
     """
+    Range: int  # See GetRange and SetRange
+    Value: int  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16900,6 +17453,11 @@ rows and columns managed by a GridBagSizer.
 
         Source: https://docs.wxpython.org/wx.GBPosition.html
     """
+    Col: int  # See GetCol and SetCol
+    Row: int  # See GetRow and SetRow
+    col: Any  # See GetCol and SetCol
+    row: Any  # See GetRow and SetRow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -16949,49 +17507,49 @@ rows and columns managed by a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
@@ -17018,6 +17576,8 @@ one row and/or column using GBSpan.
 
         Source: https://docs.wxpython.org/wx.GridBagSizer.html
     """
+    EmptyCellSize: Union[tuple[int, int], 'Size']  # See GetEmptyCellSize and SetEmptyCellSize
+
     def __init__(self, vgap=0, hgap=0) -> None:
         """ Constructor, with optional parameters to specify the gap between the rows and columns.
 
@@ -17122,6 +17682,10 @@ items in the sizer.
 
         Source: https://docs.wxpython.org/wx.GBSizerItem.html
     """
+    GBSizer: 'GridBagSizer'  # See GetGBSizer and SetGBSizer
+    Pos: 'GBPosition'  # See GetPos and SetPos
+    Span: 'GBSpan'  # See GetSpan and SetSpan
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -17184,6 +17748,11 @@ items in a GridBagSizer.
 
         Source: https://docs.wxpython.org/wx.GBSpan.html
     """
+    Colspan: int  # See GetColspan and SetColspan
+    Rowspan: int  # See GetRowspan and SetRowspan
+    colspan: Any  # See GetColspan and SetColspan
+    rowspan: Any  # See GetRowspan and SetRowspan
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -17233,49 +17802,49 @@ items in a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
@@ -17299,6 +17868,8 @@ class GCDC(DC):
 
         Source: https://docs.wxpython.org/wx.GCDC.html
     """
+    GraphicsContext: 'GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -17324,6 +17895,14 @@ class GraphicsContext(GraphicsObject):
 
         Source: https://docs.wxpython.org/wx.GraphicsContext.html
     """
+    AntialiasMode: AntialiasMode  # See GetAntialiasMode and SetAntialiasMode
+    CompositionMode: CompositionMode  # See GetCompositionMode and SetCompositionMode
+    InterpolationQuality: InterpolationQuality  # See GetInterpolationQuality and SetInterpolationQuality
+    NativeContext: None  # See GetNativeContext
+    TextExtent: Any  # See GetTextExtent
+    Transform: 'GraphicsMatrix'  # See GetTransform and SetTransform
+    Window: 'Window'  # See GetWindow
+
     def BeginLayer(self, opacity: 'Double') -> None:
         """ All rendering will be done into a fully transparent temporary context.
 
@@ -17745,6 +18324,15 @@ class Pen(GDIObject):
 
         Source: https://docs.wxpython.org/wx.Pen.html
     """
+    Cap: PenCap  # See GetCap and SetCap
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Dashes: list[int]  # See GetDashes and SetDashes
+    Join: PenJoin  # See GetJoin and SetJoin
+    Quality: PenQuality  # See GetQuality and SetQuality
+    Stipple: 'Bitmap'  # See GetStipple and SetStipple
+    Style: PenStyle  # See GetStyle and SetStyle
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -17893,6 +18481,16 @@ files) on an arbitrary window.
 
         Source: https://docs.wxpython.org/wx.GenericDirCtrl.html
     """
+    DefaultPath: str  # See GetDefaultPath and SetDefaultPath
+    FilePath: str  # See GetFilePath
+    Filter: str  # See GetFilter and SetFilter
+    FilterIndex: int  # See GetFilterIndex and SetFilterIndex
+    FilterListCtrl: 'DirFilterListCtrl'  # See GetFilterListCtrl
+    Path: str  # See GetPath and SetPath
+    Paths: list  # See GetPaths
+    RootId: 'TreeItemId'  # See GetRootId
+    TreeCtrl: 'TreeCtrl'  # See GetTreeCtrl
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -18136,6 +18734,17 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
 
         Source: https://docs.wxpython.org/wx.GenericMessageDialog.html
     """
+    CancelLabel: str  # See GetCancelLabel
+    Caption: str  # See GetCaption
+    EffectiveIcon: int  # See GetEffectiveIcon
+    ExtendedMessage: str  # See GetExtendedMessage and SetExtendedMessage
+    HelpLabel: MessageDialogButtonLabel  # See GetHelpLabel and SetHelpLabel
+    Message: str  # See GetMessage and SetMessage
+    MessageDialogStyle: int  # See GetMessageDialogStyle
+    NoLabel: str  # See GetNoLabel
+    OKLabel: MessageDialogButtonLabel  # See GetOKLabel and SetOKLabel
+    YesLabel: str  # See GetYesLabel
+
     def __init__(self, parent, message, caption=MessageBoxCaptionStr, style=OK|CENTRE, pos=DefaultPosition) -> None:
         """ Constructor specifying the message box properties.
 
@@ -18309,6 +18918,10 @@ progress bar.
 
         Source: https://docs.wxpython.org/wx.GenericProgressDialog.html
     """
+    Message: str  # See GetMessage
+    Range: int  # See GetRange and SetRange
+    Value: int  # See GetValue
+
     def __init__(self, title, message, maximum=100, parent=None, style=PD_AUTO_HIDE|PD_APP_MODAL) -> None:
         """ Constructor.
 
@@ -18399,6 +19012,8 @@ class GestureEvent(Event):
 
         Source: https://docs.wxpython.org/wx.GestureEvent.html
     """
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+
     def __init__(self, winid=0, type=wxEVT_NULL) -> None:
         """ Constructor.
 
@@ -18485,6 +19100,8 @@ class GraphicsBitmap(GraphicsObject):
 
         Source: https://docs.wxpython.org/wx.GraphicsBitmap.html
     """
+    NativeBitmap: None  # See GetNativeBitmap
+
     def __init__(self) -> None:
         """ Default constructor creates an invalid bitmap.
 
@@ -18525,6 +19142,9 @@ represented by GraphicsGradientStops.
 
         Source: https://docs.wxpython.org/wx.GraphicsGradientStop.html
     """
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Position: float  # See GetPosition and SetPosition
+
     def __init__(self, col=TransparentColour, pos=0.) -> None:
         """ Creates a stop with the given colour and position.
 
@@ -18563,6 +19183,10 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
 
         Source: https://docs.wxpython.org/wx.GraphicsGradientStops.html
     """
+    Count: int  # See GetCount
+    EndColour: Union[int, str, 'Colour']  # See GetEndColour and SetEndColour
+    StartColour: Union[int, str, 'Colour']  # See GetStartColour and SetStartColour
+
     def __init__(self, startCol=TransparentColour, endCol=TransparentColour) -> None:
         """ Initializes the gradient stops with the given boundary colours.
 
@@ -18612,7 +19236,7 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
         """
 
     def __getitem__(self, n) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GraphicsGradientStops.html
         """
@@ -18630,6 +19254,8 @@ class GraphicsMatrix(GraphicsObject):
 
         Source: https://docs.wxpython.org/wx.GraphicsMatrix.html
     """
+    NativeMatrix: None  # See GetNativeMatrix
+
     def Concat(self, t: 'GraphicsMatrix') -> None:
         """ Concatenates the matrix passed with the current matrix.
 
@@ -18709,6 +19335,8 @@ class GraphicsObject(Object):
 
         Source: https://docs.wxpython.org/wx.GraphicsObject.html
     """
+    Renderer: 'GraphicsRenderer'  # See GetRenderer
+
     def GetRenderer(self) -> 'GraphicsRenderer':
         """ Returns the renderer that was used to create this instance, or None if it has not been initialized yet.
 
@@ -18746,6 +19374,10 @@ class GraphicsPath(GraphicsObject):
 
         Source: https://docs.wxpython.org/wx.GraphicsPath.html
     """
+    Box: 'Rect2D'  # See GetBox
+    CurrentPoint: 'Point2D'  # See GetCurrentPoint
+    NativePath: None  # See GetNativePath
+
     def AddArc(self, *args, **kw) -> None:
         """ Adds an arc of a circle.
 
@@ -18871,6 +19503,18 @@ passing them in the fixed order to GraphicsPen constructors.
 
         Source: https://docs.wxpython.org/wx.GraphicsPenInfo.html
     """
+    EndX: 'Double'  # See GetEndX
+    EndY: 'Double'  # See GetEndY
+    GradientType: 'GradientType'  # See GetGradientType
+    Radius: 'Double'  # See GetRadius
+    StartX: 'Double'  # See GetStartX
+    StartY: 'Double'  # See GetStartY
+    Stops: 'GraphicsGradientStops'  # See GetStops
+    X1: 'Double'  # See GetX1
+    X2: 'Double'  # See GetX2
+    Y1: 'Double'  # See GetY1
+    Y2: 'Double'  # See GetY2
+
     def __init__(*args, **kwargs) -> None:
         """ colour (wx.Colour) â
 
@@ -19041,6 +19685,9 @@ engine used.
 
         Source: https://docs.wxpython.org/wx.GraphicsRenderer.html
     """
+    Name: str  # See GetName
+    Type: None  # See GetType
+
     def CreateBitmap(self, bitmap: 'Bitmap') -> 'GraphicsBitmap':
         """ Creates   wx.GraphicsBitmap  from an existing   wx.Bitmap.
 
@@ -19209,6 +19856,13 @@ window.
 
         Source: https://docs.wxpython.org/wx.Sizer.html
     """
+    Children: SizerItemList  # See GetChildren
+    ContainingWindow: 'Window'  # See GetContainingWindow and SetContainingWindow
+    ItemCount: int  # See GetItemCount
+    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    Position: 'Point'  # See GetPosition
+    Size: 'Size'  # See GetSize
+
     def __init__(self) -> None:
         """ The constructor.
 
@@ -19513,7 +20167,7 @@ class GUIEventLoop(EventLoopBase):
         Source: https://docs.wxpython.org/wx.GUIEventLoop.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.GUIEventLoop.html
         """
@@ -19527,8 +20181,16 @@ draw the text or bitmap label.
 
         Source: https://docs.wxpython.org/wx.HeaderButtonParams.html
     """
+    m_arrowColour: Any  # A public C++ attribute of type Colour     .
+    m_labelAlignment: Any  # A public C++ attribute of type int.
+    m_labelBitmap: Any  # A public C++ attribute of type Bitmap     .
+    m_labelColour: Any  # A public C++ attribute of type Colour     .
+    m_labelFont: Any  # A public C++ attribute of type Font     .
+    m_labelText: Any  # A public C++ attribute of type string.
+    m_selectionColour: Any  # A public C++ attribute of type Colour     .
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.HeaderButtonParams.html
         """
@@ -19541,6 +20203,21 @@ DataViewCtrl or Grid.
 
         Source: https://docs.wxpython.org/wx.HeaderColumn.html
     """
+    Alignment: int  # See GetAlignment
+    Bitmap: 'Bitmap'  # See GetBitmap
+    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Flags: int  # See GetFlags
+    Hidden: Any  # See IsHidden
+    MinWidth: int  # See GetMinWidth
+    Reorderable: Any  # See IsReorderable
+    Resizeable: Any  # See IsResizeable
+    Shown: Any  # See IsShown
+    SortKey: Any  # See IsSortKey
+    SortOrderAscending: Any  # See IsSortOrderAscending
+    Sortable: Any  # See IsSortable
+    Title: str  # See GetTitle
+    Width: int  # See GetWidth
+
     def GetAlignment(self) -> int:
         """ Returns the current column alignment.
 
@@ -19648,6 +20325,14 @@ class HeaderColumnSimple(SettableHeaderColumn):
 
         Source: https://docs.wxpython.org/wx.HeaderColumnSimple.html
     """
+    Alignment: int  # See GetAlignment and SetAlignment
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Flags: int  # See GetFlags and SetFlags
+    MinWidth: int  # See GetMinWidth and SetMinWidth
+    Title: str  # See GetTitle and SetTitle
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Constructor for a column header.
 
@@ -19758,6 +20443,9 @@ usually used for display of tabular data.
 
         Source: https://docs.wxpython.org/wx.HeaderCtrl.html
     """
+    ColumnCount: int  # See GetColumnCount and SetColumnCount
+    ColumnsOrder: list[int]  # See GetColumnsOrder and SetColumnsOrder
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -19933,6 +20621,10 @@ class HeaderCtrlEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.HeaderCtrlEvent.html
     """
+    Column: int  # See GetColumn and SetColumn
+    NewOrder: int  # See GetNewOrder and SetNewOrder
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -20053,6 +20745,9 @@ applications may invoke a help viewer to provide on-line help.
 
         Source: https://docs.wxpython.org/wx.HelpControllerBase.html
     """
+    FrameParameters: tuple  # See GetFrameParameters and SetFrameParameters
+    ParentWindow: 'Window'  # See GetParentWindow and SetParentWindow
+
     def __init__(self, parentWindow: Optional['Window']=None) -> None:
         """ Constructs a help instance object, but does not invoke the help viewer.
 
@@ -20159,6 +20854,8 @@ which supports both context identifiers and plain text help strings.
 
         Source: https://docs.wxpython.org/wx.HelpControllerHelpProvider.html
     """
+    HelpController: 'HelpControllerBase'  # See GetHelpController and SetHelpController
+
     def __init__(self, hc: Optional['HelpControllerBase']=None) -> None:
         """ Note that the instance doesnât own the help controller.
 
@@ -20237,6 +20934,8 @@ help.
 
         Source: https://docs.wxpython.org/wx.HelpEvent.html
     """
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+
     def __init__(self, type=wxEVT_NULL, winid=0, pt=DefaultPosition, origin=Origin_Unknown) -> None:
         """ Constructor.
 
@@ -20301,6 +21000,9 @@ class HTMLDataObject(DataObjectSimple):
 
         Source: https://docs.wxpython.org/wx.HTMLDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    HTML: str  # See GetHTML and SetHTML
+
     def __init__(self, html: str="") -> None:
         """ Constructor.
 
@@ -20367,6 +21069,16 @@ minimized application.
 
         Source: https://docs.wxpython.org/wx.Icon.html
     """
+    Depth: int  # See GetDepth and SetDepth
+    Handle: int  # See GetHandle and SetHandle
+    Height: int  # See GetHeight and SetHeight
+    LogicalHeight: float  # See GetLogicalHeight
+    LogicalSize: 'Size'  # See GetLogicalSize
+    LogicalWidth: float  # See GetLogicalWidth
+    ScaleFactor: float  # See GetScaleFactor
+    Size: 'Size'  # See GetSize
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -20458,7 +21170,7 @@ minimized application.
         """
 
     def SetHandle(self, handle) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Icon.html
         """
@@ -20494,6 +21206,9 @@ class IconBundle(GDIObject):
 
         Source: https://docs.wxpython.org/wx.IconBundle.html
     """
+    Icon: 'Icon'  # See GetIcon
+    IconCount: int  # See GetIconCount
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -20564,6 +21279,9 @@ class IconLocation:
 
         Source: https://docs.wxpython.org/wx.IconLocation.html
     """
+    FileName: str  # See GetFileName and SetFileName
+    Index: int  # See GetIndex and SetIndex
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -20595,7 +21313,7 @@ class IconLocation:
         """
 
     def SetIndex(self, num) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.IconLocation.html
         """
@@ -20715,6 +21433,13 @@ class Image(Object):
 
         Source: https://docs.wxpython.org/wx.Image.html
     """
+    Height: int  # See GetHeight
+    MaskBlue: int  # See GetMaskBlue
+    MaskGreen: int  # See GetMaskGreen
+    MaskRed: int  # See GetMaskRed
+    Type: BitmapType  # See GetType and SetType
+    Width: int  # See GetWidth
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -21316,6 +22041,9 @@ class ImageDataObject(CustomDataObject):
 
         Source: https://docs.wxpython.org/wx.ImageDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    Image: 'Image'  # See GetImage and SetImage
+
     def __init__(self, image: 'Image'=NullImage) -> None:
         """ Constructor, optionally passing an image (otherwise use SetImage   later).
 
@@ -21355,6 +22083,12 @@ image creation from data.
 
         Source: https://docs.wxpython.org/wx.ImageHandler.html
     """
+    AltExtensions: list[str]  # See GetAltExtensions and SetAltExtensions
+    Extension: str  # See GetExtension and SetExtension
+    MimeType: str  # See GetMimeType and SetMimeType
+    Name: str  # See GetName and SetName
+    Type: BitmapType  # See GetType and SetType
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -21460,12 +22194,12 @@ image creation from data.
 
 
 class ImageHistogram:
-    """ startR (int) â
+    """ startR (int) â 
 
         Source: https://docs.wxpython.org/wx.ImageHistogram.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ImageHistogram.html
         """
@@ -21491,6 +22225,9 @@ unspecified form.
 
         Source: https://docs.wxpython.org/wx.ImageList.html
     """
+    ImageCount: int  # See GetImageCount
+    Size: tuple  # See GetSize
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -21574,12 +22311,21 @@ IMAGELIST_DRAW_SELECTED: int
 IMAGELIST_DRAW_FOCUSED: int
 
 class IndividualLayoutConstraint(Object):
-    """ sibling (wx.Window) â
+    """ sibling (wx.Window) â 
 
         Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
     """
+    Done: bool  # See GetDone and SetDone
+    Margin: int  # See GetMargin and SetMargin
+    MyEdge: 'Edge'  # See GetMyEdge
+    OtherEdge: int  # See GetOtherEdge
+    OtherWindow: 'Window'  # See GetOtherWindow
+    Percent: int  # See GetPercent
+    Relationship: Relationship  # See GetRelationship and SetRelationship
+    Value: int  # See GetValue and SetValue
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -21597,7 +22343,7 @@ class IndividualLayoutConstraint(Object):
         """
 
     def AsIs(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -21735,7 +22481,7 @@ class IndividualLayoutConstraint(Object):
         """
 
     def Unconstrained(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -21748,6 +22494,11 @@ window to display non-critical information to the user.
 
         Source: https://docs.wxpython.org/wx.InfoBar.html
     """
+    ButtonCount: int  # See GetButtonCount
+    EffectDuration: int  # See GetEffectDuration and SetEffectDuration
+    HideEffect: 'ShowEffect'  # See GetHideEffect
+    ShowEffect: 'ShowEffect'  # See GetShowEffect
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -21872,6 +22623,8 @@ directly.
 
         Source: https://docs.wxpython.org/wx.InputStream.html
     """
+    C: int  # See GetC
+
     def __init__(self) -> None:
         """ Creates a dummy input stream.
 
@@ -21939,7 +22692,7 @@ directly.
         """
 
     def close(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -21951,7 +22704,7 @@ directly.
         """
 
     def flush(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -21975,7 +22728,7 @@ directly.
         """
 
     def seek(self, offset, whence=0) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -21994,7 +22747,7 @@ class InternetFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.InternetFSHandler.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.InternetFSHandler.html
         """
@@ -22007,6 +22760,10 @@ with multiple items such as e.g.
 
         Source: https://docs.wxpython.org/wx.ItemAttr.html
     """
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Font: 'Font'  # See GetFont and SetFont
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -22099,6 +22856,11 @@ controls which have string subitems each of which may be selected.
 
         Source: https://docs.wxpython.org/wx.ItemContainerImmutable.html
     """
+    Count: int  # See GetCount
+    Selection: int  # See GetSelection and SetSelection
+    StringSelection: str  # See GetStringSelection and SetStringSelection
+    Strings: list[str]  # See GetStrings
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -22179,6 +22941,13 @@ particularly events received by windows.
 
         Source: https://docs.wxpython.org/wx.JoystickEvent.html
     """
+    ButtonChange: int  # See GetButtonChange
+    ButtonOrdinal: int  # See GetButtonOrdinal
+    ButtonState: int  # See GetButtonState
+    Joystick: int  # See GetJoystick
+    Position: 'Point'  # See GetPosition
+    ZPosition: int  # See GetZPosition
+
     def __init__(self, eventType=wxEVT_NULL, state=0, joystick=JOYSTICK1, change=0) -> None:
         """ Constructor.
 
@@ -22316,6 +23085,13 @@ class KeyboardState:
 
         Source: https://docs.wxpython.org/wx.KeyboardState.html
     """
+    altDown: Any  # See AltDown and SetAltDown
+    cmdDown: Any  # See CmdDown
+    controlDown: Any  # See ControlDown and SetControlDown
+    metaDown: Any  # See MetaDown and SetMetaDown
+    rawControlDown: Any  # See RawControlDown and SetRawControlDown
+    shiftDown: Any  # See ShiftDown and SetShiftDown
+
     def __init__(self, controlDown=False, shiftDown=False, altDown=False, metaDown=False) -> None:
         """ Constructor initializes the modifier key settings.
 
@@ -22414,6 +23190,14 @@ events.
 
         Source: https://docs.wxpython.org/wx.KeyEvent.html
     """
+    KeyCode: int  # See GetKeyCode and SetKeyCode
+    Position: 'Point'  # See GetPosition
+    RawKeyCode: 'int'  # See GetRawKeyCode and SetRawKeyCode
+    RawKeyFlags: 'int'  # See GetRawKeyFlags and SetRawKeyFlags
+    UnicodeKey: int  # See GetUnicodeKey and SetUnicodeKey
+    X: 'Coord'  # See GetX
+    Y: 'Coord'  # See GetY
+
     def __init__(self, keyEventType: int=wxEVT_NULL) -> None:
         """ Constructor.
 
@@ -22487,25 +23271,25 @@ events.
         """
 
     def SetKeyCode(self, keyCode) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetRawKeyCode(self, rawKeyCode) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetRawKeyFlags(self, rawFlags) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetUnicodeKey(self, uniChar) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
@@ -22518,6 +23302,16 @@ information related to that language.
 
         Source: https://docs.wxpython.org/wx.LanguageInfo.html
     """
+    CanonicalName: Any  # A public C++ attribute of type string. Canonical name of the language, e.g.  fr_FR .
+    CanonicalRef: Any  # A public C++ attribute of type string. Canonical reference including region.
+    CanonicalWithRegion: str  # See GetCanonicalWithRegion
+    Description: Any  # A public C++ attribute of type string. Human-readable name of the language in English.
+    DescriptionNative: Any  # A public C++ attribute of type string. Human-readable name of the language in this language itself.
+    Language: Any  # A public C++ attribute of type int.   wx.Language  id.
+    LayoutDirection: Any  # A public C++ attribute of type LayoutDirection     . The layout direction used for this language.
+    LocaleName: str  # See GetLocaleName
+    LocaleTag: Any  # A public C++ attribute of type string. Tag for locale in BCP 47-like notation.
+
     def GetCanonicalWithRegion(self) -> str:
         """ Return the canonical locale name including the region, if known.
 
@@ -24329,8 +25123,17 @@ class LayoutConstraints(Object):
 
         Source: https://docs.wxpython.org/wx.LayoutConstraints.html
     """
+    bottom: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    centreX: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    centreY: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    height: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    left: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    right: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    top: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+    width: Any  # A public C++ attribute of type IndividualLayoutConstraint     .
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.LayoutConstraints.html
         """
@@ -24355,6 +25158,11 @@ returned by the lsb_release utility.
 
         Source: https://docs.wxpython.org/wx.LinuxDistributionInfo.html
     """
+    CodeName: Any  # A public C++ attribute of type string. The code name of the distribution; e.g. âjauntyâ.
+    Description: Any  # A public C++ attribute of type string. The description of the distribution; e.g. âUbuntu 9.04â.
+    Id: Any  # A public C++ attribute of type string. The id of the distribution; e.g. âUbuntuâ.
+    Release: Any  # A public C++ attribute of type string. The version of the distribution; e.g. â9.04â.
+
     def __ne__(self, item: Any) -> bool:
         """ ldi (wx.LinuxDistributionInfo) â
 
@@ -24375,6 +25183,25 @@ report view, icon view and small icon view.
 
         Source: https://docs.wxpython.org/wx.ListCtrl.html
     """
+    AlternateRowColour: Union[int, str, 'Colour']  # See GetAlternateRowColour and SetAlternateRowColour
+    Column: 'ListItem'  # See GetColumn and SetColumn
+    ColumnCount: int  # See GetColumnCount
+    ColumnsOrder: list[int]  # See GetColumnsOrder and SetColumnsOrder
+    CountPerPage: int  # See GetCountPerPage
+    EditControl: 'TextCtrl'  # See GetEditControl
+    FocusedItem: None  # See GetFocusedItem
+    Item: 'ListItem'  # See GetItem and SetItem
+    ItemCount: int  # See GetItemCount and SetItemCount
+    ItemPosition: 'Point'  # See GetItemPosition and SetItemPosition
+    ItemRect: 'Rect'  # See GetItemRect
+    ItemSpacing: 'Size'  # See GetItemSpacing
+    MainWindow: 'Window'  # See GetMainWindow
+    SelectedItemCount: int  # See GetSelectedItemCount
+    SortIndicator: int  # See GetSortIndicator
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TopItem: int  # See GetTopItem
+    ViewRect: 'Rect'  # See GetViewRect
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -24419,7 +25246,7 @@ sequence with an item for each column
         """
 
     def ClearColumnImage(self, col) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
@@ -24871,7 +25698,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
         """
 
     def SetColumnImage(self, col, image) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
@@ -25142,6 +25969,19 @@ objects.
 
         Source: https://docs.wxpython.org/wx.ListEvent.html
     """
+    CacheFrom: int  # See GetCacheFrom and SetCacheFrom
+    CacheTo: int  # See GetCacheTo and SetCacheTo
+    Column: int  # See GetColumn and SetColumn
+    Data: 'UIntPtr'  # See GetData
+    Image: int  # See GetImage
+    Index: int  # See GetIndex and SetIndex
+    Item: 'ListItem'  # See GetItem and SetItem
+    KeyCode: int  # See GetKeyCode and SetKeyCode
+    Label: str  # See GetLabel
+    Mask: int  # See GetMask
+    Point: Union[tuple[int, int], 'Point']  # See GetPoint and SetPoint
+    Text: str  # See GetText
+
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
 
@@ -25275,6 +26115,19 @@ class ListItem(Object):
 
         Source: https://docs.wxpython.org/wx.ListItem.html
     """
+    Align: ListColumnFormat  # See GetAlign and SetAlign
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Column: int  # See GetColumn and SetColumn
+    Data: int  # See GetData and SetData
+    Font: 'Font'  # See GetFont and SetFont
+    Id: int  # See GetId and SetId
+    Image: int  # See GetImage and SetImage
+    Mask: int  # See GetMask and SetMask
+    State: int  # See GetState and SetState
+    Text: str  # See GetText and SetText
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    Width: int  # See GetWidth and SetWidth
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -25458,6 +26311,9 @@ class.
 
         Source: https://docs.wxpython.org/wx.ListView.html
     """
+    FirstSelected: int  # See GetFirstSelected
+    FocusedItem: int  # See GetFocusedItem
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -25527,6 +26383,12 @@ generalization of the C locale concept.
 
         Source: https://docs.wxpython.org/wx.Locale.html
     """
+    CanonicalName: str  # See GetCanonicalName
+    Language: int  # See GetLanguage
+    Locale: str  # See GetLocale
+    Name: str  # See GetName
+    SysName: str  # See GetSysName
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -25934,6 +26796,8 @@ presumably not interested in collecting them for later).
 
         Source: https://docs.wxpython.org/wx.LogBuffer.html
     """
+    Buffer: str  # See GetBuffer
+
     def __init__(self) -> None:
         """ The default constructor does nothing.
 
@@ -25961,6 +26825,8 @@ replacing it completely as Log.SetActiveTarget does.
 
         Source: https://docs.wxpython.org/wx.LogChain.html
     """
+    OldLog: 'Log'  # See GetOldLog
+
     def __init__(self, logger: 'Log') -> None:
         """ Sets the specified  logger   (which may be None) as the default log target but the log messages are also passed to the previous log target if any.
 
@@ -26083,13 +26949,13 @@ class LogNull:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.LogNull.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.LogNull.html
         """
@@ -26101,6 +26967,12 @@ class LogRecordInfo:
 
         Source: https://docs.wxpython.org/wx.LogRecordInfo.html
     """
+    filename: Any  # A public C++ attribute of type int. The name of the file where this log message was generated.
+    func: Any  # A public C++ attribute of type int. The name of the function where the log record was generated.
+    line: Any  # A public C++ attribute of type int. The line number at which this log message was generated.
+    timestamp: Any  # A public C++ attribute of type int. Time when the log message was generated.
+    timestampMS: Any  # A public C++ attribute of type LongLong_t. Time in milliseconds since Epoch when the log message was generated.
+
 
 
 class LogStderr(Log):
@@ -26139,6 +27011,8 @@ creation.
 
         Source: https://docs.wxpython.org/wx.LogWindow.html
     """
+    Frame: 'Frame'  # See GetFrame
+
     def __init__(self, pParent, szTitle, show=True, passToOld=True) -> None:
         """ Creates the log frame window and starts collecting the messages in it.
 
@@ -26193,6 +27067,8 @@ area is black and the unmasked area is white.
 
         Source: https://docs.wxpython.org/wx.Mask.html
     """
+    Bitmap: 'Bitmap'  # See GetBitmap
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -26212,6 +27088,11 @@ class Matrix2D:
 
         Source: https://docs.wxpython.org/wx.Matrix2D.html
     """
+    m_11: Any  # A public C++ attribute of type Double     . The matrix elements in the usual mathematical notation.
+    m_12: Any  # A public C++ attribute of type Double     .
+    m_21: Any  # A public C++ attribute of type Double     .
+    m_22: Any  # A public C++ attribute of type Double     .
+
     def __init__(self, v11=1, v12=0, v21=0, v22=1) -> None:
         """ Default constructor.
 
@@ -26241,6 +27122,8 @@ MDIClientWindow, which is itself a child of MDIParentFrame.
 
         Source: https://docs.wxpython.org/wx.MDIChildFrame.html
     """
+    MDIParent: 'MDIParentFrame'  # See GetMDIParent
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -26326,6 +27209,10 @@ full desktop.
 
         Source: https://docs.wxpython.org/wx.MDIParentFrame.html
     """
+    ActiveChild: 'MDIChildFrame'  # See GetActiveChild
+    ClientWindow: 'MDIClientWindow'  # See GetClientWindow
+    WindowMenu: 'Menu'  # See GetWindowMenu and SetWindowMenu
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -26422,6 +27309,8 @@ bitmap.
 
         Source: https://docs.wxpython.org/wx.MemoryDC.html
     """
+    SelectedBitmap: 'Bitmap'  # See GetSelectedBitmap
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -26490,6 +27379,14 @@ menu).
 
         Source: https://docs.wxpython.org/wx.Menu.html
     """
+    InvokingWindow: 'Window'  # See GetInvokingWindow and SetInvokingWindow
+    MenuItemCount: int  # See GetMenuItemCount
+    MenuItems: MenuItemList  # See GetMenuItems
+    Parent: 'Menu'  # See GetParent and SetParent
+    Style: int  # See GetStyle
+    Title: str  # See GetTitle and SetTitle
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -26557,7 +27454,7 @@ menu).
         """
 
     def Detach(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Menu.html
         """
@@ -26769,6 +27666,8 @@ class MenuBar(Window):
 
         Source: https://docs.wxpython.org/wx.MenuBar.html
     """
+    Menus: None  # See GetMenus and SetMenus
+
     def __init__(self, style: int=0) -> None:
         """ Construct an empty menu bar.
 
@@ -26794,7 +27693,7 @@ class MenuBar(Window):
         """
 
     def Detach(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MenuBar.html
         """
@@ -26984,6 +27883,9 @@ class MenuEvent(Event):
 
         Source: https://docs.wxpython.org/wx.MenuEvent.html
     """
+    Menu: 'Menu'  # See GetMenu
+    MenuId: int  # See GetMenuId
+
     def __init__(self, type=wxEVT_NULL, id=0, menu=None) -> None:
         """ Constructor.
 
@@ -27015,6 +27917,23 @@ class MenuItem(Object):
 
         Source: https://docs.wxpython.org/wx.MenuItem.html
     """
+    Accel: 'AcceleratorEntry'  # See GetAccel and SetAccel
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
+    Enabled: Any  # See IsEnabled and Enable
+    Font: 'Font'  # See GetFont and SetFont
+    Help: str  # See GetHelp and SetHelp
+    Id: int  # See GetId
+    ItemLabel: str  # See GetItemLabel and SetItemLabel
+    ItemLabelText: str  # See GetItemLabelText
+    Kind: 'ItemKind'  # See GetKind
+    MarginWidth: int  # See GetMarginWidth and SetMarginWidth
+    Menu: 'Menu'  # See GetMenu and SetMenu
+    SubMenu: 'Menu'  # See GetSubMenu and SetSubMenu
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+
     def __init__(self, parentMenu=None, id=ID_SEPARATOR, text="", helpString="", kind=ITEM_NORMAL, subMenu=None) -> None:
         """ Constructs a   wx.MenuItem  object.
 
@@ -27382,6 +28301,17 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
 
         Source: https://docs.wxpython.org/wx.MessageDialog.html
     """
+    CancelLabel: str  # See GetCancelLabel
+    Caption: str  # See GetCaption
+    EffectiveIcon: int  # See GetEffectiveIcon
+    ExtendedMessage: str  # See GetExtendedMessage and SetExtendedMessage
+    HelpLabel: MessageDialogButtonLabel  # See GetHelpLabel and SetHelpLabel
+    Message: str  # See GetMessage and SetMessage
+    MessageDialogStyle: int  # See GetMessageDialogStyle
+    NoLabel: str  # See GetNoLabel
+    OKLabel: MessageDialogButtonLabel  # See GetOKLabel and SetOKLabel
+    YesLabel: str  # See GetYesLabel
+
     def __init__(self, parent, message, caption=MessageBoxCaptionStr, style=OK|CENTRE, pos=DefaultPosition) -> None:
         """ Constructor specifying the message box properties.
 
@@ -27687,6 +28617,8 @@ capture.
 
         Source: https://docs.wxpython.org/wx.MouseCaptureChangedEvent.html
     """
+    CapturedWindow: 'Window'  # See GetCapturedWindow
+
     def __init__(self, windowId=0, gainedCapture=None) -> None:
         """ Constructor.
 
@@ -27724,6 +28656,12 @@ mouse move events.
 
         Source: https://docs.wxpython.org/wx.MouseEvent.html
     """
+    ColumnsPerAction: int  # See GetColumnsPerAction and SetColumnsPerAction
+    LinesPerAction: int  # See GetLinesPerAction and SetLinesPerAction
+    WheelAxis: 'MouseWheelAxis'  # See GetWheelAxis and SetWheelAxis
+    WheelDelta: int  # See GetWheelDelta and SetWheelDelta
+    WheelRotation: int  # See GetWheelRotation and SetWheelRotation
+
     def __init__(self, mouseEventType: int=wxEVT_NULL) -> None:
         """ Constructor.
 
@@ -27953,31 +28891,31 @@ mouse move events.
         """
 
     def SetColumnsPerAction(self, columnsPerAction) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetLinesPerAction(self, linesPerAction) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelAxis(self, wheelAxis) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelDelta(self, wheelDelta) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelRotation(self, wheelRotation) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
@@ -28099,6 +29037,17 @@ class MouseState(KeyboardState):
 
         Source: https://docs.wxpython.org/wx.MouseState.html
     """
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    X: int  # See GetX and SetX
+    Y: int  # See GetY and SetY
+    aux1IsDown: Any  # See Aux1IsDown and SetAux1Down
+    aux2IsDown: Any  # See Aux2IsDown and SetAux2Down
+    leftIsDown: Any  # See LeftIsDown and SetLeftDown
+    middleIsDown: Any  # See MiddleIsDown and SetMiddleDown
+    rightIsDown: Any  # See RightIsDown and SetRightDown
+    x: Any  # See GetX and SetX
+    y: Any  # See GetY and SetY
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -28214,6 +29163,9 @@ class MoveEvent(Event):
 
         Source: https://docs.wxpython.org/wx.MoveEvent.html
     """
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Rect: 'Rect'  # See GetRect and SetRect
+
     def __init__(self, pt, id=0) -> None:
         """ Constructor.
 
@@ -28260,6 +29212,8 @@ allows the user to select one or more.
 
         Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
     """
+    Selections: list[int]  # See GetSelections and SetSelections
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28302,6 +29256,16 @@ somewhere using ToString() and restore them using FromString())
 
         Source: https://docs.wxpython.org/wx.NativeFontInfo.html
     """
+    Encoding: int  # See GetEncoding and SetEncoding
+    FaceName: str  # See GetFaceName and SetFaceName
+    Family: int  # See GetFamily and SetFamily
+    FractionalPointSize: float  # See GetFractionalPointSize and SetFractionalPointSize
+    NumericWeight: int  # See GetNumericWeight and SetNumericWeight
+    PointSize: int  # See GetPointSize and SetPointSize
+    Style: int  # See GetStyle and SetStyle
+    Underlined: bool  # See GetUnderlined and SetUnderlined
+    Weight: int  # See GetWeight and SetWeight
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28375,7 +29339,7 @@ somewhere using ToString() and restore them using FromString())
         """
 
     def Init(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.NativeFontInfo.html
         """
@@ -28466,6 +29430,8 @@ internal data without alpha channel (RGB).
 
         Source: https://docs.wxpython.org/wx.NativePixelData.html
     """
+    Pixels: 'NativePixelData_Accessor'  # See GetPixels
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28546,7 +29512,7 @@ class NativePixelData_Accessor:
         """
 
     def Set(self, red, green, blue) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.NativePixelData_Accessor.html
         """
@@ -28564,7 +29530,7 @@ class NativePixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.NativePixelData_Accessor.html
         """
@@ -28577,6 +29543,9 @@ generated by navigation keys such as tab and page down.
 
         Source: https://docs.wxpython.org/wx.NavigationKeyEvent.html
     """
+    CurrentFocus: 'Window'  # See GetCurrentFocus and SetCurrentFocus
+    Direction: bool  # See GetDirection and SetDirection
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28690,6 +29659,8 @@ user.
 
         Source: https://docs.wxpython.org/wx.NumberEntryDialog.html
     """
+    Value: int  # See GetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28722,6 +29693,10 @@ class Object:
 
         Source: https://docs.wxpython.org/wx.Object.html
     """
+    ClassInfo: 'ClassInfo'  # See GetClassInfo
+    ClassName: 'Char'  # See GetClassName
+    RefData: 'ObjectRefData'  # See GetRefData and SetRefData
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -28839,7 +29814,7 @@ directly.
         """
 
     def close(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
@@ -28851,13 +29826,13 @@ directly.
         """
 
     def flush(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
 
     def seek(self, offset, whence=0) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
@@ -28883,7 +29858,7 @@ like rubberbanding, etc.
         Source: https://docs.wxpython.org/wx.Overlay.html
     """
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Overlay.html
         """
@@ -28901,6 +29876,8 @@ class PageSetupDialog(Object):
 
         Source: https://docs.wxpython.org/wx.PageSetupDialog.html
     """
+    PageSetupData: 'PageSetupDialogData'  # See GetPageSetupData
+
     def __init__(self, parent, data=None) -> None:
         """ Constructor.
 
@@ -28927,6 +29904,14 @@ PageSetupDialog.
 
         Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
     """
+    MarginBottomRight: Union[tuple[int, int], 'Point']  # See GetMarginBottomRight and SetMarginBottomRight
+    MarginTopLeft: Union[tuple[int, int], 'Point']  # See GetMarginTopLeft and SetMarginTopLeft
+    MinMarginBottomRight: Union[tuple[int, int], 'Point']  # See GetMinMarginBottomRight and SetMinMarginBottomRight
+    MinMarginTopLeft: Union[tuple[int, int], 'Point']  # See GetMinMarginTopLeft and SetMinMarginTopLeft
+    PaperId: PaperSize  # See GetPaperId and SetPaperId
+    PaperSize: Union[tuple[int, int], 'Size']  # See GetPaperSize and SetPaperSize
+    PrintData: 'PrintData'  # See GetPrintData and SetPrintData
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -29139,6 +30124,9 @@ class Palette(GDIObject):
 
         Source: https://docs.wxpython.org/wx.Palette.html
     """
+    ColoursCount: int  # See GetColoursCount
+    RGB: tuple  # See GetRGB
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -29178,10 +30166,12 @@ class Palette(GDIObject):
 
 
 class PaletteChangedEvent(Event):
-    """ winid (wx.WindowID) â
+    """ winid (wx.WindowID) â 
 
         Source: https://docs.wxpython.org/wx.PaletteChangedEvent.html
     """
+    ChangedWindow: 'Window'  # See GetChangedWindow and SetChangedWindow
+
     def __init__(self, winid: int=0) -> None:
         """ winid (wx.WindowID) â
 
@@ -29263,6 +30253,8 @@ class PanGestureEvent(GestureEvent):
 
         Source: https://docs.wxpython.org/wx.PanGestureEvent.html
     """
+    Delta: Union[tuple[int, int], 'Point']  # See GetDelta and SetDelta
+
     def __init__(self, winid: int=0) -> None:
         """ Constructor.
 
@@ -29480,8 +30472,14 @@ control.
 
         Source: https://docs.wxpython.org/wx.PickerBase.html
     """
+    InternalMargin: int  # See GetInternalMargin and SetInternalMargin
+    PickerCtrl: 'Control'  # See GetPickerCtrl and SetPickerCtrl
+    PickerCtrlProportion: int  # See GetPickerCtrlProportion and SetPickerCtrlProportion
+    TextCtrl: 'TextCtrl'  # See GetTextCtrl and SetTextCtrl
+    TextCtrlProportion: int  # See GetTextCtrlProportion and SetTextCtrlProportion
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -29553,7 +30551,7 @@ control.
         """
 
     def PostCreation(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -29601,13 +30599,13 @@ control.
         """
 
     def UpdatePickerFromTextCtrl(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
 
     def UpdateTextCtrlFromPicker(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -29621,6 +30619,12 @@ class PixelDataBase:
 
         Source: https://docs.wxpython.org/wx.PixelDataBase.html
     """
+    Height: int  # See GetHeight
+    Origin: 'Point'  # See GetOrigin
+    RowStride: int  # See GetRowStride
+    Size: 'Size'  # See GetSize
+    Width: int  # See GetWidth
+
     def GetHeight(self) -> int:
         """ Return the height of the area this pixel data represents.
 
@@ -29659,7 +30663,7 @@ this pixel data object.
         """
 
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PixelDataBase.html
         """
@@ -29679,6 +30683,30 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
 
         Source: https://docs.wxpython.org/wx.PlatformInformation.html
     """
+    ArchName: str  # See GetArchName
+    Architecture: Architecture  # See GetArchitecture and SetArchitecture
+    Bitness: Bitness  # See GetBitness and SetBitness
+    BitnessName: str  # See GetBitnessName
+    CpuArchitectureName: str  # See GetCpuArchitectureName
+    DesktopEnvironment: str  # See GetDesktopEnvironment and SetDesktopEnvironment
+    Endianness: Endianness  # See GetEndianness and SetEndianness
+    EndiannessName: str  # See GetEndiannessName
+    LinuxDistributionInfo: 'LinuxDistributionInfo'  # See GetLinuxDistributionInfo and SetLinuxDistributionInfo
+    NativeCpuArchitectureName: str  # See GetNativeCpuArchitectureName
+    OSMajorVersion: int  # See GetOSMajorVersion
+    OSMicroVersion: int  # See GetOSMicroVersion
+    OSMinorVersion: int  # See GetOSMinorVersion
+    OperatingSystemDescription: str  # See GetOperatingSystemDescription and SetOperatingSystemDescription
+    OperatingSystemFamilyName: str  # See GetOperatingSystemFamilyName
+    OperatingSystemId: OperatingSystemId  # See GetOperatingSystemId and SetOperatingSystemId
+    OperatingSystemIdName: str  # See GetOperatingSystemIdName
+    PortId: PortId  # See GetPortId and SetPortId
+    PortIdName: str  # See GetPortIdName
+    PortIdShortName: str  # See GetPortIdShortName
+    ToolkitMajorVersion: int  # See GetToolkitMajorVersion
+    ToolkitMicroVersion: int  # See GetToolkitMicroVersion
+    ToolkitMinorVersion: int  # See GetToolkitMinorVersion
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -30010,6 +31038,10 @@ class Point:
 
         Source: https://docs.wxpython.org/wx.Point.html
     """
+    IM: None  # See GetIM
+    x: Any  # A public C++ attribute of type int. x member.
+    y: Any  # A public C++ attribute of type int. y member.
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -30047,13 +31079,13 @@ class Point:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
@@ -30065,25 +31097,25 @@ class Point:
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
@@ -30107,6 +31139,12 @@ class Point2D:
 
         Source: https://docs.wxpython.org/wx.Point2D.html
     """
+    IM: None  # See GetIM
+    VectorAngle: 'Double'  # See GetVectorAngle and SetVectorAngle
+    VectorLength: 'Double'  # See GetVectorLength and SetVectorLength
+    m_x: Any  # A public C++ attribute of type Double     .
+    m_y: Any  # A public C++ attribute of type Double     .
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -30174,7 +31212,7 @@ class Point2D:
         """
 
     def Normalize(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -30192,49 +31230,49 @@ class Point2D:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -30258,7 +31296,7 @@ class Point2D:
         """
 
     def __sub__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -30369,6 +31407,11 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
 
         Source: https://docs.wxpython.org/wx.Position.html
     """
+    Col: int  # See GetCol and SetCol
+    Column: int  # See GetColumn and SetColumn
+    IM: None  # See GetIM
+    Row: int  # See GetRow and SetRow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -30424,49 +31467,49 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
@@ -30582,13 +31625,13 @@ class PowerResourceBlocker:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PowerResourceBlocker.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PowerResourceBlocker.html
         """
@@ -30645,6 +31688,10 @@ class PreferencesPage:
 
         Source: https://docs.wxpython.org/wx.PreferencesPage.html
     """
+    Icon: 'BitmapBundle'  # See GetIcon
+    LargeIcon: 'Bitmap'  # See GetLargeIcon
+    Name: str  # See GetName
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -30726,6 +31773,9 @@ with buttons and a zoom control.
 
         Source: https://docs.wxpython.org/wx.PreviewControlBar.html
     """
+    PrintPreview: 'PrintPreview'  # See GetPrintPreview
+    ZoomControl: int  # See GetZoomControl and SetZoomControl
+
     def __init__(self, preview, buttons, parent, pos=DefaultPosition, size=DefaultSize, style=0, name="panel") -> None:
         """ Constructor.
 
@@ -30859,6 +31909,20 @@ printer device contexts.
 
         Source: https://docs.wxpython.org/wx.PrintData.html
     """
+    Bin: PrintBin  # See GetBin and SetBin
+    Collate: bool  # See GetCollate and SetCollate
+    Colour: bool  # See GetColour and SetColour
+    Duplex: DuplexMode  # See GetDuplex and SetDuplex
+    Filename: str  # See GetFilename and SetFilename
+    NoCopies: int  # See GetNoCopies and SetNoCopies
+    Orientation: PrintOrientation  # See GetOrientation and SetOrientation
+    PaperId: PaperSize  # See GetPaperId and SetPaperId
+    PaperSize: Union[tuple[int, int], 'Size']  # See GetPaperSize and SetPaperSize
+    PrintMode: PrintMode  # See GetPrintMode and SetPrintMode
+    PrinterName: str  # See GetPrinterName and SetPrinterName
+    PrivData: Any  # See GetPrivData and SetPrivData
+    Quality: 'PrintQuality'  # See GetQuality and SetQuality
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -31016,7 +32080,7 @@ printer device contexts.
         """
 
     def SetPrivData(self, data) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PrintData.html
         """
@@ -31064,6 +32128,10 @@ class PrintDialog(Object):
 
         Source: https://docs.wxpython.org/wx.PrintDialog.html
     """
+    PrintDC: 'DC'  # See GetPrintDC
+    PrintData: 'PrintData'  # See GetPrintData
+    PrintDialogData: 'PrintDialogData'  # See GetPrintDialogData
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -31102,6 +32170,17 @@ PrintDialog.
 
         Source: https://docs.wxpython.org/wx.PrintDialogData.html
     """
+    AllPages: bool  # See GetAllPages
+    Collate: bool  # See GetCollate and SetCollate
+    FromPage: int  # See GetFromPage and SetFromPage
+    MaxPage: int  # See GetMaxPage and SetMaxPage
+    MinPage: int  # See GetMinPage and SetMinPage
+    NoCopies: int  # See GetNoCopies and SetNoCopies
+    PrintData: 'PrintData'  # See GetPrintData and SetPrintData
+    PrintToFile: bool  # See GetPrintToFile and SetPrintToFile
+    Selection: bool  # See GetSelection and SetSelection
+    ToPage: int  # See GetToPage and SetToPage
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -31272,6 +32351,9 @@ vehicle through which printing may be launched by an application.
 
         Source: https://docs.wxpython.org/wx.Printer.html
     """
+    Abort: bool  # See GetAbort
+    PrintDialogData: 'PrintDialogData'  # See GetPrintDialogData
+
     def __init__(self, data: Optional['PrintDialogData']=None) -> None:
         """ Constructor.
 
@@ -31341,6 +32423,8 @@ to any printer with a Windows or Macintosh driver.
 
         Source: https://docs.wxpython.org/wx.PrinterDC.html
     """
+    PaperRect: 'Rect'  # See GetPaperRect
+
     def __init__(self, printData: 'PrintData') -> None:
         """ Constructor.
 
@@ -31361,6 +32445,13 @@ application document.
 
         Source: https://docs.wxpython.org/wx.Printout.html
     """
+    DC: 'DC'  # See GetDC
+    LogicalPageRect: 'Rect'  # See GetLogicalPageRect
+    LogicalPaperRect: 'Rect'  # See GetLogicalPaperRect
+    PaperRectPixels: 'Rect'  # See GetPaperRectPixels
+    Preview: 'PrintPreview'  # See GetPreview
+    Title: str  # See GetTitle
+
     def __init__(self, title: str="Printout") -> None:
         """ Constructor.
 
@@ -31548,6 +32639,14 @@ class PrintPreview(Object):
 
         Source: https://docs.wxpython.org/wx.PrintPreview.html
     """
+    Canvas: 'PreviewCanvas'  # See GetCanvas and SetCanvas
+    CurrentPage: int  # See GetCurrentPage and SetCurrentPage
+    Frame: 'Frame'  # See GetFrame and SetFrame
+    MaxPage: int  # See GetMaxPage
+    MinPage: int  # See GetMinPage
+    Printout: 'Printout'  # See GetPrintout and SetPrintout
+    PrintoutForPrinting: 'Printout'  # See GetPrintoutForPrinting
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -31670,6 +32769,11 @@ function.
 
         Source: https://docs.wxpython.org/wx.Process.html
     """
+    ErrorStream: 'InputStream'  # See GetErrorStream
+    InputStream: 'InputStream'  # See GetInputStream
+    OutputStream: 'OutputStream'  # See GetOutputStream
+    Pid: int  # See GetPid
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -31785,6 +32889,9 @@ when a process is terminated.
 
         Source: https://docs.wxpython.org/wx.ProcessEvent.html
     """
+    ExitCode: int  # See GetExitCode
+    Pid: int  # See GetPid
+
     def __init__(self, id=0, pid=0, exitcode=0) -> None:
         """ Constructor.
 
@@ -31812,6 +32919,10 @@ GenericProgressDialog.
 
         Source: https://docs.wxpython.org/wx.ProgressDialog.html
     """
+    Message: str  # See GetMessage
+    Range: int  # See GetRange and SetRange
+    Value: int  # See GetValue
+
     def __init__(self, title, message, maximum=100, parent=None, style=PD_APP_MODAL|PD_AUTO_HIDE) -> None:
         """ title (string) â
 
@@ -31893,13 +33004,13 @@ class PropagateOnce:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PropagateOnce.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PropagateOnce.html
         """
@@ -31918,13 +33029,13 @@ class PropagationDisabler:
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PropagationDisabler.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PropagationDisabler.html
         """
@@ -32041,8 +33152,10 @@ class PyEventBinder:
 
         Source: https://docs.wxpython.org/wx.PyEventBinder.html
     """
+    typeId: Any  # See _getEvtType
+
     def __init__(self, evtType, expectedIDs=0) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyEventBinder.html
         """
@@ -32086,19 +33199,19 @@ and write the text there.
         Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
     """
     def __init__(self, title="wxPython: stdout/stderr") -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def CreateOutputWindow(self, txt) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def OnCloseWindow(self, event) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
@@ -32110,13 +33223,13 @@ and write the text there.
         """
 
     def close(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def flush(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
@@ -32137,7 +33250,7 @@ class PySimpleApp(App):
         Source: https://docs.wxpython.org/wx.PySimpleApp.html
     """
     def __init__(self, *args, **kw) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.PySimpleApp.html
         """
@@ -32145,10 +33258,12 @@ class PySimpleApp(App):
 
 
 class QueryNewPaletteEvent(Event):
-    """ winid (wx.WindowID) â
+    """ winid (wx.WindowID) â 
 
         Source: https://docs.wxpython.org/wx.QueryNewPaletteEvent.html
     """
+    PaletteRealized: bool  # See GetPaletteRealized and SetPaletteRealized
+
     def __init__(self, winid: int=0) -> None:
         """ winid (wx.WindowID) â
 
@@ -32175,6 +33290,11 @@ choices.
 
         Source: https://docs.wxpython.org/wx.RadioBox.html
     """
+    ColumnCount: int  # See GetColumnCount
+    Count: int  # See GetCount
+    RowCount: int  # See GetRowCount
+    Selection: int  # See GetSelection and SetSelection
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32320,6 +33440,12 @@ mutually exclusive options.
 
         Source: https://docs.wxpython.org/wx.RadioButton.html
     """
+    FirstInGroup: 'RadioButton'  # See GetFirstInGroup
+    LastInGroup: 'RadioButton'  # See GetLastInGroup
+    NextInGroup: 'RadioButton'  # See GetNextInGroup
+    PreviousInGroup: 'RadioButton'  # See GetPreviousInGroup
+    Value: bool  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32386,6 +33512,10 @@ class RealPoint:
 
         Source: https://docs.wxpython.org/wx.RealPoint.html
     """
+    IM: None  # See GetIM
+    x: Any  # A public C++ attribute of type float. X coordinate of this point.
+    y: Any  # A public C++ attribute of type float. Y coordinate of this point.
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32405,7 +33535,7 @@ class RealPoint:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -32417,13 +33547,13 @@ class RealPoint:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -32441,31 +33571,31 @@ class RealPoint:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -32490,6 +33620,8 @@ allowing to move the items in it.
 
         Source: https://docs.wxpython.org/wx.RearrangeCtrl.html
     """
+    List: 'RearrangeList'  # See GetList
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32523,6 +33655,8 @@ enable or disable them.
 
         Source: https://docs.wxpython.org/wx.RearrangeList.html
     """
+    CurrentOrder: list[int]  # See GetCurrentOrder
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32579,6 +33713,9 @@ class RearrangeDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.RearrangeDialog.html
     """
+    List: 'RearrangeList'  # See GetList
+    Order: list[int]  # See GetOrder
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32623,6 +33760,33 @@ class Rect:
 
         Source: https://docs.wxpython.org/wx.Rect.html
     """
+    Bottom: int  # See GetBottom and SetBottom
+    BottomLeft: Union[tuple[int, int], 'Point']  # See GetBottomLeft and SetBottomLeft
+    BottomRight: Union[tuple[int, int], 'Point']  # See GetBottomRight and SetBottomRight
+    Height: int  # See GetHeight and SetHeight
+    Left: int  # See GetLeft and SetLeft
+    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Right: int  # See GetRight and SetRight
+    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
+    Top: int  # See GetTop and SetTop
+    TopLeft: Union[tuple[int, int], 'Point']  # See GetTopLeft and SetTopLeft
+    TopRight: Union[tuple[int, int], 'Point']  # See GetTopRight and SetTopRight
+    Width: int  # See GetWidth and SetWidth
+    X: int  # See GetX and SetX
+    Y: int  # See GetY and SetY
+    bottom: Any  # See GetBottom and SetBottom
+    bottomLeft: Any  # See GetBottomLeft and SetBottomLeft
+    bottomRight: Any  # See GetBottomRight and SetBottomRight
+    height: Any  # A public C++ attribute of type int. Height member.
+    left: Any  # See GetLeft and SetLeft
+    right: Any  # See GetRight and SetRight
+    top: Any  # See GetTop and SetTop
+    topLeft: Any  # See GetTopLeft and SetTopLeft
+    topRight: Any  # See GetTopRight and SetTopRight
+    width: Any  # A public C++ attribute of type int. Width member.
+    x: Any  # A public C++ attribute of type int. x coordinate of the top-left corner of the rectangle.
+    y: Any  # A public C++ attribute of type int. y coordinate of the top-left corner of the rectangle.
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32870,7 +34034,7 @@ class Rect:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -32882,13 +34046,13 @@ class Rect:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -32900,31 +34064,31 @@ class Rect:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -32948,6 +34112,23 @@ class Rect2D:
 
         Source: https://docs.wxpython.org/wx.Rect2D.html
     """
+    Bottom: 'Double'  # See GetBottom and SetBottom
+    Centre: Point2DDouble  # See GetCentre and SetCentre
+    IM: None  # See GetIM
+    Left: 'Double'  # See GetLeft and SetLeft
+    LeftBottom: Point2DDouble  # See GetLeftBottom and SetLeftBottom
+    LeftTop: Point2DDouble  # See GetLeftTop and SetLeftTop
+    Position: Point2DDouble  # See GetPosition
+    Right: 'Double'  # See GetRight and SetRight
+    RightBottom: Point2DDouble  # See GetRightBottom and SetRightBottom
+    RightTop: Point2DDouble  # See GetRightTop and SetRightTop
+    Size: 'Size'  # See GetSize
+    Top: 'Double'  # See GetTop and SetTop
+    m_height: Any  # A public C++ attribute of type Double     .
+    m_width: Any  # A public C++ attribute of type Double     .
+    m_x: Any  # A public C++ attribute of type Double     .
+    m_y: Any  # A public C++ attribute of type Double     .
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33231,49 +34412,49 @@ class Rect2D:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
@@ -33298,6 +34479,8 @@ interface and a counter.
 
         Source: https://docs.wxpython.org/wx.RefCounter.html
     """
+    RefCount: int  # See GetRefCount
+
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -33330,6 +34513,8 @@ or window.
 
         Source: https://docs.wxpython.org/wx.Region.html
     """
+    Box: 'Rect'  # See GetBox
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33418,6 +34603,14 @@ OnPaint call.
 
         Source: https://docs.wxpython.org/wx.RegionIterator.html
     """
+    H: 'Coord'  # See GetH
+    Height: 'Coord'  # See GetHeight
+    Rect: 'Rect'  # See GetRect
+    W: 'Coord'  # See GetW
+    Width: 'Coord'  # See GetWidth
+    X: 'Coord'  # See GetX
+    Y: 'Coord'  # See GetY
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33505,6 +34698,9 @@ RendererNative.GetVersion().
 
         Source: https://docs.wxpython.org/wx.RendererVersion.html
     """
+    age: Any  # A public C++ attribute of type int. The age component.
+    version: Any  # A public C++ attribute of type int. The version component.
+
     def __init__(self, version_, age_) -> None:
         """ version_ (int) â
 
@@ -33525,6 +34721,11 @@ class RichMessageDialog:
 
         Source: https://docs.wxpython.org/wx.RichMessageDialog.html
     """
+    CheckBoxText: str  # See GetCheckBoxText
+    DetailedText: str  # See GetDetailedText
+    FooterIcon: int  # See GetFooterIcon and SetFooterIcon
+    FooterText: str  # See GetFooterText and SetFooterText
+
     def __init__(self, parent, message, caption=MessageBoxCaptionStr, style=OK|CENTRE) -> None:
         """ Constructor specifying the rich message dialog properties.
 
@@ -33606,6 +34807,8 @@ on the surface.
 
         Source: https://docs.wxpython.org/wx.RotateGestureEvent.html
     """
+    RotationAngle: float  # See GetRotationAngle and SetRotationAngle
+
     def __init__(self, windid: int=0) -> None:
         """ Constructor.
 
@@ -33661,6 +34864,11 @@ scrollbar.
 
         Source: https://docs.wxpython.org/wx.ScrollBar.html
     """
+    PageSize: int  # See GetPageSize
+    Range: int  # See GetRange
+    ThumbPosition: int  # See GetThumbPosition and SetThumbPosition
+    ThumbSize: int  # See GetThumbSize
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33776,6 +34984,11 @@ area in view.
 
         Source: https://docs.wxpython.org/wx.Scrolled.html
     """
+    ScaleX: float  # See GetScaleX
+    ScaleY: float  # See GetScaleY
+    TargetRect: 'Rect'  # See GetTargetRect and SetTargetRect
+    TargetWindow: 'Window'  # See GetTargetWindow and SetTargetWindow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33783,7 +34996,7 @@ area in view.
         """
 
     def AdjustScrollbars(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Scrolled.html
         """
@@ -34047,6 +35260,9 @@ scrollbars (see ScrollBar) and sliders (see Slider).
 
         Source: https://docs.wxpython.org/wx.ScrollEvent.html
     """
+    Orientation: int  # See GetOrientation and SetOrientation
+    Position: int  # See GetPosition and SetPosition
+
     def __init__(self, commandType=wxEVT_NULL, id=0, pos=0, orientation=0) -> None:
         """ Constructor.
 
@@ -34085,6 +35301,17 @@ to change the value.
 
         Source: https://docs.wxpython.org/wx.Slider.html
     """
+    LineSize: int  # See GetLineSize and SetLineSize
+    Max: int  # See GetMax and SetMax
+    Min: int  # See GetMin and SetMin
+    PageSize: int  # See GetPageSize and SetPageSize
+    Range: None  # See GetRange
+    SelEnd: int  # See GetSelEnd
+    SelStart: int  # See GetSelStart
+    ThumbLength: int  # See GetThumbLength and SetThumbLength
+    TickFreq: int  # See GetTickFreq and SetTickFreq
+    Value: int  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -34141,7 +35368,7 @@ to change the value.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Slider.html
         """
@@ -34270,6 +35497,9 @@ windows.
 
         Source: https://docs.wxpython.org/wx.ScrollWinEvent.html
     """
+    Orientation: int  # See GetOrientation and SetOrientation
+    Position: int  # See GetPosition and SetPosition
+
     def __init__(self, commandType=wxEVT_NULL, pos=0, orientation=0) -> None:
         """ Constructor.
 
@@ -34308,6 +35538,17 @@ control, and a cancel button.
 
         Source: https://docs.wxpython.org/wx.SearchCtrl.html
     """
+    CancelButtonVisible: Any  # See IsCancelButtonVisible and ShowCancelButton
+    DescriptiveText: str  # See GetDescriptiveText and SetDescriptiveText
+    Hint: str  # See GetHint and SetHint
+    InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
+    LastPosition: 'TextPos'  # See GetLastPosition
+    Margins: 'Point'  # See GetMargins and SetMargins
+    Menu: 'Menu'  # See GetMenu and SetMenu
+    SearchButtonVisible: Any  # See IsSearchButtonVisible and ShowSearchButton
+    StringSelection: str  # See GetStringSelection
+    Value: str  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -34532,7 +35773,7 @@ control, and a cancel button.
         """
 
     def SetCancelBitmap(self, bmp) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
@@ -34586,13 +35827,13 @@ control, and a cancel button.
         """
 
     def SetSearchBitmap(self, bmp) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
 
     def SetSearchMenuBitmap(self, bmp) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
@@ -34645,6 +35886,10 @@ about to be set as a result of mouse motion.
 
         Source: https://docs.wxpython.org/wx.SetCursorEvent.html
     """
+    Cursor: 'Cursor'  # See GetCursor and SetCursor
+    X: 'Coord'  # See GetX
+    Y: 'Coord'  # See GetY
+
     def __init__(self, x=0, y=0) -> None:
         """ Constructor, used by the library itself internally to initialize the event object.
 
@@ -34688,6 +35933,17 @@ class SettableHeaderColumn(HeaderColumn):
 
         Source: https://docs.wxpython.org/wx.SettableHeaderColumn.html
     """
+    Alignment: int  # See GetAlignment and SetAlignment
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    Flags: int  # See GetFlags and SetFlags
+    Hidden: bool  # See IsHidden and SetHidden
+    MinWidth: int  # See GetMinWidth and SetMinWidth
+    Reorderable: bool  # See IsReorderable and SetReorderable
+    Resizeable: bool  # See IsResizeable and SetResizeable
+    Sortable: bool  # See IsSortable and SetSortable
+    Title: str  # See GetTitle and SetTitle
+    Width: int  # See GetWidth and SetWidth
+
     def ChangeFlag(self, flag, set) -> None:
         """ Set or clear the given flag.
 
@@ -34803,6 +36059,9 @@ copiable, so it can be copied when objects containing it are cloned.
 
         Source: https://docs.wxpython.org/wx.SharedClientDataContainer.html
     """
+    ClientData: Any  # See GetClientData and SetClientData
+    ClientObject: ClientData  # See GetClientObject and SetClientObject
+
     def GetClientData(self) -> None:
         """ Get the untyped client data.
 
@@ -34834,6 +36093,8 @@ class ShowEvent(Event):
 
         Source: https://docs.wxpython.org/wx.ShowEvent.html
     """
+    Show: bool  # See IsShown and SetShow
+
     def __init__(self, winid=0, show=False) -> None:
         """ Constructor.
 
@@ -34926,6 +36187,9 @@ class SingleChoiceDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.SingleChoiceDialog.html
     """
+    Selection: int  # See GetSelection and SetSelection
+    StringSelection: str  # See GetStringSelection
+
     def __init__(self, parent, message, caption, choices, style=CHOICEDLG_STYLE, pos=DefaultPosition) -> None:
         """ Constructor, taking an array of String       choices and optional client data.
 
@@ -35002,6 +36266,13 @@ class Size:
 
         Source: https://docs.wxpython.org/wx.Size.html
     """
+    Height: int  # See GetHeight and SetHeight
+    Width: int  # See GetWidth and SetWidth
+    height: Any  # See GetHeight and SetHeight
+    width: Any  # See GetWidth and SetWidth
+    x: Any  # See GetWidth and SetWidth
+    y: Any  # See GetHeight and SetHeight
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35099,7 +36370,7 @@ class Size:
         """
 
     def __bool__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -35111,13 +36382,13 @@ class Size:
         """
 
     def __getitem__(self, idx) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __len__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -35129,31 +36400,31 @@ class Size:
         """
 
     def __nonzero__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __reduce__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __str__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -35189,6 +36460,9 @@ class SizeEvent(Event):
 
         Source: https://docs.wxpython.org/wx.SizeEvent.html
     """
+    Rect: 'Rect'  # See GetRect and SetRect
+    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
+
     def __init__(self, sz, id=0) -> None:
         """ Constructor.
 
@@ -35381,6 +36655,20 @@ attributes of each item managed by a Sizer.
 
         Source: https://docs.wxpython.org/wx.SizerItem.html
     """
+    Border: int  # See GetBorder and SetBorder
+    Flag: int  # See GetFlag and SetFlag
+    Id: int  # See GetId and SetId
+    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    Position: 'Point'  # See GetPosition
+    Proportion: int  # See GetProportion and SetProportion
+    Ratio: float  # See GetRatio and SetRatio
+    Rect: 'Rect'  # See GetRect
+    Size: 'Size'  # See GetSize
+    Sizer: 'Sizer'  # See GetSizer
+    Spacer: 'Size'  # See GetSpacer
+    UserData: PyUserData  # See GetUserData and SetUserData
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35593,6 +36881,12 @@ buttons.
 
         Source: https://docs.wxpython.org/wx.SpinButton.html
     """
+    Increment: int  # See GetIncrement and SetIncrement
+    Max: int  # See GetMax and SetMax
+    Min: int  # See GetMin and SetMin
+    Range: None  # See GetRange
+    Value: int  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35631,7 +36925,7 @@ buttons.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
@@ -35649,13 +36943,13 @@ buttons.
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
@@ -35697,6 +36991,14 @@ class SpinCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.SpinCtrl.html
     """
+    Base: int  # See GetBase and SetBase
+    Increment: int  # See GetIncrement and SetIncrement
+    Max: int  # See GetMax and SetMax
+    Min: int  # See GetMin and SetMin
+    Range: None  # See GetRange
+    TextValue: str  # See GetTextValue
+    Value: str  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35741,7 +37043,7 @@ class SpinCtrl(Control):
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
@@ -35771,13 +37073,13 @@ class SpinCtrl(Control):
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
@@ -35810,6 +37112,14 @@ and displays a real number.
 
         Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
     """
+    Digits: int  # See GetDigits and SetDigits
+    Increment: float  # See GetIncrement and SetIncrement
+    Max: float  # See GetMax and SetMax
+    Min: float  # See GetMin and SetMin
+    Range: None  # See GetRange
+    TextValue: str  # See GetTextValue
+    Value: str  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35854,7 +37164,7 @@ and displays a real number.
         """
 
     def GetRange(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
@@ -35884,13 +37194,13 @@ and displays a real number.
         """
 
     def SetMax(self, maxVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
 
     def SetMin(self, minVal) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
@@ -35916,6 +37226,8 @@ class SpinDoubleEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.SpinDoubleEvent.html
     """
+    Value: float  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -35942,6 +37254,8 @@ SpinCtrl.
 
         Source: https://docs.wxpython.org/wx.SpinEvent.html
     """
+    Position: int  # See GetPosition and SetPosition
+
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -35967,6 +37281,12 @@ class SplitterEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.SplitterEvent.html
     """
+    OldSize: int  # See GetOldSize
+    SashPosition: int  # See GetSashPosition and SetSashPosition
+    WindowBeingRemoved: 'Window'  # See GetWindowBeingRemoved
+    X: int  # See GetX
+    Y: int  # See GetY
+
     def __init__(self, eventType=wxEVT_NULL, splitter=None) -> None:
         """ Constructor.
 
@@ -36031,6 +37351,10 @@ RendererNative.GetSplitterParams().
 
         Source: https://docs.wxpython.org/wx.SplitterRenderParams.html
     """
+    border: Any  # A public C++ attribute of type int. The width of the border drawn by the splitter inside it, may be 0.
+    isHotSensitive: Any  # A public C++ attribute of type bool. True if the sash changes appearance when the mouse passes over it, False otherwise.
+    widthSash: Any  # A public C++ attribute of type int. The width of the splitter sash.
+
     def __init__(self, widthSash_, border_, isSens_) -> None:
         """ The only way to initialize this struct is by using this constructor.
 
@@ -36044,6 +37368,16 @@ class SplitterWindow(Window):
 
         Source: https://docs.wxpython.org/wx.SplitterWindow.html
     """
+    DefaultSashSize: int  # See GetDefaultSashSize
+    MinimumPaneSize: int  # See GetMinimumPaneSize and SetMinimumPaneSize
+    SashGravity: float  # See GetSashGravity and SetSashGravity
+    SashInvisible: bool  # See IsSashInvisible and SetSashInvisible
+    SashPosition: int  # See GetSashPosition and SetSashPosition
+    SashSize: int  # See GetSashSize
+    SplitMode: int  # See GetSplitMode and SetSplitMode
+    Window1: 'Window'  # See GetWindow1
+    Window2: 'Window'  # See GetWindow2
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -36224,6 +37558,20 @@ way.
 
         Source: https://docs.wxpython.org/wx.StandardPaths.html
     """
+    AppDocumentsDir: str  # See GetAppDocumentsDir
+    ConfigDir: str  # See GetConfigDir
+    DataDir: str  # See GetDataDir
+    DocumentsDir: str  # See GetDocumentsDir
+    ExecutablePath: str  # See GetExecutablePath
+    InstallPrefix: str  # See GetInstallPrefix and SetInstallPrefix
+    LocalDataDir: str  # See GetLocalDataDir
+    PluginsDir: str  # See GetPluginsDir
+    ResourcesDir: str  # See GetResourcesDir
+    TempDir: str  # See GetTempDir
+    UserConfigDir: str  # See GetUserConfigDir
+    UserDataDir: str  # See GetUserDataDir
+    UserLocalDataDir: str  # See GetUserLocalDataDir
+
     @staticmethod
     def Get() -> 'StandardPaths':
         """ Returns reference to the unique global standard paths object.
@@ -36371,6 +37719,9 @@ class StaticBitmap(Control):
 
         Source: https://docs.wxpython.org/wx.StaticBitmap.html
     """
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    Icon: 'Icon'  # See GetIcon and SetIcon
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -36473,6 +37824,8 @@ box around the sizer.
 
         Source: https://docs.wxpython.org/wx.StaticBoxSizer.html
     """
+    StaticBox: 'StaticBox'  # See GetStaticBox
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -36601,6 +37954,11 @@ a frame to give small amounts of status information.
 
         Source: https://docs.wxpython.org/wx.StatusBar.html
     """
+    Borders: 'Size'  # See GetBorders
+    FieldRect: 'Rect'  # See GetFieldRect
+    FieldsCount: int  # See GetFieldsCount and SetFieldsCount
+    StatusText: str  # See GetStatusText and SetStatusText
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -36723,6 +38081,10 @@ class StatusBarPane:
 
         Source: https://docs.wxpython.org/wx.StatusBarPane.html
     """
+    Style: int  # See GetStyle
+    Text: str  # See GetText
+    Width: int  # See GetWidth
+
     def __init__(self, style=SB_NORMAL, width=0) -> None:
         """ Constructs the pane with the given style  and width.
 
@@ -36812,6 +38174,9 @@ preferences page.
 
         Source: https://docs.wxpython.org/wx.StockPreferencesPage.html
     """
+    Icon: 'BitmapBundle'  # See GetIcon
+    Name: str  # See GetName
+
     def __init__(self, kind: Kind) -> None:
         """ Constructor.
 
@@ -36887,6 +38252,10 @@ wxWidgets.
 
         Source: https://docs.wxpython.org/wx.StreamBase.html
     """
+    LastError: 'StreamError'  # See GetLastError
+    Length: 'FileOffset'  # See GetLength
+    Size: int  # See GetSize
+
     def __init__(self) -> None:
         """ Creates a dummy stream object.
 
@@ -36983,6 +38352,9 @@ drawn, and the output produced as a vector file, in SVG format.
 
         Source: https://docs.wxpython.org/wx.SVGFileDC.html
     """
+    Depth: int  # See GetDepth
+    LogicalFunction: RasterOperationMode  # See GetLogicalFunction and SetLogicalFunction
+
     def __init__(self, filename, width=320, height=240, dpi=72, title="") -> None:
         """ Initializes a   wx.SVGFileDC  with the given filename, width  and height  at dpi  resolution, and an optional title.
 
@@ -37103,6 +38475,8 @@ class SystemAppearance:
 
         Source: https://docs.wxpython.org/wx.SystemAppearance.html
     """
+    Name: str  # See GetName
+
     def GetName(self) -> str:
         """ Return the name if available or empty string otherwise.
 
@@ -37240,6 +38614,40 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
 
         Source: https://docs.wxpython.org/wx.TextAttr.html
     """
+    Alignment: int  # See GetAlignment and SetAlignment
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    BulletFont: str  # See GetBulletFont and SetBulletFont
+    BulletName: str  # See GetBulletName and SetBulletName
+    BulletNumber: int  # See GetBulletNumber and SetBulletNumber
+    BulletStyle: int  # See GetBulletStyle and SetBulletStyle
+    BulletText: str  # See GetBulletText and SetBulletText
+    CharacterStyleName: str  # See GetCharacterStyleName and SetCharacterStyleName
+    Flags: int  # See GetFlags and SetFlags
+    Font: 'Font'  # See GetFont and SetFont
+    FontEncoding: int  # See GetFontEncoding and SetFontEncoding
+    FontFaceName: str  # See GetFontFaceName and SetFontFaceName
+    FontFamily: int  # See GetFontFamily and SetFontFamily
+    FontSize: int  # See GetFontSize and SetFontSize
+    FontStyle: int  # See GetFontStyle and SetFontStyle
+    FontUnderlined: bool  # See GetFontUnderlined and SetFontUnderlined
+    FontWeight: int  # See GetFontWeight and SetFontWeight
+    LeftIndent: int  # See GetLeftIndent and SetLeftIndent
+    LeftSubIndent: int  # See GetLeftSubIndent
+    LineSpacing: int  # See GetLineSpacing and SetLineSpacing
+    ListStyleName: str  # See GetListStyleName and SetListStyleName
+    OutlineLevel: int  # See GetOutlineLevel and SetOutlineLevel
+    ParagraphSpacingAfter: int  # See GetParagraphSpacingAfter and SetParagraphSpacingAfter
+    ParagraphSpacingBefore: int  # See GetParagraphSpacingBefore and SetParagraphSpacingBefore
+    ParagraphStyleName: str  # See GetParagraphStyleName and SetParagraphStyleName
+    RightIndent: int  # See GetRightIndent and SetRightIndent
+    Tabs: list[int]  # See GetTabs and SetTabs
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextEffectFlags: int  # See GetTextEffectFlags and SetTextEffectFlags
+    TextEffects: int  # See GetTextEffects and SetTextEffects
+    URL: str  # See GetURL and SetURL
+    UnderlineColour: 'Colour'  # See GetUnderlineColour
+    UnderlineType: 'TextAttrUnderlineType'  # See GetUnderlineType
+
     def __init__(self, *args, **kw) -> None:
         """ Constructors.
 
@@ -37907,6 +39315,8 @@ class TextCompleter:
 
         Source: https://docs.wxpython.org/wx.TextCompleter.html
     """
+    Next: str  # See GetNext
+
     def GetNext(self) -> str:
         """ Called to retrieve the next completion.
 
@@ -37926,6 +39336,8 @@ class TextCompleterSimple(TextCompleter):
 
         Source: https://docs.wxpython.org/wx.TextCompleterSimple.html
     """
+    Next: str  # See GetNext
+
     def GetCompletions(self, prefix: str) -> res:
         """ Pure virtual method returning all possible completions for the given prefix.
 
@@ -37952,6 +39364,12 @@ data.
 
         Source: https://docs.wxpython.org/wx.TextDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    Format: 'DataFormat'  # See GetFormat
+    FormatCount: int  # See GetFormatCount
+    Text: str  # See GetText and SetText
+    TextLength: int  # See GetTextLength
+
     def __init__(self, text: str="") -> None:
         """ Constructor, may be used to initialise the text (otherwise SetText   should be used later).
 
@@ -38033,6 +39451,13 @@ class TextEntry:
 
         Source: https://docs.wxpython.org/wx.TextEntry.html
     """
+    Hint: str  # See GetHint and SetHint
+    InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
+    LastPosition: 'TextPos'  # See GetLastPosition
+    Margins: 'Point'  # See GetMargins and SetMargins
+    StringSelection: str  # See GetStringSelection
+    Value: str  # See GetValue and SetValue
+
     def AppendText(self, text: str) -> None:
         """ Appends the text to the end of the text control.
 
@@ -38281,6 +39706,8 @@ from the user.
 
         Source: https://docs.wxpython.org/wx.TextEntryDialog.html
     """
+    Value: str  # See GetValue and SetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -38337,6 +39764,10 @@ class TextUrlEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.TextUrlEvent.html
     """
+    MouseEvent: 'MouseEvent'  # See GetMouseEvent
+    URLEnd: int  # See GetURLEnd
+    URLStart: int  # See GetURLStart
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -38431,6 +39862,9 @@ class TimerEvent(Event):
 
         Source: https://docs.wxpython.org/wx.TimerEvent.html
     """
+    Interval: int  # See GetInterval
+    Timer: 'Timer'  # See GetTimer
+
     def __init__(self, timer: 'Timer') -> None:
         """ timer (wx.Timer) â
 
@@ -38719,6 +40153,13 @@ below the menu bar in a Frame.
 
         Source: https://docs.wxpython.org/wx.ToolBar.html
     """
+    Margins: 'Size'  # See GetMargins and SetMargins
+    ToolBitmapSize: Union[tuple[int, int], 'Size']  # See GetToolBitmapSize and SetToolBitmapSize
+    ToolPacking: int  # See GetToolPacking and SetToolPacking
+    ToolSeparation: int  # See GetToolSeparation and SetToolSeparation
+    ToolSize: 'Size'  # See GetToolSize
+    ToolsCount: int  # See GetToolsCount
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -39063,6 +40504,22 @@ class ToolBarToolBase(Object):
 
         Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
     """
+    Bitmap: 'Bitmap'  # See GetBitmap
+    ClientData: PyUserData  # See GetClientData and SetClientData
+    Control: 'Control'  # See GetControl
+    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
+    DisabledBitmapBundle: 'BitmapBundle'  # See GetDisabledBitmapBundle
+    DropdownMenu: 'Menu'  # See GetDropdownMenu and SetDropdownMenu
+    Id: int  # See GetId
+    Kind: 'ItemKind'  # See GetKind
+    Label: str  # See GetLabel and SetLabel
+    LongHelp: str  # See GetLongHelp and SetLongHelp
+    NormalBitmap: 'BitmapBundle'  # See GetNormalBitmap and SetNormalBitmap
+    NormalBitmapBundle: 'BitmapBundle'  # See GetNormalBitmapBundle
+    ShortHelp: str  # See GetShortHelp and SetShortHelp
+    Style: int  # See GetStyle
+    ToolBar: 'ToolBar'  # See GetToolBar
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -39082,7 +40539,7 @@ class ToolBarToolBase(Object):
         """
 
     def Detach(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
@@ -39226,7 +40683,7 @@ class ToolBarToolBase(Object):
         """
 
     def MakeStretchable(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
@@ -39293,6 +40750,8 @@ to show the labels instead of the tabs.
 
         Source: https://docs.wxpython.org/wx.Toolbook.html
     """
+    ToolBar: 'ToolBar'  # See GetToolBar
+
     def __init__(self, *args, **kw) -> None:
         """ Constructs a choicebook control.
 
@@ -39340,6 +40799,9 @@ class ToolTip(Object):
 
         Source: https://docs.wxpython.org/wx.ToolTip.html
     """
+    Tip: str  # See GetTip and SetTip
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, tip: str) -> None:
         """ Constructor.
 
@@ -39406,6 +40868,13 @@ class TopLevelWindow(NonOwnedWindow):
 
         Source: https://docs.wxpython.org/wx.TopLevelWindow.html
     """
+    DefaultItem: 'Window'  # See GetDefaultItem and SetDefaultItem
+    Icon: 'Icon'  # See GetIcon and SetIcon
+    MacMetalAppearance: Any  # See MacGetMetalAppearance and MacSetMetalAppearance
+    OSXModified: Any  # See OSXIsModified and OSXSetModified
+    Title: str  # See GetTitle and SetTitle
+    TmpDefaultItem: 'Window'  # See GetTmpDefaultItem and SetTmpDefaultItem
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -39559,7 +41028,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacGetTopLevelWindowRef(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
@@ -39571,7 +41040,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacSetMetalAppearance(self, on) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
@@ -39798,6 +41267,19 @@ may be expanded to show further items.
 
         Source: https://docs.wxpython.org/wx.TreeCtrl.html
     """
+    BoundingRect: Any  # See GetBoundingRect
+    Count: int  # See GetCount
+    EditControl: 'TextCtrl'  # See GetEditControl
+    FirstVisibleItem: 'TreeItemId'  # See GetFirstVisibleItem
+    FocusedItem: 'TreeItemId'  # See GetFocusedItem and SetFocusedItem
+    Indent: int  # See GetIndent and SetIndent
+    QuickBestSize: bool  # See GetQuickBestSize and SetQuickBestSize
+    RootItem: 'TreeItemId'  # See GetRootItem
+    Selection: 'TreeItemId'  # See GetSelection
+    Selections: Any  # See GetSelections
+    Spacing: int  # See GetSpacing and SetSpacing
+    StateImageList: 'ImageList'  # See GetStateImageList and SetStateImageList
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -40389,6 +41871,13 @@ objects.
 
         Source: https://docs.wxpython.org/wx.TreeEvent.html
     """
+    Item: 'TreeItemId'  # See GetItem
+    KeyCode: int  # See GetKeyCode
+    KeyEvent: 'KeyEvent'  # See GetKeyEvent
+    Label: str  # See GetLabel
+    OldItem: 'TreeItemId'  # See GetOldItem
+    Point: 'Point'  # See GetPoint
+
     def __init__(*args, **kwargs) -> None:
         """ Constructor, used by wxWidgets itself only.
 
@@ -40450,6 +41939,8 @@ class TreeItemId:
 
         Source: https://docs.wxpython.org/wx.TreeItemId.html
     """
+    ID: None  # See GetID
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -40457,7 +41948,7 @@ class TreeItemId:
         """
 
     def GetID(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -40469,7 +41960,7 @@ class TreeItemId:
         """
 
     def Unset(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -40487,7 +41978,7 @@ class TreeItemId:
         """
 
     def __hash__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -40607,6 +42098,8 @@ class UniChar:
 
         Source: https://docs.wxpython.org/wx.UniChar.html
     """
+    Value: value_type  # See GetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -40664,6 +42157,11 @@ elements.
 
         Source: https://docs.wxpython.org/wx.UpdateUIEvent.html
     """
+    Checked: bool  # See GetChecked and Check
+    Enabled: bool  # See GetEnabled and Enable
+    Shown: bool  # See GetShown and Show
+    Text: str  # See GetText and SetText
+
     def __init__(self, commandId: int=0) -> None:
         """ Constructor.
 
@@ -40806,6 +42304,9 @@ e.g.
 
         Source: https://docs.wxpython.org/wx.URLDataObject.html
     """
+    AllFormats: None  # See GetAllFormats
+    URL: str  # See GetURL and SetURL
+
     def __init__(self, url: str="") -> None:
         """ Constructor, may be used to initialize the URL.
 
@@ -40845,6 +42346,8 @@ mediate between a class of control, and application data.
 
         Source: https://docs.wxpython.org/wx.Validator.html
     """
+    Window: 'Window'  # See GetWindow and SetWindow
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -40909,6 +42412,10 @@ class, targeted for horizontal-specific scrolling.
 
         Source: https://docs.wxpython.org/wx.VarHScrollHelper.html
     """
+    ColumnCount: int  # See GetColumnCount and SetColumnCount
+    VisibleColumnsBegin: int  # See GetVisibleColumnsBegin
+    VisibleColumnsEnd: int  # See GetVisibleColumnsEnd
+
     def __init__(self, winToScroll: 'Window') -> None:
         """ Constructor taking the target window to be scrolled by this helper class.
 
@@ -41005,6 +42512,13 @@ orientation specific work.
 
         Source: https://docs.wxpython.org/wx.VarScrollHelperBase.html
     """
+    NonOrientationTargetSize: int  # See GetNonOrientationTargetSize
+    Orientation: 'Orientation'  # See GetOrientation
+    OrientationTargetSize: int  # See GetOrientationTargetSize
+    TargetWindow: 'Window'  # See GetTargetWindow and SetTargetWindow
+    VisibleBegin: int  # See GetVisibleBegin
+    VisibleEnd: int  # See GetVisibleEnd
+
     def __init__(self, winToScroll: 'Window') -> None:
         """ Constructor taking the target window to be scrolled by this helper class.
 
@@ -41122,6 +42636,10 @@ axis.
 
         Source: https://docs.wxpython.org/wx.VarHVScrollHelper.html
     """
+    RowColumnCount: 'Size'  # See GetRowColumnCount and SetRowColumnCount
+    VisibleBegin: 'Position'  # See GetVisibleBegin
+    VisibleEnd: 'Position'  # See GetVisibleEnd
+
     def __init__(self, winToScroll: 'Window') -> None:
         """ Constructor taking the target window to be scrolled by this helper class.
 
@@ -41196,6 +42714,10 @@ class, targeted for vertical-specific scrolling.
 
         Source: https://docs.wxpython.org/wx.VarVScrollHelper.html
     """
+    RowCount: int  # See GetRowCount and SetRowCount
+    VisibleRowsBegin: int  # See GetVisibleRowsBegin
+    VisibleRowsEnd: int  # See GetVisibleRowsEnd
+
     def __init__(self, winToScroll: 'Window') -> None:
         """ Constructor taking the target window to be scrolled by this helper class.
 
@@ -41287,6 +42809,15 @@ class VersionInfo:
 
         Source: https://docs.wxpython.org/wx.VersionInfo.html
     """
+    Copyright: str  # See GetCopyright
+    Description: str  # See GetDescription
+    Major: int  # See GetMajor
+    Micro: int  # See GetMicro
+    Minor: int  # See GetMinor
+    Name: str  # See GetName
+    Revision: int  # See GetRevision
+    VersionString: str  # See GetVersionString
+
     def __init__(self, name="", major=0, minor=0, micro=0, revision=0, description="", copyright="") -> None:
         """ Constructor.
 
@@ -41367,6 +42898,14 @@ system.
 
         Source: https://docs.wxpython.org/wx.VideoMode.html
     """
+    Depth: int  # See GetDepth
+    Height: int  # See GetHeight
+    Width: int  # See GetWidth
+    bpp: Any  # A public C++ attribute of type int. Bits per pixel (e.g. 32), 1 is monochrome and 0 means unspecified/known.
+    h: Any  # A public C++ attribute of type int. The screen height in pixels (e.g. 480), 0 means unspecified.
+    refresh: Any  # A public C++ attribute of type int. Refresh frequency in Hz, 0 means unspecified/unknown.
+    w: Any  # A public C++ attribute of type int. The screen width in pixels (e.g. 640), 0 means unspecified.
+
     def __init__(self, width=0, height=0, depth=0, freq=0) -> None:
         """ Constructs this class using the given parameters.
 
@@ -41434,6 +42973,10 @@ class VisualAttributes:
 
         Source: https://docs.wxpython.org/wx.VisualAttributes.html
     """
+    colBg: Any  # A public C++ attribute of type Colour     . The background colour.
+    colFg: Any  # A public C++ attribute of type Colour     . The foreground colour.
+    font: Any  # A public C++ attribute of type Font     . The font used for control label/text inside it.
+
 
 
 class VListBox(VScrolledWindow):
@@ -41446,6 +42989,12 @@ its items can have variable height as determined by OnMeasureItem()
 
         Source: https://docs.wxpython.org/wx.VListBox.html
     """
+    ItemCount: int  # See GetItemCount and SetItemCount
+    Margins: Union[tuple[int, int], 'Point']  # See GetMargins and SetMargins
+    SelectedCount: int  # See GetSelectedCount
+    Selection: int  # See GetSelection and SetSelection
+    SelectionBackground: Union[int, str, 'Colour']  # See GetSelectionBackground and SetSelectionBackground
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -41626,6 +43175,10 @@ those which are shown on the screen need to be measured; or even
 
         Source: https://docs.wxpython.org/wx.VScrolledWindow.html
     """
+    FirstVisibleLine: int  # See GetFirstVisibleLine
+    LastVisibleLine: int  # See GetLastVisibleLine
+    LineCount: int  # See GetLineCount and SetLineCount
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -41708,7 +43261,7 @@ those which are shown on the screen need to be measured; or even
 
 
 class WindowBase:
-    """ child (wx.WindowBase) â
+    """ child (wx.WindowBase) â 
 
         Source: https://docs.wxpython.org/wx.WindowBase.html
     """
@@ -41732,6 +43285,8 @@ Window object has been created.
 
         Source: https://docs.wxpython.org/wx.WindowCreateEvent.html
     """
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, win: Optional['Window']=None) -> None:
         """ Constructor.
 
@@ -41768,6 +43323,8 @@ process.
 
         Source: https://docs.wxpython.org/wx.WindowDestroyEvent.html
     """
+    Window: 'Window'  # See GetWindow
+
     def __init__(self, win: Optional['Window']=None) -> None:
         """ Constructor.
 
@@ -41796,13 +43353,13 @@ back in its destructor.
         """
 
     def __enter__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.WindowDisabler.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.WindowDisabler.html
         """
@@ -41815,6 +43372,9 @@ until all references to that ID are gone.
 
         Source: https://docs.wxpython.org/wx.WindowIDRef.html
     """
+    Id: int  # See GetId
+    Value: int  # See GetValue
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -41852,7 +43412,7 @@ until all references to that ID are gone.
         """
 
     def __hash__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.WindowIDRef.html
         """
@@ -41888,7 +43448,7 @@ until all references to that ID are gone.
         """
 
     def __repr__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.WindowIDRef.html
         """
@@ -41900,6 +43460,9 @@ class WindowModalDialogEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.WindowModalDialogEvent.html
     """
+    Dialog: 'Dialog'  # See GetDialog
+    ReturnCode: int  # See GetReturnCode
+
     def __init__(self, commandType=wxEVT_NULL, id=0) -> None:
         """ Constructor.
 
@@ -41931,8 +43494,11 @@ class WithImages:
 
         Source: https://docs.wxpython.org/wx.WithImages.html
     """
+    ImageCount: int  # See GetImageCount
+    ImageList: 'ImageList'  # See GetImageList and SetImageList
+
     def __init__(self) -> None:
-        """
+        """ 
 
             Source: https://docs.wxpython.org/wx.WithImages.html
         """
@@ -42058,6 +43624,8 @@ or out.
 
         Source: https://docs.wxpython.org/wx.ZoomGestureEvent.html
     """
+    ZoomFactor: float  # See GetZoomFactor and SetZoomFactor
+
     def __init__(self, windid: int=0) -> None:
         """ Constructor.
 
@@ -43972,7 +45540,7 @@ EVT_TREE_ITEM_EXPANDING: int
 ID_NONE: int
 
 def HtmlWinParser_AddTagHandler(tagHandlerClass) -> None:
-    """
+    """ 
 
         Source: https://docs.wxpython.org/wx.html.functions.html
     """

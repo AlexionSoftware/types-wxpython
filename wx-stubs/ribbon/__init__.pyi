@@ -7,6 +7,9 @@ RibbonButtonBar.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
     """
+    Bar: 'ribbon.RibbonButtonBar'  # See GetBar and SetBar
+    Button: RibbonButtonBarButtonBase  # See GetButton and SetButton
+
     def __init__(self, command_type=wxEVT_NULL, win_id=0, bar=None, button=None) -> None:
         """ Constructor.
 
@@ -50,6 +53,9 @@ class RibbonGalleryEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
     """
+    Gallery: 'ribbon.RibbonGallery'  # See GetGallery and SetGallery
+    GalleryItem: RibbonGalleryItem  # See GetGalleryItem and SetGalleryItem
+
     def __init__(self, command_type=wxEVT_NULL, win_id=0, gallery=None, item=None) -> None:
         """ Constructor.
 
@@ -87,6 +93,8 @@ class RibbonPanelEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
     """
+    Panel: 'ribbon.RibbonPanel'  # See GetPanel and SetPanel
+
     def __init__(self, command_type=wxEVT_NULL, win_id=0, panel=None) -> None:
         """ Constructor.
 
@@ -112,6 +120,8 @@ class RibbonToolBarEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
     """
+    Bar: 'ribbon.RibbonToolBar'  # See GetBar and SetBar
+
     def __init__(self, command_type=wxEVT_NULL, win_id=0, bar=None) -> None:
         """ command_type (wx.EventType) â
 
@@ -145,6 +155,9 @@ the ribbon characteristics of having a ribbon art provider, and
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
     """
+    AncestorRibbonBar: 'ribbon.RibbonBar'  # See GetAncestorRibbonBar
+    ArtProvider: 'ribbon.RibbonArtProvider'  # See GetArtProvider and SetArtProvider
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -233,6 +246,8 @@ class RibbonBarEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
     """
+    Page: 'ribbon.RibbonPage'  # See GetPage and SetPage
+
     def __init__(self, command_type=wxEVT_NULL, win_id=0, page=None) -> None:
         """ Constructor.
 
@@ -258,6 +273,11 @@ class RibbonButtonBar(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
     """
+    ActiveItem: RibbonButtonBarButtonBase  # See GetActiveItem
+    ButtonCount: int  # See GetButtonCount
+    HoveredItem: RibbonButtonBarButtonBase  # See GetHoveredItem
+    ShowToolTipsForDisabled: bool  # See GetShowToolTipsForDisabled and SetShowToolTipsForDisabled
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -468,6 +488,10 @@ class RibbonBar(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
     """
+    ActivePage: int  # See GetActivePage and SetActivePage
+    DisplayMode: 'ribbon.RibbonDisplayMode'  # See GetDisplayMode
+    PageCount: int  # See GetPageCount
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -659,6 +683,14 @@ strings.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
     """
+    ActiveItem: RibbonGalleryItem  # See GetActiveItem
+    Count: int  # See GetCount
+    DownButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetDownButtonState
+    ExtensionButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetExtensionButtonState
+    HoveredItem: RibbonGalleryItem  # See GetHoveredItem
+    Selection: RibbonGalleryItem  # See GetSelection and SetSelection
+    UpButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetUpButtonState
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -799,6 +831,10 @@ class RibbonPanel(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
     """
+    ExpandedDummy: 'ribbon.RibbonPanel'  # See GetExpandedDummy
+    ExpandedPanel: 'ribbon.RibbonPanel'  # See GetExpandedPanel
+    MinimisedIcon: Bitmap  # See GetMinimisedIcon
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -910,6 +946,9 @@ labels.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
     """
+    ActiveTool: RibbonToolBarToolBase  # See GetActiveTool
+    ToolCount: int  # See GetToolCount
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1139,6 +1178,8 @@ the ribbon interface.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonArtProvider.html
     """
+    Flags: int  # See GetFlags and SetFlags
+
     def __init__(self) -> None:
         """ Constructor.
 
@@ -1424,6 +1465,9 @@ class RibbonPage(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPage.html
     """
+    Icon: Bitmap  # See GetIcon
+    MajorAxis: 'Orientation'  # See GetMajorAxis
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1719,6 +1763,8 @@ class RibbonMSWArtProvider(RibbonArtProvider):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonMSWArtProvider.html
     """
+    Flags: int  # See GetFlags and SetFlags
+
     def __init__(self, set_colour_scheme: bool=True) -> None:
         """ set_colour_scheme (bool) â
 
@@ -2010,6 +2056,17 @@ class RibbonPageTabInfo:
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPageTabInfo.html
     """
+    active: Any  # A public C++ attribute of type bool.
+    highlight: Any  # A public C++ attribute of type bool.
+    hovered: Any  # A public C++ attribute of type bool.
+    ideal_width: Any  # A public C++ attribute of type int.
+    minimum_width: Any  # A public C++ attribute of type int.
+    page: Any  # A public C++ attribute of type RibbonPage     .
+    rect: Any  # A public C++ attribute of type Rect     .
+    shown: Any  # A public C++ attribute of type bool.
+    small_begin_need_separator_width: Any  # A public C++ attribute of type int.
+    small_must_have_separator_width: Any  # A public C++ attribute of type int.
+
 
 
 RIBBON_ART_TAB_SEPARATION_SIZE: int

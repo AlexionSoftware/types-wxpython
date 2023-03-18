@@ -7,6 +7,13 @@ when clicked, will display a colour selection dialog.
 
         Source: https://docs.wxpython.org/wx.lib.colourselect.ColourSelect.html
     """
+    Colour: Any  # Returns the current colour set for the ColourSelect.
+    CustomColours: Any  # Returns the current set of custom colour values to be shown in the
+colour dialog, if supported.
+    Label: Any  # Returns the current text label for the ColourSelect.
+    Value: Any  # Returns the current colour set for the ColourSelect.
+Same as GetColour.
+
     def __init__(self, parent, id=wx.ID_ANY, label="", colour=wx.BLACK, pos=wx.DefaultPosition, size=wx.DefaultSize, callback=None, style=0) -> None:
         """ Default class constructor.
 
@@ -100,6 +107,8 @@ instances or multiple invocations of the ColourSelect button.
 
         Source: https://docs.wxpython.org/wx.lib.colourselect.CustomColourData.html
     """
+    Colours: Any  # See Colours , Colours
+
     def __init__(self) -> None:
         """ Initialize self.  See help(type(self)) for accurate signature.
 

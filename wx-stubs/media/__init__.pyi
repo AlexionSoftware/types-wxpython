@@ -7,6 +7,11 @@ videos, audio files, natively through native codecs.
 
         Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
     """
+    BestSize: Size  # See GetBestSize
+    PlaybackRate: float  # See GetPlaybackRate and SetPlaybackRate
+    State: 'media.MediaState'  # See GetState
+    Volume: float  # See GetVolume and SetVolume
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 

@@ -6,6 +6,34 @@ class StyledTextEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.stc.StyledTextEvent.html
     """
+    Alt: bool  # See GetAlt
+    AnnotationsLinesAdded: int  # See GetAnnotationsLinesAdded
+    Control: bool  # See GetControl
+    DragFlags: int  # See GetDragFlags and SetDragFlags
+    DragResult: DragResult  # See GetDragResult and SetDragResult
+    DragText: str  # See GetDragText and SetDragText
+    FoldLevelNow: int  # See GetFoldLevelNow and SetFoldLevelNow
+    FoldLevelPrev: int  # See GetFoldLevelPrev and SetFoldLevelPrev
+    Key: int  # See GetKey and SetKey
+    LParam: int  # See GetLParam and SetLParam
+    Length: int  # See GetLength and SetLength
+    Line: int  # See GetLine and SetLine
+    LinesAdded: int  # See GetLinesAdded and SetLinesAdded
+    ListCompletionMethod: int  # See GetListCompletionMethod and SetListCompletionMethod
+    ListType: int  # See GetListType and SetListType
+    Margin: int  # See GetMargin and SetMargin
+    Message: int  # See GetMessage and SetMessage
+    ModificationType: int  # See GetModificationType and SetModificationType
+    Modifiers: int  # See GetModifiers and SetModifiers
+    Position: int  # See GetPosition and SetPosition
+    Shift: bool  # See GetShift
+    Text: str  # See GetText and SetText
+    Token: int  # See GetToken and SetToken
+    Updated: int  # See GetUpdated and SetUpdated
+    WParam: int  # See GetWParam and SetWParam
+    X: int  # See GetX and SetX
+    Y: int  # See GetY and SetY
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -394,6 +422,153 @@ component.
 
         Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
     """
+    AdditionalCaretForeground: Union[int, str, 'Colour']  # See GetAdditionalCaretForeground and SetAdditionalCaretForeground
+    AdditionalCaretsBlink: bool  # See GetAdditionalCaretsBlink and SetAdditionalCaretsBlink
+    AdditionalCaretsVisible: bool  # See GetAdditionalCaretsVisible and SetAdditionalCaretsVisible
+    AdditionalSelAlpha: int  # See GetAdditionalSelAlpha and SetAdditionalSelAlpha
+    AdditionalSelectionTyping: bool  # See GetAdditionalSelectionTyping and SetAdditionalSelectionTyping
+    AllLinesVisible: bool  # See GetAllLinesVisible
+    Anchor: int  # See GetAnchor and SetAnchor
+    AutomaticFold: int  # See GetAutomaticFold and SetAutomaticFold
+    BackSpaceUnIndents: bool  # See GetBackSpaceUnIndents and SetBackSpaceUnIndents
+    BufferedDraw: bool  # See GetBufferedDraw and SetBufferedDraw
+    CaretForeground: Union[int, str, 'Colour']  # See GetCaretForeground and SetCaretForeground
+    CaretLineBackAlpha: int  # See GetCaretLineBackAlpha and SetCaretLineBackAlpha
+    CaretLineBackground: Union[int, str, 'Colour']  # See GetCaretLineBackground and SetCaretLineBackground
+    CaretLineVisible: bool  # See GetCaretLineVisible and SetCaretLineVisible
+    CaretLineVisibleAlways: bool  # See GetCaretLineVisibleAlways and SetCaretLineVisibleAlways
+    CaretPeriod: int  # See GetCaretPeriod and SetCaretPeriod
+    CaretSticky: int  # See GetCaretSticky and SetCaretSticky
+    CaretStyle: int  # See GetCaretStyle and SetCaretStyle
+    CaretWidth: int  # See GetCaretWidth and SetCaretWidth
+    CharacterPointer: Any  # See GetCharacterPointer
+    CodePage: int  # See GetCodePage and SetCodePage
+    ControlCharSymbol: int  # See GetControlCharSymbol and SetControlCharSymbol
+    CurLine: tuple  # See GetCurLine
+    CurLineRaw: tuple  # See GetCurLineRaw
+    CurrentLine: int  # See GetCurrentLine
+    CurrentPos: int  # See GetCurrentPos and SetCurrentPos
+    DefaultStyle: 'TextAttr'  # See GetDefaultStyle and SetDefaultStyle
+    DirectFunction: None  # See GetDirectFunction
+    DirectPointer: None  # See GetDirectPointer
+    DocPointer: Any  # See GetDocPointer and SetDocPointer
+    EOLMode: int  # See GetEOLMode and SetEOLMode
+    EdgeColour: Union[int, str, 'Colour']  # See GetEdgeColour and SetEdgeColour
+    EdgeColumn: int  # See GetEdgeColumn and SetEdgeColumn
+    EdgeMode: int  # See GetEdgeMode and SetEdgeMode
+    EndAtLastLine: bool  # See GetEndAtLastLine and SetEndAtLastLine
+    EndStyled: int  # See GetEndStyled
+    ExtraAscent: int  # See GetExtraAscent and SetExtraAscent
+    ExtraDescent: int  # See GetExtraDescent and SetExtraDescent
+    FirstVisibleLine: int  # See GetFirstVisibleLine and SetFirstVisibleLine
+    FontQuality: int  # See GetFontQuality and SetFontQuality
+    GapPosition: int  # See GetGapPosition
+    HighlightGuide: int  # See GetHighlightGuide and SetHighlightGuide
+    Hint: str  # See GetHint and SetHint
+    HotspotActiveBackground: 'Colour'  # See GetHotspotActiveBackground
+    HotspotActiveForeground: 'Colour'  # See GetHotspotActiveForeground
+    HotspotActiveUnderline: bool  # See GetHotspotActiveUnderline and SetHotspotActiveUnderline
+    HotspotSingleLine: bool  # See GetHotspotSingleLine and SetHotspotSingleLine
+    IMEInteraction: int  # See GetIMEInteraction and SetIMEInteraction
+    Identifier: int  # See GetIdentifier and SetIdentifier
+    IdleStyling: int  # See GetIdleStyling and SetIdleStyling
+    Indent: int  # See GetIndent and SetIndent
+    IndentationGuides: int  # See GetIndentationGuides and SetIndentationGuides
+    IndicatorCurrent: int  # See GetIndicatorCurrent and SetIndicatorCurrent
+    IndicatorValue: int  # See GetIndicatorValue and SetIndicatorValue
+    InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
+    LastKeydownProcessed: bool  # See GetLastKeydownProcessed and SetLastKeydownProcessed
+    LastPosition: int  # See GetLastPosition
+    LayoutCache: int  # See GetLayoutCache and SetLayoutCache
+    Length: int  # See GetLength
+    Lexer: int  # See GetLexer and SetLexer
+    LexerLanguage: str  # See GetLexerLanguage and SetLexerLanguage
+    LineCount: int  # See GetLineCount
+    LineEndTypesActive: int  # See GetLineEndTypesActive
+    LineEndTypesAllowed: int  # See GetLineEndTypesAllowed and SetLineEndTypesAllowed
+    LineEndTypesSupported: int  # See GetLineEndTypesSupported
+    MainSelection: int  # See GetMainSelection and SetMainSelection
+    MarginCount: int  # See GetMarginCount and SetMarginCount
+    MarginLeft: int  # See GetMarginLeft and SetMarginLeft
+    MarginOptions: int  # See GetMarginOptions and SetMarginOptions
+    MarginRight: int  # See GetMarginRight and SetMarginRight
+    Margins: 'Point'  # See GetMargins
+    MaxLineState: int  # See GetMaxLineState
+    ModEventMask: int  # See GetModEventMask and SetModEventMask
+    Modify: bool  # See GetModify
+    MouseDownCaptures: bool  # See GetMouseDownCaptures and SetMouseDownCaptures
+    MouseDwellTime: int  # See GetMouseDwellTime and SetMouseDwellTime
+    MouseSelectionRectangularSwitch: bool  # See GetMouseSelectionRectangularSwitch and SetMouseSelectionRectangularSwitch
+    MouseWheelCaptures: bool  # See GetMouseWheelCaptures and SetMouseWheelCaptures
+    MultiPaste: int  # See GetMultiPaste and SetMultiPaste
+    MultipleSelection: bool  # See GetMultipleSelection and SetMultipleSelection
+    NumberOfLines: int  # See GetNumberOfLines
+    Overtype: bool  # See GetOvertype and SetOvertype
+    PasteConvertEndings: bool  # See GetPasteConvertEndings and SetPasteConvertEndings
+    PhasesDraw: int  # See GetPhasesDraw and SetPhasesDraw
+    PositionCacheSize: int  # See GetPositionCacheSize and SetPositionCacheSize
+    PrintColourMode: int  # See GetPrintColourMode and SetPrintColourMode
+    PrintMagnification: int  # See GetPrintMagnification and SetPrintMagnification
+    PrintWrapMode: int  # See GetPrintWrapMode and SetPrintWrapMode
+    PunctuationChars: str  # See GetPunctuationChars and SetPunctuationChars
+    RangePointer: Any  # See GetRangePointer
+    ReadOnly: bool  # See GetReadOnly and SetReadOnly
+    RectangularSelectionAnchor: int  # See GetRectangularSelectionAnchor and SetRectangularSelectionAnchor
+    RectangularSelectionAnchorVirtualSpace: int  # See GetRectangularSelectionAnchorVirtualSpace and SetRectangularSelectionAnchorVirtualSpace
+    RectangularSelectionCaret: int  # See GetRectangularSelectionCaret and SetRectangularSelectionCaret
+    RectangularSelectionCaretVirtualSpace: int  # See GetRectangularSelectionCaretVirtualSpace and SetRectangularSelectionCaretVirtualSpace
+    RectangularSelectionModifier: int  # See GetRectangularSelectionModifier and SetRectangularSelectionModifier
+    STCCursor: int  # See GetSTCCursor and SetSTCCursor
+    STCFocus: bool  # See GetSTCFocus and SetSTCFocus
+    ScrollWidth: int  # See GetScrollWidth and SetScrollWidth
+    ScrollWidthTracking: bool  # See GetScrollWidthTracking and SetScrollWidthTracking
+    SearchFlags: int  # See GetSearchFlags and SetSearchFlags
+    SelAlpha: int  # See GetSelAlpha and SetSelAlpha
+    SelEOLFilled: bool  # See GetSelEOLFilled and SetSelEOLFilled
+    SelectedText: str  # See GetSelectedText
+    SelectedTextRaw: CharBuffer  # See GetSelectedTextRaw
+    SelectionEmpty: bool  # See GetSelectionEmpty
+    SelectionEnd: int  # See GetSelectionEnd and SetSelectionEnd
+    SelectionMode: int  # See GetSelectionMode and SetSelectionMode
+    SelectionStart: int  # See GetSelectionStart and SetSelectionStart
+    Selections: int  # See GetSelections
+    Status: int  # See GetStatus and SetStatus
+    StringSelection: str  # See GetStringSelection
+    StyleBits: int  # See GetStyleBits and SetStyleBits
+    StyleBitsNeeded: int  # See GetStyleBitsNeeded
+    SubStyleBases: str  # See GetSubStyleBases
+    TabDrawMode: int  # See GetTabDrawMode and SetTabDrawMode
+    TabIndents: bool  # See GetTabIndents and SetTabIndents
+    TabWidth: int  # See GetTabWidth and SetTabWidth
+    TargetEnd: int  # See GetTargetEnd and SetTargetEnd
+    TargetStart: int  # See GetTargetStart and SetTargetStart
+    TargetText: str  # See GetTargetText
+    TargetTextRaw: CharBuffer  # See GetTargetTextRaw
+    Technology: int  # See GetTechnology and SetTechnology
+    Text: str  # See GetText and SetText
+    TextLength: int  # See GetTextLength
+    TextRaw: int  # See GetTextRaw and SetTextRaw
+    TwoPhaseDraw: bool  # See GetTwoPhaseDraw and SetTwoPhaseDraw
+    UndoCollection: bool  # See GetUndoCollection and SetUndoCollection
+    UseAntiAliasing: bool  # See GetUseAntiAliasing and SetUseAntiAliasing
+    UseHorizontalScrollBar: bool  # See GetUseHorizontalScrollBar and SetUseHorizontalScrollBar
+    UseTabs: bool  # See GetUseTabs and SetUseTabs
+    UseVerticalScrollBar: bool  # See GetUseVerticalScrollBar and SetUseVerticalScrollBar
+    Value: str  # See GetValue and SetValue
+    ViewEOL: bool  # See GetViewEOL and SetViewEOL
+    ViewWhiteSpace: int  # See GetViewWhiteSpace and SetViewWhiteSpace
+    VirtualSpaceOptions: int  # See GetVirtualSpaceOptions and SetVirtualSpaceOptions
+    WhitespaceChars: str  # See GetWhitespaceChars and SetWhitespaceChars
+    WhitespaceSize: int  # See GetWhitespaceSize and SetWhitespaceSize
+    WordChars: str  # See GetWordChars and SetWordChars
+    WrapIndentMode: int  # See GetWrapIndentMode and SetWrapIndentMode
+    WrapMode: int  # See GetWrapMode and SetWrapMode
+    WrapStartIndent: int  # See GetWrapStartIndent and SetWrapStartIndent
+    WrapVisualFlags: int  # See GetWrapVisualFlags and SetWrapVisualFlags
+    WrapVisualFlagsLocation: int  # See GetWrapVisualFlagsLocation and SetWrapVisualFlagsLocation
+    XOffset: int  # See GetXOffset and SetXOffset
+    Zoom: int  # See GetZoom and SetZoom
+
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
