@@ -145,6 +145,7 @@ cObj: ITypingClass = {
 	"source": "",
 	"superClass": ["ContextManager"],
 	"docstring": "Freeze the window and all its children.",
+	"properties": [],
 	"functions": [
 		{
 			"type": TypingType.FUNCTION,

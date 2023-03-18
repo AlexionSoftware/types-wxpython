@@ -98,6 +98,10 @@ class Parser:
 			# Find the class doc
 			classType["docstring"] = self._processClassDocstring(apiTableElem)
 
+			# Fill the properties
+			properties = self._processTypingAttribute(classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
+			classType["properties"] = properties
+
 			# Fill the class
 			functions = self._processTypingMethod(classFullName, soup, apiTableElem, source=fullUrl, addToList=False)
 			classType["functions"] = functions
@@ -323,6 +327,50 @@ class Parser:
 			# Add to the list
 			result.append(methodType)
 			self._addToResultList(methodType, addToList)
+
+		# Save the output
+		return result
+
+	def _processTypingAttribute(self, className: str, soup: Tag, apiTableElem: Tag, literalIdName: str = "attribute", source: str = "", addToList: bool = False) -> list[ITypingLiteral]:
+		""" Process a class with attributes
+		"""
+		# Make a list
+		result: list[ITypingLiteral] = []
+
+		# Find all the literals
+		literalTags: list[Tag] = apiTableElem.find_all("dl", class_=literalIdName)
+		for literalTag in literalTags:
+			# Create the literal
+			literalType: ITypingLiteral = {  # type: ignore
+				"type": TypingType.LITERAL,
+				"moduleName": className,
+				"source": source,
+			}
+
+			# Find the name
+			literalName: str = literalTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()
+			literalType["name"] = literalName
+
+			# Find the docstring
+			literalType["docstring"] = ""
+			if len(literalTag.find_all("p", limit=1)) > 0:
+				literalType["docstring"] = literalTag.find_all("p", limit=1)[0].get_text().strip()
+
+			# Set the return type
+			literalType["returnType"] = "Any"
+
+			# Check if static
+			if literalName.startswith("static"):
+				literalName = literalType["name"][7:]
+				literalType["name"] = literalName
+
+			# Make sure the name doesnt start with wx
+			if literalType["name"].startswith("wx"):
+				literalType["name"] = literalType["name"].split(".")[-1]
+
+			# Add to the list
+			result.append(literalType)
+			self._addToResultList(literalType, addToList)
 
 		# Save the output
 		return result
