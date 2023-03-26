@@ -76,19 +76,41 @@ class Ensurerer:
 				# Only use the last part
 				typingObjl["returnType"] = typingObjl["returnType"].split(".")[-1]
 
+			# Check if type is a Union
+			if typingObjl["returnType"].startswith("Union[") or typingObjl["returnType"].startswith("Optional[") or typingObjl["returnType"].startswith("list["):
+				# Dont need to do anything
+				return typing
+
 			# Check of het een build-in is
-			if typingObjl["returnType"] in ["'int'", "int", "str", "bool", "float"]:
-				# Fixen van de typing
+			if typingObjl["returnType"] in ["'int'", "int", "str", "bool", "float", "tuple", "tuple", "None", "Any", "list"]:
+				# Fix the typing
 				typingObjl["returnType"] = typingObjl["returnType"].replace("'", "")
 				return typingObjl
 
 			# Check if the return type is a alias
 			returnType = moduleName + "." + typingObjl["returnType"].replace("'", "")
 			if returnType in self.aliasDict:
-				typingObjl["returnType"] = "'_" + typingObjl["returnType"][2:]
+				typingObjl["returnType"] = "'_" + typingObjl["returnType"][1:]
+			
+			# Check if the typing is being ended with a '
+			if typingObjl["returnType"][0] == "'" and typingObjl["returnType"][-1] != "'":
+				typingObjl["returnType"] += "'"
+			if typingObjl["returnType"][0] != "'" and typingObjl["returnType"][-1] == "'":
+				typingObjl["returnType"] = "'" + typingObjl["returnType"]
 
 			# Check if the return type exists
 			if returnType not in self.typingDict:
-				self.logger.error("Literal %s does not exist" % typingObjl["returnType"])
+				# Check how many dots are in the return type
+				if len(returnType.split(".")) > 2:
+					# Check if the typing existing one dot higher
+					for i in range(0, len(returnType.split("."))):
+						testReturnType = ".".join(returnType.split(".")[:(i * -1)]) + "." + returnType.split(".")[-1]
+						if testReturnType in self.typingDict:
+							returnType = testReturnType
+							break
+			# Check if the return type exists
+			if returnType not in self.typingDict:
+				# We can't find it
+				self.logger.error("Literal %s does not exist in %s.%s" % (typingObjl["returnType"], typingObjl["moduleName"], typingObjl["name"]))
 				raise KeyError(returnType)
 		return typing

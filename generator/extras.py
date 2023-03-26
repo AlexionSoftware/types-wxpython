@@ -48,6 +48,438 @@ aObj = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "CommandList",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.CommandProcessor.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "WindowList",
+	"moduleName": "wx",
+	"returnType": "list['Window']",
+	"docstring": "WindowList is a type-safe List-like class whose elements are of type Window* .",
+	"source": "https://docs.wxpython.org/wx.Window.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "intshort",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.DateTime.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "FileHistoryMenuList",
+	"moduleName": "wx",
+	"returnType": "'Menu'",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.FileHistory.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "MessageDialogButtonLabel",
+	"moduleName": "wx",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.GenericMessageDialog.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "SizerItemList",
+	"moduleName": "wx",
+	"returnType": "list['SizerItem']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Sizer.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "DataViewItemArray",
+	"moduleName": "wx.dataview",
+	"returnType": "list['DataViewItem']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.dataview.DataViewCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "GridCellCoordsArray",
+	"moduleName": "wx.grid",
+	"returnType": "list['GridCellCoords']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "GridSelectionModes",
+	"moduleName": "wx.grid",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.GridSelectionModes.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Edge",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Edge.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "MenuItemList",
+	"moduleName": "wx",
+	"returnType": "list['MenuItem']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Menu.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ObjectRefData",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Object.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PrintQuality",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PrintData.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Point2DDouble",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Rect2D.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "TextPos",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.SearchCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ClientData",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.SharedClientDataContainer.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PyUserData",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.SizerItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "FileOffset",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.StreamBase.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "WeekDay",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.DateTime.WeekDay.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "value_type",
+	"moduleName": "wx",
+	"returnType": "bytes",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Unichar.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextActionList",
+	"moduleName": "wx.richtext",
+	"returnType": "list['RichTextAction']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextCommand.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PGVariant",
+	"moduleName": "wx.propgrid",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "byte",
+	"moduleName": "wx.propgrid",
+	"returnType": "bytes",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RibbonButtonBarButtonBase",
+	"moduleName": "wx.ribbon",
+	"returnType": "Any",  # This should point to wx.lib.agw.ribbon.buttonbar.RibbonButtonBarButtonBase
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RibbonToolBarToolBase",
+	"moduleName": "wx.ribbon",
+	"returnType": "Any",  # This should point to wx.lib.agw.ribbon.toolbar.RibbonToolBarToolBase
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RibbonGalleryItem",
+	"moduleName": "wx.ribbon",
+	"returnType": "Any",  # This should point to wx.lib.agw.ribbon.gallery.RibbonGalleryItem
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "wxRichTextStyleType",
+	"moduleName": "wx.richtext",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "CharBuffer",
+	"moduleName": "wx.stc",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.stc.StyledTextCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj) 
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "AuiPaneInfoArray",
+	"moduleName": "wx.aui",
+	"returnType": "list['AuiPaneInfo']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.aui.AuiManager.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj) 
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "DVCVariant",
+	"moduleName": "wx.dataview",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.dataview.DataViewEvent.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj) 
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "AttrKind",
+	"moduleName": "wx.grid",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.grid.GridCellAttr.AttrKind.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj) 
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "HtmlBookRecArray",
+	"moduleName": "wx.html",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.html.HtmlHelpData.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "HtmlHelpDataItems",
+	"moduleName": "wx.html",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.html.HtmlHelpData.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextVariantArray",
+	"moduleName": "wx.richtext",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextProperties.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Animation",
+	"moduleName": "wx.xrc",
+	"returnType": "Any",  # This should be wx.adv.Animation
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "XmlNode",
+	"moduleName": "wx.xrc",
+	"returnType": "Any",  # This should be wx.xml.XmlNode
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextFloatCollector",
+	"moduleName": "wx.richtext",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextObjectPtrArrayArray",
+	"moduleName": "wx.richtext",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextTable.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextObjectPtrArray",
+	"moduleName": "wx.richtext",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextContextMenuPropertiesInfo.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextObjectPtrArray",
+	"moduleName": "wx.richtext",
+	"returnType": "list[Any]",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextTable.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextRangeArray",
+	"moduleName": "wx.richtext",
+	"returnType": "list['RichTextRange']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextSelection.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ArrayPGProperty",
+	"moduleName": "wx.propgrid",
+	"returnType": "list['PGProperty']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.propgrid.PropertyGrid.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RichTextObjectList",
+	"moduleName": "wx.richtext",
+	"returnType": "list['RichTextObject']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "TextAttrDimensionFlags",
+	"moduleName": "wx.richtext",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.richtext.TextAttrDimension.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+lObj: ITypingLiteral = {
+	"type": TypingType.LITERAL,
+	"name": "PRINT_QUALITY_HIGH",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PrintData.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj: ITypingLiteral = {
+	"type": TypingType.LITERAL,
+	"name": "PRINT_QUALITY_MEDIUM",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PrintData.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj: ITypingLiteral = {
+	"type": TypingType.LITERAL,
+	"name": "PRINT_QUALITY_LOW",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PrintData.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj: ITypingLiteral = {
+	"type": TypingType.LITERAL,
+	"name": "PRINT_QUALITY_DRAFT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PrintData.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
 lObj: ITypingLiteral = {
 	"type": TypingType.LITERAL,
 	"name": "GROW",

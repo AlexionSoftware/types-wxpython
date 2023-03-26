@@ -132,7 +132,7 @@ class Parser:
 		# Check if this page is a enumeration
 		if ".enumeration." in source:
 			# Add the Alias for the enumeration
-			search = re.search(r"(wx[.a-zA-Z]*)\.([a-zA-Z]+)\.enumeration", source)
+			search = re.search(r"(wx[.a-zA-Z0-9]*)\.([a-zA-Z]+)\.enumeration", source)
 			if search is not None:
 				aliasObj: ITypingLiteral = {
 					"type": TypingType.ALIAS,
