@@ -3,6 +3,51 @@ from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral, ITypi
 
 
 EXTRA_KNOWN_ITEMS: list[ITyping] = []
+aObj: ITypingLiteral = {
+	"type": TypingType.ALIAS,
+	"name": "UIntPtr",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj: ITypingLiteral = {
+	"type": TypingType.ALIAS,
+	"name": "IntPtr",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Coord",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Char",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Double",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
 lObj: ITypingLiteral = {
 	"type": TypingType.LITERAL,
 	"name": "GROW",

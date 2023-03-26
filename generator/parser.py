@@ -156,6 +156,9 @@ class Parser:
 					"source": source,
 				}
 
+				# Make sure the literal typing works
+				self._ensureLiteralTyping(literalObj)
+
 				# Add to the list
 				self._addToResultList(literalObj)
 
@@ -386,6 +389,9 @@ class Parser:
 			# Make sure the name doesnt start with wx
 			if literalType["name"].startswith("wx"):
 				literalType["name"] = literalType["name"].split(".")[-1]
+
+			# Make sure the literal typing works
+			self._ensureLiteralTyping(literalType)
 
 			# Add to the list
 			result.append(literalType)
@@ -707,3 +713,30 @@ class Parser:
 				return False
 			return True
 		return False
+
+	def _ensureLiteralTyping(self, literalObj: ITypingLiteral) -> None:
+		""" Make sure the literal typing is valid
+
+			Specifically when the name of the literal is the same as the class
+		"""
+		# Retrieve the name and return type
+		literalName = literalObj["name"]
+		returnType = literalObj["returnType"]
+		if "'" in literalObj["returnType"]:
+			returnType = literalObj["returnType"].replace("'", "")
+
+		# Check if the name is the same as the return type
+		if literalName == returnType:
+			# Make it a TypeAlias
+			literalObj["returnType"] = "'" + "_" + returnType + "'"
+
+			# Create the TypeAlias
+			typeAlias: ITypingLiteral = {
+				"name": "_" + returnType,
+				"type": TypingType.ALIAS,
+				"moduleName": "wx",
+				"returnType": returnType,
+				"docstring": "",
+				"source": "",
+			}
+			self._addToResultList(typeAlias)

@@ -11,6 +11,7 @@ from .extras import EXTRA_KNOWN_ITEMS
 from .interfaces import ITyping
 from .parser import Parser
 from .writer import TypingWriter
+from .ensurerer import Ensurerer
 
 
 # Some starting points to find the data
@@ -89,6 +90,9 @@ class DocumentationGenerator:
 		# Add the extra typing to the list
 		for typing in EXTRA_KNOWN_ITEMS:
 			self.typings.put(typing)
+
+		# Make sure the typing is correct
+		Ensurerer(self.logger).ensure(self.typings)
 
 		# Write to files
 		TypingWriter(self.logger).write(self.typings)
