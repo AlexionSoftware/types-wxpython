@@ -129,6 +129,21 @@ class Parser:
 	def _processLiterals(self, moduleName: str, soup: Tag, source: str = "") -> None:
 		""" Process literals in a table
 		"""
+		# Check if this page is a enumeration
+		if ".enumeration." in source:
+			# Add the Alias for the enumeration
+			search = re.search(r"(wx[.a-zA-Z]*)\.([a-zA-Z]+)\.enumeration", source)
+			if search is not None:
+				aliasObj: ITypingLiteral = {
+					"type": TypingType.ALIAS,
+					"name": search.group(2),
+					"moduleName": search.group(1),
+					"returnType": "int",
+					"docstring": "Enumeration",
+					"source": source,
+				}
+				self._addToResultList(aliasObj)
+
 		# Check every literal
 		literals: list[Tag] = soup.find_all(class_="literal")
 		for literalElem in literals:
