@@ -128,15 +128,17 @@ class TypingWriter:
 				output += "\n" + (SPACER * (depth + 2)) + "Source: " + cTypingObj["source"] + "\n"
 			output += (SPACER * (depth + 1)) + '"""\n'
 
+			# Check all the functions
+			for functionTyping in cTypingObj["functions"]:
+				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
+
 			# Check all the properties
+			# Properties are added after functions to avoid conflicts between
+			# propeties names and class names.
 			for propertyTyping in cTypingObj["properties"]:
 				output += self._convertTypingToStr(propertyTyping, depth+1) + "\n"
 			if len(cTypingObj["properties"]) > 0:
 				output += "\n"
-
-			# Check all the functions
-			for functionTyping in cTypingObj["functions"]:
-				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
 
 			return output
 		return ""
