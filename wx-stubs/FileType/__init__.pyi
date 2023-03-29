@@ -6,9 +6,6 @@ class MessageParameters:
 
         Source: https://docs.wxpython.org/wx.FileType.MessageParameters.html
     """
-    FileName: str  # See GetFileName
-    MimeType: str  # See GetMimeType
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -32,6 +29,9 @@ class MessageParameters:
 
             Source: https://docs.wxpython.org/wx.FileType.MessageParameters.html
         """
+
+    FileName: str  # See GetFileName
+    MimeType: str  # See GetMimeType
 
 
 

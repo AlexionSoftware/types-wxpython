@@ -7,10 +7,6 @@ system.
 
         Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
     """
-    Domain: str  # See GetDomain and SetDomain
-    Flags: int  # See GetFlags and SetFlags
-    Version: int  # See GetVersion
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -220,6 +216,10 @@ system.
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
         """
 
+    Domain: str  # See GetDomain and SetDomain
+    Flags: int  # See GetFlags and SetFlags
+    Version: int  # See GetVersion
+
 
 
 class XmlResourceHandler(Object):
@@ -228,25 +228,6 @@ a Sizer object from an XML node.
 
         Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
     """
-    Animation: 'adv.Animation'  # See GetAnimation
-    Bitmap: 'Bitmap'  # See GetBitmap
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
-    Class: str  # See GetClass
-    CurFileSystem: 'FileSystem'  # See GetCurFileSystem
-    Font: 'Font'  # See GetFont
-    ID: int  # See GetID
-    Icon: 'Icon'  # See GetIcon
-    ImageList: 'ImageList'  # See GetImageList
-    Instance: 'Window'  # See GetInstance
-    Name: str  # See GetName
-    Node: 'xml.XmlNode'  # See GetNode
-    Parent: 'Window'  # See GetParent
-    ParentAsWindow: 'Window'  # See GetParentAsWindow
-    Position: 'Point'  # See GetPosition
-    Resource: 'xrc.XmlResource'  # See GetResource
-    Size: 'Size'  # See GetSize
-    Style: int  # See GetStyle
-
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -534,6 +515,25 @@ a Sizer object from an XML node.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
+
+    Animation: 'adv.Animation'  # See GetAnimation
+    Bitmap: 'Bitmap'  # See GetBitmap
+    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Class: str  # See GetClass
+    CurFileSystem: 'FileSystem'  # See GetCurFileSystem
+    Font: 'Font'  # See GetFont
+    ID: int  # See GetID
+    Icon: 'Icon'  # See GetIcon
+    ImageList: 'ImageList'  # See GetImageList
+    Instance: 'Window'  # See GetInstance
+    Name: str  # See GetName
+    Node: 'xml.XmlNode'  # See GetNode
+    Parent: 'Window'  # See GetParent
+    ParentAsWindow: 'Window'  # See GetParentAsWindow
+    Position: 'Point'  # See GetPosition
+    Resource: 'xrc.XmlResource'  # See GetResource
+    Size: 'Size'  # See GetSize
+    Style: int  # See GetStyle
 
 
 

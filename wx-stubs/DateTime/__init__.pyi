@@ -6,8 +6,6 @@ class TimeZone:
 
         Source: https://docs.wxpython.org/wx.DateTime.TimeZone.html
     """
-    Offset: int  # See GetOffset
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -33,6 +31,8 @@ class TimeZone:
             Source: https://docs.wxpython.org/wx.DateTime.TimeZone.html
         """
 
+    Offset: int  # See GetOffset
+
 
 
 class Tm:
@@ -40,16 +40,6 @@ class Tm:
 
         Source: https://docs.wxpython.org/wx.DateTime.Tm.html
     """
-    WeekDay: 'DateTime.WeekDay'  # See GetWeekDay
-    hour: Any  # A public C++ attribute of type int. Hours since midnight in 0..23 range.
-    mday: Any  # A public C++ attribute of type int. Day of the month in 1..31 range.
-    min: Any  # A public C++ attribute of type int. Minutes in 0..59 range.
-    mon: Any  # A public C++ attribute of type DateTime.Month. Month, as an enumerated constant.
-    msec: Any  # A public C++ attribute of type int. Number of milliseconds.
-    sec: Any  # A public C++ attribute of type int. Seconds in 0..59 (60 with leap seconds) range.
-    yday: Any  # A public C++ attribute of type int. Day of the year in 0..365 range.
-    year: Any  # A public C++ attribute of type int. Year.
-
     def GetWeekDay(self) -> 'DateTime.WeekDay':
         """ Return the week day corresponding to this date.
 
@@ -61,6 +51,16 @@ class Tm:
 
             Source: https://docs.wxpython.org/wx.DateTime.Tm.html
         """
+
+    WeekDay: 'DateTime.WeekDay'  # See GetWeekDay
+    hour: Any  # A public C++ attribute of type int. Hours since midnight in 0..23 range.
+    mday: Any  # A public C++ attribute of type int. Day of the month in 1..31 range.
+    min: Any  # A public C++ attribute of type int. Minutes in 0..59 range.
+    mon: Any  # A public C++ attribute of type DateTime.Month. Month, as an enumerated constant.
+    msec: Any  # A public C++ attribute of type int. Number of milliseconds.
+    sec: Any  # A public C++ attribute of type int. Seconds in 0..59 (60 with leap seconds) range.
+    yday: Any  # A public C++ attribute of type int. Day of the year in 0..365 range.
+    year: Any  # A public C++ attribute of type int. Year.
 
 
 

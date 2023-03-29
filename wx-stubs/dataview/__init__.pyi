@@ -7,21 +7,6 @@ fashion or in a tabular form or both.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
     """
-    ColumnCount: int  # See GetColumnCount
-    Columns: None  # See GetColumns
-    CountPerPage: int  # See GetCountPerPage
-    CurrentColumn: 'dataview.DataViewColumn'  # See GetCurrentColumn
-    CurrentItem: 'dataview.DataViewItem'  # See GetCurrentItem and SetCurrentItem
-    ExpanderColumn: 'dataview.DataViewColumn'  # See GetExpanderColumn and SetExpanderColumn
-    Indent: int  # See GetIndent and SetIndent
-    MainWindow: Window  # See GetMainWindow
-    Model: 'dataview.DataViewModel'  # See GetModel
-    SelectedItemsCount: int  # See GetSelectedItemsCount
-    Selection: 'dataview.DataViewItem'  # See GetSelection
-    Selections: DataViewItemArray  # See GetSelections and SetSelections
-    SortingColumn: 'dataview.DataViewColumn'  # See GetSortingColumn
-    TopItem: 'dataview.DataViewItem'  # See GetTopItem
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -427,6 +412,21 @@ is reference counted so it can be shared with other views.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
         """
 
+    ColumnCount: int  # See GetColumnCount
+    Columns: None  # See GetColumns
+    CountPerPage: int  # See GetCountPerPage
+    CurrentColumn: 'dataview.DataViewColumn'  # See GetCurrentColumn
+    CurrentItem: 'dataview.DataViewItem'  # See GetCurrentItem and SetCurrentItem
+    ExpanderColumn: 'dataview.DataViewColumn'  # See GetExpanderColumn and SetExpanderColumn
+    Indent: int  # See GetIndent and SetIndent
+    MainWindow: Window  # See GetMainWindow
+    Model: 'dataview.DataViewModel'  # See GetModel
+    SelectedItemsCount: int  # See GetSelectedItemsCount
+    Selection: 'dataview.DataViewItem'  # See GetSelection
+    Selections: DataViewItemArray  # See GetSelections and SetSelections
+    SortingColumn: 'dataview.DataViewColumn'  # See GetSortingColumn
+    TopItem: 'dataview.DataViewItem'  # See GetTopItem
+
 
 
 DV_SINGLE: int  # Single selection mode. This is the default.
@@ -486,16 +486,6 @@ class TreeListCtrl(Window):
 
         Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
     """
-    ColumnCount: None  # See GetColumnCount
-    DataView: 'dataview.DataViewCtrl'  # See GetDataView
-    FirstItem: 'dataview.TreeListItem'  # See GetFirstItem
-    NO_IMAGE: Any  # A public C++ attribute of type int. A constant indicating that no image should be used for an item.
-    RootItem: 'dataview.TreeListItem'  # See GetRootItem
-    Selection: 'dataview.TreeListItem'  # See GetSelection
-    Selections: Any  # See GetSelections
-    SortColumn: tuple  # See GetSortColumn and SetSortColumn
-    View: Window  # See GetView
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -798,6 +788,16 @@ both single and multi-selection case.
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
         """
 
+    ColumnCount: None  # See GetColumnCount
+    DataView: 'dataview.DataViewCtrl'  # See GetDataView
+    FirstItem: 'dataview.TreeListItem'  # See GetFirstItem
+    NO_IMAGE: Any  # A public C++ attribute of type int. A constant indicating that no image should be used for an item.
+    RootItem: 'dataview.TreeListItem'  # See GetRootItem
+    Selection: 'dataview.TreeListItem'  # See GetSelection
+    Selections: Any  # See GetSelections
+    SortColumn: tuple  # See GetSortColumn and SetSortColumn
+    View: Window  # See GetView
+
 
 
 TL_SINGLE: int  # Single selection, this is the default.
@@ -852,9 +852,6 @@ DataViewTreeStore and forwards most of its API to that class.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
     """
-    ImageList: 'ImageList'  # See GetImageList and SetImageList
-    Store: 'dataview.DataViewTreeStore'  # See GetStore
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1018,6 +1015,9 @@ DataViewTreeStore and forwards most of its API to that class.
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
+    ImageList: 'ImageList'  # See GetImageList and SetImageList
+    Store: 'dataview.DataViewTreeStore'  # See GetStore
+
 
 
 class DataViewListCtrl(DataViewCtrl):
@@ -1026,10 +1026,6 @@ DataViewListStore and forwards most of its API to that class.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
     """
-    ItemCount: int  # See GetItemCount
-    SelectedRow: int  # See GetSelectedRow
-    Store: 'dataview.DataViewListStore'  # See GetStore
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1217,6 +1213,10 @@ DataViewListStore and forwards most of its API to that class.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
         """
 
+    ItemCount: int  # See GetItemCount
+    SelectedRow: int  # See GetSelectedRow
+    Store: 'dataview.DataViewListStore'  # See GetStore
+
 
 
 NOT_FOUND: int
@@ -1391,8 +1391,6 @@ DataViewCtrl in a persistent way, i.e.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewItem.html
     """
-    ID: None  # See GetID
-
     def __init__(self, *args, **kw) -> None:
         """ Constructor.
 
@@ -1441,6 +1439,8 @@ DataViewCtrl in a persistent way, i.e.
             Source: https://docs.wxpython.org/wx.dataview.DataViewItem.html
         """
 
+    ID: None  # See GetID
+
 
 
 class DataViewColumn(SettableHeaderColumn):
@@ -1448,17 +1448,6 @@ class DataViewColumn(SettableHeaderColumn):
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewColumn.html
     """
-    Alignment: Any  # See GetAlignment and SetAlignment
-    Bitmap: Any  # See GetBitmap and SetBitmap
-    Flags: Any  # See GetFlags and SetFlags
-    MinWidth: Any  # See GetMinWidth and SetMinWidth
-    ModelColumn: int  # See GetModelColumn
-    Owner: 'dataview.DataViewCtrl'  # See GetOwner
-    Renderer: 'dataview.DataViewRenderer'  # See GetRenderer
-    SortOrder: Any  # See IsSortOrderAscending and SetSortOrder
-    Title: Any  # See GetTitle and SetTitle
-    Width: Any  # See GetWidth and SetWidth
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1483,6 +1472,17 @@ class DataViewColumn(SettableHeaderColumn):
             Source: https://docs.wxpython.org/wx.dataview.DataViewColumn.html
         """
 
+    Alignment: Any  # See GetAlignment and SetAlignment
+    Bitmap: Any  # See GetBitmap and SetBitmap
+    Flags: Any  # See GetFlags and SetFlags
+    MinWidth: Any  # See GetMinWidth and SetMinWidth
+    ModelColumn: int  # See GetModelColumn
+    Owner: 'dataview.DataViewCtrl'  # See GetOwner
+    Renderer: 'dataview.DataViewRenderer'  # See GetRenderer
+    SortOrder: Any  # See IsSortOrderAscending and SetSortOrder
+    Title: Any  # See GetTitle and SetTitle
+    Width: Any  # See GetWidth and SetWidth
+
 
 
 class DataViewRenderer(Object):
@@ -1490,14 +1490,6 @@ class DataViewRenderer(Object):
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
     """
-    Alignment: int  # See GetAlignment and SetAlignment
-    EditorCtrl: Window  # See GetEditorCtrl
-    EllipsizeMode: 'EllipsizeMode'  # See GetEllipsizeMode
-    Mode: 'dataview.DataViewCellMode'  # See GetMode
-    Owner: 'dataview.DataViewColumn'  # See GetOwner and SetOwner
-    VariantType: str  # See GetVariantType
-    View: 'dataview.DataViewCtrl'  # See GetView
-
     def __init__(self, varianttype, mode=DATAVIEW_CELL_INERT, align=DVR_DEFAULT_ALIGNMENT) -> None:
         """ Constructor.
 
@@ -1636,6 +1628,14 @@ class DataViewRenderer(Object):
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
         """
 
+    Alignment: int  # See GetAlignment and SetAlignment
+    EditorCtrl: Window  # See GetEditorCtrl
+    EllipsizeMode: 'EllipsizeMode'  # See GetEllipsizeMode
+    Mode: 'dataview.DataViewCellMode'  # See GetMode
+    Owner: 'dataview.DataViewColumn'  # See GetOwner and SetOwner
+    VariantType: str  # See GetVariantType
+    View: 'dataview.DataViewCtrl'  # See GetView
+
 
 
 ELLIPSIZE_MIDDLE: int
@@ -1648,9 +1648,6 @@ to write a new renderer.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
     """
-    Attr: 'dataview.DataViewItemAttr'  # See GetAttr
-    Size: Size  # See GetSize
-
     def __init__(*args, **kwargs) -> None:
         """ Constructor.
 
@@ -1736,6 +1733,9 @@ to write a new renderer.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
         """
 
+    Attr: 'dataview.DataViewItemAttr'  # See GetAttr
+    Size: Size  # See GetSize
+
 
 
 DATAVIEW_CELL_ACTIVATABLE: int
@@ -1747,22 +1747,6 @@ class DataViewEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
     """
-    CacheFrom: int  # See GetCacheFrom
-    CacheTo: int  # See GetCacheTo
-    Column: int  # See GetColumn and SetColumn
-    DataBuffer: Any  # See GetDataBuffer and SetDataBuffer
-    DataFormat: 'DataFormat'  # See GetDataFormat and SetDataFormat
-    DataObject: 'DataObject'  # See GetDataObject and SetDataObject
-    DataSize: int  # See GetDataSize and SetDataSize
-    DataViewColumn: 'dataview.DataViewColumn'  # See GetDataViewColumn and SetDataViewColumn
-    DragFlags: int  # See GetDragFlags and SetDragFlags
-    DropEffect: DragResult  # See GetDropEffect and SetDropEffect
-    Item: 'dataview.DataViewItem'  # See GetItem and SetItem
-    Model: 'dataview.DataViewModel'  # See GetModel and SetModel
-    Position: Point  # See GetPosition and SetPosition
-    ProposedDropIndex: int  # See GetProposedDropIndex
-    Value: DVCVariant  # See GetValue and SetValue
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1943,6 +1927,22 @@ class DataViewEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
         """
 
+    CacheFrom: int  # See GetCacheFrom
+    CacheTo: int  # See GetCacheTo
+    Column: int  # See GetColumn and SetColumn
+    DataBuffer: Any  # See GetDataBuffer and SetDataBuffer
+    DataFormat: 'DataFormat'  # See GetDataFormat and SetDataFormat
+    DataObject: 'DataObject'  # See GetDataObject and SetDataObject
+    DataSize: int  # See GetDataSize and SetDataSize
+    DataViewColumn: 'dataview.DataViewColumn'  # See GetDataViewColumn and SetDataViewColumn
+    DragFlags: int  # See GetDragFlags and SetDragFlags
+    DropEffect: DragResult  # See GetDropEffect and SetDropEffect
+    Item: 'dataview.DataViewItem'  # See GetItem and SetItem
+    Model: 'dataview.DataViewModel'  # See GetModel and SetModel
+    Position: Point  # See GetPosition and SetPosition
+    ProposedDropIndex: int  # See GetProposedDropIndex
+    Value: DVCVariant  # See GetValue and SetValue
+
 
 
 EVT_DATAVIEW_CACHE_HINT: int  # Process a  wxEVT_DATAVIEW_CACHE_HINT   event. ^^
@@ -1975,10 +1975,6 @@ class TreeListEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.dataview.TreeListEvent.html
     """
-    Column: None  # See GetColumn
-    Item: 'dataview.TreeListItem'  # See GetItem
-    OldCheckedState: 'CheckBoxState'  # See GetOldCheckedState
-
     def __init__(self) -> None:
         """ 
 
@@ -2003,6 +1999,10 @@ class TreeListEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.dataview.TreeListEvent.html
         """
 
+    Column: None  # See GetColumn
+    Item: 'dataview.TreeListItem'  # See GetItem
+    OldCheckedState: 'CheckBoxState'  # See GetOldCheckedState
+
 
 
 class DataViewIconText(Object):
@@ -2011,10 +2011,6 @@ transfer.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
     """
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle and SetBitmapBundle
-    Icon: 'Icon'  # See GetIcon and SetIcon
-    Text: str  # See GetText and SetText
-
     def __init__(self, *args, **kw) -> None:
         """ Constructor.
 
@@ -2056,6 +2052,10 @@ transfer.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
         """
+
+    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle and SetBitmapBundle
+    Icon: 'Icon'  # See GetIcon and SetIcon
+    Text: str  # See GetText and SetText
 
 
 
@@ -2256,8 +2256,6 @@ simple table of data.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewListStore.html
     """
-    ItemCount: int  # See GetItemCount
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -2342,6 +2340,8 @@ simple table of data.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListStore.html
         """
 
+    ItemCount: int  # See GetItemCount
+
 
 
 class DataViewModelNotifier:
@@ -2350,8 +2350,6 @@ mirrors its notification interface.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewModelNotifier.html
     """
-    Owner: 'dataview.DataViewModel'  # See GetOwner and SetOwner
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -2423,6 +2421,8 @@ mirrors its notification interface.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewModelNotifier.html
         """
+
+    Owner: 'dataview.DataViewModel'  # See GetOwner and SetOwner
 
 
 
@@ -2571,8 +2571,6 @@ DataViewVirtualListModel.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewListModel.html
     """
-    Count: int  # See GetCount
-
     def Compare(self, item1, item2, column, ascending) -> int:
         """ Compare method that sorts the items by their index.
 
@@ -2615,6 +2613,8 @@ DataViewVirtualListModel.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListModel.html
         """
 
+    Count: int  # See GetCount
+
 
 
 class DataViewItemAttr:
@@ -2623,11 +2623,6 @@ class DataViewItemAttr:
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
     """
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    Bold: bool  # See GetBold and SetBold
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
-    Italic: bool  # See GetItalic and SetItalic
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -2717,6 +2712,11 @@ class DataViewItemAttr:
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
         """
+
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Bold: bool  # See GetBold and SetBold
+    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Italic: bool  # See GetItalic and SetItalic
 
 
 
@@ -2887,8 +2887,6 @@ in it.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewChoiceRenderer.html
     """
-    Choices: list[str]  # See GetChoices
-
     def __init__(self, choices, mode=DATAVIEW_CELL_EDITABLE, alignment=DVR_DEFAULT_ALIGNMENT) -> None:
         """ The constructor.
 
@@ -2906,6 +2904,8 @@ in it.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewChoiceRenderer.html
         """
+
+    Choices: list[str]  # See GetChoices
 
 
 

@@ -287,8 +287,6 @@ class GLAttribsBase:
 
         Source: https://docs.wxpython.org/wx.glcanvas.GLAttribsBase.html
     """
-    Size: int  # See GetSize
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -330,6 +328,8 @@ class GLAttribsBase:
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttribsBase.html
         """
+
+    Size: int  # See GetSize
 
 
 

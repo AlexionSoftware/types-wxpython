@@ -7,9 +7,6 @@ RibbonButtonBar.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
     """
-    Bar: 'ribbon.RibbonButtonBar'  # See GetBar and SetBar
-    Button: RibbonButtonBarButtonBase  # See GetButton and SetButton
-
     def __init__(self, command_type=wxEVT_NULL, win_id=0, bar=None, button=None) -> None:
         """ Constructor.
 
@@ -46,6 +43,9 @@ RibbonButtonBar.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
         """
 
+    Bar: 'ribbon.RibbonButtonBar'  # See GetBar and SetBar
+    Button: RibbonButtonBarButtonBase  # See GetButton and SetButton
+
 
 
 class RibbonGalleryEvent(CommandEvent):
@@ -53,9 +53,6 @@ class RibbonGalleryEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
     """
-    Gallery: 'ribbon.RibbonGallery'  # See GetGallery and SetGallery
-    GalleryItem: RibbonGalleryItem  # See GetGalleryItem and SetGalleryItem
-
     def __init__(self, command_type=wxEVT_NULL, win_id=0, gallery=None, item=None) -> None:
         """ Constructor.
 
@@ -86,6 +83,9 @@ class RibbonGalleryEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
         """
 
+    Gallery: 'ribbon.RibbonGallery'  # See GetGallery and SetGallery
+    GalleryItem: RibbonGalleryItem  # See GetGalleryItem and SetGalleryItem
+
 
 
 class RibbonPanelEvent(CommandEvent):
@@ -93,8 +93,6 @@ class RibbonPanelEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
     """
-    Panel: 'ribbon.RibbonPanel'  # See GetPanel and SetPanel
-
     def __init__(self, command_type=wxEVT_NULL, win_id=0, panel=None) -> None:
         """ Constructor.
 
@@ -113,6 +111,8 @@ class RibbonPanelEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
         """
 
+    Panel: 'ribbon.RibbonPanel'  # See GetPanel and SetPanel
+
 
 
 class RibbonToolBarEvent(CommandEvent):
@@ -120,8 +120,6 @@ class RibbonToolBarEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
     """
-    Bar: 'ribbon.RibbonToolBar'  # See GetBar and SetBar
-
     def __init__(self, command_type=wxEVT_NULL, win_id=0, bar=None) -> None:
         """ command_type (wx.EventType) â
 
@@ -146,6 +144,8 @@ class RibbonToolBarEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
         """
 
+    Bar: 'ribbon.RibbonToolBar'  # See GetBar and SetBar
+
 
 
 class RibbonControl(Control):
@@ -155,9 +155,6 @@ the ribbon characteristics of having a ribbon art provider, and
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
     """
-    AncestorRibbonBar: 'ribbon.RibbonBar'  # See GetAncestorRibbonBar
-    ArtProvider: 'ribbon.RibbonArtProvider'  # See GetArtProvider and SetArtProvider
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -237,6 +234,9 @@ the ribbon characteristics of having a ribbon art provider, and
             Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
         """
 
+    AncestorRibbonBar: 'ribbon.RibbonBar'  # See GetAncestorRibbonBar
+    ArtProvider: 'ribbon.RibbonArtProvider'  # See GetArtProvider and SetArtProvider
+
 
 
 RIBBON_PANEL_FLEXIBLE: int
@@ -246,8 +246,6 @@ class RibbonBarEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
     """
-    Page: 'ribbon.RibbonPage'  # See GetPage and SetPage
-
     def __init__(self, command_type=wxEVT_NULL, win_id=0, page=None) -> None:
         """ Constructor.
 
@@ -266,6 +264,8 @@ class RibbonBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
         """
 
+    Page: 'ribbon.RibbonPage'  # See GetPage and SetPage
+
 
 
 class RibbonButtonBar(RibbonControl):
@@ -273,11 +273,6 @@ class RibbonButtonBar(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
     """
-    ActiveItem: RibbonButtonBarButtonBase  # See GetActiveItem
-    ButtonCount: int  # See GetButtonCount
-    HoveredItem: RibbonButtonBarButtonBase  # See GetHoveredItem
-    ShowToolTipsForDisabled: bool  # See GetShowToolTipsForDisabled and SetShowToolTipsForDisabled
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -471,6 +466,11 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
+    ActiveItem: RibbonButtonBarButtonBase  # See GetActiveItem
+    ButtonCount: int  # See GetButtonCount
+    HoveredItem: RibbonButtonBarButtonBase  # See GetHoveredItem
+    ShowToolTipsForDisabled: bool  # See GetShowToolTipsForDisabled and SetShowToolTipsForDisabled
+
 
 
 EVT_RIBBONBUTTONBAR_CLICKED: int  # Triggered when the normal (non-dropdown) region of a button on the button bar is clicked.
@@ -488,10 +488,6 @@ class RibbonBar(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
     """
-    ActivePage: int  # See GetActivePage and SetActivePage
-    DisplayMode: 'ribbon.RibbonDisplayMode'  # See GetDisplayMode
-    PageCount: int  # See GetPageCount
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -637,6 +633,10 @@ class RibbonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
         """
 
+    ActivePage: int  # See GetActivePage and SetActivePage
+    DisplayMode: 'ribbon.RibbonDisplayMode'  # See GetDisplayMode
+    PageCount: int  # See GetPageCount
+
 
 
 RIBBON_BAR_DEFAULT_STYLE: int  # Defined as wx.ribbon.RIBBON_BAR_FLOW_HORIZONTAL | wx.ribbon.RIBBON_BAR_SHOW_PAGE_LABELS | wx.ribbon.RIBBON_BAR_SHOW_PANEL_EXT_BUTTONS | wx.ribbon.RIBBON_BAR_SHOW_TOGGLE_BUTTON | wx.ribbon.RIBBON_BAR_SHOW_HELP_BUTTON.
@@ -683,14 +683,6 @@ strings.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
     """
-    ActiveItem: RibbonGalleryItem  # See GetActiveItem
-    Count: int  # See GetCount
-    DownButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetDownButtonState
-    ExtensionButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetExtensionButtonState
-    HoveredItem: RibbonGalleryItem  # See GetHoveredItem
-    Selection: RibbonGalleryItem  # See GetSelection and SetSelection
-    UpButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetUpButtonState
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -818,6 +810,14 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
+    ActiveItem: RibbonGalleryItem  # See GetActiveItem
+    Count: int  # See GetCount
+    DownButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetDownButtonState
+    ExtensionButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetExtensionButtonState
+    HoveredItem: RibbonGalleryItem  # See GetHoveredItem
+    Selection: RibbonGalleryItem  # See GetSelection and SetSelection
+    UpButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetUpButtonState
+
 
 
 EVT_RIBBONGALLERY_SELECTED: int  # Triggered when the user selects an item from the gallery. Note that the ID is that of the gallery, not of the item.
@@ -831,10 +831,6 @@ class RibbonPanel(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
     """
-    ExpandedDummy: 'ribbon.RibbonPanel'  # See GetExpandedDummy
-    ExpandedPanel: 'ribbon.RibbonPanel'  # See GetExpandedPanel
-    MinimisedIcon: Bitmap  # See GetMinimisedIcon
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -926,6 +922,10 @@ class RibbonPanel(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
         """
 
+    ExpandedDummy: 'ribbon.RibbonPanel'  # See GetExpandedDummy
+    ExpandedPanel: 'ribbon.RibbonPanel'  # See GetExpandedPanel
+    MinimisedIcon: Bitmap  # See GetMinimisedIcon
+
 
 
 RIBBON_PANEL_DEFAULT_STYLE: int  # Defined as no other flags set.
@@ -946,9 +946,6 @@ labels.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
     """
-    ActiveTool: RibbonToolBarToolBase  # See GetActiveTool
-    ToolCount: int  # See GetToolCount
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1166,6 +1163,9 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
+    ActiveTool: RibbonToolBarToolBase  # See GetActiveTool
+    ToolCount: int  # See GetToolCount
+
 
 
 EVT_RIBBONTOOLBAR_CLICKED: int  # Triggered when the normal (non-dropdown) region of a tool on the tool bar is clicked.
@@ -1178,8 +1178,6 @@ the ribbon interface.
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonArtProvider.html
     """
-    Flags: int  # See GetFlags and SetFlags
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -1450,6 +1448,8 @@ the ribbon interface.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonArtProvider.html
         """
 
+    Flags: int  # See GetFlags and SetFlags
+
 
 
 RIBBON_BUTTONBAR_BUTTON_DISABLED: int
@@ -1465,9 +1465,6 @@ class RibbonPage(RibbonControl):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonPage.html
     """
-    Icon: Bitmap  # See GetIcon
-    MajorAxis: 'Orientation'  # See GetMajorAxis
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1546,6 +1543,9 @@ class RibbonPage(RibbonControl):
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPage.html
         """
+
+    Icon: Bitmap  # See GetIcon
+    MajorAxis: 'Orientation'  # See GetMajorAxis
 
 
 
@@ -1763,8 +1763,6 @@ class RibbonMSWArtProvider(RibbonArtProvider):
 
         Source: https://docs.wxpython.org/wx.ribbon.RibbonMSWArtProvider.html
     """
-    Flags: int  # See GetFlags and SetFlags
-
     def __init__(self, set_colour_scheme: bool=True) -> None:
         """ set_colour_scheme (bool) â
 
@@ -2022,6 +2020,8 @@ class RibbonMSWArtProvider(RibbonArtProvider):
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonMSWArtProvider.html
         """
+
+    Flags: int  # See GetFlags and SetFlags
 
 
 

@@ -7,13 +7,6 @@ notebook control, managing multiple windows with associated tabs.
 
         Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
     """
-    ActiveTabCtrl: 'aui.AuiTabCtrl'  # See GetActiveTabCtrl
-    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
-    CurrentPage: Window  # See GetCurrentPage
-    PageCount: int  # See GetPageCount
-    Selection: int  # See GetSelection and SetSelection
-    TabCtrlHeight: int  # See GetTabCtrlHeight and SetTabCtrlHeight
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -249,6 +242,13 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
+    ActiveTabCtrl: 'aui.AuiTabCtrl'  # See GetActiveTabCtrl
+    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
+    CurrentPage: Window  # See GetCurrentPage
+    PageCount: int  # See GetPageCount
+    Selection: int  # See GetSelection and SetSelection
+    TabCtrlHeight: int  # See GetTabCtrlHeight and SetTabCtrlHeight
+
 
 
 AUI_NB_DEFAULT_STYLE: int  # Defined as wx.aui.AUI_NB_TOP | wx.aui.AUI_NB_TAB_SPLIT | wx.aui.AUI_NB_TAB_MOVE | wx.aui.AUI_NB_SCROLL_BUTTONS | wx.aui.AUI_NB_CLOSE_ON_ACTIVE_TAB | wx.aui.AUI_NB_MIDDLE_CLICK_CLOSE.
@@ -341,8 +341,6 @@ class AuiDefaultTabArt(AuiTabArt):
 
         Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
     """
-    IndentSize: int  # See GetIndentSize
-
     def __init__(self) -> None:
         """ 
 
@@ -439,6 +437,8 @@ class AuiDefaultTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
         """
 
+    IndentSize: int  # See GetIndentSize
+
 
 
 class AuiMDIClientWindow(AuiNotebook):
@@ -446,8 +446,6 @@ class AuiMDIClientWindow(AuiNotebook):
 
         Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
     """
-    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -485,6 +483,8 @@ class AuiMDIClientWindow(AuiNotebook):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
         """
 
+    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
+
 
 
 class AuiTabCtrl:
@@ -519,8 +519,6 @@ AuiNotebook.
 
         Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
     """
-    IndentSize: int  # See GetIndentSize
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -611,6 +609,8 @@ AuiNotebook.
             Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
         """
 
+    IndentSize: int  # See GetIndentSize
+
 
 
 class AuiToolBar(Control):
@@ -618,18 +618,6 @@ class AuiToolBar(Control):
 
         Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
     """
-    ArtProvider: 'aui.AuiToolBarArt'  # See GetArtProvider and SetArtProvider
-    GripperVisible: bool  # See GetGripperVisible and SetGripperVisible
-    OverflowVisible: bool  # See GetOverflowVisible and SetOverflowVisible
-    ToolBarFits: bool  # See GetToolBarFits
-    ToolBitmapSize: Union[tuple[int, int], 'Size']  # See GetToolBitmapSize and SetToolBitmapSize
-    ToolBorderPadding: int  # See GetToolBorderPadding and SetToolBorderPadding
-    ToolCount: int  # See GetToolCount
-    ToolPacking: int  # See GetToolPacking and SetToolPacking
-    ToolSeparation: int  # See GetToolSeparation and SetToolSeparation
-    ToolTextOrientation: int  # See GetToolTextOrientation and SetToolTextOrientation
-    WindowStyleFlag: int  # See GetWindowStyleFlag and SetWindowStyleFlag
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1039,6 +1027,18 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
+    ArtProvider: 'aui.AuiToolBarArt'  # See GetArtProvider and SetArtProvider
+    GripperVisible: bool  # See GetGripperVisible and SetGripperVisible
+    OverflowVisible: bool  # See GetOverflowVisible and SetOverflowVisible
+    ToolBarFits: bool  # See GetToolBarFits
+    ToolBitmapSize: Union[tuple[int, int], 'Size']  # See GetToolBitmapSize and SetToolBitmapSize
+    ToolBorderPadding: int  # See GetToolBorderPadding and SetToolBorderPadding
+    ToolCount: int  # See GetToolCount
+    ToolPacking: int  # See GetToolPacking and SetToolPacking
+    ToolSeparation: int  # See GetToolSeparation and SetToolSeparation
+    ToolTextOrientation: int  # See GetToolTextOrientation and SetToolTextOrientation
+    WindowStyleFlag: int  # See GetWindowStyleFlag and SetWindowStyleFlag
+
 
 
 AUI_TB_TEXT: int  # Display the label strings on the toolbar buttons.
@@ -1080,11 +1080,6 @@ class AuiManagerEvent(Event):
 
         Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
     """
-    Button: int  # See GetButton and SetButton
-    DC: 'DC'  # See GetDC and SetDC
-    Manager: 'aui.AuiManager'  # See GetManager and SetManager
-    Pane: 'aui.AuiPaneInfo'  # See GetPane and SetPane
-
     def __init__(self, type: int=wxEVT_NULL) -> None:
         """ Constructor.
 
@@ -1163,6 +1158,11 @@ class AuiManagerEvent(Event):
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
         """
 
+    Button: int  # See GetButton and SetButton
+    DC: 'DC'  # See GetDC and SetDC
+    Manager: 'aui.AuiManager'  # See GetManager and SetManager
+    Pane: 'aui.AuiPaneInfo'  # See GetPane and SetPane
+
 
 
 EVT_AUI_PANE_BUTTON: int  # Triggered when any button is pressed for any docked panes.
@@ -1182,11 +1182,6 @@ class AuiManager(EvtHandler):
 
         Source: https://docs.wxpython.org/wx.aui.AuiManager.html
     """
-    AllPanes: AuiPaneInfoArray  # See GetAllPanes
-    ArtProvider: 'aui.AuiDockArt'  # See GetArtProvider and SetArtProvider
-    Flags: int  # See GetFlags and SetFlags
-    ManagedWindow: 'Window'  # See GetManagedWindow and SetManagedWindow
-
     def __init__(self, managed_wnd=None, flags=AUI_MGR_DEFAULT) -> None:
         """ Constructor.
 
@@ -1399,6 +1394,11 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
+    AllPanes: AuiPaneInfoArray  # See GetAllPanes
+    ArtProvider: 'aui.AuiDockArt'  # See GetArtProvider and SetArtProvider
+    Flags: int  # See GetFlags and SetFlags
+    ManagedWindow: 'Window'  # See GetManagedWindow and SetManagedWindow
+
 
 
 AUI_MGR_ALLOW_FLOATING: int  # Allow a pane to be undocked to take the form of a   wx.MiniFrame.
@@ -1426,9 +1426,6 @@ class AuiFloatingFrame(Frame):
 
         Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
     """
-    AuiManager: 'aui.AuiManager'  # See GetAuiManager
-    OwnerManager: 'aui.AuiManager'  # See GetOwnerManager
-
     def __init__(self, parent, ownerMgr, pane, id=ID_ANY, style=RESIZE_BORDER|SYSTEM_MENU|CAPTION|FRAME_NO_TASKBAR|FRAME_FLOAT_ON_PARENT|CLIP_CHILDREN) -> None:
         """ parent (wx.Window) â
 
@@ -1453,6 +1450,9 @@ class AuiFloatingFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
         """
 
+    AuiManager: 'aui.AuiManager'  # See GetAuiManager
+    OwnerManager: 'aui.AuiManager'  # See GetOwnerManager
+
 
 
 class AuiMDIParentFrame(Frame):
@@ -1460,12 +1460,6 @@ class AuiMDIParentFrame(Frame):
 
         Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
     """
-    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
-    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
-    ClientWindow: 'aui.AuiMDIClientWindow'  # See GetClientWindow
-    Notebook: 'aui.AuiNotebook'  # See GetNotebook
-    WindowMenu: 'Menu'  # See GetWindowMenu and SetWindowMenu
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1581,6 +1575,12 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
+    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
+    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
+    ClientWindow: 'aui.AuiMDIClientWindow'  # See GetClientWindow
+    Notebook: 'aui.AuiNotebook'  # See GetNotebook
+    WindowMenu: 'Menu'  # See GetWindowMenu and SetWindowMenu
+
 
 
 class AuiToolBarEvent(NotifyEvent):
@@ -1588,10 +1588,6 @@ class AuiToolBarEvent(NotifyEvent):
 
         Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
     """
-    ClickPoint: Union[tuple[int, int], 'Point']  # See GetClickPoint and SetClickPoint
-    ItemRect: 'Rect'  # See GetItemRect and SetItemRect
-    ToolId: int  # See GetToolId and SetToolId
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1646,6 +1642,10 @@ class AuiToolBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
         """
 
+    ClickPoint: Union[tuple[int, int], 'Point']  # See GetClickPoint and SetClickPoint
+    ItemRect: 'Rect'  # See GetItemRect and SetItemRect
+    ToolId: int  # See GetToolId and SetToolId
+
 
 
 class AuiMDIChildFrame(Panel):
@@ -1653,14 +1653,6 @@ class AuiMDIChildFrame(Panel):
 
         Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
     """
-    Icon: 'Icon'  # See GetIcon and SetIcon
-    Icons: 'IconBundle'  # See GetIcons and SetIcons
-    MDIParentFrame: 'aui.AuiMDIParentFrame'  # See GetMDIParentFrame and SetMDIParentFrame
-    MenuBar: 'MenuBar'  # See GetMenuBar and SetMenuBar
-    StatusBar: StatusBar  # See GetStatusBar
-    Title: str  # See GetTitle and SetTitle
-    ToolBar: ToolBar  # See GetToolBar
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1842,6 +1834,14 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
+    Icon: 'Icon'  # See GetIcon and SetIcon
+    Icons: 'IconBundle'  # See GetIcons and SetIcons
+    MDIParentFrame: 'aui.AuiMDIParentFrame'  # See GetMDIParentFrame and SetMDIParentFrame
+    MenuBar: 'MenuBar'  # See GetMenuBar and SetMenuBar
+    StatusBar: StatusBar  # See GetStatusBar
+    Title: str  # See GetTitle and SetTitle
+    ToolBar: ToolBar  # See GetToolBar
+
 
 
 class AuiNotebookPage:
@@ -1864,8 +1864,6 @@ class AuiSimpleTabArt(AuiTabArt):
 
         Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
     """
-    IndentSize: int  # See GetIndentSize
-
     def __init__(self) -> None:
         """ 
 
@@ -1962,6 +1960,8 @@ class AuiSimpleTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
         """
 
+    IndentSize: int  # See GetIndentSize
+
 
 
 class AuiToolBarItem:
@@ -1970,23 +1970,6 @@ toolbar element.
 
         Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
     """
-    Alignment: int  # See GetAlignment and SetAlignment
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
-    HoverBitmap: 'BitmapBundle'  # See GetHoverBitmap and SetHoverBitmap
-    Id: int  # See GetId and SetId
-    Kind: int  # See GetKind and SetKind
-    Label: str  # See GetLabel and SetLabel
-    LongHelp: str  # See GetLongHelp and SetLongHelp
-    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
-    Proportion: int  # See GetProportion and SetProportion
-    ShortHelp: str  # See GetShortHelp and SetShortHelp
-    SizerItem: 'SizerItem'  # See GetSizerItem and SetSizerItem
-    SpacerPixels: int  # See GetSpacerPixels and SetSpacerPixels
-    State: int  # See GetState and SetState
-    UserData: int  # See GetUserData and SetUserData
-    Window: 'Window'  # See GetWindow and SetWindow
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2233,6 +2216,23 @@ toolbar element.
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
+    Alignment: int  # See GetAlignment and SetAlignment
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
+    HoverBitmap: 'BitmapBundle'  # See GetHoverBitmap and SetHoverBitmap
+    Id: int  # See GetId and SetId
+    Kind: int  # See GetKind and SetKind
+    Label: str  # See GetLabel and SetLabel
+    LongHelp: str  # See GetLongHelp and SetLongHelp
+    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    Proportion: int  # See GetProportion and SetProportion
+    ShortHelp: str  # See GetShortHelp and SetShortHelp
+    SizerItem: 'SizerItem'  # See GetSizerItem and SetSizerItem
+    SpacerPixels: int  # See GetSpacerPixels and SetSpacerPixels
+    State: int  # See GetState and SetState
+    UserData: int  # See GetUserData and SetUserData
+    Window: 'Window'  # See GetWindow and SetWindow
+
 
 
 class AuiToolBarArt:
@@ -2240,10 +2240,6 @@ class AuiToolBarArt:
 
         Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
     """
-    Flags: int  # See GetFlags and SetFlags
-    Font: 'Font'  # See GetFont and SetFont
-    TextOrientation: int  # See GetTextOrientation and SetTextOrientation
-
     def __init__(self) -> None:
         """ 
 
@@ -2376,6 +2372,10 @@ class AuiToolBarArt:
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
         """
 
+    Flags: int  # See GetFlags and SetFlags
+    Font: 'Font'  # See GetFont and SetFont
+    TextOrientation: int  # See GetTextOrientation and SetTextOrientation
+
 
 
 class AuiPaneInfo:
@@ -2383,24 +2383,6 @@ class AuiPaneInfo:
 
         Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
     """
-    best_size: Any  # A public C++ attribute of type Size     . size that the layout engine will prefer
-    caption: Any  # A public C++ attribute of type string. caption displayed on the window
-    dock_direction: Any  # A public C++ attribute of type int. dock direction (top, bottom, left, right, center)
-    dock_layer: Any  # A public C++ attribute of type int. layer number (0 = innermost layer)
-    dock_pos: Any  # A public C++ attribute of type int. position inside the row (0 = first position)
-    dock_proportion: Any  # A public C++ attribute of type int. proportion while docked
-    dock_row: Any  # A public C++ attribute of type int. row number on the docking bar (0 = first row)
-    floating_pos: Any  # A public C++ attribute of type Point     . position while floating
-    floating_size: Any  # A public C++ attribute of type Size     . size while floating
-    frame: Any  # A public C++ attribute of type Frame     . floating frame window that holds the pane
-    icon: Any  # A public C++ attribute of type BitmapBundle     . icon of the pane, may be invalid
-    max_size: Any  # A public C++ attribute of type Size     . maximum size the pane window can tolerate
-    min_size: Any  # A public C++ attribute of type Size     . minimum size the pane window can tolerate
-    name: Any  # A public C++ attribute of type string. name of the pane
-    rect: Any  # A public C++ attribute of type Rect     . current rectangle (populated by AUI)
-    state: Any  # A public C++ attribute of type int. a combination of PaneState values
-    window: Any  # A public C++ attribute of type Window     . window that is in this pane
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2839,6 +2821,24 @@ class AuiPaneInfo:
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
+    best_size: Any  # A public C++ attribute of type Size     . size that the layout engine will prefer
+    caption: Any  # A public C++ attribute of type string. caption displayed on the window
+    dock_direction: Any  # A public C++ attribute of type int. dock direction (top, bottom, left, right, center)
+    dock_layer: Any  # A public C++ attribute of type int. layer number (0 = innermost layer)
+    dock_pos: Any  # A public C++ attribute of type int. position inside the row (0 = first position)
+    dock_proportion: Any  # A public C++ attribute of type int. proportion while docked
+    dock_row: Any  # A public C++ attribute of type int. row number on the docking bar (0 = first row)
+    floating_pos: Any  # A public C++ attribute of type Point     . position while floating
+    floating_size: Any  # A public C++ attribute of type Size     . size while floating
+    frame: Any  # A public C++ attribute of type Frame     . floating frame window that holds the pane
+    icon: Any  # A public C++ attribute of type BitmapBundle     . icon of the pane, may be invalid
+    max_size: Any  # A public C++ attribute of type Size     . maximum size the pane window can tolerate
+    min_size: Any  # A public C++ attribute of type Size     . minimum size the pane window can tolerate
+    name: Any  # A public C++ attribute of type string. name of the pane
+    rect: Any  # A public C++ attribute of type Rect     . current rectangle (populated by AUI)
+    state: Any  # A public C++ attribute of type int. a combination of PaneState values
+    window: Any  # A public C++ attribute of type Window     . window that is in this pane
+
 
 
 class AuiDockArt:
@@ -2937,10 +2937,6 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
 
         Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
     """
-    Flags: int  # See GetFlags and SetFlags
-    Font: 'Font'  # See GetFont and SetFont
-    TextOrientation: int  # See GetTextOrientation and SetTextOrientation
-
     def __init__(self) -> None:
         """ 
 
@@ -3072,6 +3068,10 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
         """
+
+    Flags: int  # See GetFlags and SetFlags
+    Font: 'Font'  # See GetFont and SetFont
+    TextOrientation: int  # See GetTextOrientation and SetTextOrientation
 
 
 

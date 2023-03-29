@@ -7,10 +7,6 @@ Buttons but are similar to the links in a web page in functionality.
 
         Source: https://docs.wxpython.org/wx.adv.CommandLinkButton.html
     """
-    Label: str  # See GetLabel and SetLabel
-    MainLabel: str  # See GetMainLabel and SetMainLabel
-    Note: str  # See GetNote and SetNote
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -72,6 +68,10 @@ Buttons but are similar to the links in a web page in functionality.
             Source: https://docs.wxpython.org/wx.adv.CommandLinkButton.html
         """
 
+    Label: str  # See GetLabel and SetLabel
+    MainLabel: str  # See GetMainLabel and SetMainLabel
+    Note: str  # See GetNote and SetNote
+
 
 
 ID_ANY: int
@@ -82,14 +82,6 @@ enter, delete and reorder a list of strings.
 
         Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
     """
-    DelButton: BitmapButton  # See GetDelButton
-    DownButton: BitmapButton  # See GetDownButton
-    EditButton: BitmapButton  # See GetEditButton
-    ListCtrl: ListCtrl  # See GetListCtrl
-    NewButton: BitmapButton  # See GetNewButton
-    Strings: list[str]  # See GetStrings and SetStrings
-    UpButton: BitmapButton  # See GetUpButton
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -157,6 +149,14 @@ enter, delete and reorder a list of strings.
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
+    DelButton: BitmapButton  # See GetDelButton
+    DownButton: BitmapButton  # See GetDownButton
+    EditButton: BitmapButton  # See GetEditButton
+    ListCtrl: ListCtrl  # See GetListCtrl
+    NewButton: BitmapButton  # See GetNewButton
+    Strings: list[str]  # See GetStrings and SetStrings
+    UpButton: BitmapButton  # See GetUpButton
+
 
 
 EL_ALLOW_NEW: int  # Allows the user to enter new strings.
@@ -174,9 +174,6 @@ class OwnerDrawnComboBox(ComboCtrl,ItemContainer):
 
         Source: https://docs.wxpython.org/wx.adv.OwnerDrawnComboBox.html
     """
-    WidestItem: int  # See GetWidestItem
-    WidestItemWidth: int  # See GetWidestItemWidth
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -244,6 +241,9 @@ class OwnerDrawnComboBox(ComboCtrl,ItemContainer):
             Source: https://docs.wxpython.org/wx.adv.OwnerDrawnComboBox.html
         """
 
+    WidestItem: int  # See GetWidestItem
+    WidestItemWidth: int  # See GetWidestItemWidth
+
 
 
 ODCB_DCLICK_CYCLES: int  # Double-clicking cycles item if wx.CB_READONLY is also used. Synonymous with wx.CC_SPECIAL_DCLICK.
@@ -261,11 +261,6 @@ class BitmapComboBox(ComboBox):
 
         Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
     """
-    BitmapSize: Size  # See GetBitmapSize
-    Count: int  # See GetCount
-    InsertionPoint: int  # See GetInsertionPoint
-    Selection: int  # See GetSelection and SetSelection
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -399,6 +394,11 @@ class BitmapComboBox(ComboBox):
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
         """
 
+    BitmapSize: Size  # See GetBitmapSize
+    Count: int  # See GetCount
+    InsertionPoint: int  # See GetInsertionPoint
+    Selection: int  # See GetSelection and SetSelection
+
 
 
 CB_SORT: int  # Sorts the entries in the list alphabetically.
@@ -417,8 +417,6 @@ together with DatePickerCtrl.
 
         Source: https://docs.wxpython.org/wx.adv.DateEvent.html
     """
-    Date: 'DateTime'  # See GetDate and SetDate
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -443,6 +441,8 @@ together with DatePickerCtrl.
             Source: https://docs.wxpython.org/wx.adv.DateEvent.html
         """
 
+    Date: 'DateTime'  # See GetDate and SetDate
+
 
 
 class HyperlinkEvent(CommandEvent):
@@ -450,8 +450,6 @@ class HyperlinkEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.adv.HyperlinkEvent.html
     """
-    URL: str  # See GetURL and SetURL
-
     def __init__(self, generator, id, url) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -470,6 +468,8 @@ class HyperlinkEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.adv.HyperlinkEvent.html
         """
 
+    URL: str  # See GetURL and SetURL
+
 
 
 EVT_HYPERLINK: int  # User clicked on a hyperlink. ^^
@@ -480,10 +480,6 @@ by the user.
 
         Source: https://docs.wxpython.org/wx.adv.SashEvent.html
     """
-    DragRect: 'Rect'  # See GetDragRect and SetDragRect
-    DragStatus: SashDragStatus  # See GetDragStatus and SetDragStatus
-    Edge: SashEdgePosition  # See GetEdge and SetEdge
-
     def __init__(self, id=0, edge=SASH_NONE) -> None:
         """ Constructor.
 
@@ -525,6 +521,10 @@ by the user.
 
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
         """
+
+    DragRect: 'Rect'  # See GetDragRect and SetDragRect
+    DragStatus: SashDragStatus  # See GetDragStatus and SetDragStatus
+    Edge: SashEdgePosition  # See GetEdge and SetEdge
 
 
 
@@ -604,13 +604,6 @@ dragged to resize the window.
 
         Source: https://docs.wxpython.org/wx.adv.SashWindow.html
     """
-    DefaultBorderSize: int  # See GetDefaultBorderSize and SetDefaultBorderSize
-    ExtraBorderSize: int  # See GetExtraBorderSize and SetExtraBorderSize
-    MaximumSizeX: int  # See GetMaximumSizeX and SetMaximumSizeX
-    MaximumSizeY: int  # See GetMaximumSizeY and SetMaximumSizeY
-    MinimumSizeX: int  # See GetMinimumSizeX and SetMinimumSizeX
-    MinimumSizeY: int  # See GetMinimumSizeY and SetMinimumSizeY
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -726,6 +719,13 @@ dragged to resize the window.
             Source: https://docs.wxpython.org/wx.adv.SashWindow.html
         """
 
+    DefaultBorderSize: int  # See GetDefaultBorderSize and SetDefaultBorderSize
+    ExtraBorderSize: int  # See GetExtraBorderSize and SetExtraBorderSize
+    MaximumSizeX: int  # See GetMaximumSizeX and SetMaximumSizeX
+    MaximumSizeY: int  # See GetMaximumSizeY and SetMaximumSizeY
+    MinimumSizeX: int  # See GetMinimumSizeX and SetMinimumSizeX
+    MinimumSizeY: int  # See GetMinimumSizeY and SetMinimumSizeY
+
 
 
 SW_3D: int  # Draws a 3D effect sash and border.
@@ -741,9 +741,6 @@ class AnimationCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
     """
-    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
-    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
-
     def __init__(self, parent, id=ID_ANY, anim=NullAnimation, pos=DefaultPosition, size=DefaultSize, style=AC_DEFAULT_STYLE, name=AnimationCtrlNameStr) -> None:
         """ Initializes the object and calls Create   with all the parameters.
 
@@ -830,6 +827,9 @@ class AnimationCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
+    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
+    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
+
 
 
 AC_DEFAULT_STYLE: int  # The default style: wx.BORDER_NONE.
@@ -843,15 +843,6 @@ class CalendarCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
     """
-    Date: 'DateTime'  # See GetDate and SetDate
-    DateRange: tuple  # See GetDateRange and SetDateRange
-    HeaderColourBg: Colour  # See GetHeaderColourBg
-    HeaderColourFg: Colour  # See GetHeaderColourFg
-    HighlightColourBg: Colour  # See GetHighlightColourBg
-    HighlightColourFg: Colour  # See GetHighlightColourFg
-    HolidayColourBg: Colour  # See GetHolidayColourBg
-    HolidayColourFg: Colour  # See GetHolidayColourFg
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1003,6 +994,15 @@ class CalendarCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
+    Date: 'DateTime'  # See GetDate and SetDate
+    DateRange: tuple  # See GetDateRange and SetDateRange
+    HeaderColourBg: Colour  # See GetHeaderColourBg
+    HeaderColourFg: Colour  # See GetHeaderColourFg
+    HighlightColourBg: Colour  # See GetHighlightColourBg
+    HighlightColourFg: Colour  # See GetHighlightColourFg
+    HolidayColourBg: Colour  # See GetHolidayColourBg
+    HolidayColourFg: Colour  # See GetHolidayColourFg
+
 
 
 CAL_SUNDAY_FIRST: int  # Show Sunday as the first day in the week (not in wxGTK)
@@ -1036,8 +1036,6 @@ class DatePickerCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.adv.DatePickerCtrl.html
     """
-    Value: 'DateTime'  # See GetValue and SetValue
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1087,6 +1085,8 @@ class DatePickerCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.DatePickerCtrl.html
         """
 
+    Value: 'DateTime'  # See GetValue and SetValue
+
 
 
 DP_SPIN: int  # Creates a control without a month calendar drop down but with spin-control-like arrows to change individual date components. This style is not supported by the generic version.
@@ -1106,12 +1106,6 @@ class HyperlinkCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
     """
-    HoverColour: Union[int, str, 'Colour']  # See GetHoverColour and SetHoverColour
-    NormalColour: Union[int, str, 'Colour']  # See GetNormalColour and SetNormalColour
-    URL: str  # See GetURL and SetURL
-    Visited: bool  # See GetVisited and SetVisited
-    VisitedColour: Union[int, str, 'Colour']  # See GetVisitedColour and SetVisitedColour
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1191,6 +1185,12 @@ class HyperlinkCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
         """
 
+    HoverColour: Union[int, str, 'Colour']  # See GetHoverColour and SetHoverColour
+    NormalColour: Union[int, str, 'Colour']  # See GetNormalColour and SetNormalColour
+    URL: str  # See GetURL and SetURL
+    Visited: bool  # See GetVisited and SetVisited
+    VisitedColour: Union[int, str, 'Colour']  # See GetVisitedColour and SetVisitedColour
+
 
 
 HL_ALIGN_LEFT: int  # Align the text to the left.
@@ -1208,8 +1208,6 @@ class TimePickerCtrl(Control):
 
         Source: https://docs.wxpython.org/wx.adv.TimePickerCtrl.html
     """
-    Value: 'DateTime'  # See GetValue and SetValue
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1253,6 +1251,8 @@ class TimePickerCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.TimePickerCtrl.html
         """
 
+    Value: 'DateTime'  # See GetValue and SetValue
+
 
 
 EVT_TIME_CHANGED: int  # Process a wxEVT_TIME_CHANGED event, which fires when the user changes the current selection in the control. ^^
@@ -1263,13 +1263,6 @@ showing settings.
 
         Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
     """
-    BookCtrl: 'BookCtrlBase'  # See GetBookCtrl and SetBookCtrl
-    ContentWindow: Window  # See GetContentWindow
-    InnerSizer: 'Sizer'  # See GetInnerSizer and SetInnerSizer
-    SheetInnerBorder: int  # See GetSheetInnerBorder and SetSheetInnerBorder
-    SheetOuterBorder: int  # See GetSheetOuterBorder and SetSheetOuterBorder
-    SheetStyle: int  # See GetSheetStyle and SetSheetStyle
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1379,6 +1372,13 @@ showing settings.
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
+    BookCtrl: 'BookCtrlBase'  # See GetBookCtrl and SetBookCtrl
+    ContentWindow: Window  # See GetContentWindow
+    InnerSizer: 'Sizer'  # See GetInnerSizer and SetInnerSizer
+    SheetInnerBorder: int  # See GetSheetInnerBorder and SetSheetInnerBorder
+    SheetOuterBorder: int  # See GetSheetOuterBorder and SetSheetOuterBorder
+    SheetStyle: int  # See GetSheetStyle and SetSheetStyle
+
 
 
 class Wizard(Dialog):
@@ -1386,14 +1386,6 @@ class Wizard(Dialog):
 
         Source: https://docs.wxpython.org/wx.adv.Wizard.html
     """
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    BitmapBackgroundColour: Union[int, str, 'Colour']  # See GetBitmapBackgroundColour and SetBitmapBackgroundColour
-    BitmapPlacement: int  # See GetBitmapPlacement and SetBitmapPlacement
-    CurrentPage: 'adv.WizardPage'  # See GetCurrentPage
-    MinimumBitmapWidth: int  # See GetMinimumBitmapWidth and SetMinimumBitmapWidth
-    PageAreaSizer: Sizer  # See GetPageAreaSizer
-    PageSize: Union[tuple[int, int], 'Size']  # See GetPageSize and SetPageSize
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1527,6 +1519,14 @@ class Wizard(Dialog):
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
+    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
+    BitmapBackgroundColour: Union[int, str, 'Colour']  # See GetBitmapBackgroundColour and SetBitmapBackgroundColour
+    BitmapPlacement: int  # See GetBitmapPlacement and SetBitmapPlacement
+    CurrentPage: 'adv.WizardPage'  # See GetCurrentPage
+    MinimumBitmapWidth: int  # See GetMinimumBitmapWidth and SetMinimumBitmapWidth
+    PageAreaSizer: Sizer  # See GetPageAreaSizer
+    PageSize: Union[tuple[int, int], 'Size']  # See GetPageSize and SetPageSize
+
 
 
 EVT_WIZARD_PAGE_CHANGED: int  # The page has just been changed (this event cannot be vetoed).
@@ -1567,9 +1567,6 @@ remaining client area that the window should occupy.
 
         Source: https://docs.wxpython.org/wx.adv.CalculateLayoutEvent.html
     """
-    Flags: int  # See GetFlags and SetFlags
-    Rect: 'Rect'  # See GetRect and SetRect
-
     def __init__(self, id: int=0) -> None:
         """ Constructor.
 
@@ -1600,6 +1597,9 @@ remaining client area that the window should occupy.
             Source: https://docs.wxpython.org/wx.adv.CalculateLayoutEvent.html
         """
 
+    Flags: int  # See GetFlags and SetFlags
+    Rect: 'Rect'  # See GetRect and SetRect
+
 
 
 EVT_CALCULATE_LAYOUT: int  # Process a  wxEVT_CALCULATE_LAYOUT   event, which asks the window to take a âbiteâ out of a rectangle provided by the algorithm. ^^
@@ -1610,12 +1610,6 @@ orientation and alignment of a window.
 
         Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
     """
-    Alignment: int  # See GetAlignment and SetAlignment
-    Flags: int  # See GetFlags and SetFlags
-    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
-    RequestedLength: int  # See GetRequestedLength and SetRequestedLength
-    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
-
     def __init__(self, id: int=0) -> None:
         """ Constructor.
 
@@ -1681,6 +1675,12 @@ orientation and alignment of a window.
 
             Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
         """
+
+    Alignment: int  # See GetAlignment and SetAlignment
+    Flags: int  # See GetFlags and SetFlags
+    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
+    RequestedLength: int  # See GetRequestedLength and SetRequestedLength
+    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
 
 
 
@@ -1891,10 +1891,6 @@ describing your application.
 
         Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
     """
-    Bitmap: Bitmap  # See GetBitmap and SetBitmap
-    SplashStyle: int  # See GetSplashStyle
-    Timeout: int  # See GetTimeout
-
     def __init__(self, bitmap, splashStyle, milliseconds, parent, id=ID_ANY, pos=DefaultPosition, size=DefaultSize, style=BORDER_SIMPLE|FRAME_NO_TASKBAR|STAY_ON_TOP) -> None:
         """ Construct the splash screen passing a bitmap, a style, a timeout, a window id, optional position and size, and a window style.
 
@@ -1932,6 +1928,10 @@ describing your application.
             Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
         """
 
+    Bitmap: Bitmap  # See GetBitmap and SetBitmap
+    SplashStyle: int  # See GetSplashStyle
+    Timeout: int  # See GetTimeout
+
 
 
 SPLASH_CENTRE_ON_PARENT: int
@@ -1949,8 +1949,6 @@ class ExtHelpController(HelpControllerBase):
 
         Source: https://docs.wxpython.org/wx.adv.ExtHelpController.html
     """
-    FrameParameters: Frame  # See GetFrameParameters
-
     def __init__(self, parentWindow: Optional['Window']=None) -> None:
         """ parentWindow (wx.Window) â
 
@@ -2029,6 +2027,8 @@ class ExtHelpController(HelpControllerBase):
             Source: https://docs.wxpython.org/wx.adv.ExtHelpController.html
         """
 
+    FrameParameters: Frame  # See GetFrameParameters
+
 
 
 HELP_NETSCAPE: int
@@ -2038,37 +2038,6 @@ class Joystick(Object):
 
         Source: https://docs.wxpython.org/wx.adv.Joystick.html
     """
-    ButtonState: int  # See GetButtonState
-    ManufacturerId: int  # See GetManufacturerId
-    MaxAxes: int  # See GetMaxAxes
-    MaxButtons: int  # See GetMaxButtons
-    MovementThreshold: int  # See GetMovementThreshold and SetMovementThreshold
-    NumberAxes: int  # See GetNumberAxes
-    NumberButtons: int  # See GetNumberButtons
-    POVCTSPosition: int  # See GetPOVCTSPosition
-    POVPosition: int  # See GetPOVPosition
-    PollingMax: int  # See GetPollingMax
-    PollingMin: int  # See GetPollingMin
-    Position: Point  # See GetPosition
-    ProductId: int  # See GetProductId
-    ProductName: str  # See GetProductName
-    RudderMax: int  # See GetRudderMax
-    RudderMin: int  # See GetRudderMin
-    RudderPosition: int  # See GetRudderPosition
-    UMax: int  # See GetUMax
-    UMin: int  # See GetUMin
-    UPosition: int  # See GetUPosition
-    VMax: int  # See GetVMax
-    VMin: int  # See GetVMin
-    VPosition: int  # See GetVPosition
-    XMax: int  # See GetXMax
-    XMin: int  # See GetXMin
-    YMax: int  # See GetYMax
-    YMin: int  # See GetYMin
-    ZMax: int  # See GetZMax
-    ZMin: int  # See GetZMin
-    ZPosition: int  # See GetZPosition
-
     def __init__(self, joystick: int=JOYSTICK1) -> None:
         """ Constructor.
 
@@ -2328,6 +2297,37 @@ class Joystick(Object):
             Source: https://docs.wxpython.org/wx.adv.Joystick.html
         """
 
+    ButtonState: int  # See GetButtonState
+    ManufacturerId: int  # See GetManufacturerId
+    MaxAxes: int  # See GetMaxAxes
+    MaxButtons: int  # See GetMaxButtons
+    MovementThreshold: int  # See GetMovementThreshold and SetMovementThreshold
+    NumberAxes: int  # See GetNumberAxes
+    NumberButtons: int  # See GetNumberButtons
+    POVCTSPosition: int  # See GetPOVCTSPosition
+    POVPosition: int  # See GetPOVPosition
+    PollingMax: int  # See GetPollingMax
+    PollingMin: int  # See GetPollingMin
+    Position: Point  # See GetPosition
+    ProductId: int  # See GetProductId
+    ProductName: str  # See GetProductName
+    RudderMax: int  # See GetRudderMax
+    RudderMin: int  # See GetRudderMin
+    RudderPosition: int  # See GetRudderPosition
+    UMax: int  # See GetUMax
+    UMin: int  # See GetUMin
+    UPosition: int  # See GetUPosition
+    VMax: int  # See GetVMax
+    VMin: int  # See GetVMin
+    VPosition: int  # See GetVPosition
+    XMax: int  # See GetXMax
+    XMin: int  # See GetXMin
+    YMax: int  # See GetYMax
+    YMin: int  # See GetYMin
+    ZMax: int  # See GetZMax
+    ZMin: int  # See GetZMin
+    ZPosition: int  # See GetZPosition
+
 
 
 JOYSTICK1: int
@@ -2341,9 +2341,6 @@ there, goes up the window hierarchy as usual.
 
         Source: https://docs.wxpython.org/wx.adv.WizardEvent.html
     """
-    Direction: bool  # See GetDirection
-    Page: 'adv.WizardPage'  # See GetPage
-
     def __init__(self, type=wxEVT_NULL, id=ID_ANY, direction=True, page=0) -> None:
         """ Constructor.
 
@@ -2362,6 +2359,9 @@ there, goes up the window hierarchy as usual.
             Source: https://docs.wxpython.org/wx.adv.WizardEvent.html
         """
 
+    Direction: bool  # See GetDirection
+    Page: 'adv.WizardPage'  # See GetPage
+
 
 
 class Animation(Object):
@@ -2370,9 +2370,6 @@ control and the details of the animation image or data.
 
         Source: https://docs.wxpython.org/wx.adv.Animation.html
     """
-    FrameCount: int  # See GetFrameCount
-    Size: Size  # See GetSize
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2468,6 +2465,9 @@ control and the details of the animation image or data.
 
             Source: https://docs.wxpython.org/wx.adv.Animation.html
         """
+
+    FrameCount: int  # See GetFrameCount
+    Size: Size  # See GetSize
 
 
 
@@ -2580,10 +2580,6 @@ first/last page).
 
         Source: https://docs.wxpython.org/wx.adv.WizardPage.html
     """
-    Bitmap: Bitmap  # See GetBitmap
-    Next: 'adv.WizardPage'  # See GetNext
-    Prev: 'adv.WizardPage'  # See GetPrev
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2621,6 +2617,10 @@ first/last page).
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
+    Bitmap: Bitmap  # See GetBitmap
+    Next: 'adv.WizardPage'  # See GetNext
+    Prev: 'adv.WizardPage'  # See GetPrev
+
 
 
 ODCB_PAINTING_CONTROL: int
@@ -2632,8 +2632,6 @@ class CalendarEvent(DateEvent):
 
         Source: https://docs.wxpython.org/wx.adv.CalendarEvent.html
     """
-    WeekDay: DateTime.WeekDay  # See GetWeekDay and SetWeekDay
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2652,6 +2650,8 @@ class CalendarEvent(DateEvent):
             Source: https://docs.wxpython.org/wx.adv.CalendarEvent.html
         """
 
+    WeekDay: DateTime.WeekDay  # See GetWeekDay and SetWeekDay
+
 
 
 SASH_NONE: int
@@ -2662,9 +2662,6 @@ LayoutAlgorithm.
 
         Source: https://docs.wxpython.org/wx.adv.SashLayoutWindow.html
     """
-    Alignment: int  # See GetAlignment and SetAlignment
-    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2726,6 +2723,9 @@ LayoutAlgorithm.
             Source: https://docs.wxpython.org/wx.adv.SashLayoutWindow.html
         """
 
+    Alignment: int  # See GetAlignment and SetAlignment
+    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
+
 
 
 class GenericAnimationCtrl(AnimationCtrl):
@@ -2733,10 +2733,6 @@ class GenericAnimationCtrl(AnimationCtrl):
 
         Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
     """
-    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
-    BackingStore: Bitmap  # See GetBackingStore
-    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
-
     def __init__(self, parent, id=ID_ANY, anim=NullAnimation, pos=DefaultPosition, size=DefaultSize, style=AC_DEFAULT_STYLE, name=AnimationCtrlNameStr) -> None:
         """ Initializes the object and calls Create   with all the parameters.
 
@@ -2847,6 +2843,10 @@ class GenericAnimationCtrl(AnimationCtrl):
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
+    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
+    BackingStore: Bitmap  # See GetBackingStore
+    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
+
 
 
 ANIMATION_TYPE_INVALID: int
@@ -2860,12 +2860,6 @@ class CalendarDateAttr:
 
         Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
     """
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    Border: CalendarDateBorder  # See GetBorder and SetBorder
-    BorderColour: Union[int, str, 'Colour']  # See GetBorderColour and SetBorderColour
-    Font: 'Font'  # See GetFont and SetFont
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -2988,6 +2982,12 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Border: CalendarDateBorder  # See GetBorder and SetBorder
+    BorderColour: Union[int, str, 'Colour']  # See GetBorderColour and SetBorderColour
+    Font: 'Font'  # See GetFont and SetFont
+    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+
 
 
 CAL_HITTEST_NOWHERE: int
@@ -3034,11 +3034,6 @@ information for the animation from the animation image file.
 
         Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
     """
-    AnimationSize: Size  # See GetAnimationSize
-    BackgroundColour: Colour  # See GetBackgroundColour
-    FrameCount: int  # See GetFrameCount
-    Type: 'adv.AnimationType'  # See GetType
-
     def __init__(self) -> None:
         """ 
 
@@ -3129,6 +3124,11 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
+    AnimationSize: Size  # See GetAnimationSize
+    BackgroundColour: Colour  # See GetBackgroundColour
+    FrameCount: int  # See GetFrameCount
+    Type: 'adv.AnimationType'  # See GetType
+
 
 
 class WizardPageSimple(WizardPage):
@@ -3188,8 +3188,6 @@ class ANIDecoder(AnimationDecoder):
 
         Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
     """
-    Type: 'adv.AnimationType'  # See GetType
-
     def __init__(self) -> None:
         """ 
 
@@ -3255,6 +3253,8 @@ class ANIDecoder(AnimationDecoder):
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
+
+    Type: 'adv.AnimationType'  # See GetType
 
 
 
@@ -3263,8 +3263,6 @@ class GIFDecoder(AnimationDecoder):
 
         Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
     """
-    Type: 'adv.AnimationType'  # See GetType
-
     def __init__(self) -> None:
         """ 
 
@@ -3330,6 +3328,8 @@ class GIFDecoder(AnimationDecoder):
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
+
+    Type: 'adv.AnimationType'  # See GetType
 
 
 

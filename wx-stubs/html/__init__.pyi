@@ -6,11 +6,6 @@ class HtmlCellEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.html.HtmlCellEvent.html
     """
-    Cell: 'html.HtmlCell'  # See GetCell
-    LinkClicked: bool  # See GetLinkClicked and SetLinkClicked
-    MouseEvent: MouseEvent  # See GetMouseEvent
-    Point: Point  # See GetPoint
-
     def __init__(self, commandType, id, cell, point, ev) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -47,6 +42,11 @@ class HtmlCellEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.html.HtmlCellEvent.html
         """
 
+    Cell: 'html.HtmlCell'  # See GetCell
+    LinkClicked: bool  # See GetLinkClicked and SetLinkClicked
+    MouseEvent: MouseEvent  # See GetMouseEvent
+    Point: Point  # See GetPoint
+
 
 
 EVT_HTML_CELL_HOVER: int  # User moved the mouse over a   wx.html.HtmlCell.
@@ -58,8 +58,6 @@ class HtmlLinkEvent(CommandEvent):
 
         Source: https://docs.wxpython.org/wx.html.HtmlLinkEvent.html
     """
-    LinkInfo: 'html.HtmlLinkInfo'  # See GetLinkInfo
-
     def __init__(self, id, linkinfo) -> None:
         """ The constructor is not normally used by the user code.
 
@@ -72,6 +70,8 @@ class HtmlLinkEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.html.HtmlLinkEvent.html
         """
 
+    LinkInfo: 'html.HtmlLinkInfo'  # See GetLinkInfo
+
 
 
 EVT_HTML_LINK_CLICKED: int  # User clicked on a hyperlink. ^^
@@ -83,9 +83,6 @@ HTML help window.
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpWindow.html
     """
-    Controller: 'html.HtmlHelpController'  # See GetController and SetController
-    Data: 'html.HtmlHelpData'  # See GetData
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -195,6 +192,9 @@ HTML help window.
             Source: https://docs.wxpython.org/wx.html.HtmlHelpWindow.html
         """
 
+    Controller: 'html.HtmlHelpController'  # See GetController and SetController
+    Data: 'html.HtmlHelpData'  # See GetData
+
 
 
 HF_EMBEDDED: int
@@ -241,8 +241,6 @@ class HtmlHelpDialog(Dialog):
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpDialog.html
     """
-    Controller: 'html.HtmlHelpController'  # See GetController and SetController
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -286,6 +284,8 @@ class HtmlHelpDialog(Dialog):
             Source: https://docs.wxpython.org/wx.html.HtmlHelpDialog.html
         """
 
+    Controller: 'html.HtmlHelpController'  # See GetController and SetController
+
 
 
 class HtmlHelpFrame(Frame):
@@ -293,8 +293,6 @@ class HtmlHelpFrame(Frame):
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpFrame.html
     """
-    Controller: 'html.HtmlHelpController'  # See GetController and SetController
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -338,6 +336,8 @@ class HtmlHelpFrame(Frame):
             Source: https://docs.wxpython.org/wx.html.HtmlHelpFrame.html
         """
 
+    Controller: 'html.HtmlHelpController'  # See GetController and SetController
+
 
 
 class HtmlHelpController(HelpControllerBase):
@@ -346,10 +346,6 @@ your application (see HTML Sample, test example).
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpController.html
     """
-    Dialog: 'html.HtmlHelpDialog'  # See GetDialog
-    Frame: 'html.HtmlHelpFrame'  # See GetFrame
-    HelpWindow: 'html.HtmlHelpWindow'  # See GetHelpWindow and SetHelpWindow
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -458,6 +454,10 @@ your application (see HTML Sample, test example).
             Source: https://docs.wxpython.org/wx.html.HtmlHelpController.html
         """
 
+    Dialog: 'html.HtmlHelpDialog'  # See GetDialog
+    Frame: 'html.HtmlHelpFrame'  # See GetFrame
+    HelpWindow: 'html.HtmlHelpWindow'  # See GetHelpWindow and SetHelpWindow
+
 
 
 HF_TOOLBAR: int
@@ -497,19 +497,6 @@ class HtmlCell(Object):
 
         Source: https://docs.wxpython.org/wx.html.HtmlCell.html
     """
-    AbsPos: Point  # See GetAbsPos
-    Descent: int  # See GetDescent
-    FirstChild: 'html.HtmlCell'  # See GetFirstChild
-    Height: int  # See GetHeight
-    Id: str  # See GetId and SetId
-    Link: 'html.HtmlLinkInfo'  # See GetLink and SetLink
-    Next: 'html.HtmlCell'  # See GetNext and SetNext
-    Parent: 'html.HtmlContainerCell'  # See GetParent and SetParent
-    PosX: int  # See GetPosX
-    PosY: int  # See GetPosY
-    RootCell: 'html.HtmlCell'  # See GetRootCell
-    Width: int  # See GetWidth
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -678,6 +665,19 @@ class HtmlCell(Object):
             Source: https://docs.wxpython.org/wx.html.HtmlCell.html
         """
 
+    AbsPos: Point  # See GetAbsPos
+    Descent: int  # See GetDescent
+    FirstChild: 'html.HtmlCell'  # See GetFirstChild
+    Height: int  # See GetHeight
+    Id: str  # See GetId and SetId
+    Link: 'html.HtmlLinkInfo'  # See GetLink and SetLink
+    Next: 'html.HtmlCell'  # See GetNext and SetNext
+    Parent: 'html.HtmlContainerCell'  # See GetParent and SetParent
+    PosX: int  # See GetPosX
+    PosY: int  # See GetPosY
+    RootCell: 'html.HtmlCell'  # See GetRootCell
+    Width: int  # See GetWidth
+
 
 
 HTML_COND_ISANCHOR: int
@@ -687,9 +687,6 @@ class HtmlDCRenderer(Object):
 
         Source: https://docs.wxpython.org/wx.html.HtmlDCRenderer.html
     """
-    TotalHeight: int  # See GetTotalHeight
-    TotalWidth: int  # See GetTotalWidth
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -756,6 +753,9 @@ class HtmlDCRenderer(Object):
             Source: https://docs.wxpython.org/wx.html.HtmlDCRenderer.html
         """
 
+    TotalHeight: int  # See GetTotalHeight
+    TotalWidth: int  # See GetTotalWidth
+
 
 
 class HtmlEasyPrinting(Object):
@@ -763,11 +763,6 @@ class HtmlEasyPrinting(Object):
 
         Source: https://docs.wxpython.org/wx.html.HtmlEasyPrinting.html
     """
-    Name: str  # See GetName and SetName
-    PageSetupData: PageSetupDialogData  # See GetPageSetupData
-    ParentWindow: 'Window'  # See GetParentWindow and SetParentWindow
-    PrintData: PrintData  # See GetPrintData
-
     def __init__(self, name="Printing", parentWindow=None) -> None:
         """ Constructor.
 
@@ -870,6 +865,11 @@ class HtmlEasyPrinting(Object):
             Source: https://docs.wxpython.org/wx.html.HtmlEasyPrinting.html
         """
 
+    Name: str  # See GetName and SetName
+    PageSetupData: PageSetupDialogData  # See GetPageSetupData
+    ParentWindow: 'Window'  # See GetParentWindow and SetParentWindow
+    PrintData: PrintData  # See GetPrintData
+
 
 
 PAGE_ODD: int
@@ -909,10 +909,6 @@ access HTML help items.
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpData.html
     """
-    BookRecArray: HtmlBookRecArray  # See GetBookRecArray
-    ContentsArray: HtmlHelpDataItems  # See GetContentsArray
-    IndexArray: HtmlHelpDataItems  # See GetIndexArray
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -961,6 +957,10 @@ access HTML help items.
             Source: https://docs.wxpython.org/wx.html.HtmlHelpData.html
         """
 
+    BookRecArray: HtmlBookRecArray  # See GetBookRecArray
+    ContentsArray: HtmlHelpDataItems  # See GetContentsArray
+    IndexArray: HtmlHelpDataItems  # See GetIndexArray
+
 
 
 class HtmlLinkInfo(Object):
@@ -969,11 +969,6 @@ represented by <A> tag in HTML documents).
 
         Source: https://docs.wxpython.org/wx.html.HtmlLinkInfo.html
     """
-    Event: MouseEvent  # See GetEvent
-    Href: str  # See GetHref
-    HtmlCell: 'html.HtmlCell'  # See GetHtmlCell
-    Target: str  # See GetTarget
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1004,6 +999,11 @@ represented by <A> tag in HTML documents).
             Source: https://docs.wxpython.org/wx.html.HtmlLinkInfo.html
         """
 
+    Event: MouseEvent  # See GetEvent
+    Href: str  # See GetHref
+    HtmlCell: 'html.HtmlCell'  # See GetHtmlCell
+    Target: str  # See GetTarget
+
 
 
 class HtmlTagHandler(Object):
@@ -1011,9 +1011,6 @@ class HtmlTagHandler(Object):
 
         Source: https://docs.wxpython.org/wx.html.HtmlTagHandler.html
     """
-    Parser: 'html.HtmlParser'  # See GetParser and SetParser
-    SupportedTags: str  # See GetSupportedTags
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -1055,6 +1052,9 @@ class HtmlTagHandler(Object):
 
             Source: https://docs.wxpython.org/wx.html.HtmlTagHandler.html
         """
+
+    Parser: 'html.HtmlParser'  # See GetParser and SetParser
+    SupportedTags: str  # See GetSupportedTags
 
 
 
@@ -1121,13 +1121,6 @@ filters).
 
         Source: https://docs.wxpython.org/wx.html.HtmlWindow.html
     """
-    InternalRepresentation: 'html.HtmlContainerCell'  # See GetInternalRepresentation
-    OpenedAnchor: str  # See GetOpenedAnchor
-    OpenedPage: str  # See GetOpenedPage
-    OpenedPageTitle: str  # See GetOpenedPageTitle
-    Parser: 'html.HtmlWinParser'  # See GetParser
-    RelatedFrame: Frame  # See GetRelatedFrame and SetRelatedFrame
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1360,6 +1353,13 @@ filters).
             Source: https://docs.wxpython.org/wx.html.HtmlWindow.html
         """
 
+    InternalRepresentation: 'html.HtmlContainerCell'  # See GetInternalRepresentation
+    OpenedAnchor: str  # See GetOpenedAnchor
+    OpenedPage: str  # See GetOpenedPage
+    OpenedPageTitle: str  # See GetOpenedPageTitle
+    Parser: 'html.HtmlWinParser'  # See GetParser
+    RelatedFrame: Frame  # See GetRelatedFrame and SetRelatedFrame
+
 
 
 HW_SCROLLBAR_NEVER: int  # Never display scrollbars, not even when the page is larger than the window.
@@ -1386,8 +1386,6 @@ content in the listbox rows.
 
         Source: https://docs.wxpython.org/wx.html.HtmlListBox.html
     """
-    FileSystem: FileSystem  # See GetFileSystem
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -1443,6 +1441,8 @@ content in the listbox rows.
             Source: https://docs.wxpython.org/wx.html.HtmlListBox.html
         """
 
+    FileSystem: FileSystem  # See GetFileSystem
+
 
 
 class HtmlModalHelp:
@@ -1467,10 +1467,6 @@ between these two tags).
 
         Source: https://docs.wxpython.org/wx.html.HtmlParser.html
     """
-    FS: 'FileSystem'  # See GetFS and SetFS
-    Product: Object  # See GetProduct
-    Source: str  # See GetSource
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -1561,6 +1557,10 @@ between these two tags).
             Source: https://docs.wxpython.org/wx.html.HtmlParser.html
         """
 
+    FS: 'FileSystem'  # See GetFS and SetFS
+    Product: Object  # See GetProduct
+    Source: str  # See GetSource
+
 
 
 class HtmlWinParser(HtmlParser):
@@ -1569,22 +1569,6 @@ HTML input so that it can be displayed in HtmlWindow.
 
         Source: https://docs.wxpython.org/wx.html.HtmlWinParser.html
     """
-    ActualColor: Union[int, str, 'Colour']  # See GetActualColor and SetActualColor
-    Align: int  # See GetAlign and SetAlign
-    CharHeight: int  # See GetCharHeight
-    CharWidth: int  # See GetCharWidth
-    Container: 'html.HtmlContainerCell'  # See GetContainer and SetContainer
-    DC: DC  # See GetDC and SetDC
-    FontBold: int  # See GetFontBold and SetFontBold
-    FontFace: str  # See GetFontFace and SetFontFace
-    FontFixed: int  # See GetFontFixed and SetFontFixed
-    FontItalic: int  # See GetFontItalic and SetFontItalic
-    FontSize: int  # See GetFontSize and SetFontSize
-    FontUnderlined: int  # See GetFontUnderlined and SetFontUnderlined
-    Link: 'html.HtmlLinkInfo'  # See GetLink and SetLink
-    LinkColor: Union[int, str, 'Colour']  # See GetLinkColor and SetLinkColor
-    WindowInterface: 'html.HtmlWindowInterface'  # See GetWindowInterface
-
     def __init__(self, wndIface: Optional['html.HtmlWindowInterface']=None) -> None:
         """ Constructor.
 
@@ -1777,6 +1761,22 @@ HTML input so that it can be displayed in HtmlWindow.
             Source: https://docs.wxpython.org/wx.html.HtmlWinParser.html
         """
 
+    ActualColor: Union[int, str, 'Colour']  # See GetActualColor and SetActualColor
+    Align: int  # See GetAlign and SetAlign
+    CharHeight: int  # See GetCharHeight
+    CharWidth: int  # See GetCharWidth
+    Container: 'html.HtmlContainerCell'  # See GetContainer and SetContainer
+    DC: DC  # See GetDC and SetDC
+    FontBold: int  # See GetFontBold and SetFontBold
+    FontFace: str  # See GetFontFace and SetFontFace
+    FontFixed: int  # See GetFontFixed and SetFontFixed
+    FontItalic: int  # See GetFontItalic and SetFontItalic
+    FontSize: int  # See GetFontSize and SetFontSize
+    FontUnderlined: int  # See GetFontUnderlined and SetFontUnderlined
+    Link: 'html.HtmlLinkInfo'  # See GetLink and SetLink
+    LinkColor: Union[int, str, 'Colour']  # See GetLinkColor and SetLinkColor
+    WindowInterface: 'html.HtmlWindowInterface'  # See GetWindowInterface
+
 
 
 class HtmlContainerCell(HtmlCell):
@@ -1785,10 +1785,6 @@ contain more cells in it.
 
         Source: https://docs.wxpython.org/wx.html.HtmlContainerCell.html
     """
-    AlignHor: int  # See GetAlignHor and SetAlignHor
-    AlignVer: int  # See GetAlignVer and SetAlignVer
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-
     def __init__(self, parent: 'html.HtmlContainerCell') -> None:
         """ Constructor.
 
@@ -1885,6 +1881,10 @@ contain more cells in it.
             Source: https://docs.wxpython.org/wx.html.HtmlContainerCell.html
         """
 
+    AlignHor: int  # See GetAlignHor and SetAlignHor
+    AlignVer: int  # See GetAlignVer and SetAlignVer
+    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+
 
 
 HTML_ALIGN_LEFT: int
@@ -1926,8 +1926,6 @@ protected member m_WParser pointing to the HtmlWinParser object
 
         Source: https://docs.wxpython.org/wx.html.HtmlWinTagHandler.html
     """
-    Parser: 'html.HtmlParser'  # See GetParser and SetParser
-
     def __init__(self) -> None:
         """ Constructor.
 
@@ -1945,6 +1943,8 @@ protected member m_WParser pointing to the HtmlWinParser object
 
             Source: https://docs.wxpython.org/wx.html.HtmlWinTagHandler.html
         """
+
+    Parser: 'html.HtmlParser'  # See GetParser and SetParser
 
 
 
@@ -2012,13 +2012,6 @@ class HtmlSelection:
 
         Source: https://docs.wxpython.org/wx.html.HtmlSelection.html
     """
-    FromCell: 'html.HtmlCell'  # See GetFromCell
-    FromCharacterPos: int  # See GetFromCharacterPos and SetFromCharacterPos
-    FromPos: Point  # See GetFromPos
-    ToCell: 'html.HtmlCell'  # See GetToCell
-    ToCharacterPos: int  # See GetToCharacterPos and SetToCharacterPos
-    ToPos: Point  # See GetToPos
-
     def __init__(self) -> None:
         """ 
 
@@ -2097,6 +2090,13 @@ class HtmlSelection:
             Source: https://docs.wxpython.org/wx.html.HtmlSelection.html
         """
 
+    FromCell: 'html.HtmlCell'  # See GetFromCell
+    FromCharacterPos: int  # See GetFromCharacterPos and SetFromCharacterPos
+    FromPos: Point  # See GetFromPos
+    ToCell: 'html.HtmlCell'  # See GetToCell
+    ToCharacterPos: int  # See GetToCharacterPos and SetToCharacterPos
+    ToPos: Point  # See GetToPos
+
 
 
 class HtmlRenderingInfo:
@@ -2104,10 +2104,6 @@ class HtmlRenderingInfo:
 
         Source: https://docs.wxpython.org/wx.html.HtmlRenderingInfo.html
     """
-    Selection: 'html.HtmlSelection'  # See GetSelection and SetSelection
-    State: 'html.HtmlRenderingState'  # See GetState
-    Style: 'html.HtmlRenderingStyle'  # See GetStyle and SetStyle
-
     def __init__(self) -> None:
         """ Default constructor.
 
@@ -2144,6 +2140,10 @@ class HtmlRenderingInfo:
             Source: https://docs.wxpython.org/wx.html.HtmlRenderingInfo.html
         """
 
+    Selection: 'html.HtmlSelection'  # See GetSelection and SetSelection
+    State: 'html.HtmlRenderingState'  # See GetState
+    Style: 'html.HtmlRenderingStyle'  # See GetStyle and SetStyle
+
 
 
 class HtmlWindowInterface:
@@ -2152,9 +2152,6 @@ HtmlListBox) that is passed to HtmlWinParser.
 
         Source: https://docs.wxpython.org/wx.html.HtmlWindowInterface.html
     """
-    HTMLBackgroundColour: Union[int, str, 'Colour']  # See GetHTMLBackgroundColour and SetHTMLBackgroundColour
-    HTMLWindow: Window  # See GetHTMLWindow
-
     def __init__(self) -> None:
         """ Ctor.
 
@@ -2221,6 +2218,9 @@ HtmlListBox) that is passed to HtmlWinParser.
             Source: https://docs.wxpython.org/wx.html.HtmlWindowInterface.html
         """
 
+    HTMLBackgroundColour: Union[int, str, 'Colour']  # See GetHTMLBackgroundColour and SetHTMLBackgroundColour
+    HTMLWindow: Window  # See GetHTMLWindow
+
 
 
 class HtmlTag:
@@ -2228,9 +2228,6 @@ class HtmlTag:
 
         Source: https://docs.wxpython.org/wx.html.HtmlTag.html
     """
-    AllParams: str  # See GetAllParams
-    Name: str  # See GetName
-
     def GetAllParams(self) -> str:
         """ Returns a string containing all parameters.
 
@@ -2286,6 +2283,9 @@ class HtmlTag:
             Source: https://docs.wxpython.org/wx.html.HtmlTag.html
         """
 
+    AllParams: str  # See GetAllParams
+    Name: str  # See GetName
+
 
 
 class HtmlBookRecord:
@@ -2293,13 +2293,6 @@ class HtmlBookRecord:
 
         Source: https://docs.wxpython.org/wx.html.HtmlBookRecord.html
     """
-    BasePath: str  # See GetBasePath and SetBasePath
-    BookFile: str  # See GetBookFile
-    ContentsEnd: int  # See GetContentsEnd
-    ContentsStart: int  # See GetContentsStart
-    Start: str  # See GetStart and SetStart
-    Title: str  # See GetTitle and SetTitle
-
     def __init__(self, bookfile, basepath, title, start) -> None:
         """ bookfile (string) â
 
@@ -2372,6 +2365,13 @@ class HtmlBookRecord:
             Source: https://docs.wxpython.org/wx.html.HtmlBookRecord.html
         """
 
+    BasePath: str  # See GetBasePath and SetBasePath
+    BookFile: str  # See GetBookFile
+    ContentsEnd: int  # See GetContentsEnd
+    ContentsStart: int  # See GetContentsStart
+    Start: str  # See GetStart and SetStart
+    Title: str  # See GetTitle and SetTitle
+
 
 
 class HtmlHelpDataItem:
@@ -2379,15 +2379,6 @@ class HtmlHelpDataItem:
 
         Source: https://docs.wxpython.org/wx.html.HtmlHelpDataItem.html
     """
-    FullPath: str  # See GetFullPath
-    IndentedName: str  # See GetIndentedName
-    book: Any  # A public C++ attribute of type HtmlBookRecord     .
-    id: Any  # A public C++ attribute of type int.
-    level: Any  # A public C++ attribute of type int.
-    name: Any  # A public C++ attribute of type string.
-    page: Any  # A public C++ attribute of type string.
-    parent: Any  # A public C++ attribute of type HtmlHelpDataItem     .
-
     def __init__(self) -> None:
         """ 
 
@@ -2406,6 +2397,15 @@ class HtmlHelpDataItem:
             Source: https://docs.wxpython.org/wx.html.HtmlHelpDataItem.html
         """
 
+    FullPath: str  # See GetFullPath
+    IndentedName: str  # See GetIndentedName
+    book: Any  # A public C++ attribute of type HtmlBookRecord     .
+    id: Any  # A public C++ attribute of type int.
+    level: Any  # A public C++ attribute of type int.
+    name: Any  # A public C++ attribute of type string.
+    page: Any  # A public C++ attribute of type string.
+    parent: Any  # A public C++ attribute of type HtmlHelpDataItem     .
+
 
 
 class HtmlRenderingState:
@@ -2414,11 +2414,6 @@ itself differently e.g.
 
         Source: https://docs.wxpython.org/wx.html.HtmlRenderingState.html
     """
-    BgColour: Union[int, str, 'Colour']  # See GetBgColour and SetBgColour
-    BgMode: int  # See GetBgMode and SetBgMode
-    FgColour: Union[int, str, 'Colour']  # See GetFgColour and SetFgColour
-    SelectionState: HtmlSelectionState  # See GetSelectionState and SetSelectionState
-
     def __init__(self) -> None:
         """ 
 
@@ -2472,6 +2467,11 @@ itself differently e.g.
 
             Source: https://docs.wxpython.org/wx.html.HtmlRenderingState.html
         """
+
+    BgColour: Union[int, str, 'Colour']  # See GetBgColour and SetBgColour
+    BgMode: int  # See GetBgMode and SetBgMode
+    FgColour: Union[int, str, 'Colour']  # See GetFgColour and SetFgColour
+    SelectionState: HtmlSelectionState  # See GetSelectionState and SetSelectionState
 
 
 
