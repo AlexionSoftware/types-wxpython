@@ -257,6 +257,15 @@ aObj = {
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
+	"name": "Byte",
+	"moduleName": "wx",
+	"returnType": "bytes",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.BusyInfoFlags.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
 	"name": "RibbonButtonBarButtonBase",
 	"moduleName": "wx.ribbon",
 	"returnType": "Any",  # This should point to wx.lib.agw.ribbon.buttonbar.RibbonButtonBarButtonBase
@@ -442,6 +451,87 @@ aObj = {
 	"returnType": "int",
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.richtext.TextAttrDimension.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Reason",
+	"moduleName": "wx.ActivateEvent",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ActivateEvent.Reason.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Reason",
+	"moduleName": "wx",  # This should be wx.ActivateEvent.Reason
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ActivateEvent.Reason.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ArtClient",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ArtProvider.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Vector",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.BitmapBundle.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "EntryType",
+	"moduleName": "wx.ConfigBase",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ConfigBase.EntryType.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "EntryType",
+	"moduleName": "wx",  # This should be wx.ConfigBase.EntryType
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ConfigBase.EntryType.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "LongLong_t",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ConfigBase.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Month",
+	"moduleName": "wx.DateTime",
+	"returnType": "Any",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.DateTime.Month.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Calendar",
+	"moduleName": "wx",  # This should be wx.DateTime.Calendar
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.DateTime.Calendar.enumeration.html",
 }
 EXTRA_KNOWN_ITEMS.append(aObj)
 lObj: ITypingLiteral = {
