@@ -140,6 +140,10 @@ class Ensurerer:
 			# We can't find it
 			self.logger.error("ReturnType '%s' does not exist in %s.%s - %s" % (typingObjl["returnType"], typingObjl["moduleName"], typingObjl["name"], orgItem))
 			raise KeyError(returnType)
+		
+		# Return the type
+		if returnType.startswith("wx."):
+			return "'" + returnType[3:] + "'"
 		return returnType
 
 	def _ensureParamType(self, typingObjl: ITypingFunction, paramType: str) -> str:
@@ -199,4 +203,8 @@ class Ensurerer:
 			# We can't find it
 			self.logger.error("Param type '%s' does not exist in %s.%s" % (paramType, typingObjl["moduleName"], typingObjl["name"]))
 			raise KeyError(returnType)
+
+		# Return the type
+		if returnType.startswith("wx."):
+			return "'" + returnType[3:] + "'"
 		return returnType
