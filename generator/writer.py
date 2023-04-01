@@ -80,7 +80,7 @@ class TypingWriter:
 						fileHandler.write("")
 
 		# Combine the data
-		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, ContextManager, Optional, Union\n\n\n"
+		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, ContextManager, Optional, Union, TypeAlias\n\n\n"
 		for item in typings:
 			typingStr = self._convertTypingToStr(item)
 			data += typingStr + "\n\n"
@@ -98,6 +98,15 @@ class TypingWriter:
 			lTypingObj: ITypingLiteral = typing  # type: ignore
 			output = (SPACER * depth) + lTypingObj["name"]
 			output += ": " + lTypingObj["returnType"]
+			if "docstring" in lTypingObj and lTypingObj["docstring"]:
+				output += "  # " + lTypingObj["docstring"]
+			return output
+
+		# Check the type: Alias
+		elif typing["type"] == TypingType.ALIAS:
+			lTypingObj: ITypingLiteral = typing  # type: ignore
+			output = (SPACER * depth) + lTypingObj["name"]
+			output += ": TypeAlias = " + lTypingObj["returnType"]
 			if "docstring" in lTypingObj and lTypingObj["docstring"]:
 				output += "  # " + lTypingObj["docstring"]
 			return output

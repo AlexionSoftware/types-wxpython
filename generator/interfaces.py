@@ -9,6 +9,7 @@ class TypingType(Enum):
 	LITERAL = "literal"
 	FUNCTION = "function"
 	CLASS = "class"
+	ALIAS = "alias"
 
 
 class ITyping(TypedDict):
