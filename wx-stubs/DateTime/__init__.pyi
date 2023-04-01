@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class TimeZone:
     """ Class representing a time zone.
@@ -40,7 +40,7 @@ class Tm:
 
         Source: https://docs.wxpython.org/wx.DateTime.Tm.html
     """
-    def GetWeekDay(self) -> 'DateTime.WeekDay':
+    def GetWeekDay(self) -> 'WeekDay':
         """ Return the week day corresponding to this date.
 
             Source: https://docs.wxpython.org/wx.DateTime.Tm.html
@@ -52,7 +52,7 @@ class Tm:
             Source: https://docs.wxpython.org/wx.DateTime.Tm.html
         """
 
-    WeekDay: 'DateTime.WeekDay'  # See GetWeekDay
+    WeekDay: 'WeekDay'  # See GetWeekDay
     hour: Any  # A public C++ attribute of type int. Hours since midnight in 0..23 range.
     mday: Any  # A public C++ attribute of type int. Day of the month in 1..31 range.
     min: Any  # A public C++ attribute of type int. Minutes in 0..59 range.
@@ -63,4 +63,12 @@ class Tm:
     year: Any  # A public C++ attribute of type int. Year.
 
 
+
+Country: TypeAlias = int  # Enumeration
+
+WeekFlags: TypeAlias = int  # Enumeration
+
+Month: TypeAlias = Any  # Enumeration
+
+TZ: TypeAlias = Any
 

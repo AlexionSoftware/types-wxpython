@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class wxpTagHandler(Object):
     """ HtmlWinTagHandler()

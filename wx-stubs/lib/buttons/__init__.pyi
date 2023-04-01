@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class __ThemedMixin:
     """ Uses the native renderer to draw the bezel, also handle mouse-overs.
@@ -145,7 +145,7 @@ button based on the label and bezel size.
             Source: https://docs.wxpython.org/wx.lib.buttons.GenButton.html
         """
 
-    def GetBezelWidth(self) -> integer:
+    def GetBezelWidth(self) -> int:
         """ Returns the width of the 3D effect, in pixels.
 
             Source: https://docs.wxpython.org/wx.lib.buttons.GenButton.html
@@ -252,7 +252,7 @@ overridden, which is complicated with multiple inheritance.
             Source: https://docs.wxpython.org/wx.lib.buttons.GenButton.html
         """
 
-    def SetBezelWidth(self, width: integer) -> None:
+    def SetBezelWidth(self, width: int) -> None:
         """ Sets the width of the 3D effect.
 
             Source: https://docs.wxpython.org/wx.lib.buttons.GenButton.html

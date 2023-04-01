@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class Grid(Scrolled):
     """ Grid and its related classes are used for displaying and editing
@@ -91,13 +91,13 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def BlockToDeviceRect(self, topLeft, bottomRight, gridWindow=None) -> Rect:
+    def BlockToDeviceRect(self, topLeft, bottomRight, gridWindow=None) -> 'Rect':
         """ Convert grid cell coordinates to grid window pixel coordinates.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def CalcCellsExposed(self, reg, gridWindow=None) -> GridCellCoordsArray:
+    def CalcCellsExposed(self, reg, gridWindow=None) -> 'grid.GridCellCoordsArray':
         """ Appends one or more new columns to the right of the grid.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -199,7 +199,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def CellToRect(self, *args, **kw) -> Rect:
+    def CellToRect(self, *args, **kw) -> 'Rect':
         """ Return the rectangle corresponding to the grid cellâs size and position in logical coordinates.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -469,7 +469,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetCellBackgroundColour(self, row, col) -> Colour:
+    def GetCellBackgroundColour(self, row, col) -> 'Colour':
         """ Returns the background colour of the cell at the specified location.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -487,13 +487,13 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetCellFont(self, row, col) -> Font:
+    def GetCellFont(self, row, col) -> 'Font':
         """ Returns the font for text in the grid cell at the specified location.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetCellHighlightColour(self) -> Colour:
+    def GetCellHighlightColour(self) -> 'Colour':
         """ Colour
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -529,7 +529,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetCellTextColour(self, row, col) -> Colour:
+    def GetCellTextColour(self, row, col) -> 'Colour':
         """ Returns the text colour for the grid cell at the specified location.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -542,7 +542,7 @@ tabular data.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -554,7 +554,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetColGridLinePen(self, col: int) -> Pen:
+    def GetColGridLinePen(self, col: int) -> 'Pen':
         """ Returns the pen used for vertical grid lines.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -650,7 +650,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetDefaultCellBackgroundColour(self) -> Colour:
+    def GetDefaultCellBackgroundColour(self) -> 'Colour':
         """ Returns the current default background colour for grid cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -662,7 +662,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetDefaultCellFont(self) -> Font:
+    def GetDefaultCellFont(self) -> 'Font':
         """ Returns the current default font for grid cell text.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -674,7 +674,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetDefaultCellTextColour(self) -> Colour:
+    def GetDefaultCellTextColour(self) -> 'Colour':
         """ Returns the current default colour for grid cell text.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -710,7 +710,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetDefaultGridLinePen(self) -> Pen:
+    def GetDefaultGridLinePen(self) -> 'Pen':
         """ Returns the pen used for grid lines.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -758,37 +758,37 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetFrozenColGridWindow(self) -> Window:
+    def GetFrozenColGridWindow(self) -> 'Window':
         """ Return the columns grid window containing column frozen cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetFrozenCornerGridWindow(self) -> Window:
+    def GetFrozenCornerGridWindow(self) -> 'Window':
         """ Return the corner grid window containing frozen cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetFrozenRowGridWindow(self) -> Window:
+    def GetFrozenRowGridWindow(self) -> 'Window':
         """ Return the rows grid window containing row frozen cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridColHeader(self) -> HeaderCtrl:
+    def GetGridColHeader(self) -> 'HeaderCtrl':
         """ Return the header control used for column labels display.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridColLabelWindow(self) -> Window:
+    def GetGridColLabelWindow(self) -> 'Window':
         """ Return the column labels window.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridCornerLabelWindow(self) -> Window:
+    def GetGridCornerLabelWindow(self) -> 'Window':
         """ Return the window in the top left grid corner.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -812,43 +812,43 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridLineColour(self) -> Colour:
+    def GetGridLineColour(self) -> 'Colour':
         """ Returns the colour used for grid lines.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridRowLabelWindow(self) -> Window:
+    def GetGridRowLabelWindow(self) -> 'Window':
         """ Return the row labels window.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridWindow(self) -> Window:
+    def GetGridWindow(self) -> 'Window':
         """ Return the main grid window containing the grid cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetGridWindowOffset(self, gridWindow: 'grid.GridWindow') -> Point:
+    def GetGridWindowOffset(self, gridWindow: 'grid.GridWindow') -> 'Point':
         """ This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetLabelBackgroundColour(self) -> Colour:
+    def GetLabelBackgroundColour(self) -> 'Colour':
         """ Returns the colour used for the background of row and column labels.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetLabelFont(self) -> Font:
+    def GetLabelFont(self) -> 'Font':
         """ Returns the font used for row and column labels.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetLabelTextColour(self) -> Colour:
+    def GetLabelTextColour(self) -> 'Colour':
         """ Returns the colour used for row and column label text.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -896,7 +896,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetRowGridLinePen(self, row: int) -> Pen:
+    def GetRowGridLinePen(self, row: int) -> 'Pen':
         """ Returns the pen used for horizontal grid lines.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -968,7 +968,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectedCells(self) -> GridCellCoordsArray:
+    def GetSelectedCells(self) -> 'grid.GridCellCoordsArray':
         """ Returns an array of individually selected cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -998,31 +998,31 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectionBackground(self) -> Colour:
+    def GetSelectionBackground(self) -> 'Colour':
         """ Returns the colour used for drawing the selection background.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectionBlockBottomRight(self) -> GridCellCoordsArray:
+    def GetSelectionBlockBottomRight(self) -> 'grid.GridCellCoordsArray':
         """ Returns an array of the bottom right corners of blocks of selected cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectionBlockTopLeft(self) -> GridCellCoordsArray:
+    def GetSelectionBlockTopLeft(self) -> 'grid.GridCellCoordsArray':
         """ Returns an array of the top left corners of blocks of selected cells.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectionForeground(self) -> Colour:
+    def GetSelectionForeground(self) -> 'Colour':
         """ Returns the colour used for drawing the selection foreground.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectionMode(self) -> 'grid.Grid.GridSelectionModes':
+    def GetSelectionMode(self) -> 'grid.GridSelectionModes':
         """ Returns the current selection mode.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1797,7 +1797,7 @@ tabular data.
         """
 
     BatchCount: int  # See GetBatchCount
-    CellHighlightColour: Union[int, str, 'Colour']  # See GetCellHighlightColour and SetCellHighlightColour
+    CellHighlightColour: 'Colour'  # See GetCellHighlightColour and SetCellHighlightColour
     CellHighlightPenWidth: int  # See GetCellHighlightPenWidth and SetCellHighlightPenWidth
     CellHighlightROPenWidth: int  # See GetCellHighlightROPenWidth and SetCellHighlightROPenWidth
     ColLabelSize: int  # See GetColLabelSize and SetColLabelSize
@@ -1806,35 +1806,35 @@ tabular data.
     ColSizes: 'grid.GridSizesInfo'  # See GetColSizes and SetColSizes
     CornerLabelTextOrientation: int  # See GetCornerLabelTextOrientation and SetCornerLabelTextOrientation
     CornerLabelValue: str  # See GetCornerLabelValue and SetCornerLabelValue
-    DefaultCellBackgroundColour: Union[int, str, 'Colour']  # See GetDefaultCellBackgroundColour and SetDefaultCellBackgroundColour
+    DefaultCellBackgroundColour: 'Colour'  # See GetDefaultCellBackgroundColour and SetDefaultCellBackgroundColour
     DefaultCellFitMode: 'grid.GridFitMode'  # See GetDefaultCellFitMode and SetDefaultCellFitMode
     DefaultCellFont: 'Font'  # See GetDefaultCellFont and SetDefaultCellFont
     DefaultCellOverflow: bool  # See GetDefaultCellOverflow and SetDefaultCellOverflow
-    DefaultCellTextColour: Union[int, str, 'Colour']  # See GetDefaultCellTextColour and SetDefaultCellTextColour
+    DefaultCellTextColour: 'Colour'  # See GetDefaultCellTextColour and SetDefaultCellTextColour
     DefaultColLabelSize: int  # See GetDefaultColLabelSize
     DefaultColSize: int  # See GetDefaultColSize and SetDefaultColSize
     DefaultEditor: 'grid.GridCellEditor'  # See GetDefaultEditor and SetDefaultEditor
-    DefaultGridLinePen: Pen  # See GetDefaultGridLinePen
+    DefaultGridLinePen: 'Pen'  # See GetDefaultGridLinePen
     DefaultRenderer: 'grid.GridCellRenderer'  # See GetDefaultRenderer and SetDefaultRenderer
     DefaultRowLabelSize: int  # See GetDefaultRowLabelSize
     DefaultRowSize: int  # See GetDefaultRowSize and SetDefaultRowSize
     FirstFullyVisibleColumn: int  # See GetFirstFullyVisibleColumn
     FirstFullyVisibleRow: int  # See GetFirstFullyVisibleRow
-    FrozenColGridWindow: Window  # See GetFrozenColGridWindow
-    FrozenCornerGridWindow: Window  # See GetFrozenCornerGridWindow
-    FrozenRowGridWindow: Window  # See GetFrozenRowGridWindow
-    GridColHeader: HeaderCtrl  # See GetGridColHeader
-    GridColLabelWindow: Window  # See GetGridColLabelWindow
-    GridCornerLabelWindow: Window  # See GetGridCornerLabelWindow
+    FrozenColGridWindow: 'Window'  # See GetFrozenColGridWindow
+    FrozenCornerGridWindow: 'Window'  # See GetFrozenCornerGridWindow
+    FrozenRowGridWindow: 'Window'  # See GetFrozenRowGridWindow
+    GridColHeader: 'HeaderCtrl'  # See GetGridColHeader
+    GridColLabelWindow: 'Window'  # See GetGridColLabelWindow
+    GridCornerLabelWindow: 'Window'  # See GetGridCornerLabelWindow
     GridCursorCol: int  # See GetGridCursorCol
     GridCursorCoords: 'grid.GridCellCoords'  # See GetGridCursorCoords
     GridCursorRow: int  # See GetGridCursorRow
-    GridLineColour: Union[int, str, 'Colour']  # See GetGridLineColour and SetGridLineColour
-    GridRowLabelWindow: Window  # See GetGridRowLabelWindow
-    GridWindow: Window  # See GetGridWindow
-    LabelBackgroundColour: Union[int, str, 'Colour']  # See GetLabelBackgroundColour and SetLabelBackgroundColour
+    GridLineColour: 'Colour'  # See GetGridLineColour and SetGridLineColour
+    GridRowLabelWindow: 'Window'  # See GetGridRowLabelWindow
+    GridWindow: 'Window'  # See GetGridWindow
+    LabelBackgroundColour: 'Colour'  # See GetLabelBackgroundColour and SetLabelBackgroundColour
     LabelFont: 'Font'  # See GetLabelFont and SetLabelFont
-    LabelTextColour: Union[int, str, 'Colour']  # See GetLabelTextColour and SetLabelTextColour
+    LabelTextColour: 'Colour'  # See GetLabelTextColour and SetLabelTextColour
     NumberCols: int  # See GetNumberCols
     NumberFrozenCols: int  # See GetNumberFrozenCols
     NumberFrozenRows: int  # See GetNumberFrozenRows
@@ -1845,16 +1845,16 @@ tabular data.
     ScrollLineX: int  # See GetScrollLineX and SetScrollLineX
     ScrollLineY: int  # See GetScrollLineY and SetScrollLineY
     SelectedBlocks: 'grid.GridBlocks'  # See GetSelectedBlocks
-    SelectedCells: GridCellCoordsArray  # See GetSelectedCells
+    SelectedCells: 'grid.GridCellCoordsArray'  # See GetSelectedCells
     SelectedColBlocks: Any  # See GetSelectedColBlocks
     SelectedCols: list[int]  # See GetSelectedCols
     SelectedRowBlocks: Any  # See GetSelectedRowBlocks
     SelectedRows: list[int]  # See GetSelectedRows
-    SelectionBackground: Union[int, str, 'Colour']  # See GetSelectionBackground and SetSelectionBackground
-    SelectionBlockBottomRight: GridCellCoordsArray  # See GetSelectionBlockBottomRight
-    SelectionBlockTopLeft: GridCellCoordsArray  # See GetSelectionBlockTopLeft
-    SelectionForeground: Union[int, str, 'Colour']  # See GetSelectionForeground and SetSelectionForeground
-    SelectionMode: GridSelectionModes  # See GetSelectionMode and SetSelectionMode
+    SelectionBackground: 'Colour'  # See GetSelectionBackground and SetSelectionBackground
+    SelectionBlockBottomRight: 'grid.GridCellCoordsArray'  # See GetSelectionBlockBottomRight
+    SelectionBlockTopLeft: 'grid.GridCellCoordsArray'  # See GetSelectionBlockTopLeft
+    SelectionForeground: 'Colour'  # See GetSelectionForeground and SetSelectionForeground
+    SelectionMode: 'grid.GridSelectionModes'  # See GetSelectionMode and SetSelectionMode
     SortingColumn: int  # See GetSortingColumn and SetSortingColumn
     Table: 'grid.GridTableBase'  # See GetTable and SetTable
 
@@ -1940,7 +1940,7 @@ class GridEditorCreatedEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.grid.GridEditorCreatedEvent.html
         """
 
-    def GetControl(self) -> Control:
+    def GetControl(self) -> 'Control':
         """ Returns the edit control.
 
             Source: https://docs.wxpython.org/wx.grid.GridEditorCreatedEvent.html
@@ -1952,7 +1952,7 @@ class GridEditorCreatedEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.grid.GridEditorCreatedEvent.html
         """
 
-    def GetWindow(self) -> Window:
+    def GetWindow(self) -> 'Window':
         """ Returns the edit window.
 
             Source: https://docs.wxpython.org/wx.grid.GridEditorCreatedEvent.html
@@ -1983,9 +1983,9 @@ class GridEditorCreatedEvent(CommandEvent):
         """
 
     Col: int  # See GetCol and SetCol
-    Control: 'Control'  # See GetControl and SetControl
+    Control: '_Control'  # See GetControl and SetControl
     Row: int  # See GetRow and SetRow
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -2409,7 +2409,7 @@ class GridCellRenderer(SharedClientDataContainer,RefCounter):
             Source: https://docs.wxpython.org/wx.grid.GridCellRenderer.html
         """
 
-    def GetBestSize(self, grid, attr, dc, row, col) -> Size:
+    def GetBestSize(self, grid, attr, dc, row, col) -> 'Size':
         """ Get the preferred size of the cell for its contents.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellRenderer.html
@@ -2421,7 +2421,7 @@ class GridCellRenderer(SharedClientDataContainer,RefCounter):
             Source: https://docs.wxpython.org/wx.grid.GridCellRenderer.html
         """
 
-    def GetMaxBestSize(self, grid, attr, dc) -> Size:
+    def GetMaxBestSize(self, grid, attr, dc) -> 'Size':
         """ Get the maximum possible size for a cell using this renderer, if possible.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellRenderer.html
@@ -2596,7 +2596,7 @@ changing their attributes from the defaults.
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    def GetBackgroundColour(self) -> Colour:
+    def GetBackgroundColour(self) -> 'Colour':
         """ Returns the background colour.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
@@ -2608,7 +2608,7 @@ changing their attributes from the defaults.
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    def GetEditorPtr(self, grid, row, col) -> 'grid.GridCellEditorPtr':
+    def GetEditorPtr(self, grid, row, col) -> 'grid.GridCellEditor':
         """ Returns the cell editor.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
@@ -2620,13 +2620,13 @@ changing their attributes from the defaults.
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    def GetFont(self) -> Font:
+    def GetFont(self) -> 'Font':
         """ Returns the font.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    def GetKind(self) -> 'grid.GridCellAttr.AttrKind':
+    def GetKind(self) -> 'grid.AttrKind':
         """ wx.grid.GridCellAttr.AttrKind
 
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
@@ -2656,7 +2656,7 @@ changing their attributes from the defaults.
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    def GetTextColour(self) -> Colour:
+    def GetTextColour(self) -> 'Colour':
         """ Returns the text colour.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
@@ -2806,12 +2806,12 @@ changing their attributes from the defaults.
             Source: https://docs.wxpython.org/wx.grid.GridCellAttr.html
         """
 
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
     FitMode: 'grid.GridFitMode'  # See GetFitMode and SetFitMode
-    Font: 'Font'  # See GetFont and SetFont
-    Kind: AttrKind  # See GetKind and SetKind
+    Font: '_Font'  # See GetFont and SetFont
+    Kind: 'grid.AttrKind'  # See GetKind and SetKind
     Overflow: bool  # See GetOverflow and SetOverflow
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
 
 
 
@@ -2873,7 +2873,7 @@ edit controls for the grid.
             Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
         """
 
-    def GetControl(self) -> Control:
+    def GetControl(self) -> 'Control':
         """ Get the   wx.Control  used by this editor.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
@@ -2885,7 +2885,7 @@ edit controls for the grid.
             Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
         """
 
-    def GetWindow(self) -> Window:
+    def GetWindow(self) -> 'Window':
         """ Get the edit window used by this editor.
 
             Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
@@ -2963,9 +2963,9 @@ edit controls for the grid.
             Source: https://docs.wxpython.org/wx.grid.GridCellEditor.html
         """
 
-    Control: 'Control'  # See GetControl and SetControl
+    Control: '_Control'  # See GetControl and SetControl
     Value: str  # See GetValue
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -3157,7 +3157,7 @@ class GridEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.grid.GridEvent.html
         """
 
-    def GetPosition(self) -> Point:
+    def GetPosition(self) -> 'Point':
         """ Position in pixels at which the event occurred.
 
             Source: https://docs.wxpython.org/wx.grid.GridEvent.html
@@ -3188,7 +3188,7 @@ class GridEvent(NotifyEvent):
         """
 
     Col: int  # See GetCol
-    Position: Point  # See GetPosition
+    Position: 'Point'  # See GetPosition
     Row: int  # See GetRow
 
 
@@ -3250,7 +3250,7 @@ class GridSizeEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.grid.GridSizeEvent.html
         """
 
-    def GetPosition(self) -> Point:
+    def GetPosition(self) -> 'Point':
         """ Position in pixels at which the event occurred.
 
             Source: https://docs.wxpython.org/wx.grid.GridSizeEvent.html
@@ -3274,7 +3274,7 @@ class GridSizeEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.grid.GridSizeEvent.html
         """
 
-    Position: Point  # See GetPosition
+    Position: 'Point'  # See GetPosition
     RowOrCol: int  # See GetRowOrCol
 
 
@@ -3593,7 +3593,7 @@ into its allotted space.
             Source: https://docs.wxpython.org/wx.grid.GridFitMode.html
         """
 
-    EllipsizeMode: 'EllipsizeMode'  # See GetEllipsizeMode
+    EllipsizeMode: '_EllipsizeMode'  # See GetEllipsizeMode
 
 
 
@@ -3804,6 +3804,8 @@ equivalent.
 
 
 
+GridCellFloatFormat: TypeAlias = int  # Enumeration
+
 GRID_FLOAT_FORMAT_FIXED: int
 
 GRID_FLOAT_FORMAT_SCIENTIFIC: int
@@ -3878,13 +3880,13 @@ event (mouse or keyboard) or the program itself.
 
         Source: https://docs.wxpython.org/wx.grid.GridActivationSource.html
     """
-    def GetKeyEvent(self) -> KeyEvent:
+    def GetKeyEvent(self) -> 'KeyEvent':
         """ Get the key event corresponding to the key press activating the cell.
 
             Source: https://docs.wxpython.org/wx.grid.GridActivationSource.html
         """
 
-    def GetMouseEvent(self) -> MouseEvent:
+    def GetMouseEvent(self) -> 'MouseEvent':
         """ Get the mouse event corresponding to the click activating the cell.
 
             Source: https://docs.wxpython.org/wx.grid.GridActivationSource.html
@@ -3896,8 +3898,8 @@ event (mouse or keyboard) or the program itself.
             Source: https://docs.wxpython.org/wx.grid.GridActivationSource.html
         """
 
-    KeyEvent: KeyEvent  # See GetKeyEvent
-    MouseEvent: MouseEvent  # See GetMouseEvent
+    KeyEvent: '_KeyEvent'  # See GetKeyEvent
+    MouseEvent: '_MouseEvent'  # See GetMouseEvent
 
 
 
@@ -3947,4 +3949,16 @@ class GridHeaderLabelsRenderer:
         """
 
 
+
+GridCellCoordsArray: TypeAlias = list['GridCellCoords']
+
+GridSelectionModes: TypeAlias = int
+
+AttrKind: TypeAlias = int
+
+GridWindow: TypeAlias = Any
+
+GridCellAttrPtr: TypeAlias = Any
+
+TabBehaviour: TypeAlias = int  # Enumeration
 

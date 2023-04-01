@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class PropertyGridEvent(CommandEvent):
     """ A property grid event holds information about events associated with
@@ -43,19 +43,19 @@ PropertyGrid objects.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html
         """
 
-    def GetPropertyValue(self) -> PGVariant:
+    def GetPropertyValue(self) -> 'propgrid.PGVariant':
         """ Returns value of the associated property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html
         """
 
-    def GetValidationFailureBehavior(self) -> 'byte':
+    def GetValidationFailureBehavior(self) -> 'propgrid.byte':
         """ Returns current validation failure flags.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html
         """
 
-    def GetValue(self) -> PGVariant:
+    def GetValue(self) -> 'propgrid.PGVariant':
         """ Returns value of the associated property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridEvent.html
@@ -101,9 +101,9 @@ PropertyGrid objects.
     MainParent: 'propgrid.PGProperty'  # See GetMainParent
     Property: 'propgrid.PGProperty'  # See GetProperty and SetProperty
     PropertyName: str  # See GetPropertyName
-    PropertyValue: PGVariant  # See GetPropertyValue
-    ValidationFailureBehavior: 'byte'  # See GetValidationFailureBehavior and SetValidationFailureBehavior
-    Value: PGVariant  # See GetValue
+    PropertyValue: 'propgrid.PGVariant'  # See GetPropertyValue
+    ValidationFailureBehavior: 'propgrid.byte'  # See GetValidationFailureBehavior and SetValidationFailureBehavior
+    Value: 'propgrid.PGVariant'  # See GetValue
 
 
 
@@ -168,7 +168,7 @@ class PGMultiButton(Window):
             Source: https://docs.wxpython.org/wx.propgrid.PGMultiButton.html
         """
 
-    def GetButton(self, i: int) -> Window:
+    def GetButton(self, i: int) -> 'Window':
         """ Returns pointer to one of the buttons.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGMultiButton.html
@@ -181,7 +181,7 @@ class PGMultiButton(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PGMultiButton.html
@@ -193,14 +193,14 @@ class PGMultiButton(Window):
             Source: https://docs.wxpython.org/wx.propgrid.PGMultiButton.html
         """
 
-    def GetPrimarySize(self) -> Size:
+    def GetPrimarySize(self) -> 'Size':
         """ Returns size of primary editor control, as appropriately reduced by number of buttons present.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGMultiButton.html
         """
 
     Count: int  # See GetCount
-    PrimarySize: Size  # See GetPrimarySize
+    PrimarySize: 'Size'  # See GetPrimarySize
 
 
 
@@ -264,13 +264,13 @@ class PGArrayEditorDialog(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayEditorDialog.html
         """
 
-    def GetDialogValue(self) -> PGVariant:
+    def GetDialogValue(self) -> 'propgrid.PGVariant':
         """ Return value modified by dialog.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayEditorDialog.html
@@ -282,7 +282,7 @@ class PGArrayEditorDialog(Dialog):
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayEditorDialog.html
         """
 
-    def GetTextCtrlValidator(self) -> Validator:
+    def GetTextCtrlValidator(self) -> 'Validator':
         """ Override to return   wx.Validator  to be used with the   wx.TextCtrl  in dialog.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayEditorDialog.html
@@ -318,9 +318,9 @@ class PGArrayEditorDialog(Dialog):
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayEditorDialog.html
         """
 
-    DialogValue: PGVariant  # See GetDialogValue and SetDialogValue
+    DialogValue: 'propgrid.PGVariant'  # See GetDialogValue and SetDialogValue
     Selection: int  # See GetSelection
-    TextCtrlValidator: Validator  # See GetTextCtrlValidator
+    TextCtrlValidator: 'Validator'  # See GetTextCtrlValidator
 
 
 
@@ -341,7 +341,7 @@ class PropertyGridPage(EvtHandler,PropertyGridInterface,PropertyGridPageState):
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridPage.html
         """
 
-    def FitColumns(self) -> Size:
+    def FitColumns(self) -> 'Size':
         """ Reduces column sizes to minimum possible that contents are still visibly (naturally some margin space will be applied as well).
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridPage.html
@@ -450,13 +450,13 @@ class PGCell(Object):
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
         """
 
-    def GetBgCol(self) -> Colour:
+    def GetBgCol(self) -> 'Colour':
         """ Colour
 
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
         """
 
-    def GetBitmap(self) -> BitmapBundle:
+    def GetBitmap(self) -> 'BitmapBundle':
         """ BitmapBundle
 
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
@@ -468,13 +468,13 @@ class PGCell(Object):
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
         """
 
-    def GetFgCol(self) -> Colour:
+    def GetFgCol(self) -> 'Colour':
         """ Colour
 
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
         """
 
-    def GetFont(self) -> Font:
+    def GetFont(self) -> 'Font':
         """ Returns font of the cell.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
@@ -534,11 +534,11 @@ class PGCell(Object):
             Source: https://docs.wxpython.org/wx.propgrid.PGCell.html
         """
 
-    BgCol: Union[int, str, 'Colour']  # See GetBgCol and SetBgCol
+    BgCol: 'Colour'  # See GetBgCol and SetBgCol
     Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
     Data: 'propgrid.PGCellData'  # See GetData
-    FgCol: Union[int, str, 'Colour']  # See GetFgCol and SetFgCol
-    Font: 'Font'  # See GetFont and SetFont
+    FgCol: 'Colour'  # See GetFgCol and SetFgCol
+    Font: '_Font'  # See GetFont and SetFont
     Text: str  # See GetText and SetText
 
 
@@ -661,7 +661,7 @@ function to be used when editor button of a property is pushed.
             Source: https://docs.wxpython.org/wx.propgrid.PGEditorDialogAdapter.html
         """
 
-    def GetValue(self) -> PGVariant:
+    def GetValue(self) -> 'propgrid.PGVariant':
         """ This method is typically only used if deriving class from existing adapter with value conversion purposes.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGEditorDialogAdapter.html
@@ -679,7 +679,7 @@ function to be used when editor button of a property is pushed.
             Source: https://docs.wxpython.org/wx.propgrid.PGEditorDialogAdapter.html
         """
 
-    Value: PGVariant  # See GetValue and SetValue
+    Value: 'propgrid.PGVariant'  # See GetValue and SetValue
     m_clientData: Any  # A public C++ attribute of type ````.
 
 
@@ -732,7 +732,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def ChildChanged(self, thisValue, childIndex, childValue) -> PGVariant:
+    def ChildChanged(self, thisValue, childIndex, childValue) -> 'propgrid.PGVariant':
         """ Called after value of a child property has been altered.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -750,7 +750,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def DoGetAttribute(self, name: str) -> PGVariant:
+    def DoGetAttribute(self, name: str) -> 'propgrid.PGVariant':
         """ Returns value of an attribute.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -762,13 +762,13 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def DoGetValue(self) -> PGVariant:
+    def DoGetValue(self) -> 'propgrid.PGVariant':
         """ Override this to return something else than m_value as the value.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -798,7 +798,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetAttribute(self, *args, **kw) -> PGVariant:
+    def GetAttribute(self, *args, **kw) -> 'propgrid.PGVariant':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -822,7 +822,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetAttributesAsList(self) -> PGVariant:
+    def GetAttributesAsList(self) -> 'propgrid.PGVariant':
         """ Returns attributes as list Variant     .
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -870,7 +870,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetClientData(self) -> ClientData:
+    def GetClientData(self) -> 'ClientData':
         """ Gets managed client object of a property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -894,7 +894,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetDefaultValue(self) -> PGVariant:
+    def GetDefaultValue(self) -> 'propgrid.PGVariant':
         """ Returns propertyâs default value.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -1026,13 +1026,13 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetValidator(self) -> Validator:
+    def GetValidator(self) -> 'Validator':
         """ Gets assignable version of propertyâs validator.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetValue(self) -> PGVariant:
+    def GetValue(self) -> 'propgrid.PGVariant':
         """ Returns propertyâs value.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -1044,7 +1044,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def GetValueImage(self) -> Bitmap:
+    def GetValueImage(self) -> 'Bitmap':
         """ Returns bitmap that appears next to value text.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -1188,7 +1188,7 @@ such it is not intended to be instantiated directly.
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
         """
 
-    def OnMeasureImage(self, item: int=-1) -> Size:
+    def OnMeasureImage(self, item: int=-1) -> 'Size':
         """ Returns size of the custom painted image in front of property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGProperty.html
@@ -1515,7 +1515,7 @@ selection, a help text box, and a header.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridManager.html
@@ -1599,7 +1599,7 @@ selection, a help text box, and a header.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridManager.html
         """
 
-    def GetToolBar(self) -> ToolBar:
+    def GetToolBar(self) -> 'ToolBar':
         """ Returns a pointer to the toolbar currently associated with the   wx.propgrid.PropertyGridManager  (if any).
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridManager.html
@@ -1715,7 +1715,7 @@ selection, a help text box, and a header.
     SelectedPage: int  # See GetSelectedPage
     SelectedProperty: 'propgrid.PGProperty'  # See GetSelectedProperty
     Selection: 'propgrid.PGProperty'  # See GetSelection
-    ToolBar: ToolBar  # See GetToolBar
+    ToolBar: '_ToolBar'  # See GetToolBar
 
 
 
@@ -1901,50 +1901,50 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def FitColumns(self) -> Size:
+    def FitColumns(self) -> 'Size':
         """ Reduces column sizes to minimum possible, while still retaining fully visible grid contents (labels, images).
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCaptionBackgroundColour(self) -> Colour:
+    def GetCaptionBackgroundColour(self) -> 'Colour':
         """ Returns current category caption background colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCaptionFont(self) -> Font:
+    def GetCaptionFont(self) -> 'Font':
         """ Returns current category caption font.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCaptionForegroundColour(self) -> Colour:
+    def GetCaptionForegroundColour(self) -> 'Colour':
         """ Returns current category caption text colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCellBackgroundColour(self) -> Colour:
+    def GetCellBackgroundColour(self) -> 'Colour':
         """ Returns current cell background colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCellDisabledTextColour(self) -> Colour:
+    def GetCellDisabledTextColour(self) -> 'Colour':
         """ Returns current cell text colour when disabled.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetCellTextColour(self) -> Colour:
+    def GetCellTextColour(self) -> 'Colour':
         """ Returns current cell text colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -1956,13 +1956,13 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetEditorTextCtrl(self) -> TextCtrl:
+    def GetEditorTextCtrl(self) -> 'TextCtrl':
         """ Returns   wx.TextCtrl  active in currently selected property, if any.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetEmptySpaceColour(self) -> Colour:
+    def GetEmptySpaceColour(self) -> 'Colour':
         """ Returns colour of empty space below properties.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -1980,19 +1980,19 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetImageRect(self, property, item) -> Rect:
+    def GetImageRect(self, property, item) -> 'Rect':
         """ Returns rectangle of custom paint image.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetImageSize(self, property=None, item=-1) -> Size:
+    def GetImageSize(self, property=None, item=-1) -> 'Size':
         """ Returns size of the custom paint image in front of property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetLabelEditor(self) -> TextCtrl:
+    def GetLabelEditor(self) -> 'TextCtrl':
         """ Returns currently active label editor, None if none.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2004,13 +2004,13 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetLineColour(self) -> Colour:
+    def GetLineColour(self) -> 'Colour':
         """ Returns colour of lines between cells.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetMarginColour(self) -> Colour:
+    def GetMarginColour(self) -> 'Colour':
         """ Returns background colour of margin.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2022,7 +2022,7 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetPanel(self) -> Window:
+    def GetPanel(self) -> 'Window':
         """ Returns   wx.Window  that the properties are painted on, and which should be used as the parent for editor controls.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2082,13 +2082,13 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetSelectionBackgroundColour(self) -> Colour:
+    def GetSelectionBackgroundColour(self) -> 'Colour':
         """ Returns current selection background colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetSelectionForegroundColour(self) -> Colour:
+    def GetSelectionForegroundColour(self) -> 'Colour':
         """ Returns current selection text colour.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2106,7 +2106,7 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetStatusBar(self) -> StatusBar:
+    def GetStatusBar(self) -> 'StatusBar':
         """ Return   wx.StatusBar  that is used by this   wx.propgrid.PropertyGrid.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2124,7 +2124,7 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    def GetUncommittedPropertyValue(self) -> PGVariant:
+    def GetUncommittedPropertyValue(self) -> 'propgrid.PGVariant':
         """ Returns most up-to-date value of selected property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
@@ -2467,37 +2467,37 @@ words name = value pairs.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGrid.html
         """
 
-    CaptionBackgroundColour: Union[int, str, 'Colour']  # See GetCaptionBackgroundColour and SetCaptionBackgroundColour
-    CaptionFont: Font  # See GetCaptionFont
-    CaptionForegroundColour: Colour  # See GetCaptionForegroundColour
-    CellBackgroundColour: Union[int, str, 'Colour']  # See GetCellBackgroundColour and SetCellBackgroundColour
-    CellDisabledTextColour: Union[int, str, 'Colour']  # See GetCellDisabledTextColour and SetCellDisabledTextColour
-    CellTextColour: Union[int, str, 'Colour']  # See GetCellTextColour and SetCellTextColour
+    CaptionBackgroundColour: 'Colour'  # See GetCaptionBackgroundColour and SetCaptionBackgroundColour
+    CaptionFont: 'Font'  # See GetCaptionFont
+    CaptionForegroundColour: 'Colour'  # See GetCaptionForegroundColour
+    CellBackgroundColour: 'Colour'  # See GetCellBackgroundColour and SetCellBackgroundColour
+    CellDisabledTextColour: 'Colour'  # See GetCellDisabledTextColour and SetCellDisabledTextColour
+    CellTextColour: 'Colour'  # See GetCellTextColour and SetCellTextColour
     ColumnCount: int  # See GetColumnCount and SetColumnCount
-    EditorTextCtrl: TextCtrl  # See GetEditorTextCtrl
-    EmptySpaceColour: Union[int, str, 'Colour']  # See GetEmptySpaceColour and SetEmptySpaceColour
+    EditorTextCtrl: 'TextCtrl'  # See GetEditorTextCtrl
+    EmptySpaceColour: 'Colour'  # See GetEmptySpaceColour and SetEmptySpaceColour
     FontHeight: int  # See GetFontHeight
     Grid: 'propgrid.PropertyGrid'  # See GetGrid
-    ImageSize: Size  # See GetImageSize
-    LabelEditor: TextCtrl  # See GetLabelEditor
+    ImageSize: 'Size'  # See GetImageSize
+    LabelEditor: 'TextCtrl'  # See GetLabelEditor
     LastItem: 'propgrid.PGProperty'  # See GetLastItem
-    LineColour: Union[int, str, 'Colour']  # See GetLineColour and SetLineColour
-    MarginColour: Union[int, str, 'Colour']  # See GetMarginColour and SetMarginColour
+    LineColour: 'Colour'  # See GetLineColour and SetLineColour
+    MarginColour: 'Colour'  # See GetMarginColour and SetMarginColour
     MarginWidth: int  # See GetMarginWidth
-    Panel: Window  # See GetPanel
+    Panel: 'Window'  # See GetPanel
     Root: 'propgrid.PGProperty'  # See GetRoot
     RowHeight: int  # See GetRowHeight
     ScaleX: float  # See GetScaleX
     ScaleY: float  # See GetScaleY
     SelectedProperty: 'propgrid.PGProperty'  # See GetSelectedProperty
-    Selection: ArrayPGProperty  # See GetSelection and SetSelection
-    SelectionBackgroundColour: Union[int, str, 'Colour']  # See GetSelectionBackgroundColour and SetSelectionBackgroundColour
-    SelectionForegroundColour: Colour  # See GetSelectionForegroundColour
+    Selection: 'propgrid.PGProperty'  # See GetSelection and SetSelection
+    SelectionBackgroundColour: 'Colour'  # See GetSelectionBackgroundColour and SetSelectionBackgroundColour
+    SelectionForegroundColour: 'Colour'  # See GetSelectionForegroundColour
     SplitterPosition: int  # See GetSplitterPosition and SetSplitterPosition
-    StatusBar: StatusBar  # See GetStatusBar
+    StatusBar: '_StatusBar'  # See GetStatusBar
     TargetRect: 'Rect'  # See GetTargetRect and SetTargetRect
     TargetWindow: 'Window'  # See GetTargetWindow and SetTargetWindow
-    UncommittedPropertyValue: PGVariant  # See GetUncommittedPropertyValue
+    UncommittedPropertyValue: 'propgrid.PGVariant'  # See GetUncommittedPropertyValue
     UnspecifiedValueAppearance: 'propgrid.PGCell'  # See GetUnspecifiedValueAppearance and SetUnspecifiedValueAppearance
     UnspecifiedValueText: str  # See GetUnspecifiedValueText
     VerticalSpacing: int  # See GetVerticalSpacing and SetVerticalSpacing
@@ -2521,13 +2521,13 @@ class PGWindowList:
             Source: https://docs.wxpython.org/wx.propgrid.PGWindowList.html
         """
 
-    def GetPrimary(self) -> Window:
+    def GetPrimary(self) -> 'Window':
         """ Gets window of primary editor.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGWindowList.html
         """
 
-    def GetSecondary(self) -> Window:
+    def GetSecondary(self) -> 'Window':
         """ Gets window of secondary editor.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGWindowList.html
@@ -2539,7 +2539,7 @@ class PGWindowList:
             Source: https://docs.wxpython.org/wx.propgrid.PGWindowList.html
         """
 
-    Primary: Window  # See GetPrimary
+    Primary: 'Window'  # See GetPrimary
     Secondary: 'Window'  # See GetSecondary and SetSecondary
 
 
@@ -2592,13 +2592,13 @@ class PGArrayStringEditorDialog(PGArrayEditorDialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayStringEditorDialog.html
         """
 
-    def GetDialogValue(self) -> PGVariant:
+    def GetDialogValue(self) -> 'propgrid.PGVariant':
         """ Return value modified by dialog.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayStringEditorDialog.html
@@ -2628,7 +2628,7 @@ class PGArrayStringEditorDialog(PGArrayEditorDialog):
             Source: https://docs.wxpython.org/wx.propgrid.PGArrayStringEditorDialog.html
         """
 
-    DialogValue: PGVariant  # See GetDialogValue and SetDialogValue
+    DialogValue: 'propgrid.PGVariant'  # See GetDialogValue and SetDialogValue
 
 
 
@@ -2797,7 +2797,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyAttribute(self, id, attrName) -> PGVariant:
+    def GetPropertyAttribute(self, id, attrName) -> 'propgrid.PGVariant':
         """ Returns value of given attribute.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2809,7 +2809,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyBackgroundColour(self, id: 'propgrid.PGPropArgCls') -> Colour:
+    def GetPropertyBackgroundColour(self, id: 'propgrid.PGPropArgCls') -> 'Colour':
         """ Returns background colour of first cell of a property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2857,7 +2857,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyImage(self, id: 'propgrid.PGPropArgCls') -> Bitmap:
+    def GetPropertyImage(self, id: 'propgrid.PGPropArgCls') -> 'Bitmap':
         """ Returns propertyâs custom value image (None of none).
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2881,19 +2881,19 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyTextColour(self, id: 'propgrid.PGPropArgCls') -> Colour:
+    def GetPropertyTextColour(self, id: 'propgrid.PGPropArgCls') -> 'Colour':
         """ Returns text colour of first cell of a property.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValidator(self, id: 'propgrid.PGPropArgCls') -> Validator:
+    def GetPropertyValidator(self, id: 'propgrid.PGPropArgCls') -> 'Validator':
         """ Returns validator of a property as a reference, which you can pass to any number of SetPropertyValidator.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValue(self, id: 'propgrid.PGPropArgCls') -> PGVariant:
+    def GetPropertyValue(self, id: 'propgrid.PGPropArgCls') -> 'propgrid.PGVariant':
         """ Returns propertyâs value as Variant     .
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2917,7 +2917,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValueAsDateTime(self, id: 'propgrid.PGPropArgCls') -> DateTime:
+    def GetPropertyValueAsDateTime(self, id: 'propgrid.PGPropArgCls') -> 'DateTime':
         """ Returnâs propertyâs value as   wx.DateTime.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2941,7 +2941,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValueAsLongLong(self, id: 'propgrid.PGPropArgCls') -> LongLong_t:
+    def GetPropertyValueAsLongLong(self, id: 'propgrid.PGPropArgCls') -> 'LongLong_t':
         """ Returns propertyâs value as native signed 64-bit integer.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2959,7 +2959,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValueAsULongLong(self, id: 'propgrid.PGPropArgCls') -> ULongLong_t:
+    def GetPropertyValueAsULongLong(self, id: 'propgrid.PGPropArgCls') -> int:
         """ Returns propertyâs value as native  64-bit integer.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -2985,7 +2985,7 @@ GetIterator     .
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetSelectedProperties(self) -> ArrayPGProperty:
+    def GetSelectedProperties(self) -> 'propgrid.ArrayPGProperty':
         """ Returns list of currently selected properties.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -3504,7 +3504,7 @@ class SystemColourProperty(EnumProperty):
             Source: https://docs.wxpython.org/wx.propgrid.SystemColourProperty.html
         """
 
-    def GetColour(self, index: int) -> Colour:
+    def GetColour(self, index: int) -> 'Colour':
         """ Default is to use SystemSettings.GetColour(index).
 
             Source: https://docs.wxpython.org/wx.propgrid.SystemColourProperty.html
@@ -3540,7 +3540,7 @@ class SystemColourProperty(EnumProperty):
             Source: https://docs.wxpython.org/wx.propgrid.SystemColourProperty.html
         """
 
-    def OnMeasureImage(self, item: int) -> Size:
+    def OnMeasureImage(self, item: int) -> 'Size':
         """ Returns size of the custom painted image in front of property.
 
             Source: https://docs.wxpython.org/wx.propgrid.SystemColourProperty.html
@@ -3731,7 +3731,7 @@ class PGChoiceEditor(PGEditor):
             Source: https://docs.wxpython.org/wx.propgrid.PGChoiceEditor.html
         """
 
-    def CreateControlsBase(self, propgrid, property, pos, sz, extraStyle) -> Window:
+    def CreateControlsBase(self, propgrid, property, pos, sz, extraStyle) -> 'Window':
         """ propgrid (wx.propgrid.PropertyGrid) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PGChoiceEditor.html
@@ -3988,7 +3988,7 @@ class ColourProperty(SystemColourProperty):
             Source: https://docs.wxpython.org/wx.propgrid.ColourProperty.html
         """
 
-    def GetColour(self, index: int) -> Colour:
+    def GetColour(self, index: int) -> 'Colour':
         """ Default is to use SystemSettings.GetColour(index).
 
             Source: https://docs.wxpython.org/wx.propgrid.ColourProperty.html
@@ -4019,7 +4019,7 @@ class CursorProperty(EnumProperty):
             Source: https://docs.wxpython.org/wx.propgrid.CursorProperty.html
         """
 
-    def OnMeasureImage(self, item: int) -> Size:
+    def OnMeasureImage(self, item: int) -> 'Size':
         """ Returns size of the custom painted image in front of property.
 
             Source: https://docs.wxpython.org/wx.propgrid.CursorProperty.html
@@ -4050,7 +4050,7 @@ class DateProperty(PGProperty):
             Source: https://docs.wxpython.org/wx.propgrid.DateProperty.html
         """
 
-    def GetDateValue(self) -> DateTime:
+    def GetDateValue(self) -> 'DateTime':
         """ DateTime
 
             Source: https://docs.wxpython.org/wx.propgrid.DateProperty.html
@@ -4116,7 +4116,7 @@ instead.
             Source: https://docs.wxpython.org/wx.propgrid.DirProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.DirProperty.html
@@ -4231,7 +4231,7 @@ instead.
             Source: https://docs.wxpython.org/wx.propgrid.FileProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.FileProperty.html
@@ -4244,7 +4244,7 @@ instead.
         """
 
     @staticmethod
-    def GetClassValidator() -> Validator:
+    def GetClassValidator() -> 'Validator':
         """ Validator
 
             Source: https://docs.wxpython.org/wx.propgrid.FileProperty.html
@@ -4289,7 +4289,7 @@ class FlagsProperty(PGProperty):
             Source: https://docs.wxpython.org/wx.propgrid.FlagsProperty.html
         """
 
-    def ChildChanged(self, thisValue, childIndex, childValue) -> PGVariant:
+    def ChildChanged(self, thisValue, childIndex, childValue) -> 'propgrid.PGVariant':
         """ Called after value of a child property has been altered.
 
             Source: https://docs.wxpython.org/wx.propgrid.FlagsProperty.html
@@ -4359,13 +4359,13 @@ class FloatProperty(NumericProperty):
             Source: https://docs.wxpython.org/wx.propgrid.FloatProperty.html
         """
 
-    def AddSpinStepValue(self, stepScale: int) -> PGVariant:
+    def AddSpinStepValue(self, stepScale: int) -> 'propgrid.PGVariant':
         """ Returns what would be the new value of the property after adding SpinCtrl editor step to the current value.
 
             Source: https://docs.wxpython.org/wx.propgrid.FloatProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.FloatProperty.html
@@ -4378,7 +4378,7 @@ class FloatProperty(NumericProperty):
         """
 
     @staticmethod
-    def GetClassValidator() -> Validator:
+    def GetClassValidator() -> 'Validator':
         """ Validator
 
             Source: https://docs.wxpython.org/wx.propgrid.FloatProperty.html
@@ -4415,7 +4415,7 @@ class FontProperty(EditorDialogProperty):
             Source: https://docs.wxpython.org/wx.propgrid.FontProperty.html
         """
 
-    def ChildChanged(self, thisValue, childIndex, childValue) -> PGVariant:
+    def ChildChanged(self, thisValue, childIndex, childValue) -> 'propgrid.PGVariant':
         """ Called after value of a child property has been altered.
 
             Source: https://docs.wxpython.org/wx.propgrid.FontProperty.html
@@ -4464,7 +4464,7 @@ class ImageFileProperty(FileProperty):
             Source: https://docs.wxpython.org/wx.propgrid.ImageFileProperty.html
         """
 
-    def OnMeasureImage(self, item: int) -> Size:
+    def OnMeasureImage(self, item: int) -> 'Size':
         """ Returns size of the custom painted image in front of property.
 
             Source: https://docs.wxpython.org/wx.propgrid.ImageFileProperty.html
@@ -4489,20 +4489,20 @@ class IntProperty(NumericProperty):
             Source: https://docs.wxpython.org/wx.propgrid.IntProperty.html
         """
 
-    def AddSpinStepValue(self, stepScale: int) -> PGVariant:
+    def AddSpinStepValue(self, stepScale: int) -> 'propgrid.PGVariant':
         """ Returns what would be the new value of the property after adding SpinCtrl editor step to the current value.
 
             Source: https://docs.wxpython.org/wx.propgrid.IntProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.IntProperty.html
         """
 
     @staticmethod
-    def GetClassValidator() -> Validator:
+    def GetClassValidator() -> 'Validator':
         """ Validator
 
             Source: https://docs.wxpython.org/wx.propgrid.IntProperty.html
@@ -4692,13 +4692,13 @@ class UIntProperty(NumericProperty):
             Source: https://docs.wxpython.org/wx.propgrid.UIntProperty.html
         """
 
-    def AddSpinStepValue(self, stepScale: int) -> PGVariant:
+    def AddSpinStepValue(self, stepScale: int) -> 'propgrid.PGVariant':
         """ Returns what would be the new value of the property after adding SpinCtrl editor step to the current value.
 
             Source: https://docs.wxpython.org/wx.propgrid.UIntProperty.html
         """
 
-    def DoGetValidator(self) -> Validator:
+    def DoGetValidator(self) -> 'Validator':
         """ Returns pointer to the   wx.Validator  that should be used with the editor of this property (None for no validator).
 
             Source: https://docs.wxpython.org/wx.propgrid.UIntProperty.html
@@ -4742,7 +4742,7 @@ properties, like IntProperty, UIntProperty, FloatProperty.
 
         Source: https://docs.wxpython.org/wx.propgrid.NumericProperty.html
     """
-    def AddSpinStepValue(self, stepScale: int) -> PGVariant:
+    def AddSpinStepValue(self, stepScale: int) -> 'propgrid.PGVariant':
         """ Returns what would be the new value of the property after adding SpinCtrl editor step to the current value.
 
             Source: https://docs.wxpython.org/wx.propgrid.NumericProperty.html
@@ -4885,7 +4885,7 @@ class PGChoices:
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html
         """
 
-    def GetId(self) -> 'IntPtr':
+    def GetId(self) -> int:
         """ Gets an  number identifying this list.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html
@@ -4972,7 +4972,7 @@ class PGChoices:
     Count: int  # See GetCount
     Data: 'propgrid.PGChoicesData'  # See GetData
     DataPtr: 'propgrid.PGChoicesData'  # See GetDataPtr
-    Id: 'IntPtr'  # See GetId
+    Id: int  # See GetId
     Labels: list[str]  # See GetLabels
 
 
@@ -5006,7 +5006,7 @@ class PGCellRenderer(ObjectRefData):
             Source: https://docs.wxpython.org/wx.propgrid.PGCellRenderer.html
         """
 
-    def GetImageSize(self, property, column, item) -> Size:
+    def GetImageSize(self, property, column, item) -> 'Size':
         """ Returns size of the image in front of the editable area.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGCellRenderer.html
@@ -5031,6 +5031,8 @@ class PGCellRenderer(ObjectRefData):
         """
 
 
+
+PGPropertyFlags: TypeAlias = int  # Enumeration
 
 PG_PROP_MODIFIED: int
 
@@ -5090,7 +5092,7 @@ actually perform validation.
 
         Source: https://docs.wxpython.org/wx.propgrid.PGValidationInfo.html
     """
-    def GetFailureBehavior(self) -> 'byte':
+    def GetFailureBehavior(self) -> 'propgrid.byte':
         """ wx.byte
 
             Source: https://docs.wxpython.org/wx.propgrid.PGValidationInfo.html
@@ -5102,7 +5104,7 @@ actually perform validation.
             Source: https://docs.wxpython.org/wx.propgrid.PGValidationInfo.html
         """
 
-    def GetValue(self) -> PGVariant:
+    def GetValue(self) -> 'propgrid.PGVariant':
         """ Returns reference to pending value.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGValidationInfo.html
@@ -5120,9 +5122,9 @@ actually perform validation.
             Source: https://docs.wxpython.org/wx.propgrid.PGValidationInfo.html
         """
 
-    FailureBehavior: 'byte'  # See GetFailureBehavior and SetFailureBehavior
+    FailureBehavior: 'propgrid.byte'  # See GetFailureBehavior and SetFailureBehavior
     FailureMessage: str  # See GetFailureMessage and SetFailureMessage
-    Value: PGVariant  # See GetValue
+    Value: 'propgrid.PGVariant'  # See GetValue
 
 
 
@@ -5297,7 +5299,7 @@ pairs (i.e.
             Source: https://docs.wxpython.org/wx.propgrid.PGAttributeStorage.html
         """
 
-    def FindValue(self, name: str) -> PGVariant:
+    def FindValue(self, name: str) -> 'propgrid.PGVariant':
         """ name (string) â
 
             Source: https://docs.wxpython.org/wx.propgrid.PGAttributeStorage.html
@@ -5501,7 +5503,7 @@ class PGDefaultRenderer(PGCellRenderer):
 
         Source: https://docs.wxpython.org/wx.propgrid.PGDefaultRenderer.html
     """
-    def GetImageSize(self, property, column, item) -> Size:
+    def GetImageSize(self, property, column, item) -> 'Size':
         """ Returns size of the image in front of the editable area.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGDefaultRenderer.html
@@ -5514,4 +5516,12 @@ class PGDefaultRenderer(PGCellRenderer):
         """
 
 
+
+PGVariant: TypeAlias = Any
+
+byte: TypeAlias = bytes
+
+ArrayPGProperty: TypeAlias = list['PGProperty']
+
+FlagType: TypeAlias = int  # Enumeration
 

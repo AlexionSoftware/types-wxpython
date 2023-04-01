@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
+
+FontFamily: TypeAlias = int  # Enumeration
 
 FONTFAMILY_DEFAULT: int
 
@@ -18,6 +20,8 @@ FONTFAMILY_TELETYPE: int
 FONTFAMILY_MAX: int
 
 FONTFAMILY_UNKNOWN: int
+
+FontWeight: TypeAlias = int  # Enumeration
 
 FONTWEIGHT_INVALID: int
 
@@ -42,6 +46,8 @@ FONTWEIGHT_HEAVY: int
 FONTWEIGHT_EXTRAHEAVY: int
 
 FONTWEIGHT_MAX: int
+
+StockCursor: TypeAlias = int  # Enumeration
 
 CURSOR_NONE: int
 
@@ -104,6 +110,8 @@ CURSOR_COPY_ARROW: int
 CURSOR_ARROWWAIT: int
 
 CURSOR_MAX: int
+
+StandardID: TypeAlias = int  # Enumeration
 
 ID_AUTO_LOWEST: int
 
@@ -377,6 +385,8 @@ ID_FILECTRL: int
 
 ID_HIGHEST: int
 
+FontEncoding: TypeAlias = int  # Enumeration
+
 FONTENCODING_SYSTEM: int
 
 FONTENCODING_DEFAULT: int
@@ -582,6 +592,8 @@ FONTENCODING_EUC_KR: int
 FONTENCODING_JOHAB: int
 
 FONTENCODING_VIETNAMESE: int
+
+FontStyle: TypeAlias = int  # Enumeration
 
 FONTSTYLE_NORMAL: int
 
@@ -1091,7 +1103,7 @@ def GetTopLevelParent(window: 'Window') -> 'Window':
     """
 
 
-def GetTopLevelWindows() -> WindowList:
+def GetTopLevelWindows() -> 'WindowList':
     """ Returns a list-like object of the the applicationâs top-level windows, (frames,dialogs, etc.)
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -1588,6 +1600,8 @@ OK: int
 
 KILL_NOCHILDREN: int
 
+_MenuItem: TypeAlias = MenuItem
+
 class AcceleratorEntry:
     """ An object used by an application wishing to create an accelerator
 table (see AcceleratorTable).
@@ -1669,7 +1683,7 @@ table (see AcceleratorTable).
     Command: int  # See GetCommand
     Flags: int  # See GetFlags
     KeyCode: int  # See GetKeyCode
-    MenuItem: 'MenuItem'  # See GetMenuItem
+    MenuItem: '_MenuItem'  # See GetMenuItem
 
 
 
@@ -1692,6 +1706,8 @@ keyboard shortcuts for menu or button commands.
         """
 
 
+
+_Window: TypeAlias = Window
 
 class Accessible(Object):
     """ The Accessible class allows wxWidgets applications, and wxWidgets
@@ -1833,7 +1849,7 @@ to client applications such as screen readers.
             Source: https://docs.wxpython.org/wx.Accessible.html
         """
 
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -1985,13 +2001,13 @@ class AffineMatrix2D(AffineMatrix2DBase):
             Source: https://docs.wxpython.org/wx.AffineMatrix2D.html
         """
 
-    def TransformDistance(self, *args, **kw) -> Point2DDouble:
+    def TransformDistance(self, *args, **kw) -> 'Point2DDouble':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.AffineMatrix2D.html
         """
 
-    def TransformPoint(self, *args, **kw) -> Point2DDouble:
+    def TransformPoint(self, *args, **kw) -> 'Point2DDouble':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.AffineMatrix2D.html
@@ -2088,13 +2104,13 @@ class AffineMatrix2DBase:
             Source: https://docs.wxpython.org/wx.AffineMatrix2DBase.html
         """
 
-    def TransformDistance(self, *args, **kw) -> Point2DDouble:
+    def TransformDistance(self, *args, **kw) -> 'Point2DDouble':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.AffineMatrix2DBase.html
         """
 
-    def TransformPoint(self, *args, **kw) -> Point2DDouble:
+    def TransformPoint(self, *args, **kw) -> 'Point2DDouble':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.AffineMatrix2DBase.html
@@ -2153,6 +2169,12 @@ internal data including the alpha channel (RGBA).
     Pixels: 'AlphaPixelData_Accessor'  # See GetPixels
 
 
+
+_Mask: TypeAlias = Mask
+
+_Palette: TypeAlias = Palette
+
+_Size: TypeAlias = Size
 
 class Bitmap(GDIObject):
     """ This class encapsulates the concept of a platform-dependent bitmap,
@@ -2490,13 +2512,13 @@ initialized with the given RGBA values.
     LogicalHeight: float  # See GetLogicalHeight
     LogicalSize: 'Size'  # See GetLogicalSize
     LogicalWidth: float  # See GetLogicalWidth
-    Mask: 'Mask'  # See GetMask and SetMask
-    Palette: 'Palette'  # See GetPalette and SetPalette
+    Mask: '_Mask'  # See GetMask and SetMask
+    Palette: '_Palette'  # See GetPalette and SetPalette
     ScaleFactor: float  # See GetScaleFactor and SetScaleFactor
     ScaledHeight: float  # See GetScaledHeight
     ScaledSize: 'Size'  # See GetScaledSize
     ScaledWidth: float  # See GetScaledWidth
-    Size: 'Size'  # See GetSize and SetSize
+    Size: '_Size'  # See GetSize and SetSize
     Width: int  # See GetWidth and SetWidth
 
 
@@ -2581,6 +2603,8 @@ class AlphaPixelData_Accessor:
         """
 
 
+
+_Bitmap: TypeAlias = Bitmap
 
 class AnyButton(Control):
     """ A class for common button functionality used as the base for the
@@ -2684,13 +2708,13 @@ various button classes.
             Source: https://docs.wxpython.org/wx.AnyButton.html
         """
 
-    Bitmap: 'Bitmap'  # See GetBitmap and SetBitmap
-    BitmapCurrent: 'BitmapBundle'  # See GetBitmapCurrent and SetBitmapCurrent
-    BitmapDisabled: 'BitmapBundle'  # See GetBitmapDisabled and SetBitmapDisabled
-    BitmapFocus: 'BitmapBundle'  # See GetBitmapFocus and SetBitmapFocus
-    BitmapLabel: 'BitmapBundle'  # See GetBitmapLabel and SetBitmapLabel
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    BitmapCurrent: 'Bitmap'  # See GetBitmapCurrent and SetBitmapCurrent
+    BitmapDisabled: 'Bitmap'  # See GetBitmapDisabled and SetBitmapDisabled
+    BitmapFocus: 'Bitmap'  # See GetBitmapFocus and SetBitmapFocus
+    BitmapLabel: 'Bitmap'  # See GetBitmapLabel and SetBitmapLabel
     BitmapMargins: 'Size'  # See GetBitmapMargins and SetBitmapMargins
-    BitmapPressed: 'BitmapBundle'  # See GetBitmapPressed and SetBitmapPressed
+    BitmapPressed: 'Bitmap'  # See GetBitmapPressed and SetBitmapPressed
 
 
 
@@ -2975,7 +2999,7 @@ statements. Valid settings are a combination of these flags:
             Source: https://docs.wxpython.org/wx.PyApp.html
         """
 
-    AssertMode: AppAssertMode  # See GetAssertMode and SetAssertMode
+    AssertMode: 'AppAssertMode'  # See GetAssertMode and SetAssertMode
     DisplayMode: 'VideoMode'  # See GetDisplayMode and SetDisplayMode
     ExitOnFrameDelete: bool  # See GetExitOnFrameDelete and SetExitOnFrameDelete
     LayoutDirection: int  # See GetLayoutDirection
@@ -3200,6 +3224,8 @@ without having to define USE_GUI=0.
 
 
 
+_StandardPaths: TypeAlias = StandardPaths
+
 class AppTraits:
     """ The AppTraits class defines various configurable aspects of a App.
 
@@ -3273,7 +3299,7 @@ class AppTraits:
 
     AssertStackTrace: str  # See GetAssertStackTrace
     DesktopEnvironment: str  # See GetDesktopEnvironment
-    StandardPaths: 'StandardPaths'  # See GetStandardPaths
+    StandardPaths: '_StandardPaths'  # See GetStandardPaths
     ToolkitVersion: tuple  # See GetToolkitVersion
 
 
@@ -3554,6 +3580,16 @@ handler to achieve double-buffered drawing.
 
 
 BG_STYLE_PAINT: int
+
+_Brush: TypeAlias = Brush
+
+_Font: TypeAlias = Font
+
+_FontMetrics: TypeAlias = FontMetrics
+
+_GraphicsContext: TypeAlias = GraphicsContext
+
+_Pen: TypeAlias = Pen
 
 class DC(Object):
     """ A DC is a âdevice contextâ onto which graphics and text can be
@@ -3851,7 +3887,7 @@ significant performance increase over the standard DrawLines function.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
-    def GetCGContext(self) -> 'UIntPtr':
+    def GetCGContext(self) -> int:
         """ wx.UIntPtr
 
             Source: https://docs.wxpython.org/wx.DC.html
@@ -3911,7 +3947,7 @@ significant performance increase over the standard DrawLines function.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
-    def GetGdkDrawable(self) -> 'UIntPtr':
+    def GetGdkDrawable(self) -> int:
         """ wx.UIntPtr
 
             Source: https://docs.wxpython.org/wx.DC.html
@@ -3929,7 +3965,7 @@ significant performance increase over the standard DrawLines function.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
-    def GetHandle(self) -> 'UIntPtr':
+    def GetHandle(self) -> int:
         """ Returns a value that can be used as a handle to the native drawing context, if this   wx.DC  has something that could be thought of in that way.
 
             Source: https://docs.wxpython.org/wx.DC.html
@@ -4356,32 +4392,32 @@ currently selected font.
     Background: 'Brush'  # See GetBackground and SetBackground
     BackgroundMode: int  # See GetBackgroundMode and SetBackgroundMode
     BoundingBox: None  # See GetBoundingBox
-    Brush: 'Brush'  # See GetBrush and SetBrush
-    CGContext: 'UIntPtr'  # See GetCGContext
+    Brush: '_Brush'  # See GetBrush and SetBrush
+    CGContext: int  # See GetCGContext
     CharHeight: 'Coord'  # See GetCharHeight
     CharWidth: 'Coord'  # See GetCharWidth
     ClippingRect: None  # See GetClippingRect
     ContentScaleFactor: float  # See GetContentScaleFactor
     Depth: int  # See GetDepth
     DeviceOrigin: 'Point'  # See GetDeviceOrigin and SetDeviceOrigin
-    Font: 'Font'  # See GetFont and SetFont
-    FontMetrics: 'FontMetrics'  # See GetFontMetrics
-    GdkDrawable: 'UIntPtr'  # See GetGdkDrawable
-    GraphicsContext: 'GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
+    Font: '_Font'  # See GetFont and SetFont
+    FontMetrics: '_FontMetrics'  # See GetFontMetrics
+    GdkDrawable: int  # See GetGdkDrawable
+    GraphicsContext: '_GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
     HDC: int  # See GetHDC
-    Handle: 'UIntPtr'  # See GetHandle
+    Handle: int  # See GetHandle
     LayoutDirection: int  # See GetLayoutDirection and SetLayoutDirection
-    LogicalFunction: RasterOperationMode  # See GetLogicalFunction and SetLogicalFunction
-    MapMode: MappingMode  # See GetMapMode and SetMapMode
+    LogicalFunction: 'RasterOperationMode'  # See GetLogicalFunction and SetLogicalFunction
+    MapMode: 'MappingMode'  # See GetMapMode and SetMapMode
     MultiLineTextExtent: None  # See GetMultiLineTextExtent
     PPI: 'Size'  # See GetPPI
-    Pen: 'Pen'  # See GetPen and SetPen
+    Pen: '_Pen'  # See GetPen and SetPen
     Pixel: 'Colour'  # See GetPixel
-    Size: 'Size'  # See GetSize
+    Size: '_Size'  # See GetSize
     SizeMM: 'Size'  # See GetSizeMM
-    TextBackground: Union[int, str, 'Colour']  # See GetTextBackground and SetTextBackground
+    TextBackground: 'Colour'  # See GetTextBackground and SetTextBackground
     TextExtent: None  # See GetTextExtent
-    TextForeground: Union[int, str, 'Colour']  # See GetTextForeground and SetTextForeground
+    TextForeground: 'Colour'  # See GetTextForeground and SetTextForeground
     TransformMatrix: 'AffineMatrix2D'  # See GetTransformMatrix and SetTransformMatrix
 
 
@@ -4734,7 +4770,7 @@ supports transferring in the given direction.
         """
 
     AllFormats: None  # See GetAllFormats
-    Bitmap: 'Bitmap'  # See GetBitmap and SetBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
 
 
 
@@ -5186,6 +5222,8 @@ EVT_NOTEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Pr
 
 CLIP_CHILDREN: int
 
+_ListView: TypeAlias = ListView
+
 class Listbook(BookCtrlBase):
     """ Listbook is a class similar to Notebook but which uses a
 ListCtrl to show the labels instead of the tabs.
@@ -5217,7 +5255,7 @@ ListCtrl to show the labels instead of the tabs.
             Source: https://docs.wxpython.org/wx.Listbook.html
         """
 
-    ListView: 'ListView'  # See GetListView
+    ListView: '_ListView'  # See GetListView
 
 
 
@@ -5283,6 +5321,8 @@ CHB_BOTTOM: int  # Place labels below the page area. ^^
 EVT_CHOICEBOOK_PAGE_CHANGED: int  # The page selection was changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGED   event.
 
 EVT_CHOICEBOOK_PAGE_CHANGING: int  # The page selection is about to be changed. Processes a  wxEVT_CHOICEBOOK_PAGE_CHANGING   event. This event can be vetoed (using  wx.NotifyEvent.Veto ). ^^
+
+_TreeCtrl: TypeAlias = TreeCtrl
 
 class Treebook(BookCtrlBase):
     """ This class is an extension of the Notebook class that allows a tree
@@ -5376,7 +5416,7 @@ structured set of pages to be shown in a control.
         """
 
     Selection: int  # See GetSelection
-    TreeCtrl: 'TreeCtrl'  # See GetTreeCtrl
+    TreeCtrl: '_TreeCtrl'  # See GetTreeCtrl
 
 
 
@@ -5434,6 +5474,8 @@ column or several hierarchies of either.
     Orientation: int  # See GetOrientation and SetOrientation
 
 
+
+_Colour: TypeAlias = Colour
 
 class Brush(GDIObject):
     """ A brush is a drawing tool for filling in areas.
@@ -5542,9 +5584,9 @@ class Brush(GDIObject):
             Source: https://docs.wxpython.org/wx.Brush.html
         """
 
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
     Stipple: 'Bitmap'  # See GetStipple and SetStipple
-    Style: BrushStyle  # See GetStyle and SetStyle
+    Style: 'BrushStyle'  # See GetStyle and SetStyle
 
 
 
@@ -6079,7 +6121,7 @@ will appear.
 
     Position: None  # See GetPosition
     Size: None  # See GetSize and SetSize
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -6446,7 +6488,7 @@ to its corresponding child if it loses it now and regains later.
             Source: https://docs.wxpython.org/wx.ChildFocusEvent.html
         """
 
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -6608,6 +6650,8 @@ class ClassInfo:
 
 
 
+_ClientData: TypeAlias = ClientData
+
 class ClientDataContainer:
     """ This class is a mixin that provides storage and management of âclient
 dataâ.
@@ -6620,7 +6664,7 @@ dataâ.
             Source: https://docs.wxpython.org/wx.ClientDataContainer.html
         """
 
-    def GetClientData(self) -> ClientData:
+    def GetClientData(self) -> 'ClientData':
         """ Get a pointer to the client data object.
 
             Source: https://docs.wxpython.org/wx.ClientDataContainer.html
@@ -6644,7 +6688,7 @@ dataâ.
             Source: https://docs.wxpython.org/wx.ClientDataContainer.html
         """
 
-    ClientData: ClientData  # See GetClientData and SetClientData
+    ClientData: '_ClientData'  # See GetClientData and SetClientData
 
 
 
@@ -7319,19 +7363,19 @@ determine drawing colours.
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
-    def GetPixel(self) -> 'IntPtr':
+    def GetPixel(self) -> int:
         """ wx.IntPtr
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
-    def GetRGB(self) -> 'int':
+    def GetRGB(self) -> int:
         """ Gets the RGB or RGBA colour values as a single 32 bit value.
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
-    def GetRGBA(self) -> 'int':
+    def GetRGBA(self) -> int:
         """ Gets the RGB or RGBA colour values as a single 32 bit value.
 
             Source: https://docs.wxpython.org/wx.Colour.html
@@ -7471,9 +7515,9 @@ determine drawing colours.
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
-    Pixel: 'IntPtr'  # See GetPixel
-    RGB: 'int'  # See GetRGB and SetRGB
-    RGBA: 'int'  # See GetRGBA and SetRGBA
+    Pixel: int  # See GetPixel
+    RGB: int  # See GetRGB and SetRGB
+    RGBA: int  # See GetRGBA and SetRGBA
     alpha: Any  # See Alpha
     blue: Any  # See Blue
     green: Any  # See Green
@@ -7554,7 +7598,7 @@ class ColourData(Object):
 
     ChooseAlpha: bool  # See GetChooseAlpha and SetChooseAlpha
     ChooseFull: bool  # See GetChooseFull and SetChooseFull
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
 
 
 
@@ -7596,6 +7640,8 @@ predefined set of named colours.
 
 
 
+_ColourData: TypeAlias = ColourData
+
 class ColourDialog(Dialog):
     """ This class represents the colour chooser dialog.
 
@@ -7632,7 +7678,7 @@ class ColourDialog(Dialog):
             Source: https://docs.wxpython.org/wx.ColourDialog.html
         """
 
-    ColourData: 'ColourData'  # See GetColourData
+    ColourData: '_ColourData'  # See GetColourData
 
 
 
@@ -7659,7 +7705,7 @@ class ColourDialogEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ColourDialogEvent.html
         """
 
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
 
 
 
@@ -7701,7 +7747,7 @@ class ColourPickerCtrl(PickerBase):
             Source: https://docs.wxpython.org/wx.ColourPickerCtrl.html
         """
 
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
 
 
 
@@ -7743,7 +7789,7 @@ ColourPickerCtrl.
             Source: https://docs.wxpython.org/wx.ColourPickerEvent.html
         """
 
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
 
 
 
@@ -7884,6 +7930,8 @@ EVT_COMBOBOX: int  # Process a  wxEVT_COMBOBOX   event, when an item on the list
 EVT_COMBOBOX_DROPDOWN: int  # Process a  wxEVT_COMBOBOX_DROPDOWN   event, which is generated when the list box part of the combo box is shown (drops down). Notice that this event is only supported by wxMSW, wxGTK with GTK+ 2.10 or later, and OSX/Cocoa.
 
 EVT_COMBOBOX_CLOSEUP: int  # Process a  wxEVT_COMBOBOX_CLOSEUP   event, which is generated when the list box of the combo box disappears (closes up). This event is only generated for the same platforms as   wxEVT_COMBOBOX_DROPDOWN   above. ^^
+
+_TextCtrl: TypeAlias = TextCtrl
 
 class ComboCtrl(Control,TextEntry):
     """ A combo control is a generic combobox that allows totally custom
@@ -8253,7 +8301,7 @@ popup.
     Margins: 'Point'  # See GetMargins and SetMargins
     PopupControl: 'ComboPopup'  # See GetPopupControl and SetPopupControl
     PopupWindow: 'Window'  # See GetPopupWindow
-    TextCtrl: 'TextCtrl'  # See GetTextCtrl
+    TextCtrl: '_TextCtrl'  # See GetTextCtrl
     TextRect: 'Rect'  # See GetTextRect
     Value: str  # See GetValue and SetValue
 
@@ -8275,6 +8323,8 @@ class ComboCtrlFeatures:
         Source: https://docs.wxpython.org/wx.ComboCtrlFeatures.html
     """
 
+
+_ComboCtrl: TypeAlias = ComboCtrl
 
 class ComboPopup:
     """ In order to use a custom popup with ComboCtrl, an interface class
@@ -8390,7 +8440,7 @@ must be derived from ComboPopup.
             Source: https://docs.wxpython.org/wx.ComboPopup.html
         """
 
-    ComboCtrl: 'ComboCtrl'  # See GetComboCtrl
+    ComboCtrl: '_ComboCtrl'  # See GetComboCtrl
     Control: 'Window'  # See GetControl
     StringValue: str  # See GetStringValue and SetStringValue
 
@@ -8450,7 +8500,7 @@ originate from a variety of simple controls.
             Source: https://docs.wxpython.org/wx.CommandEvent.html
         """
 
-    def GetClientData(self) -> ClientData:
+    def GetClientData(self) -> 'ClientData':
         """ Returns client object pointer for a listbox or choice selection event (not valid for a deselection).
 
             Source: https://docs.wxpython.org/wx.CommandEvent.html
@@ -8528,7 +8578,7 @@ originate from a variety of simple controls.
             Source: https://docs.wxpython.org/wx.CommandEvent.html
         """
 
-    ClientData: ClientData  # See GetClientData and SetClientData
+    ClientData: '_ClientData'  # See GetClientData and SetClientData
     ExtraLong: int  # See GetExtraLong and SetExtraLong
     Int: int  # See GetInt and SetInt
     Selection: int  # See GetSelection
@@ -8606,7 +8656,7 @@ with undo/redo functionality built-in.
             Source: https://docs.wxpython.org/wx.CommandProcessor.html
         """
 
-    def GetCommands(self) -> CommandList:
+    def GetCommands(self) -> 'CommandList':
         """ Returns the list of commands.
 
             Source: https://docs.wxpython.org/wx.CommandProcessor.html
@@ -8720,7 +8770,7 @@ with undo/redo functionality built-in.
             Source: https://docs.wxpython.org/wx.CommandProcessor.html
         """
 
-    Commands: CommandList  # See GetCommands
+    Commands: 'CommandList'  # See GetCommands
     CurrentCommand: 'Command'  # See GetCurrentCommand
     EditMenu: 'Menu'  # See GetEditMenu and SetEditMenu
     MaxCommands: int  # See GetMaxCommands
@@ -8913,7 +8963,7 @@ class ConfigBase(Object):
             Source: https://docs.wxpython.org/wx.ConfigBase.html
         """
 
-    def ReadLongLong(self, key, defaultVal) -> LongLong_t:
+    def ReadLongLong(self, key, defaultVal) -> 'LongLong_t':
         """ Reads a 64-bit long long value from the key and returns it.
 
             Source: https://docs.wxpython.org/wx.ConfigBase.html
@@ -9109,9 +9159,29 @@ application a chance to show a context (popup) menu for a Window.
             Source: https://docs.wxpython.org/wx.ContextMenuEvent.html
         """
 
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Position: 'Point'  # See GetPosition and SetPosition
 
 
+
+_AcceleratorTable: TypeAlias = AcceleratorTable
+
+_BackgroundStyle: TypeAlias = BackgroundStyle
+
+_Border: TypeAlias = Border
+
+_Caret: TypeAlias = Caret
+
+_Cursor: TypeAlias = Cursor
+
+_DropTarget: TypeAlias = DropTarget
+
+_Rect: TypeAlias = Rect
+
+_Sizer: TypeAlias = Sizer
+
+_ToolTip: TypeAlias = ToolTip
+
+_Validator: TypeAlias = Validator
 
 class Window(EvtHandler):
     """ Window is the base class for all windows and represents any visible
@@ -9514,7 +9584,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def GetChildren(self) -> WindowList:
+    def GetChildren(self) -> 'WindowList':
         """ Returns a reference to the list of the windowâs children.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -10754,61 +10824,61 @@ code like this:
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    AcceleratorTable: 'AcceleratorTable'  # See GetAcceleratorTable and SetAcceleratorTable
+    AcceleratorTable: '_AcceleratorTable'  # See GetAcceleratorTable and SetAcceleratorTable
     AutoLayout: bool  # See GetAutoLayout and SetAutoLayout
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    BackgroundStyle: BackgroundStyle  # See GetBackgroundStyle and SetBackgroundStyle
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
+    BackgroundStyle: '_BackgroundStyle'  # See GetBackgroundStyle and SetBackgroundStyle
     BestSize: 'Size'  # See GetBestSize
     BestVirtualSize: 'Size'  # See GetBestVirtualSize
-    Border: 'Border'  # See GetBorder
-    Caret: 'Caret'  # See GetCaret and SetCaret
+    Border: '_Border'  # See GetBorder
+    Caret: '_Caret'  # See GetCaret and SetCaret
     CharHeight: int  # See GetCharHeight
     CharWidth: int  # See GetCharWidth
-    Children: WindowList  # See GetChildren
+    Children: 'WindowList'  # See GetChildren
     ClientAreaOrigin: 'Point'  # See GetClientAreaOrigin
     ClientRect: 'Rect'  # See GetClientRect and SetClientRect
     ClientSize: None  # See GetClientSize and SetClientSize
     Constraints: 'LayoutConstraints'  # See GetConstraints and SetConstraints
     ContainingSizer: 'Sizer'  # See GetContainingSizer and SetContainingSizer
-    Cursor: 'Cursor'  # See GetCursor and SetCursor
+    Cursor: '_Cursor'  # See GetCursor and SetCursor
     DefaultAttributes: 'VisualAttributes'  # See GetDefaultAttributes
-    DropTarget: 'DropTarget'  # See GetDropTarget and SetDropTarget
+    DropTarget: '_DropTarget'  # See GetDropTarget and SetDropTarget
     EffectiveMinSize: 'Size'  # See GetEffectiveMinSize
     Enabled: Any  # See IsEnabled and Enable
     EventHandler: 'EvtHandler'  # See GetEventHandler and SetEventHandler
     ExtraStyle: int  # See GetExtraStyle and SetExtraStyle
-    Font: 'Font'  # See GetFont and SetFont
-    ForegroundColour: Union[int, str, 'Colour']  # See GetForegroundColour and SetForegroundColour
+    Font: '_Font'  # See GetFont and SetFont
+    ForegroundColour: 'Colour'  # See GetForegroundColour and SetForegroundColour
     GrandParent: 'Window'  # See GetGrandParent
     Handle: None  # See GetHandle
     HelpText: str  # See GetHelpText and SetHelpText
     Id: int  # See GetId and SetId
     Label: str  # See GetLabel and SetLabel
     LayoutDirection: int  # See GetLayoutDirection and SetLayoutDirection
-    MaxClientSize: Union[tuple[int, int], 'Size']  # See GetMaxClientSize and SetMaxClientSize
+    MaxClientSize: 'Size'  # See GetMaxClientSize and SetMaxClientSize
     MaxHeight: int  # See GetMaxHeight
-    MaxSize: Union[tuple[int, int], 'Size']  # See GetMaxSize and SetMaxSize
+    MaxSize: 'Size'  # See GetMaxSize and SetMaxSize
     MaxWidth: int  # See GetMaxWidth
-    MinClientSize: Union[tuple[int, int], 'Size']  # See GetMinClientSize and SetMinClientSize
+    MinClientSize: 'Size'  # See GetMinClientSize and SetMinClientSize
     MinHeight: int  # See GetMinHeight
-    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    MinSize: 'Size'  # See GetMinSize and SetMinSize
     MinWidth: int  # See GetMinWidth
     Name: str  # See GetName and SetName
     Parent: 'Window'  # See GetParent
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
-    Rect: 'Rect'  # See GetRect and SetRect
+    Position: 'Point'  # See GetPosition and SetPosition
+    Rect: '_Rect'  # See GetRect and SetRect
     ScreenPosition: 'Point'  # See GetScreenPosition
     ScreenRect: 'Rect'  # See GetScreenRect
     Shown: Any  # See IsShown and Show
-    Size: 'Size'  # See GetSize and SetSize
-    Sizer: 'Sizer'  # See GetSizer and SetSizer
+    Size: '_Size'  # See GetSize and SetSize
+    Sizer: '_Sizer'  # See GetSizer and SetSizer
     ThemeEnabled: bool  # See GetThemeEnabled and SetThemeEnabled
-    ToolTip: str  # See GetToolTip and SetToolTip
+    ToolTip: '_ToolTip'  # See GetToolTip and SetToolTip
     TopLevel: Any  # See IsTopLevel
     TopLevelParent: 'Window'  # See GetTopLevelParent
     UpdateClientRect: 'Rect'  # See GetUpdateClientRect
     UpdateRegion: 'Region'  # See GetUpdateRegion
-    Validator: 'Validator'  # See GetValidator and SetValidator
+    Validator: '_Validator'  # See GetValidator and SetValidator
     VirtualSize: 'Size'  # See GetVirtualSize and SetVirtualSize
     WindowStyle: int  # See GetWindowStyle and SetWindowStyle
     WindowStyleFlag: int  # See GetWindowStyleFlag and SetWindowStyleFlag
@@ -11049,13 +11119,13 @@ Choice.
             Source: https://docs.wxpython.org/wx.ItemContainer.html
         """
 
-    def DetachClientObject(self, n: int) -> ClientData:
+    def DetachClientObject(self, n: int) -> 'ClientData':
         """ Returns the client object associated with the given item and transfers its ownership to the caller.
 
             Source: https://docs.wxpython.org/wx.ItemContainer.html
         """
 
-    def GetClientData(self, n: int) -> ClientData:
+    def GetClientData(self, n: int) -> 'ClientData':
         """ Returns a pointer to the client data associated with the given item (if any).
 
             Source: https://docs.wxpython.org/wx.ItemContainer.html
@@ -11335,7 +11405,7 @@ operations.
         """
 
     Id: str  # See GetId and SetId
-    Type: DataFormatId  # See GetType and SetType
+    Type: 'DataFormatId'  # See GetType and SetType
 
 
 
@@ -11720,13 +11790,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDay(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetDay(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the day in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDayOfYear(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetDayOfYear(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the day of the year (in 1-366 range) in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11760,7 +11830,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetHour(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetHour(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the hour in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11796,13 +11866,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMillisecond(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetMillisecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the milliseconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMinute(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetMinute(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the minute in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11834,7 +11904,7 @@ class DateTime:
         """
 
     @staticmethod
-    def GetNumberOfDays(month, year=Inv_Year, cal=Gregorian) -> intshort:
+    def GetNumberOfDays(month, year=Inv_Year, cal=Gregorian) -> 'intshort':
         """ Returns the number of days in the given month of the given year.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11852,7 +11922,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetSecond(self, tz: 'DateTime.TimeZone'=Local) -> intshort:
+    def GetSecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
         """ Returns the seconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11889,7 +11959,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekDay(self, *args, **kw) -> 'DateTime.WeekDay':
+    def GetWeekDay(self, *args, **kw) -> 'WeekDay':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11908,13 +11978,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekOfMonth(self, flags=Monday_First, tz=Local) -> intshort:
+    def GetWeekOfMonth(self, flags=Monday_First, tz=Local) -> 'intshort':
         """ Returns the ordinal number of the week in the month (in 1-5 range).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekOfYear(self, flags=Monday_First, tz=Local) -> intshort:
+    def GetWeekOfYear(self, flags=Monday_First, tz=Local) -> 'intshort':
         """ Returns the number of the week of the year this date is in.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12282,7 +12352,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    DayOfYear: intshort  # See GetDayOfYear
+    DayOfYear: 'intshort'  # See GetDayOfYear
     JDN: float  # See GetJDN and SetJDN
     JulianDayNumber: float  # See GetJulianDayNumber
     LastMonthDay: 'DateTime'  # See GetLastMonthDay
@@ -12290,8 +12360,8 @@ class DateTime:
     ModifiedJulianDayNumber: float  # See GetModifiedJulianDayNumber
     RataDie: float  # See GetRataDie
     Ticks: int  # See GetTicks
-    WeekOfMonth: intshort  # See GetWeekOfMonth
-    WeekOfYear: intshort  # See GetWeekOfYear
+    WeekOfMonth: 'intshort'  # See GetWeekOfMonth
+    WeekOfYear: 'intshort'  # See GetWeekOfYear
     day: Any  # See GetDay and SetDay
     hour: Any  # See GetHour and SetHour
     millisecond: Any  # See GetMillisecond and SetMillisecond
@@ -13139,7 +13209,7 @@ which can be moved around the screen.
     EscapeId: int  # See GetEscapeId and SetEscapeId
     LayoutAdaptationDone: bool  # See GetLayoutAdaptationDone and SetLayoutAdaptationDone
     LayoutAdaptationLevel: int  # See GetLayoutAdaptationLevel and SetLayoutAdaptationLevel
-    LayoutAdaptationMode: DialogLayoutAdaptationMode  # See GetLayoutAdaptationMode and SetLayoutAdaptationMode
+    LayoutAdaptationMode: 'DialogLayoutAdaptationMode'  # See GetLayoutAdaptationMode and SetLayoutAdaptationMode
     MainButtonIds: list[int]  # See GetMainButtonIds
     ReturnCode: int  # See GetReturnCode and SetReturnCode
 
@@ -13426,7 +13496,7 @@ system.
             Source: https://docs.wxpython.org/wx.Display.html
         """
 
-    def GetModes(self, mode: 'VideoMode'=DefaultVideoMode) -> ArrayVideoModes:
+    def GetModes(self, mode: 'VideoMode'=DefaultVideoMode) -> 'ArrayVideoModes':
         """ Fills and returns an array with all the video modes that are supported by this display, or video modes that are supported by this display and match the mode parameter (if mode is not DefaultVideoMode).
 
             Source: https://docs.wxpython.org/wx.Display.html
@@ -13616,6 +13686,8 @@ been dropped onto the window.
 
 
 
+_DataObject: TypeAlias = DataObject
+
 class DropSource:
     """ This class represents a source for a drag and drop operation.
 
@@ -13663,7 +13735,7 @@ class DropSource:
             Source: https://docs.wxpython.org/wx.DropSource.html
         """
 
-    DataObject: 'DataObject'  # See GetDataObject
+    DataObject: '_DataObject'  # See GetDataObject
 
 
 
@@ -13739,10 +13811,12 @@ class DropTarget:
         """
 
     Data: bool  # See GetData
-    DataObject: 'DataObject'  # See GetDataObject and SetDataObject
-    DefaultAction: DragResult  # See GetDefaultAction and SetDefaultAction
+    DataObject: '_DataObject'  # See GetDataObject and SetDataObject
+    DefaultAction: 'DragResult'  # See GetDefaultAction and SetDefaultAction
 
 
+
+_DC: TypeAlias = DC
 
 class EraseEvent(Event):
     """ An erase event is sent when a windowâs background needs to be
@@ -13762,7 +13836,7 @@ repainted.
             Source: https://docs.wxpython.org/wx.EraseEvent.html
         """
 
-    DC: 'DC'  # See GetDC
+    DC: '_DC'  # See GetDC
 
 
 
@@ -13874,7 +13948,7 @@ callback or member function.
             Source: https://docs.wxpython.org/wx.Event.html
         """
 
-    EventObject: 'Object'  # See GetEventObject and SetEventObject
+    EventObject: 'Window'  # See GetEventObject and SetEventObject
     EventType: int  # See GetEventType and SetEventType
     Id: int  # See GetId and SetId
     Skipped: bool  # See GetSkipped
@@ -15141,7 +15215,7 @@ menu).
             Source: https://docs.wxpython.org/wx.FileHistory.html
         """
 
-    def GetMenus(self) -> FileHistoryMenuList:
+    def GetMenus(self) -> 'FileHistoryMenuList':
         """ Returns the list of menus that are managed by this file history object.
 
             Source: https://docs.wxpython.org/wx.FileHistory.html
@@ -15192,8 +15266,8 @@ menu).
     BaseId: int  # See GetBaseId and SetBaseId
     Count: int  # See GetCount
     MaxFiles: int  # See GetMaxFiles
-    MenuPathStyle: FileHistoryMenuPathStyle  # See GetMenuPathStyle and SetMenuPathStyle
-    Menus: FileHistoryMenuList  # See GetMenus
+    MenuPathStyle: 'FileHistoryMenuPathStyle'  # See GetMenuPathStyle and SetMenuPathStyle
+    Menus: 'FileHistoryMenuList'  # See GetMenus
 
 
 
@@ -15523,13 +15597,17 @@ class TranslationsLoader:
             Source: https://docs.wxpython.org/wx.TranslationsLoader.html
         """
 
-    def LoadCatalog(self, domain, lang) -> MsgCatalog:
+    def LoadCatalog(self, domain, lang) -> 'MsgCatalog':
         """ Called to load requested catalog.
 
             Source: https://docs.wxpython.org/wx.TranslationsLoader.html
         """
 
 
+
+_Icon: TypeAlias = Icon
+
+_IconLocation: TypeAlias = IconLocation
 
 class FileType:
     """ This class holds information about a given file type.
@@ -15626,9 +15704,9 @@ the MessageParameters class.
 
     Description: str  # See GetDescription
     Extensions: list[str]  # See GetExtensions
-    Icon: 'Icon'  # See GetIcon
+    Icon: '_Icon'  # See GetIcon
     IconInfo: Any  # See GetIconInfo
-    IconLocation: 'IconLocation'  # See GetIconLocation
+    IconLocation: '_IconLocation'  # See GetIconLocation
     MimeType: str  # See GetMimeType
     MimeTypes: list[str]  # See GetMimeTypes
     OpenCommand: str  # See GetOpenCommand
@@ -15898,7 +15976,7 @@ class FindReplaceData(Object):
         """
 
     FindString: str  # See GetFindString and SetFindString
-    Flags: 'int'  # See GetFlags and SetFlags
+    Flags: int  # See GetFlags and SetFlags
     ReplaceString: str  # See GetReplaceString and SetReplaceString
 
 
@@ -16004,7 +16082,7 @@ the GridSizer.
 
     ColWidths: list[int]  # See GetColWidths
     FlexibleDirection: int  # See GetFlexibleDirection and SetFlexibleDirection
-    NonFlexibleGrowMode: FlexSizerGrowMode  # See GetNonFlexibleGrowMode and SetNonFlexibleGrowMode
+    NonFlexibleGrowMode: 'FlexSizerGrowMode'  # See GetNonFlexibleGrowMode and SetNonFlexibleGrowMode
     RowHeights: list[int]  # See GetRowHeights
 
 
@@ -16139,7 +16217,7 @@ class FocusEvent(Event):
             Source: https://docs.wxpython.org/wx.FocusEvent.html
         """
 
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -16525,7 +16603,7 @@ class Font(GDIObject):
     Family: int  # See GetFamily and SetFamily
     NativeFontInfoDesc: str  # See GetNativeFontInfoDesc and SetNativeFontInfo
     NativeFontInfoUserDesc: str  # See GetNativeFontInfoUserDesc and SetNativeFontInfoUserDesc
-    PixelSize: Union[tuple[int, int], 'Size']  # See GetPixelSize and SetPixelSize
+    PixelSize: 'Size'  # See GetPixelSize and SetPixelSize
     PointSize: int  # See GetPointSize and SetPointSize
     Style: int  # See GetStyle and SetStyle
     Weight: int  # See GetWeight and SetWeight
@@ -16635,11 +16713,13 @@ class FontData(Object):
 
     AllowSymbols: bool  # See GetAllowSymbols and SetAllowSymbols
     ChosenFont: 'Font'  # See GetChosenFont and SetChosenFont
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
     InitialFont: 'Font'  # See GetInitialFont and SetInitialFont
     ShowHelp: bool  # See GetShowHelp and SetShowHelp
 
 
+
+_FontData: TypeAlias = FontData
 
 class FontDialog(Dialog):
     """ This class represents the font chooser dialog.
@@ -16677,7 +16757,7 @@ class FontDialog(Dialog):
             Source: https://docs.wxpython.org/wx.FontDialog.html
         """
 
-    FontData: 'FontData'  # See GetFontData
+    FontData: '_FontData'  # See GetFontData
 
 
 
@@ -17071,7 +17151,7 @@ class FontPickerCtrl(PickerBase):
 
     MaxPointSize: int  # See GetMaxPointSize and SetMaxPointSize
     MinPointSize: int  # See GetMinPointSize and SetMinPointSize
-    SelectedColour: Union[int, str, 'Colour']  # See GetSelectedColour and SetSelectedColour
+    SelectedColour: 'Colour'  # See GetSelectedColour and SetSelectedColour
     SelectedFont: 'Font'  # See GetSelectedFont and SetSelectedFont
 
 
@@ -17109,9 +17189,15 @@ class FontPickerEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.FontPickerEvent.html
         """
 
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
 
 
+
+_MenuBar: TypeAlias = MenuBar
+
+_StatusBar: TypeAlias = StatusBar
+
+_ToolBar: TypeAlias = ToolBar
 
 class Frame(TopLevelWindow):
     """ A frame is a window whose size and position can (usually) be changed
@@ -17258,10 +17344,10 @@ by the user.
             Source: https://docs.wxpython.org/wx.Frame.html
         """
 
-    MenuBar: 'MenuBar'  # See GetMenuBar and SetMenuBar
-    StatusBar: 'StatusBar'  # See GetStatusBar and SetStatusBar
+    MenuBar: '_MenuBar'  # See GetMenuBar and SetMenuBar
+    StatusBar: '_StatusBar'  # See GetStatusBar and SetStatusBar
     StatusBarPane: int  # See GetStatusBarPane and SetStatusBarPane
-    ToolBar: 'ToolBar'  # See GetToolBar and SetToolBar
+    ToolBar: '_ToolBar'  # See GetToolBar and SetToolBar
 
 
 
@@ -17672,7 +17758,7 @@ one row and/or column using GBSpan.
             Source: https://docs.wxpython.org/wx.GridBagSizer.html
         """
 
-    EmptyCellSize: Union[tuple[int, int], 'Size']  # See GetEmptyCellSize and SetEmptyCellSize
+    EmptyCellSize: 'Size'  # See GetEmptyCellSize and SetEmptyCellSize
 
 
 
@@ -17886,9 +17972,15 @@ class GCDC(DC):
             Source: https://docs.wxpython.org/wx.GCDC.html
         """
 
-    GraphicsContext: 'GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
+    GraphicsContext: '_GraphicsContext'  # See GetGraphicsContext and SetGraphicsContext
 
 
+
+_AntialiasMode: TypeAlias = AntialiasMode
+
+_CompositionMode: TypeAlias = CompositionMode
+
+_InterpolationQuality: TypeAlias = InterpolationQuality
 
 class GraphicsContext(GraphicsObject):
     """ A GraphicsContext instance is the object that is drawn upon.
@@ -18295,13 +18387,13 @@ class GraphicsContext(GraphicsObject):
             Source: https://docs.wxpython.org/wx.GraphicsContext.html
         """
 
-    AntialiasMode: AntialiasMode  # See GetAntialiasMode and SetAntialiasMode
-    CompositionMode: CompositionMode  # See GetCompositionMode and SetCompositionMode
-    InterpolationQuality: InterpolationQuality  # See GetInterpolationQuality and SetInterpolationQuality
+    AntialiasMode: '_AntialiasMode'  # See GetAntialiasMode and SetAntialiasMode
+    CompositionMode: '_CompositionMode'  # See GetCompositionMode and SetCompositionMode
+    InterpolationQuality: '_InterpolationQuality'  # See GetInterpolationQuality and SetInterpolationQuality
     NativeContext: None  # See GetNativeContext
     TextExtent: Any  # See GetTextExtent
     Transform: 'GraphicsMatrix'  # See GetTransform and SetTransform
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -18462,13 +18554,13 @@ class Pen(GDIObject):
             Source: https://docs.wxpython.org/wx.Pen.html
         """
 
-    Cap: PenCap  # See GetCap and SetCap
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Cap: 'PenCap'  # See GetCap and SetCap
+    Colour: '_Colour'  # See GetColour and SetColour
     Dashes: list[int]  # See GetDashes and SetDashes
-    Join: PenJoin  # See GetJoin and SetJoin
-    Quality: PenQuality  # See GetQuality and SetQuality
+    Join: 'PenJoin'  # See GetJoin and SetJoin
+    Quality: 'PenQuality'  # See GetQuality and SetQuality
     Stipple: 'Bitmap'  # See GetStipple and SetStipple
-    Style: PenStyle  # See GetStyle and SetStyle
+    Style: 'PenStyle'  # See GetStyle and SetStyle
     Width: int  # See GetWidth and SetWidth
 
 
@@ -18646,7 +18738,7 @@ files) on an arbitrary window.
     Path: str  # See GetPath and SetPath
     Paths: list  # See GetPaths
     RootId: 'TreeItemId'  # See GetRootId
-    TreeCtrl: 'TreeCtrl'  # See GetTreeCtrl
+    TreeCtrl: '_TreeCtrl'  # See GetTreeCtrl
 
 
 
@@ -18877,11 +18969,11 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
     Caption: str  # See GetCaption
     EffectiveIcon: int  # See GetEffectiveIcon
     ExtendedMessage: str  # See GetExtendedMessage and SetExtendedMessage
-    HelpLabel: MessageDialogButtonLabel  # See GetHelpLabel and SetHelpLabel
+    HelpLabel: str  # See GetHelpLabel and SetHelpLabel
     Message: str  # See GetMessage and SetMessage
     MessageDialogStyle: int  # See GetMessageDialogStyle
     NoLabel: str  # See GetNoLabel
-    OKLabel: MessageDialogButtonLabel  # See GetOKLabel and SetOKLabel
+    OKLabel: str  # See GetOKLabel and SetOKLabel
     YesLabel: str  # See GetYesLabel
 
 
@@ -19054,7 +19146,7 @@ class GestureEvent(Event):
             Source: https://docs.wxpython.org/wx.GestureEvent.html
         """
 
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Position: 'Point'  # See GetPosition and SetPosition
 
 
 
@@ -19172,7 +19264,7 @@ represented by GraphicsGradientStops.
             Source: https://docs.wxpython.org/wx.GraphicsGradientStop.html
         """
 
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
     Position: float  # See GetPosition and SetPosition
 
 
@@ -19237,15 +19329,15 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
             Source: https://docs.wxpython.org/wx.GraphicsGradientStops.html
         """
 
-    def __len__(self) -> SIP_SSIZE_T:
+    def __len__(self) -> 'SIP_SSIZE_T':
         """ SIP_SSIZE_T
 
             Source: https://docs.wxpython.org/wx.GraphicsGradientStops.html
         """
 
     Count: int  # See GetCount
-    EndColour: Union[int, str, 'Colour']  # See GetEndColour and SetEndColour
-    StartColour: Union[int, str, 'Colour']  # See GetStartColour and SetStartColour
+    EndColour: 'Colour'  # See GetEndColour and SetEndColour
+    StartColour: 'Colour'  # See GetStartColour and SetStartColour
 
 
 
@@ -19495,6 +19587,8 @@ class GraphicsPen(GraphicsObject):
     """
 
 
+_GradientType: TypeAlias = GradientType
+
 class GraphicsPenInfo:
     """ This class is a helper used for GraphicsPen creation using named
 parameter idiom: it allows specifying various GraphicsPen attributes
@@ -19667,7 +19761,7 @@ passing them in the fixed order to GraphicsPen constructors.
 
     EndX: 'Double'  # See GetEndX
     EndY: 'Double'  # See GetEndY
-    GradientType: 'GradientType'  # See GetGradientType
+    GradientType: '_GradientType'  # See GetGradientType
     Radius: 'Double'  # See GetRadius
     StartX: 'Double'  # See GetStartX
     StartY: 'Double'  # See GetStartY
@@ -19931,7 +20025,7 @@ method.
             Source: https://docs.wxpython.org/wx.Sizer.html
         """
 
-    def GetChildren(self) -> SizerItemList:
+    def GetChildren(self) -> 'SizerItemList':
         """ Returns the list of the items in this sizer.
 
             Source: https://docs.wxpython.org/wx.Sizer.html
@@ -20124,12 +20218,12 @@ code like this:
             Source: https://docs.wxpython.org/wx.Sizer.html
         """
 
-    Children: SizerItemList  # See GetChildren
+    Children: 'SizerItemList'  # See GetChildren
     ContainingWindow: 'Window'  # See GetContainingWindow and SetContainingWindow
     ItemCount: int  # See GetItemCount
-    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    MinSize: 'Size'  # See GetMinSize and SetMinSize
     Position: 'Point'  # See GetPosition
-    Size: 'Size'  # See GetSize
+    Size: '_Size'  # See GetSize
 
 
 
@@ -20196,6 +20290,8 @@ draw the text or bitmap label.
     m_selectionColour: Any  # A public C++ attribute of type Colour     .
 
 
+
+_BitmapBundle: TypeAlias = BitmapBundle
 
 class HeaderColumn:
     """ Represents a column header in controls displaying tabular data such as
@@ -20294,8 +20390,8 @@ DataViewCtrl or Grid.
         """
 
     Alignment: int  # See GetAlignment
-    Bitmap: 'Bitmap'  # See GetBitmap
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Bitmap: '_Bitmap'  # See GetBitmap
+    BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle
     Flags: int  # See GetFlags
     Hidden: Any  # See IsHidden
     MinWidth: int  # See GetMinWidth
@@ -20428,8 +20524,8 @@ class HeaderColumnSimple(SettableHeaderColumn):
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle
     Flags: int  # See GetFlags and SetFlags
     MinWidth: int  # See GetMinWidth and SetMinWidth
     Title: str  # See GetTitle and SetTitle
@@ -20964,7 +21060,7 @@ help.
             Source: https://docs.wxpython.org/wx.HelpEvent.html
         """
 
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Position: 'Point'  # See GetPosition and SetPosition
 
 
 
@@ -21196,7 +21292,7 @@ minimized application.
     LogicalSize: 'Size'  # See GetLogicalSize
     LogicalWidth: float  # See GetLogicalWidth
     ScaleFactor: float  # See GetScaleFactor
-    Size: 'Size'  # See GetSize
+    Size: '_Size'  # See GetSize
     Width: int  # See GetWidth and SetWidth
 
 
@@ -21248,7 +21344,7 @@ class IconBundle(GDIObject):
             Source: https://docs.wxpython.org/wx.IconBundle.html
         """
 
-    Icon: 'Icon'  # See GetIcon
+    Icon: '_Icon'  # See GetIcon
     IconCount: int  # See GetIconCount
 
 
@@ -21756,7 +21852,7 @@ not use this buffer object after the image has been destroyed.
         """
 
     @staticmethod
-    def HSVtoRGB(hsv: HSVValue) -> RGBValue:
+    def HSVtoRGB(hsv: HSVValue) -> 'RGBValue':
         """ Converts a color in HSV color space to RGB color space.
 
             Source: https://docs.wxpython.org/wx.Image.html
@@ -21831,7 +21927,7 @@ not use this buffer object after the image has been destroyed.
         """
 
     @staticmethod
-    def RGBtoHSV(rgb: RGBValue) -> HSVValue:
+    def RGBtoHSV(rgb: RGBValue) -> 'HSVValue':
         """ Converts a color in RGB color space to HSV color space.
 
             Source: https://docs.wxpython.org/wx.Image.html
@@ -22005,7 +22101,7 @@ Image does.
     MaskBlue: int  # See GetMaskBlue
     MaskGreen: int  # See GetMaskGreen
     MaskRed: int  # See GetMaskRed
-    Type: BitmapType  # See GetType and SetType
+    Type: 'BitmapType'  # See GetType and SetType
     Width: int  # See GetWidth
 
 
@@ -22035,6 +22131,8 @@ BITMAP_TYPE_CUR: int
 BITMAP_TYPE_ANI: int
 
 BITMAP_TYPE_ANY: int
+
+_Image: TypeAlias = Image
 
 class ImageDataObject(CustomDataObject):
     """ ImageDataObject is a specialization of DataObject for image data.
@@ -22073,7 +22171,7 @@ supports transferring in the given direction.
         """
 
     AllFormats: None  # See GetAllFormats
-    Image: 'Image'  # See GetImage and SetImage
+    Image: '_Image'  # See GetImage and SetImage
 
 
 
@@ -22189,7 +22287,7 @@ image creation from data.
     Extension: str  # See GetExtension and SetExtension
     MimeType: str  # See GetMimeType and SetMimeType
     Name: str  # See GetName and SetName
-    Type: BitmapType  # See GetType and SetType
+    Type: 'BitmapType'  # See GetType and SetType
 
 
 
@@ -22309,6 +22407,8 @@ IMAGELIST_DRAW_TRANSPARENT: int
 IMAGELIST_DRAW_SELECTED: int
 
 IMAGELIST_DRAW_FOCUSED: int
+
+_Relationship: TypeAlias = Relationship
 
 class IndividualLayoutConstraint(Object):
     """ sibling (wx.Window) â 
@@ -22483,10 +22583,12 @@ class IndividualLayoutConstraint(Object):
     OtherEdge: int  # See GetOtherEdge
     OtherWindow: 'Window'  # See GetOtherWindow
     Percent: int  # See GetPercent
-    Relationship: Relationship  # See GetRelationship and SetRelationship
+    Relationship: '_Relationship'  # See GetRelationship and SetRelationship
     Value: int  # See GetValue and SetValue
 
 
+
+_ShowEffect: TypeAlias = ShowEffect
 
 class InfoBar(Control):
     """ An info bar is a transient window shown at top or bottom of its parent
@@ -22594,7 +22696,7 @@ window to display non-critical information to the user.
     ButtonCount: int  # See GetButtonCount
     EffectDuration: int  # See GetEffectDuration and SetEffectDuration
     HideEffect: 'ShowEffect'  # See GetHideEffect
-    ShowEffect: 'ShowEffect'  # See GetShowEffect
+    ShowEffect: '_ShowEffect'  # See GetShowEffect
 
 
 
@@ -22844,9 +22946,9 @@ with multiple items such as e.g.
             Source: https://docs.wxpython.org/wx.ItemAttr.html
         """
 
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    Font: 'Font'  # See GetFont and SetFont
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
+    Font: '_Font'  # See GetFont and SetFont
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
 
 
 
@@ -23214,13 +23316,13 @@ events.
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
-    def GetRawKeyCode(self) -> 'int':
+    def GetRawKeyCode(self) -> int:
         """ Returns the raw key code for this event.
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
-    def GetRawKeyFlags(self) -> 'int':
+    def GetRawKeyFlags(self) -> int:
         """ Returns the low level key flags for this event.
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
@@ -23288,8 +23390,8 @@ events.
 
     KeyCode: int  # See GetKeyCode and SetKeyCode
     Position: 'Point'  # See GetPosition
-    RawKeyCode: 'int'  # See GetRawKeyCode and SetRawKeyCode
-    RawKeyFlags: 'int'  # See GetRawKeyFlags and SetRawKeyFlags
+    RawKeyCode: int  # See GetRawKeyCode and SetRawKeyCode
+    RawKeyFlags: int  # See GetRawKeyFlags and SetRawKeyFlags
     UnicodeKey: int  # See GetUnicodeKey and SetUnicodeKey
     X: 'Coord'  # See GetX
     Y: 'Coord'  # See GetY
@@ -23325,6 +23427,8 @@ information related to that language.
     LocaleTag: Any  # A public C++ attribute of type string. Tag for locale in BCP 47-like notation.
 
 
+
+Language: TypeAlias = int  # Enumeration
 
 LANGUAGE_DEFAULT: int
 
@@ -25816,7 +25920,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    AlternateRowColour: Union[int, str, 'Colour']  # See GetAlternateRowColour and SetAlternateRowColour
+    AlternateRowColour: 'Colour'  # See GetAlternateRowColour and SetAlternateRowColour
     Column: 'ListItem'  # See GetColumn and SetColumn
     ColumnCount: int  # See GetColumnCount
     ColumnsOrder: list[int]  # See GetColumnsOrder and SetColumnsOrder
@@ -25831,7 +25935,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
     MainWindow: 'Window'  # See GetMainWindow
     SelectedItemCount: int  # See GetSelectedItemCount
     SortIndicator: int  # See GetSortIndicator
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
     TopItem: int  # See GetTopItem
     ViewRect: 'Rect'  # See GetViewRect
 
@@ -25963,6 +26067,8 @@ LIST_HITTEST_ONITEMSTATEICON: int
 
 LIST_HITTEST_ONITEM: int
 
+_Point: TypeAlias = Point
+
 class ListEvent(NotifyEvent):
     """ A list event holds information about events associated with ListCtrl
 objects.
@@ -25993,7 +26099,7 @@ objects.
             Source: https://docs.wxpython.org/wx.ListEvent.html
         """
 
-    def GetData(self) -> 'UIntPtr':
+    def GetData(self) -> int:
         """ The data.
 
             Source: https://docs.wxpython.org/wx.ListEvent.html
@@ -26098,14 +26204,14 @@ objects.
     CacheFrom: int  # See GetCacheFrom and SetCacheFrom
     CacheTo: int  # See GetCacheTo and SetCacheTo
     Column: int  # See GetColumn and SetColumn
-    Data: 'UIntPtr'  # See GetData
+    Data: int  # See GetData
     Image: int  # See GetImage
     Index: int  # See GetIndex and SetIndex
     Item: 'ListItem'  # See GetItem and SetItem
     KeyCode: int  # See GetKeyCode and SetKeyCode
     Label: str  # See GetLabel
     Mask: int  # See GetMask
-    Point: Union[tuple[int, int], 'Point']  # See GetPoint and SetPoint
+    Point: '_Point'  # See GetPoint and SetPoint
     Text: str  # See GetText
 
 
@@ -26277,17 +26383,17 @@ class ListItem(Object):
             Source: https://docs.wxpython.org/wx.ListItem.html
         """
 
-    Align: ListColumnFormat  # See GetAlign and SetAlign
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    Align: 'ListColumnFormat'  # See GetAlign and SetAlign
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
     Column: int  # See GetColumn and SetColumn
     Data: int  # See GetData and SetData
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
     Id: int  # See GetId and SetId
     Image: int  # See GetImage and SetImage
     Mask: int  # See GetMask and SetMask
     State: int  # See GetState and SetState
     Text: str  # See GetText and SetText
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
     Width: int  # See GetWidth and SetWidth
 
 
@@ -27003,6 +27109,8 @@ control.
 
 
 
+_Frame: TypeAlias = Frame
+
 class LogWindow(LogInterposer):
     """ This class represents a background log window: to be precise, it
 collects all log messages in the log frame which it manages but also
@@ -27041,7 +27149,7 @@ creation.
             Source: https://docs.wxpython.org/wx.LogWindow.html
         """
 
-    Frame: 'Frame'  # See GetFrame
+    Frame: '_Frame'  # See GetFrame
 
 
 
@@ -27079,7 +27187,7 @@ area is black and the unmasked area is white.
             Source: https://docs.wxpython.org/wx.Mask.html
         """
 
-    Bitmap: 'Bitmap'  # See GetBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap
 
 
 
@@ -27511,7 +27619,7 @@ menu).
             Source: https://docs.wxpython.org/wx.Menu.html
         """
 
-    def GetMenuItems(self) -> MenuItemList:
+    def GetMenuItems(self) -> 'MenuItemList':
         """ Returns the list of items in the menu.
 
             Source: https://docs.wxpython.org/wx.Menu.html
@@ -27651,11 +27759,11 @@ menu).
 
     InvokingWindow: 'Window'  # See GetInvokingWindow and SetInvokingWindow
     MenuItemCount: int  # See GetMenuItemCount
-    MenuItems: MenuItemList  # See GetMenuItems
+    MenuItems: 'MenuItemList'  # See GetMenuItems
     Parent: 'Menu'  # See GetParent and SetParent
     Style: int  # See GetStyle
     Title: str  # See GetTitle and SetTitle
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -27878,6 +27986,8 @@ class MenuBar(Window):
 
 MB_DOCKABLE: int
 
+_Menu: TypeAlias = Menu
+
 class MenuEvent(Event):
     """ This class is used for a variety of menu-related events.
 
@@ -27907,7 +28017,7 @@ class MenuEvent(Event):
             Source: https://docs.wxpython.org/wx.MenuEvent.html
         """
 
-    Menu: 'Menu'  # See GetMenu
+    Menu: '_Menu'  # See GetMenu
     MenuId: int  # See GetMenuId
 
 
@@ -28159,21 +28269,21 @@ class MenuItem(Object):
         """
 
     Accel: 'AcceleratorEntry'  # See GetAccel and SetAccel
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
-    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle
+    DisabledBitmap: 'Bitmap'  # See GetDisabledBitmap and SetDisabledBitmap
     Enabled: Any  # See IsEnabled and Enable
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
     Help: str  # See GetHelp and SetHelp
     Id: int  # See GetId
     ItemLabel: str  # See GetItemLabel and SetItemLabel
     ItemLabelText: str  # See GetItemLabelText
     Kind: 'ItemKind'  # See GetKind
     MarginWidth: int  # See GetMarginWidth and SetMarginWidth
-    Menu: 'Menu'  # See GetMenu and SetMenu
+    Menu: '_Menu'  # See GetMenu and SetMenu
     SubMenu: 'Menu'  # See GetSubMenu and SetSubMenu
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
 
 
 
@@ -28432,11 +28542,11 @@ message, with a choice of wx.OK, Yes, No and Cancel buttons.
     Caption: str  # See GetCaption
     EffectiveIcon: int  # See GetEffectiveIcon
     ExtendedMessage: str  # See GetExtendedMessage and SetExtendedMessage
-    HelpLabel: MessageDialogButtonLabel  # See GetHelpLabel and SetHelpLabel
+    HelpLabel: str  # See GetHelpLabel and SetHelpLabel
     Message: str  # See GetMessage and SetMessage
     MessageDialogStyle: int  # See GetMessageDialogStyle
     NoLabel: str  # See GetNoLabel
-    OKLabel: MessageDialogButtonLabel  # See GetOKLabel and SetOKLabel
+    OKLabel: str  # See GetOKLabel and SetOKLabel
     YesLabel: str  # See GetYesLabel
 
 
@@ -29145,9 +29255,9 @@ class MouseState(KeyboardState):
             Source: https://docs.wxpython.org/wx.MouseState.html
         """
 
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
-    X: int  # See GetX and SetX
-    Y: int  # See GetY and SetY
+    Position: 'Point'  # See GetPosition and SetPosition
+    X: 'Coord'  # See GetX and SetX
+    Y: 'Coord'  # See GetY and SetY
     aux1IsDown: Any  # See Aux1IsDown and SetAux1Down
     aux2IsDown: Any  # See Aux2IsDown and SetAux2Down
     leftIsDown: Any  # See LeftIsDown and SetLeftDown
@@ -29193,8 +29303,8 @@ class MoveEvent(Event):
             Source: https://docs.wxpython.org/wx.MoveEvent.html
         """
 
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
-    Rect: 'Rect'  # See GetRect and SetRect
+    Position: 'Point'  # See GetPosition and SetPosition
+    Rect: '_Rect'  # See GetRect and SetRect
 
 
 
@@ -29688,6 +29798,8 @@ user.
 
 
 
+_ClassInfo: TypeAlias = ClassInfo
+
 class Object:
     """ This is the root class of many of the wxWidgets classes.
 
@@ -29753,7 +29865,7 @@ class Object:
             Source: https://docs.wxpython.org/wx.Object.html
         """
 
-    ClassInfo: 'ClassInfo'  # See GetClassInfo
+    ClassInfo: '_ClassInfo'  # See GetClassInfo
     ClassName: 'Char'  # See GetClassName
     RefData: 'ObjectRefData'  # See GetRefData and SetRefData
 
@@ -29897,6 +30009,8 @@ class PageSetupDialog(Object):
     PageSetupData: 'PageSetupDialogData'  # See GetPageSetupData
 
 
+
+_PrintData: TypeAlias = PrintData
 
 class PageSetupDialogData(Object):
     """ This class holds a variety of information related to
@@ -30096,13 +30210,13 @@ PageSetupDialog.
             Source: https://docs.wxpython.org/wx.PageSetupDialogData.html
         """
 
-    MarginBottomRight: Union[tuple[int, int], 'Point']  # See GetMarginBottomRight and SetMarginBottomRight
-    MarginTopLeft: Union[tuple[int, int], 'Point']  # See GetMarginTopLeft and SetMarginTopLeft
-    MinMarginBottomRight: Union[tuple[int, int], 'Point']  # See GetMinMarginBottomRight and SetMinMarginBottomRight
-    MinMarginTopLeft: Union[tuple[int, int], 'Point']  # See GetMinMarginTopLeft and SetMinMarginTopLeft
-    PaperId: PaperSize  # See GetPaperId and SetPaperId
-    PaperSize: Union[tuple[int, int], 'Size']  # See GetPaperSize and SetPaperSize
-    PrintData: 'PrintData'  # See GetPrintData and SetPrintData
+    MarginBottomRight: 'Point'  # See GetMarginBottomRight and SetMarginBottomRight
+    MarginTopLeft: 'Point'  # See GetMarginTopLeft and SetMarginTopLeft
+    MinMarginBottomRight: 'Point'  # See GetMinMarginBottomRight and SetMinMarginBottomRight
+    MinMarginTopLeft: 'Point'  # See GetMinMarginTopLeft and SetMinMarginTopLeft
+    PaperId: 'PaperSize'  # See GetPaperId and SetPaperId
+    PaperSize: 'Size'  # See GetPaperSize and SetPaperSize
+    PrintData: '_PrintData'  # See GetPrintData and SetPrintData
 
 
 
@@ -30271,7 +30385,7 @@ class PanGestureEvent(GestureEvent):
             Source: https://docs.wxpython.org/wx.PanGestureEvent.html
         """
 
-    Delta: Union[tuple[int, int], 'Point']  # See GetDelta and SetDelta
+    Delta: 'Point'  # See GetDelta and SetDelta
 
 
 
@@ -30607,7 +30721,7 @@ control.
     InternalMargin: int  # See GetInternalMargin and SetInternalMargin
     PickerCtrl: 'Control'  # See GetPickerCtrl and SetPickerCtrl
     PickerCtrlProportion: int  # See GetPickerCtrlProportion and SetPickerCtrlProportion
-    TextCtrl: 'TextCtrl'  # See GetTextCtrl and SetTextCtrl
+    TextCtrl: '_TextCtrl'  # See GetTextCtrl and SetTextCtrl
     TextCtrlProportion: int  # See GetTextCtrlProportion and SetTextCtrlProportion
 
 
@@ -30665,7 +30779,7 @@ this pixel data object.
     Height: int  # See GetHeight
     Origin: 'Point'  # See GetOrigin
     RowStride: int  # See GetRowStride
-    Size: 'Size'  # See GetSize
+    Size: '_Size'  # See GetSize
     Width: int  # See GetWidth
 
 
@@ -30676,6 +30790,18 @@ class PlatformId:
         Source: https://docs.wxpython.org/wx.PlatformId.html
     """
 
+
+_Architecture: TypeAlias = Architecture
+
+_Bitness: TypeAlias = Bitness
+
+_Endianness: TypeAlias = Endianness
+
+_LinuxDistributionInfo: TypeAlias = LinuxDistributionInfo
+
+_OperatingSystemId: TypeAlias = OperatingSystemId
+
+_PortId: TypeAlias = PortId
 
 class PlatformInformation:
     """ PlatformInfo()
@@ -30702,7 +30828,7 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
         """
 
     @staticmethod
-    def Get() -> PlatformInfo:
+    def Get() -> 'PlatformInfo':
         """ Returns the global PlatformInfo       object, initialized with the values for the currently running platform.
 
             Source: https://docs.wxpython.org/wx.PlatformInformation.html
@@ -30946,23 +31072,23 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
         """
 
     ArchName: str  # See GetArchName
-    Architecture: Architecture  # See GetArchitecture and SetArchitecture
-    Bitness: Bitness  # See GetBitness and SetBitness
+    Architecture: '_Architecture'  # See GetArchitecture and SetArchitecture
+    Bitness: '_Bitness'  # See GetBitness and SetBitness
     BitnessName: str  # See GetBitnessName
     CpuArchitectureName: str  # See GetCpuArchitectureName
     DesktopEnvironment: str  # See GetDesktopEnvironment and SetDesktopEnvironment
-    Endianness: Endianness  # See GetEndianness and SetEndianness
+    Endianness: '_Endianness'  # See GetEndianness and SetEndianness
     EndiannessName: str  # See GetEndiannessName
-    LinuxDistributionInfo: 'LinuxDistributionInfo'  # See GetLinuxDistributionInfo and SetLinuxDistributionInfo
+    LinuxDistributionInfo: '_LinuxDistributionInfo'  # See GetLinuxDistributionInfo and SetLinuxDistributionInfo
     NativeCpuArchitectureName: str  # See GetNativeCpuArchitectureName
     OSMajorVersion: int  # See GetOSMajorVersion
     OSMicroVersion: int  # See GetOSMicroVersion
     OSMinorVersion: int  # See GetOSMinorVersion
     OperatingSystemDescription: str  # See GetOperatingSystemDescription and SetOperatingSystemDescription
     OperatingSystemFamilyName: str  # See GetOperatingSystemFamilyName
-    OperatingSystemId: OperatingSystemId  # See GetOperatingSystemId and SetOperatingSystemId
+    OperatingSystemId: '_OperatingSystemId'  # See GetOperatingSystemId and SetOperatingSystemId
     OperatingSystemIdName: str  # See GetOperatingSystemIdName
-    PortId: PortId  # See GetPortId and SetPortId
+    PortId: '_PortId'  # See GetPortId and SetPortId
     PortIdName: str  # See GetPortIdName
     PortIdShortName: str  # See GetPortIdShortName
     ToolkitMajorVersion: int  # See GetToolkitMajorVersion
@@ -31767,6 +31893,8 @@ system to display the preview.
 
 
 
+_PrintPreview: TypeAlias = PrintPreview
+
 class PreviewControlBar(Panel):
     """ This is the default implementation of the preview control bar, a panel
 with buttons and a zoom control.
@@ -31810,7 +31938,7 @@ with buttons and a zoom control.
             Source: https://docs.wxpython.org/wx.PreviewControlBar.html
         """
 
-    PrintPreview: 'PrintPreview'  # See GetPrintPreview
+    PrintPreview: '_PrintPreview'  # See GetPrintPreview
     ZoomControl: int  # See GetZoomControl and SetZoomControl
 
 
@@ -31902,6 +32030,8 @@ aborting the printing process.
         """
 
 
+
+_PrintMode: TypeAlias = PrintMode
 
 class PrintData(Object):
     """ This class holds a variety of information related to printers and
@@ -32089,16 +32219,16 @@ printer device contexts.
             Source: https://docs.wxpython.org/wx.PrintData.html
         """
 
-    Bin: PrintBin  # See GetBin and SetBin
+    Bin: 'PrintBin'  # See GetBin and SetBin
     Collate: bool  # See GetCollate and SetCollate
     Colour: bool  # See GetColour and SetColour
-    Duplex: DuplexMode  # See GetDuplex and SetDuplex
+    Duplex: 'DuplexMode'  # See GetDuplex and SetDuplex
     Filename: str  # See GetFilename and SetFilename
     NoCopies: int  # See GetNoCopies and SetNoCopies
-    Orientation: PrintOrientation  # See GetOrientation and SetOrientation
-    PaperId: PaperSize  # See GetPaperId and SetPaperId
-    PaperSize: Union[tuple[int, int], 'Size']  # See GetPaperSize and SetPaperSize
-    PrintMode: PrintMode  # See GetPrintMode and SetPrintMode
+    Orientation: 'PrintOrientation'  # See GetOrientation and SetOrientation
+    PaperId: 'PaperSize'  # See GetPaperId and SetPaperId
+    PaperSize: 'Size'  # See GetPaperSize and SetPaperSize
+    PrintMode: '_PrintMode'  # See GetPrintMode and SetPrintMode
     PrinterName: str  # See GetPrinterName and SetPrinterName
     PrivData: Any  # See GetPrivData and SetPrivData
     Quality: 'PrintQuality'  # See GetQuality and SetQuality
@@ -32122,6 +32252,8 @@ PRINT_QUALITY_MEDIUM: int
 PRINT_QUALITY_LOW: int
 
 PRINT_QUALITY_DRAFT: int
+
+_PrintDialogData: TypeAlias = PrintDialogData
 
 class PrintDialog(Object):
     """ This class represents the print and print setup common dialogs.
@@ -32159,8 +32291,8 @@ class PrintDialog(Object):
         """
 
     PrintDC: 'DC'  # See GetPrintDC
-    PrintData: 'PrintData'  # See GetPrintData
-    PrintDialogData: 'PrintDialogData'  # See GetPrintDialogData
+    PrintData: '_PrintData'  # See GetPrintData
+    PrintDialogData: '_PrintDialogData'  # See GetPrintDialogData
 
 
 
@@ -32338,7 +32470,7 @@ PrintDialog.
     MaxPage: int  # See GetMaxPage and SetMaxPage
     MinPage: int  # See GetMinPage and SetMinPage
     NoCopies: int  # See GetNoCopies and SetNoCopies
-    PrintData: 'PrintData'  # See GetPrintData and SetPrintData
+    PrintData: '_PrintData'  # See GetPrintData and SetPrintData
     PrintToFile: bool  # See GetPrintToFile and SetPrintToFile
     Selection: bool  # See GetSelection and SetSelection
     ToPage: int  # See GetToPage and SetToPage
@@ -32407,7 +32539,7 @@ vehicle through which printing may be launched by an application.
         """
 
     Abort: bool  # See GetAbort
-    PrintDialogData: 'PrintDialogData'  # See GetPrintDialogData
+    PrintDialogData: '_PrintDialogData'  # See GetPrintDialogData
 
 
 
@@ -32625,7 +32757,7 @@ application document.
             Source: https://docs.wxpython.org/wx.Printout.html
         """
 
-    DC: 'DC'  # See GetDC
+    DC: '_DC'  # See GetDC
     LogicalPageRect: 'Rect'  # See GetLogicalPageRect
     LogicalPaperRect: 'Rect'  # See GetLogicalPaperRect
     PaperRectPixels: 'Rect'  # See GetPaperRectPixels
@@ -32633,6 +32765,8 @@ application document.
     Title: str  # See GetTitle
 
 
+
+_Printout: TypeAlias = Printout
 
 class PrintPreview(Object):
     """ Objects of this class manage the print preview process.
@@ -32755,13 +32889,17 @@ class PrintPreview(Object):
 
     Canvas: 'PreviewCanvas'  # See GetCanvas and SetCanvas
     CurrentPage: int  # See GetCurrentPage and SetCurrentPage
-    Frame: 'Frame'  # See GetFrame and SetFrame
+    Frame: '_Frame'  # See GetFrame and SetFrame
     MaxPage: int  # See GetMaxPage
     MinPage: int  # See GetMinPage
-    Printout: 'Printout'  # See GetPrintout and SetPrintout
+    Printout: '_Printout'  # See GetPrintout and SetPrintout
     PrintoutForPrinting: 'Printout'  # See GetPrintoutForPrinting
 
 
+
+_InputStream: TypeAlias = InputStream
+
+_OutputStream: TypeAlias = OutputStream
 
 class Process(EvtHandler):
     """ The objects of this class are used in conjunction with the Execute()
@@ -32875,8 +33013,8 @@ function.
         """
 
     ErrorStream: 'InputStream'  # See GetErrorStream
-    InputStream: 'InputStream'  # See GetInputStream
-    OutputStream: 'OutputStream'  # See GetOutputStream
+    InputStream: '_InputStream'  # See GetInputStream
+    OutputStream: '_OutputStream'  # See GetOutputStream
     Pid: int  # See GetPid
 
 
@@ -34079,16 +34217,16 @@ class Rect:
         """
 
     Bottom: int  # See GetBottom and SetBottom
-    BottomLeft: Union[tuple[int, int], 'Point']  # See GetBottomLeft and SetBottomLeft
-    BottomRight: Union[tuple[int, int], 'Point']  # See GetBottomRight and SetBottomRight
+    BottomLeft: 'Point'  # See GetBottomLeft and SetBottomLeft
+    BottomRight: 'Point'  # See GetBottomRight and SetBottomRight
     Height: int  # See GetHeight and SetHeight
     Left: int  # See GetLeft and SetLeft
-    Position: Union[tuple[int, int], 'Point']  # See GetPosition and SetPosition
+    Position: 'Point'  # See GetPosition and SetPosition
     Right: int  # See GetRight and SetRight
-    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
+    Size: '_Size'  # See GetSize and SetSize
     Top: int  # See GetTop and SetTop
-    TopLeft: Union[tuple[int, int], 'Point']  # See GetTopLeft and SetTopLeft
-    TopRight: Union[tuple[int, int], 'Point']  # See GetTopRight and SetTopRight
+    TopLeft: 'Point'  # See GetTopLeft and SetTopLeft
+    TopRight: 'Point'  # See GetTopRight and SetTopRight
     Width: int  # See GetWidth and SetWidth
     X: int  # See GetX and SetX
     Y: int  # See GetY and SetY
@@ -34130,13 +34268,13 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def CreateIntersection(self, otherRect: Rect2DDouble) -> Rect2DDouble:
+    def CreateIntersection(self, otherRect: Rect2DDouble) -> 'Rect2DDouble':
         """ otherRect (Rect2DDouble) â
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def CreateUnion(self, otherRect: Rect2DDouble) -> Rect2DDouble:
+    def CreateUnion(self, otherRect: Rect2DDouble) -> 'Rect2DDouble':
         """ otherRect (Rect2DDouble) â
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34154,7 +34292,7 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetCentre(self) -> Point2DDouble:
+    def GetCentre(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34172,13 +34310,13 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetLeftBottom(self) -> Point2DDouble:
+    def GetLeftBottom(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetLeftTop(self) -> Point2DDouble:
+    def GetLeftTop(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34196,7 +34334,7 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetPosition(self) -> Point2DDouble:
+    def GetPosition(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34208,13 +34346,13 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetRightBottom(self) -> Point2DDouble:
+    def GetRightBottom(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def GetRightTop(self) -> Point2DDouble:
+    def GetRightTop(self) -> 'Point2DDouble':
         """ Point2DDouble
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34244,7 +34382,7 @@ class Rect2D:
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
-    def Interpolate(self, widthfactor, heightfactor) -> Point2DDouble:
+    def Interpolate(self, widthfactor, heightfactor) -> 'Point2DDouble':
         """ widthfactor (wx.int) â
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
@@ -34455,16 +34593,16 @@ class Rect2D:
         """
 
     Bottom: 'Double'  # See GetBottom and SetBottom
-    Centre: Point2DDouble  # See GetCentre and SetCentre
+    Centre: 'Point2DDouble'  # See GetCentre and SetCentre
     IM: None  # See GetIM
     Left: 'Double'  # See GetLeft and SetLeft
-    LeftBottom: Point2DDouble  # See GetLeftBottom and SetLeftBottom
-    LeftTop: Point2DDouble  # See GetLeftTop and SetLeftTop
-    Position: Point2DDouble  # See GetPosition
+    LeftBottom: 'Point2DDouble'  # See GetLeftBottom and SetLeftBottom
+    LeftTop: 'Point2DDouble'  # See GetLeftTop and SetLeftTop
+    Position: 'Point2DDouble'  # See GetPosition
     Right: 'Double'  # See GetRight and SetRight
-    RightBottom: Point2DDouble  # See GetRightBottom and SetRightBottom
-    RightTop: Point2DDouble  # See GetRightTop and SetRightTop
-    Size: 'Size'  # See GetSize
+    RightBottom: 'Point2DDouble'  # See GetRightBottom and SetRightBottom
+    RightTop: 'Point2DDouble'  # See GetRightTop and SetRightTop
+    Size: '_Size'  # See GetSize
     Top: 'Double'  # See GetTop and SetTop
     m_height: Any  # A public C++ attribute of type Double     .
     m_width: Any  # A public C++ attribute of type Double     .
@@ -34683,7 +34821,7 @@ OnPaint call.
 
     H: 'Coord'  # See GetH
     Height: 'Coord'  # See GetHeight
-    Rect: 'Rect'  # See GetRect
+    Rect: '_Rect'  # See GetRect
     W: 'Coord'  # See GetW
     Width: 'Coord'  # See GetWidth
     X: 'Coord'  # See GetX
@@ -35869,7 +36007,7 @@ control, and a cancel button.
     InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
     LastPosition: 'TextPos'  # See GetLastPosition
     Margins: 'Point'  # See GetMargins and SetMargins
-    Menu: 'Menu'  # See GetMenu and SetMenu
+    Menu: '_Menu'  # See GetMenu and SetMenu
     SearchButtonVisible: Any  # See IsSearchButtonVisible and ShowSearchButton
     StringSelection: str  # See GetStringSelection
     Value: str  # See GetValue and SetValue
@@ -35922,7 +36060,7 @@ about to be set as a result of mouse motion.
             Source: https://docs.wxpython.org/wx.SetCursorEvent.html
         """
 
-    Cursor: 'Cursor'  # See GetCursor and SetCursor
+    Cursor: '_Cursor'  # See GetCursor and SetCursor
     X: 'Coord'  # See GetX
     Y: 'Coord'  # See GetY
 
@@ -36035,16 +36173,16 @@ class SettableHeaderColumn(HeaderColumn):
             Source: https://docs.wxpython.org/wx.SettableHeaderColumn.html
         """
 
-    Alignment: int  # See GetAlignment and SetAlignment
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    Flags: int  # See GetFlags and SetFlags
-    Hidden: bool  # See IsHidden and SetHidden
-    MinWidth: int  # See GetMinWidth and SetMinWidth
-    Reorderable: bool  # See IsReorderable and SetReorderable
-    Resizeable: bool  # See IsResizeable and SetResizeable
-    Sortable: bool  # See IsSortable and SetSortable
-    Title: str  # See GetTitle and SetTitle
-    Width: int  # See GetWidth and SetWidth
+    Alignment: Any  # See GetAlignment and SetAlignment
+    Bitmap: Any  # See GetBitmap and SetBitmap
+    Flags: Any  # See GetFlags and SetFlags
+    Hidden: Any  # See IsHidden and SetHidden
+    MinWidth: Any  # See GetMinWidth and SetMinWidth
+    Reorderable: Any  # See IsReorderable and SetReorderable
+    Resizeable: Any  # See IsResizeable and SetResizeable
+    Sortable: Any  # See IsSortable and SetSortable
+    Title: Any  # See GetTitle and SetTitle
+    Width: Any  # See GetWidth and SetWidth
 
 
 
@@ -36065,7 +36203,7 @@ copiable, so it can be copied when objects containing it are cloned.
             Source: https://docs.wxpython.org/wx.SharedClientDataContainer.html
         """
 
-    def GetClientObject(self) -> ClientData:
+    def GetClientObject(self) -> 'ClientData':
         """ Get a pointer to the client data object.
 
             Source: https://docs.wxpython.org/wx.SharedClientDataContainer.html
@@ -36083,8 +36221,8 @@ copiable, so it can be copied when objects containing it are cloned.
             Source: https://docs.wxpython.org/wx.SharedClientDataContainer.html
         """
 
-    ClientData: Any  # See GetClientData and SetClientData
-    ClientObject: ClientData  # See GetClientObject and SetClientObject
+    ClientData: None  # See GetClientData and SetClientData
+    ClientObject: 'ClientData'  # See GetClientObject and SetClientObject
 
 
 
@@ -36111,7 +36249,7 @@ class ShowEvent(Event):
             Source: https://docs.wxpython.org/wx.ShowEvent.html
         """
 
-    Show: bool  # See IsShown and SetShow
+    Show: Any  # See IsShown and SetShow
 
 
 
@@ -36490,8 +36628,8 @@ class SizeEvent(Event):
             Source: https://docs.wxpython.org/wx.SizeEvent.html
         """
 
-    Rect: 'Rect'  # See GetRect and SetRect
-    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
+    Rect: '_Rect'  # See GetRect and SetRect
+    Size: '_Size'  # See GetSize and SetSize
 
 
 
@@ -36763,7 +36901,7 @@ attributes of each item managed by a Sizer.
             Source: https://docs.wxpython.org/wx.SizerItem.html
         """
 
-    def GetUserData(self) -> PyUserData:
+    def GetUserData(self) -> 'PyUserData':
         """ Get the userData item attribute.
 
             Source: https://docs.wxpython.org/wx.SizerItem.html
@@ -36862,16 +37000,16 @@ attributes of each item managed by a Sizer.
     Border: int  # See GetBorder and SetBorder
     Flag: int  # See GetFlag and SetFlag
     Id: int  # See GetId and SetId
-    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    MinSize: 'Size'  # See GetMinSize and SetMinSize
     Position: 'Point'  # See GetPosition
     Proportion: int  # See GetProportion and SetProportion
     Ratio: float  # See GetRatio and SetRatio
-    Rect: 'Rect'  # See GetRect
-    Size: 'Size'  # See GetSize
-    Sizer: 'Sizer'  # See GetSizer
+    Rect: '_Rect'  # See GetRect
+    Size: '_Size'  # See GetSize
+    Sizer: '_Sizer'  # See GetSizer
     Spacer: 'Size'  # See GetSpacer
-    UserData: PyUserData  # See GetUserData and SetUserData
-    Window: 'Window'  # See GetWindow
+    UserData: 'PyUserData'  # See GetUserData and SetUserData
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -37100,7 +37238,7 @@ class SpinCtrl(Control):
     Min: int  # See GetMin and SetMin
     Range: None  # See GetRange
     TextValue: str  # See GetTextValue
-    Value: str  # See GetValue and SetValue
+    Value: int  # See GetValue and SetValue
 
 
 
@@ -37215,7 +37353,7 @@ and displays a real number.
     Min: float  # See GetMin and SetMin
     Range: None  # See GetRange
     TextValue: str  # See GetTextValue
-    Value: str  # See GetValue and SetValue
+    Value: float  # See GetValue and SetValue
 
 
 
@@ -37362,6 +37500,8 @@ RendererNative.GetSplitterParams().
     widthSash: Any  # A public C++ attribute of type int. The width of the splitter sash.
 
 
+
+_SplitMode: TypeAlias = SplitMode
 
 class SplitterWindow(Window):
     """ This class manages up to two subwindows.
@@ -37516,10 +37656,10 @@ class SplitterWindow(Window):
     DefaultSashSize: int  # See GetDefaultSashSize
     MinimumPaneSize: int  # See GetMinimumPaneSize and SetMinimumPaneSize
     SashGravity: float  # See GetSashGravity and SetSashGravity
-    SashInvisible: bool  # See IsSashInvisible and SetSashInvisible
+    SashInvisible: Any  # See IsSashInvisible and SetSashInvisible
     SashPosition: int  # See GetSashPosition and SetSashPosition
     SashSize: int  # See GetSashSize
-    SplitMode: int  # See GetSplitMode and SetSplitMode
+    SplitMode: '_SplitMode'  # See GetSplitMode and SetSplitMode
     Window1: 'Window'  # See GetWindow1
     Window2: 'Window'  # See GetWindow2
 
@@ -37774,8 +37914,8 @@ class StaticBitmap(Control):
             Source: https://docs.wxpython.org/wx.StaticBitmap.html
         """
 
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    Icon: 'Icon'  # See GetIcon and SetIcon
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    Icon: '_Icon'  # See GetIcon and SetIcon
 
 
 
@@ -37818,6 +37958,8 @@ logical grouping of items.
 
 
 
+_StaticBox: TypeAlias = StaticBox
+
 class StaticBoxSizer(BoxSizer):
     """ StaticBoxSizer is a sizer derived from BoxSizer but adds a static
 box around the sizer.
@@ -37848,7 +37990,7 @@ box around the sizer.
             Source: https://docs.wxpython.org/wx.StaticBoxSizer.html
         """
 
-    StaticBox: 'StaticBox'  # See GetStaticBox
+    StaticBox: '_StaticBox'  # See GetStaticBox
 
 
 
@@ -38449,7 +38591,7 @@ drawn, and the output produced as a vector file, in SVG format.
         """
 
     Depth: int  # See GetDepth
-    LogicalFunction: RasterOperationMode  # See GetLogicalFunction and SetLogicalFunction
+    LogicalFunction: 'RasterOperationMode'  # See GetLogicalFunction and SetLogicalFunction
 
 
 
@@ -39251,7 +39393,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
     BulletFont: str  # See GetBulletFont and SetBulletFont
     BulletName: str  # See GetBulletName and SetBulletName
     BulletNumber: int  # See GetBulletNumber and SetBulletNumber
@@ -39259,7 +39401,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
     BulletText: str  # See GetBulletText and SetBulletText
     CharacterStyleName: str  # See GetCharacterStyleName and SetCharacterStyleName
     Flags: int  # See GetFlags and SetFlags
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
     FontEncoding: int  # See GetFontEncoding and SetFontEncoding
     FontFaceName: str  # See GetFontFaceName and SetFontFaceName
     FontFamily: int  # See GetFontFamily and SetFontFamily
@@ -39277,7 +39419,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
     ParagraphStyleName: str  # See GetParagraphStyleName and SetParagraphStyleName
     RightIndent: int  # See GetRightIndent and SetRightIndent
     Tabs: list[int]  # See GetTabs and SetTabs
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
     TextEffectFlags: int  # See GetTextEffectFlags and SetTextEffectFlags
     TextEffects: int  # See GetTextEffects and SetTextEffects
     URL: str  # See GetURL and SetURL
@@ -39310,6 +39452,8 @@ TEXT_ATTR_EFFECT_SUPERSCRIPT: int
 
 TEXT_ATTR_EFFECT_SUBSCRIPT: int
 
+_CommandProcessor: TypeAlias = CommandProcessor
+
 class TextCompleter:
     """ Base class for custom text completer objects.
 
@@ -39336,7 +39480,7 @@ class TextCompleterSimple(TextCompleter):
 
         Source: https://docs.wxpython.org/wx.TextCompleterSimple.html
     """
-    def GetCompletions(self, prefix: str) -> res:
+    def GetCompletions(self, prefix: str) -> 'res':
         """ Pure virtual method returning all possible completions for the given prefix.
 
             Source: https://docs.wxpython.org/wx.TextCompleterSimple.html
@@ -39759,6 +39903,8 @@ from the user.
 
 
 
+_MouseEvent: TypeAlias = MouseEvent
+
 class TextUrlEvent(CommandEvent):
     """  Overloaded Implementations:
 
@@ -39794,7 +39940,7 @@ class TextUrlEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.TextUrlEvent.html
         """
 
-    MouseEvent: 'MouseEvent'  # See GetMouseEvent
+    MouseEvent: '_MouseEvent'  # See GetMouseEvent
     URLEnd: int  # See GetURLEnd
     URLStart: int  # See GetURLStart
 
@@ -39856,6 +40002,8 @@ class TIFFHandler(ImageHandler):
 
 
 
+_Timer: TypeAlias = Timer
+
 class TimerEvent(Event):
     """ TimerEvent object is passed to the event handler of timer events
 (see Timer.SetOwner).
@@ -39881,7 +40029,7 @@ class TimerEvent(Event):
         """
 
     Interval: int  # See GetInterval
-    Timer: 'Timer'  # See GetTimer
+    Timer: '_Timer'  # See GetTimer
 
 
 
@@ -40286,7 +40434,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def GetToolClientData(self, toolId: int) -> PyUserData:
+    def GetToolClientData(self, toolId: int) -> 'PyUserData':
         """ Get any client data associated with the tool.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -40461,7 +40609,7 @@ below the menu bar in a Frame.
         """
 
     Margins: 'Size'  # See GetMargins and SetMargins
-    ToolBitmapSize: Union[tuple[int, int], 'Size']  # See GetToolBitmapSize and SetToolBitmapSize
+    ToolBitmapSize: 'Size'  # See GetToolBitmapSize and SetToolBitmapSize
     ToolPacking: int  # See GetToolPacking and SetToolPacking
     ToolSeparation: int  # See GetToolSeparation and SetToolSeparation
     ToolSize: 'Size'  # See GetToolSize
@@ -40498,6 +40646,8 @@ TB_RIGHT: int  # Align the toolbar at the right side of parent window.
 TB_DEFAULT_STYLE: int  # The  TB_HORIZONTAL   style. This style is new since wxWidgets 2.9.5. ^^
 
 EVT_TOOL_DROPDOWN: int  # Process a  wxEVT_TOOL_DROPDOWN   event. If unhandled, displays the default dropdown menu set using  wx.ToolBar.SetDropdownMenu . ^^
+
+_Control: TypeAlias = Control
 
 class ToolBarToolBase(Object):
     """ A toolbar tool represents one item on the toolbar.
@@ -40540,7 +40690,7 @@ class ToolBarToolBase(Object):
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
 
-    def GetClientData(self) -> PyUserData:
+    def GetClientData(self) -> 'PyUserData':
         """ PyUserData
 
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
@@ -40726,21 +40876,21 @@ class ToolBarToolBase(Object):
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
 
-    Bitmap: 'Bitmap'  # See GetBitmap
-    ClientData: PyUserData  # See GetClientData and SetClientData
-    Control: 'Control'  # See GetControl
-    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap
+    ClientData: 'PyUserData'  # See GetClientData and SetClientData
+    Control: '_Control'  # See GetControl
+    DisabledBitmap: 'Bitmap'  # See GetDisabledBitmap and SetDisabledBitmap
     DisabledBitmapBundle: 'BitmapBundle'  # See GetDisabledBitmapBundle
     DropdownMenu: 'Menu'  # See GetDropdownMenu and SetDropdownMenu
     Id: int  # See GetId
     Kind: 'ItemKind'  # See GetKind
     Label: str  # See GetLabel and SetLabel
     LongHelp: str  # See GetLongHelp and SetLongHelp
-    NormalBitmap: 'BitmapBundle'  # See GetNormalBitmap and SetNormalBitmap
+    NormalBitmap: 'Bitmap'  # See GetNormalBitmap and SetNormalBitmap
     NormalBitmapBundle: 'BitmapBundle'  # See GetNormalBitmapBundle
     ShortHelp: str  # See GetShortHelp and SetShortHelp
     Style: int  # See GetStyle
-    ToolBar: 'ToolBar'  # See GetToolBar
+    ToolBar: '_ToolBar'  # See GetToolBar
 
 
 
@@ -40781,7 +40931,7 @@ to show the labels instead of the tabs.
             Source: https://docs.wxpython.org/wx.Toolbook.html
         """
 
-    ToolBar: 'ToolBar'  # See GetToolBar
+    ToolBar: '_ToolBar'  # See GetToolBar
 
 
 
@@ -40859,7 +41009,7 @@ class ToolTip(Object):
         """
 
     Tip: str  # See GetTip and SetTip
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -41165,7 +41315,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     DefaultItem: 'Window'  # See GetDefaultItem and SetDefaultItem
-    Icon: 'Icon'  # See GetIcon and SetIcon
+    Icon: '_Icon'  # See GetIcon and SetIcon
     MacMetalAppearance: Any  # See MacGetMetalAppearance and MacSetMetalAppearance
     OSXModified: Any  # See OSXIsModified and OSXSetModified
     Title: str  # See GetTitle and SetTitle
@@ -41865,6 +42015,8 @@ EVT_TREE_ITEM_MENU: int  # The context menu for the selected item has been reque
 
 EVT_TREE_STATE_IMAGE_CLICK: int  # The state image has been clicked. Processes a  wxEVT_TREE_STATE_IMAGE_CLICK   event type. ^^
 
+_KeyEvent: TypeAlias = KeyEvent
+
 class TreeEvent(NotifyEvent):
     """ A tree event holds information about events associated with TreeCtrl
 objects.
@@ -41927,10 +42079,10 @@ objects.
 
     Item: 'TreeItemId'  # See GetItem
     KeyCode: int  # See GetKeyCode
-    KeyEvent: 'KeyEvent'  # See GetKeyEvent
+    KeyEvent: '_KeyEvent'  # See GetKeyEvent
     Label: str  # See GetLabel
     OldItem: 'TreeItemId'  # See GetOldItem
-    Point: 'Point'  # See GetPoint
+    Point: '_Point'  # See GetPoint
 
 
 
@@ -42110,7 +42262,7 @@ class UniChar:
             Source: https://docs.wxpython.org/wx.UniChar.html
         """
 
-    def GetValue(self) -> value_type:
+    def GetValue(self) -> 'value_type':
         """ Returns Unicode code point value of the character.
 
             Source: https://docs.wxpython.org/wx.UniChar.html
@@ -42146,7 +42298,7 @@ class UniChar:
             Source: https://docs.wxpython.org/wx.UniChar.html
         """
 
-    Value: value_type  # See GetValue
+    Value: 'value_type'  # See GetValue
 
 
 
@@ -42402,7 +42554,7 @@ mediate between a class of control, and application data.
             Source: https://docs.wxpython.org/wx.Validator.html
         """
 
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -42501,6 +42653,8 @@ class, targeted for horizontal-specific scrolling.
     VisibleColumnsEnd: int  # See GetVisibleColumnsEnd
 
 
+
+_Orientation: TypeAlias = Orientation
 
 class VarScrollHelperBase:
     """ This class provides all common base functionality for scroll
@@ -42621,7 +42775,7 @@ orientation specific work.
         """
 
     NonOrientationTargetSize: int  # See GetNonOrientationTargetSize
-    Orientation: 'Orientation'  # See GetOrientation
+    Orientation: '_Orientation'  # See GetOrientation
     OrientationTargetSize: int  # See GetOrientationTargetSize
     TargetWindow: 'Window'  # See GetTargetWindow and SetTargetWindow
     VisibleBegin: int  # See GetVisibleBegin
@@ -43159,10 +43313,10 @@ its items can have variable height as determined by OnMeasureItem()
         """
 
     ItemCount: int  # See GetItemCount and SetItemCount
-    Margins: Union[tuple[int, int], 'Point']  # See GetMargins and SetMargins
+    Margins: 'Point'  # See GetMargins and SetMargins
     SelectedCount: int  # See GetSelectedCount
     Selection: int  # See GetSelection and SetSelection
-    SelectionBackground: Union[int, str, 'Colour']  # See GetSelectionBackground and SetSelectionBackground
+    SelectionBackground: 'Colour'  # See GetSelectionBackground and SetSelectionBackground
 
 
 
@@ -43297,7 +43451,7 @@ Window object has been created.
             Source: https://docs.wxpython.org/wx.WindowCreateEvent.html
         """
 
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -43335,7 +43489,7 @@ process.
             Source: https://docs.wxpython.org/wx.WindowDestroyEvent.html
         """
 
-    Window: 'Window'  # See GetWindow
+    Window: '_Window'  # See GetWindow
 
 
 
@@ -43455,6 +43609,8 @@ until all references to that ID are gone.
 
 
 
+_Dialog: TypeAlias = Dialog
+
 class WindowModalDialogEvent(CommandEvent):
     """ Event sent by Dialog.ShowWindowModal() when the dialog closes.
 
@@ -43484,10 +43640,12 @@ class WindowModalDialogEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.WindowModalDialogEvent.html
         """
 
-    Dialog: 'Dialog'  # See GetDialog
+    Dialog: '_Dialog'  # See GetDialog
     ReturnCode: int  # See GetReturnCode
 
 
+
+_ImageList: TypeAlias = ImageList
 
 class WithImages:
     """ A mixin class to be used with other classes that use a ImageList.
@@ -43543,7 +43701,7 @@ class WithImages:
         """
 
     ImageCount: int  # See GetImageCount
-    ImageList: 'ImageList'  # See GetImageList and SetImageList
+    ImageList: '_ImageList'  # See GetImageList and SetImageList
 
 
 
@@ -43648,6 +43806,8 @@ or out.
 
 EVT_GESTURE_ZOOM: int  # Process a  wxEVT_GESTURE_ZOOM . ^^
 
+BatteryState: TypeAlias = int  # Enumeration
+
 BATTERY_NORMAL_STATE: int
 
 BATTERY_LOW_STATE: int
@@ -43657,6 +43817,8 @@ BATTERY_CRITICAL_STATE: int
 BATTERY_SHUTDOWN_STATE: int
 
 BATTERY_UNKNOWN_STATE: int
+
+KeyCode: TypeAlias = int  # Enumeration
 
 WXK_NONE: int
 
@@ -43908,6 +44070,8 @@ WXK_LAUNCH_E: int
 
 WXK_LAUNCH_F: int
 
+OperatingSystemId: TypeAlias = int  # Enumeration
+
 OS_UNKNOWN: int
 
 OS_MAC_OS: int
@@ -43936,11 +44100,17 @@ OS_UNIX_HPUX: int
 
 OS_UNIX: int
 
+PowerType: TypeAlias = int  # Enumeration
+
 POWER_SOCKET: int
 
 POWER_BATTERY: int
 
 POWER_UNKNOWN: int
+
+DragResult: TypeAlias = int  # Enumeration
+
+Signal: TypeAlias = int  # Enumeration
 
 SIGNONE: int
 
@@ -43974,6 +44144,8 @@ SIGALRM: int
 
 SIGTERM: int
 
+KillError: TypeAlias = int  # Enumeration
+
 KILL_OK: int
 
 KILL_BAD_SIGNAL: int
@@ -43983,6 +44155,8 @@ KILL_ACCESS_DENIED: int
 KILL_NO_PROCESS: int
 
 KILL_ERROR: int
+
+AcceleratorEntryFlags: TypeAlias = int  # Enumeration
 
 ACCEL_NORMAL: int
 
@@ -43996,6 +44170,8 @@ ACCEL_RAW_CTRL: int
 
 ACCEL_CMD: int
 
+AccStatus: TypeAlias = int  # Enumeration
+
 ACC_FAIL: int
 
 ACC_FALSE: int
@@ -44003,6 +44179,8 @@ ACC_FALSE: int
 ACC_NOT_IMPLEMENTED: int
 
 ACC_INVALID_ARG: int
+
+NavDir: TypeAlias = int  # Enumeration
 
 NAVDIR_FIRSTCHILD: int
 
@@ -44019,6 +44197,8 @@ NAVDIR_PREVIOUS: int
 NAVDIR_RIGHT: int
 
 NAVDIR_UP: int
+
+AccObject: TypeAlias = int  # Enumeration
 
 OBJID_WINDOW: int
 
@@ -44044,6 +44224,8 @@ OBJID_ALERT: int
 
 OBJID_SOUND: int
 
+AccSelectionFlags: TypeAlias = int  # Enumeration
+
 ACC_SEL_NONE: int
 
 ACC_SEL_TAKEFOCUS: int
@@ -44066,6 +44248,8 @@ ID_HIGHEST: int
 
 ID_LOWEST: int
 
+WindowVariant: TypeAlias = int  # Enumeration
+
 WINDOW_VARIANT_NORMAL: int
 
 WINDOW_VARIANT_SMALL: int
@@ -44075,6 +44259,8 @@ WINDOW_VARIANT_MINI: int
 WINDOW_VARIANT_LARGE: int
 
 WINDOW_VARIANT_MAX: int
+
+BitmapType: TypeAlias = int  # Enumeration
 
 BITMAP_TYPE_INVALID: int
 
@@ -44109,6 +44295,8 @@ BITMAP_TYPE_ICO: int
 BITMAP_TYPE_CUR_RESOURCE: int
 
 BITMAP_TYPE_CUR: int
+
+PortId: TypeAlias = int  # Enumeration
 
 PORT_UNKNOWN: int
 
@@ -44270,6 +44458,8 @@ ID_ZOOM_IN: int
 
 ID_ZOOM_OUT: int
 
+RasterOperationMode: TypeAlias = int  # Enumeration
+
 CLEAR: int
 
 INVERT: int
@@ -44298,6 +44488,10 @@ NAND: int
 
 SET: int
 
+FloodFillStyle: TypeAlias = int  # Enumeration
+
+MappingMode: TypeAlias = int  # Enumeration
+
 MM_TEXT: int
 
 MM_METRIC: int
@@ -44307,6 +44501,8 @@ MM_LOMETRIC: int
 MM_TWIPS: int
 
 MM_POINTS: int
+
+Direction: TypeAlias = int  # Enumeration
 
 NORTH: int
 
@@ -44383,6 +44579,8 @@ NORTH: int
 
 WEST: int
 
+BrushStyle: TypeAlias = int  # Enumeration
+
 BRUSHSTYLE_INVALID: int
 
 BRUSHSTYLE_SOLID: int
@@ -44409,9 +44607,15 @@ BRUSHSTYLE_FIRST_HATCH: int
 
 BRUSHSTYLE_LAST_HATCH: int
 
+CheckBoxState: TypeAlias = int  # Enumeration
+
 CHK_UNCHECKED: int
 
 CHK_CHECKED: int
+
+_ListCtrl: TypeAlias = ListCtrl
+
+HitTest: TypeAlias = int  # Enumeration
 
 HT_NOWHERE: int
 
@@ -44465,17 +44669,25 @@ ID_FILE1: int
 
 ID_FILE9: int
 
+_DragResult: TypeAlias = DragResult
+
 EVT_PAINT: int
 
 DefaultSize: int
 
 EVT_SIZE: int
 
+BackgroundStyle: TypeAlias = int  # Enumeration
+
 BG_STYLE_ERASE: int
 
 BG_STYLE_SYSTEM: int
 
 BG_STYLE_TRANSPARENT: int
+
+Border: TypeAlias = int  # Enumeration
+
+ShowEffect: TypeAlias = int  # Enumeration
 
 SHOW_EFFECT_ROLL_TO_LEFT: int
 
@@ -44499,9 +44711,13 @@ VERTICAL: int
 
 HORIZONTAL: int
 
+UpdateUI: TypeAlias = int  # Enumeration
+
 UPDATE_UI_NONE: int
 
 UPDATE_UI_RECURSE: int
+
+EllipsizeMode: TypeAlias = int  # Enumeration
 
 ELLIPSIZE_NONE: int
 
@@ -44511,6 +44727,8 @@ ELLIPSIZE_MIDDLE: int
 
 ELLIPSIZE_END: int
 
+EllipsizeFlags: TypeAlias = int  # Enumeration
+
 ELLIPSIZE_FLAGS_NONE: int
 
 ELLIPSIZE_FLAGS_PROCESS_MNEMONICS: int
@@ -44518,6 +44736,8 @@ ELLIPSIZE_FLAGS_PROCESS_MNEMONICS: int
 ELLIPSIZE_FLAGS_EXPAND_TABS: int
 
 ELLIPSIZE_FLAGS_DEFAULT: int
+
+DataFormatId: TypeAlias = int  # Enumeration
 
 DF_SYLK: int
 
@@ -44545,11 +44765,15 @@ DF_PRIVATE: int
 
 DF_MAX: int
 
+HeaderSortIconType: TypeAlias = int  # Enumeration
+
 HDR_SORT_ICON_NONE: int
 
 HDR_SORT_ICON_UP: int
 
 HDR_SORT_ICON_DOWN: int
+
+Orientation: TypeAlias = int  # Enumeration
 
 ORIENTATION_MASK: int
 
@@ -44559,11 +44783,17 @@ DIALOG_ADAPTATION_MODE_ENABLED: int
 
 DIALOG_ADAPTATION_MODE_DISABLED: int
 
+DialogLayoutAdaptationMode: TypeAlias = int  # Enumeration
+
 DIALOG_ADAPTATION_MODE_DEFAULT: int
 
 DIALOG_ADAPTATION_MODE_ENABLED: int
 
 DIALOG_ADAPTATION_MODE_DISABLED: int
+
+EventCategory: TypeAlias = int  # Enumeration
+
+FileHistoryMenuPathStyle: TypeAlias = int  # Enumeration
 
 FH_PATH_SHOW_IF_DIFFERENT: int
 
@@ -44571,17 +44801,25 @@ FH_PATH_SHOW_NEVER: int
 
 FH_PATH_SHOW_ALWAYS: int
 
+FileSystemOpenFlags: TypeAlias = int  # Enumeration
+
+FSWWarningType: TypeAlias = int  # Enumeration
+
 FSW_WARNING_NONE: int
 
 FSW_WARNING_GENERAL: int
 
 FSW_WARNING_OVERFLOW: int
 
+FindReplaceFlags: TypeAlias = int  # Enumeration
+
 FR_DOWN: int
 
 FR_WHOLEWORD: int
 
 FR_MATCHCASE: int
+
+FlexSizerGrowMode: TypeAlias = int  # Enumeration
 
 DEFAULT: int
 
@@ -44621,6 +44859,8 @@ FONTENCODING_CP1250: int
 
 FONTENCODING_CP1252: int
 
+FontSymbolicSize: TypeAlias = int  # Enumeration
+
 FONTSIZE_XX_SMALL: int
 
 FONTSIZE_X_SMALL: int
@@ -44634,6 +44874,8 @@ FONTSIZE_LARGE: int
 FONTSIZE_X_LARGE: int
 
 FONTSIZE_XX_LARGE: int
+
+FontFlag: TypeAlias = int  # Enumeration
 
 FONTFLAG_DEFAULT: int
 
@@ -44655,9 +44897,15 @@ FONTFLAG_STRIKETHROUGH: int
 
 FONTFLAG_MASK: int
 
+PolygonFillMode: TypeAlias = int  # Enumeration
+
+AntialiasMode: TypeAlias = int  # Enumeration
+
 ANTIALIAS_NONE: int
 
 ANTIALIAS_DEFAULT: int
+
+CompositionMode: TypeAlias = int  # Enumeration
 
 COMPOSITION_INVALID: int
 
@@ -44689,6 +44937,8 @@ COMPOSITION_ADD: int
 
 COMPOSITION_DIFF: int
 
+InterpolationQuality: TypeAlias = int  # Enumeration
+
 INTERPOLATION_DEFAULT: int
 
 INTERPOLATION_NONE: int
@@ -44698,6 +44948,8 @@ INTERPOLATION_FAST: int
 INTERPOLATION_GOOD: int
 
 INTERPOLATION_BEST: int
+
+PenStyle: TypeAlias = int  # Enumeration
 
 PENSTYLE_INVALID: int
 
@@ -44735,6 +44987,8 @@ PENSTYLE_FIRST_HATCH: int
 
 PENSTYLE_LAST_HATCH: int
 
+PenCap: TypeAlias = int  # Enumeration
+
 CAP_INVALID: int
 
 CAP_ROUND: int
@@ -44742,6 +44996,8 @@ CAP_ROUND: int
 CAP_PROJECTING: int
 
 CAP_BUTT: int
+
+PenJoin: TypeAlias = int  # Enumeration
 
 JOIN_INVALID: int
 
@@ -44751,11 +45007,15 @@ JOIN_MITER: int
 
 JOIN_ROUND: int
 
+PenQuality: TypeAlias = int  # Enumeration
+
 PEN_QUALITY_DEFAULT: int
 
 PEN_QUALITY_LOW: int
 
 PEN_QUALITY_HIGH: int
+
+GradientType: TypeAlias = int  # Enumeration
 
 GRADIENT_NONE: int
 
@@ -44763,17 +45023,31 @@ GRADIENT_LINEAR: int
 
 GRADIENT_RADIAL: int
 
+Alignment: TypeAlias = int  # Enumeration
+
 ALIGN_INVALID: int
 
 ALIGN_MASK: int
+
+_EllipsizeMode: TypeAlias = EllipsizeMode
+
+_DataFormat: TypeAlias = DataFormat
+
+HelpSearchMode: TypeAlias = int  # Enumeration
 
 HELP_SEARCH_INDEX: int
 
 HELP_SEARCH_ALL: int
 
+IdleMode: TypeAlias = int  # Enumeration
+
+ImageAlphaBlendMode: TypeAlias = int  # Enumeration
+
 IMAGE_ALPHA_BLEND_OVER: int
 
 IMAGE_ALPHA_BLEND_COMPOSE: int
+
+ImageResizeQuality: TypeAlias = int  # Enumeration
 
 IMAGE_QUALITY_NEAREST: int
 
@@ -44787,6 +45061,8 @@ IMAGE_QUALITY_NORMAL: int
 
 IMAGE_QUALITY_HIGH: int
 
+KeyModifier: TypeAlias = int  # Enumeration
+
 MOD_NONE: int
 
 MOD_ALTGR: int
@@ -44798,6 +45074,8 @@ MOD_RAW_CONTROL: int
 MOD_CMD: int
 
 MOD_ALL: int
+
+KeyCategoryFlags: TypeAlias = int  # Enumeration
 
 WXK_CATEGORY_ARROW: int
 
@@ -44811,6 +45089,8 @@ WXK_CATEGORY_CUT: int
 
 WXK_CATEGORY_NAVIGATION: int
 
+ListColumnFormat: TypeAlias = int  # Enumeration
+
 LIST_FORMAT_LEFT: int
 
 LIST_FORMAT_RIGHT: int
@@ -44818,6 +45098,8 @@ LIST_FORMAT_RIGHT: int
 LIST_FORMAT_CENTRE: int
 
 LIST_FORMAT_CENTER: int
+
+LocaleInfo: TypeAlias = int  # Enumeration
 
 LOCALE_THOUSANDS_SEP: int
 
@@ -44831,11 +45113,15 @@ LOCALE_DATE_TIME_FMT: int
 
 LOCALE_TIME_FMT: int
 
+LocaleCategory: TypeAlias = int  # Enumeration
+
 LOCALE_CAT_NUMBER: int
 
 LOCALE_CAT_DATE: int
 
 LOCALE_CAT_MONEY: int
+
+ItemKind: TypeAlias = int  # Enumeration
 
 ITEM_SEPARATOR: int
 
@@ -44848,6 +45134,8 @@ ITEM_RADIO: int
 ITEM_DROPDOWN: int
 
 ITEM_MAX: int
+
+MouseButton: TypeAlias = int  # Enumeration
 
 MOUSE_BTN_ANY: int
 
@@ -44865,9 +45153,15 @@ MOUSE_BTN_AUX2: int
 
 MOUSE_BTN_MAX: int
 
+MouseWheelAxis: TypeAlias = int  # Enumeration
+
 MOUSE_WHEEL_VERTICAL: int
 
 MOUSE_WHEEL_HORIZONTAL: int
+
+_VersionInfo: TypeAlias = VersionInfo
+
+PaperSize: TypeAlias = int  # Enumeration
 
 PAPER_10X11: int
 
@@ -45103,6 +45397,8 @@ PAPER_TABLOID: int
 
 PAPER_TABLOID_EXTRA: int
 
+Bitness: TypeAlias = int  # Enumeration
+
 BITNESS_INVALID: int
 
 BITNESS_32: int
@@ -45110,6 +45406,8 @@ BITNESS_32: int
 BITNESS_64: int
 
 BITNESS_MAX: int
+
+Endianness: TypeAlias = int  # Enumeration
 
 ENDIAN_INVALID: int
 
@@ -45121,6 +45419,8 @@ ENDIAN_PDP: int
 
 ENDIAN_MAX: int
 
+Architecture: TypeAlias = int  # Enumeration
+
 ARCH_INVALID: int
 
 ARCH_32: int
@@ -45129,9 +45429,13 @@ ARCH_64: int
 
 ARCH_MAX: int
 
+PowerResourceKind: TypeAlias = int  # Enumeration
+
 POWER_RESOURCE_SCREEN: int
 
 POWER_RESOURCE_SYSTEM: int
+
+PrintBin: TypeAlias = int  # Enumeration
 
 PRINTBIN_DEFAULT: int
 
@@ -45163,6 +45467,12 @@ PRINTBIN_FORMSOURCE: int
 
 PRINTBIN_USER: int
 
+DuplexMode: TypeAlias = int  # Enumeration
+
+PrintOrientation: TypeAlias = int  # Enumeration
+
+PrintMode: TypeAlias = int  # Enumeration
+
 PRINT_MODE_NONE: int
 
 PRINT_MODE_PREVIEW: int
@@ -45173,6 +45483,10 @@ PRINT_MODE_PRINTER: int
 
 PRINT_MODE_STREAM: int
 
+PrinterError: TypeAlias = int  # Enumeration
+
+AppAssertMode: TypeAlias = int  # Enumeration
+
 APP_ASSERT_SUPPRESS: int
 
 APP_ASSERT_EXCEPTION: int
@@ -45181,7 +45495,13 @@ APP_ASSERT_DIALOG: int
 
 APP_ASSERT_LOG: int
 
+ScrollbarVisibility: TypeAlias = int  # Enumeration
+
 SP_3D: int
+
+SplitMode: TypeAlias = int  # Enumeration
+
+StreamError: TypeAlias = int  # Enumeration
 
 STREAM_NO_ERROR: int
 
@@ -45191,6 +45511,8 @@ STREAM_WRITE_ERROR: int
 
 STREAM_READ_ERROR: int
 
+SVGShapeRenderingMode: TypeAlias = int  # Enumeration
+
 SVG_SHAPE_RENDERING_OPTIMIZE_SPEED: int
 
 SVG_SHAPE_RENDERING_CRISP_EDGES: int
@@ -45198,6 +45520,8 @@ SVG_SHAPE_RENDERING_CRISP_EDGES: int
 SVG_SHAPE_RENDERING_GEOMETRIC_PRECISION: int
 
 SVG_SHAPE_RENDERING_OPTIMISE_SPEED: int
+
+SystemColour: TypeAlias = int  # Enumeration
 
 SYS_COLOUR_SCROLLBAR: int
 
@@ -45279,6 +45603,8 @@ SYS_COLOUR_3DHILIGHT: int
 
 SYS_COLOUR_FRAMEBK: int
 
+SystemFont: TypeAlias = int  # Enumeration
+
 SYS_OEM_FIXED_FONT: int
 
 SYS_ANSI_FIXED_FONT: int
@@ -45290,6 +45616,8 @@ SYS_SYSTEM_FONT: int
 SYS_DEVICE_DEFAULT_FONT: int
 
 SYS_DEFAULT_GUI_FONT: int
+
+SystemMetric: TypeAlias = int  # Enumeration
 
 SYS_MOUSE_BUTTONS: int
 
@@ -45369,6 +45697,8 @@ SYS_CARET_OFF_MSEC: int
 
 SYS_CARET_TIMEOUT_MSEC: int
 
+SystemScreenType: TypeAlias = int  # Enumeration
+
 SYS_SCREEN_NONE: int
 
 SYS_SCREEN_TINY: int
@@ -45379,17 +45709,23 @@ SYS_SCREEN_SMALL: int
 
 SYS_SCREEN_DESKTOP: int
 
+SystemFeature: TypeAlias = int  # Enumeration
+
 SYS_CAN_DRAW_FRAME_DECORATIONS: int
 
 SYS_CAN_ICONIZE_FRAME: int
 
 SYS_TABLET_PRESENT: int
 
+TextAttrLineSpacing: TypeAlias = int  # Enumeration
+
 TEXT_ATTR_LINE_SPACING_NORMAL: int
 
 TEXT_ATTR_LINE_SPACING_HALF: int
 
 TEXT_ATTR_LINE_SPACING_TWICE: int
+
+TextAttrAlignment: TypeAlias = int  # Enumeration
 
 TEXT_ALIGNMENT_DEFAULT: int
 
@@ -45400,6 +45736,8 @@ TEXT_ALIGNMENT_CENTRE: int
 TEXT_ALIGNMENT_CENTER: int
 
 TEXT_ALIGNMENT_RIGHT: int
+
+TextAttrBulletStyle: TypeAlias = int  # Enumeration
 
 TEXT_ATTR_BULLET_STYLE_NONE: int
 
@@ -45431,7 +45769,11 @@ TEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE: int
 
 TEXT_ATTR_BULLET_STYLE_CONTINUATION: int
 
+TextAttrUnderlineType: TypeAlias = int  # Enumeration
+
 TEXT_ATTR_UNDERLINE_NONE: int
+
+TextAttrFlags: TypeAlias = int  # Enumeration
 
 TEXT_ATTR_TEXT_COLOUR: int
 
@@ -45503,6 +45845,8 @@ TEXT_ATTR_PARAGRAPH: int
 
 TEXT_ATTR_ALL: int
 
+TextAttrEffects: TypeAlias = int  # Enumeration
+
 TEXT_ATTR_EFFECT_NONE: int
 
 TEXT_ATTR_EFFECT_SMALL_CAPITALS: int
@@ -45521,6 +45865,8 @@ TEXT_ATTR_EFFECT_RTL: int
 
 TEXT_ATTR_EFFECT_SUPPRESS_HYPHENATION: int
 
+TextCtrlHitTestResult: TypeAlias = int  # Enumeration
+
 TE_HT_UNKNOWN: int
 
 TE_HT_BEFORE: int
@@ -45531,13 +45877,23 @@ TE_HT_BELOW: int
 
 TE_HT_BEYOND: int
 
+ContentProtection: TypeAlias = int  # Enumeration
+
 CONTENT_PROTECTION_NONE: int
 
 CONTENT_PROTECTION_ENABLED: int
 
 EVT_TREE_ITEM_EXPANDING: int
 
+UpdateUIMode: TypeAlias = int  # Enumeration
+
+_FileSystem: TypeAlias = FileSystem
+
 ID_NONE: int
+
+_SizerItem: TypeAlias = SizerItem
+
+TextFileType: TypeAlias = int  # Enumeration
 
 def HtmlWinParser_AddTagHandler(tagHandlerClass) -> None:
     """ 
@@ -45545,6 +45901,102 @@ def HtmlWinParser_AddTagHandler(tagHandlerClass) -> None:
         Source: https://docs.wxpython.org/wx.html.functions.html
     """
 
+
+Coord: TypeAlias = Any
+
+Char: TypeAlias = Any
+
+Double: TypeAlias = Any
+
+CommandList: TypeAlias = Any
+
+WindowList: TypeAlias = list['Window']  # WindowList is a type-safe List-like class whose elements are of type Window* .
+
+intshort: TypeAlias = int
+
+FileHistoryMenuList: TypeAlias = 'Menu'
+
+MessageDialogButtonLabel: TypeAlias = str
+
+SizerItemList: TypeAlias = list['SizerItem']
+
+Edge: TypeAlias = int
+
+MenuItemList: TypeAlias = list['MenuItem']
+
+ObjectRefData: TypeAlias = Any
+
+PrintQuality: TypeAlias = int
+
+Point2DDouble: TypeAlias = Any
+
+TextPos: TypeAlias = int
+
+ClientData: TypeAlias = Any
+
+PyUserData: TypeAlias = Any
+
+FileOffset: TypeAlias = int
+
+WeekDay: TypeAlias = int
+
+value_type: TypeAlias = bytes
+
+Byte: TypeAlias = bytes
+
+Reason: TypeAlias = int
+
+ArtClient: TypeAlias = Any
+
+Vector: TypeAlias = Any
+
+EntryType: TypeAlias = int
+
+LongLong_t: TypeAlias = Any
+
+Country: TypeAlias = wx.DateTime.Country  # Enumeration
+
+ArrayVideoModes: TypeAlias = list['VideoMode']
+
+MsgCatalog: TypeAlias = Any
+
+SIP_SSIZE_T: TypeAlias = int
+
+RGBValue: TypeAlias = 'Image.RGBValue'
+
+HSVValue: TypeAlias = 'Image.HSVValue'
+
+Relationship: TypeAlias = int  # Enumeration
+
+LogLevel: TypeAlias = int  # Enumeration
+
+PlatformInfo: TypeAlias = PlatformInformation
+
+PreviewFrameModalityKind: TypeAlias = int  # Enumeration
+
+Rect2DDouble: TypeAlias = Any
+
+OutCode: TypeAlias = int  # Enumeration
+
+RegionContain: TypeAlias = int  # Enumeration
+
+Dir: TypeAlias = 'StandardPaths.Dir'  # Enumeration
+
+FileLayout: TypeAlias = 'StandardPaths.FileLayout'  # Enumeration
+
+ScaleMode: TypeAlias = 'StaticBitmap.ScaleMode'  # Enumeration
+
+Kind: TypeAlias = 'StockPreferencesPage.Kind'  # Enumeration
+
+res: TypeAlias = Any
+
+void: TypeAlias = Any
+
+Uint16: TypeAlias = int
+
+MemoryBuffer: TypeAlias = Any
+
+Calendar: TypeAlias = int  # Enumeration
 
 GROW: int  # Synonym of wx.EXPAND
 
@@ -45561,10 +46013,6 @@ wxEVT_COMMAND_BUTTON_CLICKED: int
 RED: int
 
 YELLOW: int
-
-BLACK: int
-
-WHITE: int
 
 BLUE: int
 

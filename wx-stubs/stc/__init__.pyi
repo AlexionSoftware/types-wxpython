@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class StyledTextEvent(CommandEvent):
     """ The type of events sent from StyledTextCtrl.
@@ -322,7 +322,7 @@ class StyledTextEvent(CommandEvent):
     AnnotationsLinesAdded: int  # See GetAnnotationsLinesAdded
     Control: bool  # See GetControl
     DragFlags: int  # See GetDragFlags and SetDragFlags
-    DragResult: DragResult  # See GetDragResult and SetDragResult
+    DragResult: '_DragResult'  # See GetDragResult and SetDragResult
     DragText: str  # See GetDragText and SetDragText
     FoldLevelNow: int  # See GetFoldLevelNow and SetFoldLevelNow
     FoldLevelPrev: int  # See GetFoldLevelPrev and SetFoldLevelPrev
@@ -1859,7 +1859,7 @@ object of the characters in the document.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetLineRaw(self, line: int) -> CharBuffer:
+    def GetLineRaw(self, line: int) -> 'stc.CharBuffer':
         """ Retrieve the contents of a line.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2215,7 +2215,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetSelectedTextRaw(self) -> CharBuffer:
+    def GetSelectedTextRaw(self) -> 'stc.CharBuffer':
         """ Retrieve the selected text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2335,7 +2335,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetStyledText(self, startPos, endPos) -> MemoryBuffer:
+    def GetStyledText(self, startPos, endPos) -> 'MemoryBuffer':
         """ Retrieve a buffer of cells.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2401,7 +2401,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTargetTextRaw(self) -> CharBuffer:
+    def GetTargetTextRaw(self) -> 'stc.CharBuffer':
         """ Retrieve the target text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2431,13 +2431,13 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTextRangeRaw(self, startPos, endPos) -> CharBuffer:
+    def GetTextRangeRaw(self, startPos, endPos) -> 'stc.CharBuffer':
         """ Retrieve a range of text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTextRaw(self) -> CharBuffer:
+    def GetTextRaw(self) -> 'stc.CharBuffer':
         """ Retrieve all the text in the document.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -3517,7 +3517,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def SendMsg(self, msg, wp=0, lp=0) -> 'IntPtr':
+    def SendMsg(self, msg, wp=0, lp=0) -> int:
         """ Scintilla API call.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -5041,7 +5041,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    AdditionalCaretForeground: Union[int, str, 'Colour']  # See GetAdditionalCaretForeground and SetAdditionalCaretForeground
+    AdditionalCaretForeground: 'Colour'  # See GetAdditionalCaretForeground and SetAdditionalCaretForeground
     AdditionalCaretsBlink: bool  # See GetAdditionalCaretsBlink and SetAdditionalCaretsBlink
     AdditionalCaretsVisible: bool  # See GetAdditionalCaretsVisible and SetAdditionalCaretsVisible
     AdditionalSelAlpha: int  # See GetAdditionalSelAlpha and SetAdditionalSelAlpha
@@ -5051,9 +5051,9 @@ but will only move up to rangeLength bytes.
     AutomaticFold: int  # See GetAutomaticFold and SetAutomaticFold
     BackSpaceUnIndents: bool  # See GetBackSpaceUnIndents and SetBackSpaceUnIndents
     BufferedDraw: bool  # See GetBufferedDraw and SetBufferedDraw
-    CaretForeground: Union[int, str, 'Colour']  # See GetCaretForeground and SetCaretForeground
+    CaretForeground: 'Colour'  # See GetCaretForeground and SetCaretForeground
     CaretLineBackAlpha: int  # See GetCaretLineBackAlpha and SetCaretLineBackAlpha
-    CaretLineBackground: Union[int, str, 'Colour']  # See GetCaretLineBackground and SetCaretLineBackground
+    CaretLineBackground: 'Colour'  # See GetCaretLineBackground and SetCaretLineBackground
     CaretLineVisible: bool  # See GetCaretLineVisible and SetCaretLineVisible
     CaretLineVisibleAlways: bool  # See GetCaretLineVisibleAlways and SetCaretLineVisibleAlways
     CaretPeriod: int  # See GetCaretPeriod and SetCaretPeriod
@@ -5070,9 +5070,9 @@ but will only move up to rangeLength bytes.
     DefaultStyle: 'TextAttr'  # See GetDefaultStyle and SetDefaultStyle
     DirectFunction: None  # See GetDirectFunction
     DirectPointer: None  # See GetDirectPointer
-    DocPointer: Any  # See GetDocPointer and SetDocPointer
+    DocPointer: None  # See GetDocPointer and SetDocPointer
     EOLMode: int  # See GetEOLMode and SetEOLMode
-    EdgeColour: Union[int, str, 'Colour']  # See GetEdgeColour and SetEdgeColour
+    EdgeColour: 'Colour'  # See GetEdgeColour and SetEdgeColour
     EdgeColumn: int  # See GetEdgeColumn and SetEdgeColumn
     EdgeMode: int  # See GetEdgeMode and SetEdgeMode
     EndAtLastLine: bool  # See GetEndAtLastLine and SetEndAtLastLine
@@ -5145,7 +5145,7 @@ but will only move up to rangeLength bytes.
     SelAlpha: int  # See GetSelAlpha and SetSelAlpha
     SelEOLFilled: bool  # See GetSelEOLFilled and SetSelEOLFilled
     SelectedText: str  # See GetSelectedText
-    SelectedTextRaw: CharBuffer  # See GetSelectedTextRaw
+    SelectedTextRaw: 'stc.CharBuffer'  # See GetSelectedTextRaw
     SelectionEmpty: bool  # See GetSelectionEmpty
     SelectionEnd: int  # See GetSelectionEnd and SetSelectionEnd
     SelectionMode: int  # See GetSelectionMode and SetSelectionMode
@@ -5162,11 +5162,11 @@ but will only move up to rangeLength bytes.
     TargetEnd: int  # See GetTargetEnd and SetTargetEnd
     TargetStart: int  # See GetTargetStart and SetTargetStart
     TargetText: str  # See GetTargetText
-    TargetTextRaw: CharBuffer  # See GetTargetTextRaw
+    TargetTextRaw: 'stc.CharBuffer'  # See GetTargetTextRaw
     Technology: int  # See GetTechnology and SetTechnology
     Text: str  # See GetText and SetText
     TextLength: int  # See GetTextLength
-    TextRaw: int  # See GetTextRaw and SetTextRaw
+    TextRaw: 'stc.CharBuffer'  # See GetTextRaw and SetTextRaw
     TwoPhaseDraw: bool  # See GetTwoPhaseDraw and SetTwoPhaseDraw
     UndoCollection: bool  # See GetUndoCollection and SetUndoCollection
     UseAntiAliasing: bool  # See GetUseAntiAliasing and SetUseAntiAliasing
@@ -5233,4 +5233,6 @@ STC_KEYMOD_SUPER: int
 STC_TECHNOLOGY_DEFAULT: int
 
 STC_POPUP_NEVER: int
+
+CharBuffer: TypeAlias = Any
 

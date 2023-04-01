@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class ColourSelect(GenBitmapButton):
     """ A subclass of wx.lib.buttons.GenBitmapButton that,
@@ -19,7 +19,7 @@ when clicked, will display a colour selection dialog.
             Source: https://docs.wxpython.org/wx.lib.colourselect.ColourSelect.html
         """
 
-    def GetCustomColours(self) -> CustomColourData:
+    def GetCustomColours(self) -> 'lib.colourselect.CustomColourData':
         """ Returns the current set of custom colour values to be shown in the
 colour dialog, if supported.
 

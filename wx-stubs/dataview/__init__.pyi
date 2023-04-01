@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class DataViewCtrl(Control):
     """ DataViewCtrl is a control to display data either in a tree like
@@ -154,7 +154,7 @@ is reference counted so it can be shared with other views.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
@@ -214,13 +214,13 @@ is reference counted so it can be shared with other views.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
         """
 
-    def GetItemRect(self, item, col=None) -> Rect:
+    def GetItemRect(self, item, col=None) -> 'Rect':
         """ Returns item rectangle.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
         """
 
-    def GetMainWindow(self) -> Window:
+    def GetMainWindow(self) -> 'Window':
         """ Returns the window corresponding to the main area of the control.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
@@ -244,7 +244,7 @@ is reference counted so it can be shared with other views.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
         """
 
-    def GetSelections(self) -> DataViewItemArray:
+    def GetSelections(self) -> 'dataview.DataViewItemArray':
         """ Returns a list of the currently selected items.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCtrl.html
@@ -419,11 +419,11 @@ is reference counted so it can be shared with other views.
     CurrentItem: 'dataview.DataViewItem'  # See GetCurrentItem and SetCurrentItem
     ExpanderColumn: 'dataview.DataViewColumn'  # See GetExpanderColumn and SetExpanderColumn
     Indent: int  # See GetIndent and SetIndent
-    MainWindow: Window  # See GetMainWindow
+    MainWindow: 'Window'  # See GetMainWindow
     Model: 'dataview.DataViewModel'  # See GetModel
     SelectedItemsCount: int  # See GetSelectedItemsCount
     Selection: 'dataview.DataViewItem'  # See GetSelection
-    Selections: DataViewItemArray  # See GetSelections and SetSelections
+    Selections: 'dataview.DataViewItemArray'  # See GetSelections and SetSelections
     SortingColumn: 'dataview.DataViewColumn'  # See GetSortingColumn
     TopItem: 'dataview.DataViewItem'  # See GetTopItem
 
@@ -552,7 +552,7 @@ class TreeListCtrl(Window):
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
         """
 
-    def DeleteColumn(self, col: GetColumnCount) -> bool:
+    def DeleteColumn(self, col: int) -> bool:
         """ Delete the column with the given index.
 
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
@@ -583,7 +583,7 @@ class TreeListCtrl(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
@@ -619,7 +619,7 @@ class TreeListCtrl(Window):
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
         """
 
-    def GetItemData(self, item: 'dataview.TreeListItem') -> ClientData:
+    def GetItemData(self, item: 'dataview.TreeListItem') -> 'ClientData':
         """ Get the data associated with the given item.
 
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
@@ -674,7 +674,7 @@ both single and multi-selection case.
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
         """
 
-    def GetView(self) -> Window:
+    def GetView(self) -> 'Window':
         """ Return the view part of this control as a   wx.Window.
 
             Source: https://docs.wxpython.org/wx.dataview.TreeListCtrl.html
@@ -796,7 +796,7 @@ both single and multi-selection case.
     Selection: 'dataview.TreeListItem'  # See GetSelection
     Selections: Any  # See GetSelections
     SortColumn: tuple  # See GetSortColumn and SetSortColumn
-    View: Window  # See GetView
+    View: 'Window'  # See GetView
 
 
 
@@ -901,31 +901,31 @@ DataViewTreeStore and forwards most of its API to that class.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
-    def GetImageList(self) -> ImageList:
+    def GetImageList(self) -> 'ImageList':
         """ Returns the image list.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
-    def GetItemData(self, item: 'dataview.DataViewItem') -> ClientData:
+    def GetItemData(self, item: 'dataview.DataViewItem') -> 'ClientData':
         """ Calls the identical method from   wx.dataview.DataViewTreeStore.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
-    def GetItemExpandedIcon(self, item: 'dataview.DataViewItem') -> Icon:
+    def GetItemExpandedIcon(self, item: 'dataview.DataViewItem') -> 'Icon':
         """ Calls the identical method from   wx.dataview.DataViewTreeStore.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
-    def GetItemIcon(self, item: 'dataview.DataViewItem') -> Icon:
+    def GetItemIcon(self, item: 'dataview.DataViewItem') -> 'Icon':
         """ Calls the identical method from   wx.dataview.DataViewTreeStore.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
@@ -1015,7 +1015,7 @@ DataViewTreeStore and forwards most of its API to that class.
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeCtrl.html
         """
 
-    ImageList: 'ImageList'  # See GetImageList and SetImageList
+    ImageList: '_ImageList'  # See GetImageList and SetImageList
     Store: 'dataview.DataViewTreeStore'  # See GetStore
 
 
@@ -1087,7 +1087,7 @@ DataViewListStore and forwards most of its API to that class.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
@@ -1099,7 +1099,7 @@ DataViewListStore and forwards most of its API to that class.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
         """
 
-    def GetItemData(self, item: 'dataview.DataViewItem') -> 'UIntPtr':
+    def GetItemData(self, item: 'dataview.DataViewItem') -> int:
         """ Returns the client data associated with the item.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
@@ -1129,7 +1129,7 @@ DataViewListStore and forwards most of its API to that class.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
         """
 
-    def GetValue(self, row, col) -> value:
+    def GetValue(self, row, col) -> Any:
         """ Returns the value from the store.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListCtrl.html
@@ -1275,7 +1275,7 @@ by a DataViewCtrl.
             Source: https://docs.wxpython.org/wx.dataview.DataViewModel.html
         """
 
-    def GetValue(self, item, col) -> variant:
+    def GetValue(self, item, col) -> Any:
         """ Override this to indicate the value of item.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewModel.html
@@ -1502,7 +1502,7 @@ class DataViewRenderer(Object):
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
         """
 
-    def CreateEditorCtrl(self, parent, labelRect, value) -> Window:
+    def CreateEditorCtrl(self, parent, labelRect, value) -> 'Window':
         """ parent (wx.Window) â
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
@@ -1532,7 +1532,7 @@ class DataViewRenderer(Object):
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
         """
 
-    def GetEditorCtrl(self) -> Window:
+    def GetEditorCtrl(self) -> 'Window':
         """ Window
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
@@ -1556,13 +1556,13 @@ class DataViewRenderer(Object):
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
         """
 
-    def GetValue(self) -> value:
+    def GetValue(self) -> Any:
         """ This methods retrieves the value from the renderer in order to transfer the value back to the data model.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
         """
 
-    def GetValueFromEditorCtrl(self, editor: 'Window') -> value:
+    def GetValueFromEditorCtrl(self, editor: 'Window') -> Any:
         """ editor (wx.Window) â
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewRenderer.html
@@ -1629,8 +1629,8 @@ class DataViewRenderer(Object):
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    EditorCtrl: Window  # See GetEditorCtrl
-    EllipsizeMode: 'EllipsizeMode'  # See GetEllipsizeMode
+    EditorCtrl: 'Window'  # See GetEditorCtrl
+    EllipsizeMode: '_EllipsizeMode'  # See GetEllipsizeMode
     Mode: 'dataview.DataViewCellMode'  # See GetMode
     Owner: 'dataview.DataViewColumn'  # See GetOwner and SetOwner
     VariantType: str  # See GetVariantType
@@ -1666,7 +1666,7 @@ to write a new renderer.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
         """
 
-    def CreateEditorCtrl(self, parent, labelRect, value) -> Window:
+    def CreateEditorCtrl(self, parent, labelRect, value) -> 'Window':
         """ Override this to create the actual editor control once editing is about to start.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
@@ -1685,19 +1685,19 @@ to write a new renderer.
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
         """
 
-    def GetSize(self) -> Size:
+    def GetSize(self) -> 'Size':
         """ Return size required to show content.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
         """
 
-    def GetTextExtent(self, str: str) -> Size:
+    def GetTextExtent(self, str: str) -> 'Size':
         """ Helper for GetSize   implementations, respects attributes.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
         """
 
-    def GetValueFromEditorCtrl(self, editor: 'Window') -> value:
+    def GetValueFromEditorCtrl(self, editor: 'Window') -> Any:
         """ Override this so that the renderer can get the value from the editor control (pointed to by editor):
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewCustomRenderer.html
@@ -1734,7 +1734,7 @@ to write a new renderer.
         """
 
     Attr: 'dataview.DataViewItemAttr'  # See GetAttr
-    Size: Size  # See GetSize
+    Size: '_Size'  # See GetSize
 
 
 
@@ -1777,13 +1777,13 @@ class DataViewEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
         """
 
-    def GetDataFormat(self) -> DataFormat:
+    def GetDataFormat(self) -> 'DataFormat':
         """ Gets the   wx.DataFormat  during a drop operation.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
         """
 
-    def GetDataObject(self) -> DataObject:
+    def GetDataObject(self) -> 'DataObject':
         """ DataObject
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
@@ -1825,7 +1825,7 @@ class DataViewEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
         """
 
-    def GetPosition(self) -> Point:
+    def GetPosition(self) -> 'Point':
         """ Returns the position of a context menu event in client coordinates.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
@@ -1837,7 +1837,7 @@ class DataViewEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
         """
 
-    def GetValue(self) -> DVCVariant:
+    def GetValue(self) -> 'dataview.DVCVariant':
         """ Returns a reference to a value.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewEvent.html
@@ -1931,21 +1931,23 @@ class DataViewEvent(NotifyEvent):
     CacheTo: int  # See GetCacheTo
     Column: int  # See GetColumn and SetColumn
     DataBuffer: Any  # See GetDataBuffer and SetDataBuffer
-    DataFormat: 'DataFormat'  # See GetDataFormat and SetDataFormat
-    DataObject: 'DataObject'  # See GetDataObject and SetDataObject
+    DataFormat: '_DataFormat'  # See GetDataFormat and SetDataFormat
+    DataObject: '_DataObject'  # See GetDataObject and SetDataObject
     DataSize: int  # See GetDataSize and SetDataSize
     DataViewColumn: 'dataview.DataViewColumn'  # See GetDataViewColumn and SetDataViewColumn
     DragFlags: int  # See GetDragFlags and SetDragFlags
-    DropEffect: DragResult  # See GetDropEffect and SetDropEffect
+    DropEffect: 'DragResult'  # See GetDropEffect and SetDropEffect
     Item: 'dataview.DataViewItem'  # See GetItem and SetItem
     Model: 'dataview.DataViewModel'  # See GetModel and SetModel
-    Position: Point  # See GetPosition and SetPosition
+    Position: 'Point'  # See GetPosition and SetPosition
     ProposedDropIndex: int  # See GetProposedDropIndex
-    Value: DVCVariant  # See GetValue and SetValue
+    Value: 'dataview.DVCVariant'  # See GetValue and SetValue
 
 
 
 EVT_DATAVIEW_CACHE_HINT: int  # Process a  wxEVT_DATAVIEW_CACHE_HINT   event. ^^
+
+DataViewCellMode: TypeAlias = int  # Enumeration
 
 DATAVIEW_CELL_INERT: int
 
@@ -2017,13 +2019,13 @@ transfer.
             Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
         """
 
-    def GetBitmapBundle(self) -> BitmapBundle:
+    def GetBitmapBundle(self) -> 'BitmapBundle':
         """ Gets the associated image.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
         """
 
-    def GetIcon(self) -> Icon:
+    def GetIcon(self) -> 'Icon':
         """ Gets the icon.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
@@ -2053,8 +2055,8 @@ transfer.
             Source: https://docs.wxpython.org/wx.dataview.DataViewIconText.html
         """
 
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle and SetBitmapBundle
-    Icon: 'Icon'  # See GetIcon and SetIcon
+    BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle and SetBitmapBundle
+    Icon: '_Icon'  # See GetIcon and SetIcon
     Text: str  # See GetText and SetText
 
 
@@ -2176,19 +2178,19 @@ API.
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeStore.html
         """
 
-    def GetItemData(self, item: 'dataview.DataViewItem') -> ClientData:
+    def GetItemData(self, item: 'dataview.DataViewItem') -> 'ClientData':
         """ Returns the client data associated with the item.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeStore.html
         """
 
-    def GetItemExpandedIcon(self, item: 'dataview.DataViewItem') -> Icon:
+    def GetItemExpandedIcon(self, item: 'dataview.DataViewItem') -> 'Icon':
         """ Returns the icon to display in expanded containers.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeStore.html
         """
 
-    def GetItemIcon(self, item: 'dataview.DataViewItem') -> Icon:
+    def GetItemIcon(self, item: 'dataview.DataViewItem') -> 'Icon':
         """ Returns the icon of the item.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewTreeStore.html
@@ -2292,13 +2294,13 @@ simple table of data.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListStore.html
         """
 
-    def GetItemData(self, item: 'dataview.DataViewItem') -> 'UIntPtr':
+    def GetItemData(self, item: 'dataview.DataViewItem') -> int:
         """ Returns the client data associated with the item.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListStore.html
         """
 
-    def GetValueByRow(self, row, col) -> value:
+    def GetValueByRow(self, row, col) -> Any:
         """ Overridden from   wx.dataview.DataViewIndexListModel.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListStore.html
@@ -2595,7 +2597,7 @@ DataViewVirtualListModel.
             Source: https://docs.wxpython.org/wx.dataview.DataViewListModel.html
         """
 
-    def GetValueByRow(self, row, col) -> variant:
+    def GetValueByRow(self, row, col) -> Any:
         """ Override this to allow getting values from the model.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewListModel.html
@@ -2629,7 +2631,7 @@ class DataViewItemAttr:
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
         """
 
-    def GetBackgroundColour(self) -> Colour:
+    def GetBackgroundColour(self) -> 'Colour':
         """ Returns the colour to be used for the background.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
@@ -2641,13 +2643,13 @@ class DataViewItemAttr:
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
         """
 
-    def GetColour(self) -> Colour:
+    def GetColour(self) -> 'Colour':
         """ Returns this attributeâs colour.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
         """
 
-    def GetEffectiveFont(self, font: 'Font') -> Font:
+    def GetEffectiveFont(self, font: 'Font') -> 'Font':
         """ Return the font based on the given one with this attribute applied to it.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
@@ -2713,9 +2715,9 @@ class DataViewItemAttr:
             Source: https://docs.wxpython.org/wx.dataview.DataViewItemAttr.html
         """
 
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
     Bold: bool  # See GetBold and SetBold
-    Colour: Union[int, str, 'Colour']  # See GetColour and SetColour
+    Colour: '_Colour'  # See GetColour and SetColour
     Italic: bool  # See GetItalic and SetItalic
 
 
@@ -2745,6 +2747,8 @@ class DataViewToggleRenderer(DataViewRenderer):
         """
 
 
+
+DataViewColumnFlags: TypeAlias = int  # Enumeration
 
 DATAVIEW_COL_RESIZABLE: int
 
@@ -2909,6 +2913,8 @@ in it.
 
 
 
+DataViewCellRenderState: TypeAlias = int  # Enumeration
+
 DATAVIEW_CELL_SELECTED: int
 
 DATAVIEW_CELL_PRELIT: int
@@ -2923,11 +2929,15 @@ customize rendering of model values with standard renderers.
 
         Source: https://docs.wxpython.org/wx.dataview.DataViewValueAdjuster.html
     """
-    def MakeHighlighted(self, value: DVCVariant) -> DVCVariant:
+    def MakeHighlighted(self, value: DVCVariant) -> 'dataview.DVCVariant':
         """ Change value for rendering when highlighted.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewValueAdjuster.html
         """
 
 
+
+DataViewItemArray: TypeAlias = list['DataViewItem']
+
+DVCVariant: TypeAlias = Any
 

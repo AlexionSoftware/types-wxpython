@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class MultiMessageDialog(Dialog):
     """ A dialog like wx.MessageDialog, but with an optional 2nd message string

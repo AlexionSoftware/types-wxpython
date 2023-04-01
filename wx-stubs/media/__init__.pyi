@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class MediaCtrl(Control):
     """ MediaCtrl is a class for displaying various types of media, such as
@@ -19,7 +19,7 @@ videos, audio files, natively through native codecs.
             Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
         """
 
-    def GetBestSize(self) -> Size:
+    def GetBestSize(self) -> 'Size':
         """ Obtains the best size relative to the original/natural size of the video, if there is any.
 
             Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
@@ -115,7 +115,7 @@ videos, audio files, natively through native codecs.
             Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
         """
 
-    BestSize: Size  # See GetBestSize
+    BestSize: 'Size'  # See GetBestSize
     PlaybackRate: float  # See GetPlaybackRate and SetPlaybackRate
     State: 'media.MediaState'  # See GetState
     Volume: float  # See GetVolume and SetVolume
@@ -154,6 +154,10 @@ EVT_MEDIA_STATECHANGED: int  # Sent when a media has switched its state (from an
 EVT_MEDIA_PLAY: int  # Sent when a media has switched to the  MEDIASTATE_PLAYING   state. Processes a   wxEVT_MEDIA_PLAY   event type.
 
 EVT_MEDIA_PAUSE: int  # Sent when a media has switched to the  MEDIASTATE_PAUSED   state. Processes a   wxEVT_MEDIA_PAUSE   event type. ^^
+
+MediaState: TypeAlias = int  # Enumeration
+
+MediaCtrlPlayerControls: TypeAlias = int  # Enumeration
 
 MEDIACTRLPLAYERCONTROLS_NONE: int
 

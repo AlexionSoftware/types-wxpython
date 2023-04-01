@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class XmlResource(Object):
     """ This is the main class for interacting with the XML-based resource
@@ -70,7 +70,7 @@ system.
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
         """
 
-    def GetResourceNode(self, name: str) -> 'xml.XmlNode':
+    def GetResourceNode(self, name: str) -> 'xrc.XmlNode':
         """ Returns the   wx.xml.XmlNode  containing the definition of the object with the given name or None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
@@ -282,7 +282,7 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetAnimation(self, param="animation", ctrl=None) -> 'adv.Animation':
+    def GetAnimation(self, param="animation", ctrl=None) -> 'xrc.Animation':
         """ Creates an animation (see   wx.adv.Animation) from the filename specified in param.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -390,13 +390,13 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNode(self) -> 'xml.XmlNode':
+    def GetNode(self) -> 'xrc.XmlNode':
         """ After CreateResource has been called this will return the XML node being processed.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeChildren(self, node: 'xml.XmlNode') -> 'xml.XmlNode':
+    def GetNodeChildren(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
         """ Gets the first child of the given node or None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -408,19 +408,19 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeNext(self, node: 'xml.XmlNode') -> 'xml.XmlNode':
+    def GetNodeNext(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
         """ Gets the next sibling node related to the given node, possibly None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeParent(self, node: 'xml.XmlNode') -> 'xml.XmlNode':
+    def GetNodeParent(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
         """ Gets the parent of the node given.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetParamNode(self, param: str) -> 'xml.XmlNode':
+    def GetParamNode(self, param: str) -> 'xrc.XmlNode':
         """ Finds the node or returns None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -516,23 +516,23 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    Animation: 'adv.Animation'  # See GetAnimation
-    Bitmap: 'Bitmap'  # See GetBitmap
-    BitmapBundle: 'BitmapBundle'  # See GetBitmapBundle
+    Animation: 'xrc.Animation'  # See GetAnimation
+    Bitmap: '_Bitmap'  # See GetBitmap
+    BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle
     Class: str  # See GetClass
     CurFileSystem: 'FileSystem'  # See GetCurFileSystem
-    Font: 'Font'  # See GetFont
+    Font: '_Font'  # See GetFont
     ID: int  # See GetID
-    Icon: 'Icon'  # See GetIcon
-    ImageList: 'ImageList'  # See GetImageList
+    Icon: '_Icon'  # See GetIcon
+    ImageList: '_ImageList'  # See GetImageList
     Instance: 'Window'  # See GetInstance
     Name: str  # See GetName
-    Node: 'xml.XmlNode'  # See GetNode
+    Node: 'xrc.XmlNode'  # See GetNode
     Parent: 'Window'  # See GetParent
     ParentAsWindow: 'Window'  # See GetParentAsWindow
     Position: 'Point'  # See GetPosition
     Resource: 'xrc.XmlResource'  # See GetResource
-    Size: 'Size'  # See GetSize
+    Size: '_Size'  # See GetSize
     Style: int  # See GetStyle
 
 
@@ -540,6 +540,8 @@ a Sizer object from an XML node.
 XRCID: int
 
 XML_ENTITY_NODE: int
+
+XmlResourceFlags: TypeAlias = int  # Enumeration
 
 XRC_USE_LOCALE: int
 
@@ -567,4 +569,8 @@ class XmlSubclassFactory:
         """
 
 
+
+Animation: TypeAlias = Any
+
+XmlNode: TypeAlias = Any
 

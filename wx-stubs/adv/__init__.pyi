@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class CommandLinkButton(Button):
     """ Objects of this class are similar in appearance to the normal
@@ -20,7 +20,7 @@ Buttons but are similar to the links in a web page in functionality.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.CommandLinkButton.html
@@ -95,37 +95,37 @@ enter, delete and reorder a list of strings.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetDelButton(self) -> BitmapButton:
+    def GetDelButton(self) -> 'BitmapButton':
         """ Returns a reference to the delete button used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetDownButton(self) -> BitmapButton:
+    def GetDownButton(self) -> 'BitmapButton':
         """ Returns a reference to the down button used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetEditButton(self) -> BitmapButton:
+    def GetEditButton(self) -> 'BitmapButton':
         """ Returns a reference to the edit button used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetListCtrl(self) -> ListCtrl:
+    def GetListCtrl(self) -> 'ListCtrl':
         """ Returns a reference to the listctrl used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetNewButton(self) -> BitmapButton:
+    def GetNewButton(self) -> 'BitmapButton':
         """ Returns a reference to the new button used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
@@ -137,7 +137,7 @@ enter, delete and reorder a list of strings.
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    def GetUpButton(self) -> BitmapButton:
+    def GetUpButton(self) -> 'BitmapButton':
         """ Returns a reference to the up button used in the EditableListBox.
 
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
@@ -149,13 +149,13 @@ enter, delete and reorder a list of strings.
             Source: https://docs.wxpython.org/wx.adv.EditableListBox.html
         """
 
-    DelButton: BitmapButton  # See GetDelButton
-    DownButton: BitmapButton  # See GetDownButton
-    EditButton: BitmapButton  # See GetEditButton
-    ListCtrl: ListCtrl  # See GetListCtrl
-    NewButton: BitmapButton  # See GetNewButton
+    DelButton: 'BitmapButton'  # See GetDelButton
+    DownButton: 'BitmapButton'  # See GetDownButton
+    EditButton: 'BitmapButton'  # See GetEditButton
+    ListCtrl: '_ListCtrl'  # See GetListCtrl
+    NewButton: 'BitmapButton'  # See GetNewButton
     Strings: list[str]  # See GetStrings and SetStrings
-    UpButton: BitmapButton  # See GetUpButton
+    UpButton: 'BitmapButton'  # See GetUpButton
 
 
 
@@ -187,7 +187,7 @@ class OwnerDrawnComboBox(ComboCtrl,ItemContainer):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.OwnerDrawnComboBox.html
@@ -291,14 +291,14 @@ class BitmapComboBox(ComboBox):
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
         """
 
-    def GetBitmapSize(self) -> Size:
+    def GetBitmapSize(self) -> 'Size':
         """ Returns the size of the bitmaps used in the combo box.
 
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
@@ -316,7 +316,7 @@ class BitmapComboBox(ComboBox):
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
         """
 
-    def GetItemBitmap(self, n: int) -> Bitmap:
+    def GetItemBitmap(self, n: int) -> 'Bitmap':
         """ Returns the bitmap of the item with the given index.
 
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
@@ -394,7 +394,7 @@ class BitmapComboBox(ComboBox):
             Source: https://docs.wxpython.org/wx.adv.BitmapComboBox.html
         """
 
-    BitmapSize: Size  # See GetBitmapSize
+    BitmapSize: 'Size'  # See GetBitmapSize
     Count: int  # See GetCount
     InsertionPoint: int  # See GetInsertionPoint
     Selection: int  # See GetSelection and SetSelection
@@ -423,7 +423,7 @@ together with DatePickerCtrl.
             Source: https://docs.wxpython.org/wx.adv.DateEvent.html
         """
 
-    def GetDate(self) -> DateTime:
+    def GetDate(self) -> 'DateTime':
         """ Returns the date.
 
             Source: https://docs.wxpython.org/wx.adv.DateEvent.html
@@ -486,7 +486,7 @@ by the user.
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
         """
 
-    def GetDragRect(self) -> Rect:
+    def GetDragRect(self) -> 'Rect':
         """ Returns the rectangle representing the new size the window would be if the resize was applied.
 
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
@@ -523,8 +523,8 @@ by the user.
         """
 
     DragRect: 'Rect'  # See GetDragRect and SetDragRect
-    DragStatus: SashDragStatus  # See GetDragStatus and SetDragStatus
-    Edge: SashEdgePosition  # See GetEdge and SetEdge
+    DragStatus: 'adv.SashDragStatus'  # See GetDragStatus and SetDragStatus
+    Edge: 'adv.SashEdgePosition'  # See GetEdge and SetEdge
 
 
 
@@ -564,7 +564,7 @@ class BannerWindow(Window):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.BannerWindow.html
@@ -611,7 +611,7 @@ dragged to resize the window.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.SashWindow.html
@@ -773,13 +773,13 @@ class AnimationCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
-    def GetInactiveBitmap(self) -> Bitmap:
+    def GetInactiveBitmap(self) -> 'Bitmap':
         """ Returns the inactive bitmap shown in this control when the; see SetInactiveBitmap   for more info.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
@@ -828,7 +828,7 @@ class AnimationCtrl(Control):
         """
 
     Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
-    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
+    InactiveBitmap: 'Bitmap'  # See GetInactiveBitmap and SetInactiveBitmap
 
 
 
@@ -874,13 +874,13 @@ class CalendarCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetDate(self) -> DateTime:
+    def GetDate(self) -> 'DateTime':
         """ Gets the currently selected date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
@@ -892,37 +892,37 @@ class CalendarCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHeaderColourBg(self) -> Colour:
+    def GetHeaderColourBg(self) -> 'Colour':
         """ Gets the background colour of the header part of the calendar window.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHeaderColourFg(self) -> Colour:
+    def GetHeaderColourFg(self) -> 'Colour':
         """ Gets the foreground colour of the header part of the calendar window.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHighlightColourBg(self) -> Colour:
+    def GetHighlightColourBg(self) -> 'Colour':
         """ Gets the background highlight colour.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHighlightColourFg(self) -> Colour:
+    def GetHighlightColourFg(self) -> 'Colour':
         """ Gets the foreground highlight colour.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHolidayColourBg(self) -> Colour:
+    def GetHolidayColourBg(self) -> 'Colour':
         """ Return the background colour currently used for holiday highlighting.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetHolidayColourFg(self) -> Colour:
+    def GetHolidayColourFg(self) -> 'Colour':
         """ Return the foreground colour currently used for holiday highlighting.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
@@ -996,12 +996,12 @@ class CalendarCtrl(Control):
 
     Date: 'DateTime'  # See GetDate and SetDate
     DateRange: tuple  # See GetDateRange and SetDateRange
-    HeaderColourBg: Colour  # See GetHeaderColourBg
-    HeaderColourFg: Colour  # See GetHeaderColourFg
-    HighlightColourBg: Colour  # See GetHighlightColourBg
-    HighlightColourFg: Colour  # See GetHighlightColourFg
-    HolidayColourBg: Colour  # See GetHolidayColourBg
-    HolidayColourFg: Colour  # See GetHolidayColourFg
+    HeaderColourBg: 'Colour'  # See GetHeaderColourBg
+    HeaderColourFg: 'Colour'  # See GetHeaderColourFg
+    HighlightColourBg: 'Colour'  # See GetHighlightColourBg
+    HighlightColourFg: 'Colour'  # See GetHighlightColourFg
+    HolidayColourBg: 'Colour'  # See GetHolidayColourBg
+    HolidayColourFg: 'Colour'  # See GetHolidayColourFg
 
 
 
@@ -1049,7 +1049,7 @@ class DatePickerCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.DatePickerCtrl.html
@@ -1061,7 +1061,7 @@ class DatePickerCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.DatePickerCtrl.html
         """
 
-    def GetValue(self) -> DateTime:
+    def GetValue(self) -> 'DateTime':
         """ Returns the currently entered date.
 
             Source: https://docs.wxpython.org/wx.adv.DatePickerCtrl.html
@@ -1119,19 +1119,19 @@ class HyperlinkCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
         """
 
-    def GetHoverColour(self) -> Colour:
+    def GetHoverColour(self) -> 'Colour':
         """ Returns the colour used to print the label of the hyperlink when the mouse is over the control.
 
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
         """
 
-    def GetNormalColour(self) -> Colour:
+    def GetNormalColour(self) -> 'Colour':
         """ Returns the colour used to print the label when the link has never been clicked before (i.e. the link has not been visited) and the mouse is not over the control.
 
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
@@ -1149,7 +1149,7 @@ class HyperlinkCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
         """
 
-    def GetVisitedColour(self) -> Colour:
+    def GetVisitedColour(self) -> 'Colour':
         """ Returns the colour used to print the label when the mouse is not over the control and the link has already been clicked before (i.e. the link has been visited).
 
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
@@ -1185,11 +1185,11 @@ class HyperlinkCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.HyperlinkCtrl.html
         """
 
-    HoverColour: Union[int, str, 'Colour']  # See GetHoverColour and SetHoverColour
-    NormalColour: Union[int, str, 'Colour']  # See GetNormalColour and SetNormalColour
+    HoverColour: 'Colour'  # See GetHoverColour and SetHoverColour
+    NormalColour: 'Colour'  # See GetNormalColour and SetNormalColour
     URL: str  # See GetURL and SetURL
     Visited: bool  # See GetVisited and SetVisited
-    VisitedColour: Union[int, str, 'Colour']  # See GetVisitedColour and SetVisitedColour
+    VisitedColour: 'Colour'  # See GetVisitedColour and SetVisitedColour
 
 
 
@@ -1221,7 +1221,7 @@ class TimePickerCtrl(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.TimePickerCtrl.html
@@ -1233,7 +1233,7 @@ class TimePickerCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.TimePickerCtrl.html
         """
 
-    def GetValue(self) -> DateTime:
+    def GetValue(self) -> 'DateTime':
         """ Returns the currently entered time.
 
             Source: https://docs.wxpython.org/wx.adv.TimePickerCtrl.html
@@ -1281,7 +1281,7 @@ showing settings.
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
-    def CreateBookCtrl(self) -> BookCtrlBase:
+    def CreateBookCtrl(self) -> 'BookCtrlBase':
         """ Override this if you wish to create a different kind of book control; by default, the value passed to SetSheetStyle   is used to determine the control.
 
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
@@ -1293,26 +1293,26 @@ showing settings.
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
-    def GetBookCtrl(self) -> BookCtrlBase:
+    def GetBookCtrl(self) -> 'BookCtrlBase':
         """ Returns the book control that will contain your settings pages.
 
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
-    def GetContentWindow(self) -> Window:
+    def GetContentWindow(self) -> 'Window':
         """ Override this to return a window containing the main content of the dialog.
 
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
         """
 
-    def GetInnerSizer(self) -> Sizer:
+    def GetInnerSizer(self) -> 'Sizer':
         """ Returns the inner sizer that contains the book control and button sizer.
 
             Source: https://docs.wxpython.org/wx.adv.PropertySheetDialog.html
@@ -1373,7 +1373,7 @@ showing settings.
         """
 
     BookCtrl: 'BookCtrlBase'  # See GetBookCtrl and SetBookCtrl
-    ContentWindow: Window  # See GetContentWindow
+    ContentWindow: 'Window'  # See GetContentWindow
     InnerSizer: 'Sizer'  # See GetInnerSizer and SetInnerSizer
     SheetInnerBorder: int  # See GetSheetInnerBorder and SetSheetInnerBorder
     SheetOuterBorder: int  # See GetSheetOuterBorder and SetSheetOuterBorder
@@ -1404,13 +1404,13 @@ class Wizard(Dialog):
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    def GetBitmap(self) -> Bitmap:
+    def GetBitmap(self) -> 'Bitmap':
         """ Returns the bitmap used for the wizard.
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    def GetBitmapBackgroundColour(self) -> Colour:
+    def GetBitmapBackgroundColour(self) -> 'Colour':
         """ Returns the colour that should be used to fill the area not taken up by the wizard or page bitmap, if a non-zero bitmap placement flag has been set.
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
@@ -1423,7 +1423,7 @@ class Wizard(Dialog):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
@@ -1441,13 +1441,13 @@ class Wizard(Dialog):
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    def GetPageAreaSizer(self) -> Sizer:
+    def GetPageAreaSizer(self) -> 'Sizer':
         """ Returns pointer to page area sizer.
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    def GetPageSize(self) -> Size:
+    def GetPageSize(self) -> 'Size':
         """ Returns the size available for the pages.
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
@@ -1519,13 +1519,13 @@ class Wizard(Dialog):
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    BitmapBackgroundColour: Union[int, str, 'Colour']  # See GetBitmapBackgroundColour and SetBitmapBackgroundColour
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    BitmapBackgroundColour: 'Colour'  # See GetBitmapBackgroundColour and SetBitmapBackgroundColour
     BitmapPlacement: int  # See GetBitmapPlacement and SetBitmapPlacement
     CurrentPage: 'adv.WizardPage'  # See GetCurrentPage
     MinimumBitmapWidth: int  # See GetMinimumBitmapWidth and SetMinimumBitmapWidth
-    PageAreaSizer: Sizer  # See GetPageAreaSizer
-    PageSize: Union[tuple[int, int], 'Size']  # See GetPageSize and SetPageSize
+    PageAreaSizer: 'Sizer'  # See GetPageAreaSizer
+    PageSize: 'Size'  # See GetPageSize and SetPageSize
 
 
 
@@ -1579,7 +1579,7 @@ remaining client area that the window should occupy.
             Source: https://docs.wxpython.org/wx.adv.CalculateLayoutEvent.html
         """
 
-    def GetRect(self) -> Rect:
+    def GetRect(self) -> 'Rect':
         """ Before the event handler is entered, returns the remaining parent client area that the window could occupy.
 
             Source: https://docs.wxpython.org/wx.adv.CalculateLayoutEvent.html
@@ -1598,7 +1598,7 @@ remaining client area that the window should occupy.
         """
 
     Flags: int  # See GetFlags and SetFlags
-    Rect: 'Rect'  # See GetRect and SetRect
+    Rect: '_Rect'  # See GetRect and SetRect
 
 
 
@@ -1640,7 +1640,7 @@ orientation and alignment of a window.
             Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
         """
 
-    def GetSize(self) -> Size:
+    def GetSize(self) -> 'Size':
         """ Returns the size that the event handler specified to the event object as being the requested size of the window.
 
             Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
@@ -1678,9 +1678,9 @@ orientation and alignment of a window.
 
     Alignment: int  # See GetAlignment and SetAlignment
     Flags: int  # See GetFlags and SetFlags
-    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
+    Orientation: 'adv.LayoutOrientation'  # See GetOrientation and SetOrientation
     RequestedLength: int  # See GetRequestedLength and SetRequestedLength
-    Size: Union[tuple[int, int], 'Size']  # See GetSize and SetSize
+    Size: '_Size'  # See GetSize and SetSize
 
 
 
@@ -1803,7 +1803,7 @@ class TaskBarIcon(EvtHandler):
             Source: https://docs.wxpython.org/wx.adv.TaskBarIcon.html
         """
 
-    def CreatePopupMenu(self) -> Menu:
+    def CreatePopupMenu(self) -> 'Menu':
         """ Called by the library when the user requests popup menu if GetPopupMenu   is not overridden.
 
             Source: https://docs.wxpython.org/wx.adv.TaskBarIcon.html
@@ -1815,7 +1815,7 @@ class TaskBarIcon(EvtHandler):
             Source: https://docs.wxpython.org/wx.adv.TaskBarIcon.html
         """
 
-    def GetPopupMenu(self) -> Menu:
+    def GetPopupMenu(self) -> 'Menu':
         """ Called by the library when the user requests popup menu.
 
             Source: https://docs.wxpython.org/wx.adv.TaskBarIcon.html
@@ -1897,14 +1897,14 @@ describing your application.
             Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
         """
 
-    def GetBitmap(self) -> Bitmap:
+    def GetBitmap(self) -> 'Bitmap':
         """ Get the spash screenâs bitmap
 
             Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
@@ -1928,7 +1928,7 @@ describing your application.
             Source: https://docs.wxpython.org/wx.adv.SplashScreen.html
         """
 
-    Bitmap: Bitmap  # See GetBitmap and SetBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
     SplashStyle: int  # See GetSplashStyle
     Timeout: int  # See GetTimeout
 
@@ -1979,7 +1979,7 @@ class ExtHelpController(HelpControllerBase):
             Source: https://docs.wxpython.org/wx.adv.ExtHelpController.html
         """
 
-    def GetFrameParameters(self, size=None, pos=None, newFrameEachTime=None) -> Frame:
+    def GetFrameParameters(self, size=None, pos=None, newFrameEachTime=None) -> 'Frame':
         """ Obtains the latest settings used by the help frame and the help frame.
 
             Source: https://docs.wxpython.org/wx.adv.ExtHelpController.html
@@ -2027,7 +2027,7 @@ class ExtHelpController(HelpControllerBase):
             Source: https://docs.wxpython.org/wx.adv.ExtHelpController.html
         """
 
-    FrameParameters: Frame  # See GetFrameParameters
+    FrameParameters: 'Frame'  # See GetFrameParameters
 
 
 
@@ -2117,7 +2117,7 @@ class Joystick(Object):
             Source: https://docs.wxpython.org/wx.adv.Joystick.html
         """
 
-    def GetPosition(self, *args, **kw) -> Point:
+    def GetPosition(self, *args, **kw) -> 'Point':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.adv.Joystick.html
@@ -2308,7 +2308,7 @@ class Joystick(Object):
     POVPosition: int  # See GetPOVPosition
     PollingMax: int  # See GetPollingMax
     PollingMin: int  # See GetPollingMin
-    Position: Point  # See GetPosition
+    Position: 'Point'  # See GetPosition
     ProductId: int  # See GetProductId
     ProductName: str  # See GetProductName
     RudderMax: int  # See GetRudderMax
@@ -2403,7 +2403,7 @@ control and the details of the animation image or data.
             Source: https://docs.wxpython.org/wx.adv.Animation.html
         """
 
-    def GetFrame(self, frame: int) -> Image:
+    def GetFrame(self, frame: int) -> 'Image':
         """ Returns the i-th frame as a   wx.Image.
 
             Source: https://docs.wxpython.org/wx.adv.Animation.html
@@ -2416,13 +2416,13 @@ control and the details of the animation image or data.
         """
 
     @staticmethod
-    def GetHandlers() -> AnimationDecoderList:
+    def GetHandlers() -> list['adv.AnimationHandler']:
         """ Returns the list of animation decoders used by the generic animation and    wx.adv.GenericAnimationCtrl.
 
             Source: https://docs.wxpython.org/wx.adv.Animation.html
         """
 
-    def GetSize(self) -> Size:
+    def GetSize(self) -> 'Size':
         """ Returns the size of the animation.
 
             Source: https://docs.wxpython.org/wx.adv.Animation.html
@@ -2467,7 +2467,7 @@ control and the details of the animation image or data.
         """
 
     FrameCount: int  # See GetFrameCount
-    Size: Size  # See GetSize
+    Size: '_Size'  # See GetSize
 
 
 
@@ -2592,14 +2592,14 @@ first/last page).
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
-    def GetBitmap(self) -> Bitmap:
+    def GetBitmap(self) -> 'Bitmap':
         """ This method is called by   wx.adv.Wizard  to get the bitmap to display alongside the page.
 
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
@@ -2617,11 +2617,13 @@ first/last page).
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
-    Bitmap: Bitmap  # See GetBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap
     Next: 'adv.WizardPage'  # See GetNext
     Prev: 'adv.WizardPage'  # See GetPrev
 
 
+
+OwnerDrawnComboBoxPaintingFlags: TypeAlias = int  # Enumeration
 
 ODCB_PAINTING_CONTROL: int
 
@@ -2638,7 +2640,7 @@ class CalendarEvent(DateEvent):
             Source: https://docs.wxpython.org/wx.adv.CalendarEvent.html
         """
 
-    def GetWeekDay(self) -> 'DateTime.WeekDay':
+    def GetWeekDay(self) -> 'WeekDay':
         """ Returns the week day on which the user clicked in  EVT_CALENDAR_WEEKDAY_CLICKED   handler.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarEvent.html
@@ -2650,11 +2652,15 @@ class CalendarEvent(DateEvent):
             Source: https://docs.wxpython.org/wx.adv.CalendarEvent.html
         """
 
-    WeekDay: DateTime.WeekDay  # See GetWeekDay and SetWeekDay
+    WeekDay: 'WeekDay'  # See GetWeekDay and SetWeekDay
 
 
+
+SashEdgePosition: TypeAlias = int  # Enumeration
 
 SASH_NONE: int
+
+SashDragStatus: TypeAlias = int  # Enumeration
 
 class SashLayoutWindow(SashWindow):
     """ SashLayoutWindow responds to OnCalculateLayout events generated by
@@ -2681,7 +2687,7 @@ LayoutAlgorithm.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.SashLayoutWindow.html
@@ -2724,7 +2730,7 @@ LayoutAlgorithm.
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    Orientation: LayoutOrientation  # See GetOrientation and SetOrientation
+    Orientation: 'adv.LayoutOrientation'  # See GetOrientation and SetOrientation
 
 
 
@@ -2770,20 +2776,20 @@ class GenericAnimationCtrl(AnimationCtrl):
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
-    def GetBackingStore(self) -> Bitmap:
+    def GetBackingStore(self) -> 'Bitmap':
         """ Returns a   wx.Bitmap  with the current frame drawn in it.
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
-    def GetInactiveBitmap(self) -> Bitmap:
+    def GetInactiveBitmap(self) -> 'Bitmap':
         """ Returns the inactive bitmap shown in this control when the; see SetInactiveBitmap   for more info.
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
@@ -2844,10 +2850,12 @@ class GenericAnimationCtrl(AnimationCtrl):
         """
 
     Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
-    BackingStore: Bitmap  # See GetBackingStore
-    InactiveBitmap: 'BitmapBundle'  # See GetInactiveBitmap and SetInactiveBitmap
+    BackingStore: 'Bitmap'  # See GetBackingStore
+    InactiveBitmap: 'Bitmap'  # See GetInactiveBitmap and SetInactiveBitmap
 
 
+
+AnimationType: TypeAlias = int  # Enumeration
 
 ANIMATION_TYPE_INVALID: int
 
@@ -2866,7 +2874,7 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    def GetBackgroundColour(self) -> Colour:
+    def GetBackgroundColour(self) -> 'Colour':
         """ Returns the background colour set for the calendar date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
@@ -2878,13 +2886,13 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    def GetBorderColour(self) -> Colour:
+    def GetBorderColour(self) -> 'Colour':
         """ Returns the border colour set for the calendar date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    def GetFont(self) -> Font:
+    def GetFont(self) -> 'Font':
         """ Returns the font set for the calendar date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
@@ -2897,7 +2905,7 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    def GetTextColour(self) -> Colour:
+    def GetTextColour(self) -> 'Colour':
         """ Returns the text colour set for the calendar date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
@@ -2982,13 +2990,15 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    BackgroundColour: Union[int, str, 'Colour']  # See GetBackgroundColour and SetBackgroundColour
-    Border: CalendarDateBorder  # See GetBorder and SetBorder
-    BorderColour: Union[int, str, 'Colour']  # See GetBorderColour and SetBorderColour
-    Font: 'Font'  # See GetFont and SetFont
-    TextColour: Union[int, str, 'Colour']  # See GetTextColour and SetTextColour
+    BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
+    Border: 'adv.CalendarDateBorder'  # See GetBorder and SetBorder
+    BorderColour: 'Colour'  # See GetBorderColour and SetBorderColour
+    Font: '_Font'  # See GetFont and SetFont
+    TextColour: 'Colour'  # See GetTextColour and SetTextColour
 
 
+
+CalendarHitTestResult: TypeAlias = int  # Enumeration
 
 CAL_HITTEST_NOWHERE: int
 
@@ -3003,6 +3013,8 @@ CAL_HITTEST_DECMONTH: int
 CAL_HITTEST_SURROUNDING_WEEK: int
 
 CAL_HITTEST_WEEK: int
+
+PropertySheetDialogFlags: TypeAlias = int  # Enumeration
 
 PROPSHEET_DEFAULT: int
 
@@ -3020,7 +3032,13 @@ PROPSHEET_TREEBOOK: int
 
 PROPSHEET_SHRINKTOFIT: int
 
+LayoutAlignment: TypeAlias = int  # Enumeration
+
 LAYOUT_NONE: int
+
+LayoutOrientation: TypeAlias = int  # Enumeration
+
+TaskBarIconType: TypeAlias = int  # Enumeration
 
 TBI_DOCK: int
 
@@ -3064,13 +3082,13 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetAnimationSize(self) -> Size:
+    def GetAnimationSize(self) -> 'Size':
         """ Size
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetBackgroundColour(self) -> Colour:
+    def GetBackgroundColour(self) -> 'Colour':
         """ Colour
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
@@ -3094,19 +3112,19 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetFramePosition(self, frame: int) -> Point:
+    def GetFramePosition(self, frame: int) -> 'Point':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetFrameSize(self, frame: int) -> Size:
+    def GetFrameSize(self, frame: int) -> 'Size':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetTransparentColour(self, frame: int) -> Colour:
+    def GetTransparentColour(self, frame: int) -> 'Colour':
         """ The transparent colour for this frame, if any, or  NullColour .
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
@@ -3124,8 +3142,8 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    AnimationSize: Size  # See GetAnimationSize
-    BackgroundColour: Colour  # See GetBackgroundColour
+    AnimationSize: 'Size'  # See GetAnimationSize
+    BackgroundColour: 'Colour'  # See GetBackgroundColour
     FrameCount: int  # See GetFrameCount
     Type: 'adv.AnimationType'  # See GetType
 
@@ -3157,7 +3175,7 @@ from WizardPage.GetNext() and WizardPage.GetPrev() functions.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.adv.WizardPageSimple.html
@@ -3176,6 +3194,8 @@ from WizardPage.GetNext() and WizardPage.GetPrev() functions.
         """
 
 
+
+CalendarDateBorder: TypeAlias = int  # Enumeration
 
 CAL_BORDER_NONE: int
 
@@ -3224,19 +3244,19 @@ class ANIDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def GetFramePosition(self, frame: int) -> Point:
+    def GetFramePosition(self, frame: int) -> 'Point':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def GetFrameSize(self, frame: int) -> Size:
+    def GetFrameSize(self, frame: int) -> 'Size':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def GetTransparentColour(self, frame: int) -> Colour:
+    def GetTransparentColour(self, frame: int) -> 'Colour':
         """ The transparent colour for this frame, if any, or  NullColour .
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
@@ -3299,19 +3319,19 @@ class GIFDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def GetFramePosition(self, frame: int) -> Point:
+    def GetFramePosition(self, frame: int) -> 'Point':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def GetFrameSize(self, frame: int) -> Size:
+    def GetFrameSize(self, frame: int) -> 'Size':
         """ frame (int) â
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def GetTransparentColour(self, frame: int) -> Colour:
+    def GetTransparentColour(self, frame: int) -> 'Colour':
         """ The transparent colour for this frame, if any, or  NullColour .
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
@@ -3332,6 +3352,8 @@ class GIFDecoder(AnimationDecoder):
     Type: 'adv.AnimationType'  # See GetType
 
 
+
+AnimationDisposal: TypeAlias = int  # Enumeration
 
 ANIM_UNSPECIFIED: int
 

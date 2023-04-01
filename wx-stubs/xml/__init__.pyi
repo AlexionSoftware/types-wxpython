@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class XmlDocument(Object):
     """ This class holds XML data/document as parsed by XML parser in the root
@@ -138,7 +138,7 @@ node.
     DocumentNode: 'xml.XmlNode'  # See GetDocumentNode and SetDocumentNode
     EOL: str  # See GetEOL
     FileEncoding: str  # See GetFileEncoding and SetFileEncoding
-    FileType: TextFileType  # See GetFileType and SetFileType
+    FileType: 'TextFileType'  # See GetFileType and SetFileType
     Root: 'xml.XmlNode'  # See GetRoot and SetRoot
     Version: str  # See GetVersion and SetVersion
 
@@ -323,7 +323,7 @@ class XmlNode:
     NoConversion: bool  # See GetNoConversion and SetNoConversion
     NodeContent: str  # See GetNodeContent
     Parent: 'xml.XmlNode'  # See GetParent and SetParent
-    Type: XmlNodeType  # See GetType and SetType
+    Type: 'xml.XmlNodeType'  # See GetType and SetType
 
 
 
@@ -433,6 +433,8 @@ class XmlDoctype:
     SystemId: str  # See GetSystemId
 
 
+
+XmlNodeType: TypeAlias = int  # Enumeration
 
 XML_ELEMENT_NODE: int
 

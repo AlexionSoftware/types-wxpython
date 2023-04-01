@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class WebView(Control):
     """ This control may be used to render web (HTML / CSS / javascript)
@@ -128,7 +128,7 @@ documents.
         """
 
     @staticmethod
-    def GetBackendVersionInfo(backend: str=WebViewBackendDefault) -> VersionInfo:
+    def GetBackendVersionInfo(backend: str=WebViewBackendDefault) -> 'VersionInfo':
         """ Retrieve the version information about the backend implementation.
 
             Source: https://docs.wxpython.org/wx.html2.WebView.html
@@ -141,7 +141,7 @@ documents.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.html2.WebView.html
@@ -420,9 +420,9 @@ documents.
     SelectedSource: str  # See GetSelectedSource
     SelectedText: str  # See GetSelectedText
     UserAgent: str  # See GetUserAgent and SetUserAgent
-    Zoom: WebViewZoom  # See GetZoom and SetZoom
+    Zoom: 'html2.WebViewZoom'  # See GetZoom and SetZoom
     ZoomFactor: float  # See GetZoomFactor and SetZoomFactor
-    ZoomType: WebViewZoomType  # See GetZoomType and SetZoomType
+    ZoomType: 'html2.WebViewZoomType'  # See GetZoomType and SetZoomType
 
 
 
@@ -506,7 +506,7 @@ class WebViewFactory(Object):
             Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
         """
 
-    def GetVersionInfo(self) -> VersionInfo:
+    def GetVersionInfo(self) -> 'VersionInfo':
         """ Retrieve the version information about this backend implementation.
 
             Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
@@ -518,7 +518,7 @@ class WebViewFactory(Object):
             Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
         """
 
-    VersionInfo: VersionInfo  # See GetVersionInfo
+    VersionInfo: '_VersionInfo'  # See GetVersionInfo
 
 
 
@@ -534,7 +534,7 @@ to allow virtual file system support.
             Source: https://docs.wxpython.org/wx.html2.WebViewHandler.html
         """
 
-    def GetFile(self, uri: str) -> FSFile:
+    def GetFile(self, uri: str) -> 'FSFile':
         """ uri (string) â
 
             Source: https://docs.wxpython.org/wx.html2.WebViewHandler.html
@@ -576,7 +576,7 @@ to use FileSystem in a similar fashion to its use with Html.
             Source: https://docs.wxpython.org/wx.html2.WebViewFSHandler.html
         """
 
-    def GetFile(self, uri: str) -> FSFile:
+    def GetFile(self, uri: str) -> 'FSFile':
         """ uri (string) â
 
             Source: https://docs.wxpython.org/wx.html2.WebViewFSHandler.html
@@ -596,7 +596,7 @@ archives.
             Source: https://docs.wxpython.org/wx.html2.WebViewArchiveHandler.html
         """
 
-    def GetFile(self, uri: str) -> FSFile:
+    def GetFile(self, uri: str) -> 'FSFile':
         """ uri (string) â
 
             Source: https://docs.wxpython.org/wx.html2.WebViewArchiveHandler.html
@@ -604,11 +604,17 @@ archives.
 
 
 
+WebViewUserScriptInjectionTime: TypeAlias = int  # Enumeration
+
 WEBVIEW_INJECT_AT_DOCUMENT_END: int
+
+WebViewZoomType: TypeAlias = int  # Enumeration
 
 WEBVIEW_ZOOM_TYPE_LAYOUT: int
 
 WEBVIEW_ZOOM_TYPE_TEXT: int
+
+WebViewFindFlags: TypeAlias = int  # Enumeration
 
 WEBVIEW_FIND_WRAP: int
 
@@ -621,6 +627,8 @@ WEBVIEW_FIND_HIGHLIGHT_RESULT: int
 WEBVIEW_FIND_BACKWARDS: int
 
 WEBVIEW_FIND_DEFAULT: int
+
+WebViewZoom: TypeAlias = int  # Enumeration
 
 WEBVIEW_ZOOM_TINY: int
 
@@ -652,9 +660,13 @@ WEBVIEWIE_EMU_IE11: int
 
 WEBVIEWIE_EMU_IE11_FORCE: int
 
+WebViewReloadFlags: TypeAlias = int  # Enumeration
+
 WEBVIEW_RELOAD_DEFAULT: int
 
 WEBVIEW_RELOAD_NO_CACHE: int
+
+WebViewNavigationError: TypeAlias = int  # Enumeration
 
 WEBVIEW_NAV_ERR_CONNECTION: int
 
@@ -672,9 +684,13 @@ WEBVIEW_NAV_ERR_USER_CANCELLED: int
 
 WEBVIEW_NAV_ERR_OTHER: int
 
+WebViewNavigationActionFlags: TypeAlias = int  # Enumeration
+
 WEBVIEW_NAV_ACTION_NONE: int
 
 WEBVIEW_NAV_ACTION_USER: int
 
 WEBVIEW_NAV_ACTION_OTHER: int
+
+WebViewIE_EmulationLevel: TypeAlias = int
 

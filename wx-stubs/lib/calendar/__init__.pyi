@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class CalDraw:
     """ A class to draw a calendar.
@@ -229,7 +229,7 @@ class Calendar(Control):
             Source: https://docs.wxpython.org/wx.lib.calendar.Calendar.html
         """
 
-    def GetColor(self, name: SetColor) -> None:
+    def GetColor(self, color: str) -> None:
         """ Get a color.
 
             Source: https://docs.wxpython.org/wx.lib.calendar.Calendar.html

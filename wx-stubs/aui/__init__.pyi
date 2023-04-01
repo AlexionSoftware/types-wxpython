@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, ContextManager, Optional, Union
+from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 class AuiNotebook(BookCtrlBase):
     """ AuiNotebook is part of the AUI class framework, which represents a
@@ -68,13 +68,13 @@ notebook control, managing multiple windows with associated tabs.
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetCurrentPage(self) -> Window:
+    def GetCurrentPage(self) -> 'Window':
         """ Returns the currently selected page or None.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
@@ -86,13 +86,13 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetPage(self, page_idx: int) -> Window:
+    def GetPage(self, page_idx: int) -> 'Window':
         """ Returns the page specified by the given index.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetPageBitmap(self, page: int) -> Bitmap:
+    def GetPageBitmap(self, page: int) -> 'Bitmap':
         """ Returns the tab bitmap for the page.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
@@ -244,7 +244,7 @@ notebook control, managing multiple windows with associated tabs.
 
     ActiveTabCtrl: 'aui.AuiTabCtrl'  # See GetActiveTabCtrl
     ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
-    CurrentPage: Window  # See GetCurrentPage
+    CurrentPage: 'Window'  # See GetCurrentPage
     PageCount: int  # See GetPageCount
     Selection: int  # See GetSelection and SetSelection
     TabCtrlHeight: int  # See GetTabCtrlHeight and SetTabCtrlHeight
@@ -328,7 +328,7 @@ class AuiNotebookEvent(BookCtrlEvent):
             Source: https://docs.wxpython.org/wx.aui.AuiNotebookEvent.html
         """
 
-    def Clone(self) -> Event:
+    def Clone(self) -> 'Event':
         """ Event
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebookEvent.html
@@ -383,7 +383,7 @@ class AuiDefaultTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
         """
 
-    def GetTabSize(self, dc, wnd, caption, bitmap, active, close_button_state, x_extent) -> Size:
+    def GetTabSize(self, dc, wnd, caption, bitmap, active, close_button_state, x_extent) -> 'Size':
         """ Returns the tab size for the given caption, bitmap and state.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
@@ -465,7 +465,7 @@ class AuiMDIClientWindow(AuiNotebook):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
@@ -499,7 +499,7 @@ class AuiTabCtrl:
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiTabCtrl.html
@@ -561,7 +561,7 @@ AuiNotebook.
             Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
         """
 
-    def GetTabSize(self, dc, wnd, caption, bitmap, active, close_button_state, x_extent) -> Size:
+    def GetTabSize(self, dc, wnd, caption, bitmap, active, close_button_state, x_extent) -> 'Size':
         """ Returns the tab size for the given caption, bitmap and state.
 
             Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
@@ -708,7 +708,7 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def FindControl(self, window_id: int) -> Control:
+    def FindControl(self, window_id: int) -> 'Control':
         """ window_id (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -739,7 +739,7 @@ class AuiToolBar(Control):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -751,7 +751,7 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def GetHintSize(self, dock_direction: int) -> Size:
+    def GetHintSize(self, dock_direction: int) -> 'Size':
         """ get size of hint rectangle for a particular dock location
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -769,13 +769,13 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def GetToolBitmap(self, toolId: int) -> Bitmap:
+    def GetToolBitmap(self, toolId: int) -> 'Bitmap':
         """ toolId (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def GetToolBitmapSize(self) -> Size:
+    def GetToolBitmapSize(self) -> 'Size':
         """ Size
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -853,7 +853,7 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def GetToolRect(self, toolId: int) -> Rect:
+    def GetToolRect(self, toolId: int) -> 'Rect':
         """ toolId (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -1031,7 +1031,7 @@ class AuiToolBar(Control):
     GripperVisible: bool  # See GetGripperVisible and SetGripperVisible
     OverflowVisible: bool  # See GetOverflowVisible and SetOverflowVisible
     ToolBarFits: bool  # See GetToolBarFits
-    ToolBitmapSize: Union[tuple[int, int], 'Size']  # See GetToolBitmapSize and SetToolBitmapSize
+    ToolBitmapSize: 'Size'  # See GetToolBitmapSize and SetToolBitmapSize
     ToolBorderPadding: int  # See GetToolBorderPadding and SetToolBorderPadding
     ToolCount: int  # See GetToolCount
     ToolPacking: int  # See GetToolPacking and SetToolPacking
@@ -1098,7 +1098,7 @@ class AuiManagerEvent(Event):
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
         """
 
-    def GetDC(self) -> DC:
+    def GetDC(self) -> 'DC':
         """ DC
 
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
@@ -1159,7 +1159,7 @@ class AuiManagerEvent(Event):
         """
 
     Button: int  # See GetButton and SetButton
-    DC: 'DC'  # See GetDC and SetDC
+    DC: '_DC'  # See GetDC and SetDC
     Manager: 'aui.AuiManager'  # See GetManager and SetManager
     Pane: 'aui.AuiPaneInfo'  # See GetPane and SetPane
 
@@ -1201,7 +1201,7 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def CalculateHintRect(self, paneWindow, pt, offset) -> Rect:
+    def CalculateHintRect(self, paneWindow, pt, offset) -> 'Rect':
         """ This function is used by controls to calculate the drop hint rectangle.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1237,7 +1237,7 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def GetAllPanes(self) -> AuiPaneInfoArray:
+    def GetAllPanes(self) -> 'aui.AuiPaneInfoArray':
         """ Returns an array of all panes managed by the frame manager.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1261,7 +1261,7 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def GetManagedWindow(self) -> Window:
+    def GetManagedWindow(self) -> 'Window':
         """ Returns the frame currently being managed by   wx.aui.AuiManager.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1394,7 +1394,7 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    AllPanes: AuiPaneInfoArray  # See GetAllPanes
+    AllPanes: 'aui.AuiPaneInfoArray'  # See GetAllPanes
     ArtProvider: 'aui.AuiDockArt'  # See GetArtProvider and SetArtProvider
     Flags: int  # See GetFlags and SetFlags
     ManagedWindow: 'Window'  # See GetManagedWindow and SetManagedWindow
@@ -1509,7 +1509,7 @@ class AuiMDIParentFrame(Frame):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
@@ -1527,7 +1527,7 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def GetWindowMenu(self) -> Menu:
+    def GetWindowMenu(self) -> 'Menu':
         """ Menu
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
@@ -1594,13 +1594,13 @@ class AuiToolBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
         """
 
-    def GetClickPoint(self) -> Point:
+    def GetClickPoint(self) -> 'Point':
         """ Returns the point where the user clicked with the mouse.
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
         """
 
-    def GetItemRect(self) -> Rect:
+    def GetItemRect(self) -> 'Rect':
         """ Returns the   wx.aui.AuiToolBarItem  rectangle bounding the mouse click point.
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
@@ -1642,7 +1642,7 @@ class AuiToolBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarEvent.html
         """
 
-    ClickPoint: Union[tuple[int, int], 'Point']  # See GetClickPoint and SetClickPoint
+    ClickPoint: 'Point'  # See GetClickPoint and SetClickPoint
     ItemRect: 'Rect'  # See GetItemRect and SetItemRect
     ToolId: int  # See GetToolId and SetToolId
 
@@ -1671,13 +1671,13 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def CreateStatusBar(self, number=1, style=1, winid=1, name="") -> StatusBar:
+    def CreateStatusBar(self, number=1, style=1, winid=1, name="") -> 'StatusBar':
         """ number (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def CreateToolBar(self, style, winid, name) -> ToolBar:
+    def CreateToolBar(self, style, winid, name) -> 'ToolBar':
         """ style (long) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
@@ -1690,19 +1690,19 @@ class AuiMDIChildFrame(Panel):
         """
 
     @staticmethod
-    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> VisualAttributes:
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
         """ variant (WindowVariant) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetIcon(self) -> Icon:
+    def GetIcon(self) -> 'Icon':
         """ Icon
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetIcons(self) -> IconBundle:
+    def GetIcons(self) -> 'IconBundle':
         """ IconBundle
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
@@ -1714,13 +1714,13 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetMenuBar(self) -> MenuBar:
+    def GetMenuBar(self) -> 'MenuBar':
         """ MenuBar
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetStatusBar(self) -> StatusBar:
+    def GetStatusBar(self) -> 'StatusBar':
         """ StatusBar
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
@@ -1732,7 +1732,7 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetToolBar(self) -> ToolBar:
+    def GetToolBar(self) -> 'ToolBar':
         """ ToolBar
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
@@ -1834,13 +1834,13 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    Icon: 'Icon'  # See GetIcon and SetIcon
+    Icon: '_Icon'  # See GetIcon and SetIcon
     Icons: 'IconBundle'  # See GetIcons and SetIcons
     MDIParentFrame: 'aui.AuiMDIParentFrame'  # See GetMDIParentFrame and SetMDIParentFrame
-    MenuBar: 'MenuBar'  # See GetMenuBar and SetMenuBar
-    StatusBar: StatusBar  # See GetStatusBar
+    MenuBar: '_MenuBar'  # See GetMenuBar and SetMenuBar
+    StatusBar: '_StatusBar'  # See GetStatusBar
     Title: str  # See GetTitle and SetTitle
-    ToolBar: ToolBar  # See GetToolBar
+    ToolBar: '_ToolBar'  # See GetToolBar
 
 
 
@@ -1906,7 +1906,7 @@ class AuiSimpleTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
         """
 
-    def GetTabSize(self, dc, wnd, caption, bitmap, active, closeButtonState, xExtent) -> Size:
+    def GetTabSize(self, dc, wnd, caption, bitmap, active, closeButtonState, xExtent) -> 'Size':
         """ dc (wx.DC) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
@@ -1994,19 +1994,19 @@ toolbar element.
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetBitmap(self) -> Bitmap:
+    def GetBitmap(self) -> 'Bitmap':
         """ Bitmap
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetDisabledBitmap(self) -> Bitmap:
+    def GetDisabledBitmap(self) -> 'Bitmap':
         """ Bitmap
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetHoverBitmap(self) -> Bitmap:
+    def GetHoverBitmap(self) -> 'Bitmap':
         """ Bitmap
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
@@ -2036,7 +2036,7 @@ toolbar element.
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetMinSize(self) -> Size:
+    def GetMinSize(self) -> 'Size':
         """ Size
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
@@ -2054,7 +2054,7 @@ toolbar element.
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetSizerItem(self) -> SizerItem:
+    def GetSizerItem(self) -> 'SizerItem':
         """ SizerItem
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
@@ -2078,7 +2078,7 @@ toolbar element.
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
         """
 
-    def GetWindow(self) -> Window:
+    def GetWindow(self) -> 'Window':
         """ Returns the Window associated to the toolbar item.
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarItem.html
@@ -2217,21 +2217,21 @@ toolbar element.
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    Bitmap: 'BitmapBundle'  # See GetBitmap and SetBitmap
-    DisabledBitmap: 'BitmapBundle'  # See GetDisabledBitmap and SetDisabledBitmap
-    HoverBitmap: 'BitmapBundle'  # See GetHoverBitmap and SetHoverBitmap
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    DisabledBitmap: 'Bitmap'  # See GetDisabledBitmap and SetDisabledBitmap
+    HoverBitmap: 'Bitmap'  # See GetHoverBitmap and SetHoverBitmap
     Id: int  # See GetId and SetId
     Kind: int  # See GetKind and SetKind
     Label: str  # See GetLabel and SetLabel
     LongHelp: str  # See GetLongHelp and SetLongHelp
-    MinSize: Union[tuple[int, int], 'Size']  # See GetMinSize and SetMinSize
+    MinSize: 'Size'  # See GetMinSize and SetMinSize
     Proportion: int  # See GetProportion and SetProportion
     ShortHelp: str  # See GetShortHelp and SetShortHelp
-    SizerItem: 'SizerItem'  # See GetSizerItem and SetSizerItem
+    SizerItem: '_SizerItem'  # See GetSizerItem and SetSizerItem
     SpacerPixels: int  # See GetSpacerPixels and SetSpacerPixels
     State: int  # See GetState and SetState
     UserData: int  # See GetUserData and SetUserData
-    Window: 'Window'  # See GetWindow and SetWindow
+    Window: '_Window'  # See GetWindow and SetWindow
 
 
 
@@ -2318,13 +2318,13 @@ class AuiToolBarArt:
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
         """
 
-    def GetFont(self) -> Font:
+    def GetFont(self) -> 'Font':
         """ Font
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
         """
 
-    def GetLabelSize(self, dc, wnd, item) -> Size:
+    def GetLabelSize(self, dc, wnd, item) -> 'Size':
         """ dc (wx.DC) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
@@ -2336,7 +2336,7 @@ class AuiToolBarArt:
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
         """
 
-    def GetToolSize(self, dc, wnd, item) -> Size:
+    def GetToolSize(self, dc, wnd, item) -> 'Size':
         """ dc (wx.DC) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
@@ -2373,7 +2373,7 @@ class AuiToolBarArt:
         """
 
     Flags: int  # See GetFlags and SetFlags
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
     TextOrientation: int  # See GetTextOrientation and SetTextOrientation
 
 
@@ -2894,13 +2894,13 @@ class AuiDockArt:
             Source: https://docs.wxpython.org/wx.aui.AuiDockArt.html
         """
 
-    def GetColour(self, id: int) -> Colour:
+    def GetColour(self, id: int) -> 'Colour':
         """ Get the colour of a certain setting.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDockArt.html
         """
 
-    def GetFont(self, id: int) -> Font:
+    def GetFont(self, id: int) -> 'Font':
         """ Get a font setting.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDockArt.html
@@ -2931,6 +2931,8 @@ class AuiDockArt:
         """
 
 
+
+AuiManagerOption: TypeAlias = int  # Enumeration
 
 class AuiDefaultToolBarArt(AuiToolBarArt):
     """ AuiDefaultToolBarArt is part of the AUI class framework.
@@ -3015,13 +3017,13 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
         """
 
-    def GetFont(self) -> Font:
+    def GetFont(self) -> 'Font':
         """ Font
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
         """
 
-    def GetLabelSize(self, dc, wnd, item) -> Size:
+    def GetLabelSize(self, dc, wnd, item) -> 'Size':
         """ dc (wx.DC) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
@@ -3033,7 +3035,7 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
         """
 
-    def GetToolSize(self, dc, wnd, item) -> Size:
+    def GetToolSize(self, dc, wnd, item) -> 'Size':
         """ dc (wx.DC) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
@@ -3070,7 +3072,7 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
         """
 
     Flags: int  # See GetFlags and SetFlags
-    Font: 'Font'  # See GetFont and SetFont
+    Font: '_Font'  # See GetFont and SetFont
     TextOrientation: int  # See GetTextOrientation and SetTextOrientation
 
 
@@ -3134,13 +3136,13 @@ class AuiDefaultDockArt(AuiDockArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultDockArt.html
         """
 
-    def GetColour(self, id: int) -> Colour:
+    def GetColour(self, id: int) -> 'Colour':
         """ Get the colour of a certain setting.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultDockArt.html
         """
 
-    def GetFont(self, id: int) -> Font:
+    def GetFont(self, id: int) -> 'Font':
         """ Get a font setting.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultDockArt.html
@@ -3171,4 +3173,6 @@ class AuiDefaultDockArt(AuiDockArt):
         """
 
 
+
+AuiPaneInfoArray: TypeAlias = list['AuiPaneInfo']
 
