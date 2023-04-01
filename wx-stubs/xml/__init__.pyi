@@ -7,14 +7,6 @@ node.
 
         Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
     """
-    Doctype: 'xml.XmlDoctype'  # See GetDoctype and SetDoctype
-    DocumentNode: 'xml.XmlNode'  # See GetDocumentNode and SetDocumentNode
-    EOL: str  # See GetEOL
-    FileEncoding: str  # See GetFileEncoding and SetFileEncoding
-    FileType: TextFileType  # See GetFileType and SetFileType
-    Root: 'xml.XmlNode'  # See GetRoot and SetRoot
-    Version: str  # See GetVersion and SetVersion
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -142,6 +134,14 @@ node.
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
+    Doctype: 'xml.XmlDoctype'  # See GetDoctype and SetDoctype
+    DocumentNode: 'xml.XmlNode'  # See GetDocumentNode and SetDocumentNode
+    EOL: str  # See GetEOL
+    FileEncoding: str  # See GetFileEncoding and SetFileEncoding
+    FileType: TextFileType  # See GetFileType and SetFileType
+    Root: 'xml.XmlNode'  # See GetRoot and SetRoot
+    Version: str  # See GetVersion and SetVersion
+
 
 
 XMLDOC_KEEP_WHITESPACE_NODES: int
@@ -151,18 +151,6 @@ class XmlNode:
 
         Source: https://docs.wxpython.org/wx.xml.XmlNode.html
     """
-    Attributes: 'xml.XmlAttribute'  # See GetAttributes
-    Children: 'xml.XmlNode'  # See GetChildren
-    Content: str  # See GetContent and SetContent
-    Depth: int  # See GetDepth
-    LineNumber: int  # See GetLineNumber
-    Name: str  # See GetName and SetName
-    Next: 'xml.XmlNode'  # See GetNext and SetNext
-    NoConversion: bool  # See GetNoConversion and SetNoConversion
-    NodeContent: str  # See GetNodeContent
-    Parent: 'xml.XmlNode'  # See GetParent and SetParent
-    Type: XmlNodeType  # See GetType and SetType
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -325,6 +313,18 @@ class XmlNode:
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
+    Attributes: 'xml.XmlAttribute'  # See GetAttributes
+    Children: 'xml.XmlNode'  # See GetChildren
+    Content: str  # See GetContent and SetContent
+    Depth: int  # See GetDepth
+    LineNumber: int  # See GetLineNumber
+    Name: str  # See GetName and SetName
+    Next: 'xml.XmlNode'  # See GetNext and SetNext
+    NoConversion: bool  # See GetNoConversion and SetNoConversion
+    NodeContent: str  # See GetNodeContent
+    Parent: 'xml.XmlNode'  # See GetParent and SetParent
+    Type: XmlNodeType  # See GetType and SetType
+
 
 
 class XmlAttribute:
@@ -332,10 +332,6 @@ class XmlAttribute:
 
         Source: https://docs.wxpython.org/wx.xml.XmlAttribute.html
     """
-    Name: str  # See GetName and SetName
-    Next: 'xml.XmlAttribute'  # See GetNext and SetNext
-    Value: str  # See GetValue and SetValue
-
     def __init__(self, *args, **kw) -> None:
         """ Overloaded Implementations:
 
@@ -378,6 +374,10 @@ class XmlAttribute:
             Source: https://docs.wxpython.org/wx.xml.XmlAttribute.html
         """
 
+    Name: str  # See GetName and SetName
+    Next: 'xml.XmlAttribute'  # See GetNext and SetNext
+    Value: str  # See GetValue and SetValue
+
 
 
 class XmlDoctype:
@@ -385,11 +385,6 @@ class XmlDoctype:
 
         Source: https://docs.wxpython.org/wx.xml.XmlDoctype.html
     """
-    FullString: str  # See GetFullString
-    PublicId: str  # See GetPublicId
-    RootName: str  # See GetRootName
-    SystemId: str  # See GetSystemId
-
     def __init__(self, rootName="", systemId="", publicId="") -> None:
         """ Creates and possible initializes the DOCTYPE.
 
@@ -431,6 +426,11 @@ class XmlDoctype:
 
             Source: https://docs.wxpython.org/wx.xml.XmlDoctype.html
         """
+
+    FullString: str  # See GetFullString
+    PublicId: str  # See GetPublicId
+    RootName: str  # See GetRootName
+    SystemId: str  # See GetSystemId
 
 
 
