@@ -64,7 +64,7 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	},
 	"wx.richtext.RichTextProperties.FindOrCreateProperty": {
 		"returnType": "Any",
-	},		
+	},
 	"wx.richtext.RichTextProperties.GetProperty": {
 		"returnType": "Any",
 	},

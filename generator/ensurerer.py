@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import sys
 from logging import Logger
 from queue import Queue
 from typing import Union
@@ -47,6 +46,8 @@ class Ensurerer:
 		for typing in self.typingDict.values():
 			typings.put(typing)
 
+		return True
+
 	def _ensureTyping(self, typing: ITyping) -> ITyping:
 		""" Make sure the typing is correct
 		"""
@@ -71,7 +72,7 @@ class Ensurerer:
 
 		# Check the type: Function
 		elif typing["type"] == TypingType.FUNCTION:
-			typingObjf: ITypingFunction = typing
+			typingObjf: ITypingFunction = typing  # type: ignore
 
 			# Find the return type
 			typingObjf["returnType"] = self._ensureReturnType(typingObjf)
@@ -100,7 +101,7 @@ class Ensurerer:
 			typingObjl["returnType"] = typingObjl["returnType"].split(".")[-1]
 
 		# Check if type is a Union
-		if typingObjl["returnType"].startswith("Union[") or typingObjl["returnType"].startswith("Optional[") or typingObjl["returnType"].startswith("list[")  or typingObjl["returnType"].startswith("tuple["):
+		if typingObjl["returnType"].startswith("Union[") or typingObjl["returnType"].startswith("Optional[") or typingObjl["returnType"].startswith("list[") or typingObjl["returnType"].startswith("tuple["):
 			# Dont need to do anything
 			return typingObjl["returnType"]
 
@@ -118,7 +119,7 @@ class Ensurerer:
 		returnType = moduleName + "." + typingObjl["returnType"].replace("'", "")
 		if returnType in self.aliasDict:
 			typingObjl["returnType"] = "'_" + typingObjl["returnType"][1:]
-		
+
 		# Check if the typing is being ended with a '
 		if typingObjl["returnType"][0] == "'" and typingObjl["returnType"][-1] != "'":
 			typingObjl["returnType"] += "'"
@@ -140,7 +141,7 @@ class Ensurerer:
 			# We can't find it
 			self.logger.error("ReturnType '%s' does not exist in %s.%s - %s" % (typingObjl["returnType"], typingObjl["moduleName"], typingObjl["name"], orgItem))
 			raise KeyError(returnType)
-		
+
 		# Return the type
 		if returnType.startswith("wx."):
 			return "'" + returnType[3:] + "'"
@@ -179,7 +180,7 @@ class Ensurerer:
 		returnType = moduleName + "." + paramType.replace("'", "")
 		if returnType in self.aliasDict:
 			paramType = "'_" + paramType[1:]
-		
+
 		# Check if the typing is being ended with a '
 		if paramType[0] == "'" and paramType[-1] != "'":
 			paramType += "'"
@@ -187,7 +188,6 @@ class Ensurerer:
 			paramType = "'" + paramType
 
 		# Check if the return type exists
-		print(returnType)
 		if returnType not in self.typingDict:
 			# Check how many dots are in the return type
 			if len(returnType.split(".")) > 2:

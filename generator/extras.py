@@ -3,7 +3,7 @@ from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral, ITypi
 
 
 EXTRA_KNOWN_ITEMS: list[ITyping] = []
-aObj = {
+aObj: ITypingLiteral = {
 	"type": TypingType.ALIAS,
 	"name": "Coord",
 	"moduleName": "wx",
@@ -290,7 +290,7 @@ aObj = {
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.stc.StyledTextCtrl.html",
 }
-EXTRA_KNOWN_ITEMS.append(aObj) 
+EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
 	"name": "AuiPaneInfoArray",
@@ -299,7 +299,7 @@ aObj = {
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.aui.AuiManager.html",
 }
-EXTRA_KNOWN_ITEMS.append(aObj) 
+EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
 	"name": "DVCVariant",
@@ -308,7 +308,7 @@ aObj = {
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.dataview.DataViewEvent.html",
 }
-EXTRA_KNOWN_ITEMS.append(aObj) 
+EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
 	"name": "AttrKind",
@@ -317,7 +317,7 @@ aObj = {
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.grid.GridCellAttr.AttrKind.enumeration.html",
 }
-EXTRA_KNOWN_ITEMS.append(aObj) 
+EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
 	"name": "HtmlBookRecArray",
@@ -831,7 +831,7 @@ lObj: ITypingLiteral = {
 	"source": "https://docs.wxpython.org/wx.PrintData.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
-lObj: ITypingLiteral = {
+lObj = {
 	"type": TypingType.LITERAL,
 	"name": "PRINT_QUALITY_MEDIUM",
 	"moduleName": "wx",
@@ -840,7 +840,7 @@ lObj: ITypingLiteral = {
 	"source": "https://docs.wxpython.org/wx.PrintData.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
-lObj: ITypingLiteral = {
+lObj = {
 	"type": TypingType.LITERAL,
 	"name": "PRINT_QUALITY_LOW",
 	"moduleName": "wx",
@@ -849,7 +849,7 @@ lObj: ITypingLiteral = {
 	"source": "https://docs.wxpython.org/wx.PrintData.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
-lObj: ITypingLiteral = {
+lObj = {
 	"type": TypingType.LITERAL,
 	"name": "PRINT_QUALITY_DRAFT",
 	"moduleName": "wx",
@@ -858,7 +858,7 @@ lObj: ITypingLiteral = {
 	"source": "https://docs.wxpython.org/wx.PrintData.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
-lObj: ITypingLiteral = {
+lObj = {
 	"type": TypingType.LITERAL,
 	"name": "GROW",
 	"moduleName": "wx",
