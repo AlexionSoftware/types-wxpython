@@ -133,6 +133,9 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.DC.GetCGContext": {
 		"returnType": "int",
 	},
+    "wx.DC.CGContext": {
+		"returnType": "int",
+	},
 	"wx.DC.GetGdkDrawable": {
 		"returnType": "int",
 	},

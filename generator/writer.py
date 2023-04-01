@@ -50,9 +50,6 @@ class TypingWriter:
 			if item["name"].isdigit():
 				continue
 
-			# Check if we should override something in the item
-			self._overrideItemData(item)
-
 			# Put in the module
 			contentPerFileType[fileName].append(item)
 
@@ -151,23 +148,3 @@ class TypingWriter:
 
 			return output
 		return ""
-
-	def _overrideItemData(self, typing: ITyping) -> None:
-		""" Override the item data
-		"""
-		from .overrides import OVERRIDES
-
-		# Generate the full module name
-		fullModuleName = typing["moduleName"] + "." + typing["name"]
-
-		# Check if we have an override
-		if fullModuleName in OVERRIDES:
-			# Override the info
-			typing.update(OVERRIDES[fullModuleName])  # type: ignore
-
-		# Check if the type is a class
-		if typing["type"] == TypingType.CLASS:
-			# Check the overrides for all the functions
-			cTypeObject: ITypingClass = typing  # type: ignore
-			for functionTyping in cTypeObject["functions"]:
-				self._overrideItemData(functionTyping)

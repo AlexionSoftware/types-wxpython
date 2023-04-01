@@ -40,6 +40,10 @@ class Ensurerer:
 
 		# Walk through all the typings
 		for key, typing in self.typingDict.items():
+			# Check the override
+			self._overrideItemData(typing)
+
+			# Ensure the typing
 			self.typingDict[key] = self._ensureTyping(typing)
 
 		# Load everything back into the queue
@@ -208,3 +212,25 @@ class Ensurerer:
 		if returnType.startswith("wx."):
 			return "'" + returnType[3:] + "'"
 		return returnType
+
+	def _overrideItemData(self, typing: ITyping) -> None:
+		""" Override the item data
+		"""
+		from .overrides import OVERRIDES
+
+		# Generate the full module name
+		fullModuleName = typing["moduleName"] + "." + typing["name"]
+
+		# Check if we have an override
+		if fullModuleName in OVERRIDES:
+			# Override the info
+			typing.update(OVERRIDES[fullModuleName])  # type: ignore
+
+		# Check if the type is a class
+		if typing["type"] == TypingType.CLASS:
+			# Check the overrides for all the functions
+			cTypeObject: ITypingClass = typing  # type: ignore
+			for functionTyping in cTypeObject["functions"]:
+				self._overrideItemData(functionTyping)
+			for literalTyping in cTypeObject["properties"]:
+				self._overrideItemData(literalTyping)
