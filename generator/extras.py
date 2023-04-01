@@ -3,24 +3,6 @@ from .interfaces import ITyping, TypingType, ITypingClass, ITypingLiteral, ITypi
 
 
 EXTRA_KNOWN_ITEMS: list[ITyping] = []
-aObj: ITypingLiteral = {
-	"type": TypingType.ALIAS,
-	"name": "UIntPtr",
-	"moduleName": "wx",
-	"returnType": "Any",
-	"docstring": "",
-	"source": "",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj: ITypingLiteral = {
-	"type": TypingType.ALIAS,
-	"name": "IntPtr",
-	"moduleName": "wx",
-	"returnType": "Any",
-	"docstring": "",
-	"source": "",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
 	"name": "Coord",
@@ -802,6 +784,33 @@ aObj = {
 	"returnType": "int",
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.html2.WebViewIE_EmulationLevel.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PromptMode",
+	"moduleName": "wx.html",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.html.HtmlEasyPrinting.PromptMode.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "FlagType",
+	"moduleName": "wx.propgrid",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.propgrid.PGProperty.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "HTMLCursor",
+	"moduleName": "wx.html",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.html.HtmlWindowInterface.HTMLCursor.enumeration.html",
 }
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {

@@ -100,7 +100,7 @@ class Ensurerer:
 			typingObjl["returnType"] = typingObjl["returnType"].split(".")[-1]
 
 		# Check if type is a Union
-		if typingObjl["returnType"].startswith("Union[") or typingObjl["returnType"].startswith("Optional[") or typingObjl["returnType"].startswith("list["):
+		if typingObjl["returnType"].startswith("Union[") or typingObjl["returnType"].startswith("Optional[") or typingObjl["returnType"].startswith("list[")  or typingObjl["returnType"].startswith("tuple["):
 			# Dont need to do anything
 			return typingObjl["returnType"]
 
