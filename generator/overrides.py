@@ -43,5 +43,12 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 			"label": "Union['Bitmap', 'BitmapBundle']"
 		},
 		"paramStr": "self, label: Union['Bitmap', 'BitmapBundle']",
-	}
+	},
+	"wx.dataview.TreeListCtrl.DeleteColumn": {
+		"params": {
+			"col": "int"
+		},
+		"returnType": "bool",
+		"paramStr": "self, col: int"
+	},
 }

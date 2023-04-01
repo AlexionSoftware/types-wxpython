@@ -527,6 +527,285 @@ aObj = {
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
+	"name": "Country",
+	"moduleName": "wx",
+	"returnType": "wx.DateTime.Country",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.DateTime.Country.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ArrayVideoModes",
+	"moduleName": "wx",
+	"returnType": "list['VideoMode']",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Display.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "MsgCatalog",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.TranslationsLoader.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "SIP_SSIZE_T",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.GraphicsGradientStops.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "GridWindow",
+	"moduleName": "wx.grid",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "CellSpan",
+	"moduleName": "wx.grid.Grid",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.CellSpan.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "GridCellAttrPtr",
+	"moduleName": "wx.grid",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "TabBehaviour",
+	"moduleName": "wx.grid",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.grid.Grid.TabBehaviour.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RGBValue",
+	"moduleName": "wx",
+	"returnType": "'Image.RGBValue'",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Image.RGBValue.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "HSVValue",
+	"moduleName": "wx",
+	"returnType": "'Image.HSVValue'",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Image.HSVValue.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Relationship",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.Relationship.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "LogLevel",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.Log.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PlatformInfo",
+	"moduleName": "wx",
+	"returnType": "PlatformInformation",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.PlatformInformation.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "PreviewFrameModalityKind",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.PreviewFrameModalityKind.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Rect2DDouble",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Rect2D.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "OutCode",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.OutCode.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "RegionContain",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.RegionContain.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "FileLayout",
+	"moduleName": "wx.StandardPaths",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StandardPaths.FileLayout.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Dir",
+	"moduleName": "wx.StandardPaths",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StandardPaths.Dir.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Dir",
+	"moduleName": "wx",
+	"returnType": "'StandardPaths.Dir'",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StandardPaths.Dir.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "FileLayout",
+	"moduleName": "wx",
+	"returnType": "'StandardPaths.FileLayout'",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StandardPaths.FileLayout.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ScaleMode",
+	"moduleName": "wx.StaticBitmap",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StaticBitmap.ScaleMode.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "ScaleMode",
+	"moduleName": "wx",
+	"returnType": "'StaticBitmap.ScaleMode'",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StaticBitmap.ScaleMode.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Kind",
+	"moduleName": "wx.StockPreferencesPage",
+	"returnType": "int",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StockPreferencesPage.Kind.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Kind",
+	"moduleName": "wx",
+	"returnType": "'StockPreferencesPage.Kind'",
+	"docstring": "Enumeration",
+	"source": "https://docs.wxpython.org/wx.StockPreferencesPage.Kind.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "res",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.TextCompleterSimple.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "TZ",
+	"moduleName": "wx.DateTime",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.DateTime.TimeZone.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "void",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.TreeItemId.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "Uint16",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.UniChar.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "MemoryBuffer",
+	"moduleName": "wx",
+	"returnType": "Any",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.stc.StyledTextCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
+	"name": "WebViewIE_EmulationLevel",
+	"moduleName": "wx.html2",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.html2.WebViewIE_EmulationLevel.enumeration.html",
+}
+EXTRA_KNOWN_ITEMS.append(aObj)
+aObj = {
+	"type": TypingType.ALIAS,
 	"name": "Calendar",
 	"moduleName": "wx",  # This should be wx.DateTime.Calendar
 	"returnType": "int",

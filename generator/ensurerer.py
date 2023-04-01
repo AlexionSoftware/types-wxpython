@@ -86,7 +86,10 @@ class Ensurerer:
 		""" Make sure the return type is correct
 		"""
 		# Opzoeken van de module
+		orgItem = typingObjl.copy()
 		moduleName = typingObjl["moduleName"]
+		if moduleName == "":
+			moduleName = "wx"
 		moduleParts = moduleName.split(".")
 		if len(moduleParts) > 1:
 			moduleName = ".".join(moduleParts[:-1])
@@ -105,6 +108,11 @@ class Ensurerer:
 		if typingObjl["returnType"] in ["'int'", "int", "str", "bool", "float", "tuple", "tuple", "None", "Any", "list"]:
 			# Fix the typing
 			return typingObjl["returnType"].replace("'", "")
+
+		# Check if the last part of the module name is equal to the first part of the returntype
+		if len(typingObjl["returnType"].replace("'", "").split(".")) > 1 and moduleName.split(".")[-1] == typingObjl["returnType"].replace("'", "").split(".")[0]:
+			# Remove the first part of the return type
+			typingObjl["returnType"] = ".".join(typingObjl["returnType"].replace("'", "").split(".")[1:])
 
 		# Check if the return type is a alias
 		returnType = moduleName + "." + typingObjl["returnType"].replace("'", "")
@@ -130,7 +138,7 @@ class Ensurerer:
 		# Check if the return type exists
 		if returnType not in self.typingDict:
 			# We can't find it
-			self.logger.error("ReturnType '%s' does not exist in %s.%s" % (typingObjl["returnType"], typingObjl["moduleName"], typingObjl["name"]))
+			self.logger.error("ReturnType '%s' does not exist in %s.%s - %s" % (typingObjl["returnType"], typingObjl["moduleName"], typingObjl["name"], orgItem))
 			raise KeyError(returnType)
 		return returnType
 
@@ -144,7 +152,7 @@ class Ensurerer:
 			moduleName = ".".join(moduleParts[:-1])
 
 		# Check if there is a dot in the return type
-		if "." in typingObjl["returnType"] and typingObjl["returnType"].startswith("wx."):
+		if "." in paramType and paramType.startswith("wx."):
 			# Only use the last part
 			paramType = paramType.split(".")[-1]
 
@@ -157,6 +165,11 @@ class Ensurerer:
 		if paramType in ["'int'", "int", "str", "bool", "float", "tuple", "tuple", "None", "Any", "list"]:
 			# Fix the typing
 			return paramType.replace("'", "")
+
+		# Check if the last part of the module name is equal to the first part of the returntype
+		if len(paramType.replace("'", "").split(".")) > 1 and moduleName.split(".")[-1] == paramType.replace("'", "").split(".")[0]:
+			# Remove the first part of the return type
+			paramType = ".".join(paramType.replace("'", "").split(".")[1:])
 
 		# Check if the return type is a alias
 		returnType = moduleName + "." + paramType.replace("'", "")
