@@ -4422,9 +4422,9 @@ currently selected font.
 
 
 
-BLACK: int
+BLACK: 'Colour'
 
-WHITE: int
+WHITE: 'Colour'
 
 ODDEVEN_RULE: int
 
@@ -46010,15 +46010,15 @@ DEFAULT: int
 
 wxEVT_COMMAND_BUTTON_CLICKED: int
 
-RED: int
+RED: 'Colour'
 
-YELLOW: int
+YELLOW: 'Colour'
 
-BLUE: int
+BLUE: 'Colour'
 
-GREEN: int
+GREEN: 'Colour'
 
-CYAN: int
+CYAN: 'Colour'
 
 OPEN: int
 
