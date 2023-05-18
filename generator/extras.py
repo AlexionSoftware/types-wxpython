@@ -916,7 +916,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "RED",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -925,7 +925,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "YELLOW",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -934,7 +934,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "BLACK",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -943,7 +943,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "WHITE",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -952,7 +952,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "BLUE",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -961,7 +961,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "GREEN",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
@@ -970,7 +970,7 @@ lObj = {
 	"type": TypingType.LITERAL,
 	"name": "CYAN",
 	"moduleName": "wx",
-	"returnType": "int",
+	"returnType": "Colour",
 	"docstring": "",
 	"source": "",
 }
