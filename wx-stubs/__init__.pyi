@@ -46022,6 +46022,8 @@ CYAN: int
 
 OPEN: int
 
+NullBitmap: 'Bitmap'
+
 EVT_TIMER: int
 
 class FrozenWindow(ContextManager):
