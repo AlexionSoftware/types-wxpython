@@ -986,6 +986,15 @@ lObj = {
 EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
 	"type": TypingType.LITERAL,
+	"name": "NullBitmap",
+	"moduleName": "wx",
+	"returnType": "Bitmap",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
 	"name": "EVT_TIMER",
 	"moduleName": "wx",
 	"returnType": "int",
