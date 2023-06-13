@@ -1065,6 +1065,96 @@ lObj = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_STRING",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_BOOL",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_NUMBER",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_FLOAT",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_CHOICE",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_DATE",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_TEXT",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_LONG",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_CHOICEINT",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GRID_VALUE_DATETIME",
+	"moduleName": "wx.grid",
+	"returnType": "str",
+	"docstring": "",
+	"source": "https://github.com/wxWidgets/Phoenix/blob/master/etg/grid.py#L90",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
 fObj: ITypingFunction = {
 	"type": TypingType.FUNCTION,
 	"name": "NewCommandEvent",
