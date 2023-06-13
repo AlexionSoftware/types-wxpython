@@ -5,6 +5,9 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.ListCtrl.GetFirstSelected": {
 		"returnType": "int",
 	},
+	"wx.ListCtrl.GetNextSelected": {
+		"returnType": "int",
+	},
 	"wx.ListCtrl.GetFocusedItem": {
 		"returnType": "int",
 	},
