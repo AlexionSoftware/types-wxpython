@@ -2824,6 +2824,13 @@ class PyApp(AppConsole):
         """
 
     @staticmethod
+    def GTKAllowDiagnosticsControl() -> None:
+        """ Allows wxWidgets to selectively suppress some GTK messages.
+
+            Source: https://docs.wxpython.org/wx.PyApp.html
+        """
+
+    @staticmethod
     def GTKSuppressDiagnostics(flags: int=-1) -> None:
         """ Disables the printing of various GTK messages.
 
@@ -4552,7 +4559,7 @@ class BitmapBundle:
         """
 
     @staticmethod
-    def FromSVG(data, sizeDef) -> 'BitmapBundle':
+    def FromSVG(*args, **kw) -> 'BitmapBundle':
         """ This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
 
             Source: https://docs.wxpython.org/wx.BitmapBundle.html
@@ -4980,6 +4987,12 @@ information, displayed one page at a time.
             Source: https://docs.wxpython.org/wx.BookCtrlBase.html
         """
 
+    def GetControlSizer(self) -> 'Sizer':
+        """ Returns the sizer containing the control for page selection, if any.
+
+            Source: https://docs.wxpython.org/wx.BookCtrlBase.html
+        """
+
     def GetCurrentPage(self) -> 'Window':
         """ Returns the currently selected page or None.
 
@@ -5058,6 +5071,7 @@ information, displayed one page at a time.
             Source: https://docs.wxpython.org/wx.BookCtrlBase.html
         """
 
+    ControlSizer: 'Sizer'  # See GetControlSizer
     CurrentPage: 'Window'  # See GetCurrentPage
     PageCount: int  # See GetPageCount
     Selection: int  # See GetSelection and SetSelection
@@ -11668,7 +11682,7 @@ class DateTime:
         """
 
     def Format(self, format=DefaultDateTimeFormat, tz=Local) -> str:
-        """ This function does the same as the standard ANSI C  strftime(3)   function (http://www.cplusplus.com/reference/clibrary/ctime/strftime.html).
+        """ This function does the same as the standard ANSI C  strftime(3)   function (https://cplusplus.com/reference/ctime/strftime/).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
@@ -14685,6 +14699,12 @@ class FileDialog(Dialog):
     """
     def __init__(self, parent, message=FileSelectorPromptStr, defaultDir="", defaultFile="", wildcard=FileSelectorDefaultWildcardStr, style=FD_DEFAULT_STYLE, pos=DefaultPosition, size=DefaultSize, name=FileDialogNameStr) -> None:
         """ Constructor.
+
+            Source: https://docs.wxpython.org/wx.FileDialog.html
+        """
+
+    def AddShortcut(self, directory, flags=0) -> bool:
+        """ Add a directory to the list of shortcuts shown in the dialog.
 
             Source: https://docs.wxpython.org/wx.FileDialog.html
         """
@@ -19098,6 +19118,71 @@ PD_ELAPSED_TIME: int  # This flag tells the dialog that it should show elapsed t
 PD_ESTIMATED_TIME: int  # This flag tells the dialog that it should show estimated time.
 
 PD_REMAINING_TIME: int  # This flag tells the dialog that it should show remaining time. ^^
+
+class GenericStaticBitmap(Control):
+    """ A static bitmap control displays a bitmap.
+
+        Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+    """
+    def __init__(self, *args, **kw) -> None:
+        """ Overloaded Implementations:
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def Create(self, parent, id=ID_ANY, bitmap=NullBitmap, pos=DefaultPosition, size=DefaultSize, style=0, name=StaticBitmapNameStr) -> bool:
+        """ Creation function, for two-step construction.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def GetBitmap(self) -> 'Bitmap':
+        """ Returns the bitmap currently used in the control.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    @staticmethod
+    def GetClassDefaultAttributes(variant: int=WINDOW_VARIANT_NORMAL) -> 'VisualAttributes':
+        """ variant (WindowVariant) â
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def GetIcon(self) -> 'Icon':
+        """ Returns the icon currently used in the control.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def GetScaleMode(self) -> 'ScaleMode':
+        """ Returns the scale mode currently used in the control.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def SetBitmap(self, label: 'BitmapBundle') -> None:
+        """ Sets the bitmap label.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def SetIcon(self, label: 'Icon') -> None:
+        """ Sets the label to the given icon.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    def SetScaleMode(self, scaleMode: ScaleMode) -> None:
+        """ Sets the scale mode.
+
+            Source: https://docs.wxpython.org/wx.GenericStaticBitmap.html
+        """
+
+    Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
+    Icon: '_Icon'  # See GetIcon and SetIcon
+
+
 
 class GestureEvent(Event):
     """ This is the base class for all supported gesture events.
@@ -25578,7 +25663,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def GetNextSelected(self, item) -> None:
+    def GetNextSelected(self, item) -> int:
         """ Returns subsequent selected items, or -1 when no more are selected.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -25644,7 +25729,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def HitTestSubItem(*args, **kwargs) -> tuple:
+    def HitTestSubItem(self, point) -> tuple:
         """ Determines which item (if any) is at the specified point, giving details in flags.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -35670,7 +35755,7 @@ windows.
 
 
 
-class SearchCtrl(TextCtrl):
+class SearchCtrl(Control,TextEntry):
     """ A search control is a composite control with a search button, a text
 control, and a cancel button.
 
@@ -37890,7 +37975,7 @@ class StaticBitmap(Control):
             Source: https://docs.wxpython.org/wx.StaticBitmap.html
         """
 
-    def GetScaleMode(self) -> 'StaticBitmap.ScaleMode':
+    def GetScaleMode(self) -> 'ScaleMode':
         """ Returns the scale mode currently used in the control.
 
             Source: https://docs.wxpython.org/wx.StaticBitmap.html
@@ -38600,7 +38685,7 @@ SVG_SHAPE_RENDERING_AUTO: int
 class SysColourChangedEvent(Event):
     """ This class is used for system colour change events, which are
 generated when the user changes the colour settings or when the system
-theme changes (e.g.
+theme changes (e.g. automatic dark mode switching on macOS).
 
         Source: https://docs.wxpython.org/wx.SysColourChangedEvent.html
     """
@@ -39974,6 +40059,73 @@ class TGAHandler(ImageHandler):
 
             Source: https://docs.wxpython.org/wx.TGAHandler.html
         """
+
+
+
+class ThreadEvent(Event):
+    """ This class adds some simple functionality to Event to facilitate
+inter-thread communication.
+
+        Source: https://docs.wxpython.org/wx.ThreadEvent.html
+    """
+    def __init__(self, eventType=wxEVT_THREAD, id=ID_ANY) -> None:
+        """ Constructor.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def Clone(self) -> 'Event':
+        """ Clones this event making sure that all internal members which use COW (only  m_commandString   for now; see  Reference Counting) are unshared (see wx.Object.UnShare ).
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def GetEventCategory(self) -> int:
+        """ Returns  wxEVT_CATEGORY_THREAD .
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def GetExtraLong(self) -> int:
+        """ Returns extra information integer value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def GetInt(self) -> int:
+        """ Returns stored integer value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def GetString(self) -> str:
+        """ Returns stored string value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def SetExtraLong(self, extraLong: int) -> None:
+        """ Sets the extra information value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def SetInt(self, intCommand: int) -> None:
+        """ Sets the integer value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    def SetString(self, string: str) -> None:
+        """ Sets the string value.
+
+            Source: https://docs.wxpython.org/wx.ThreadEvent.html
+        """
+
+    EventCategory: int  # See GetEventCategory
+    ExtraLong: int  # See GetExtraLong and SetExtraLong
+    Int: int  # See GetInt and SetInt
+    String: str  # See GetString and SetString
 
 
 

@@ -438,7 +438,7 @@ EVT_WEBVIEW_NEWWINDOW: int  # Process a  wxEVT_WEBVIEW_NEWWINDOW   event, genera
 
 EVT_WEBVIEW_TITLE_CHANGED: int  # Process a  wxEVT_WEBVIEW_TITLE_CHANGED   event, generated when the page title changes. Use GetString to get the title.
 
-EVT_WEBVIEW_FULL_SCREEN_CHANGED: int  # Process a  EVT_WEBVIEW_FULL_SCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
+EVT_WEBVIEW_FULLSCREEN_CHANGED: int  # Process a  wxEVT_WEBVIEW_FULLSCREEN_CHANGED   event, generated when the page wants to enter or leave fullscreen. Use GetInt to get the status. Not implemented for the IE backend and is only available in wxWidgets 3.1.5 or later.
 
 EVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED: int  # Process a  wxEVT_WEBVIEW_SCRIPT_MESSAGE_RECEIVED   event only available in wxWidgets 3.1.5 or later. For usage details see  AddScriptMessageHandler.
 

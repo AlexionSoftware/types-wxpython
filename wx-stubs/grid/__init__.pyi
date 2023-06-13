@@ -1250,6 +1250,12 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
+    def RefreshBlock(self, *args, **kw) -> None:
+        """ Overloaded Implementations:
+
+            Source: https://docs.wxpython.org/wx.grid.Grid.html
+        """
+
     def RegisterDataType(self, typeName, renderer, editor) -> None:
         """ Register a new data type.
 
@@ -3217,7 +3223,7 @@ EVT_GRID_LABEL_RIGHT_CLICK: int  # The user clicked a label with the right mouse
 
 EVT_GRID_LABEL_RIGHT_DCLICK: int  # The user double-clicked a label with the right mouse button. Processes a  wxEVT_GRID_LABEL_RIGHT_DCLICK   event type.
 
-EVT_GRID_SELECT_CELL: int  # The given cell was made current, either by user or by the program via a call to SetGridCursor() or GoToCell(). Processes a  wxEVT_GRID_SELECT_CELL   event type.
+EVT_GRID_SELECT_CELL: int  # The given cell is about to be made current, either by user or by the program via a call to wx.grid.Grid.SetGridCursor   or wx.grid.Grid.GoToCell . The event can be vetoed to prevent this from happening and wx.grid.Grid.GetGridCursorCoords   still returns the previous current cell coordinates during the event handler execution, while the new ones are available via the event object GetRow  and GetCol  functions. Processes a  wxEVT_GRID_SELECT_CELL   event type.
 
 EVT_GRID_ROW_MOVE: int  # The user tries to change the order of the rows in the grid by dragging the row specified by GetRow. This event can be vetoed to either prevent the user from reordering the row change completely (but notice that if you donât want to allow it at all, you simply shouldnât call wx.grid.Grid.EnableDragRowMove   in the first place), vetoed but handled in some way in the handler, e.g. by really moving the row to the new position at the associated table level, or allowed to proceed in which case wx.grid.Grid.SetRowPos   is used to reorder the rows display order without affecting the use of the row indices otherwise. This event macro corresponds to  wxEVT_GRID_ROW_MOVE   event type. It is only available since wxWidgets 3.1.7.
 
@@ -3961,4 +3967,24 @@ GridWindow: TypeAlias = Any
 GridCellAttrPtr: TypeAlias = Any
 
 TabBehaviour: TypeAlias = int  # Enumeration
+
+GRID_VALUE_STRING: str
+
+GRID_VALUE_BOOL: str
+
+GRID_VALUE_NUMBER: str
+
+GRID_VALUE_FLOAT: str
+
+GRID_VALUE_CHOICE: str
+
+GRID_VALUE_DATE: str
+
+GRID_VALUE_TEXT: str
+
+GRID_VALUE_LONG: str
+
+GRID_VALUE_CHOICEINT: str
+
+GRID_VALUE_DATETIME: str
 
