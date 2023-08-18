@@ -529,10 +529,6 @@ class Parser:
 					firstParentElement = hierarchItems[1]
 					parentClassStr: str = firstParentElement["href"].replace(".html", "")
 
-					# Check if the class starts with wx.
-					if parentClassStr.startswith("wx."):
-						parentClassStr = parentClassStr.split(".")[-1]
-
 					# Check if there is a < in it
 					if "<" in parentClassStr:
 						# Remove this part
@@ -555,10 +551,6 @@ class Parser:
 						if nextCoords[1] == firstCoords[1]:
 							# This is a subclass
 							nextParentName: str = nextParentElement["href"].replace(".html", "")
-
-							# Check if the class starts with wx.
-							if nextParentName.startswith("wx."):
-								nextParentName = nextParentName.split(".")[-1]
 
 							# Check if there is a < in it
 							if "<" in nextParentName:

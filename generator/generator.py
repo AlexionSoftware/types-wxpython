@@ -113,10 +113,11 @@ class DocumentationGenerator:
 			self.typings.put(typing)
 
 		# Make sure the typing is correct
-		Ensurerer(self.logger).ensure(self.typings)
+		e = Ensurerer(self.logger)
+		e.ensure(self.typings)
 
 		# Write to files
-		TypingWriter(self.logger).write(self.typings)
+		TypingWriter(self.logger).write(self.typings, e.getModuleImports())
 
 	def _processIndex(self, url: str) -> None:
 		""" Process the index file with all the classes

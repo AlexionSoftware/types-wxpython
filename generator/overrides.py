@@ -197,4 +197,37 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.CallLater.IsRunning": {
 		"returnType": "bool",
 	},
+    "wx.DateTime.IsDST": {
+        "params": {
+            "country": "'DateTime.Country'"
+		}
+	},
+    "wx.DateTime.IsWestEuropeanCountry": {
+        "params": {
+            "country": "'DateTime.Country'"
+		}
+	},
+    "wx.DateTime.IsWorkDay": {
+        "params": {
+            "country": "'DateTime.Country'"
+		}
+	},
+    "wx.DateTime.SetCountry": {
+        "params": {
+            "country": "'DateTime.Country'"
+		}
+	},
+    "wx.StandardPaths.SetFileLayout": {
+        "params": {
+            "layout": "'StandardPaths.FileLayout'"
+		}
+	},
+    "wx.StockPreferencesPage.__init__": {
+        "params": {
+            "kind": "'StockPreferencesPage.Kind'"
+		}
+	},
+    "wx.grid.Grid": {
+        "superClass": ["wx.Scrolled"],
+	}
 }
