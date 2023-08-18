@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (Bitmap, ClientData, Colour, CommandEvent, Control, Coord, Font,
+                NotifyEvent, Orientation, PyUserData, Rect, Size,
+                VisualAttributes)
+
 class RibbonButtonBarEvent(CommandEvent):
     """ Event used to indicate various actions relating to a button on a
 RibbonButtonBar.
@@ -13,13 +17,13 @@ RibbonButtonBar.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
         """
 
-    def GetBar(self) -> 'ribbon.RibbonButtonBar':
+    def GetBar(self) -> 'RibbonButtonBar':
         """ Returns the bar which contains the button which the event relates to.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
         """
 
-    def GetButton(self) -> 'ribbon.RibbonButtonBarButtonBase':
+    def GetButton(self) -> 'RibbonButtonBarButtonBase':
         """ Returns the button which the event relates to.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
@@ -43,8 +47,8 @@ RibbonButtonBar.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBarEvent.html
         """
 
-    Bar: 'ribbon.RibbonButtonBar'  # See GetBar and SetBar
-    Button: 'ribbon.RibbonButtonBarButtonBase'  # See GetButton and SetButton
+    Bar: 'RibbonButtonBar'  # See GetBar and SetBar
+    Button: 'RibbonButtonBarButtonBase'  # See GetButton and SetButton
 
 
 
@@ -59,13 +63,13 @@ class RibbonGalleryEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
         """
 
-    def GetGallery(self) -> 'ribbon.RibbonGallery':
+    def GetGallery(self) -> 'RibbonGallery':
         """ Returns the gallery which the event relates to.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
         """
 
-    def GetGalleryItem(self) -> 'ribbon.RibbonGalleryItem':
+    def GetGalleryItem(self) -> 'RibbonGalleryItem':
         """ Returns the gallery item which the event relates to, or None if it does not relate to an item.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
@@ -83,8 +87,8 @@ class RibbonGalleryEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGalleryEvent.html
         """
 
-    Gallery: 'ribbon.RibbonGallery'  # See GetGallery and SetGallery
-    GalleryItem: 'ribbon.RibbonGalleryItem'  # See GetGalleryItem and SetGalleryItem
+    Gallery: 'RibbonGallery'  # See GetGallery and SetGallery
+    GalleryItem: 'RibbonGalleryItem'  # See GetGalleryItem and SetGalleryItem
 
 
 
@@ -99,7 +103,7 @@ class RibbonPanelEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
         """
 
-    def GetPanel(self) -> 'ribbon.RibbonPanel':
+    def GetPanel(self) -> 'RibbonPanel':
         """ Returns the panel relating to this event.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
@@ -111,7 +115,7 @@ class RibbonPanelEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanelEvent.html
         """
 
-    Panel: 'ribbon.RibbonPanel'  # See GetPanel and SetPanel
+    Panel: 'RibbonPanel'  # See GetPanel and SetPanel
 
 
 
@@ -126,7 +130,7 @@ class RibbonToolBarEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
         """
 
-    def GetBar(self) -> 'ribbon.RibbonToolBar':
+    def GetBar(self) -> 'RibbonToolBar':
         """ wx.ribbon.RibbonToolBar
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
@@ -144,7 +148,7 @@ class RibbonToolBarEvent(CommandEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBarEvent.html
         """
 
-    Bar: 'ribbon.RibbonToolBar'  # See GetBar and SetBar
+    Bar: 'RibbonToolBar'  # See GetBar and SetBar
 
 
 
@@ -173,13 +177,13 @@ the ribbon characteristics of having a ribbon art provider, and
             Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
         """
 
-    def GetAncestorRibbonBar(self) -> 'ribbon.RibbonBar':
+    def GetAncestorRibbonBar(self) -> 'RibbonBar':
         """ Get the first ancestor which is a   wx.ribbon.RibbonBar  (or derived) or None if not having such parent.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
         """
 
-    def GetArtProvider(self) -> 'ribbon.RibbonArtProvider':
+    def GetArtProvider(self) -> 'RibbonArtProvider':
         """ Get the art provider to be used.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
@@ -234,8 +238,8 @@ the ribbon characteristics of having a ribbon art provider, and
             Source: https://docs.wxpython.org/wx.ribbon.RibbonControl.html
         """
 
-    AncestorRibbonBar: 'ribbon.RibbonBar'  # See GetAncestorRibbonBar
-    ArtProvider: 'ribbon.RibbonArtProvider'  # See GetArtProvider and SetArtProvider
+    AncestorRibbonBar: 'RibbonBar'  # See GetAncestorRibbonBar
+    ArtProvider: 'RibbonArtProvider'  # See GetArtProvider and SetArtProvider
 
 
 
@@ -252,7 +256,7 @@ class RibbonBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
         """
 
-    def GetPage(self) -> 'ribbon.RibbonPage':
+    def GetPage(self) -> 'RibbonPage':
         """ Returns the page being changed to, or being clicked on.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
@@ -264,7 +268,7 @@ class RibbonBarEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBarEvent.html
         """
 
-    Page: 'ribbon.RibbonPage'  # See GetPage and SetPage
+    Page: 'RibbonPage'  # See GetPage and SetPage
 
 
 
@@ -279,25 +283,25 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def AddButton(self, *args, **kw) -> 'ribbon.RibbonButtonBarButtonBase':
+    def AddButton(self, *args, **kw) -> 'RibbonButtonBarButtonBase':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def AddDropdownButton(self, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def AddDropdownButton(self, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Add a dropdown button to the button bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def AddHybridButton(self, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def AddHybridButton(self, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Add a hybrid button to the button bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def AddToggleButton(self, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def AddToggleButton(self, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Add a toggle button to the button bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
@@ -327,7 +331,7 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def GetActiveItem(self) -> 'ribbon.RibbonButtonBarButtonBase':
+    def GetActiveItem(self) -> 'RibbonButtonBarButtonBase':
         """ Returns the active item of the button bar or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
@@ -346,19 +350,19 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def GetHoveredItem(self) -> 'ribbon.RibbonButtonBarButtonBase':
+    def GetHoveredItem(self) -> 'RibbonButtonBarButtonBase':
         """ Returns the hovered item of the button bar or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def GetItem(self, n: int) -> 'ribbon.RibbonButtonBarButtonBase':
+    def GetItem(self, n: int) -> 'RibbonButtonBarButtonBase':
         """ Returns the N-th button of the bar.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def GetItemById(self, id: int) -> 'ribbon.RibbonButtonBarButtonBase':
+    def GetItemById(self, id: int) -> 'RibbonButtonBarButtonBase':
         """ Returns the first button having a given id or None if none matches.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
@@ -388,25 +392,25 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def InsertButton(self, *args, **kw) -> 'ribbon.RibbonButtonBarButtonBase':
+    def InsertButton(self, *args, **kw) -> 'RibbonButtonBarButtonBase':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def InsertDropdownButton(self, pos, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def InsertDropdownButton(self, pos, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Inserts a dropdown button to the button bar (simple version) at the given position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def InsertHybridButton(self, pos, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def InsertHybridButton(self, pos, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Inserts a hybrid button to the button bar (simple version) at the given position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    def InsertToggleButton(self, pos, button_id, label, bitmap, help_string="") -> 'ribbon.RibbonButtonBarButtonBase':
+    def InsertToggleButton(self, pos, button_id, label, bitmap, help_string="") -> 'RibbonButtonBarButtonBase':
         """ Inserts a toggle button to the button bar (simple version) at the given position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
@@ -466,9 +470,9 @@ class RibbonButtonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonButtonBar.html
         """
 
-    ActiveItem: 'ribbon.RibbonButtonBarButtonBase'  # See GetActiveItem
+    ActiveItem: 'RibbonButtonBarButtonBase'  # See GetActiveItem
     ButtonCount: int  # See GetButtonCount
-    HoveredItem: 'ribbon.RibbonButtonBarButtonBase'  # See GetHoveredItem
+    HoveredItem: 'RibbonButtonBarButtonBase'  # See GetHoveredItem
     ShowToolTipsForDisabled: bool  # See GetShowToolTipsForDisabled and SetShowToolTipsForDisabled
 
 
@@ -543,13 +547,13 @@ class RibbonBar(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
         """
 
-    def GetDisplayMode(self) -> 'ribbon.RibbonDisplayMode':
+    def GetDisplayMode(self) -> 'RibbonDisplayMode':
         """ Returns the current display mode of the panel area.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
         """
 
-    def GetPage(self, n: int) -> 'ribbon.RibbonPage':
+    def GetPage(self, n: int) -> 'RibbonPage':
         """ Get a page by index.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonBar.html
@@ -634,7 +638,7 @@ class RibbonBar(RibbonControl):
         """
 
     ActivePage: int  # See GetActivePage and SetActivePage
-    DisplayMode: 'ribbon.RibbonDisplayMode'  # See GetDisplayMode
+    DisplayMode: 'RibbonDisplayMode'  # See GetDisplayMode
     PageCount: int  # See GetPageCount
 
 
@@ -689,7 +693,7 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def Append(self, *args, **kw) -> 'ribbon.RibbonGalleryItem':
+    def Append(self, *args, **kw) -> 'RibbonGalleryItem':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
@@ -713,7 +717,7 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetActiveItem(self) -> 'ribbon.RibbonGalleryItem':
+    def GetActiveItem(self) -> 'RibbonGalleryItem':
         """ Get the currently active item, or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
@@ -732,25 +736,25 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetDownButtonState(self) -> 'ribbon.RibbonGalleryButtonState':
+    def GetDownButtonState(self) -> 'RibbonGalleryButtonState':
         """ Get the state of the scroll down button.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetExtensionButtonState(self) -> 'ribbon.RibbonGalleryButtonState':
+    def GetExtensionButtonState(self) -> 'RibbonGalleryButtonState':
         """ Get the state of the âextensionâ button.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetHoveredItem(self) -> 'ribbon.RibbonGalleryItem':
+    def GetHoveredItem(self) -> 'RibbonGalleryItem':
         """ Get the currently hovered item, or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetItem(self, n: int) -> 'ribbon.RibbonGalleryItem':
+    def GetItem(self, n: int) -> 'RibbonGalleryItem':
         """ Get an item by index.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
@@ -762,13 +766,13 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetSelection(self) -> 'ribbon.RibbonGalleryItem':
+    def GetSelection(self) -> 'RibbonGalleryItem':
         """ Get the currently selected item, or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    def GetUpButtonState(self) -> 'ribbon.RibbonGalleryButtonState':
+    def GetUpButtonState(self) -> 'RibbonGalleryButtonState':
         """ Get the state of the scroll up button.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
@@ -810,13 +814,13 @@ strings.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonGallery.html
         """
 
-    ActiveItem: 'ribbon.RibbonGalleryItem'  # See GetActiveItem
+    ActiveItem: 'RibbonGalleryItem'  # See GetActiveItem
     Count: int  # See GetCount
-    DownButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetDownButtonState
-    ExtensionButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetExtensionButtonState
-    HoveredItem: 'ribbon.RibbonGalleryItem'  # See GetHoveredItem
-    Selection: 'ribbon.RibbonGalleryItem'  # See GetSelection and SetSelection
-    UpButtonState: 'ribbon.RibbonGalleryButtonState'  # See GetUpButtonState
+    DownButtonState: 'RibbonGalleryButtonState'  # See GetDownButtonState
+    ExtensionButtonState: 'RibbonGalleryButtonState'  # See GetExtensionButtonState
+    HoveredItem: 'RibbonGalleryItem'  # See GetHoveredItem
+    Selection: 'RibbonGalleryItem'  # See GetSelection and SetSelection
+    UpButtonState: 'RibbonGalleryButtonState'  # See GetUpButtonState
 
 
 
@@ -856,13 +860,13 @@ class RibbonPanel(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
         """
 
-    def GetExpandedDummy(self) -> 'ribbon.RibbonPanel':
+    def GetExpandedDummy(self) -> 'RibbonPanel':
         """ Get the dummy panel of an expanded panel.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
         """
 
-    def GetExpandedPanel(self) -> 'ribbon.RibbonPanel':
+    def GetExpandedPanel(self) -> 'RibbonPanel':
         """ Get the expanded panel of a dummy panel.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
@@ -922,8 +926,8 @@ class RibbonPanel(RibbonControl):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonPanel.html
         """
 
-    ExpandedDummy: 'ribbon.RibbonPanel'  # See GetExpandedDummy
-    ExpandedPanel: 'ribbon.RibbonPanel'  # See GetExpandedPanel
+    ExpandedDummy: 'RibbonPanel'  # See GetExpandedDummy
+    ExpandedPanel: 'RibbonPanel'  # See GetExpandedPanel
     MinimisedIcon: 'Bitmap'  # See GetMinimisedIcon
 
 
@@ -952,31 +956,31 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def AddDropdownTool(self, tool_id, bitmap, help_string="") -> 'ribbon.RibbonToolBarToolBase':
+    def AddDropdownTool(self, tool_id, bitmap, help_string="") -> 'RibbonToolBarToolBase':
         """ Add a dropdown tool to the tool bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def AddHybridTool(self, tool_id, bitmap, help_string="") -> 'ribbon.RibbonToolBarToolBase':
+    def AddHybridTool(self, tool_id, bitmap, help_string="") -> 'RibbonToolBarToolBase':
         """ Add a hybrid tool to the tool bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def AddSeparator(self) -> 'ribbon.RibbonToolBarToolBase':
+    def AddSeparator(self) -> 'RibbonToolBarToolBase':
         """ Add a separator to the tool bar.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def AddToggleTool(self, tool_id, bitmap, help_string) -> 'ribbon.RibbonToolBarToolBase':
+    def AddToggleTool(self, tool_id, bitmap, help_string) -> 'RibbonToolBarToolBase':
         """ Add a toggle tool to the tool bar (simple version).
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def AddTool(self, *args, **kw) -> 'ribbon.RibbonToolBarToolBase':
+    def AddTool(self, *args, **kw) -> 'RibbonToolBarToolBase':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
@@ -1012,13 +1016,13 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def FindById(self, tool_id: int) -> 'ribbon.RibbonToolBarToolBase':
+    def FindById(self, tool_id: int) -> 'RibbonToolBarToolBase':
         """ Returns a pointer to the tool opaque structure by id  or None if no corresponding tool is found.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def GetActiveTool(self) -> 'ribbon.RibbonToolBarToolBase':
+    def GetActiveTool(self) -> 'RibbonToolBarToolBase':
         """ Returns the active item of the tool bar or None if there is none.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
@@ -1031,7 +1035,7 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def GetToolByPos(self, *args, **kw) -> 'ribbon.RibbonToolBarToolBase':
+    def GetToolByPos(self, *args, **kw) -> 'RibbonToolBarToolBase':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
@@ -1067,7 +1071,7 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def GetToolKind(self, tool_id: int) -> 'ribbon.RibbonButtonKind':
+    def GetToolKind(self, tool_id: int) -> 'RibbonButtonKind':
         """ Return the kind of the given tool.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
@@ -1091,31 +1095,31 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def InsertDropdownTool(self, pos, tool_id, bitmap, help_string="") -> 'ribbon.RibbonToolBarToolBase':
+    def InsertDropdownTool(self, pos, tool_id, bitmap, help_string="") -> 'RibbonToolBarToolBase':
         """ Insert a dropdown tool to the tool bar (simple version) as the specified position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def InsertHybridTool(self, pos, tool_id, bitmap, help_string="") -> 'ribbon.RibbonToolBarToolBase':
+    def InsertHybridTool(self, pos, tool_id, bitmap, help_string="") -> 'RibbonToolBarToolBase':
         """ Insert a hybrid tool to the tool bar (simple version) as the specified position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def InsertSeparator(self, pos: int) -> 'ribbon.RibbonToolBarToolBase':
+    def InsertSeparator(self, pos: int) -> 'RibbonToolBarToolBase':
         """ Insert a separator to the tool bar at the specified position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def InsertToggleTool(self, pos, tool_id, bitmap, help_string="") -> 'ribbon.RibbonToolBarToolBase':
+    def InsertToggleTool(self, pos, tool_id, bitmap, help_string="") -> 'RibbonToolBarToolBase':
         """ Insert a toggle tool to the tool bar (simple version) as the specified position.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    def InsertTool(self, *args, **kw) -> 'ribbon.RibbonToolBarToolBase':
+    def InsertTool(self, *args, **kw) -> 'RibbonToolBarToolBase':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
@@ -1163,7 +1167,7 @@ labels.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonToolBar.html
         """
 
-    ActiveTool: 'ribbon.RibbonToolBarToolBase'  # See GetActiveTool
+    ActiveTool: 'RibbonToolBarToolBase'  # See GetActiveTool
     ToolCount: int  # See GetToolCount
 
 
@@ -1184,7 +1188,7 @@ the ribbon interface.
             Source: https://docs.wxpython.org/wx.ribbon.RibbonArtProvider.html
         """
 
-    def Clone(self) -> 'ribbon.RibbonArtProvider':
+    def Clone(self) -> 'RibbonArtProvider':
         """ Create a new art provider which is a clone of this one.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonArtProvider.html
@@ -1614,7 +1618,7 @@ class RibbonAUIArtProvider(RibbonMSWArtProvider):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonAUIArtProvider.html
         """
 
-    def Clone(self) -> 'ribbon.RibbonArtProvider':
+    def Clone(self) -> 'RibbonArtProvider':
         """ Create a new art provider which is a clone of this one.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonAUIArtProvider.html
@@ -1777,7 +1781,7 @@ class RibbonMSWArtProvider(RibbonArtProvider):
             Source: https://docs.wxpython.org/wx.ribbon.RibbonMSWArtProvider.html
         """
 
-    def Clone(self) -> 'ribbon.RibbonArtProvider':
+    def Clone(self) -> 'RibbonArtProvider':
         """ Create a new art provider which is a clone of this one.
 
             Source: https://docs.wxpython.org/wx.ribbon.RibbonMSWArtProvider.html

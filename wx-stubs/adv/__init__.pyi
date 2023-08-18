@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (Bitmap, BitmapButton, BookCtrlBase, Button, Colour, ComboBox,
+                ComboCtrl, CommandEvent, Control, Coord, DateTime, Dialog,
+                Event, EvtHandler, Font, Frame, HelpControllerBase, Image,
+                ItemContainer, ListCtrl, Menu, NotifyEvent, Object,
+                ObjectRefData, Panel, Point, Rect, Size, Sizer,
+                VisualAttributes, WeekDay, Window, _Bitmap, _Font, _ListCtrl,
+                _Rect, _Size)
+
 class CommandLinkButton(Button):
     """ Objects of this class are similar in appearance to the normal
 Buttons but are similar to the links in a web page in functionality.
@@ -492,13 +500,13 @@ by the user.
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
         """
 
-    def GetDragStatus(self) -> 'adv.SashDragStatus':
+    def GetDragStatus(self) -> 'SashDragStatus':
         """ Returns the status of the sash: one of wx.adv.SASH_STATUS_OK, wx.adv.SASH_STATUS_OUT_OF_RANGE.
 
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
         """
 
-    def GetEdge(self) -> 'adv.SashEdgePosition':
+    def GetEdge(self) -> 'SashEdgePosition':
         """ Returns the dragged edge.
 
             Source: https://docs.wxpython.org/wx.adv.SashEvent.html
@@ -523,8 +531,8 @@ by the user.
         """
 
     DragRect: 'Rect'  # See GetDragRect and SetDragRect
-    DragStatus: 'adv.SashDragStatus'  # See GetDragStatus and SetDragStatus
-    Edge: 'adv.SashEdgePosition'  # See GetEdge and SetEdge
+    DragStatus: 'SashDragStatus'  # See GetDragStatus and SetDragStatus
+    Edge: 'SashEdgePosition'  # See GetEdge and SetEdge
 
 
 
@@ -665,7 +673,7 @@ dragged to resize the window.
             Source: https://docs.wxpython.org/wx.adv.SashWindow.html
         """
 
-    def SashHitTest(self, x, y, tolerance=2) -> 'adv.SashEdgePosition':
+    def SashHitTest(self, x, y, tolerance=2) -> 'SashEdgePosition':
         """ Tests for x, y over sash.
 
             Source: https://docs.wxpython.org/wx.adv.SashWindow.html
@@ -753,20 +761,20 @@ class AnimationCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
-    def CreateAnimation(self) -> 'adv.Animation':
+    def CreateAnimation(self) -> 'Animation':
         """ Create a new animation object compatible with this control.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
     @staticmethod
-    def CreateCompatibleAnimation() -> 'adv.Animation':
+    def CreateCompatibleAnimation() -> 'Animation':
         """ Create a new animation object compatible with this control.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
-    def GetAnimation(self) -> 'adv.Animation':
+    def GetAnimation(self) -> 'Animation':
         """ Returns the animation associated with this control.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
@@ -827,7 +835,7 @@ class AnimationCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.AnimationCtrl.html
         """
 
-    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
+    Animation: 'Animation'  # See GetAnimation and SetAnimation
     InactiveBitmap: 'Bitmap'  # See GetInactiveBitmap and SetInactiveBitmap
 
 
@@ -867,7 +875,7 @@ class CalendarCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
-    def GetAttr(self, day: int) -> 'adv.CalendarDateAttr':
+    def GetAttr(self, day: int) -> 'CalendarDateAttr':
         """ Returns the attribute for the given date (should be in the range 1â¦31).
 
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
@@ -1429,7 +1437,7 @@ class Wizard(Dialog):
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
         """
 
-    def GetCurrentPage(self) -> 'adv.WizardPage':
+    def GetCurrentPage(self) -> 'WizardPage':
         """ Get the current page while the wizard is running.
 
             Source: https://docs.wxpython.org/wx.adv.Wizard.html
@@ -1522,7 +1530,7 @@ class Wizard(Dialog):
     Bitmap: '_Bitmap'  # See GetBitmap and SetBitmap
     BitmapBackgroundColour: 'Colour'  # See GetBitmapBackgroundColour and SetBitmapBackgroundColour
     BitmapPlacement: int  # See GetBitmapPlacement and SetBitmapPlacement
-    CurrentPage: 'adv.WizardPage'  # See GetCurrentPage
+    CurrentPage: 'WizardPage'  # See GetCurrentPage
     MinimumBitmapWidth: int  # See GetMinimumBitmapWidth and SetMinimumBitmapWidth
     PageAreaSizer: 'Sizer'  # See GetPageAreaSizer
     PageSize: 'Size'  # See GetPageSize and SetPageSize
@@ -1628,7 +1636,7 @@ orientation and alignment of a window.
             Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
         """
 
-    def GetOrientation(self) -> 'adv.LayoutOrientation':
+    def GetOrientation(self) -> 'LayoutOrientation':
         """ Returns the orientation that the event handler specified to the event object.
 
             Source: https://docs.wxpython.org/wx.adv.QueryLayoutInfoEvent.html
@@ -1678,7 +1686,7 @@ orientation and alignment of a window.
 
     Alignment: int  # See GetAlignment and SetAlignment
     Flags: int  # See GetFlags and SetFlags
-    Orientation: 'adv.LayoutOrientation'  # See GetOrientation and SetOrientation
+    Orientation: 'LayoutOrientation'  # See GetOrientation and SetOrientation
     RequestedLength: int  # See GetRequestedLength and SetRequestedLength
     Size: '_Size'  # See GetSize and SetSize
 
@@ -1778,7 +1786,7 @@ class NotificationMessage(EvtHandler):
         """
 
     @staticmethod
-    def UseTaskBarIcon(icon: 'adv.TaskBarIcon') -> 'adv.TaskBarIcon':
+    def UseTaskBarIcon(icon: 'adv.TaskBarIcon') -> 'TaskBarIcon':
         """ If the application already uses a   wx.adv.TaskBarIcon, it should be connected to notifications by using this method.
 
             Source: https://docs.wxpython.org/wx.adv.NotificationMessage.html
@@ -2353,14 +2361,14 @@ there, goes up the window hierarchy as usual.
             Source: https://docs.wxpython.org/wx.adv.WizardEvent.html
         """
 
-    def GetPage(self) -> 'adv.WizardPage':
+    def GetPage(self) -> 'WizardPage':
         """ Returns the   wx.adv.WizardPage  which was active when this event was generated.
 
             Source: https://docs.wxpython.org/wx.adv.WizardEvent.html
         """
 
     Direction: bool  # See GetDirection
-    Page: 'adv.WizardPage'  # See GetPage
+    Page: 'WizardPage'  # See GetPage
 
 
 
@@ -2391,7 +2399,7 @@ control and the details of the animation image or data.
         """
 
     @staticmethod
-    def FindHandler(animType: AnimationType) -> 'adv.AnimationDecoder':
+    def FindHandler(animType: AnimationType) -> 'AnimationDecoder':
         """ Search for an animation decoder by type.
 
             Source: https://docs.wxpython.org/wx.adv.Animation.html
@@ -2605,21 +2613,21 @@ first/last page).
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
-    def GetNext(self) -> 'adv.WizardPage':
+    def GetNext(self) -> 'WizardPage':
         """ Get the page which should be shown when the user chooses the  "Next"   button: if None is returned, this button will be disabled.
 
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
-    def GetPrev(self) -> 'adv.WizardPage':
+    def GetPrev(self) -> 'WizardPage':
         """ Get the page which should be shown when the user chooses the  "Back"   button: if None is returned, this button will be disabled.
 
             Source: https://docs.wxpython.org/wx.adv.WizardPage.html
         """
 
     Bitmap: '_Bitmap'  # See GetBitmap
-    Next: 'adv.WizardPage'  # See GetNext
-    Prev: 'adv.WizardPage'  # See GetPrev
+    Next: 'WizardPage'  # See GetNext
+    Prev: 'WizardPage'  # See GetPrev
 
 
 
@@ -2693,7 +2701,7 @@ LayoutAlgorithm.
             Source: https://docs.wxpython.org/wx.adv.SashLayoutWindow.html
         """
 
-    def GetOrientation(self) -> 'adv.LayoutOrientation':
+    def GetOrientation(self) -> 'LayoutOrientation':
         """ Returns the orientation of the window: one of wx.adv.LAYOUT_HORIZONTAL, wx.adv.LAYOUT_VERTICAL.
 
             Source: https://docs.wxpython.org/wx.adv.SashLayoutWindow.html
@@ -2730,7 +2738,7 @@ LayoutAlgorithm.
         """
 
     Alignment: int  # See GetAlignment and SetAlignment
-    Orientation: 'adv.LayoutOrientation'  # See GetOrientation and SetOrientation
+    Orientation: 'LayoutOrientation'  # See GetOrientation and SetOrientation
 
 
 
@@ -2751,14 +2759,14 @@ class GenericAnimationCtrl(AnimationCtrl):
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
-    def CreateAnimation(self) -> 'adv.Animation':
+    def CreateAnimation(self) -> 'Animation':
         """ Create a new animation object compatible with this control.
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
     @staticmethod
-    def CreateCompatibleAnimation() -> 'adv.Animation':
+    def CreateCompatibleAnimation() -> 'Animation':
         """ Create a new animation object compatible with this control.
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
@@ -2770,7 +2778,7 @@ class GenericAnimationCtrl(AnimationCtrl):
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
-    def GetAnimation(self) -> 'adv.Animation':
+    def GetAnimation(self) -> 'Animation':
         """ Returns the animation associated with this control.
 
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
@@ -2849,7 +2857,7 @@ class GenericAnimationCtrl(AnimationCtrl):
             Source: https://docs.wxpython.org/wx.adv.GenericAnimationCtrl.html
         """
 
-    Animation: 'adv.Animation'  # See GetAnimation and SetAnimation
+    Animation: 'Animation'  # See GetAnimation and SetAnimation
     BackingStore: 'Bitmap'  # See GetBackingStore
     InactiveBitmap: 'Bitmap'  # See GetInactiveBitmap and SetInactiveBitmap
 
@@ -2880,7 +2888,7 @@ class CalendarDateAttr:
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
         """
 
-    def GetBorder(self) -> 'adv.CalendarDateBorder':
+    def GetBorder(self) -> 'CalendarDateBorder':
         """ Returns the border set for the calendar date.
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
@@ -2899,7 +2907,7 @@ class CalendarDateAttr:
         """
 
     @staticmethod
-    def GetMark() -> 'adv.CalendarDateAttr':
+    def GetMark() -> 'CalendarDateAttr':
         """ Used (internally) by the generic wx.adv.CalendarCtrl.Mark .
 
             Source: https://docs.wxpython.org/wx.adv.CalendarDateAttr.html
@@ -2991,7 +2999,7 @@ class CalendarDateAttr:
         """
 
     BackgroundColour: 'Colour'  # See GetBackgroundColour and SetBackgroundColour
-    Border: 'adv.CalendarDateBorder'  # See GetBorder and SetBorder
+    Border: 'CalendarDateBorder'  # See GetBorder and SetBorder
     BorderColour: 'Colour'  # See GetBorderColour and SetBorderColour
     Font: '_Font'  # See GetFont and SetFont
     TextColour: 'Colour'  # See GetTextColour and SetTextColour
@@ -3064,7 +3072,7 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def Clone(self) -> 'adv.AnimationDecoder':
+    def Clone(self) -> 'AnimationDecoder':
         """ Create a copy of this decoder.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
@@ -3100,7 +3108,7 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetDisposalMethod(self, frame: int) -> 'adv.AnimationDisposal':
+    def GetDisposalMethod(self, frame: int) -> 'AnimationDisposal':
         """ What should be done after displaying this frame.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
@@ -3130,7 +3138,7 @@ information for the animation from the animation image file.
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
         """
 
-    def GetType(self) -> 'adv.AnimationType':
+    def GetType(self) -> 'AnimationType':
         """ Return the animation type this decoder implements.
 
             Source: https://docs.wxpython.org/wx.adv.AnimationDecoder.html
@@ -3145,7 +3153,7 @@ information for the animation from the animation image file.
     AnimationSize: 'Size'  # See GetAnimationSize
     BackgroundColour: 'Colour'  # See GetBackgroundColour
     FrameCount: int  # See GetFrameCount
-    Type: 'adv.AnimationType'  # See GetType
+    Type: 'AnimationType'  # See GetType
 
 
 
@@ -3162,7 +3170,7 @@ from WizardPage.GetNext() and WizardPage.GetPrev() functions.
             Source: https://docs.wxpython.org/wx.adv.WizardPageSimple.html
         """
 
-    def Chain(self, *args, **kw) -> 'adv.WizardPageSimple':
+    def Chain(self, *args, **kw) -> 'WizardPageSimple':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.adv.WizardPageSimple.html
@@ -3214,7 +3222,7 @@ class ANIDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def Clone(self) -> 'adv.AnimationDecoder':
+    def Clone(self) -> 'AnimationDecoder':
         """ Create a copy of this decoder.
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
@@ -3238,7 +3246,7 @@ class ANIDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def GetDisposalMethod(self, frame: int) -> 'adv.AnimationDisposal':
+    def GetDisposalMethod(self, frame: int) -> 'AnimationDisposal':
         """ What should be done after displaying this frame.
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
@@ -3262,7 +3270,7 @@ class ANIDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    def GetType(self) -> 'adv.AnimationType':
+    def GetType(self) -> 'AnimationType':
         """ Return the animation type this decoder implements.
 
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
@@ -3274,7 +3282,7 @@ class ANIDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.ANIDecoder.html
         """
 
-    Type: 'adv.AnimationType'  # See GetType
+    Type: 'AnimationType'  # See GetType
 
 
 
@@ -3289,7 +3297,7 @@ class GIFDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def Clone(self) -> 'adv.AnimationDecoder':
+    def Clone(self) -> 'AnimationDecoder':
         """ Create a copy of this decoder.
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
@@ -3313,7 +3321,7 @@ class GIFDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def GetDisposalMethod(self, frame: int) -> 'adv.AnimationDisposal':
+    def GetDisposalMethod(self, frame: int) -> 'AnimationDisposal':
         """ What should be done after displaying this frame.
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
@@ -3337,7 +3345,7 @@ class GIFDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    def GetType(self) -> 'adv.AnimationType':
+    def GetType(self) -> 'AnimationType':
         """ Return the animation type this decoder implements.
 
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
@@ -3349,7 +3357,7 @@ class GIFDecoder(AnimationDecoder):
             Source: https://docs.wxpython.org/wx.adv.GIFDecoder.html
         """
 
-    Type: 'adv.AnimationType'  # See GetType
+    Type: 'AnimationType'  # See GetType
 
 
 

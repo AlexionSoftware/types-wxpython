@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import Control, FileOffset, NotifyEvent, Size
+
 class MediaCtrl(Control):
     """ MediaCtrl is a class for displaying various types of media, such as
 videos, audio files, natively through native codecs.
@@ -31,7 +33,7 @@ videos, audio files, natively through native codecs.
             Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
         """
 
-    def GetState(self) -> 'media.MediaState':
+    def GetState(self) -> 'MediaState':
         """ Obtains the state the playback of the media is in.
 
             Source: https://docs.wxpython.org/wx.media.MediaCtrl.html
@@ -117,7 +119,7 @@ videos, audio files, natively through native codecs.
 
     BestSize: 'Size'  # See GetBestSize
     PlaybackRate: float  # See GetPlaybackRate and SetPlaybackRate
-    State: 'media.MediaState'  # See GetState
+    State: 'MediaState'  # See GetState
     Volume: float  # See GetVolume and SetVolume
 
 

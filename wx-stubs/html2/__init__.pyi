@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (Control, FSFile, NotifyEvent, Object, VersionInfo,
+                VisualAttributes, _VersionInfo)
+
 class WebView(Control):
     """ This control may be used to render web (HTML / CSS / javascript)
 documents.
@@ -201,7 +204,7 @@ documents.
             Source: https://docs.wxpython.org/wx.html2.WebView.html
         """
 
-    def GetZoom(self) -> 'html2.WebViewZoom':
+    def GetZoom(self) -> 'WebViewZoom':
         """ Get the zoom level of the page.
 
             Source: https://docs.wxpython.org/wx.html2.WebView.html
@@ -213,7 +216,7 @@ documents.
             Source: https://docs.wxpython.org/wx.html2.WebView.html
         """
 
-    def GetZoomType(self) -> 'html2.WebViewZoomType':
+    def GetZoomType(self) -> 'WebViewZoomType':
         """ Get how the zoom factor is currently interpreted.
 
             Source: https://docs.wxpython.org/wx.html2.WebView.html
@@ -289,7 +292,7 @@ documents.
         """
 
     @staticmethod
-    def New(*args, **kw) -> 'html2.WebView':
+    def New(*args, **kw) -> 'WebView':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.html2.WebView.html
@@ -420,9 +423,9 @@ documents.
     SelectedSource: str  # See GetSelectedSource
     SelectedText: str  # See GetSelectedText
     UserAgent: str  # See GetUserAgent and SetUserAgent
-    Zoom: 'html2.WebViewZoom'  # See GetZoom and SetZoom
+    Zoom: 'WebViewZoom'  # See GetZoom and SetZoom
     ZoomFactor: float  # See GetZoomFactor and SetZoomFactor
-    ZoomType: 'html2.WebViewZoomType'  # See GetZoomType and SetZoomType
+    ZoomType: 'WebViewZoomType'  # See GetZoomType and SetZoomType
 
 
 
@@ -464,7 +467,7 @@ WebView objects.
             Source: https://docs.wxpython.org/wx.html2.WebViewEvent.html
         """
 
-    def GetNavigationAction(self) -> 'html2.WebViewNavigationActionFlags':
+    def GetNavigationAction(self) -> 'WebViewNavigationActionFlags':
         """ Get the type of navigation action.
 
             Source: https://docs.wxpython.org/wx.html2.WebViewEvent.html
@@ -489,7 +492,7 @@ WebView objects.
         """
 
     MessageHandler: str  # See GetMessageHandler
-    NavigationAction: 'html2.WebViewNavigationActionFlags'  # See GetNavigationAction
+    NavigationAction: 'WebViewNavigationActionFlags'  # See GetNavigationAction
     Target: str  # See GetTarget
     URL: str  # See GetURL
 
@@ -500,7 +503,7 @@ class WebViewFactory(Object):
 
         Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
     """
-    def Create(self, *args, **kw) -> 'html2.WebView':
+    def Create(self, *args, **kw) -> 'WebView':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.html2.WebViewFactory.html
@@ -563,7 +566,7 @@ to allow virtual file system support.
 
 
 
-class WebViewFSHandler(wx2.WebViewHandler):
+class WebViewFSHandler(WebViewHandler):
     """ A WebView file system handler to support standard FileSystem
 protocols of the form  example:page.htm  The handler allows WebView
 to use FileSystem in a similar fashion to its use with Html.
@@ -584,7 +587,7 @@ to use FileSystem in a similar fashion to its use with Html.
 
 
 
-class WebViewArchiveHandler(wx2.WebViewHandler):
+class WebViewArchiveHandler(WebViewHandler):
     """ A custom handler for the file scheme which also supports loading from
 archives.
 

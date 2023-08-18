@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import Object, TextFileType, VersionInfo
+
 class XmlDocument(Object):
     """ This class holds XML data/document as parsed by XML parser in the root
 node.
@@ -19,25 +21,25 @@ node.
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    def DetachDocumentNode(self) -> 'xml.XmlNode':
+    def DetachDocumentNode(self) -> 'XmlNode':
         """ Detaches the document node and returns it.
 
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    def DetachRoot(self) -> 'xml.XmlNode':
+    def DetachRoot(self) -> 'XmlNode':
         """ Detaches the root entity node and returns it.
 
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    def GetDoctype(self) -> 'xml.XmlDoctype':
+    def GetDoctype(self) -> 'XmlDoctype':
         """ Returns the DOCTYPE declaration data for the document.
 
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    def GetDocumentNode(self) -> 'xml.XmlNode':
+    def GetDocumentNode(self) -> 'XmlNode':
         """ Returns the document node of the document.
 
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
@@ -68,7 +70,7 @@ node.
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    def GetRoot(self) -> 'xml.XmlNode':
+    def GetRoot(self) -> 'XmlNode':
         """ Returns the root element node of the document.
 
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
@@ -134,12 +136,12 @@ node.
             Source: https://docs.wxpython.org/wx.xml.XmlDocument.html
         """
 
-    Doctype: 'xml.XmlDoctype'  # See GetDoctype and SetDoctype
-    DocumentNode: 'xml.XmlNode'  # See GetDocumentNode and SetDocumentNode
+    Doctype: 'XmlDoctype'  # See GetDoctype and SetDoctype
+    DocumentNode: 'XmlNode'  # See GetDocumentNode and SetDocumentNode
     EOL: str  # See GetEOL
     FileEncoding: str  # See GetFileEncoding and SetFileEncoding
     FileType: 'TextFileType'  # See GetFileType and SetFileType
-    Root: 'xml.XmlNode'  # See GetRoot and SetRoot
+    Root: 'XmlNode'  # See GetRoot and SetRoot
     Version: str  # See GetVersion and SetVersion
 
 
@@ -181,13 +183,13 @@ class XmlNode:
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    def GetAttributes(self) -> 'xml.XmlAttribute':
+    def GetAttributes(self) -> 'XmlAttribute':
         """ Return a pointer to the first attribute of this node.
 
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    def GetChildren(self) -> 'xml.XmlNode':
+    def GetChildren(self) -> 'XmlNode':
         """ Returns the first child of this node.
 
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
@@ -217,7 +219,7 @@ class XmlNode:
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    def GetNext(self) -> 'xml.XmlNode':
+    def GetNext(self) -> 'XmlNode':
         """ Returns a pointer to the sibling of this node or None if there are no siblings.
 
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
@@ -235,13 +237,13 @@ class XmlNode:
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    def GetParent(self) -> 'xml.XmlNode':
+    def GetParent(self) -> 'XmlNode':
         """ Returns a pointer to the parent of this node or None if this node has no parent.
 
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    def GetType(self) -> 'xml.XmlNodeType':
+    def GetType(self) -> 'XmlNodeType':
         """ Returns the type of this node.
 
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
@@ -313,17 +315,17 @@ class XmlNode:
             Source: https://docs.wxpython.org/wx.xml.XmlNode.html
         """
 
-    Attributes: 'xml.XmlAttribute'  # See GetAttributes
-    Children: 'xml.XmlNode'  # See GetChildren
+    Attributes: 'XmlAttribute'  # See GetAttributes
+    Children: 'XmlNode'  # See GetChildren
     Content: str  # See GetContent and SetContent
     Depth: int  # See GetDepth
     LineNumber: int  # See GetLineNumber
     Name: str  # See GetName and SetName
-    Next: 'xml.XmlNode'  # See GetNext and SetNext
+    Next: 'XmlNode'  # See GetNext and SetNext
     NoConversion: bool  # See GetNoConversion and SetNoConversion
     NodeContent: str  # See GetNodeContent
-    Parent: 'xml.XmlNode'  # See GetParent and SetParent
-    Type: 'xml.XmlNodeType'  # See GetType and SetType
+    Parent: 'XmlNode'  # See GetParent and SetParent
+    Type: 'XmlNodeType'  # See GetType and SetType
 
 
 
@@ -344,7 +346,7 @@ class XmlAttribute:
             Source: https://docs.wxpython.org/wx.xml.XmlAttribute.html
         """
 
-    def GetNext(self) -> 'xml.XmlAttribute':
+    def GetNext(self) -> 'XmlAttribute':
         """ Returns the sibling of this attribute or None if there are no siblings.
 
             Source: https://docs.wxpython.org/wx.xml.XmlAttribute.html
@@ -375,7 +377,7 @@ class XmlAttribute:
         """
 
     Name: str  # See GetName and SetName
-    Next: 'xml.XmlAttribute'  # See GetNext and SetNext
+    Next: 'XmlAttribute'  # See GetNext and SetNext
     Value: str  # See GetValue and SetValue
 
 

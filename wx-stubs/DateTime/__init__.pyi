@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import WeekDay
+
 class TimeZone:
     """ Class representing a time zone.
 
@@ -25,7 +27,7 @@ class TimeZone:
         """
 
     @staticmethod
-    def Make(offset: int) -> 'DateTime.TimeZone':
+    def Make(offset: int) -> 'TimeZone':
         """ Create a time zone with the given offset in seconds.
 
             Source: https://docs.wxpython.org/wx.DateTime.TimeZone.html

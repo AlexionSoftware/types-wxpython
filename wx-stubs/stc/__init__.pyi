@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (Colour, CommandEvent, Control, DragResult, Font, MemoryBuffer,
+                Point, TextAttr, TextEntry, VersionInfo, VisualAttributes,
+                _DragResult)
+
 class StyledTextEvent(CommandEvent):
     """ The type of events sent from StyledTextCtrl.
 
@@ -1859,7 +1863,7 @@ object of the characters in the document.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetLineRaw(self, line: int) -> 'stc.CharBuffer':
+    def GetLineRaw(self, line: int) -> 'CharBuffer':
         """ Retrieve the contents of a line.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2215,7 +2219,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetSelectedTextRaw(self) -> 'stc.CharBuffer':
+    def GetSelectedTextRaw(self) -> 'CharBuffer':
         """ Retrieve the selected text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2401,7 +2405,7 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTargetTextRaw(self) -> 'stc.CharBuffer':
+    def GetTargetTextRaw(self) -> 'CharBuffer':
         """ Retrieve the target text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -2431,13 +2435,13 @@ but will only move up to rangeLength bytes.
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTextRangeRaw(self, startPos, endPos) -> 'stc.CharBuffer':
+    def GetTextRangeRaw(self, startPos, endPos) -> 'CharBuffer':
         """ Retrieve a range of text.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
         """
 
-    def GetTextRaw(self) -> 'stc.CharBuffer':
+    def GetTextRaw(self) -> 'CharBuffer':
         """ Retrieve all the text in the document.
 
             Source: https://docs.wxpython.org/wx.stc.StyledTextCtrl.html
@@ -5145,7 +5149,7 @@ but will only move up to rangeLength bytes.
     SelAlpha: int  # See GetSelAlpha and SetSelAlpha
     SelEOLFilled: bool  # See GetSelEOLFilled and SetSelEOLFilled
     SelectedText: str  # See GetSelectedText
-    SelectedTextRaw: 'stc.CharBuffer'  # See GetSelectedTextRaw
+    SelectedTextRaw: 'CharBuffer'  # See GetSelectedTextRaw
     SelectionEmpty: bool  # See GetSelectionEmpty
     SelectionEnd: int  # See GetSelectionEnd and SetSelectionEnd
     SelectionMode: int  # See GetSelectionMode and SetSelectionMode
@@ -5162,11 +5166,11 @@ but will only move up to rangeLength bytes.
     TargetEnd: int  # See GetTargetEnd and SetTargetEnd
     TargetStart: int  # See GetTargetStart and SetTargetStart
     TargetText: str  # See GetTargetText
-    TargetTextRaw: 'stc.CharBuffer'  # See GetTargetTextRaw
+    TargetTextRaw: 'CharBuffer'  # See GetTargetTextRaw
     Technology: int  # See GetTechnology and SetTechnology
     Text: str  # See GetText and SetText
     TextLength: int  # See GetTextLength
-    TextRaw: 'stc.CharBuffer'  # See GetTextRaw and SetTextRaw
+    TextRaw: 'CharBuffer'  # See GetTextRaw and SetTextRaw
     TwoPhaseDraw: bool  # See GetTwoPhaseDraw and SetTwoPhaseDraw
     UndoCollection: bool  # See GetUndoCollection and SetUndoCollection
     UseAntiAliasing: bool  # See GetUseAntiAliasing and SetUseAntiAliasing

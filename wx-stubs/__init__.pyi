@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .ActivateEvent import Reason
+from .ConfigBase import EntryType
+from .DateTime import Country, Month, Tm
+from .HelpEvent import Origin
+from .StandardPaths import FileLayout
+from .StockPreferencesPage import Kind
+
 FontFamily: TypeAlias = int  # Enumeration
 
 FONTFAMILY_DEFAULT: int
@@ -1540,7 +1547,7 @@ def Trap() -> None:
     """
 
 
-def version() -> None:
+def version() -> str:
     """ Returns a string containing version and port info
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -1869,7 +1876,7 @@ activated or deactivated.
             Source: https://docs.wxpython.org/wx.ActivateEvent.html
         """
 
-    def GetActivationReason(self) -> 'ActivateEvent.Reason':
+    def GetActivationReason(self) -> 'Reason':
         """ Allows checking if the window was activated by clicking it with the mouse or in some other way.
 
             Source: https://docs.wxpython.org/wx.ActivateEvent.html
@@ -5910,7 +5917,7 @@ method.
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
 
-    def IsRunning(self) -> None:
+    def IsRunning(self) -> bool:
         """ 
 
             Source: https://docs.wxpython.org/wx.CallLater.html
@@ -8863,7 +8870,7 @@ class ConfigBase(Object):
             Source: https://docs.wxpython.org/wx.ConfigBase.html
         """
 
-    def GetEntryType(self, name: str) -> 'ConfigBase.EntryType':
+    def GetEntryType(self, name: str) -> 'EntryType':
         """ Returns the type of the given entry or Unknown  if the entry doesnât exist.
 
             Source: https://docs.wxpython.org/wx.ConfigBase.html
@@ -11778,14 +11785,14 @@ class DateTime:
         """
 
     @staticmethod
-    def GetCountry() -> 'DateTime.Country':
+    def GetCountry() -> 'Country':
         """ Returns the current default country.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetCurrentMonth(cal: Calendar=Gregorian) -> 'DateTime.Month':
+    def GetCurrentMonth(cal: Calendar=Gregorian) -> 'Month':
         """ Get the current month in given calendar (only Gregorian is currently supported).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11898,7 +11905,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMonth(self, tz: 'DateTime.TimeZone'=Local) -> 'DateTime.Month':
+    def GetMonth(self, tz: 'DateTime.TimeZone'=Local) -> 'Month':
         """ Returns the month in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11955,7 +11962,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetTm(self, tz: 'DateTime.TimeZone'=Local) -> 'DateTime.Tm':
+    def GetTm(self, tz: 'DateTime.TimeZone'=Local) -> 'Tm':
         """ Returns broken down representation of the date and time.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -21121,7 +21128,7 @@ help.
             Source: https://docs.wxpython.org/wx.HelpEvent.html
         """
 
-    def GetOrigin(self) -> 'HelpEvent.Origin':
+    def GetOrigin(self) -> 'Origin':
         """ Returns the origin of the help event which is one of the   wx.HelpEvent.Origin   values.
 
             Source: https://docs.wxpython.org/wx.HelpEvent.html
@@ -37820,7 +37827,7 @@ way.
             Source: https://docs.wxpython.org/wx.StandardPaths.html
         """
 
-    def GetFileLayout(self) -> 'StandardPaths.FileLayout':
+    def GetFileLayout(self) -> 'FileLayout':
         """ Returns the current file layout.
 
             Source: https://docs.wxpython.org/wx.StandardPaths.html
@@ -38413,7 +38420,7 @@ preferences page.
             Source: https://docs.wxpython.org/wx.StockPreferencesPage.html
         """
 
-    def GetKind(self) -> 'StockPreferencesPage.Kind':
+    def GetKind(self) -> 'Kind':
         """ Returns the pageâs kind.
 
             Source: https://docs.wxpython.org/wx.StockPreferencesPage.html
@@ -46096,17 +46103,11 @@ value_type: TypeAlias = bytes
 
 Byte: TypeAlias = bytes
 
-Reason: TypeAlias = int
-
 ArtClient: TypeAlias = Any
 
 Vector: TypeAlias = Any
 
-EntryType: TypeAlias = int
-
 LongLong_t: TypeAlias = Any
-
-Country: TypeAlias = wx.DateTime.Country  # Enumeration
 
 ArrayVideoModes: TypeAlias = list['VideoMode']
 
@@ -46134,11 +46135,7 @@ RegionContain: TypeAlias = int  # Enumeration
 
 Dir: TypeAlias = 'StandardPaths.Dir'  # Enumeration
 
-FileLayout: TypeAlias = 'StandardPaths.FileLayout'  # Enumeration
-
 ScaleMode: TypeAlias = 'StaticBitmap.ScaleMode'  # Enumeration
-
-Kind: TypeAlias = 'StockPreferencesPage.Kind'  # Enumeration
 
 res: TypeAlias = Any
 

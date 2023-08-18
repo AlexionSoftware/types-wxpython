@@ -19,7 +19,7 @@ when clicked, will display a colour selection dialog.
             Source: https://docs.wxpython.org/wx.lib.colourselect.ColourSelect.html
         """
 
-    def GetCustomColours(self) -> 'lib.colourselect.CustomColourData':
+    def GetCustomColours(self) -> 'CustomColourData':
         """ Returns the current set of custom colour values to be shown in the
 colour dialog, if supported.
 

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import Object, VisualAttributes, Window
+
 class GLCanvas(Window):
     """ GLCanvas is a class for displaying OpenGL graphics.
 
@@ -87,31 +89,31 @@ OpenGL (âPixel formatâ in MSW and OSX parlance, âConfigsâ in
 
         Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
     """
-    def AuxBuffers(self, val: int) -> 'glcanvas.GLAttributes':
+    def AuxBuffers(self, val: int) -> 'GLAttributes':
         """ Specifies the number of auxiliary buffers.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def BufferSize(self, val: int) -> 'glcanvas.GLAttributes':
+    def BufferSize(self, val: int) -> 'GLAttributes':
         """ Specifies the number of bits for colour buffer.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Defaults(self) -> 'glcanvas.GLAttributes':
+    def Defaults(self) -> 'GLAttributes':
         """ wxWidgets defaults: RGBA, Z-depth 16 bits, double buffering, 1 sample buffer, 4 samplers.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Depth(self, val: int) -> 'glcanvas.GLAttributes':
+    def Depth(self, val: int) -> 'GLAttributes':
         """ Specifies number of bits for Z-buffer.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def DoubleBuffer(self) -> 'glcanvas.GLAttributes':
+    def DoubleBuffer(self) -> 'GLAttributes':
         """ Requests using double buffering.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
@@ -123,61 +125,61 @@ OpenGL (âPixel formatâ in MSW and OSX parlance, âConfigsâ in
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def FrameBuffersRGB(self) -> 'glcanvas.GLAttributes':
+    def FrameBuffersRGB(self) -> 'GLAttributes':
         """ Used to request a frame buffer sRGB capable.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Level(self, val: int) -> 'glcanvas.GLAttributes':
+    def Level(self, val: int) -> 'GLAttributes':
         """ Specifies the framebuffer level.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def MinAcumRGBA(self, mRed, mGreen, mBlue, mAlpha) -> 'glcanvas.GLAttributes':
+    def MinAcumRGBA(self, mRed, mGreen, mBlue, mAlpha) -> 'GLAttributes':
         """ Specifies the minimal number of bits for each accumulator channel.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def MinRGBA(self, mRed, mGreen, mBlue, mAlpha) -> 'glcanvas.GLAttributes':
+    def MinRGBA(self, mRed, mGreen, mBlue, mAlpha) -> 'GLAttributes':
         """ Specifies the minimal number of bits for each colour and alpha.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def PlatformDefaults(self) -> 'glcanvas.GLAttributes':
+    def PlatformDefaults(self) -> 'GLAttributes':
         """ Set some typically needed attributes.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def RGBA(self) -> 'glcanvas.GLAttributes':
+    def RGBA(self) -> 'GLAttributes':
         """ Use True colour instead of colour index rendering for each pixel.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def SampleBuffers(self, val: int) -> 'glcanvas.GLAttributes':
+    def SampleBuffers(self, val: int) -> 'GLAttributes':
         """ Use multi-sampling support (antialiasing).
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Samplers(self, val: int) -> 'glcanvas.GLAttributes':
+    def Samplers(self, val: int) -> 'GLAttributes':
         """ Specifies the number of samplers per pixel.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Stencil(self, val: int) -> 'glcanvas.GLAttributes':
+    def Stencil(self, val: int) -> 'GLAttributes':
         """ Specifies number of bits for stencil buffer.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
         """
 
-    def Stereo(self) -> 'glcanvas.GLAttributes':
+    def Stereo(self) -> 'GLAttributes':
         """ Use stereoscopic display.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLAttributes.html
@@ -190,25 +192,25 @@ class GLContextAttrs(GLAttribsBase):
 
         Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
     """
-    def CompatibilityProfile(self) -> 'glcanvas.GLContextAttrs':
+    def CompatibilityProfile(self) -> 'GLContextAttrs':
         """ Request a type of context with all OpenGL features from version 1.0 to the newest available by the GPU driver.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def CoreProfile(self) -> 'glcanvas.GLContextAttrs':
+    def CoreProfile(self) -> 'GLContextAttrs':
         """ Request an OpenGL core profile for the context.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def DebugCtx(self) -> 'glcanvas.GLContextAttrs':
+    def DebugCtx(self) -> 'GLContextAttrs':
         """ Request debugging functionality.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def ES2(self) -> 'glcanvas.GLContextAttrs':
+    def ES2(self) -> 'GLContextAttrs':
         """ Request an ES or ES2 (âEmbedded Subsystemâ) context.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
@@ -220,61 +222,61 @@ class GLContextAttrs(GLAttribsBase):
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def ForwardCompatible(self) -> 'glcanvas.GLContextAttrs':
+    def ForwardCompatible(self) -> 'GLContextAttrs':
         """ Request a forward-compatible context.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def LoseOnReset(self) -> 'glcanvas.GLContextAttrs':
+    def LoseOnReset(self) -> 'GLContextAttrs':
         """ With robustness enabled, if graphics reset happens, all context state is lost.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def MajorVersion(self, val: int) -> 'glcanvas.GLContextAttrs':
+    def MajorVersion(self, val: int) -> 'GLContextAttrs':
         """ Request specific OpenGL core major version number (>= 3).
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def MinorVersion(self, val: int) -> 'glcanvas.GLContextAttrs':
+    def MinorVersion(self, val: int) -> 'GLContextAttrs':
         """ Request specific OpenGL core minor version number.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def NoResetNotify(self) -> 'glcanvas.GLContextAttrs':
+    def NoResetNotify(self) -> 'GLContextAttrs':
         """ With robustness enabled, never deliver notification of reset events.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def OGLVersion(self, vmayor, vminor) -> 'glcanvas.GLContextAttrs':
+    def OGLVersion(self, vmayor, vminor) -> 'GLContextAttrs':
         """ An easy way of requesting an OpenGL version.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def PlatformDefaults(self) -> 'glcanvas.GLContextAttrs':
+    def PlatformDefaults(self) -> 'GLContextAttrs':
         """ Set platform specific defaults.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def ReleaseFlush(self, val: int=1) -> 'glcanvas.GLContextAttrs':
+    def ReleaseFlush(self, val: int=1) -> 'GLContextAttrs':
         """ Request OpenGL to avoid or not flushing pending commands when the context is made no longer current (released).
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def ResetIsolation(self) -> 'glcanvas.GLContextAttrs':
+    def ResetIsolation(self) -> 'GLContextAttrs':
         """ Request OpenGL to protect other applications or shared contexts from reset side-effects.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html
         """
 
-    def Robust(self) -> 'glcanvas.GLContextAttrs':
+    def Robust(self) -> 'GLContextAttrs':
         """ Request robustness, or how OpenGL handles out-of-bounds buffer object accesses and graphics reset notification behaviours.
 
             Source: https://docs.wxpython.org/wx.glcanvas.GLContextAttrs.html

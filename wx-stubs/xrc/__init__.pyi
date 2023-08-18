@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (Bitmap, BitmapBundle, Colour, Coord, Dialog, FileSystem, Font,
+                Frame, Icon, IconBundle, ImageList, Menu, MenuBar, Object,
+                Panel, Point, Size, ToolBar, Window, _Bitmap, _BitmapBundle,
+                _Font, _Icon, _ImageList, _Size)
+
 class XmlResource(Object):
     """ This is the main class for interacting with the XML-based resource
 system.
@@ -52,7 +57,7 @@ system.
         """
 
     @staticmethod
-    def Get() -> 'xrc.XmlResource':
+    def Get() -> 'XmlResource':
         """ Gets the global resources object or creates one if none exists.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
@@ -70,7 +75,7 @@ system.
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
         """
 
-    def GetResourceNode(self, name: str) -> 'xrc.XmlNode':
+    def GetResourceNode(self, name: str) -> 'XmlNode':
         """ Returns the   wx.xml.XmlNode  containing the definition of the object with the given name or None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
@@ -192,7 +197,7 @@ system.
         """
 
     @staticmethod
-    def Set(res: 'xrc.XmlResource') -> 'xrc.XmlResource':
+    def Set(res: 'xrc.XmlResource') -> 'XmlResource':
         """ Sets the global resources object and returns a pointer to the previous one (may be None).
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResource.html
@@ -282,7 +287,7 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetAnimation(self, param="animation", ctrl=None) -> 'xrc.Animation':
+    def GetAnimation(self, param="animation", ctrl=None) -> 'Animation':
         """ Creates an animation (see   wx.adv.Animation) from the filename specified in param.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -390,13 +395,13 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNode(self) -> 'xrc.XmlNode':
+    def GetNode(self) -> 'XmlNode':
         """ After CreateResource has been called this will return the XML node being processed.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeChildren(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
+    def GetNodeChildren(self, node: 'xml.XmlNode') -> 'XmlNode':
         """ Gets the first child of the given node or None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -408,19 +413,19 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeNext(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
+    def GetNodeNext(self, node: 'xml.XmlNode') -> 'XmlNode':
         """ Gets the next sibling node related to the given node, possibly None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetNodeParent(self, node: 'xml.XmlNode') -> 'xrc.XmlNode':
+    def GetNodeParent(self, node: 'xml.XmlNode') -> 'XmlNode':
         """ Gets the parent of the node given.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetParamNode(self, param: str) -> 'xrc.XmlNode':
+    def GetParamNode(self, param: str) -> 'XmlNode':
         """ Finds the node or returns None.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -450,7 +455,7 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    def GetResource(self) -> 'xrc.XmlResource':
+    def GetResource(self) -> 'XmlResource':
         """ After CreateResource has been called this will return the current   wx.xrc.XmlResource  object.
 
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
@@ -516,7 +521,7 @@ a Sizer object from an XML node.
             Source: https://docs.wxpython.org/wx.xrc.XmlResourceHandler.html
         """
 
-    Animation: 'xrc.Animation'  # See GetAnimation
+    Animation: 'Animation'  # See GetAnimation
     Bitmap: '_Bitmap'  # See GetBitmap
     BitmapBundle: '_BitmapBundle'  # See GetBitmapBundle
     Class: str  # See GetClass
@@ -527,11 +532,11 @@ a Sizer object from an XML node.
     ImageList: '_ImageList'  # See GetImageList
     Instance: 'Window'  # See GetInstance
     Name: str  # See GetName
-    Node: 'xrc.XmlNode'  # See GetNode
+    Node: 'XmlNode'  # See GetNode
     Parent: 'Window'  # See GetParent
     ParentAsWindow: 'Window'  # See GetParentAsWindow
     Position: 'Point'  # See GetPosition
-    Resource: 'xrc.XmlResource'  # See GetResource
+    Resource: 'XmlResource'  # See GetResource
     Size: '_Size'  # See GetSize
     Style: int  # See GetStyle
 

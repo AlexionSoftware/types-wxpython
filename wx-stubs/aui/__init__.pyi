@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from .. import (_DC, DC, Bitmap, BookCtrlBase, BookCtrlEvent, Colour, Control,
+                Event, EvtHandler, Font, Frame, Icon, IconBundle, Menu,
+                MenuBar, NotifyEvent, Panel, Point, Rect, Size, SizerItem,
+                StatusBar, ToolBar, VisualAttributes, Window, _Bitmap, _Font,
+                _Icon, _MenuBar, _SizerItem, _StatusBar, _ToolBar, _Window)
+
 class AuiNotebook(BookCtrlBase):
     """ AuiNotebook is part of the AUI class framework, which represents a
 notebook control, managing multiple windows with associated tabs.
@@ -55,13 +61,13 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetActiveTabCtrl(self) -> 'aui.AuiTabCtrl':
+    def GetActiveTabCtrl(self) -> 'AuiTabCtrl':
         """ Returns active tab control for this notebook.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetArtProvider(self) -> 'aui.AuiTabArt':
+    def GetArtProvider(self) -> 'AuiTabArt':
         """ Returns the associated art provider.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
@@ -134,7 +140,7 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    def GetTabCtrlFromPoint(self, pt: Union[tuple[int, int], 'Point']) -> 'aui.AuiTabCtrl':
+    def GetTabCtrlFromPoint(self, pt: Union[tuple[int, int], 'Point']) -> 'AuiTabCtrl':
         """ Returns tab control based on point coordinates inside the tab frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
@@ -242,8 +248,8 @@ notebook control, managing multiple windows with associated tabs.
             Source: https://docs.wxpython.org/wx.aui.AuiNotebook.html
         """
 
-    ActiveTabCtrl: 'aui.AuiTabCtrl'  # See GetActiveTabCtrl
-    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
+    ActiveTabCtrl: 'AuiTabCtrl'  # See GetActiveTabCtrl
+    ArtProvider: 'AuiTabArt'  # See GetArtProvider and SetArtProvider
     CurrentPage: 'Window'  # See GetCurrentPage
     PageCount: int  # See GetPageCount
     Selection: int  # See GetSelection and SetSelection
@@ -347,7 +353,7 @@ class AuiDefaultTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
         """
 
-    def Clone(self) -> 'aui.AuiTabArt':
+    def Clone(self) -> 'AuiTabArt':
         """ Clones the art object.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultTabArt.html
@@ -458,7 +464,7 @@ class AuiMDIClientWindow(AuiNotebook):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
         """
 
-    def GetActiveChild(self) -> 'aui.AuiMDIChildFrame':
+    def GetActiveChild(self) -> 'AuiMDIChildFrame':
         """ wx.aui.AuiMDIChildFrame
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
@@ -483,7 +489,7 @@ class AuiMDIClientWindow(AuiNotebook):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIClientWindow.html
         """
 
-    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
+    ActiveChild: 'AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
 
 
 
@@ -525,7 +531,7 @@ AuiNotebook.
             Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
         """
 
-    def Clone(self) -> 'aui.AuiTabArt':
+    def Clone(self) -> 'AuiTabArt':
         """ Clones the art object.
 
             Source: https://docs.wxpython.org/wx.aui.AuiTabArt.html
@@ -624,37 +630,37 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddControl(self, control, label="") -> 'aui.AuiToolBarItem':
+    def AddControl(self, control, label="") -> 'AuiToolBarItem':
         """ control (wx.Control) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddLabel(self, toolId, label="", width=-1) -> 'aui.AuiToolBarItem':
+    def AddLabel(self, toolId, label="", width=-1) -> 'AuiToolBarItem':
         """ toolId (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddSeparator(self) -> 'aui.AuiToolBarItem':
+    def AddSeparator(self) -> 'AuiToolBarItem':
         """ wx.aui.AuiToolBarItem
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddSpacer(self, pixels: int) -> 'aui.AuiToolBarItem':
+    def AddSpacer(self, pixels: int) -> 'AuiToolBarItem':
         """ pixels (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddStretchSpacer(self, proportion: int=1) -> 'aui.AuiToolBarItem':
+    def AddStretchSpacer(self, proportion: int=1) -> 'AuiToolBarItem':
         """ proportion (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def AddTool(self, *args, **kw) -> 'aui.AuiToolBarItem':
+    def AddTool(self, *args, **kw) -> 'AuiToolBarItem':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -714,25 +720,25 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def FindTool(self, toolId: int) -> 'aui.AuiToolBarItem':
+    def FindTool(self, toolId: int) -> 'AuiToolBarItem':
         """ toolId (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def FindToolByIndex(self, idx: int) -> 'aui.AuiToolBarItem':
+    def FindToolByIndex(self, idx: int) -> 'AuiToolBarItem':
         """ idx (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def FindToolByPosition(self, x, y) -> 'aui.AuiToolBarItem':
+    def FindToolByPosition(self, x, y) -> 'AuiToolBarItem':
         """ x (int) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    def GetArtProvider(self) -> 'aui.AuiToolBarArt':
+    def GetArtProvider(self) -> 'AuiToolBarArt':
         """ wx.aui.AuiToolBarArt
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
@@ -1027,7 +1033,7 @@ class AuiToolBar(Control):
             Source: https://docs.wxpython.org/wx.aui.AuiToolBar.html
         """
 
-    ArtProvider: 'aui.AuiToolBarArt'  # See GetArtProvider and SetArtProvider
+    ArtProvider: 'AuiToolBarArt'  # See GetArtProvider and SetArtProvider
     GripperVisible: bool  # See GetGripperVisible and SetGripperVisible
     OverflowVisible: bool  # See GetOverflowVisible and SetOverflowVisible
     ToolBarFits: bool  # See GetToolBarFits
@@ -1104,13 +1110,13 @@ class AuiManagerEvent(Event):
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
         """
 
-    def GetManager(self) -> 'aui.AuiManager':
+    def GetManager(self) -> 'AuiManager':
         """ wx.aui.AuiManager
 
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
         """
 
-    def GetPane(self) -> 'aui.AuiPaneInfo':
+    def GetPane(self) -> 'AuiPaneInfo':
         """ wx.aui.AuiPaneInfo
 
             Source: https://docs.wxpython.org/wx.aui.AuiManagerEvent.html
@@ -1160,8 +1166,8 @@ class AuiManagerEvent(Event):
 
     Button: int  # See GetButton and SetButton
     DC: '_DC'  # See GetDC and SetDC
-    Manager: 'aui.AuiManager'  # See GetManager and SetManager
-    Pane: 'aui.AuiPaneInfo'  # See GetPane and SetPane
+    Manager: 'AuiManager'  # See GetManager and SetManager
+    Pane: 'AuiPaneInfo'  # See GetPane and SetPane
 
 
 
@@ -1219,7 +1225,7 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def CreateFloatingFrame(self, parent, p) -> 'aui.AuiFloatingFrame':
+    def CreateFloatingFrame(self, parent, p) -> 'AuiFloatingFrame':
         """ Creates a floating frame in this   wx.aui.AuiManager  with the given parent and   wx.aui.AuiPaneInfo.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1237,13 +1243,13 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def GetAllPanes(self) -> 'aui.AuiPaneInfoArray':
+    def GetAllPanes(self) -> 'AuiPaneInfoArray':
         """ Returns an array of all panes managed by the frame manager.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def GetArtProvider(self) -> 'aui.AuiDockArt':
+    def GetArtProvider(self) -> 'AuiDockArt':
         """ Returns the current art provider being used.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1268,13 +1274,13 @@ class AuiManager(EvtHandler):
         """
 
     @staticmethod
-    def GetManager(window: 'Window') -> 'aui.AuiManager':
+    def GetManager(window: 'Window') -> 'AuiManager':
         """ Calling this method will return the   wx.aui.AuiManager  for a given window.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    def GetPane(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def GetPane(self, *args, **kw) -> 'AuiPaneInfo':
         """ GetPane   is used to lookup a   wx.aui.AuiPaneInfo  object either by window pointer or by pane name, which acts as a unique id for a window pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
@@ -1394,8 +1400,8 @@ class AuiManager(EvtHandler):
             Source: https://docs.wxpython.org/wx.aui.AuiManager.html
         """
 
-    AllPanes: 'aui.AuiPaneInfoArray'  # See GetAllPanes
-    ArtProvider: 'aui.AuiDockArt'  # See GetArtProvider and SetArtProvider
+    AllPanes: 'AuiPaneInfoArray'  # See GetAllPanes
+    ArtProvider: 'AuiDockArt'  # See GetArtProvider and SetArtProvider
     Flags: int  # See GetFlags and SetFlags
     ManagedWindow: 'Window'  # See GetManagedWindow and SetManagedWindow
 
@@ -1432,13 +1438,13 @@ class AuiFloatingFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
         """
 
-    def GetAuiManager(self) -> 'aui.AuiManager':
+    def GetAuiManager(self) -> 'AuiManager':
         """ Returns the embedded   wx.aui.AuiManager  managing this floating paneâs contents.
 
             Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
         """
 
-    def GetOwnerManager(self) -> 'aui.AuiManager':
+    def GetOwnerManager(self) -> 'AuiManager':
         """ wx.aui.AuiManager
 
             Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
@@ -1450,8 +1456,8 @@ class AuiFloatingFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiFloatingFrame.html
         """
 
-    AuiManager: 'aui.AuiManager'  # See GetAuiManager
-    OwnerManager: 'aui.AuiManager'  # See GetOwnerManager
+    AuiManager: 'AuiManager'  # See GetAuiManager
+    OwnerManager: 'AuiManager'  # See GetOwnerManager
 
 
 
@@ -1496,13 +1502,13 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def GetActiveChild(self) -> 'aui.AuiMDIChildFrame':
+    def GetActiveChild(self) -> 'AuiMDIChildFrame':
         """ wx.aui.AuiMDIChildFrame
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def GetArtProvider(self) -> 'aui.AuiTabArt':
+    def GetArtProvider(self) -> 'AuiTabArt':
         """ wx.aui.AuiTabArt
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
@@ -1515,13 +1521,13 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def GetClientWindow(self) -> 'aui.AuiMDIClientWindow':
+    def GetClientWindow(self) -> 'AuiMDIClientWindow':
         """ wx.aui.AuiMDIClientWindow
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def GetNotebook(self) -> 'aui.AuiNotebook':
+    def GetNotebook(self) -> 'AuiNotebook':
         """ wx.aui.AuiNotebook
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
@@ -1533,7 +1539,7 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    def OnCreateClient(self) -> 'aui.AuiMDIClientWindow':
+    def OnCreateClient(self) -> 'AuiMDIClientWindow':
         """ wx.aui.AuiMDIClientWindow
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
@@ -1575,10 +1581,10 @@ class AuiMDIParentFrame(Frame):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIParentFrame.html
         """
 
-    ActiveChild: 'aui.AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
-    ArtProvider: 'aui.AuiTabArt'  # See GetArtProvider and SetArtProvider
-    ClientWindow: 'aui.AuiMDIClientWindow'  # See GetClientWindow
-    Notebook: 'aui.AuiNotebook'  # See GetNotebook
+    ActiveChild: 'AuiMDIChildFrame'  # See GetActiveChild and SetActiveChild
+    ArtProvider: 'AuiTabArt'  # See GetArtProvider and SetArtProvider
+    ClientWindow: 'AuiMDIClientWindow'  # See GetClientWindow
+    Notebook: 'AuiNotebook'  # See GetNotebook
     WindowMenu: 'Menu'  # See GetWindowMenu and SetWindowMenu
 
 
@@ -1708,7 +1714,7 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def GetMDIParentFrame(self) -> 'aui.AuiMDIParentFrame':
+    def GetMDIParentFrame(self) -> 'AuiMDIParentFrame':
         """ wx.aui.AuiMDIParentFrame
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
@@ -1836,7 +1842,7 @@ class AuiMDIChildFrame(Panel):
 
     Icon: '_Icon'  # See GetIcon and SetIcon
     Icons: 'IconBundle'  # See GetIcons and SetIcons
-    MDIParentFrame: 'aui.AuiMDIParentFrame'  # See GetMDIParentFrame and SetMDIParentFrame
+    MDIParentFrame: 'AuiMDIParentFrame'  # See GetMDIParentFrame and SetMDIParentFrame
     MenuBar: '_MenuBar'  # See GetMenuBar and SetMenuBar
     StatusBar: '_StatusBar'  # See GetStatusBar
     Title: str  # See GetTitle and SetTitle
@@ -1870,7 +1876,7 @@ class AuiSimpleTabArt(AuiTabArt):
             Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
         """
 
-    def Clone(self) -> 'aui.AuiTabArt':
+    def Clone(self) -> 'AuiTabArt':
         """ Clones the art object.
 
             Source: https://docs.wxpython.org/wx.aui.AuiSimpleTabArt.html
@@ -2246,7 +2252,7 @@ class AuiToolBarArt:
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
         """
 
-    def Clone(self) -> 'aui.AuiToolBarArt':
+    def Clone(self) -> 'AuiToolBarArt':
         """ wx.aui.AuiToolBarArt
 
             Source: https://docs.wxpython.org/wx.aui.AuiToolBarArt.html
@@ -2389,139 +2395,139 @@ class AuiPaneInfo:
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def BestSize(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def BestSize(self, *args, **kw) -> 'AuiPaneInfo':
         """ BestSize   sets the ideal size for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Bottom(self) -> 'aui.AuiPaneInfo':
+    def Bottom(self) -> 'AuiPaneInfo':
         """ wx.Bottom       sets the pane dock position to the bottom side of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def BottomDockable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def BottomDockable(self, b: bool=True) -> 'AuiPaneInfo':
         """ BottomDockable   indicates whether a pane can be docked at the bottom of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Caption(self, c: str) -> 'aui.AuiPaneInfo':
+    def Caption(self, c: str) -> 'AuiPaneInfo':
         """ Caption   sets the caption of the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def CaptionVisible(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def CaptionVisible(self, visible: bool=True) -> 'AuiPaneInfo':
         """ CaptionVisible indicates that a pane caption should be visible.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Center(self) -> 'aui.AuiPaneInfo':
+    def Center(self) -> 'AuiPaneInfo':
         """ wx.Center       sets the pane dock position to the left side of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def CenterPane(self) -> 'aui.AuiPaneInfo':
+    def CenterPane(self) -> 'AuiPaneInfo':
         """ CentrePane   specifies that the pane should adopt the default center pane settings.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Centre(self) -> 'aui.AuiPaneInfo':
+    def Centre(self) -> 'AuiPaneInfo':
         """ wx.Center       sets the pane dock position to the left side of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def CentrePane(self) -> 'aui.AuiPaneInfo':
+    def CentrePane(self) -> 'AuiPaneInfo':
         """ CentrePane   specifies that the pane should adopt the default center pane settings.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def CloseButton(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def CloseButton(self, visible: bool=True) -> 'AuiPaneInfo':
         """ CloseButton   indicates that a close button should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def DefaultPane(self) -> 'aui.AuiPaneInfo':
+    def DefaultPane(self) -> 'AuiPaneInfo':
         """ DefaultPane   specifies that the pane should adopt the default pane settings.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def DestroyOnClose(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def DestroyOnClose(self, b: bool=True) -> 'AuiPaneInfo':
         """ DestroyOnClose   indicates whether a pane should be destroyed when it is closed.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Direction(self, direction: int) -> 'aui.AuiPaneInfo':
+    def Direction(self, direction: int) -> 'AuiPaneInfo':
         """ wx.DataObject.Direction  determines the direction of the docked pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Dock(self) -> 'aui.AuiPaneInfo':
+    def Dock(self) -> 'AuiPaneInfo':
         """ Dock   indicates that a pane should be docked.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def DockFixed(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def DockFixed(self, b: bool=True) -> 'AuiPaneInfo':
         """ DockFixed   causes the containing dock to have no resize sash.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Dockable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def Dockable(self, b: bool=True) -> 'AuiPaneInfo':
         """ Dockable   specifies whether a frame can be docked or not.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Fixed(self) -> 'aui.AuiPaneInfo':
+    def Fixed(self) -> 'AuiPaneInfo':
         """ Fixed   forces a pane to be fixed size so that it cannot be resized.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Float(self) -> 'aui.AuiPaneInfo':
+    def Float(self) -> 'AuiPaneInfo':
         """ Float   indicates that a pane should be floated.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Floatable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def Floatable(self, b: bool=True) -> 'AuiPaneInfo':
         """ Floatable   sets whether the user will be able to undock a pane and turn it into a floating window.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def FloatingPosition(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def FloatingPosition(self, *args, **kw) -> 'AuiPaneInfo':
         """ FloatingPosition   sets the position of the floating pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def FloatingSize(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def FloatingSize(self, *args, **kw) -> 'AuiPaneInfo':
         """ FloatingSize   sets the size of the floating pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Gripper(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def Gripper(self, visible: bool=True) -> 'AuiPaneInfo':
         """ Gripper   indicates that a gripper should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def GripperTop(self, attop: bool=True) -> 'aui.AuiPaneInfo':
+    def GripperTop(self, attop: bool=True) -> 'AuiPaneInfo':
         """ GripperTop   indicates that a gripper should be drawn at the top of the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
@@ -2581,13 +2587,13 @@ class AuiPaneInfo:
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Hide(self) -> 'aui.AuiPaneInfo':
+    def Hide(self) -> 'AuiPaneInfo':
         """ Hide   indicates that a pane should be hidden.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Icon(self, b: 'BitmapBundle') -> 'aui.AuiPaneInfo':
+    def Icon(self, b: 'BitmapBundle') -> 'AuiPaneInfo':
         """ wx.Icon  sets the icon of the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
@@ -2683,97 +2689,97 @@ class AuiPaneInfo:
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Layer(self, layer: int) -> 'aui.AuiPaneInfo':
+    def Layer(self, layer: int) -> 'AuiPaneInfo':
         """ Layer   determines the layer of the docked pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Left(self) -> 'aui.AuiPaneInfo':
+    def Left(self) -> 'AuiPaneInfo':
         """ wx.Left       sets the pane dock position to the left side of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def LeftDockable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def LeftDockable(self, b: bool=True) -> 'AuiPaneInfo':
         """ LeftDockable   indicates whether a pane can be docked on the left of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def MaxSize(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def MaxSize(self, *args, **kw) -> 'AuiPaneInfo':
         """ MaxSize   sets the maximum size of the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def MaximizeButton(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def MaximizeButton(self, visible: bool=True) -> 'AuiPaneInfo':
         """ MaximizeButton   indicates that a maximize button should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def MinSize(self, *args, **kw) -> 'aui.AuiPaneInfo':
+    def MinSize(self, *args, **kw) -> 'AuiPaneInfo':
         """ MinSize   sets the minimum size of the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def MinimizeButton(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def MinimizeButton(self, visible: bool=True) -> 'AuiPaneInfo':
         """ MinimizeButton   indicates that a minimize button should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Movable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def Movable(self, b: bool=True) -> 'AuiPaneInfo':
         """ Movable indicates whether a frame can be moved.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Name(self, n: str) -> 'aui.AuiPaneInfo':
+    def Name(self, n: str) -> 'AuiPaneInfo':
         """ Name   sets the name of the pane so it can be referenced in lookup functions.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def PaneBorder(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def PaneBorder(self, visible: bool=True) -> 'AuiPaneInfo':
         """ PaneBorder indicates that a border should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def PinButton(self, visible: bool=True) -> 'aui.AuiPaneInfo':
+    def PinButton(self, visible: bool=True) -> 'AuiPaneInfo':
         """ PinButton   indicates that a pin button should be drawn for the pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Position(self, pos: int) -> 'aui.AuiPaneInfo':
+    def Position(self, pos: int) -> 'AuiPaneInfo':
         """ wx.Position  determines the position of the docked pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Resizable(self, resizable: bool=True) -> 'aui.AuiPaneInfo':
+    def Resizable(self, resizable: bool=True) -> 'AuiPaneInfo':
         """ Resizable   allows a pane to be resized if the parameter is True, and forces it to be a fixed size if the parameter is False.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Right(self) -> 'aui.AuiPaneInfo':
+    def Right(self) -> 'AuiPaneInfo':
         """ wx.Right       sets the pane dock position to the right side of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def RightDockable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def RightDockable(self, b: bool=True) -> 'AuiPaneInfo':
         """ RightDockable   indicates whether a pane can be docked on the right of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Row(self, row: int) -> 'aui.AuiPaneInfo':
+    def Row(self, row: int) -> 'AuiPaneInfo':
         """ Row   determines the row of the docked pane.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
@@ -2785,37 +2791,37 @@ class AuiPaneInfo:
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def SetFlag(self, flag, option_state) -> 'aui.AuiPaneInfo':
+    def SetFlag(self, flag, option_state) -> 'AuiPaneInfo':
         """ SetFlag   turns the property given by flag on or off with the option_state parameter.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Show(self, show: bool=True) -> 'aui.AuiPaneInfo':
+    def Show(self, show: bool=True) -> 'AuiPaneInfo':
         """ Show   indicates that a pane should be shown.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def ToolbarPane(self) -> 'aui.AuiPaneInfo':
+    def ToolbarPane(self) -> 'AuiPaneInfo':
         """ ToolbarPane   specifies that the pane should adopt the default toolbar pane settings.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Top(self) -> 'aui.AuiPaneInfo':
+    def Top(self) -> 'AuiPaneInfo':
         """ wx.Top       sets the pane dock position to the top of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def TopDockable(self, b: bool=True) -> 'aui.AuiPaneInfo':
+    def TopDockable(self, b: bool=True) -> 'AuiPaneInfo':
         """ TopDockable   indicates whether a pane can be docked at the top of the frame.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
         """
 
-    def Window(self, w: 'Window') -> 'aui.AuiPaneInfo':
+    def Window(self, w: 'Window') -> 'AuiPaneInfo':
         """ wx.Window  assigns the window pointer that the   wx.aui.AuiPaneInfo  should use.
 
             Source: https://docs.wxpython.org/wx.aui.AuiPaneInfo.html
@@ -2852,7 +2858,7 @@ class AuiDockArt:
             Source: https://docs.wxpython.org/wx.aui.AuiDockArt.html
         """
 
-    def Clone(self) -> 'aui.AuiDockArt':
+    def Clone(self) -> 'AuiDockArt':
         """ Create a copy of this   wx.aui.AuiDockArt  instance.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDockArt.html
@@ -2945,7 +2951,7 @@ class AuiDefaultToolBarArt(AuiToolBarArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
         """
 
-    def Clone(self) -> 'aui.AuiToolBarArt':
+    def Clone(self) -> 'AuiToolBarArt':
         """ wx.aui.AuiToolBarArt
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultToolBarArt.html
@@ -3088,7 +3094,7 @@ class AuiDefaultDockArt(AuiDockArt):
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultDockArt.html
         """
 
-    def Clone(self) -> 'aui.AuiDockArt':
+    def Clone(self) -> 'AuiDockArt':
         """ Create a copy of this   wx.aui.AuiDockArt  instance.
 
             Source: https://docs.wxpython.org/wx.aui.AuiDefaultDockArt.html

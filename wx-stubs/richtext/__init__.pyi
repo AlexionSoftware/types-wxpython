@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
+from ...adv import PropertySheetDialog
+from .. import (Bitmap, BitmapType, Char, Choice, Colour, ColourData,
+                ComboCtrl, Command, CommandProcessor, Control, Cursor,
+                DataFormat, DataObjectSimple, DateTime, Dialog, Event, Font,
+                HtmlListBox, ImageList, Menu, NotifyEvent, Object,
+                PageSetupDialogData, Panel, Point, Position, PrintData,
+                Printout, Rect, Size, TextAttr, TextPos, VisualAttributes,
+                Window, _Bitmap, _Colour, _CommandProcessor, _Font, _ImageList,
+                _PrintData, _Rect, _Size)
+
 class RichTextCtrl(Control):
     """ RichTextCtrl provides a generic, ground-up implementation of a text
 control capable of showing multiple styles and images.
@@ -13,13 +23,13 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def AddImage(self, image: 'Image') -> 'richtext.RichTextRange':
+    def AddImage(self, image: 'Image') -> 'RichTextRange':
         """ Adds an image to the controlâs buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def AddParagraph(self, text: str) -> 'richtext.RichTextRange':
+    def AddParagraph(self, text: str) -> 'RichTextRange':
         """ Adds a new paragraph of text to the end of the buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -578,7 +588,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def FindContainerAtPoint(self, pt, position, hit, hitObj, flags=0) -> 'richtext.RichTextParagraphLayoutBox':
+    def FindContainerAtPoint(self, pt, position, hit, hitObj, flags=0) -> 'RichTextParagraphLayoutBox':
         """ Finds the container at the given point, which is assumed to be in client coordinates.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -590,7 +600,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def FindRangeForList(self, pos, isNumberedList) -> 'richtext.RichTextRange':
+    def FindRangeForList(self, pos, isNumberedList) -> 'RichTextRange':
         """ Given a character position at which there is a list style, find the range encompassing the same list style by looking backwards and forwards.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -621,13 +631,13 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetBasicStyle(self) -> 'richtext.RichTextAttr':
+    def GetBasicStyle(self) -> 'RichTextAttr':
         """ Gets the basic (overall) style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetBuffer(self) -> 'richtext.RichTextBuffer':
+    def GetBuffer(self) -> 'RichTextBuffer':
         """ Returns the buffer associated with the control.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -676,13 +686,13 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetContextMenuPropertiesInfo(self) -> 'richtext.RichTextContextMenuPropertiesInfo':
+    def GetContextMenuPropertiesInfo(self) -> 'RichTextContextMenuPropertiesInfo':
         """ Returns an object that stores information about context menu property item(s), in order to communicate between the context menu event handler and the code that responds to it.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetDefaultStyleEx(self) -> 'richtext.RichTextAttr':
+    def GetDefaultStyleEx(self) -> 'RichTextAttr':
         """ Returns the current default style, which can be used to change how subsequently inserted text is displayed.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -754,7 +764,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetFocusObject(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetFocusObject(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the   wx.richtext.RichTextObject  object that currently has the editing focus.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -808,7 +818,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetInternalSelectionRange(self) -> 'richtext.RichTextRange':
+    def GetInternalSelectionRange(self) -> 'RichTextRange':
         """ Returns the selection range in character positions.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -898,7 +908,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetSelection(self) -> 'richtext.RichTextSelection':
+    def GetSelection(self) -> 'RichTextSelection':
         """ Returns the range of the current selection.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -910,13 +920,13 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetSelectionAnchorObject(self) -> 'richtext.RichTextObject':
+    def GetSelectionAnchorObject(self) -> 'RichTextObject':
         """ Returns the anchor object if selecting multiple containers.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetSelectionRange(self) -> 'richtext.RichTextRange':
+    def GetSelectionRange(self) -> 'RichTextRange':
         """ Returns the selection range in character positions.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -940,7 +950,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the style sheet associated with the control, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1000,7 +1010,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def GetVisibleLineForCaretPosition(self, caretPosition: int) -> 'richtext.RichTextLine':
+    def GetVisibleLineForCaretPosition(self, caretPosition: int) -> 'RichTextLine':
         """ Internal helper function returning the line for the visible caret position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1480,7 +1490,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def PopStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def PopStyleSheet(self) -> 'RichTextStyleSheet':
         """ Pops the style sheet from top of stack.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1936,7 +1946,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def WriteField(*args, **kwargs) -> 'richtext.RichTextField':
+    def WriteField(*args, **kwargs) -> 'RichTextField':
         """ Writes a field at the current insertion point.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1948,7 +1958,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def WriteTable(*args, **kwargs) -> 'richtext.RichTextTable':
+    def WriteTable(*args, **kwargs) -> 'RichTextTable':
         """ Write a table at the current insertion point, returning the table.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1960,7 +1970,7 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    def WriteTextBox(*args, **kwargs) -> 'richtext.RichTextBox':
+    def WriteTextBox(*args, **kwargs) -> 'RichTextBox':
         """ Write a text box at the current insertion point, returning the text box.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
@@ -1972,16 +1982,16 @@ control capable of showing multiple styles and images.
             Source: https://docs.wxpython.org/wx.richtext.RichTextCtrl.html
         """
 
-    BasicStyle: 'richtext.RichTextAttr'  # See GetBasicStyle and SetBasicStyle
-    Buffer: 'richtext.RichTextBuffer'  # See GetBuffer
+    BasicStyle: 'RichTextAttr'  # See GetBasicStyle and SetBasicStyle
+    Buffer: 'RichTextBuffer'  # See GetBuffer
     CaretAtLineStart: bool  # See GetCaretAtLineStart and SetCaretAtLineStart
     CaretPosition: int  # See GetCaretPosition and SetCaretPosition
     CaretPositionForDefaultStyle: int  # See GetCaretPositionForDefaultStyle and SetCaretPositionForDefaultStyle
     CommandProcessor: '_CommandProcessor'  # See GetCommandProcessor
     ContextMenu: 'Menu'  # See GetContextMenu and SetContextMenu
-    ContextMenuPropertiesInfo: 'richtext.RichTextContextMenuPropertiesInfo'  # See GetContextMenuPropertiesInfo
+    ContextMenuPropertiesInfo: 'RichTextContextMenuPropertiesInfo'  # See GetContextMenuPropertiesInfo
     DefaultStyle: Any  # See GetDefaultStyle and SetDefaultStyle
-    DefaultStyleEx: 'richtext.RichTextAttr'  # See GetDefaultStyleEx
+    DefaultStyleEx: 'RichTextAttr'  # See GetDefaultStyleEx
     DelayedImageLoading: bool  # See GetDelayedImageLoading
     DelayedImageProcessingRequired: bool  # See GetDelayedImageProcessingRequired and SetDelayedImageProcessingRequired
     DelayedImageProcessingTime: int  # See GetDelayedImageProcessingTime and SetDelayedImageProcessingTime
@@ -1993,7 +2003,7 @@ control capable of showing multiple styles and images.
     Filename: str  # See GetFilename and SetFilename
     FirstVisiblePoint: 'Point'  # See GetFirstVisiblePoint
     FirstVisiblePosition: int  # See GetFirstVisiblePosition
-    FocusObject: 'richtext.RichTextParagraphLayoutBox'  # See GetFocusObject and SetFocusObject
+    FocusObject: 'RichTextParagraphLayoutBox'  # See GetFocusObject and SetFocusObject
     FontScale: float  # See GetFontScale and SetFontScale
     FullLayoutRequired: bool  # See GetFullLayoutRequired and SetFullLayoutRequired
     FullLayoutSavedPosition: int  # See GetFullLayoutSavedPosition and SetFullLayoutSavedPosition
@@ -2002,18 +2012,18 @@ control capable of showing multiple styles and images.
     Hint: str  # See GetHint and SetHint
     ImagesEnabled: bool  # See GetImagesEnabled
     InsertionPoint: int  # See GetInsertionPoint and SetInsertionPoint
-    InternalSelectionRange: 'richtext.RichTextRange'  # See GetInternalSelectionRange and SetInternalSelectionRange
+    InternalSelectionRange: 'RichTextRange'  # See GetInternalSelectionRange and SetInternalSelectionRange
     LastPosition: 'TextPos'  # See GetLastPosition
     Margins: 'Point'  # See GetMargins and SetMargins
     NumberOfLines: int  # See GetNumberOfLines
     PreDrag: bool  # See GetPreDrag and SetPreDrag
     Scale: float  # See GetScale and SetScale
-    Selection: 'richtext.RichTextSelection'  # See GetSelection and SetSelection
+    Selection: 'RichTextSelection'  # See GetSelection and SetSelection
     SelectionAnchor: int  # See GetSelectionAnchor and SetSelectionAnchor
-    SelectionAnchorObject: 'richtext.RichTextObject'  # See GetSelectionAnchorObject and SetSelectionAnchorObject
-    SelectionRange: 'richtext.RichTextRange'  # See GetSelectionRange and SetSelectionRange
+    SelectionAnchorObject: 'RichTextObject'  # See GetSelectionAnchorObject and SetSelectionAnchorObject
+    SelectionRange: 'RichTextRange'  # See GetSelectionRange and SetSelectionRange
     StringSelection: str  # See GetStringSelection
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
     TextCursor: 'Cursor'  # See GetTextCursor and SetTextCursor
     URLCursor: 'Cursor'  # See GetURLCursor and SetURLCursor
     Value: str  # See GetValue and SetValue
@@ -2102,13 +2112,13 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleComboCtrl.html
         """
 
-    def GetRichTextCtrl(self) -> 'richtext.RichTextCtrl':
+    def GetRichTextCtrl(self) -> 'RichTextCtrl':
         """ Returns the   wx.richtext.RichTextCtrl  associated with this control.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleComboCtrl.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the style sheet associated with this control.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleComboCtrl.html
@@ -2132,8 +2142,8 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleComboCtrl.html
         """
 
-    RichTextCtrl: 'richtext.RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    RichTextCtrl: 'RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
 
 
 
@@ -2166,7 +2176,7 @@ class RichTextCommand(Command):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCommand.html
         """
 
-    def GetActions(self) -> 'richtext.RichTextActionList':
+    def GetActions(self) -> 'RichTextActionList':
         """ Returns the action list.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCommand.html
@@ -2178,7 +2188,7 @@ class RichTextCommand(Command):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCommand.html
         """
 
-    Actions: 'richtext.RichTextActionList'  # See GetActions
+    Actions: 'RichTextActionList'  # See GetActions
 
 
 
@@ -2207,7 +2217,7 @@ that allows the user to select the category of style to view.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
         """
 
-    def GetRichTextCtrl(self) -> 'richtext.RichTextCtrl':
+    def GetRichTextCtrl(self) -> 'RichTextCtrl':
         """ Returns the associated rich text control, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
@@ -2219,19 +2229,19 @@ that allows the user to select the category of style to view.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
         """
 
-    def GetStyleListBox(self) -> 'richtext.RichTextStyleListBox':
+    def GetStyleListBox(self) -> 'RichTextStyleListBox':
         """ Returns the   wx.ListBox  control used to view the style list.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the associated style sheet, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
         """
 
-    def GetStyleType(self) -> 'richtext.wxRichTextStyleType':
+    def GetStyleType(self) -> 'wxRichTextStyleType':
         """ Returns the type of style to show in the list box.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
@@ -2261,11 +2271,11 @@ that allows the user to select the category of style to view.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListCtrl.html
         """
 
-    RichTextCtrl: 'richtext.RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
+    RichTextCtrl: 'RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
     StyleChoice: 'Choice'  # See GetStyleChoice
-    StyleListBox: 'richtext.RichTextStyleListBox'  # See GetStyleListBox
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
-    StyleType: 'richtext.wxRichTextStyleType'  # See GetStyleType and SetStyleType
+    StyleListBox: 'RichTextStyleListBox'  # See GetStyleListBox
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    StyleType: 'wxRichTextStyleType'  # See GetStyleType and SetStyleType
 
 
 
@@ -2300,7 +2310,7 @@ class RichTextBufferDataObject(DataObjectSimple):
             Source: https://docs.wxpython.org/wx.richtext.RichTextBufferDataObject.html
         """
 
-    def GetRichTextBuffer(self) -> 'richtext.RichTextBuffer':
+    def GetRichTextBuffer(self) -> 'RichTextBuffer':
         """ After a call to this function, the buffer is owned by the caller and it is responsible for deleting it.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBufferDataObject.html
@@ -2320,7 +2330,7 @@ class RichTextBufferDataObject(DataObjectSimple):
         """
 
     DataSize: int  # See GetDataSize
-    RichTextBuffer: 'richtext.RichTextBuffer'  # See GetRichTextBuffer
+    RichTextBuffer: 'RichTextBuffer'  # See GetRichTextBuffer
 
 
 
@@ -2367,7 +2377,7 @@ remove styles.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleOrganiserDialog.html
         """
 
-    def GetRichTextCtrl(self) -> 'richtext.RichTextCtrl':
+    def GetRichTextCtrl(self) -> 'RichTextCtrl':
         """ Returns the associated rich text control (if any).
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleOrganiserDialog.html
@@ -2379,13 +2389,13 @@ remove styles.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleOrganiserDialog.html
         """
 
-    def GetSelectedStyleDefinition(self) -> 'richtext.RichTextStyleDefinition':
+    def GetSelectedStyleDefinition(self) -> 'RichTextStyleDefinition':
         """ Returns selected style definition.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleOrganiserDialog.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the associated style sheet.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleOrganiserDialog.html
@@ -2424,10 +2434,10 @@ remove styles.
 
     Flags: int  # See GetFlags and SetFlags
     RestartNumbering: bool  # See GetRestartNumbering and SetRestartNumbering
-    RichTextCtrl: 'richtext.RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
+    RichTextCtrl: 'RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
     SelectedStyle: str  # See GetSelectedStyle
-    SelectedStyleDefinition: 'richtext.RichTextStyleDefinition'  # See GetSelectedStyleDefinition
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    SelectedStyleDefinition: 'RichTextStyleDefinition'  # See GetSelectedStyleDefinition
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
 
 
 
@@ -2589,7 +2599,7 @@ class RichTextEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
         """
 
-    def GetContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the container for which the event is relevant.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
@@ -2601,19 +2611,19 @@ class RichTextEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
         """
 
-    def GetNewStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetNewStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the new style sheet.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
         """
 
-    def GetOldContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetOldContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the old container, for a focus change event.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
         """
 
-    def GetOldStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetOldStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the old style sheet.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
@@ -2625,7 +2635,7 @@ class RichTextEvent(NotifyEvent):
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
         """
 
-    def GetRange(self) -> 'richtext.RichTextRange':
+    def GetRange(self) -> 'RichTextRange':
         """ Gets the range for the current operation.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextEvent.html
@@ -2680,13 +2690,13 @@ class RichTextEvent(NotifyEvent):
         """
 
     Character: 'Char'  # See GetCharacter and SetCharacter
-    Container: 'richtext.RichTextParagraphLayoutBox'  # See GetContainer and SetContainer
+    Container: 'RichTextParagraphLayoutBox'  # See GetContainer and SetContainer
     Flags: int  # See GetFlags and SetFlags
-    NewStyleSheet: 'richtext.RichTextStyleSheet'  # See GetNewStyleSheet and SetNewStyleSheet
-    OldContainer: 'richtext.RichTextParagraphLayoutBox'  # See GetOldContainer and SetOldContainer
-    OldStyleSheet: 'richtext.RichTextStyleSheet'  # See GetOldStyleSheet and SetOldStyleSheet
+    NewStyleSheet: 'RichTextStyleSheet'  # See GetNewStyleSheet and SetNewStyleSheet
+    OldContainer: 'RichTextParagraphLayoutBox'  # See GetOldContainer and SetOldContainer
+    OldStyleSheet: 'RichTextStyleSheet'  # See GetOldStyleSheet and SetOldStyleSheet
     Position: int  # See GetPosition and SetPosition
-    Range: 'richtext.RichTextRange'  # See GetRange and SetRange
+    Range: 'RichTextRange'  # See GetRange and SetRange
 
 
 
@@ -2755,19 +2765,19 @@ class RichTextAction(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetAttributes(self) -> 'richtext.RichTextAttr':
+    def GetAttributes(self) -> 'RichTextAttr':
         """ Returns the attributes, for single-object commands.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the container that this action refers to, using the container address and top-level buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetContainerAddress(self) -> 'richtext.RichTextObjectAddress':
+    def GetContainerAddress(self) -> 'RichTextObjectAddress':
         """ Returns the address (nested position) of the container within the buffer being manipulated.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
@@ -2785,19 +2795,19 @@ class RichTextAction(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetNewParagraphs(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetNewParagraphs(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the new fragments.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetObject(self) -> 'richtext.RichTextObject':
+    def GetObject(self) -> 'RichTextObject':
         """ Returns the object to replace the one at the position defined by the container address and the actionâs range start position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetOldParagraphs(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetOldParagraphs(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the old fragments.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
@@ -2809,7 +2819,7 @@ class RichTextAction(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    def GetRange(self) -> 'richtext.RichTextRange':
+    def GetRange(self) -> 'RichTextRange':
         """ Returns the range for e.g.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
@@ -2875,16 +2885,16 @@ class RichTextAction(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAction.html
         """
 
-    Attributes: 'richtext.RichTextAttr'  # See GetAttributes
-    Container: 'richtext.RichTextParagraphLayoutBox'  # See GetContainer
-    ContainerAddress: 'richtext.RichTextObjectAddress'  # See GetContainerAddress and SetContainerAddress
+    Attributes: 'RichTextAttr'  # See GetAttributes
+    Container: 'RichTextParagraphLayoutBox'  # See GetContainer
+    ContainerAddress: 'RichTextObjectAddress'  # See GetContainerAddress and SetContainerAddress
     IgnoreFirstTime: bool  # See GetIgnoreFirstTime and SetIgnoreFirstTime
     Name: str  # See GetName
-    NewParagraphs: 'richtext.RichTextParagraphLayoutBox'  # See GetNewParagraphs
-    Object: 'richtext.RichTextObject'  # See GetObject and SetObject
-    OldParagraphs: 'richtext.RichTextParagraphLayoutBox'  # See GetOldParagraphs
+    NewParagraphs: 'RichTextParagraphLayoutBox'  # See GetNewParagraphs
+    Object: 'RichTextObject'  # See GetObject and SetObject
+    OldParagraphs: 'RichTextParagraphLayoutBox'  # See GetOldParagraphs
     Position: int  # See GetPosition and SetPosition
-    Range: 'richtext.RichTextRange'  # See GetRange and SetRange
+    Range: 'RichTextRange'  # See GetRange and SetRange
 
 
 
@@ -2943,7 +2953,7 @@ class RichTextDrawingContext(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextDrawingContext.html
         """
 
-    def GetVirtualAttributes(self, obj: 'richtext.RichTextObject') -> 'richtext.RichTextAttr':
+    def GetVirtualAttributes(self, obj: 'richtext.RichTextObject') -> 'RichTextAttr':
         """ Returns the virtual attributes for this object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextDrawingContext.html
@@ -3730,7 +3740,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3766,7 +3776,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def DoSplit(self, pos: int) -> 'richtext.RichTextObject':
+    def DoSplit(self, pos: int) -> 'RichTextObject':
         """ Do a split from pos, returning an object containing the second part, and setting the first part in âthisâ.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3810,7 +3820,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetAttributes(self) -> 'richtext.RichTextAttr':
+    def GetAttributes(self) -> 'RichTextAttr':
         """ Returns the objectâs attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3841,7 +3851,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetBuffer(self) -> 'richtext.RichTextBuffer':
+    def GetBuffer(self) -> 'RichTextBuffer':
         """ Returns the containing buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3853,7 +3863,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the top-level container of this object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3895,31 +3905,31 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetNaturalSize(self) -> 'richtext.TextAttrSize':
+    def GetNaturalSize(self) -> 'TextAttrSize':
         """ Gets the ânaturalâ size for an object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetOwnRange(self) -> 'richtext.RichTextRange':
+    def GetOwnRange(self) -> 'RichTextRange':
         """ Returns the objectâs own range (valid if top-level).
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetOwnRangeIfTopLevel(self) -> 'richtext.RichTextRange':
+    def GetOwnRangeIfTopLevel(self) -> 'RichTextRange':
         """ Returns the objectâs own range only if a top-level object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetParent(self) -> 'richtext.RichTextObject':
+    def GetParent(self) -> 'RichTextObject':
         """ Returns a pointer to the parent object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetParentContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetParentContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the top-level container of this object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3931,7 +3941,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetProperties(self) -> 'richtext.RichTextProperties':
+    def GetProperties(self) -> 'RichTextProperties':
         """ Returns the objectâs properties.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3943,7 +3953,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetRange(self) -> 'richtext.RichTextRange':
+    def GetRange(self) -> 'RichTextRange':
         """ Returns the objectâs range.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -3967,7 +3977,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def GetSelection(self, start, end) -> 'richtext.RichTextSelection':
+    def GetSelection(self, start, end) -> 'RichTextSelection':
         """ Returns a selection object specifying the selections between start and end character positions.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -4172,7 +4182,7 @@ class RichTextObject(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
         """
 
-    def Split(self, context: 'richtext.RichTextDrawingContext') -> 'richtext.RichTextObject':
+    def Split(self, context: 'richtext.RichTextDrawingContext') -> 'RichTextObject':
         """ Returns the final object in the split objects if this object was split due to differences between sub-object virtual attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObject.html
@@ -4185,27 +4195,27 @@ class RichTextObject(Object):
         """
 
     AbsolutePosition: 'Point'  # See GetAbsolutePosition
-    Attributes: 'richtext.RichTextAttr'  # See GetAttributes and SetAttributes
+    Attributes: 'RichTextAttr'  # See GetAttributes and SetAttributes
     BestSize: 'Size'  # See GetBestSize
     BottomMargin: int  # See GetBottomMargin
-    Buffer: 'richtext.RichTextBuffer'  # See GetBuffer
+    Buffer: 'RichTextBuffer'  # See GetBuffer
     CachedSize: 'Size'  # See GetCachedSize and SetCachedSize
-    Container: 'richtext.RichTextParagraphLayoutBox'  # See GetContainer
+    Container: 'RichTextParagraphLayoutBox'  # See GetContainer
     Descent: int  # See GetDescent and SetDescent
     FloatDirection: int  # See GetFloatDirection
     LeftMargin: int  # See GetLeftMargin
     MaxSize: 'Size'  # See GetMaxSize and SetMaxSize
     MinSize: 'Size'  # See GetMinSize and SetMinSize
     Name: str  # See GetName and SetName
-    NaturalSize: 'richtext.TextAttrSize'  # See GetNaturalSize
-    OwnRange: 'richtext.RichTextRange'  # See GetOwnRange and SetOwnRange
-    OwnRangeIfTopLevel: 'richtext.RichTextRange'  # See GetOwnRangeIfTopLevel
-    Parent: 'richtext.RichTextObject'  # See GetParent and SetParent
-    ParentContainer: 'richtext.RichTextParagraphLayoutBox'  # See GetParentContainer
+    NaturalSize: 'TextAttrSize'  # See GetNaturalSize
+    OwnRange: 'RichTextRange'  # See GetOwnRange and SetOwnRange
+    OwnRangeIfTopLevel: 'RichTextRange'  # See GetOwnRangeIfTopLevel
+    Parent: 'RichTextObject'  # See GetParent and SetParent
+    ParentContainer: 'RichTextParagraphLayoutBox'  # See GetParentContainer
     Position: 'Point'  # See GetPosition and SetPosition
-    Properties: 'richtext.RichTextProperties'  # See GetProperties and SetProperties
+    Properties: 'RichTextProperties'  # See GetProperties and SetProperties
     PropertiesMenuLabel: str  # See GetPropertiesMenuLabel
-    Range: 'richtext.RichTextRange'  # See GetRange and SetRange
+    Range: 'RichTextRange'  # See GetRange and SetRange
     Rect: '_Rect'  # See GetRect
     RightMargin: int  # See GetRightMargin
     TopMargin: int  # See GetTopMargin
@@ -4231,7 +4241,7 @@ printing and previewing.
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrinting.html
         """
 
-    def GetHeaderFooterData(self) -> 'richtext.RichTextHeaderFooterData':
+    def GetHeaderFooterData(self) -> 'RichTextHeaderFooterData':
         """ Returns the internal   wx.richtext.RichTextHeaderFooterData  object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrinting.html
@@ -4370,7 +4380,7 @@ printing and previewing.
         """
 
     FooterText: str  # See GetFooterText and SetFooterText
-    HeaderFooterData: 'richtext.RichTextHeaderFooterData'  # See GetHeaderFooterData and SetHeaderFooterData
+    HeaderFooterData: 'RichTextHeaderFooterData'  # See GetHeaderFooterData and SetHeaderFooterData
     HeaderText: str  # See GetHeaderText and SetHeaderText
     PageSetupData: 'PageSetupDialogData'  # See GetPageSetupData and SetPageSetupData
     ParentWindow: 'Window'  # See GetParentWindow and SetParentWindow
@@ -4421,7 +4431,7 @@ class RichTextProperties(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextProperties.html
         """
 
-    def GetProperties(self) -> 'richtext.RichTextVariantArray':
+    def GetProperties(self) -> 'RichTextVariantArray':
         """ Returns the array of variants implementing the properties.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextProperties.html
@@ -4506,7 +4516,7 @@ class RichTextProperties(Object):
         """
 
     Count: int  # See GetCount
-    Properties: 'richtext.RichTextVariantArray'  # See GetProperties and SetProperties
+    Properties: 'RichTextVariantArray'  # See GetProperties and SetProperties
     PropertyNames: list[str]  # See GetPropertyNames
 
 
@@ -4583,19 +4593,19 @@ class RichTextStyleDefinition(Object):
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleDefinition.html
         """
 
-    def GetProperties(self) -> 'richtext.RichTextProperties':
+    def GetProperties(self) -> 'RichTextProperties':
         """ Returns the definitionâs properties.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleDefinition.html
         """
 
-    def GetStyle(self) -> 'richtext.RichTextAttr':
+    def GetStyle(self) -> 'RichTextAttr':
         """ Returns the attributes associated with this style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleDefinition.html
         """
 
-    def GetStyleMergedWithBase(self, sheet: 'richtext.RichTextStyleSheet') -> 'richtext.RichTextAttr':
+    def GetStyleMergedWithBase(self, sheet: 'richtext.RichTextStyleSheet') -> 'RichTextAttr':
         """ Returns the style attributes combined with the attributes of the specified base style, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleDefinition.html
@@ -4634,8 +4644,8 @@ class RichTextStyleDefinition(Object):
     BaseStyle: str  # See GetBaseStyle and SetBaseStyle
     Description: str  # See GetDescription and SetDescription
     Name: str  # See GetName and SetName
-    Properties: 'richtext.RichTextProperties'  # See GetProperties and SetProperties
-    Style: 'richtext.RichTextAttr'  # See GetStyle and SetStyle
+    Properties: 'RichTextProperties'  # See GetProperties and SetProperties
+    Style: 'RichTextAttr'  # See GetStyle and SetStyle
 
 
 
@@ -4682,31 +4692,31 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def FindCharacterStyle(self, name, recurse=True) -> 'richtext.RichTextCharacterStyleDefinition':
+    def FindCharacterStyle(self, name, recurse=True) -> 'RichTextCharacterStyleDefinition':
         """ Finds a character definition by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def FindListStyle(self, name, recurse=True) -> 'richtext.RichTextListStyleDefinition':
+    def FindListStyle(self, name, recurse=True) -> 'RichTextListStyleDefinition':
         """ Finds a list definition by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def FindParagraphStyle(self, name, recurse=True) -> 'richtext.RichTextParagraphStyleDefinition':
+    def FindParagraphStyle(self, name, recurse=True) -> 'RichTextParagraphStyleDefinition':
         """ Finds a paragraph definition by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def FindStyle(self, name: str) -> 'richtext.RichTextStyleDefinition':
+    def FindStyle(self, name: str) -> 'RichTextStyleDefinition':
         """ Finds a style definition by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def GetCharacterStyle(self, n: int) -> 'richtext.RichTextCharacterStyleDefinition':
+    def GetCharacterStyle(self, n: int) -> 'RichTextCharacterStyleDefinition':
         """ Returns the nth  character style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
@@ -4724,7 +4734,7 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def GetListStyle(self, n: int) -> 'richtext.RichTextListStyleDefinition':
+    def GetListStyle(self, n: int) -> 'RichTextListStyleDefinition':
         """ Returns the nth  list style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
@@ -4742,7 +4752,7 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def GetParagraphStyle(self, n: int) -> 'richtext.RichTextParagraphStyleDefinition':
+    def GetParagraphStyle(self, n: int) -> 'RichTextParagraphStyleDefinition':
         """ Returns the nth  paragraph style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
@@ -4754,7 +4764,7 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
         """
 
-    def GetProperties(self) -> 'richtext.RichTextProperties':
+    def GetProperties(self) -> 'RichTextProperties':
         """ Returns the sheetâs properties.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleSheet.html
@@ -4807,7 +4817,7 @@ RichTextCtrl.
     ListStyleCount: int  # See GetListStyleCount
     Name: str  # See GetName and SetName
     ParagraphStyleCount: int  # See GetParagraphStyleCount
-    Properties: 'richtext.RichTextProperties'  # See GetProperties and SetProperties
+    Properties: 'RichTextProperties'  # See GetProperties and SetProperties
 
 
 
@@ -4828,7 +4838,7 @@ class RichTextPrintout(Printout):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrintout.html
         """
 
-    def GetHeaderFooterData(self) -> 'richtext.RichTextHeaderFooterData':
+    def GetHeaderFooterData(self) -> 'RichTextHeaderFooterData':
         """ Returns the header and footer data associated with the printout.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrintout.html
@@ -4840,7 +4850,7 @@ class RichTextPrintout(Printout):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrintout.html
         """
 
-    def GetRichTextBuffer(self) -> 'richtext.RichTextBuffer':
+    def GetRichTextBuffer(self) -> 'RichTextBuffer':
         """ Returns a pointer to the buffer being rendered.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrintout.html
@@ -4882,8 +4892,8 @@ class RichTextPrintout(Printout):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPrintout.html
         """
 
-    HeaderFooterData: 'richtext.RichTextHeaderFooterData'  # See GetHeaderFooterData and SetHeaderFooterData
-    RichTextBuffer: 'richtext.RichTextBuffer'  # See GetRichTextBuffer and SetRichTextBuffer
+    HeaderFooterData: 'RichTextHeaderFooterData'  # See GetHeaderFooterData and SetHeaderFooterData
+    RichTextBuffer: 'RichTextBuffer'  # See GetRichTextBuffer and SetRichTextBuffer
 
 
 
@@ -4922,7 +4932,7 @@ class RichTextAttr(TextAttr):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAttr.html
         """
 
-    def GetTextBoxAttr(self) -> 'richtext.TextBoxAttr':
+    def GetTextBoxAttr(self) -> 'TextBoxAttr':
         """ Returns the text box attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextAttr.html
@@ -4952,7 +4962,7 @@ class RichTextAttr(TextAttr):
             Source: https://docs.wxpython.org/wx.richtext.RichTextAttr.html
         """
 
-    TextBoxAttr: 'richtext.TextBoxAttr'  # See GetTextBoxAttr and SetTextBoxAttr
+    TextBoxAttr: 'TextBoxAttr'  # See GetTextBoxAttr and SetTextBoxAttr
     m_textBoxAttr: Any  # A public C++ attribute of type TextBoxAttr     .
 
 
@@ -5039,7 +5049,7 @@ buffer.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def AddParagraph(self, text, paraStyle=None) -> 'richtext.RichTextRange':
+    def AddParagraph(self, text, paraStyle=None) -> 'RichTextRange':
         """ Convenience function to add a paragraph of text.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5216,7 +5226,7 @@ buffer.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5373,48 +5383,48 @@ buffer.
         """
 
     @staticmethod
-    def FindDrawingHandler(name: str) -> 'richtext.RichTextDrawingHandler':
+    def FindDrawingHandler(name: str) -> 'RichTextDrawingHandler':
         """ Finds a drawing handler by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
     @staticmethod
-    def FindFieldType(name: str) -> 'richtext.RichTextFieldType':
+    def FindFieldType(name: str) -> 'RichTextFieldType':
         """ Finds a field type by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
     @staticmethod
-    def FindHandlerByType(imageType: RichTextFileType) -> 'richtext.RichTextFileHandler':
+    def FindHandlerByType(imageType: RichTextFileType) -> 'RichTextFileHandler':
         """ Finds a handler by type.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
     @staticmethod
-    def FindHandlerByExtension(extension, imageType) -> 'richtext.RichTextFileHandler':
+    def FindHandlerByExtension(extension, imageType) -> 'RichTextFileHandler':
         """ Finds a file handler by extension and type.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
     @staticmethod
-    def FindHandlerByName(name: str) -> 'richtext.RichTextFileHandler':
+    def FindHandlerByName(name: str) -> 'RichTextFileHandler':
         """ Finds a file handler by name.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
     @staticmethod
-    def FindHandlerByFilename(filename, imageType) -> 'richtext.RichTextFileHandler':
+    def FindHandlerByFilename(filename, imageType) -> 'RichTextFileHandler':
         """ Finds a handler by filename or, if supplied, type.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def GetBatchedCommand(self) -> 'richtext.RichTextCommand':
+    def GetBatchedCommand(self) -> 'RichTextCommand':
         """ Returns the collapsed command.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5475,7 +5485,7 @@ those filter types to the file handler type.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def GetFontTable(self) -> 'richtext.RichTextFontTable':
+    def GetFontTable(self) -> 'RichTextFontTable':
         """ Returns the table storing fonts, for quick access and font reuse.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5495,7 +5505,7 @@ those filter types to the file handler type.
         """
 
     @staticmethod
-    def GetRenderer() -> 'richtext.RichTextRenderer':
+    def GetRenderer() -> 'RichTextRenderer':
         """ Returns the renderer object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5507,7 +5517,7 @@ those filter types to the file handler type.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the style sheet.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5564,7 +5574,7 @@ those filter types to the file handler type.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def InsertObjectWithUndo(self, pos, object, ctrl, flags) -> 'richtext.RichTextObject':
+    def InsertObjectWithUndo(self, pos, object, ctrl, flags) -> 'RichTextObject':
         """ Submits a command to insert an object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5606,7 +5616,7 @@ those filter types to the file handler type.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    def PopStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def PopStyleSheet(self) -> 'RichTextStyleSheet':
         """ Pops the style sheet from the top of the style sheet stack.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
@@ -5745,14 +5755,14 @@ those filter types to the file handler type.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBuffer.html
         """
 
-    BatchedCommand: 'richtext.RichTextCommand'  # See GetBatchedCommand
+    BatchedCommand: 'RichTextCommand'  # See GetBatchedCommand
     CommandProcessor: '_CommandProcessor'  # See GetCommandProcessor
     DimensionScale: float  # See GetDimensionScale and SetDimensionScale
     FontScale: float  # See GetFontScale and SetFontScale
-    FontTable: 'richtext.RichTextFontTable'  # See GetFontTable and SetFontTable
+    FontTable: 'RichTextFontTable'  # See GetFontTable and SetFontTable
     HandlerFlags: int  # See GetHandlerFlags and SetHandlerFlags
     Scale: float  # See GetScale and SetScale
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
     StyleStackSize: int  # See GetStyleStackSize
 
 
@@ -5774,7 +5784,7 @@ class RichTextRange:
             Source: https://docs.wxpython.org/wx.richtext.RichTextRange.html
         """
 
-    def FromInternal(self) -> 'richtext.RichTextRange':
+    def FromInternal(self) -> 'RichTextRange':
         """ Converts the internal range, which uses the first and last character positions of the range, to the API-standard range, whose end is one past the last character in the range.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextRange.html
@@ -5852,7 +5862,7 @@ class RichTextRange:
             Source: https://docs.wxpython.org/wx.richtext.RichTextRange.html
         """
 
-    def ToInternal(self) -> 'richtext.RichTextRange':
+    def ToInternal(self) -> 'RichTextRange':
         """ Converts the API-standard range, whose end is one past the last character in the range, to the internal form, which uses the first and last character positions of the range.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextRange.html
@@ -5953,19 +5963,19 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def AddImage(self, image, paraStyle=None) -> 'richtext.RichTextRange':
+    def AddImage(self, image, paraStyle=None) -> 'RichTextRange':
         """ Convenience function to add an image.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def AddParagraph(self, text, paraStyle=None) -> 'richtext.RichTextRange':
+    def AddParagraph(self, text, paraStyle=None) -> 'RichTextRange':
         """ Convenience function to add a paragraph of text.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def AddParagraphs(self, text, paraStyle=None) -> 'richtext.RichTextRange':
+    def AddParagraphs(self, text, paraStyle=None) -> 'RichTextRange':
         """ Adds multiple paragraphs, based on newlines.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -5989,7 +5999,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6061,19 +6071,19 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetBasicStyle(self) -> 'richtext.RichTextAttr':
+    def GetBasicStyle(self) -> 'RichTextAttr':
         """ Returns the basic (overall) style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetDefaultStyle(self) -> 'richtext.RichTextAttr':
+    def GetDefaultStyle(self) -> 'RichTextAttr':
         """ Returns the current default style, affecting the style currently being applied (for example, setting the default style to bold will cause subsequently inserted text to be bold).
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetFloatCollector(self) -> 'richtext.RichTextFloatCollector':
+    def GetFloatCollector(self) -> 'RichTextFloatCollector':
         """ Returns the RichTextFloatCollector of this object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6091,25 +6101,25 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetInvalidRange(self, wholeParagraphs: bool=False) -> 'richtext.RichTextRange':
+    def GetInvalidRange(self, wholeParagraphs: bool=False) -> 'RichTextRange':
         """ Get invalid range, rounding to entire paragraphs if argument is True.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetLeafObjectAtPosition(self, position: int) -> 'richtext.RichTextObject':
+    def GetLeafObjectAtPosition(self, position: int) -> 'RichTextObject':
         """ Returns the leaf object in a paragraph at this position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetLineAtPosition(self, pos, caretPosition=False) -> 'richtext.RichTextLine':
+    def GetLineAtPosition(self, pos, caretPosition=False) -> 'RichTextLine':
         """ Returns the line at the given position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetLineAtYPosition(self, y: int) -> 'richtext.RichTextLine':
+    def GetLineAtYPosition(self, y: int) -> 'RichTextLine':
         """ Returns the line at the given y pixel position, or the last line.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6121,7 +6131,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetLineForVisibleLineNumber(self, lineNumber: int) -> 'richtext.RichTextLine':
+    def GetLineForVisibleLineNumber(self, lineNumber: int) -> 'RichTextLine':
         """ Given a line number, returns the corresponding   wx.richtext.RichTextLine  object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6133,13 +6143,13 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetParagraphAtLine(self, paragraphNumber: int) -> 'richtext.RichTextParagraph':
+    def GetParagraphAtLine(self, paragraphNumber: int) -> 'RichTextParagraph':
         """ Returns the paragraph by number.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetParagraphAtPosition(self, pos, caretPosition=False) -> 'richtext.RichTextParagraph':
+    def GetParagraphAtPosition(self, pos, caretPosition=False) -> 'RichTextParagraph':
         """ Returns the paragraph at the given character or caret position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6151,7 +6161,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetParagraphForLine(self, line: 'richtext.RichTextLine') -> 'richtext.RichTextParagraph':
+    def GetParagraphForLine(self, line: 'richtext.RichTextLine') -> 'RichTextParagraph':
         """ Returns the paragraph for a given line.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6181,7 +6191,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetRichTextCtrl(self) -> 'richtext.RichTextCtrl':
+    def GetRichTextCtrl(self) -> 'RichTextCtrl':
         """ Returns the associated control.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6193,7 +6203,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetStyleForNewParagraph(self, buffer, pos, caretPosition=False, lookUpNewParaStyle=False) -> 'richtext.RichTextAttr':
+    def GetStyleForNewParagraph(self, buffer, pos, caretPosition=False, lookUpNewParaStyle=False) -> 'RichTextAttr':
         """ Returns the style that is appropriate for a new paragraph at this position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6205,7 +6215,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the style sheet associated with the overall buffer.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6271,7 +6281,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def InsertFieldWithUndo(self, buffer, pos, fieldType, properties, ctrl, flags, textAttr) -> 'richtext.RichTextField':
+    def InsertFieldWithUndo(self, buffer, pos, fieldType, properties, ctrl, flags, textAttr) -> 'RichTextField':
         """ Submits a command to insert the given field.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6295,7 +6305,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    def InsertObjectWithUndo(self, buffer, pos, object, ctrl, flags=0) -> 'richtext.RichTextObject':
+    def InsertObjectWithUndo(self, buffer, pos, object, ctrl, flags=0) -> 'RichTextObject':
         """ Inserts an object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
@@ -6445,16 +6455,16 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraphLayoutBox.html
         """
 
-    BasicStyle: 'richtext.RichTextAttr'  # See GetBasicStyle and SetBasicStyle
-    DefaultStyle: 'richtext.RichTextAttr'  # See GetDefaultStyle and SetDefaultStyle
-    FloatCollector: 'richtext.RichTextFloatCollector'  # See GetFloatCollector
+    BasicStyle: 'RichTextAttr'  # See GetBasicStyle and SetBasicStyle
+    DefaultStyle: 'RichTextAttr'  # See GetDefaultStyle and SetDefaultStyle
+    FloatCollector: 'RichTextFloatCollector'  # See GetFloatCollector
     FloatingObjectCount: int  # See GetFloatingObjectCount
-    InvalidRange: 'richtext.RichTextRange'  # See GetInvalidRange
+    InvalidRange: 'RichTextRange'  # See GetInvalidRange
     LineCount: int  # See GetLineCount
     ParagraphCount: int  # See GetParagraphCount
     PartialParagraph: bool  # See GetPartialParagraph and SetPartialParagraph
-    RichTextCtrl: 'richtext.RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet
+    RichTextCtrl: 'RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet
     Text: str  # See GetText
     XMLNodeName: str  # See GetXMLNodeName
 
@@ -6509,7 +6519,7 @@ class RichTextTable(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
@@ -6563,7 +6573,7 @@ class RichTextTable(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
         """
 
-    def GetCell(self, *args, **kw) -> 'richtext.RichTextCell':
+    def GetCell(self, *args, **kw) -> 'RichTextCell':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
@@ -6575,7 +6585,7 @@ class RichTextTable(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
         """
 
-    def GetCells(self) -> 'richtext.RichTextObjectPtrArrayArray':
+    def GetCells(self) -> 'RichTextObjectPtrArrayArray':
         """ Returns the cells array.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
@@ -6611,7 +6621,7 @@ class RichTextTable(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
         """
 
-    def GetSelection(self, start, end) -> 'richtext.RichTextSelection':
+    def GetSelection(self, start, end) -> 'RichTextSelection':
         """ Returns a selection object specifying the selections between start and end character positions.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
@@ -6659,7 +6669,7 @@ class RichTextTable(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextTable.html
         """
 
-    Cells: 'richtext.RichTextObjectPtrArrayArray'  # See GetCells
+    Cells: 'RichTextObjectPtrArrayArray'  # See GetCells
     ColumnCount: int  # See GetColumnCount
     FocusedCell: 'Position'  # See GetFocusedCell
     PropertiesMenuLabel: str  # See GetPropertiesMenuLabel
@@ -6722,13 +6732,13 @@ in the context menu, whose properties are available to be edited.
             Source: https://docs.wxpython.org/wx.richtext.RichTextContextMenuPropertiesInfo.html
         """
 
-    def GetObject(self, n: int) -> 'richtext.RichTextObject':
+    def GetObject(self, n: int) -> 'RichTextObject':
         """ Returns the nth object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextContextMenuPropertiesInfo.html
         """
 
-    def GetObjects(self) -> 'richtext.RichTextObjectPtrArray':
+    def GetObjects(self) -> 'RichTextObjectPtrArray':
         """ Returns the array of objects.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextContextMenuPropertiesInfo.html
@@ -6742,7 +6752,7 @@ in the context menu, whose properties are available to be edited.
 
     Count: int  # See GetCount
     Labels: list[str]  # See GetLabels
-    Objects: 'richtext.RichTextObjectPtrArray'  # See GetObjects
+    Objects: 'RichTextObjectPtrArray'  # See GetObjects
     m_labels: Any  # A public C++ attribute of type list of strings.
     m_objects: Any  # A public C++ attribute of type RichTextObjectPtrArray.
 
@@ -6771,7 +6781,7 @@ class RichTextSelection:
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
         """
 
-    def GetContainer(self) -> 'richtext.RichTextParagraphLayoutBox':
+    def GetContainer(self) -> 'RichTextParagraphLayoutBox':
         """ Returns the container for which the selection is valid.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
@@ -6783,19 +6793,19 @@ class RichTextSelection:
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
         """
 
-    def GetRange(self, *args, **kw) -> 'richtext.RichTextRange':
+    def GetRange(self, *args, **kw) -> 'RichTextRange':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
         """
 
-    def GetRanges(self) -> 'richtext.RichTextRangeArray':
+    def GetRanges(self) -> 'RichTextRangeArray':
         """ Returns the selection ranges.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
         """
 
-    def GetSelectionForObject(self, obj: 'richtext.RichTextObject') -> 'richtext.RichTextRangeArray':
+    def GetSelectionForObject(self, obj: 'richtext.RichTextObject') -> 'RichTextRangeArray':
         """ Returns the selection appropriate to the specified object, if any; returns an empty array if none at the level of the objectâs container.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
@@ -6861,10 +6871,10 @@ class RichTextSelection:
             Source: https://docs.wxpython.org/wx.richtext.RichTextSelection.html
         """
 
-    Container: 'richtext.RichTextParagraphLayoutBox'  # See GetContainer and SetContainer
+    Container: 'RichTextParagraphLayoutBox'  # See GetContainer and SetContainer
     Count: int  # See GetCount
-    Range: 'richtext.RichTextRange'  # See GetRange and SetRange
-    Ranges: 'richtext.RichTextRangeArray'  # See GetRanges and SetRanges
+    Range: 'RichTextRange'  # See GetRange and SetRange
+    Ranges: 'RichTextRangeArray'  # See GetRanges and SetRanges
     m_container: Any  # A public C++ attribute of type RichTextParagraphLayoutBox     .
     m_ranges: Any  # A public C++ attribute of type RichTextRangeArray.
 
@@ -6885,7 +6895,7 @@ the line.
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
         """
 
-    def Clone(self) -> 'richtext.RichTextLine':
+    def Clone(self) -> 'RichTextLine':
         """ wx.richtext.RichTextLine
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
@@ -6903,7 +6913,7 @@ the line.
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
         """
 
-    def GetAbsoluteRange(self) -> 'richtext.RichTextRange':
+    def GetAbsoluteRange(self) -> 'RichTextRange':
         """ Returns the absolute range.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
@@ -6915,7 +6925,7 @@ the line.
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
         """
 
-    def GetParent(self) -> 'richtext.RichTextParagraph':
+    def GetParent(self) -> 'RichTextParagraph':
         """ Returns the parent paragraph.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
@@ -6927,7 +6937,7 @@ the line.
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
         """
 
-    def GetRange(self) -> 'richtext.RichTextRange':
+    def GetRange(self) -> 'RichTextRange':
         """ Returns the range.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextLine.html
@@ -6976,11 +6986,11 @@ the line.
         """
 
     AbsolutePosition: 'Point'  # See GetAbsolutePosition
-    AbsoluteRange: 'richtext.RichTextRange'  # See GetAbsoluteRange
+    AbsoluteRange: 'RichTextRange'  # See GetAbsoluteRange
     Descent: int  # See GetDescent and SetDescent
-    Parent: 'richtext.RichTextParagraph'  # See GetParent
+    Parent: 'RichTextParagraph'  # See GetParent
     Position: 'Point'  # See GetPosition and SetPosition
-    Range: 'richtext.RichTextRange'  # See GetRange and SetRange
+    Range: 'RichTextRange'  # See GetRange and SetRange
     Rect: '_Rect'  # See GetRect
     Size: '_Size'  # See GetSize and SetSize
 
@@ -6998,7 +7008,7 @@ RichTextStyleSheet.
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
         """
 
-    def CombineWithParagraphStyle(self, indent, paraStyle, styleSheet=None) -> 'richtext.RichTextAttr':
+    def CombineWithParagraphStyle(self, indent, paraStyle, styleSheet=None) -> 'RichTextAttr':
         """ This function combines the given paragraph style with the list styleâs base attributes and level style matching the given indent, returning the combined attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
@@ -7010,19 +7020,19 @@ RichTextStyleSheet.
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
         """
 
-    def GetCombinedStyle(self, indent, styleSheet=None) -> 'richtext.RichTextAttr':
+    def GetCombinedStyle(self, indent, styleSheet=None) -> 'RichTextAttr':
         """ This function combines the list styleâs base attributes and the level style matching the given indent, returning the combined attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
         """
 
-    def GetCombinedStyleForLevel(self, level, styleSheet=None) -> 'richtext.RichTextAttr':
+    def GetCombinedStyleForLevel(self, level, styleSheet=None) -> 'RichTextAttr':
         """ This function combines the list styleâs base attributes and the style for the specified level, returning the combined attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
         """
 
-    def GetLevelAttributes(self, level: int) -> 'richtext.RichTextAttr':
+    def GetLevelAttributes(self, level: int) -> 'RichTextAttr':
         """ Returns the style for the given level.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextListStyleDefinition.html
@@ -7081,7 +7091,7 @@ page number, a table of contents, and so on.
             Source: https://docs.wxpython.org/wx.richtext.RichTextField.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextField.html
@@ -7400,7 +7410,7 @@ paragraphs.
             Source: https://docs.wxpython.org/wx.richtext.RichTextBox.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextBox.html
@@ -7491,25 +7501,25 @@ RichTextCtrl.
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListBox.html
         """
 
-    def GetRichTextCtrl(self) -> 'richtext.RichTextCtrl':
+    def GetRichTextCtrl(self) -> 'RichTextCtrl':
         """ Returns the   wx.richtext.RichTextCtrl  associated with this listbox.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListBox.html
         """
 
-    def GetStyle(self, i: int) -> 'richtext.RichTextStyleDefinition':
+    def GetStyle(self, i: int) -> 'RichTextStyleDefinition':
         """ Gets a style for a listbox index.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListBox.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Returns the style sheet associated with this listbox.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListBox.html
         """
 
-    def GetStyleType(self) -> 'richtext.wxRichTextStyleType':
+    def GetStyleType(self) -> 'wxRichTextStyleType':
         """ Returns the type of style to show in the list box.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextStyleListBox.html
@@ -7558,9 +7568,9 @@ RichTextCtrl.
         """
 
     ApplyOnSelection: bool  # See GetApplyOnSelection and SetApplyOnSelection
-    RichTextCtrl: 'richtext.RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
-    StyleType: 'richtext.wxRichTextStyleType'  # See GetStyleType and SetStyleType
+    RichTextCtrl: 'RichTextCtrl'  # See GetRichTextCtrl and SetRichTextCtrl
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet and SetStyleSheet
+    StyleType: 'wxRichTextStyleType'  # See GetStyleType and SetStyleType
 
 
 
@@ -7619,7 +7629,7 @@ style.
         """
 
     @staticmethod
-    def GetDialog(win: 'Window') -> 'richtext.RichTextFormattingDialog':
+    def GetDialog(win: 'Window') -> 'RichTextFormattingDialog':
         """ Helper for pages to get the top-level dialog.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
@@ -7633,14 +7643,14 @@ style.
         """
 
     @staticmethod
-    def GetDialogStyleDefinition(win: 'Window') -> 'richtext.RichTextStyleDefinition':
+    def GetDialogStyleDefinition(win: 'Window') -> 'RichTextStyleDefinition':
         """ Helper for pages to get the style.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
         """
 
     @staticmethod
-    def GetFormattingDialogFactory() -> 'richtext.RichTextFormattingDialogFactory':
+    def GetFormattingDialogFactory() -> 'RichTextFormattingDialogFactory':
         """ Returns the object to be used to customize the dialog and provide pages.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
@@ -7678,13 +7688,13 @@ style.
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
         """
 
-    def GetStyleDefinition(self) -> 'richtext.RichTextStyleDefinition':
+    def GetStyleDefinition(self) -> 'RichTextStyleDefinition':
         """ Gets the associated style definition, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
         """
 
-    def GetStyleSheet(self) -> 'richtext.RichTextStyleSheet':
+    def GetStyleSheet(self) -> 'RichTextStyleSheet':
         """ Gets the associated style sheet, if any.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextFormattingDialog.html
@@ -7763,8 +7773,8 @@ style.
     Attributes: 'TextAttr'  # See GetAttributes and SetAttributes
     ImageList: '_ImageList'  # See GetImageList and SetImageList
     Options: int  # See GetOptions and SetOptions
-    StyleDefinition: 'richtext.RichTextStyleDefinition'  # See GetStyleDefinition and SetStyleDefinition
-    StyleSheet: 'richtext.RichTextStyleSheet'  # See GetStyleSheet
+    StyleDefinition: 'RichTextStyleDefinition'  # See GetStyleDefinition and SetStyleDefinition
+    StyleSheet: 'RichTextStyleSheet'  # See GetStyleSheet
 
 
 
@@ -7799,7 +7809,7 @@ recreate sub-objects so physical object addresses change.
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
         """
 
-    def GetObject(self, topLevelContainer: 'richtext.RichTextParagraphLayoutBox') -> 'richtext.RichTextObject':
+    def GetObject(self, topLevelContainer: 'richtext.RichTextParagraphLayoutBox') -> 'RichTextObject':
         """ Returns the object specified by the address, given a top level container.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
@@ -7850,7 +7860,7 @@ class RichTextPlainText(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
@@ -7868,7 +7878,7 @@ class RichTextPlainText(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
         """
 
-    def DoSplit(self, pos: int) -> 'richtext.RichTextObject':
+    def DoSplit(self, pos: int) -> 'RichTextObject':
         """ Do a split from pos, returning an object containing the second part, and setting the first part in âthisâ.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
@@ -7940,7 +7950,7 @@ class RichTextPlainText(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
         """
 
-    def Split(self, context: 'richtext.RichTextDrawingContext') -> 'richtext.RichTextObject':
+    def Split(self, context: 'richtext.RichTextDrawingContext') -> 'RichTextObject':
         """ Returns the final object in the split objects if this object was split due to differences between sub-object virtual attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextPlainText.html
@@ -8199,13 +8209,13 @@ class RichTextCompositeObject(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
         """
 
-    def GetChild(self, n: int) -> 'richtext.RichTextObject':
+    def GetChild(self, n: int) -> 'RichTextObject':
         """ Returns the nth child.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
         """
 
-    def GetChildAtPosition(self, pos: int) -> 'richtext.RichTextObject':
+    def GetChildAtPosition(self, pos: int) -> 'RichTextObject':
         """ Returns the child object at the given character position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
@@ -8217,7 +8227,7 @@ class RichTextCompositeObject(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
         """
 
-    def GetChildren(self) -> 'richtext.RichTextObjectList':
+    def GetChildren(self) -> 'RichTextObjectList':
         """ Returns the children.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCompositeObject.html
@@ -8284,7 +8294,7 @@ class RichTextCompositeObject(RichTextObject):
         """
 
     ChildCount: int  # See GetChildCount
-    Children: 'richtext.RichTextObjectList'  # See GetChildren
+    Children: 'RichTextObjectList'  # See GetChildren
 
 
 
@@ -8305,7 +8315,7 @@ class RichTextImage(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the image object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
@@ -8329,7 +8339,7 @@ class RichTextImage(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
         """
 
-    def GetImageBlock(self) -> 'richtext.RichTextImageBlock':
+    def GetImageBlock(self) -> 'RichTextImageBlock':
         """ Returns the image block containing the raw data.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
@@ -8347,7 +8357,7 @@ class RichTextImage(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
         """
 
-    def GetNaturalSize(self) -> 'richtext.TextAttrSize':
+    def GetNaturalSize(self) -> 'TextAttrSize':
         """ Returns the ânaturalâ size for this object - the image size.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
@@ -8443,10 +8453,10 @@ class RichTextImage(RichTextObject):
             Source: https://docs.wxpython.org/wx.richtext.RichTextImage.html
         """
 
-    ImageBlock: 'richtext.RichTextImageBlock'  # See GetImageBlock
+    ImageBlock: 'RichTextImageBlock'  # See GetImageBlock
     ImageCache: 'Bitmap'  # See GetImageCache and SetImageCache
     ImageState: int  # See GetImageState and SetImageState
-    NaturalSize: 'richtext.TextAttrSize'  # See GetNaturalSize
+    NaturalSize: 'TextAttrSize'  # See GetNaturalSize
     OriginalImageSize: 'Size'  # See GetOriginalImageSize and SetOriginalImageSize
     PropertiesMenuLabel: str  # See GetPropertiesMenuLabel
     XMLNodeName: str  # See GetXMLNodeName
@@ -8482,25 +8492,25 @@ class TextAttrBorders:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
         """
 
-    def GetBottom(self) -> 'richtext.TextAttrBorder':
+    def GetBottom(self) -> 'TextAttrBorder':
         """ wx.richtext.TextAttrBorder
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
         """
 
-    def GetLeft(self) -> 'richtext.TextAttrBorder':
+    def GetLeft(self) -> 'TextAttrBorder':
         """ wx.richtext.TextAttrBorder
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
         """
 
-    def GetRight(self) -> 'richtext.TextAttrBorder':
+    def GetRight(self) -> 'TextAttrBorder':
         """ wx.richtext.TextAttrBorder
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
         """
 
-    def GetTop(self) -> 'richtext.TextAttrBorder':
+    def GetTop(self) -> 'TextAttrBorder':
         """ wx.richtext.TextAttrBorder
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
@@ -8560,10 +8570,10 @@ class TextAttrBorders:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorders.html
         """
 
-    Bottom: 'richtext.TextAttrBorder'  # See GetBottom
-    Left: 'richtext.TextAttrBorder'  # See GetLeft
-    Right: 'richtext.TextAttrBorder'  # See GetRight
-    Top: 'richtext.TextAttrBorder'  # See GetTop
+    Bottom: 'TextAttrBorder'  # See GetBottom
+    Left: 'TextAttrBorder'  # See GetLeft
+    Right: 'TextAttrBorder'  # See GetRight
+    Top: 'TextAttrBorder'  # See GetTop
     m_bottom: Any  # A public C++ attribute of type TextAttrBorder     .
     m_left: Any  # A public C++ attribute of type TextAttrBorder     .
     m_right: Any  # A public C++ attribute of type TextAttrBorder     .
@@ -8600,13 +8610,13 @@ class TextAttrSize:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrSize.html
         """
 
-    def GetHeight(self) -> 'richtext.TextAttrDimension':
+    def GetHeight(self) -> 'TextAttrDimension':
         """ Gets the height.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrSize.html
         """
 
-    def GetWidth(self) -> 'richtext.TextAttrDimension':
+    def GetWidth(self) -> 'TextAttrDimension':
         """ Returns the width.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrSize.html
@@ -8660,8 +8670,8 @@ class TextAttrSize:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrSize.html
         """
 
-    Height: 'richtext.TextAttrDimension'  # See GetHeight and SetHeight
-    Width: 'richtext.TextAttrDimension'  # See GetWidth and SetWidth
+    Height: 'TextAttrDimension'  # See GetHeight and SetHeight
+    Width: 'TextAttrDimension'  # See GetWidth and SetWidth
     m_height: Any  # A public C++ attribute of type TextAttrDimension     .
     m_width: Any  # A public C++ attribute of type TextAttrDimension     .
 
@@ -8679,7 +8689,7 @@ such as text content, images, and further paragraph layout objects.
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
-    def AllocateLine(self, pos: int) -> 'richtext.RichTextLine':
+    def AllocateLine(self, pos: int) -> 'RichTextLine':
         """ Allocates or reuses a line object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
@@ -8716,7 +8726,7 @@ such as text content, images, and further paragraph layout objects.
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
@@ -8734,7 +8744,7 @@ such as text content, images, and further paragraph layout objects.
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
-    def FindObjectAtPosition(self, position: int) -> 'richtext.RichTextObject':
+    def FindObjectAtPosition(self, position: int) -> 'RichTextObject':
         """ Finds the object at the given position.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
@@ -8758,7 +8768,7 @@ such as text content, images, and further paragraph layout objects.
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
-    def GetCombinedAttributes(self, *args, **kw) -> 'richtext.RichTextAttr':
+    def GetCombinedAttributes(self, *args, **kw) -> 'RichTextAttr':
         """ Overloaded Implementations:
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
@@ -8862,14 +8872,14 @@ such as text content, images, and further paragraph layout objects.
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
-    def SplitAt(self, pos, previousObject=None) -> 'richtext.RichTextObject':
+    def SplitAt(self, pos, previousObject=None) -> 'RichTextObject':
         """ Splits an object at this position if necessary, and returns the previous object, or None if inserting at the beginning.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
         """
 
     BulletText: str  # See GetBulletText
-    CombinedAttributes: 'richtext.RichTextAttr'  # See GetCombinedAttributes
+    CombinedAttributes: 'RichTextAttr'  # See GetCombinedAttributes
     ImpactedByFloatingObjects: int  # See GetImpactedByFloatingObjects and SetImpactedByFloatingObjects
     Lines: Any  # See GetLines
     XMLNodeName: str  # See GetXMLNodeName
@@ -8953,37 +8963,37 @@ class TextBoxAttr:
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBorder(self) -> 'richtext.TextAttrBorders':
+    def GetBorder(self) -> 'TextAttrBorders':
         """ Returns the borders.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBottom(self) -> 'richtext.TextAttrDimension':
+    def GetBottom(self) -> 'TextAttrDimension':
         """ Returns the bottom position.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBottomBorder(self) -> 'richtext.TextAttrBorder':
+    def GetBottomBorder(self) -> 'TextAttrBorder':
         """ Returns the bottom border.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBottomMargin(self) -> 'richtext.TextAttrDimension':
+    def GetBottomMargin(self) -> 'TextAttrDimension':
         """ Returns the bottom margin.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBottomOutline(self) -> 'richtext.TextAttrBorder':
+    def GetBottomOutline(self) -> 'TextAttrBorder':
         """ Returns the bottom outline.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetBottomPadding(self) -> 'richtext.TextAttrDimension':
+    def GetBottomPadding(self) -> 'TextAttrDimension':
         """ Returns the bottom padding value.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
@@ -8995,19 +9005,19 @@ class TextBoxAttr:
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetClearMode(self) -> 'richtext.TextBoxAttrClearStyle':
+    def GetClearMode(self) -> 'TextBoxAttrClearStyle':
         """ Returns the clear mode - whether to wrap text after object.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetCollapseBorders(self) -> 'richtext.TextBoxAttrCollapseMode':
+    def GetCollapseBorders(self) -> 'TextBoxAttrCollapseMode':
         """ Returns the collapse mode - whether to collapse borders.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetCornerRadius(self) -> 'richtext.TextAttrDimension':
+    def GetCornerRadius(self) -> 'TextAttrDimension':
         """ wx.richtext.TextAttrDimension
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
@@ -9019,151 +9029,151 @@ class TextBoxAttr:
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetFloatMode(self) -> 'richtext.TextBoxAttrFloatStyle':
+    def GetFloatMode(self) -> 'TextBoxAttrFloatStyle':
         """ Returns the float mode.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetHeight(self) -> 'richtext.TextAttrDimension':
+    def GetHeight(self) -> 'TextAttrDimension':
         """ Returns the object height.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetLeft(self) -> 'richtext.TextAttrDimension':
+    def GetLeft(self) -> 'TextAttrDimension':
         """ Returns the left position.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetLeftBorder(self) -> 'richtext.TextAttrBorder':
+    def GetLeftBorder(self) -> 'TextAttrBorder':
         """ Returns the left border.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetLeftMargin(self) -> 'richtext.TextAttrDimension':
+    def GetLeftMargin(self) -> 'TextAttrDimension':
         """ Returns the left margin.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetLeftOutline(self) -> 'richtext.TextAttrBorder':
+    def GetLeftOutline(self) -> 'TextAttrBorder':
         """ Returns the left outline.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetLeftPadding(self) -> 'richtext.TextAttrDimension':
+    def GetLeftPadding(self) -> 'TextAttrDimension':
         """ Returns the left padding value.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetMargins(self) -> 'richtext.TextAttrDimensions':
+    def GetMargins(self) -> 'TextAttrDimensions':
         """ Returns the margin values.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetMaxSize(self) -> 'richtext.TextAttrSize':
+    def GetMaxSize(self) -> 'TextAttrSize':
         """ Returns the object maximum size.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetMinSize(self) -> 'richtext.TextAttrSize':
+    def GetMinSize(self) -> 'TextAttrSize':
         """ Returns the object minimum size.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetOutline(self) -> 'richtext.TextAttrBorders':
+    def GetOutline(self) -> 'TextAttrBorders':
         """ Returns the outline.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetPadding(self) -> 'richtext.TextAttrDimensions':
+    def GetPadding(self) -> 'TextAttrDimensions':
         """ Returns the padding values.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetPosition(self) -> 'richtext.TextAttrDimensions':
+    def GetPosition(self) -> 'TextAttrDimensions':
         """ Returns the position.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetRight(self) -> 'richtext.TextAttrDimension':
+    def GetRight(self) -> 'TextAttrDimension':
         """ Returns the right position.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetRightBorder(self) -> 'richtext.TextAttrBorder':
+    def GetRightBorder(self) -> 'TextAttrBorder':
         """ Returns the right border.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetRightMargin(self) -> 'richtext.TextAttrDimension':
+    def GetRightMargin(self) -> 'TextAttrDimension':
         """ Returns the right margin.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetRightOutline(self) -> 'richtext.TextAttrBorder':
+    def GetRightOutline(self) -> 'TextAttrBorder':
         """ Returns the right outline.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetRightPadding(self) -> 'richtext.TextAttrDimension':
+    def GetRightPadding(self) -> 'TextAttrDimension':
         """ Returns the right padding value.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetShadow(self) -> 'richtext.TextAttrShadow':
+    def GetShadow(self) -> 'TextAttrShadow':
         """ Returns the box shadow attributes.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetSize(self) -> 'richtext.TextAttrSize':
+    def GetSize(self) -> 'TextAttrSize':
         """ Returns the object size.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetTop(self) -> 'richtext.TextAttrDimension':
+    def GetTop(self) -> 'TextAttrDimension':
         """ Returns the top position.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetTopBorder(self) -> 'richtext.TextAttrBorder':
+    def GetTopBorder(self) -> 'TextAttrBorder':
         """ Returns the top border.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetTopMargin(self) -> 'richtext.TextAttrDimension':
+    def GetTopMargin(self) -> 'TextAttrDimension':
         """ Returns the top margin.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetTopOutline(self) -> 'richtext.TextAttrBorder':
+    def GetTopOutline(self) -> 'TextAttrBorder':
         """ Returns the top outline.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetTopPadding(self) -> 'richtext.TextAttrDimension':
+    def GetTopPadding(self) -> 'TextAttrDimension':
         """ Returns the top padding value.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
@@ -9175,13 +9185,13 @@ class TextBoxAttr:
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetWhitespaceMode(self) -> 'richtext.TextBoxAttrWhitespaceMode':
+    def GetWhitespaceMode(self) -> 'TextBoxAttrWhitespaceMode':
         """ Returns the whitespace mode.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    def GetWidth(self) -> 'richtext.TextAttrDimension':
+    def GetWidth(self) -> 'TextAttrDimension':
         """ Returns the object width.
 
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
@@ -9343,45 +9353,45 @@ class TextBoxAttr:
             Source: https://docs.wxpython.org/wx.richtext.TextBoxAttr.html
         """
 
-    Border: 'richtext.TextAttrBorders'  # See GetBorder
-    Bottom: 'richtext.TextAttrDimension'  # See GetBottom
-    BottomBorder: 'richtext.TextAttrBorder'  # See GetBottomBorder
-    BottomMargin: 'richtext.TextAttrDimension'  # See GetBottomMargin
-    BottomOutline: 'richtext.TextAttrBorder'  # See GetBottomOutline
-    BottomPadding: 'richtext.TextAttrDimension'  # See GetBottomPadding
+    Border: 'TextAttrBorders'  # See GetBorder
+    Bottom: 'TextAttrDimension'  # See GetBottom
+    BottomBorder: 'TextAttrBorder'  # See GetBottomBorder
+    BottomMargin: 'TextAttrDimension'  # See GetBottomMargin
+    BottomOutline: 'TextAttrBorder'  # See GetBottomOutline
+    BottomPadding: 'TextAttrDimension'  # See GetBottomPadding
     BoxStyleName: str  # See GetBoxStyleName and SetBoxStyleName
-    ClearMode: 'richtext.TextBoxAttrClearStyle'  # See GetClearMode and SetClearMode
-    CollapseBorders: 'richtext.TextBoxAttrCollapseMode'  # See GetCollapseBorders and SetCollapseBorders
-    CornerRadius: 'richtext.TextAttrDimension'  # See GetCornerRadius and SetCornerRadius
+    ClearMode: 'TextBoxAttrClearStyle'  # See GetClearMode and SetClearMode
+    CollapseBorders: 'TextBoxAttrCollapseMode'  # See GetCollapseBorders and SetCollapseBorders
+    CornerRadius: 'TextAttrDimension'  # See GetCornerRadius and SetCornerRadius
     Flags: int  # See GetFlags and SetFlags
-    FloatMode: 'richtext.TextBoxAttrFloatStyle'  # See GetFloatMode and SetFloatMode
-    Height: 'richtext.TextAttrDimension'  # See GetHeight
-    Left: 'richtext.TextAttrDimension'  # See GetLeft
-    LeftBorder: 'richtext.TextAttrBorder'  # See GetLeftBorder
-    LeftMargin: 'richtext.TextAttrDimension'  # See GetLeftMargin
-    LeftOutline: 'richtext.TextAttrBorder'  # See GetLeftOutline
-    LeftPadding: 'richtext.TextAttrDimension'  # See GetLeftPadding
-    Margins: 'richtext.TextAttrDimensions'  # See GetMargins
-    MaxSize: 'richtext.TextAttrSize'  # See GetMaxSize and SetMaxSize
-    MinSize: 'richtext.TextAttrSize'  # See GetMinSize and SetMinSize
-    Outline: 'richtext.TextAttrBorders'  # See GetOutline
-    Padding: 'richtext.TextAttrDimensions'  # See GetPadding
-    Position: 'richtext.TextAttrDimensions'  # See GetPosition
-    Right: 'richtext.TextAttrDimension'  # See GetRight
-    RightBorder: 'richtext.TextAttrBorder'  # See GetRightBorder
-    RightMargin: 'richtext.TextAttrDimension'  # See GetRightMargin
-    RightOutline: 'richtext.TextAttrBorder'  # See GetRightOutline
-    RightPadding: 'richtext.TextAttrDimension'  # See GetRightPadding
-    Shadow: 'richtext.TextAttrShadow'  # See GetShadow
-    Size: 'richtext.TextAttrSize'  # See GetSize and SetSize
-    Top: 'richtext.TextAttrDimension'  # See GetTop
-    TopBorder: 'richtext.TextAttrBorder'  # See GetTopBorder
-    TopMargin: 'richtext.TextAttrDimension'  # See GetTopMargin
-    TopOutline: 'richtext.TextAttrBorder'  # See GetTopOutline
-    TopPadding: 'richtext.TextAttrDimension'  # See GetTopPadding
+    FloatMode: 'TextBoxAttrFloatStyle'  # See GetFloatMode and SetFloatMode
+    Height: 'TextAttrDimension'  # See GetHeight
+    Left: 'TextAttrDimension'  # See GetLeft
+    LeftBorder: 'TextAttrBorder'  # See GetLeftBorder
+    LeftMargin: 'TextAttrDimension'  # See GetLeftMargin
+    LeftOutline: 'TextAttrBorder'  # See GetLeftOutline
+    LeftPadding: 'TextAttrDimension'  # See GetLeftPadding
+    Margins: 'TextAttrDimensions'  # See GetMargins
+    MaxSize: 'TextAttrSize'  # See GetMaxSize and SetMaxSize
+    MinSize: 'TextAttrSize'  # See GetMinSize and SetMinSize
+    Outline: 'TextAttrBorders'  # See GetOutline
+    Padding: 'TextAttrDimensions'  # See GetPadding
+    Position: 'TextAttrDimensions'  # See GetPosition
+    Right: 'TextAttrDimension'  # See GetRight
+    RightBorder: 'TextAttrBorder'  # See GetRightBorder
+    RightMargin: 'TextAttrDimension'  # See GetRightMargin
+    RightOutline: 'TextAttrBorder'  # See GetRightOutline
+    RightPadding: 'TextAttrDimension'  # See GetRightPadding
+    Shadow: 'TextAttrShadow'  # See GetShadow
+    Size: 'TextAttrSize'  # See GetSize and SetSize
+    Top: 'TextAttrDimension'  # See GetTop
+    TopBorder: 'TextAttrBorder'  # See GetTopBorder
+    TopMargin: 'TextAttrDimension'  # See GetTopMargin
+    TopOutline: 'TextAttrBorder'  # See GetTopOutline
+    TopPadding: 'TextAttrDimension'  # See GetTopPadding
     VerticalAlignment: int  # See GetVerticalAlignment and SetVerticalAlignment
-    WhitespaceMode: 'richtext.TextBoxAttrWhitespaceMode'  # See GetWhitespaceMode and SetWhitespaceMode
-    Width: 'richtext.TextAttrDimension'  # See GetWidth
+    WhitespaceMode: 'TextBoxAttrWhitespaceMode'  # See GetWhitespaceMode and SetWhitespaceMode
+    Width: 'TextAttrDimension'  # See GetWidth
     m_border: Any  # A public C++ attribute of type TextAttrBorders     .
     m_boxStyleName: Any  # A public C++ attribute of type string.
     m_clearMode: Any  # A public C++ attribute of type TextBoxAttrClearStyle     .
@@ -9431,7 +9441,7 @@ class RichTextCell(RichTextBox):
             Source: https://docs.wxpython.org/wx.richtext.RichTextCell.html
         """
 
-    def Clone(self) -> 'richtext.RichTextObject':
+    def Clone(self) -> 'RichTextObject':
         """ Clones the object.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextCell.html
@@ -9563,7 +9573,7 @@ class TextAttrBorder:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorder.html
         """
 
-    def GetWidth(self) -> 'richtext.TextAttrDimension':
+    def GetWidth(self) -> 'TextAttrDimension':
         """ Gets the border width.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrBorder.html
@@ -9669,7 +9679,7 @@ class TextAttrBorder:
     ColourLong: int  # See GetColourLong
     Flags: int  # See GetFlags and SetFlags
     Style: int  # See GetStyle and SetStyle
-    Width: 'richtext.TextAttrDimension'  # See GetWidth and SetWidth
+    Width: 'TextAttrDimension'  # See GetWidth and SetWidth
     m_borderColour: Any  # A public C++ attribute of type long.
     m_borderStyle: Any  # A public C++ attribute of type int.
     m_borderWidth: Any  # A public C++ attribute of type TextAttrDimension     .
@@ -9707,19 +9717,19 @@ position.
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimension.html
         """
 
-    def GetFlags(self) -> 'richtext.TextAttrDimensionFlags':
+    def GetFlags(self) -> 'TextAttrDimensionFlags':
         """ Gets the dimension flags.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimension.html
         """
 
-    def GetPosition(self) -> 'richtext.TextBoxAttrPosition':
+    def GetPosition(self) -> 'TextBoxAttrPosition':
         """ Gets the position flags.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimension.html
         """
 
-    def GetUnits(self) -> 'richtext.TextAttrUnits':
+    def GetUnits(self) -> 'TextAttrUnits':
         """ Gets the units of the dimension.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimension.html
@@ -9803,9 +9813,9 @@ position.
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimension.html
         """
 
-    Flags: 'richtext.TextAttrDimensionFlags'  # See GetFlags and SetFlags
-    Position: 'richtext.TextBoxAttrPosition'  # See GetPosition and SetPosition
-    Units: 'richtext.TextAttrUnits'  # See GetUnits and SetUnits
+    Flags: 'TextAttrDimensionFlags'  # See GetFlags and SetFlags
+    Position: 'TextBoxAttrPosition'  # See GetPosition and SetPosition
+    Units: 'TextAttrUnits'  # See GetUnits and SetUnits
     Value: int  # See GetValue and SetValue
     ValueMM: float  # See GetValueMM and SetValueMM
     m_flags: Any  # A public C++ attribute of type TextAttrDimensionFlags     .
@@ -9856,25 +9866,25 @@ class TextAttrDimensions:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
         """
 
-    def GetBottom(self) -> 'richtext.TextAttrDimension':
+    def GetBottom(self) -> 'TextAttrDimension':
         """ wx.richtext.TextAttrDimension
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
         """
 
-    def GetLeft(self) -> 'richtext.TextAttrDimension':
+    def GetLeft(self) -> 'TextAttrDimension':
         """ wx.richtext.TextAttrDimension
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
         """
 
-    def GetRight(self) -> 'richtext.TextAttrDimension':
+    def GetRight(self) -> 'TextAttrDimension':
         """ wx.richtext.TextAttrDimension
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
         """
 
-    def GetTop(self) -> 'richtext.TextAttrDimension':
+    def GetTop(self) -> 'TextAttrDimension':
         """ wx.richtext.TextAttrDimension
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
@@ -9916,10 +9926,10 @@ class TextAttrDimensions:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrDimensions.html
         """
 
-    Bottom: 'richtext.TextAttrDimension'  # See GetBottom
-    Left: 'richtext.TextAttrDimension'  # See GetLeft
-    Right: 'richtext.TextAttrDimension'  # See GetRight
-    Top: 'richtext.TextAttrDimension'  # See GetTop
+    Bottom: 'TextAttrDimension'  # See GetBottom
+    Left: 'TextAttrDimension'  # See GetLeft
+    Right: 'TextAttrDimension'  # See GetRight
+    Top: 'TextAttrDimension'  # See GetTop
     m_bottom: Any  # A public C++ attribute of type TextAttrDimension     .
     m_left: Any  # A public C++ attribute of type TextAttrDimension     .
     m_right: Any  # A public C++ attribute of type TextAttrDimension     .
@@ -9962,7 +9972,7 @@ class TextAttrShadow:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    def GetBlurDistance(self) -> 'richtext.TextAttrDimension':
+    def GetBlurDistance(self) -> 'TextAttrDimension':
         """ Gets the shadow blur distance.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
@@ -9986,25 +9996,25 @@ class TextAttrShadow:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    def GetOffsetX(self) -> 'richtext.TextAttrDimension':
+    def GetOffsetX(self) -> 'TextAttrDimension':
         """ Gets the shadow horizontal offset.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    def GetOffsetY(self) -> 'richtext.TextAttrDimension':
+    def GetOffsetY(self) -> 'TextAttrDimension':
         """ Gets the shadow vertical offset.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    def GetOpacity(self) -> 'richtext.TextAttrDimension':
+    def GetOpacity(self) -> 'TextAttrDimension':
         """ Gets the shadow opacity.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    def GetSpread(self) -> 'richtext.TextAttrDimension':
+    def GetSpread(self) -> 'TextAttrDimension':
         """ Gets the shadow spread size.
 
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
@@ -10100,14 +10110,14 @@ class TextAttrShadow:
             Source: https://docs.wxpython.org/wx.richtext.TextAttrShadow.html
         """
 
-    BlurDistance: 'richtext.TextAttrDimension'  # See GetBlurDistance and SetBlurDistance
+    BlurDistance: 'TextAttrDimension'  # See GetBlurDistance and SetBlurDistance
     Colour: '_Colour'  # See GetColour and SetColour
     ColourLong: int  # See GetColourLong
     Flags: int  # See GetFlags and SetFlags
-    OffsetX: 'richtext.TextAttrDimension'  # See GetOffsetX and SetOffsetX
-    OffsetY: 'richtext.TextAttrDimension'  # See GetOffsetY and SetOffsetY
-    Opacity: 'richtext.TextAttrDimension'  # See GetOpacity and SetOpacity
-    Spread: 'richtext.TextAttrDimension'  # See GetSpread and SetSpread
+    OffsetX: 'TextAttrDimension'  # See GetOffsetX and SetOffsetX
+    OffsetY: 'TextAttrDimension'  # See GetOffsetY and SetOffsetY
+    Opacity: 'TextAttrDimension'  # See GetOpacity and SetOpacity
+    Spread: 'TextAttrDimension'  # See GetSpread and SetSpread
     m_blurDistance: Any  # A public C++ attribute of type TextAttrDimension     .
     m_flags: Any  # A public C++ attribute of type int.
     m_offsetX: Any  # A public C++ attribute of type TextAttrDimension     .
