@@ -194,4 +194,7 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 	"wx.version": {
 		"returnType": "str",
 	},
+	"wx.CallLater.IsRunning": {
+		"returnType": "bool",
+	},
 }
