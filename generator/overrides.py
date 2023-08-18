@@ -191,4 +191,10 @@ OVERRIDES: dict[str, dict[str, Any]] = {
 		"returnType": "bool",
 		"paramStr": "self, col: int"
 	},
+	"wx.version": {
+		"returnType": "str",
+	},
+	"wx.CallLater.IsRunning": {
+		"returnType": "bool",
+	},
 }
