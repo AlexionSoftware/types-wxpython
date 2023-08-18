@@ -33,6 +33,7 @@ EXTRA_CLASS_URLS: list[str] = [
 	"wx.StandardID.enumeration.html",
 	"wx.FontEncoding.enumeration.html",
 	"wx.FontStyle.enumeration.html",
+	"wx.grid.GridTableRequest.enumeration.html",
 	"wx.functions.html",
 ]
 
