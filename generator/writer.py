@@ -16,7 +16,7 @@ class TypingWriter:
 		"""
 		self.logger = logger
 
-	def write(self, typings: Queue[ITyping]) -> bool:
+	def write(self, typings: Queue[ITyping], moduleImports: dict[str, dict[str, list[str]]]) -> bool:
 		""" Write the typing to a pyi
 		"""
 		# Make a dict per file
@@ -25,8 +25,13 @@ class TypingWriter:
 
 		# Write the files
 		for moduleName, typingList in contentPerFileType.items():
+			# Find the module imports
+			tModuleImport: dict[str, list[str]] = {}
+			if moduleName in moduleImports:
+				tModuleImport = moduleImports[moduleName]
+
 			# Write the file
-			self._writeToFile(moduleName, typingList)
+			self._writeToFile(moduleName, typingList, tModuleImport)
 		return True
 
 	def _convertToPerFile(self, typings: Queue[ITyping], contentPerFileType: dict[str, list[ITyping]]) -> None:
@@ -53,7 +58,7 @@ class TypingWriter:
 			# Put in the module
 			contentPerFileType[fileName].append(item)
 
-	def _writeToFile(self, fileName: str, typings: list[ITyping]) -> None:
+	def _writeToFile(self, fileName: str, typings: list[ITyping], moduleImports: dict[str, list[str]]) -> None:
 		""" Write to a file
 		"""
 		# Build the filePath
@@ -77,9 +82,24 @@ class TypingWriter:
 						fileHandler.write("")
 
 		# Combine the data
-		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, ContextManager, Optional, Union, TypeAlias\n\n\n"
+		data = "# -*- coding: utf-8 -*-\nfrom typing import Any, ContextManager, Optional, Union, TypeAlias\n\n"
+
+		# Add the imports
+		for moduleName, importList in moduleImports.items():
+			if fileName == "":
+				# wx hoofd module
+				pass
+			elif moduleName.startswith("." + fileName):
+				# wx sub module
+				moduleName = moduleName[len(fileName) + 1:]
+			else:
+				moduleName = ("." * (fileName.count(".") + 2)) + moduleName
+			data += "from " + moduleName + " import " + ", ".join(importList) + "\n"
+		data += "\n"
+
+		# Write the typing
 		for item in typings:
-			typingStr = self._convertTypingToStr(item)
+			typingStr = self._convertTypingToStr(item, moduleName=fileName)
 			data += typingStr + "\n\n"
 
 		# Write the file
@@ -87,11 +107,12 @@ class TypingWriter:
 		with open(filePath, "w", encoding="utf-8") as fileHandler:
 			fileHandler.write(data)
 
-	def _convertTypingToStr(self, typing: ITyping, depth: int = 0) -> str:
+	def _convertTypingToStr(self, typing: ITyping, moduleName: str, depth: int = 0) -> str:
 		""" Convert the typing dict to a str
 		"""
 		# Check the type: Literal
 		if typing["type"] == TypingType.LITERAL:
+			# Build the output
 			lTypingObj: ITypingLiteral = typing  # type: ignore
 			output = (SPACER * depth) + lTypingObj["name"]
 			output += ": " + lTypingObj["returnType"]
@@ -101,6 +122,7 @@ class TypingWriter:
 
 		# Check the type: Alias
 		elif typing["type"] == TypingType.ALIAS:
+			# Build the output
 			lTypingObj: ITypingLiteral = typing  # type: ignore
 			output = (SPACER * depth) + lTypingObj["name"]
 			output += ": TypeAlias = " + lTypingObj["returnType"]
@@ -110,25 +132,42 @@ class TypingWriter:
 
 		# Check the type: Function
 		elif typing["type"] == TypingType.FUNCTION:
+			# Build the output
 			fTypingObj: ITypingFunction = typing  # type: ignore
 			output = ""
+
+			# Check if we have a static method
 			if "methodType" in fTypingObj and fTypingObj["methodType"]:
 				if fTypingObj["methodType"] == "static":
 					output += (SPACER * depth) + "@staticmethod\n"
+
+			# Build the signuature
 			output += (SPACER * depth) + "def " + fTypingObj["name"] + "(" + fTypingObj["paramStr"] + ") -> " + fTypingObj["returnType"] + ":\n"
+
+			# Add the docstring
 			output += (SPACER * (depth + 1)) + '""" ' + fTypingObj["docstring"] + "\n"
 			if "source" in fTypingObj and fTypingObj["source"]:
 				output += "\n" + (SPACER * (depth + 2)) + "Source: " + fTypingObj["source"] + "\n"
+
+			# Finish
 			output += (SPACER * (depth + 1)) + '"""\n'
 			return output
 
 		# Check the type: Class
 		elif typing["type"] == TypingType.CLASS:
+			# Build the output
 			cTypingObj: ITypingClass = typing  # type: ignore
+
+			# Add the class name
 			output = (SPACER * depth) + "class " + cTypingObj["name"]
+
+			# Set the parent class
 			if cTypingObj["superClass"]:
-				output += "(" + ",".join(cTypingObj["superClass"]) + ")"
+				superClasses = ",".join([sc.split(".")[-1] for sc in cTypingObj["superClass"]])
+				output += "(" + superClasses + ")"
 			output += ":\n"
+
+			# Add the docstring
 			output += (SPACER * (depth + 1)) + '""" ' + cTypingObj["docstring"] + "\n"
 			if "source" in cTypingObj and cTypingObj["source"]:
 				output += "\n" + (SPACER * (depth + 2)) + "Source: " + cTypingObj["source"] + "\n"
@@ -136,13 +175,13 @@ class TypingWriter:
 
 			# Check all the functions
 			for functionTyping in cTypingObj["functions"]:
-				output += self._convertTypingToStr(functionTyping, depth+1) + "\n"
+				output += self._convertTypingToStr(functionTyping, moduleName, depth+1) + "\n"
 
 			# Check all the properties
 			# Properties are added after functions to avoid conflicts between
 			# propeties names and class names.
 			for propertyTyping in cTypingObj["properties"]:
-				output += self._convertTypingToStr(propertyTyping, depth+1) + "\n"
+				output += self._convertTypingToStr(propertyTyping, moduleName, depth+1) + "\n"
 			if len(cTypingObj["properties"]) > 0:
 				output += "\n"
 

@@ -446,15 +446,6 @@ aObj = {
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
-	"name": "Reason",
-	"moduleName": "wx",  # This should be wx.ActivateEvent.Reason
-	"returnType": "int",
-	"docstring": "",
-	"source": "https://docs.wxpython.org/wx.ActivateEvent.Reason.enumeration.html",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj = {
-	"type": TypingType.ALIAS,
 	"name": "ArtClient",
 	"moduleName": "wx",
 	"returnType": "Any",
@@ -482,15 +473,6 @@ aObj = {
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
-	"name": "EntryType",
-	"moduleName": "wx",  # This should be wx.ConfigBase.EntryType
-	"returnType": "int",
-	"docstring": "",
-	"source": "https://docs.wxpython.org/wx.ConfigBase.EntryType.enumeration.html",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj = {
-	"type": TypingType.ALIAS,
 	"name": "LongLong_t",
 	"moduleName": "wx",
 	"returnType": "Any",
@@ -505,15 +487,6 @@ aObj = {
 	"returnType": "Any",
 	"docstring": "Enumeration",
 	"source": "https://docs.wxpython.org/wx.DateTime.Month.html",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj = {
-	"type": TypingType.ALIAS,
-	"name": "Country",
-	"moduleName": "wx",
-	"returnType": "wx.DateTime.Country",
-	"docstring": "Enumeration",
-	"source": "https://docs.wxpython.org/wx.DateTime.Country.enumeration.html",
 }
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
@@ -689,15 +662,6 @@ aObj = {
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
 	"type": TypingType.ALIAS,
-	"name": "FileLayout",
-	"moduleName": "wx",
-	"returnType": "'StandardPaths.FileLayout'",
-	"docstring": "Enumeration",
-	"source": "https://docs.wxpython.org/wx.StandardPaths.FileLayout.enumeration.html",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj = {
-	"type": TypingType.ALIAS,
 	"name": "ScaleMode",
 	"moduleName": "wx.StaticBitmap",
 	"returnType": "int",
@@ -719,15 +683,6 @@ aObj = {
 	"name": "Kind",
 	"moduleName": "wx.StockPreferencesPage",
 	"returnType": "int",
-	"docstring": "Enumeration",
-	"source": "https://docs.wxpython.org/wx.StockPreferencesPage.Kind.enumeration.html",
-}
-EXTRA_KNOWN_ITEMS.append(aObj)
-aObj = {
-	"type": TypingType.ALIAS,
-	"name": "Kind",
-	"moduleName": "wx",
-	"returnType": "'StockPreferencesPage.Kind'",
 	"docstring": "Enumeration",
 	"source": "https://docs.wxpython.org/wx.StockPreferencesPage.Kind.enumeration.html",
 }

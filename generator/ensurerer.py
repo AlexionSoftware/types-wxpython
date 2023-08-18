@@ -19,6 +19,7 @@ class Ensurerer:
 		self.typingDict: dict[str, ITyping] = {}
 		self.aliasDict: dict[str, ITyping] = {}
 		self.literalDict: dict[str, ITyping] = {}
+		self.moduleImports: dict[str, dict[str, list[str]]] = {}
 
 	def ensure(self, typings: Queue[ITyping]) -> bool:
 		""" Make sure the typing is correct
@@ -58,6 +59,10 @@ class Ensurerer:
 		# Check the type: Class
 		if typing["type"] == TypingType.CLASS:
 			typingObjc: ITypingClass = typing  # type: ignore
+
+			# Ensure superclass import
+			if typingObjc["superClass"]:
+				self._ensureSuperClass(typingObjc)
 
 			# Put all the literals back into the ensureTyping
 			for literal in typingObjc["properties"]:
@@ -148,7 +153,22 @@ class Ensurerer:
 
 		# Return the type
 		if returnType.startswith("wx."):
-			return "'" + returnType[3:] + "'"
+			# Check if the return type is in a different module
+			if moduleName != ".".join(returnType.split(".")[:-1]):
+				# Add the import to the module
+				fileModuleName = moduleName.replace("wx", "")
+				fileModuleName = fileModuleName[1:] if fileModuleName.startswith(".") else fileModuleName
+				importModuleName = (".".join(returnType.split(".")[:-1])).replace("wx", "")
+				importItemName = returnType.split(".")[-1].replace("wx.", "")
+				if fileModuleName not in self.moduleImports:
+					self.moduleImports[fileModuleName] = {}
+				if importModuleName not in self.moduleImports[fileModuleName]:
+					self.moduleImports[fileModuleName][importModuleName] = []
+				if importItemName not in self.moduleImports[fileModuleName][importModuleName]:
+					self.moduleImports[fileModuleName][importModuleName].append(importItemName)
+
+			# Give the back
+			return "'" + returnType.split(".")[-1] + "'"
 		return returnType
 
 	def _ensureParamType(self, typingObjl: ITypingFunction, paramType: str) -> str:
@@ -234,3 +254,32 @@ class Ensurerer:
 				self._overrideItemData(functionTyping)
 			for literalTyping in cTypeObject["properties"]:
 				self._overrideItemData(literalTyping)
+
+	def _ensureSuperClass(self, typingObjc: ITypingClass) -> None:
+		""" Ensure the superclass
+		"""
+		# Check if we have an superclass
+		moduleName = typingObjc["moduleName"]
+		superClasses = typingObjc["superClass"]
+		if superClasses:
+			# Walk through all the superclasses
+			for superClassName in superClasses:
+				if superClassName.startswith("wx."):
+					# Check if the return type is in a different module
+					if moduleName != ".".join(superClassName.split(".")[:-1]):
+						# Add the import to the module
+						fileModuleName = moduleName.replace("wx", "")
+						fileModuleName = fileModuleName[1:] if fileModuleName.startswith(".") else fileModuleName
+						importModuleName = (".".join(superClassName.split(".")[:-1])).replace("wx", "")
+						importItemName = superClassName.split(".")[-1].replace("wx.", "")
+						if fileModuleName not in self.moduleImports:
+							self.moduleImports[fileModuleName] = {}
+						if importModuleName not in self.moduleImports[fileModuleName]:
+							self.moduleImports[fileModuleName][importModuleName] = []
+						if importItemName not in self.moduleImports[fileModuleName][importModuleName]:
+							self.moduleImports[fileModuleName][importModuleName].append(importItemName)
+
+	def getModuleImports(self) -> dict[str, dict[str, list[str]]]:
+		""" Get the module imports
+		"""
+		return self.moduleImports
