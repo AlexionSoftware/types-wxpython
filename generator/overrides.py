@@ -36,10 +36,10 @@ OVERRIDES: dict[str, dict[str, Any]] = {
         "returnType": "'App'",
     },
     "wx.Object.Destroy": {
-        "returnType": "Optional[bool]",
+        "returnType": "bool",  # Destroy should always returns True; https://docs.wxpython.org/wx.Window.html#wx.Window.Destroy
     },
     "wx.Window.Destroy": {
-        "returnType": "Optional[bool]",
+        "returnType": "bool",  # Destroy should always returns True; https://docs.wxpython.org/wx.Window.html#wx.Window.Destroy
     },
     "wx.dataview.DataViewListCtrl.GetValue": {
         "returnType": "Any",
