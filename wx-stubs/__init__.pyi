@@ -9372,7 +9372,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def Destroy(self) -> Optional[bool]:
+    def Destroy(self) -> bool:
         """ Destroys the window safely.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -29903,7 +29903,7 @@ class Object:
             Source: https://docs.wxpython.org/wx.Object.html
         """
 
-    def Destroy(self) -> Optional[bool]:
+    def Destroy(self) -> bool:
         """ Deletes the C++ object this Python object is a proxy for.
 
             Source: https://docs.wxpython.org/wx.Object.html
