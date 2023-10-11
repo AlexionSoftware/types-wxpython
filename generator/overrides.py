@@ -227,6 +227,9 @@ OVERRIDES: dict[str, dict[str, Any]] = {
             "kind": "'StockPreferencesPage.Kind'"
         }
     },
+    "wx.Scrolled": {
+        "superClass": ["wx.Window"],
+    },
     "wx.grid.Grid": {
         "superClass": ["wx.Scrolled"],
     }
