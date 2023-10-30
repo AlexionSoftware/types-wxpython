@@ -35206,7 +35206,7 @@ EVT_COMMAND_SCROLL_THUMBRELEASE: int  # Process  wxEVT_SCROLL_THUMBRELEASE   thu
 
 EVT_COMMAND_SCROLL_CHANGED: int  # Process  wxEVT_SCROLL_CHANGED   end of scrolling events (MSW only). ^^
 
-class Scrolled:
+class Scrolled(Window):
     """ The Scrolled class manages scrolling for its client area,
 transforming the coordinates according to the scrollbar positions, and
 setting the scroll positions, thumb sizes and ranges according to the
