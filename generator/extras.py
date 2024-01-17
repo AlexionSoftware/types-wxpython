@@ -1152,3 +1152,102 @@ lObj = {
 	"source": "https://docs.wxpython.org/wx.Point.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ABOVE",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Above the client area.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_BELOW",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "Below the client area.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_NOWHERE",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "In the client area but below the last item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMBUTTON",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "On the button associated with an item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMICON",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "On the bitmap associated with an item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMINDENT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "In the indentation associated with an item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMLABEL",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "On the label (string) associated with an item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMRIGHT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "In the area to the right of an item.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_ONITEMSTATEICON",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "On the state icon for a tree view item that is in a user-defined state.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_TOLEFT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "To the right of the client area.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TREE_HITTEST_TORIGHT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "To the left of the client area.",
+	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
