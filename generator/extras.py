@@ -1134,3 +1134,12 @@ fObj = {
 	"source": "https://docs.wxpython.org/wx.lib.newevent.html",
 }
 EXTRA_KNOWN_ITEMS.append(fObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "DefaultValidator",
+	"moduleName": "wx",
+	"returnType": "Validator",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Validator.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
