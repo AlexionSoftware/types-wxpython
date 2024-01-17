@@ -232,5 +232,8 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.grid.Grid": {
         "superClass": ["wx.Scrolled"],
+    },
+    "wx.Window.GetHandle": {
+        "returnType": "Any"
     }
 }
