@@ -235,5 +235,8 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.Window.GetHandle": {
         "returnType": "Any"
+    },
+    "wx.Window.GetClientSize": {
+        "returnType": "'Rect'"
     }
 }
