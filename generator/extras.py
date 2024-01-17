@@ -1251,3 +1251,12 @@ lObj = {
 	"source": "https://docs.wxpython.org/wx.TreeCtrl.html#wx.TreeCtrl.HitTest",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "wxEVT_COMMAND_TREE_END_DRAG",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
