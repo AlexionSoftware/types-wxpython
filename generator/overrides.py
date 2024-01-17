@@ -246,5 +246,8 @@ OVERRIDES: dict[str, dict[str, Any]] = {
         },
         "paramStr": "self, point: Union['Point', tuple[int, int]], flags: Optional[int] = None",
         "returnType": "tuple['TreeItemId', int]",
+    },
+    "wx.ScrolledWindow": {
+        "superClass": ["wx.Scrolled"],
     }
 }
