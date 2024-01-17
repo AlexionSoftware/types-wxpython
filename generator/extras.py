@@ -1260,3 +1260,12 @@ lObj = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TheColourDatabase",
+	"moduleName": "wx",
+	"returnType": "ColourDatabase",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.ColourDatabase.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
