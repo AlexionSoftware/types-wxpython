@@ -245,6 +245,6 @@ OVERRIDES: dict[str, dict[str, Any]] = {
             "flags": "Optional[int]"
         },
         "paramStr": "self, point: Union['Point', tuple[int, int]], flags: Optional[int] = None",
-        "returnType": "tuple['TreeItem', int]",
+        "returnType": "tuple['TreeItemId', int]",
     }
 }
