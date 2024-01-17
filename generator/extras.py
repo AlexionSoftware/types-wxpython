@@ -1143,3 +1143,12 @@ lObj = {
 	"source": "https://docs.wxpython.org/wx.Validator.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "DefaultPosition",
+	"moduleName": "wx",
+	"returnType": "Position",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.Point.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
