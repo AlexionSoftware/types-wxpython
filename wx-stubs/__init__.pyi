@@ -9630,7 +9630,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def GetClientSize(self) -> None:
+    def GetClientSize(self) -> 'Rect':
         """ Returns the size of the window âclient areaâ in pixels.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -9726,7 +9726,7 @@ object on screen.
             Source: https://docs.wxpython.org/wx.Window.html
         """
 
-    def GetHandle(self) -> None:
+    def GetHandle(self) -> Any:
         """ Returns the platform-specific handle of the physical window.
 
             Source: https://docs.wxpython.org/wx.Window.html
@@ -35457,7 +35457,7 @@ the area in view.
     """
 
 
-class ScrolledWindow:
+class ScrolledWindow(Scrolled):
     """ Scrolled window derived from Panel.
 
         Source: https://docs.wxpython.org/wx.ScrolledWindow.html
@@ -41881,7 +41881,7 @@ currently not visible.
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
         """
 
-    def HitTest(self, point, flags) -> None:
+    def HitTest(self, point: Union['Point', tuple[int, int]], flags: Optional[int] = None) -> tuple['TreeItemId', int]:
         """ Calculates which (if any) item is under the given point, returning the tree item id at this point plus extra information flags.
 
             Source: https://docs.wxpython.org/wx.TreeCtrl.html
@@ -46195,4 +46195,36 @@ class FrozenWindow(ContextManager):
 NullCursor: 'Cursor'
 
 LIST_AUTOSIZE: int
+
+DefaultValidator: 'Validator'
+
+DefaultPosition: 'Position'
+
+TREE_HITTEST_ABOVE: int  # Above the client area.
+
+TREE_HITTEST_BELOW: int  # Below the client area.
+
+TREE_HITTEST_NOWHERE: int  # In the client area but below the last item.
+
+TREE_HITTEST_ONITEMBUTTON: int  # On the button associated with an item.
+
+TREE_HITTEST_ONITEMICON: int  # On the bitmap associated with an item.
+
+TREE_HITTEST_ONITEMINDENT: int  # In the indentation associated with an item.
+
+TREE_HITTEST_ONITEMLABEL: int  # On the label (string) associated with an item.
+
+TREE_HITTEST_ONITEMRIGHT: int  # In the area to the right of an item.
+
+TREE_HITTEST_ONITEMSTATEICON: int  # On the state icon for a tree view item that is in a user-defined state.
+
+TREE_HITTEST_TOLEFT: int  # To the right of the client area.
+
+TREE_HITTEST_TORIGHT: int  # To the left of the client area.
+
+wxEVT_COMMAND_TREE_END_DRAG: int
+
+TheColourDatabase: 'ColourDatabase'
+
+TheClipboard: 'Clipboard'
 
