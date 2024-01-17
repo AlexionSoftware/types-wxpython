@@ -238,5 +238,13 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.Window.GetClientSize": {
         "returnType": "'Rect'"
+    },
+    "wx.TreeCtrl.HitTest": {
+        "params": {
+            "point": "Union['Point', tuple[int, int]]",
+            "flags": "Optional[int]"
+        },
+        "paramStr": "self, point: Union['Point', tuple[int, int]], flags: Optional[int] = None",
+        "returnType": "tuple['TreeItem', int]",
     }
 }
