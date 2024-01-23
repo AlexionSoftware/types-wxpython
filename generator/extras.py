@@ -1278,3 +1278,21 @@ lObj = {
 	"source": "https://docs.wxpython.org/wx.Clipboard.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "DD_NEW_DIR_BUTTON",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "SOLID",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.DC.html#wx.DC.DrawTextList",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
