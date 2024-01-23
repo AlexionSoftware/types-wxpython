@@ -249,5 +249,8 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.ScrolledWindow": {
         "superClass": ["wx.Scrolled"],
+    },
+    "wx.ListCtrl.IsSelected": {
+        "returnType": "bool"
     }
 }
