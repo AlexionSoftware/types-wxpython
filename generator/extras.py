@@ -1296,3 +1296,45 @@ lObj = {
 	"source": "https://docs.wxpython.org/wx.DC.html#wx.DC.DrawTextList",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "GREY",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+fObj: ITypingFunction = {
+	"type": TypingType.FUNCTION,
+	"name": "DrawSavedLines",
+	"methodType": "normal",
+	"moduleName": "wx.Panel",
+	"returnType": "None",
+	"params": {"dc": "'DC'"},
+	"paramStr": "dc: 'DC'",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+fObj: ITypingFunction = {
+	"type": TypingType.FUNCTION,
+	"name": "EndDrawing",
+	"methodType": "normal",
+	"moduleName": "wx.DC",
+	"returnType": "None",
+	"params": {},
+	"paramStr": "",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "CHOICEDLG_STYLE",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.SingleChoiceDialog.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)

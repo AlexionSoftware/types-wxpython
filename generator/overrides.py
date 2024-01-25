@@ -252,5 +252,11 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.ListCtrl.IsSelected": {
         "returnType": "bool"
+    },
+    "wx.DC.GetTextExtent": {
+        "returnType": "'Size'"
+    },
+    "wx.ColourDatabase.FindColour": {
+        "returnType": "'Colour'"
     }
 }
