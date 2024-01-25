@@ -1305,7 +1305,7 @@ lObj = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
-fObj: ITypingFunction = {
+fObj = {
 	"type": TypingType.FUNCTION,
 	"name": "DrawSavedLines",
 	"methodType": "normal",
@@ -1317,7 +1317,7 @@ fObj: ITypingFunction = {
 	"source": "",
 }
 EXTRA_KNOWN_ITEMS.append(fObj)
-fObj: ITypingFunction = {
+fObj = {
 	"type": TypingType.FUNCTION,
 	"name": "EndDrawing",
 	"methodType": "normal",
