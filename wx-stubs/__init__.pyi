@@ -4077,7 +4077,7 @@ present in the string.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
-    def GetTextExtent(self, st: Any) -> None:
+    def GetTextExtent(self, st: Any) -> 'Size':
         """ Return the dimensions of the given stringâs text extent using the
 currently selected font.
 
@@ -7647,7 +7647,7 @@ predefined set of named colours.
             Source: https://docs.wxpython.org/wx.ColourDatabase.html
         """
 
-    def FindColour(self, colour) -> None:
+    def FindColour(self, colour) -> 'Colour':
         """ 
 
             Source: https://docs.wxpython.org/wx.ColourDatabase.html
@@ -25778,7 +25778,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def IsSelected(self, idx) -> None:
+    def IsSelected(self, idx) -> bool:
         """ Returns True if the item is selected.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -46227,4 +46227,12 @@ wxEVT_COMMAND_TREE_END_DRAG: int
 TheColourDatabase: 'ColourDatabase'
 
 TheClipboard: 'Clipboard'
+
+DD_NEW_DIR_BUTTON: int
+
+SOLID: int
+
+GREY: int
+
+CHOICEDLG_STYLE: int
 
