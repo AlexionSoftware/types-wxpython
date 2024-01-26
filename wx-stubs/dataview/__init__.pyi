@@ -2496,7 +2496,7 @@ address an item by its position (row) rather than its DataViewItem
             Source: https://docs.wxpython.org/wx.dataview.DataViewIndexListModel.html
         """
 
-    def RowsDeleted(self, rows: list[int]) -> None:
+    def RowsDeleted(self, rows: int) -> None:
         """ Call this after rows have been deleted.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewIndexListModel.html
@@ -2566,7 +2566,7 @@ DataViewIndexListModel.
             Source: https://docs.wxpython.org/wx.dataview.DataViewVirtualListModel.html
         """
 
-    def RowsDeleted(self, rows: list[int]) -> None:
+    def RowsDeleted(self, rows: int) -> None:
         """ Call this after rows have been deleted.
 
             Source: https://docs.wxpython.org/wx.dataview.DataViewVirtualListModel.html

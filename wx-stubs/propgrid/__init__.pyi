@@ -2905,7 +2905,7 @@ the given object or dictionary obj.
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
         """
 
-    def GetPropertyValueAsArrayInt(self, id: 'propgrid.PGPropArgCls') -> list[int]:
+    def GetPropertyValueAsArrayInt(self, id: 'propgrid.PGPropArgCls') -> int:
         """ Returnâs propertyâs value as ArrayInt.
 
             Source: https://docs.wxpython.org/wx.propgrid.PropertyGridInterface.html
@@ -4589,7 +4589,7 @@ class MultiChoiceProperty(EditorDialogProperty):
             Source: https://docs.wxpython.org/wx.propgrid.MultiChoiceProperty.html
         """
 
-    def GetValueAsArrayInt(self) -> list[int]:
+    def GetValueAsArrayInt(self) -> int:
         """ list of integers
 
             Source: https://docs.wxpython.org/wx.propgrid.MultiChoiceProperty.html
@@ -4613,7 +4613,7 @@ class MultiChoiceProperty(EditorDialogProperty):
             Source: https://docs.wxpython.org/wx.propgrid.MultiChoiceProperty.html
         """
 
-    ValueAsArrayInt: list[int]  # See GetValueAsArrayInt
+    ValueAsArrayInt: int  # See GetValueAsArrayInt
 
 
 
@@ -4897,7 +4897,7 @@ class PGChoices:
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html
         """
 
-    def GetIndicesForStrings(self, strings, unmatched=None) -> list[int]:
+    def GetIndicesForStrings(self, strings, unmatched=None) -> int:
         """ Returns array of indices matching given strings.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html
@@ -4921,7 +4921,7 @@ class PGChoices:
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html
         """
 
-    def GetValuesForStrings(self, strings: list[str]) -> list[int]:
+    def GetValuesForStrings(self, strings: list[str]) -> int:
         """ Returns array of values matching the given strings.
 
             Source: https://docs.wxpython.org/wx.propgrid.PGChoices.html

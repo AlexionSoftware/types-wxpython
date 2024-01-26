@@ -6273,7 +6273,7 @@ or unchecked.
             Source: https://docs.wxpython.org/wx.CheckListBox.html
         """
 
-    def GetSelections(self) -> list[int]:
+    def GetSelections(self) -> int:
         """ Returns a list of the indices of the currently selected items.
 
             Source: https://docs.wxpython.org/wx.CheckListBox.html
@@ -6365,7 +6365,7 @@ class ListBox(Control,ItemContainer):
             Source: https://docs.wxpython.org/wx.ListBox.html
         """
 
-    def GetSelections(self) -> list[int]:
+    def GetSelections(self) -> int:
         """ Fill an array of ints with the positions of the currently selected items.
 
             Source: https://docs.wxpython.org/wx.ListBox.html
@@ -6461,7 +6461,7 @@ Only valid on MSW and if the wx.LB_OWNERDRAW flag is set.
     Count: int  # See GetCount
     CountPerPage: int  # See GetCountPerPage
     Selection: int  # See GetSelection and SetSelection
-    Selections: list[int]  # See GetSelections
+    Selections: int  # See GetSelections
     TopItem: int  # See GetTopItem
 
 
@@ -13097,7 +13097,7 @@ which can be moved around the screen.
             Source: https://docs.wxpython.org/wx.Dialog.html
         """
 
-    def GetMainButtonIds(self) -> list[int]:
+    def GetMainButtonIds(self) -> int:
         """ Returns an array of identifiers to be regarded as the main buttons for the non-scrolling area of a dialog.
 
             Source: https://docs.wxpython.org/wx.Dialog.html
@@ -13231,7 +13231,7 @@ which can be moved around the screen.
     LayoutAdaptationDone: bool  # See GetLayoutAdaptationDone and SetLayoutAdaptationDone
     LayoutAdaptationLevel: int  # See GetLayoutAdaptationLevel and SetLayoutAdaptationLevel
     LayoutAdaptationMode: 'DialogLayoutAdaptationMode'  # See GetLayoutAdaptationMode and SetLayoutAdaptationMode
-    MainButtonIds: list[int]  # See GetMainButtonIds
+    MainButtonIds: int  # See GetMainButtonIds
     ReturnCode: int  # See GetReturnCode and SetReturnCode
 
 
@@ -16041,7 +16041,7 @@ the GridSizer.
             Source: https://docs.wxpython.org/wx.FlexGridSizer.html
         """
 
-    def GetColWidths(self) -> list[int]:
+    def GetColWidths(self) -> int:
         """ Returns a read-only array containing the widths of the columns in the sizer.
 
             Source: https://docs.wxpython.org/wx.FlexGridSizer.html
@@ -16059,7 +16059,7 @@ the GridSizer.
             Source: https://docs.wxpython.org/wx.FlexGridSizer.html
         """
 
-    def GetRowHeights(self) -> list[int]:
+    def GetRowHeights(self) -> int:
         """ Returns a read-only array containing the heights of the rows in the sizer.
 
             Source: https://docs.wxpython.org/wx.FlexGridSizer.html
@@ -16107,10 +16107,10 @@ the GridSizer.
             Source: https://docs.wxpython.org/wx.FlexGridSizer.html
         """
 
-    ColWidths: list[int]  # See GetColWidths
+    ColWidths: int  # See GetColWidths
     FlexibleDirection: int  # See GetFlexibleDirection and SetFlexibleDirection
     NonFlexibleGrowMode: 'FlexSizerGrowMode'  # See GetNonFlexibleGrowMode and SetNonFlexibleGrowMode
-    RowHeights: list[int]  # See GetRowHeights
+    RowHeights: int  # See GetRowHeights
 
 
 
@@ -17359,7 +17359,7 @@ by the user.
             Source: https://docs.wxpython.org/wx.Frame.html
         """
 
-    def SetStatusWidths(self, widths: list[int]) -> None:
+    def SetStatusWidths(self, widths: int) -> None:
         """ Sets the widths of the fields in the status bar.
 
             Source: https://docs.wxpython.org/wx.Frame.html
@@ -18461,7 +18461,7 @@ class Pen(GDIObject):
             Source: https://docs.wxpython.org/wx.Pen.html
         """
 
-    def GetDashes(self) -> list[int]:
+    def GetDashes(self) -> int:
         """ Gets an array of dashes (defined as  char   in X,   DWORD   under Windows).
 
             Source: https://docs.wxpython.org/wx.Pen.html
@@ -18527,7 +18527,7 @@ class Pen(GDIObject):
             Source: https://docs.wxpython.org/wx.Pen.html
         """
 
-    def SetDashes(self, dashes: list[int]) -> None:
+    def SetDashes(self, dashes: int) -> None:
         """ Associates an array of dash values (defined as  char   in X,   DWORD   under Windows) with the pen.
 
             Source: https://docs.wxpython.org/wx.Pen.html
@@ -18583,7 +18583,7 @@ class Pen(GDIObject):
 
     Cap: 'PenCap'  # See GetCap and SetCap
     Colour: '_Colour'  # See GetColour and SetColour
-    Dashes: list[int]  # See GetDashes and SetDashes
+    Dashes: int  # See GetDashes and SetDashes
     Join: 'PenJoin'  # See GetJoin and SetJoin
     Quality: 'PenQuality'  # See GetQuality and SetQuality
     Stipple: 'Bitmap'  # See GetStipple and SetStipple
@@ -20686,7 +20686,7 @@ usually used for display of tabular data.
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
         """
 
-    def GetColumnsOrder(self) -> list[int]:
+    def GetColumnsOrder(self) -> int:
         """ Return the array describing the columns display order.
 
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
@@ -20723,7 +20723,7 @@ usually used for display of tabular data.
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
         """
 
-    def SetColumnsOrder(self, order: list[int]) -> None:
+    def SetColumnsOrder(self, order: int) -> None:
         """ Change the columns display order.
 
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
@@ -20759,14 +20759,14 @@ usually used for display of tabular data.
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
         """
 
-    def UpdateColumnsOrder(self, order: list[int]) -> None:
+    def UpdateColumnsOrder(self, order: int) -> None:
         """ Method called when the columns order is changed in the customization dialog.
 
             Source: https://docs.wxpython.org/wx.HeaderCtrl.html
         """
 
     ColumnCount: int  # See GetColumnCount and SetColumnCount
-    ColumnsOrder: list[int]  # See GetColumnsOrder and SetColumnsOrder
+    ColumnsOrder: int  # See GetColumnsOrder and SetColumnsOrder
 
 
 
@@ -21724,7 +21724,7 @@ alpha channel then a alpha channel will be added.
             Source: https://docs.wxpython.org/wx.Image.html
         """
 
-    def ConvertToBitmap(self, depth=-1) -> None:
+    def ConvertToBitmap(self, depth=-1) -> 'Bitmap':
         """ Convert the image to a wx.Bitmap.
 
             Source: https://docs.wxpython.org/wx.Image.html
@@ -25555,7 +25555,7 @@ sequence with an item for each column
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def GetColumnsOrder(self) -> list[int]:
+    def GetColumnsOrder(self) -> int:
         """ Returns the array containing the orders of all columns.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -25886,7 +25886,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
 
-    def SetColumnsOrder(self, orders: list[int]) -> bool:
+    def SetColumnsOrder(self, orders: int) -> bool:
         """ Changes the order in which the columns are shown.
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
@@ -26015,7 +26015,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
     AlternateRowColour: 'Colour'  # See GetAlternateRowColour and SetAlternateRowColour
     Column: 'ListItem'  # See GetColumn and SetColumn
     ColumnCount: int  # See GetColumnCount
-    ColumnsOrder: list[int]  # See GetColumnsOrder and SetColumnsOrder
+    ColumnsOrder: int  # See GetColumnsOrder and SetColumnsOrder
     CountPerPage: int  # See GetCountPerPage
     EditControl: 'TextCtrl'  # See GetEditControl
     FocusedItem: None  # See GetFocusedItem
@@ -29427,13 +29427,13 @@ allows the user to select one or more.
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
         """
 
-    def GetSelections(self) -> list[int]:
+    def GetSelections(self) -> int:
         """ Returns array with indexes of selected items.
 
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
         """
 
-    def SetSelections(self, selections: list[int]) -> None:
+    def SetSelections(self, selections: int) -> None:
         """ Sets selected items from the array of selected itemsâ indexes.
 
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
@@ -29445,7 +29445,7 @@ allows the user to select one or more.
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
         """
 
-    Selections: list[int]  # See GetSelections and SetSelections
+    Selections: int  # See GetSelections and SetSelections
 
 
 
@@ -33916,7 +33916,7 @@ enable or disable them.
             Source: https://docs.wxpython.org/wx.RearrangeList.html
         """
 
-    def GetCurrentOrder(self) -> list[int]:
+    def GetCurrentOrder(self) -> int:
         """ Return the current order of the items.
 
             Source: https://docs.wxpython.org/wx.RearrangeList.html
@@ -33934,7 +33934,7 @@ enable or disable them.
             Source: https://docs.wxpython.org/wx.RearrangeList.html
         """
 
-    CurrentOrder: list[int]  # See GetCurrentOrder
+    CurrentOrder: int  # See GetCurrentOrder
 
 
 
@@ -33974,14 +33974,14 @@ class RearrangeDialog(Dialog):
             Source: https://docs.wxpython.org/wx.RearrangeDialog.html
         """
 
-    def GetOrder(self) -> list[int]:
+    def GetOrder(self) -> int:
         """ Return the array describing the order of items after it was modified by the user.
 
             Source: https://docs.wxpython.org/wx.RearrangeDialog.html
         """
 
     List: 'RearrangeList'  # See GetList
-    Order: list[int]  # See GetOrder
+    Order: int  # See GetOrder
 
 
 
@@ -38285,7 +38285,7 @@ a frame to give small amounts of status information.
             Source: https://docs.wxpython.org/wx.StatusBar.html
         """
 
-    def SetStatusWidths(self, widths: list[int]) -> None:
+    def SetStatusWidths(self, widths: int) -> None:
         """ Sets the widths of the fields in the status line.
 
             Source: https://docs.wxpython.org/wx.StatusBar.html
@@ -39028,7 +39028,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
             Source: https://docs.wxpython.org/wx.TextAttr.html
         """
 
-    def GetTabs(self) -> list[int]:
+    def GetTabs(self) -> int:
         """ Returns an array of tab stops, each expressed in tenths of a millimeter.
 
             Source: https://docs.wxpython.org/wx.TextAttr.html
@@ -39454,7 +39454,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
             Source: https://docs.wxpython.org/wx.TextAttr.html
         """
 
-    def SetTabs(self, tabs: list[int]) -> None:
+    def SetTabs(self, tabs: int) -> None:
         """ Sets the tab stops, expressed in tenths of a millimetre.
 
             Source: https://docs.wxpython.org/wx.TextAttr.html
@@ -39510,7 +39510,7 @@ style, for a range of text in a TextCtrl or RichTextCtrl.
     ParagraphSpacingBefore: int  # See GetParagraphSpacingBefore and SetParagraphSpacingBefore
     ParagraphStyleName: str  # See GetParagraphStyleName and SetParagraphStyleName
     RightIndent: int  # See GetRightIndent and SetRightIndent
-    Tabs: list[int]  # See GetTabs and SetTabs
+    Tabs: int  # See GetTabs and SetTabs
     TextColour: 'Colour'  # See GetTextColour and SetTextColour
     TextEffectFlags: int  # See GetTextEffectFlags and SetTextEffectFlags
     TextEffects: int  # See GetTextEffects and SetTextEffects
@@ -46123,7 +46123,7 @@ Relationship: TypeAlias = int  # Enumeration
 
 LogLevel: TypeAlias = int  # Enumeration
 
-PlatformInfo: TypeAlias = PlatformInformation
+PlatformInfo: TypeAlias = tuple[str, str, str, str, str, str, str, str, str, str]
 
 PreviewFrameModalityKind: TypeAlias = int  # Enumeration
 
@@ -46235,4 +46235,12 @@ SOLID: int
 GREY: int
 
 CHOICEDLG_STYLE: int
+
+TRANSPARENT: int
+
+LOG_FatalError: int
+
+LOG_Error: int
+
+EVT_CALENDAR_DAY: int
 

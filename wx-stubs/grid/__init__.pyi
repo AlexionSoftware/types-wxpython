@@ -127,7 +127,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def CalcColLabelsExposed(self, reg, gridWindow=None) -> list[int]:
+    def CalcColLabelsExposed(self, reg, gridWindow=None) -> int:
         """ Appends one or more new columns to the right of the grid.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -145,7 +145,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def CalcRowLabelsExposed(self, reg, gridWindow=None) -> list[int]:
+    def CalcRowLabelsExposed(self, reg, gridWindow=None) -> int:
         """ Appends one or more new columns to the right of the grid.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1004,7 +1004,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectedCols(self) -> list[int]:
+    def GetSelectedCols(self) -> int:
         """ Returns an array of selected columns.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1016,7 +1016,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def GetSelectedRows(self) -> list[int]:
+    def GetSelectedRows(self) -> int:
         """ Returns an array of selected rows.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1508,7 +1508,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def SetColumnsOrder(self, order: list[int]) -> None:
+    def SetColumnsOrder(self, order: int) -> None:
         """ Sets the positions of all columns at once.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1700,7 +1700,7 @@ tabular data.
             Source: https://docs.wxpython.org/wx.grid.Grid.html
         """
 
-    def SetRowsOrder(self, order: list[int]) -> None:
+    def SetRowsOrder(self, order: int) -> None:
         """ Sets the positions of all rows at once.
 
             Source: https://docs.wxpython.org/wx.grid.Grid.html
@@ -1877,9 +1877,9 @@ tabular data.
     SelectedBlocks: 'GridBlocks'  # See GetSelectedBlocks
     SelectedCells: 'GridCellCoordsArray'  # See GetSelectedCells
     SelectedColBlocks: Any  # See GetSelectedColBlocks
-    SelectedCols: list[int]  # See GetSelectedCols
+    SelectedCols: int  # See GetSelectedCols
     SelectedRowBlocks: Any  # See GetSelectedRowBlocks
-    SelectedRows: list[int]  # See GetSelectedRows
+    SelectedRows: int  # See GetSelectedRows
     SelectionBackground: 'Colour'  # See GetSelectionBackground and SetSelectionBackground
     SelectionBlockBottomRight: 'GridCellCoordsArray'  # See GetSelectionBlockBottomRight
     SelectionBlockTopLeft: 'GridCellCoordsArray'  # See GetSelectionBlockTopLeft

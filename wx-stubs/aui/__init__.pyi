@@ -1816,7 +1816,7 @@ class AuiMDIChildFrame(Panel):
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html
         """
 
-    def SetStatusWidths(self, widths: list[int]) -> None:
+    def SetStatusWidths(self, widths: int) -> None:
         """ widths (list of integers) â
 
             Source: https://docs.wxpython.org/wx.aui.AuiMDIChildFrame.html

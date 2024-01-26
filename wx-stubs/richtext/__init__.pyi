@@ -7803,7 +7803,7 @@ recreate sub-objects so physical object addresses change.
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
         """
 
-    def GetAddress(self) -> list[int]:
+    def GetAddress(self) -> int:
         """ Returns the array of integers representing the object address.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
@@ -7821,13 +7821,13 @@ recreate sub-objects so physical object addresses change.
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
         """
 
-    def SetAddress(self, address: list[int]) -> None:
+    def SetAddress(self, address: int) -> None:
         """ Sets the address from an array of integers.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextObjectAddress.html
         """
 
-    Address: list[int]  # See GetAddress and SetAddress
+    Address: int  # See GetAddress and SetAddress
 
 
 
@@ -7990,7 +7990,7 @@ class RichTextHTMLHandler(RichTextFileHandler):
             Source: https://docs.wxpython.org/wx.richtext.RichTextHTMLHandler.html
         """
 
-    def GetFontSizeMapping(self) -> list[int]:
+    def GetFontSizeMapping(self) -> int:
         """ Returns the mapping for converting point sizes to HTML font sizes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextHTMLHandler.html
@@ -8015,7 +8015,7 @@ class RichTextHTMLHandler(RichTextFileHandler):
             Source: https://docs.wxpython.org/wx.richtext.RichTextHTMLHandler.html
         """
 
-    def SetFontSizeMapping(self, fontSizeMapping: list[int]) -> None:
+    def SetFontSizeMapping(self, fontSizeMapping: int) -> None:
         """ Sets the mapping for converting point sizes to HTML font sizes.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextHTMLHandler.html
@@ -8033,7 +8033,7 @@ class RichTextHTMLHandler(RichTextFileHandler):
             Source: https://docs.wxpython.org/wx.richtext.RichTextHTMLHandler.html
         """
 
-    FontSizeMapping: list[int]  # See GetFontSizeMapping and SetFontSizeMapping
+    FontSizeMapping: int  # See GetFontSizeMapping and SetFontSizeMapping
     TempDir: str  # See GetTempDir and SetTempDir
     TemporaryImageLocations: list[str]  # See GetTemporaryImageLocations and SetTemporaryImageLocations
 
@@ -8781,7 +8781,7 @@ such as text content, images, and further paragraph layout objects.
         """
 
     @staticmethod
-    def GetDefaultTabs() -> list[int]:
+    def GetDefaultTabs() -> int:
         """ Returns the default tabstop array.
 
             Source: https://docs.wxpython.org/wx.richtext.RichTextParagraph.html
