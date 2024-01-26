@@ -456,5 +456,11 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.lib.intctrl.IntCtrl.GetValue": {
         "returnType": "Optional[int]",
-    }
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetChildrenCount": {
+        "returnType": "int",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetChildren": {
+        "returnType": "list['GenericTreeItem']",
+    },
 }
