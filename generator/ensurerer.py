@@ -180,6 +180,12 @@ class Ensurerer:
 		if len(moduleParts) > 1 and moduleParts[0] == "wx":
 			moduleName = ".".join(moduleParts[:-1])
 
+		# Check of het een integer is
+		if paramType.endswith("integer"):
+			paramType = "int"
+		if paramType.endswith("boolean"):
+			paramType = "bool"
+
 		# Check if there is a dot in the return type
 		if "." in paramType and paramType.startswith("wx."):
 			# Only use the last part
