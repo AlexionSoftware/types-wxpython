@@ -27,6 +27,7 @@ BASE_INDEX_URLS: list[str] = [
 	"https://docs.wxpython.org/wx.lib.newevent.html",
 	"https://docs.wxpython.org/wx.lib.agw.html",
 	"https://docs.wxpython.org/wx.lib.statbmp.html",
+	"https://docs.wxpython.org/wx.lib.stattext.html",
 	"https://docs.wxpython.org/wx.lib.agw.customtreectrl.html",
 	"https://docs.wxpython.org/wx.lib.agw.aui.framemanager.html",
 	"https://docs.wxpython.org/wx.lib.masked.html",
