@@ -1348,7 +1348,7 @@ fObj = {
     "className": "wx.ClientDC",
     "returnType": "None",
     "params": {"rect": "'Rect'"},
-    "paramStr": "rect: 'Rect'",
+    "paramStr": "self, rect: 'Rect'",
     "docstring": "",
     "source": "",
 }

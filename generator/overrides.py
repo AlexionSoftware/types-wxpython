@@ -448,6 +448,12 @@ OVERRIDES: dict[str, dict[str, Any]] = {
         },
         "paramStr": "self, selections: list[int]",
     },
+    "wx.MultiChoiceDialog.GetSelections": {
+        "returnType": "list[int]",
+    },
+    "wx.ListBox.GetSelections": {
+        "returnType": "list[int]",
+    },
     "wx.lib.intctrl.IntCtrl.GetValue": {
         "returnType": "Optional[int]",
     }
