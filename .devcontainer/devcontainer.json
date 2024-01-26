@@ -1,0 +1,8 @@
+{
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {}
+	},
+	"postCreateCommand": "poetry install"
+}
