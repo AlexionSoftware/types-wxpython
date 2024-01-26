@@ -4,6 +4,7 @@ import os
 from queue import Queue
 
 from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral, TypingType
+from .extras import EXTRA_KNOWN_ITEMS
 
 SPACER = "    "
 
@@ -176,6 +177,13 @@ class TypingWriter:
 			# Check all the functions
 			for functionTyping in cTypingObj["functions"]:
 				output += self._convertTypingToStr(functionTyping, moduleName, depth+1) + "\n"
+
+			# Check if the extras have any functions
+			fullClassName = cTypingObj["moduleName"] + "." + cTypingObj["name"]
+			for extraItem in EXTRA_KNOWN_ITEMS:
+				if extraItem["type"] == TypingType.FUNCTION:
+					if "className" in extraItem and extraItem["className"] == fullClassName:
+						output += self._convertTypingToStr(extraItem, moduleName, depth+1) + "\n"
 
 			# Check all the properties
 			# Properties are added after functions to avoid conflicts between

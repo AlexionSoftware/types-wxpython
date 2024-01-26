@@ -118,6 +118,9 @@ class DocumentationGenerator:
 
 		# Add the extra typing to the list
 		for typing in EXTRA_KNOWN_ITEMS:
+			# Ignore extra class functions
+			if typing["type"] == TypingType.FUNCTION and "className" in typing:
+				continue
 			self.typings.put(typing)
 
 		# Make sure the typing is correct
