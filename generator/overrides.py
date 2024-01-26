@@ -475,4 +475,7 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     "wx.lib.agw.customtreectrl.GenericTreeItem.GetChildren": {
         "returnType": "list['GenericTreeItem']",
     },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetText": {
+        "returnType": "str",
+    },
 }
