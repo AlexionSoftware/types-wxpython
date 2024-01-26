@@ -180,7 +180,7 @@ has changed, and issue EVT_NUM event.
             Source: https://docs.wxpython.org/wx.lib.masked.numctrl.NumCtrl.html
         """
 
-    def SetAllowNone(self, allow_none: boolean) -> None:
+    def SetAllowNone(self, allow_none: bool) -> None:
         """ Change the behavior of the validation code, allowing control
 to have a value of None or not, as appropriate.  If the value
 of the control is currently None, and allow_none is False, the
@@ -234,7 +234,7 @@ if setting the minimum bound is successful, and returns True only if both operat
             Source: https://docs.wxpython.org/wx.lib.masked.numctrl.NumCtrl.html
         """
 
-    def SetLimited(self, limited: boolean) -> None:
+    def SetLimited(self, limited: bool) -> None:
         """ If called with a value of True, this function will cause the control
 to limit the value to fall within the bounds currently specified.
 If the controlâs value currently exceeds the bounds, it will then
@@ -243,7 +243,7 @@ be limited accordingly.
             Source: https://docs.wxpython.org/wx.lib.masked.numctrl.NumCtrl.html
         """
 
-    def SetLimitOnFieldChange(self, limit: boolean) -> None:
+    def SetLimitOnFieldChange(self, limit: bool) -> None:
         """ If called with a value of True, this function will cause the control
 to prevent navigation out of the current field if its value is out-of-bounds,
 and limit the value to fall within the bounds currently specified if the

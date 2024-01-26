@@ -90,11 +90,9 @@ SetColour.
         """
 
     Colour: Any  # Returns the current colour set for the ColourSelect.
-    CustomColours: Any  # Returns the current set of custom colour values to be shown in the
-colour dialog, if supported.
+    CustomColours: Any  # Returns the current set of custom colour values to be shown in thecolour dialog, if supported.
     Label: Any  # Returns the current text label for the ColourSelect.
-    Value: Any  # Returns the current colour set for the ColourSelect.
-Same as GetColour.
+    Value: Any  # Returns the current colour set for the ColourSelect.Same as GetColour.
 
 
 

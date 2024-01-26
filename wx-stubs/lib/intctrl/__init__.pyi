@@ -187,13 +187,10 @@ is specified.
             Source: https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html
         """
 
-    Limited: Any  # Returns True if the control is currently limiting the
-value to fall within the current bounds.
+    Limited: Any  # Returns True if the control is currently limiting thevalue to fall within the current bounds.
     LongAllowed: Any  # Is a long value allowed.
-    Max: Any  # Gets the maximum value of the control.  It will return the current
-maximum integer, or None if not specified.
-    Min: Any  # Gets the minimum value of the control.  It will return the current
-minimum integer, or None if not specified.
+    Max: Any  # Gets the maximum value of the control.  It will return the currentmaximum integer, or None if not specified.
+    Min: Any  # Gets the minimum value of the control.  It will return the currentminimum integer, or None if not specified.
     NoneAllowed: Any  # Is a None value allowed.
     Value: Any  # Returns the current integer (long) value of the control.
 

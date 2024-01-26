@@ -132,7 +132,7 @@ to the spin button.
             Source: https://docs.wxpython.org/wx.lib.masked.timectrl.TimeCtrl.html
         """
 
-    def SetLimited(self, limited: boolean) -> None:
+    def SetLimited(self, limited: bool) -> None:
         """ If called with a value of True, this function will cause the control
 to limit the value to fall within the bounds currently specified.
 If the controlâs value currently exceeds the bounds, it will then
