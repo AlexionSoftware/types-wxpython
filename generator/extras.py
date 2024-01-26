@@ -592,7 +592,7 @@ aObj = {
 	"type": TypingType.ALIAS,
 	"name": "PlatformInfo",
 	"moduleName": "wx",
-	"returnType": "PlatformInformation",
+	"returnType": "tuple[str, str, str, str, str, str, str, str, str, str]",
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.PlatformInformation.html",
 }
@@ -1336,5 +1336,999 @@ lObj = {
 	"returnType": "int",
 	"docstring": "",
 	"source": "https://docs.wxpython.org/wx.SingleChoiceDialog.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+fObj = {
+	"type": TypingType.FUNCTION,
+	"name": "SetClippingRect",
+	"methodType": "normal",
+	"moduleName": "wx.ClientDC",
+	"returnType": "None",
+	"params": {"rect": "'Rect'"},
+	"paramStr": "rect: 'Rect'",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "TRANSPARENT",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "LOG_FatalError",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/log_classes_overview.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "LOG_Error",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/log_classes_overview.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "EVT_CALENDAR_DAY",
+	"moduleName": "wx",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.adv.CalendarCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+fObj = {
+	"type": TypingType.FUNCTION,
+	"name": "SetUpperDateLimit",
+	"methodType": "normal",
+	"moduleName": "wx.adv.CalendarCtrl",
+	"returnType": "None",
+	"params": {
+		"date": "'DateTime'",
+	},
+	"paramStr": "self, date: 'DateTime'",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+fObj = {
+	"type": TypingType.FUNCTION,
+	"name": "SetLowerDateLimit",
+	"methodType": "normal",
+	"moduleName": "wx.adv.CalendarCtrl",
+	"returnType": "None",
+	"params": {
+		"date": "'DateTime'",
+	},
+	"paramStr": "self, date: 'DateTime'",
+	"docstring": "",
+	"source": "",
+}
+EXTRA_KNOWN_ITEMS.append(fObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_ALIGN_DEFAULT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_ALIGN_SNAP_TO_GRID",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_VRULES",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_HRULES",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_ICON",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SMALL_ICON",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_LIST",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_REPORT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_ALIGN_TOP",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_ALIGN_LEFT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_AUTOARRANGE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_VIRTUAL",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_EDIT_LABELS",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_NO_HEADER",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_NO_SORT_HEADER",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SINGLE_SEL",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SORT_ASCENDING",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SORT_DESCENDING",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_TILE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_NO_HIGHLIGHT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STICKY_HIGHLIGHT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STICKY_NOSELEVENT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SEND_LEFTCLICK",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_HAS_VARIABLE_ROW_HEIGHT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_AUTO_CHECK_CHILD",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_AUTO_TOGGLE_CHILD",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_AUTO_CHECK_PARENT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_SHOW_TOOLTIPS",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_HOT_TRACKING",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_BORDER_SELECT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_TRACK_SELECT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_HEADER_IN_ALL_VIEWS",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_NO_FULL_ROW_SELECT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_FOOTER",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_USER_ROW_HEIGHT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_FORMAT_LEFT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_FORMAT_RIGHT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_FORMAT_CENTRE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_FORMAT_CENTER",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_STATE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_TEXT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_IMAGE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_DATA",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_WIDTH",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FORMAT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FONTCOLOUR",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FONT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_BACKCOLOUR",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_KIND",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_ENABLE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_CHECK",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_HYPERTEXT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_WINDOW",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_PYDATA",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_SHOWN",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_RENDERER",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_OVERFLOW",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_TEXT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_IMAGE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_FORMAT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_FONT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_CHECK",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_MASK_FOOTER_KIND",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_DONTCARE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_DROPHILITED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_FOCUSED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_SELECTED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_CUT",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_DISABLED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_FILTERED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_INUSE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_PICKED",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "ULC_STATE_SOURCE",
+	"moduleName": "wx.lib.agw.ultimatelistctrl",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.ultimatelistctrl.UltimateListItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_VC71",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_FANCY_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_TABS_BORDER_SIMPLE",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_NO_X_BUTTON",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_NO_NAV_BUTTONS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_MOUSE_MIDDLE_CLOSES_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_BOTTOM",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_NODRAG",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_VC8",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_X_ON_TAB",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_BACKGROUND_GRADIENT",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_COLOURFUL_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_DCLICK_CLOSES_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_SMART_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_DROPDOWN_TABS_LIST",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_ALLOW_FOREIGN_DND",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_HIDE_ON_SINGLE_TAB",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_DEFAULT_STYLE",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_FF2",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_NO_TAB_FOCUS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_RIBBON_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_HIDE_TABS",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "FNB_NAV_BUTTONS_WHEN_NEEDED",
+	"moduleName": "wx.lib.agw.flatnotebook",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.flatnotebook.FlatNotebook.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_NORMAL",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_HOVER",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_PRESSED",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_DISABLED",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_HIDDEN",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+	"type": TypingType.LITERAL,
+	"name": "AUI_BUTTON_STATE_CHECKED",
+	"moduleName": "wx.lib.agw.aui.auibar",
+	"returnType": "int",
+	"docstring": "",
+	"source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)

@@ -258,5 +258,146 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.ColourDatabase.FindColour": {
         "returnType": "'Colour'"
-    }
+    },
+    "wx.Image.ConvertToBitmap": {
+        "returnType": "'Bitmap'"
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetNextExpanded": {
+        "params": {
+            "item": "'GenericTreeItem'"
+        },
+        "paramStr": "self, item: 'GenericTreeItem'",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetPrevExpanded": {
+        "params": {
+            "item": "'GenericTreeItem'"
+        },
+        "paramStr": "self, item: 'GenericTreeItem'",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.HasAGWFlag": {
+        "params": {
+            "flag": "int"
+        },
+        "paramStr": "self, flag: int",
+        "returnType": "bool"
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.RefreshItemWithWindows": {
+        "params": {
+            "item": "'GenericTreeItem'"
+        },
+        "paramStr": "self, item: 'GenericTreeItem'",
+    },
+    "wx.lib.agw.customtreectrl.GenericTreeItem.SetData": {
+        "params": {
+            "data": "Any"
+        },
+        "paramStr": "self, data: Any",
+    },
+    "wx.lib.agw.aui.auibook.AuiNotebook.ReDockPage": {
+        "params": {
+            "pane": "Any"
+        },
+        "paramStr": "self, pane: Any",
+    },
+    "wx.lib.agw.aui.auibook.AuiTabCtrl.GetPointedToTab": {
+        "returnType": "Any"
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.ClientToScreen": {
+        "params": {
+            "x": "int",
+            "y": "int"
+        },
+        "paramStr": "self, x: int, y: int",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.HitTest": {
+        "params": {
+            "pointOrTuple": "Any",
+        },
+        "paramStr": "self, pointOrTuple: Any",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.ScreenToClient": {
+        "params": {
+            "x": "int",
+            "y": "int"
+        },
+        "paramStr": "self, x: int, y: int",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.SetAGWWindowStyleFlag": {
+        "params": {
+            "style": "int",
+        },
+        "paramStr": "self, style: int",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.SetCursor": {
+        "params": {
+            "cursor": "Any",
+        },
+        "paramStr": "self, cursor: Any",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListCtrl.SortItems": {
+        "params": {
+            "func": "Any",
+        },
+        "paramStr": "self, func: Any = None",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.OnTabBeginDrag": {
+        "params": {
+            "event": "Any",
+        },
+        "paramStr": "self, event: Any",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.OnTabEndDrag": {
+        "params": {
+            "event": "Any",
+        },
+        "paramStr": "self, event: Any",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.OnTabPageClose": {
+        "params": {
+            "event": "Any",
+        },
+        "paramStr": "self, event: Any",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.OnTabSelected": {
+        "params": {
+            "event": "Any",
+        },
+        "paramStr": "self, event: Any",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.PaneFromTabEvent": {
+        "params": {
+            "event": "Any",
+        },
+        "paramStr": "self, event: Any",
+    },
+    "wx.lib.agw.aui.framemanager.AuiManager.StartPreviewTimer": {
+        "params": {
+            "toolbar": "Any",
+        },
+        "paramStr": "self, toolbar: Any",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListMainWindow.SortItems": {
+        "params": {
+            "func": "Any",
+        },
+        "paramStr": "self, func: Any = None",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListLineData.SetX": {
+        "params": {
+            "x": "int",
+        },
+        "paramStr": "self, x: int",
+    },
+    "wx.lib.agw.ultimatelistctrl.UltimateListLineData.SetY": {
+        "params": {
+            "y": "int",
+        },
+        "paramStr": "self, y: int",
+    },
+    "wx.lib.agw.flatnotebook.FlatNotebook.SetAGWWindowStyleFlag": {
+        "params": {
+            "agwStyle": "int",
+        },
+        "paramStr": "self, agwStyle: int",
+    },
 }
