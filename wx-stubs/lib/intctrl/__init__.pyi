@@ -56,7 +56,7 @@ minimum integer, or None if not specified.
             Source: https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html
         """
 
-    def GetValue(self) -> None:
+    def GetValue(self) -> Optional[int]:
         """ Returns the current integer (long) value of the control.
 
             Source: https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html
@@ -265,4 +265,10 @@ the value of the control is always valid.
         """
 
 
+
+EVT_INT: int
+
+WXK_CTRL_V: int
+
+WXK_CTRL_X: int
 

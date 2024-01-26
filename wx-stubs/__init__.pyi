@@ -17367,7 +17367,7 @@ by the user.
             Source: https://docs.wxpython.org/wx.Frame.html
         """
 
-    def SetStatusWidths(self, widths: int) -> None:
+    def SetStatusWidths(self, widths: list[int]) -> None:
         """ Sets the widths of the fields in the status bar.
 
             Source: https://docs.wxpython.org/wx.Frame.html
@@ -29441,7 +29441,7 @@ allows the user to select one or more.
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
         """
 
-    def SetSelections(self, selections: int) -> None:
+    def SetSelections(self, selections: list[int]) -> None:
         """ Sets selected items from the array of selected itemsâ indexes.
 
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
@@ -38297,7 +38297,7 @@ a frame to give small amounts of status information.
             Source: https://docs.wxpython.org/wx.StatusBar.html
         """
 
-    def SetStatusWidths(self, widths: int) -> None:
+    def SetStatusWidths(self, widths: list[int]) -> None:
         """ Sets the widths of the fields in the status line.
 
             Source: https://docs.wxpython.org/wx.StatusBar.html
@@ -46255,4 +46255,12 @@ LOG_FatalError: int
 LOG_Error: int
 
 EVT_CALENDAR_DAY: int
+
+TreeItemIcon_Normal: int
+
+TreeItemIcon_Selected: int
+
+TreeItemIcon_Expanded: int
+
+TreeItemIcon_SelectedExpanded: int
 

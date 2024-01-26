@@ -139,7 +139,7 @@ the native control, as it is a full owner-drawn tree control.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def AddRoot(self, text, ct_type=0, wnd=None, image=-1, selImage=-1, data=None, on_the_right=True) -> None:
+    def AddRoot(self, text, ct_type=0, wnd=None, image=-1, selImage=-1, data=None, on_the_right=True) -> 'GenericTreeItem':
         """ Adds a root item to the CustomTreeCtrl.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -151,7 +151,7 @@ the native control, as it is a full owner-drawn tree control.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def AppendItem(self, parentId, text, ct_type=0, wnd=None, image=-1, selImage=-1, data=None, on_the_right=True) -> None:
+    def AppendItem(self, parentId, text, ct_type=0, wnd=None, image=-1, selImage=-1, data=None, on_the_right=True) -> 'GenericTreeItem':
         """ Appends an item as a last child of its parent.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -600,7 +600,7 @@ part of the CustomTreeCtrl client area.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetItemParent(self, item: GenericTreeItem) -> None:
+    def GetItemParent(self, item: GenericTreeItem) -> Optional['GenericTreeItem']:
         """ Returns the item parent (can be None for root items).
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -612,7 +612,7 @@ part of the CustomTreeCtrl client area.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetItemText(self, item: GenericTreeItem) -> None:
+    def GetItemText(self, item: GenericTreeItem) -> str:
         """ Returns the item text.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -756,7 +756,7 @@ last displayed child of its previous sibling, or its parent item.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetRootItem(self) -> None:
+    def GetRootItem(self) -> Optional['GenericTreeItem']:
         """ Returns the root item, an instance of GenericTreeItem.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -768,13 +768,13 @@ last displayed child of its previous sibling, or its parent item.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetSelection(self) -> None:
+    def GetSelection(self) -> Optional['GenericTreeItem']:
         """ Returns the current selected item (i.e. focused item).
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetSelections(self) -> None:
+    def GetSelections(self) -> list['GenericTreeItem']:
         """ Returns a list of selected items.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
@@ -841,7 +841,7 @@ application-defined state images are taken).
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def HitTest(self, point, flags=0) -> None:
+    def HitTest(self, point, flags=0) -> tuple['GenericTreeItem', int]:
         """ Calculates which (if any) item is under the given point, returning the tree item
 at this point plus extra information flags.
 
@@ -1627,7 +1627,7 @@ For internal use: do not call it in your code!
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
         """
 
-    def GetData(self) -> None:
+    def GetData(self) -> Any:
         """ Returns the data associated to this item.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
@@ -1652,7 +1652,7 @@ leftmost part of the client area of CustomTreeCtrl.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
         """
 
-    def GetParent(self) -> None:
+    def GetParent(self) -> Optional['GenericTreeItem']:
         """ Gets the item parent (another instance of GenericTreeItem or None for
 root items.
 
@@ -2187,4 +2187,32 @@ For internal use: do not call it in your code!
 EVT_CHAR: int
 
 EVT_KEY_UP: int
+
+TREE_HITTEST_ABOVE: int
+
+TREE_HITTEST_BELOW: int
+
+TREE_HITTEST_NOWHERE: int
+
+TREE_HITTEST_ONITEMBUTTON: int
+
+TREE_HITTEST_ONITEMICON: int
+
+TREE_HITTEST_ONITEMINDENT: int
+
+TREE_HITTEST_ONITEMLABEL: int
+
+TREE_HITTEST_ONITEM: int
+
+TREE_HITTEST_ONITEMRIGHT: int
+
+TREE_HITTEST_TOLEFT: int
+
+TREE_HITTEST_TORIGHT: int
+
+TREE_HITTEST_ONITEMUPPERPART: int
+
+TREE_HITTEST_ONITEMLOWERPART: int
+
+TREE_HITTEST_ONITEMCHECKICON: int
 
