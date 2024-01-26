@@ -117,7 +117,7 @@ class TypingWriter:
 			output = (SPACER * depth) + lTypingObj["name"]
 			output += ": " + lTypingObj["returnType"]
 			if "docstring" in lTypingObj and lTypingObj["docstring"]:
-				output += "  # " + lTypingObj["docstring"]
+				output += "  # " + lTypingObj["docstring"].replace("\n", "").replace("\r", "")
 			return output
 
 		# Check the type: Alias
