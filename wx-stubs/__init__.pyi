@@ -4402,7 +4402,7 @@ currently selected font.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
-    def EndDrawing() -> None:
+    def EndDrawing(self) -> None:
         """ 
         """
 
@@ -30460,7 +30460,7 @@ class Panel(Window):
             Source: https://docs.wxpython.org/wx.Panel.html
         """
 
-    def DrawSavedLines(dc: 'DC') -> None:
+    def DrawSavedLines(self, dc: 'DC') -> None:
         """ 
         """
 
@@ -46255,12 +46255,4 @@ LOG_FatalError: int
 LOG_Error: int
 
 EVT_CALENDAR_DAY: int
-
-TreeItemIcon_Normal: int
-
-TreeItemIcon_Selected: int
-
-TreeItemIcon_Expanded: int
-
-TreeItemIcon_SelectedExpanded: int
 

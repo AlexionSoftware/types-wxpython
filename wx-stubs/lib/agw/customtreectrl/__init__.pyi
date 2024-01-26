@@ -1603,7 +1603,7 @@ For internal use: do not call it in your code!
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
         """
 
-    def GetChildren(self) -> None:
+    def GetChildren(self) -> list['GenericTreeItem']:
         """ Returns the itemâs children.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
@@ -2187,6 +2187,14 @@ For internal use: do not call it in your code!
 EVT_CHAR: int
 
 EVT_KEY_UP: int
+
+TreeItemIcon_Normal: int
+
+TreeItemIcon_Selected: int
+
+TreeItemIcon_Expanded: int
+
+TreeItemIcon_SelectedExpanded: int
 
 TREE_HITTEST_ABOVE: int
 

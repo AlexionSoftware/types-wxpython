@@ -67,7 +67,7 @@ portion set to January 1, 1970.
             Source: https://docs.wxpython.org/wx.lib.masked.timectrl.TimeCtrl.html
         """
 
-    def GetValue(self, as_wxDateTime = False, as_mxDateTime = False, as_wxTimeSpan = False, as_mxDateTimeDelta = False) -> None:
+    def GetValue(self, as_wxDateTime = False, as_mxDateTime = False, as_wxTimeSpan = False, as_mxDateTimeDelta = False) -> Optional[Any]:
         """ This function returns the value of the display as a string by default,
 but supports return as a DateTime, mx.DateTime, TimeSpan,
 or mx.DateTimeDelta, if requested.

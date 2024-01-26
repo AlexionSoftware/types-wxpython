@@ -176,7 +176,7 @@ control, or 0 if no lower bound is set.
             Source: https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html
         """
 
-    def SetValue(self, value: int) -> None:
+    def SetValue(self, value: Optional[int]) -> None:
         """ Sets the value of the control to the integer value specified.
 The resulting actual value of the control may be altered to
 conform with the bounds set on the control if limited,
