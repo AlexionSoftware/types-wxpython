@@ -182,7 +182,8 @@ class TypingWriter:
 			fullClassName = cTypingObj["moduleName"] + "." + cTypingObj["name"]
 			for extraItem in EXTRA_KNOWN_ITEMS:
 				if extraItem["type"] == TypingType.FUNCTION:
-					if "className" in extraItem and extraItem["className"] == fullClassName:
+					functionItem: ITypingFunction = extraItem  # type: ignore
+					if "className" in functionItem and functionItem["className"] == fullClassName:
 						output += self._convertTypingToStr(extraItem, moduleName, depth+1) + "\n"
 
 			# Check all the properties

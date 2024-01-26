@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
-from typing import Optional, TypedDict
+from typing import Optional, TypedDict, NotRequired
 
 
 class TypingType(Enum):
@@ -25,6 +25,7 @@ class ITyping(TypedDict):
 class ITypingFunction(ITyping):
 	""" Interface for classes
 	"""
+	className: NotRequired[str]
 	methodType: str
 	params: dict[str, str]
 	paramStr: str
