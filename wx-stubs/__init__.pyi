@@ -6369,7 +6369,7 @@ class ListBox(Control,ItemContainer):
             Source: https://docs.wxpython.org/wx.ListBox.html
         """
 
-    def GetSelections(self) -> int:
+    def GetSelections(self) -> list[int]:
         """ Fill an array of ints with the positions of the currently selected items.
 
             Source: https://docs.wxpython.org/wx.ListBox.html
@@ -6729,7 +6729,7 @@ window from outside EVT_PAINT() handler.
             Source: https://docs.wxpython.org/wx.ClientDC.html
         """
 
-    def SetClippingRect(rect: 'Rect') -> None:
+    def SetClippingRect(self, rect: 'Rect') -> None:
         """ 
         """
 
@@ -29435,7 +29435,7 @@ allows the user to select one or more.
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html
         """
 
-    def GetSelections(self) -> int:
+    def GetSelections(self) -> list[int]:
         """ Returns array with indexes of selected items.
 
             Source: https://docs.wxpython.org/wx.MultiChoiceDialog.html

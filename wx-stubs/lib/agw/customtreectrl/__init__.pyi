@@ -451,7 +451,7 @@ which application-defined button images are taken).
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
         """
 
-    def GetChildrenCount(self, item, recursively=True) -> None:
+    def GetChildrenCount(self, item, recursively=True) -> int:
         """ Returns the item children count.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html
