@@ -1002,6 +1002,14 @@ class CalendarCtrl(Control):
             Source: https://docs.wxpython.org/wx.adv.CalendarCtrl.html
         """
 
+    def SetUpperDateLimit(self, date: 'DateTime') -> None:
+        """ 
+        """
+
+    def SetLowerDateLimit(self, date: 'DateTime') -> None:
+        """ 
+        """
+
     Date: 'DateTime'  # See GetDate and SetDate
     DateRange: tuple  # See GetDateRange and SetDateRange
     HeaderColourBg: 'Colour'  # See GetHeaderColourBg

@@ -4402,6 +4402,10 @@ currently selected font.
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
+    def EndDrawing() -> None:
+        """ 
+        """
+
     AsBitmap: 'Bitmap'  # See GetAsBitmap
     Background: 'Brush'  # See GetBackground and SetBackground
     BackgroundMode: int  # See GetBackgroundMode and SetBackgroundMode
@@ -6723,6 +6727,10 @@ window from outside EVT_PAINT() handler.
         """ Constructor.
 
             Source: https://docs.wxpython.org/wx.ClientDC.html
+        """
+
+    def SetClippingRect(rect: 'Rect') -> None:
+        """ 
         """
 
 
@@ -30450,6 +30458,10 @@ class Panel(Window):
         """ In contrast to SetFocus   (see above) this will set the focus to the panel even if there are child windows in the panel.
 
             Source: https://docs.wxpython.org/wx.Panel.html
+        """
+
+    def DrawSavedLines(dc: 'DC') -> None:
+        """ 
         """
 
 
