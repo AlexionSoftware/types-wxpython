@@ -1313,7 +1313,7 @@ fObj = {
     "className": "wx.Panel",
     "returnType": "None",
     "params": {"dc": "'DC'"},
-    "paramStr": "dc: 'DC'",
+    "paramStr": "self, dc: 'DC'",
     "docstring": "",
     "source": "",
 }
@@ -1326,7 +1326,7 @@ fObj = {
     "className": "wx.DC",
     "returnType": "None",
     "params": {},
-    "paramStr": "",
+    "paramStr": "self",
     "docstring": "",
     "source": "",
 }
@@ -2340,7 +2340,7 @@ EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
     "type": TypingType.LITERAL,
     "name": "TreeItemIcon_Normal",
-    "moduleName": "wx",
+    "moduleName": "wx.lib.agw.customtreectrl",
     "returnType": "int",
     "docstring": "",
     "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
@@ -2349,7 +2349,7 @@ EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
     "type": TypingType.LITERAL,
     "name": "TreeItemIcon_Selected",
-    "moduleName": "wx",
+    "moduleName": "wx.lib.agw.customtreectrl",
     "returnType": "int",
     "docstring": "",
     "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
@@ -2358,7 +2358,7 @@ EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
     "type": TypingType.LITERAL,
     "name": "TreeItemIcon_Expanded",
-    "moduleName": "wx",
+    "moduleName": "wx.lib.agw.customtreectrl",
     "returnType": "int",
     "docstring": "",
     "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
@@ -2367,7 +2367,7 @@ EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
     "type": TypingType.LITERAL,
     "name": "TreeItemIcon_SelectedExpanded",
-    "moduleName": "wx",
+    "moduleName": "wx.lib.agw.customtreectrl",
     "returnType": "int",
     "docstring": "",
     "source": "https://docs.wxpython.org/wx.TreeCtrl.html",

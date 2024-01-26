@@ -457,10 +457,22 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     "wx.lib.intctrl.IntCtrl.GetValue": {
         "returnType": "Optional[int]",
     },
+    "wx.lib.intctrl.IntCtrl.SetValue": {
+        "params": {
+            "value": "Optional[int]",
+        },
+        "paramStr": "self, value: Optional[int]",
+    },
+    "wx.lib.masked.timectrl.TimeCtrl.GetValue": {
+        "returnType": "Optional[Any]",
+    },
     "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetChildrenCount": {
         "returnType": "int",
     },
     "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetChildren": {
+        "returnType": "list['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.GenericTreeItem.GetChildren": {
         "returnType": "list['GenericTreeItem']",
     },
 }
