@@ -1665,7 +1665,7 @@ root items.
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
         """
 
-    def GetText(self) -> None:
+    def GetText(self) -> str:
         """ Returns the item text.
 
             Source: https://docs.wxpython.org/wx.lib.agw.customtreectrl.GenericTreeItem.html
