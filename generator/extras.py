@@ -2337,3 +2337,201 @@ lObj = {
     "source": "https://docs.wxpython.org/wx.lib.agw.aui.auibar.AuiToolBarItem.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TreeItemIcon_Normal",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TreeItemIcon_Selected",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TreeItemIcon_Expanded",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TreeItemIcon_SelectedExpanded",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.TreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ABOVE",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_BELOW",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_NOWHERE",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMBUTTON",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMICON",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMINDENT",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMLABEL",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEM",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMRIGHT",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_TOLEFT",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_TORIGHT",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMUPPERPART",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMLOWERPART",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "TREE_HITTEST_ONITEMCHECKICON",
+    "moduleName": "wx.lib.agw.customtreectrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.agw.customtreectrl.CustomTreeCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "EVT_INT",
+    "moduleName": "wx.lib.intctrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "WXK_CTRL_V",
+    "moduleName": "wx.lib.intctrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "WXK_CTRL_X",
+    "moduleName": "wx.lib.intctrl",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.lib.intctrl.IntCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "EVT_CALENDAR_DAY",
+    "moduleName": "wx.adv",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.adv.CalendarCtrl.html",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)

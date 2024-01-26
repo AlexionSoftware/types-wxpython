@@ -400,4 +400,55 @@ OVERRIDES: dict[str, dict[str, Any]] = {
         },
         "paramStr": "self, agwStyle: int",
     },
+    "wx.lib.agw.customtreectrl.GenericTreeItem.GetParent": {
+        "returnType": "Optional['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.GenericTreeItem.GetData": {
+        "returnType": "Any",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetSelection": {
+        "returnType": "Optional['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetSelections": {
+        "returnType": "list['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetItemParent": {
+        "returnType": "Optional['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetItemText": {
+        "returnType": "str",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.GetRootItem": {
+        "returnType": "Optional['GenericTreeItem']",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.AddRoot": {
+        "returnType": "'GenericTreeItem'",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.AppendItem": {
+        "returnType": "'GenericTreeItem'",
+    },
+    "wx.lib.agw.customtreectrl.CustomTreeCtrl.HitTest": {
+        "returnType": "tuple['GenericTreeItem', int]",
+    },
+    "wx.Frame.SetStatusWidths": {
+        "params": {
+            "widths": "list[int]",
+        },
+        "paramStr": "self, widths: list[int]",
+    },
+    "wx.StatusBar.SetStatusWidths": {
+        "params": {
+            "widths": "list[int]",
+        },
+        "paramStr": "self, widths: list[int]",
+    },
+    "wx.MultiChoiceDialog.SetSelections": {
+        "params": {
+            "selections": "list[int]",
+        },
+        "paramStr": "self, selections: list[int]",
+    },
+    "wx.lib.intctrl.IntCtrl.GetValue": {
+        "returnType": "Optional[int]",
+    }
 }
