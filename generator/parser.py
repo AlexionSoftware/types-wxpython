@@ -573,6 +573,8 @@ class Parser:
 		"""
 		# Make a list of all posible typing problems
 		typingMap = {
+			"integer": "int",
+			"boolean": "bool",
 			"list of strings": "list[str]",
 			"list of integers": "list[int]",
 			"list of floats": "list[float]",
