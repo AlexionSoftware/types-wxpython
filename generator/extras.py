@@ -2535,3 +2535,12 @@ lObj = {
     "source": "https://docs.wxpython.org/wx.adv.CalendarCtrl.html",
 }
 EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
+    "name": "LIST_AUTOSIZE_USEHEADER",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
