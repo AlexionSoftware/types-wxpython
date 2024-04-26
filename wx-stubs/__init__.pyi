@@ -30932,8 +30932,8 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
         """
 
     @staticmethod
-    def Get() -> 'PlatformInfo':
-        """ Returns the global PlatformInfo       object, initialized with the values for the currently running platform.
+    def Get() -> 'PlatformInformation':
+        """ Returns an instance of the PlatformInformation object, initialized with the values for the currently running platform.
 
             Source: https://docs.wxpython.org/wx.PlatformInformation.html
         """
@@ -46135,7 +46135,7 @@ Relationship: TypeAlias = int  # Enumeration
 
 LogLevel: TypeAlias = int  # Enumeration
 
-PlatformInfo: TypeAlias = tuple[str, str, str, str, str, str, str, str, str, str]
+PlatformInfo: tuple[str, str, str, str, str, str, str, str, str, str]
 
 PreviewFrameModalityKind: TypeAlias = int  # Enumeration
 
