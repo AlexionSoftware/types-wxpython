@@ -30933,7 +30933,7 @@ PlatformInfo(pid, tkMajor=-1, tkMinor=-1, id=OS_UNKNOWN, osMajor=-1, osMinor=-1,
 
     @staticmethod
     def Get() -> 'PlatformInformation':
-        """ Returns an instance of the PlatformInformation object, initialized with the values for the currently running platform.
+        """ Returns the global PlatformInfo       object, initialized with the values for the currently running platform.
 
             Source: https://docs.wxpython.org/wx.PlatformInformation.html
         """
@@ -46257,4 +46257,6 @@ LOG_FatalError: int
 LOG_Error: int
 
 EVT_CALENDAR_DAY: int
+
+LIST_AUTOSIZE_USEHEADER: int
 
