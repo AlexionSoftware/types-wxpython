@@ -46208,6 +46208,8 @@ NullCursor: 'Cursor'
 
 LIST_AUTOSIZE: int
 
+LIST_AUTOSIZE_USEHEADER: int
+
 DefaultValidator: 'Validator'
 
 DefaultPosition: 'Position'
