@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import Any
 
+
 OVERRIDES: dict[str, dict[str, Any]] = {
     "wx.ListCtrl.GetFirstSelected": {
         "returnType": "int",
@@ -157,7 +158,7 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     "wx.ListEvent.Data": {
         "returnType": "int",
     },
-    "wx.dataview.DataViewListCtrl.GetItemData":{
+    "wx.dataview.DataViewListCtrl.GetItemData": {
         "returnType": "int",
     },
     "wx.dataview.DataViewListStore.GetItemData": {
@@ -480,5 +481,8 @@ OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "wx.lib.agw.customtreectrl.GenericTreeItem.GetText": {
         "returnType": "str",
+    },
+    "wx.PlatformInformation.Get": {
+        "returnType": "'PlatformInformation'",
     },
 }

@@ -589,7 +589,7 @@ aObj = {
 }
 EXTRA_KNOWN_ITEMS.append(aObj)
 aObj = {
-    "type": TypingType.ALIAS,
+    "type": TypingType.LITERAL,
     "name": "PlatformInfo",
     "moduleName": "wx",
     "returnType": "tuple[str, str, str, str, str, str, str, str, str, str]",
