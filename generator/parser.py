@@ -2,10 +2,15 @@
 from logging import Logger
 import re
 from queue import Queue
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 import requests
 from bs4 import BeautifulSoup, Tag
+from itertools import takewhile
+if TYPE_CHECKING:
+	def md(html:str)->str:...
+else:
+	from markdownify import markdownify as md
 
 from .interfaces import ITyping, ITypingClass, ITypingFunction, ITypingLiteral, TypingType
 
@@ -54,7 +59,7 @@ class Parser:
 			return
 
 		# Process the HTML
-		soup = BeautifulSoup(r.text, 'html.parser')
+		soup = BeautifulSoup(r.content, 'html.parser')
 		if soup is None:
 			self.logger.error("This page '%s' doesnt work!" % url)
 			return
@@ -187,14 +192,8 @@ class Parser:
 		if apiTable is None or not isinstance(apiTable, Tag):
 			return ""
 
-		# The first p is the class def
-		ps: list[Tag] = apiTable.find_all("p")
-		if len(ps) > 0:
-			if "constructors" in ps[0].get_text():
-				return ps[1].get_text()
-			else:
-				return ps[0].get_text()
-		return ""
+		next_header = apiTable.find_next("h3")
+		return md("".join(str(x) for x in takewhile(lambda x: x != next_header, apiTable.children)))
 
 	def _processTypingMethod(self, className: str, soup: Tag, apiTableElem: Tag, methodIdName: str = "method", source: str = "", addToList: bool = False) -> list[ITypingFunction]:
 		""" Process a class with methods
@@ -214,13 +213,11 @@ class Parser:
 			}
 
 			# Find the name
-			methodName: str = methodTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()
+			methodName: str = methodTag.find_all("dt", limit=1)[0].get_text()[:-1].strip()
 			methodType["name"] = methodName
 
 			# Find the docstring
-			methodType["docstring"] = ""
-			if len(methodTag.find_all("p", limit=1)) > 0:
-				methodType["docstring"] = methodTag.find_all("p", limit=1)[0].get_text().strip()
+			methodType["docstring"] = md(str(methodTag))
 
 			# Set the params
 			methodType["params"] = {}
@@ -366,13 +363,11 @@ class Parser:
 			}
 
 			# Find the name
-			literalName: str = literalTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()
+			literalName: str = literalTag.find_all("dt", limit=1)[0].get_text()[:-1].strip()
 			literalType["name"] = literalName
 
 			# Find the docstring
-			literalType["docstring"] = ""
-			if len(literalTag.find_all("p", limit=1)) > 0:
-				literalType["docstring"] = literalTag.find_all("p", limit=1)[0].get_text().strip()
+			literalType["docstring"] = md(str(literalTag))
 
 			# Set the return type
 			literalType["returnType"] = "Any"
