@@ -54,7 +54,7 @@ class Parser:
 			return
 
 		# Process the HTML
-		soup = BeautifulSoup(r.text, 'html.parser')
+		soup = BeautifulSoup(r.content, 'html.parser')
 		if soup is None:
 			self.logger.error("This page '%s' doesnt work!" % url)
 			return
@@ -214,7 +214,7 @@ class Parser:
 			}
 
 			# Find the name
-			methodName: str = methodTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()
+			methodName: str = methodTag.find_all("dt", limit=1)[0].get_text()[:-1].strip()
 			methodType["name"] = methodName
 
 			# Find the docstring
@@ -366,7 +366,7 @@ class Parser:
 			}
 
 			# Find the name
-			literalName: str = literalTag.find_all("dt", limit=1)[0].get_text()[:-2].strip()
+			literalName: str = literalTag.find_all("dt", limit=1)[0].get_text()[:-1].strip()
 			literalType["name"] = literalName
 
 			# Find the docstring
