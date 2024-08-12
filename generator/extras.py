@@ -1022,6 +1022,15 @@ lObj = {
 EXTRA_KNOWN_ITEMS.append(lObj)
 lObj = {
     "type": TypingType.LITERAL,
+    "name": "GRID_AUTOSIZE",
+    "moduleName": "wx",
+    "returnType": "int",
+    "docstring": "",
+    "source": "https://docs.wxpython.org/wx.grid.Grid.html#wx.grid.Grid.SetColLabelSize",
+}
+EXTRA_KNOWN_ITEMS.append(lObj)
+lObj = {
+    "type": TypingType.LITERAL,
     "name": "GRID_VALUE_STRING",
     "moduleName": "wx.grid",
     "returnType": "str",
