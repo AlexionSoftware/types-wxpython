@@ -44409,16 +44409,6 @@ ACC_SEL_ADDSELECTION: int
 
 ACC_SEL_REMOVESELECTION: int
 
-WS_EX_BLOCK_EVENTS: int
-
-ID_OK: int
-
-ID_ANY: int
-
-ID_HIGHEST: int
-
-ID_LOWEST: int
-
 WindowVariant: TypeAlias = int  # Enumeration
 
 WINDOW_VARIANT_NORMAL: int
@@ -44453,19 +44443,9 @@ BITMAP_TYPE_MACCURSOR: int
 
 BITMAP_TYPE_BMP_RESOURCE: int
 
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_XBM: int
-
 BITMAP_TYPE_ICO_RESOURCE: int
 
-BITMAP_TYPE_ICO: int
-
 BITMAP_TYPE_CUR_RESOURCE: int
-
-BITMAP_TYPE_CUR: int
 
 PortId: TypeAlias = int  # Enumeration
 
@@ -44486,148 +44466,6 @@ PORT_MAC: int
 PORT_COCOA: int
 
 PORT_QT: int
-
-ID_ABOUT: int
-
-ID_ADD: int
-
-ID_APPLY: int
-
-ID_BACKWARD: int
-
-ID_BOLD: int
-
-ID_BOTTOM: int
-
-ID_CANCEL: int
-
-ID_CDROM: int
-
-ID_CLEAR: int
-
-ID_CLOSE: int
-
-ID_CONVERT: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_DELETE: int
-
-ID_DOWN: int
-
-ID_EDIT: int
-
-ID_EXECUTE: int
-
-ID_EXIT: int
-
-ID_FILE: int
-
-ID_FIND: int
-
-ID_FIRST: int
-
-ID_FLOPPY: int
-
-ID_FORWARD: int
-
-ID_HARDDISK: int
-
-ID_HELP: int
-
-ID_HOME: int
-
-ID_INDENT: int
-
-ID_INDEX: int
-
-ID_INFO: int
-
-ID_ITALIC: int
-
-ID_JUMP_TO: int
-
-ID_JUSTIFY_CENTER: int
-
-ID_JUSTIFY_FILL: int
-
-ID_JUSTIFY_LEFT: int
-
-ID_JUSTIFY_RIGHT: int
-
-ID_LAST: int
-
-ID_NETWORK: int
-
-ID_NEW: int
-
-ID_NO: int
-
-ID_OPEN: int
-
-ID_PASTE: int
-
-ID_PREFERENCES: int
-
-ID_PREVIEW: int
-
-ID_PRINT: int
-
-ID_PROPERTIES: int
-
-ID_REDO: int
-
-ID_REFRESH: int
-
-ID_REMOVE: int
-
-ID_REPLACE: int
-
-ID_REVERT_TO_SAVED: int
-
-ID_SAVE: int
-
-ID_SAVEAS: int
-
-ID_SELECTALL: int
-
-ID_SELECT_COLOR: int
-
-ID_SELECT_FONT: int
-
-ID_SORT_ASCENDING: int
-
-ID_SORT_DESCENDING: int
-
-ID_SPELL_CHECK: int
-
-ID_STOP: int
-
-ID_STRIKETHROUGH: int
-
-ID_TOP: int
-
-ID_UNDELETE: int
-
-ID_UNDERLINE: int
-
-ID_UNDO: int
-
-ID_UNINDENT: int
-
-ID_UP: int
-
-ID_YES: int
-
-ID_ZOOM_100: int
-
-ID_ZOOM_FIT: int
-
-ID_ZOOM_IN: int
-
-ID_ZOOM_OUT: int
 
 RasterOperationMode: TypeAlias = int  # Enumeration
 
@@ -44705,51 +44543,6 @@ def Add(window, proportion=0, flag=0, border=0, userData=None) -> 'SizerItem':
         Source: https://docs.wxpython.org/sizers_overview.html
     """
 
-
-TOP: int
-
-BOTTOM: int
-
-LEFT: int
-
-RIGHT: int
-
-ALL: int
-
-EXPAND: int
-
-SHAPED: int
-
-FIXED_MINSIZE: int
-
-RESERVE_SPACE_EVEN_IF_HIDDEN: int
-
-ALIGN_CENTER: int
-
-ALIGN_CENTRE: int
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_TOP: int
-
-ALIGN_BOTTOM: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_CENTRE_VERTICAL: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-GROW: int
-
-NORTH: int
-
-WEST: int
-
 BrushStyle: TypeAlias = int  # Enumeration
 
 BRUSHSTYLE_INVALID: int
@@ -44820,33 +44613,11 @@ HT_WINDOW_CORNER: int
 
 HT_MAX: int
 
-EVT_CLOSE: int
-
-FD_OPEN: int
-
-FD_SAVE: int
-
-FD_OVERWRITE_PROMPT: int
-
 FD_HIDE_READONLY: int
-
-FD_FILE_MUST_EXIST: int
-
-FD_MULTIPLE: int
-
-FD_CHANGE_DIR: int
-
-ID_FILE1: int
-
-ID_FILE9: int
 
 _DragResult: TypeAlias = DragResult
 
-EVT_PAINT: int
-
 DefaultSize: int
-
-EVT_SIZE: int
 
 BackgroundStyle: TypeAlias = int  # Enumeration
 
@@ -44877,10 +44648,6 @@ SHOW_EFFECT_BLEND: int
 SHOW_EFFECT_EXPAND: int
 
 SHOW_EFFECT_MAX: int
-
-VERTICAL: int
-
-HORIZONTAL: int
 
 UpdateUI: TypeAlias = int  # Enumeration
 
@@ -44956,12 +44723,6 @@ DIALOG_ADAPTATION_MODE_DISABLED: int
 
 DialogLayoutAdaptationMode: TypeAlias = int  # Enumeration
 
-DIALOG_ADAPTATION_MODE_DEFAULT: int
-
-DIALOG_ADAPTATION_MODE_ENABLED: int
-
-DIALOG_ADAPTATION_MODE_DISABLED: int
-
 EventCategory: TypeAlias = int  # Enumeration
 
 FileHistoryMenuPathStyle: TypeAlias = int  # Enumeration
@@ -45015,20 +44776,6 @@ LIGHT: int
 BOLD: int
 
 FONTENCODING_XXX: int
-
-FONTENCODING_SYSTEM: int
-
-FONTENCODING_DEFAULT: int
-
-FONTENCODING_KOI8: int
-
-FONTENCODING_ISO8859_5: int
-
-FONTENCODING_CP1251: int
-
-FONTENCODING_CP1250: int
-
-FONTENCODING_CP1252: int
 
 FontSymbolicSize: TypeAlias = int  # Enumeration
 
@@ -45668,8 +45415,6 @@ APP_ASSERT_LOG: int
 
 ScrollbarVisibility: TypeAlias = int  # Enumeration
 
-SP_3D: int
-
 SplitMode: TypeAlias = int  # Enumeration
 
 StreamError: TypeAlias = int  # Enumeration
@@ -46054,13 +45799,9 @@ CONTENT_PROTECTION_NONE: int
 
 CONTENT_PROTECTION_ENABLED: int
 
-EVT_TREE_ITEM_EXPANDING: int
-
 UpdateUIMode: TypeAlias = int  # Enumeration
 
 _FileSystem: TypeAlias = FileSystem
-
-ID_NONE: int
 
 _SizerItem: TypeAlias = SizerItem
 
@@ -46165,10 +45906,6 @@ RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL
 
 RA_VERTICAL: int  # Synonym of wx.VERTICAL
 
-NORMAL: int
-
-DEFAULT: int
-
 wxEVT_COMMAND_BUTTON_CLICKED: int
 
 RED: 'Colour'
@@ -46257,6 +45994,4 @@ LOG_FatalError: int
 LOG_Error: int
 
 EVT_CALENDAR_DAY: int
-
-LIST_AUTOSIZE_USEHEADER: int
 
