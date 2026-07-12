@@ -14209,7 +14209,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Bind(self, event, handler, source=None, id=wx.ID_ANY, id2=wx.ID_ANY) -> None:
+    def Bind(self, event, handler, source=None, id=ID_ANY, id2=ID_ANY) -> None:
         """ Bind an event to an event handler.
 
             Source: https://docs.wxpython.org/wx.EvtHandler.html
@@ -14324,7 +14324,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None) -> None:
+    def Unbind(self, event, source=None, id=ID_ANY, id2=ID_ANY, handler=None) -> None:
         """ Disconnects the event handler binding for event from self.
 Returns True if successful.
 
@@ -40490,7 +40490,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def AddLabelTool(self, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def AddLabelTool(self, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to add a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -40671,7 +40671,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to insert a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
