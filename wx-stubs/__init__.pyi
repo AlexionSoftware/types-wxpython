@@ -10,6 +10,7 @@ from .StockPreferencesPage import Kind
 from .FileTypes import MessageParameters
 from .TopLevelWindow import GeometrySerializer
 from .StaticBitmap import ScaleMode
+from .Image import HSVValue, RGBValue
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -45870,10 +45871,6 @@ ArrayVideoModes: TypeAlias = list['VideoMode']
 MsgCatalog: TypeAlias = Any
 
 SIP_SSIZE_T: TypeAlias = int
-
-RGBValue: TypeAlias = 'Image.RGBValue'
-
-HSVValue: TypeAlias = 'Image.HSVValue'
 
 Relationship: TypeAlias = int  # Enumeration
 
