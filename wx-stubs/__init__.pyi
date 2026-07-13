@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-from .ActivateEvent import Reason
+from .ActivateEvent import Reason, Reason_Unknown
 from .ConfigBase import EntryType
-from .DateTime import Country, Month, Tm
+from .DataObject import Direction
+from .DateTime import Calendar, Country, Month, NameFlags, TimeZone, Tm, TZ, WeekDay, WeekFlags, Year
 from .HelpEvent import Origin
-from .StandardPaths import FileLayout
+from .StandardPaths import ConfigFileConv, Dir, FileLayout, ResourceCat
 from .StockPreferencesPage import Kind
+from .FileType import MessageParameters
+from .TopLevelWindow import GeometrySerializer
+from .StaticBitmap import ScaleMode
+from .Image import HSVValue, RGBValue
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -697,7 +702,7 @@ def date2pydate(date) -> None:
     """
 
 
-def DateTimeFromDMY(day, month, year=DateTime.Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
+def DateTimeFromDMY(day, month, year=Year.Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
     """ Compatibility wrapper for DateTime.FromDMY
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -4762,7 +4767,7 @@ data.
             Source: https://docs.wxpython.org/wx.BitmapDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -4804,7 +4809,7 @@ clipboard, or dragged and dropped.
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def GetAllFormats(self, dir=Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -4823,19 +4828,19 @@ supports transferring in the given direction.
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def GetFormatCount(self, dir: int=Get) -> int:
+    def GetFormatCount(self, dir: int=Direction.Get) -> int:
         """ Returns the number of available formats for rendering or setting the data.
 
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def GetPreferredFormat(self, dir: int=Get) -> 'DataFormat':
+    def GetPreferredFormat(self, dir: int=Direction.Get) -> 'DataFormat':
         """ Returns the preferred format for either rendering the data (if dir  is  Get , its default value) or for setting it.
 
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def IsSupported(self, format, dir=Get) -> bool:
+    def IsSupported(self, format, dir=Direction.Get) -> bool:
         """ Returns True if this format is supported.
 
             Source: https://docs.wxpython.org/wx.DataObject.html
@@ -11297,7 +11302,7 @@ standard ones).
             Source: https://docs.wxpython.org/wx.CustomDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -11340,7 +11345,7 @@ class.
             Source: https://docs.wxpython.org/wx.DataObjectSimple.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -11472,14 +11477,14 @@ may be used to support multiple formats.
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
         """
 
-    def GetObject(self, format, dir=DataObject.Get) -> 'DataObjectSimple':
+    def GetObject(self, format, dir=Direction.Get) -> 'DataObjectSimple':
         """ Returns the pointer to the object which supports the passed format for the specified direction.
 
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
@@ -11665,7 +11670,6 @@ different consider adding one month to Feb, 15  we want to get Mar,
         """
 
 
-
 class DateTime:
     """ DateTime class represents an absolute moment in time.
 
@@ -11696,7 +11700,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def Format(self, format=DefaultDateTimeFormat, tz=Local) -> str:
+    def Format(self, format=DefaultDateTimeFormat, tz=TZ.Local) -> str:
         """ This function does the same as the standard ANSI C  strftime(3)   function (https://cplusplus.com/reference/ctime/strftime/).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11733,7 +11737,7 @@ class DateTime:
         """
 
     @staticmethod
-    def FromDMY(day, month, year=Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> 'DateTime':
+    def FromDMY(day, month, year=Year.Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> 'DateTime':
         """ Construct a DateTime using the supplied parameters.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11780,13 +11784,13 @@ class DateTime:
         """
 
     @staticmethod
-    def GetBeginDST(year=Inv_Year, country=Country_Default) -> 'DateTime':
+    def GetBeginDST(year=Year.Inv_Year, country=Country.Country_Default) -> 'DateTime':
         """ Get the beginning of DST for the given country in the given year (current one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetCentury(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetCentury(self, tz: TimeZone=TZ.Local) -> int:
         """ Returns the century of this date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11800,14 +11804,14 @@ class DateTime:
         """
 
     @staticmethod
-    def GetCurrentMonth(cal: Calendar=Gregorian) -> 'Month':
+    def GetCurrentMonth(cal: Calendar=Calendar.Gregorian) -> 'Month':
         """ Get the current month in given calendar (only Gregorian is currently supported).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetCurrentYear(cal: Calendar=Gregorian) -> int:
+    def GetCurrentYear(cal: Calendar=Calender.Gregorian) -> int:
         """ Get the current year in given calendar (only Gregorian is currently supported).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11819,34 +11823,34 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDay(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDay(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the day in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDayOfYear(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDayOfYear(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the day of the year (in 1-366 range) in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetEndDST(year=Inv_Year, country=Country_Default) -> 'DateTime':
+    def GetEndDST(year=Year.Inv_Year, country=Country.Country_Default) -> 'DateTime':
         """ Returns the end of DST for the given country in the given year (current one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetEnglishMonthName(month, flags=Name_Full) -> str:
+    def GetEnglishMonthName(month, flags=NameFlags.Name_Full) -> str:
         """ Return the standard English name of the given month.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetEnglishWeekDayName(weekday, flags=Name_Full) -> str:
+    def GetEnglishWeekDayName(weekday, flags=NameFlags.Name_Full) -> str:
         """ Return the standard English name of the given week day.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11859,7 +11863,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetHour(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetHour(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the hour in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11877,13 +11881,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetLastMonthDay(self, month=Inv_Month, year=Inv_Year) -> 'DateTime':
+    def GetLastMonthDay(self, month=Month.Inv_Month, year=Year.Inv_Year) -> 'DateTime':
         """ Returns the copy of this object to which SetToLastMonthDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetLastWeekDay(self, weekday, month=Inv_Month, year=Inv_Year) -> 'DateTime':
+    def GetLastWeekDay(self, weekday, month=Month.Inv_Month, year=Year.Inv_Year) -> 'DateTime':
         """ Returns the copy of this object to which SetToLastWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11895,13 +11899,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMillisecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMillisecond(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the milliseconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMinute(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMinute(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the minute in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11913,33 +11917,33 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMonth(self, tz: 'DateTime.TimeZone'=Local) -> 'Month':
+    def GetMonth(self, tz: TimeZone=TZ.Local) -> 'Month':
         """ Returns the month in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetMonthName(month, flags=Name_Full) -> str:
+    def GetMonthName(month, flags=NameFlags.Name_Full) -> str:
         """ Gets the full (default) or abbreviated name of the given month.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToNextWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetNumberOfDays(month, year=Inv_Year, cal=Gregorian) -> 'intshort':
+    def GetNumberOfDays(month, year=Year.Inv_Year, cal=Calender.Gregorian) -> 'intshort':
         """ Returns the number of days in the given month of the given year.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToPrevWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11951,7 +11955,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetSecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetSecond(self, tz: TimeZone=TZ.Local) -> 'intshort':
         """ Returns the seconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11970,7 +11974,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetTm(self, tz: 'DateTime.TimeZone'=Local) -> 'Tm':
+    def GetTm(self, tz: TimeZone=TZ.Local) -> 'Tm':
         """ Returns broken down representation of the date and time.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11982,7 +11986,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekBasedYear(self, tz: 'DateTime.TimeZone') -> int:
+    def GetWeekBasedYear(self, tz: TimeZone) -> int:
         """ Returns the year to which the week containing this date belongs.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11994,32 +11998,32 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekDayInSameWeek(self, weekday, flags=Monday_First) -> 'DateTime':
+    def GetWeekDayInSameWeek(self, weekday, flags=WeekFlags.Monday_First) -> 'DateTime':
         """ Returns the copy of this object to which SetToWeekDayInSameWeek   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def GetWeekDayName(weekday, flags=Name_Full) -> str:
+    def GetWeekDayName(weekday, flags=NameFlags.Name_Full) -> str:
         """ Gets the full (default) or abbreviated name of the given week day.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekOfMonth(self, flags=Monday_First, tz=Local) -> 'intshort':
+    def GetWeekOfMonth(self, flags=WeekFlags.Monday_First, tz=TZ.Local) -> 'intshort':
         """ Returns the ordinal number of the week in the month (in 1-5 range).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekOfYear(self, flags=Monday_First, tz=Local) -> 'intshort':
+    def GetWeekOfYear(self, flags=WeekFlags.Monday_First, tz=TZ.Local) -> 'intshort':
         """ Returns the number of the week of the year this date is in.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetYear(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetYear(self, tz: TimeZone=TZ.Local) -> int:
         """ Returns the year in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12037,14 +12041,14 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def IsDST(self, country: Country=Country_Default) -> int:
+    def IsDST(self, country: Country=Country.Country_Default) -> int:
         """ Returns True if the DST is applied for this date in the given country.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def IsDSTApplicable(year=Inv_Year, country=Country_Default) -> bool:
+    def IsDSTApplicable(year=Year.Inv_Year, country=Country.Country_Default) -> bool:
         """ Returns True if DST was used in the given year (the current one by default) in the given country.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12075,7 +12079,7 @@ class DateTime:
         """
 
     @staticmethod
-    def IsLeapYear(year=Inv_Year, cal=Gregorian) -> bool:
+    def IsLeapYear(year=Year.Inv_Year, cal=Calender.Gregorian) -> bool:
         """ Returns True if the year  is a leap one in the specified calendar.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12106,13 +12110,13 @@ class DateTime:
         """
 
     @staticmethod
-    def IsWestEuropeanCountry(country: Country=Country_Default) -> bool:
+    def IsWestEuropeanCountry(country: Country=Country.Country_Default) -> bool:
         """ This function returns True if the specified (or default) country is one of Western European ones.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def IsWorkDay(self, country: Country=Country_Default) -> bool:
+    def IsWorkDay(self, country: Country=Country.Country_Default) -> bool:
         """ Returns True is this day is not a holiday in the given country.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12197,7 +12201,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def Set(self, day, month, year=Inv_Year, hour=0, minute=0, second=0, millisec=0) -> 'DateTime':
+    def Set(self, day, month, year=Year.Inv_Year, hour=0, minute=0, second=0, millisec=0) -> 'DateTime':
         """ Sets the date and time from the parameters.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12221,7 +12225,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetTm(self, tm: 'DateTime.Tm') -> 'DateTime':
+    def SetTm(self, tm: Tm) -> 'DateTime':
         """ Sets the date and time from the broken down representation in the  ` wx.DateTime.Tm  `   structure.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12264,7 +12268,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetMonth(self, month: DateTime.Month) -> 'DateTime':
+    def SetMonth(self, month: Month) -> 'DateTime':
         """ Sets the month without changing other date components.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12282,44 +12286,44 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToLastMonthDay(self, month=Inv_Month, year=Inv_Year) -> 'DateTime':
+    def SetToLastMonthDay(self, month=Month.Inv_Month, year=Year.Inv_Year) -> 'DateTime':
         """ Sets the date to the last day in the specified month (the current one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToLastWeekDay(self, weekday, month=Inv_Month, year=Inv_Year) -> bool:
+    def SetToLastWeekDay(self, weekday, month=Month.Inv_Month, year=Year.Inv_Year) -> bool:
         """ The effect of calling this function is the same as of calling  SetToWeekDay (-1, weekday, month, year).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the first weekday  following the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the last weekday  before the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToWeekDay(self, weekday, n=1, month=Inv_Month, year=Inv_Year) -> bool:
+    def SetToWeekDay(self, weekday, n=1, month=Month.Inv_Month, year=Year.Inv_Year) -> bool:
         """ Sets the date to the n-th weekday  in the given month of the given year (the current month and year are used by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToWeekDayInSameWeek(self, weekday, flags=Monday_First) -> 'DateTime':
+    def SetToWeekDayInSameWeek(self, weekday, flags=WeekFlags.Monday_First) -> 'DateTime':
         """ Adjusts the date so that it will still lie in the same week as before, but its week day will be the given one.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     @staticmethod
-    def SetToWeekOfYear(year, numWeek, weekday=Mon) -> 'DateTime':
+    def SetToWeekOfYear(year, numWeek, weekday=WeekDay.Mon) -> 'DateTime':
         """ Set the date to the given weekday  in the week number numWeek  of the given year  .
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -14209,7 +14213,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Bind(self, event, handler, source=None, id=wx.ID_ANY, id2=wx.ID_ANY) -> None:
+    def Bind(self, event, handler, source=None, id=ID_ANY, id2=ID_ANY) -> None:
         """ Bind an event to an event handler.
 
             Source: https://docs.wxpython.org/wx.EvtHandler.html
@@ -14324,7 +14328,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None) -> None:
+    def Unbind(self, event, source=None, id=ID_ANY, id2=ID_ANY, handler=None) -> None:
         """ Disconnects the event handler binding for event from self.
 Returns True if successful.
 
@@ -14683,7 +14687,7 @@ class FileDataObject(DataObjectSimple):
             Source: https://docs.wxpython.org/wx.FileDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -15662,7 +15666,7 @@ class FileType:
             Source: https://docs.wxpython.org/wx.FileType.html
         """
 
-    def GetAllCommands(self, params: FileType.MessageParameters) -> tuple:
+    def GetAllCommands(self, params: MessageParameters) -> tuple:
         """ Returns a tuple containing the verbs and commands arrays, corresponding for the registered information for this mime type.
 
             Source: https://docs.wxpython.org/wx.FileType.html
@@ -21130,7 +21134,7 @@ help.
 
         Source: https://docs.wxpython.org/wx.HelpEvent.html
     """
-    def __init__(self, type=wxEVT_NULL, winid=0, pt=DefaultPosition, origin=Origin_Unknown) -> None:
+    def __init__(self, type=wxEVT_NULL, winid=0, pt=DefaultPosition, origin=Origin.Origin_Unknown) -> None:
         """ Constructor.
 
             Source: https://docs.wxpython.org/wx.HelpEvent.html
@@ -21148,7 +21152,7 @@ help.
             Source: https://docs.wxpython.org/wx.HelpEvent.html
         """
 
-    def SetOrigin(self, origin: HelpEvent.Origin) -> None:
+    def SetOrigin(self, origin: Origin) -> None:
         """ Set the help event origin, only used internally by wxWidgets normally.
 
             Source: https://docs.wxpython.org/wx.HelpEvent.html
@@ -21202,7 +21206,7 @@ class HTMLDataObject(DataObjectSimple):
             Source: https://docs.wxpython.org/wx.HTMLDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -22245,7 +22249,7 @@ class ImageDataObject(CustomDataObject):
             Source: https://docs.wxpython.org/wx.ImageDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -37857,7 +37861,7 @@ way.
             Source: https://docs.wxpython.org/wx.StandardPaths.html
         """
 
-    def GetLocalizedResourcesDir(self, lang, category=ResourceCat_None) -> str:
+    def GetLocalizedResourcesDir(self, lang, category=ResourceCat.ResourceCat_None) -> str:
         """ Return the localized resources directory containing the resource files of the specified category for the given language.
 
             Source: https://docs.wxpython.org/wx.StandardPaths.html
@@ -37912,7 +37916,7 @@ way.
             Source: https://docs.wxpython.org/wx.StandardPaths.html
         """
 
-    def MakeConfigFileName(self, basename, conv=ConfigFileConv_Ext) -> str:
+    def MakeConfigFileName(self, basename, conv=ConfigFileConv.ConfigFileConv_Ext) -> str:
         """ Return the file name which would be used by   wx.FileConfig  if it were constructed with basename.
 
             Source: https://docs.wxpython.org/wx.StandardPaths.html
@@ -39618,7 +39622,7 @@ data.
             Source: https://docs.wxpython.org/wx.TextDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -39631,7 +39635,7 @@ supports transferring in the given direction.
             Source: https://docs.wxpython.org/wx.TextDataObject.html
         """
 
-    def GetFormatCount(self, dir: int=DataObject.Get) -> int:
+    def GetFormatCount(self, dir: int=Direction.Get) -> int:
         """ Returns 2 under Mac and wxGTK, where text data coming from the clipboard may be provided as ANSI ( DF_TEXT ) or as Unicode text ( DF_UNICODETEXT , but only when   USE_UNICODE==1 ).
 
             Source: https://docs.wxpython.org/wx.TextDataObject.html
@@ -40490,7 +40494,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def AddLabelTool(self, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def AddLabelTool(self, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to add a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -40671,7 +40675,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to insert a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -41389,13 +41393,13 @@ class TopLevelWindow(NonOwnedWindow):
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def RestoreToGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def RestoreToGeometry(self, ser: GeometrySerializer) -> bool:
         """ Restores the window to the previously saved geometry.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def SaveGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def SaveGeometry(self, ser: GeometrySerializer) -> bool:
         """ Save the current window geometry to allow restoring it later.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
@@ -42633,7 +42637,7 @@ e.g.
             Source: https://docs.wxpython.org/wx.URLDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Direction.Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -44409,16 +44413,6 @@ ACC_SEL_ADDSELECTION: int
 
 ACC_SEL_REMOVESELECTION: int
 
-WS_EX_BLOCK_EVENTS: int
-
-ID_OK: int
-
-ID_ANY: int
-
-ID_HIGHEST: int
-
-ID_LOWEST: int
-
 WindowVariant: TypeAlias = int  # Enumeration
 
 WINDOW_VARIANT_NORMAL: int
@@ -44453,19 +44447,9 @@ BITMAP_TYPE_MACCURSOR: int
 
 BITMAP_TYPE_BMP_RESOURCE: int
 
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_XBM: int
-
 BITMAP_TYPE_ICO_RESOURCE: int
 
-BITMAP_TYPE_ICO: int
-
 BITMAP_TYPE_CUR_RESOURCE: int
-
-BITMAP_TYPE_CUR: int
 
 PortId: TypeAlias = int  # Enumeration
 
@@ -44486,148 +44470,6 @@ PORT_MAC: int
 PORT_COCOA: int
 
 PORT_QT: int
-
-ID_ABOUT: int
-
-ID_ADD: int
-
-ID_APPLY: int
-
-ID_BACKWARD: int
-
-ID_BOLD: int
-
-ID_BOTTOM: int
-
-ID_CANCEL: int
-
-ID_CDROM: int
-
-ID_CLEAR: int
-
-ID_CLOSE: int
-
-ID_CONVERT: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_DELETE: int
-
-ID_DOWN: int
-
-ID_EDIT: int
-
-ID_EXECUTE: int
-
-ID_EXIT: int
-
-ID_FILE: int
-
-ID_FIND: int
-
-ID_FIRST: int
-
-ID_FLOPPY: int
-
-ID_FORWARD: int
-
-ID_HARDDISK: int
-
-ID_HELP: int
-
-ID_HOME: int
-
-ID_INDENT: int
-
-ID_INDEX: int
-
-ID_INFO: int
-
-ID_ITALIC: int
-
-ID_JUMP_TO: int
-
-ID_JUSTIFY_CENTER: int
-
-ID_JUSTIFY_FILL: int
-
-ID_JUSTIFY_LEFT: int
-
-ID_JUSTIFY_RIGHT: int
-
-ID_LAST: int
-
-ID_NETWORK: int
-
-ID_NEW: int
-
-ID_NO: int
-
-ID_OPEN: int
-
-ID_PASTE: int
-
-ID_PREFERENCES: int
-
-ID_PREVIEW: int
-
-ID_PRINT: int
-
-ID_PROPERTIES: int
-
-ID_REDO: int
-
-ID_REFRESH: int
-
-ID_REMOVE: int
-
-ID_REPLACE: int
-
-ID_REVERT_TO_SAVED: int
-
-ID_SAVE: int
-
-ID_SAVEAS: int
-
-ID_SELECTALL: int
-
-ID_SELECT_COLOR: int
-
-ID_SELECT_FONT: int
-
-ID_SORT_ASCENDING: int
-
-ID_SORT_DESCENDING: int
-
-ID_SPELL_CHECK: int
-
-ID_STOP: int
-
-ID_STRIKETHROUGH: int
-
-ID_TOP: int
-
-ID_UNDELETE: int
-
-ID_UNDERLINE: int
-
-ID_UNDO: int
-
-ID_UNINDENT: int
-
-ID_UP: int
-
-ID_YES: int
-
-ID_ZOOM_100: int
-
-ID_ZOOM_FIT: int
-
-ID_ZOOM_IN: int
-
-ID_ZOOM_OUT: int
 
 RasterOperationMode: TypeAlias = int  # Enumeration
 
@@ -44705,51 +44547,6 @@ def Add(window, proportion=0, flag=0, border=0, userData=None) -> 'SizerItem':
         Source: https://docs.wxpython.org/sizers_overview.html
     """
 
-
-TOP: int
-
-BOTTOM: int
-
-LEFT: int
-
-RIGHT: int
-
-ALL: int
-
-EXPAND: int
-
-SHAPED: int
-
-FIXED_MINSIZE: int
-
-RESERVE_SPACE_EVEN_IF_HIDDEN: int
-
-ALIGN_CENTER: int
-
-ALIGN_CENTRE: int
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_TOP: int
-
-ALIGN_BOTTOM: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_CENTRE_VERTICAL: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-GROW: int
-
-NORTH: int
-
-WEST: int
-
 BrushStyle: TypeAlias = int  # Enumeration
 
 BRUSHSTYLE_INVALID: int
@@ -44820,33 +44617,11 @@ HT_WINDOW_CORNER: int
 
 HT_MAX: int
 
-EVT_CLOSE: int
-
-FD_OPEN: int
-
-FD_SAVE: int
-
-FD_OVERWRITE_PROMPT: int
-
 FD_HIDE_READONLY: int
-
-FD_FILE_MUST_EXIST: int
-
-FD_MULTIPLE: int
-
-FD_CHANGE_DIR: int
-
-ID_FILE1: int
-
-ID_FILE9: int
 
 _DragResult: TypeAlias = DragResult
 
-EVT_PAINT: int
-
 DefaultSize: int
-
-EVT_SIZE: int
 
 BackgroundStyle: TypeAlias = int  # Enumeration
 
@@ -44877,10 +44652,6 @@ SHOW_EFFECT_BLEND: int
 SHOW_EFFECT_EXPAND: int
 
 SHOW_EFFECT_MAX: int
-
-VERTICAL: int
-
-HORIZONTAL: int
 
 UpdateUI: TypeAlias = int  # Enumeration
 
@@ -44956,12 +44727,6 @@ DIALOG_ADAPTATION_MODE_DISABLED: int
 
 DialogLayoutAdaptationMode: TypeAlias = int  # Enumeration
 
-DIALOG_ADAPTATION_MODE_DEFAULT: int
-
-DIALOG_ADAPTATION_MODE_ENABLED: int
-
-DIALOG_ADAPTATION_MODE_DISABLED: int
-
 EventCategory: TypeAlias = int  # Enumeration
 
 FileHistoryMenuPathStyle: TypeAlias = int  # Enumeration
@@ -45015,20 +44780,6 @@ LIGHT: int
 BOLD: int
 
 FONTENCODING_XXX: int
-
-FONTENCODING_SYSTEM: int
-
-FONTENCODING_DEFAULT: int
-
-FONTENCODING_KOI8: int
-
-FONTENCODING_ISO8859_5: int
-
-FONTENCODING_CP1251: int
-
-FONTENCODING_CP1250: int
-
-FONTENCODING_CP1252: int
 
 FontSymbolicSize: TypeAlias = int  # Enumeration
 
@@ -45668,8 +45419,6 @@ APP_ASSERT_LOG: int
 
 ScrollbarVisibility: TypeAlias = int  # Enumeration
 
-SP_3D: int
-
 SplitMode: TypeAlias = int  # Enumeration
 
 StreamError: TypeAlias = int  # Enumeration
@@ -46054,13 +45803,9 @@ CONTENT_PROTECTION_NONE: int
 
 CONTENT_PROTECTION_ENABLED: int
 
-EVT_TREE_ITEM_EXPANDING: int
-
 UpdateUIMode: TypeAlias = int  # Enumeration
 
 _FileSystem: TypeAlias = FileSystem
-
-ID_NONE: int
 
 _SizerItem: TypeAlias = SizerItem
 
@@ -46109,8 +45854,6 @@ PyUserData: TypeAlias = Any
 
 FileOffset: TypeAlias = int
 
-WeekDay: TypeAlias = int
-
 value_type: TypeAlias = bytes
 
 Byte: TypeAlias = bytes
@@ -46127,10 +45870,6 @@ MsgCatalog: TypeAlias = Any
 
 SIP_SSIZE_T: TypeAlias = int
 
-RGBValue: TypeAlias = 'Image.RGBValue'
-
-HSVValue: TypeAlias = 'Image.HSVValue'
-
 Relationship: TypeAlias = int  # Enumeration
 
 LogLevel: TypeAlias = int  # Enumeration
@@ -46144,10 +45883,6 @@ Rect2DDouble: TypeAlias = Any
 OutCode: TypeAlias = int  # Enumeration
 
 RegionContain: TypeAlias = int  # Enumeration
-
-Dir: TypeAlias = 'StandardPaths.Dir'  # Enumeration
-
-ScaleMode: TypeAlias = 'StaticBitmap.ScaleMode'  # Enumeration
 
 res: TypeAlias = Any
 
@@ -46164,10 +45899,6 @@ GROW: int  # Synonym of wx.EXPAND
 RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL
 
 RA_VERTICAL: int  # Synonym of wx.VERTICAL
-
-NORMAL: int
-
-DEFAULT: int
 
 wxEVT_COMMAND_BUTTON_CLICKED: int
 
@@ -46257,6 +45988,4 @@ LOG_FatalError: int
 LOG_Error: int
 
 EVT_CALENDAR_DAY: int
-
-LIST_AUTOSIZE_USEHEADER: int
 
