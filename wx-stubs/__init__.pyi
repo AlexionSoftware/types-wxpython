@@ -8,6 +8,7 @@ from .HelpEvent import Origin
 from .StandardPaths import FileLayout
 from .StockPreferencesPage import Kind
 from .FileTypes import MessageParameters
+from .TopLevelWindow import GeometrySerializer
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -41390,13 +41391,13 @@ class TopLevelWindow(NonOwnedWindow):
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def RestoreToGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def RestoreToGeometry(self, ser: GeometrySerializer) -> bool:
         """ Restores the window to the previously saved geometry.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def SaveGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def SaveGeometry(self, ser: GeometrySerializer) -> bool:
         """ Save the current window geometry to allow restoring it later.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
