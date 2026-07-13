@@ -7,6 +7,7 @@ from .DateTime import Country, Month, TimeZone, Tm
 from .HelpEvent import Origin
 from .StandardPaths import FileLayout
 from .StockPreferencesPage import Kind
+from .FileTypes import MessageParameters
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -15662,7 +15663,7 @@ class FileType:
             Source: https://docs.wxpython.org/wx.FileType.html
         """
 
-    def GetAllCommands(self, params: FileType.MessageParameters) -> tuple:
+    def GetAllCommands(self, params: MessageParameters) -> tuple:
         """ Returns a tuple containing the verbs and commands arrays, corresponding for the registered information for this mime type.
 
             Source: https://docs.wxpython.org/wx.FileType.html
