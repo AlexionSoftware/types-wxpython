@@ -9,6 +9,7 @@ from .StandardPaths import FileLayout
 from .StockPreferencesPage import Kind
 from .FileTypes import MessageParameters
 from .TopLevelWindow import GeometrySerializer
+from .StaticBitmap import ScaleMode
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -45889,8 +45890,6 @@ OutCode: TypeAlias = int  # Enumeration
 RegionContain: TypeAlias = int  # Enumeration
 
 Dir: TypeAlias = 'StandardPaths.Dir'  # Enumeration
-
-ScaleMode: TypeAlias = 'StaticBitmap.ScaleMode'  # Enumeration
 
 res: TypeAlias = Any
 
