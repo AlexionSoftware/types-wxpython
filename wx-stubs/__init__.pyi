@@ -3,7 +3,7 @@ from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 from .ActivateEvent import Reason
 from .ConfigBase import EntryType
-from .DateTime import Country, Month, Tm
+from .DateTime import Country, Month, TimeZone, Tm
 from .HelpEvent import Origin
 from .StandardPaths import FileLayout
 from .StockPreferencesPage import Kind
@@ -697,7 +697,7 @@ def date2pydate(date) -> None:
     """
 
 
-def DateTimeFromDMY(day, month, year=DateTime.Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
+def DateTimeFromDMY(day, month, year=Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
     """ Compatibility wrapper for DateTime.FromDMY
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -11786,7 +11786,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetCentury(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetCentury(self, tz: TimeZone=Local) -> int:
         """ Returns the century of this date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11819,13 +11819,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDay(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDay(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the day in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDayOfYear(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDayOfYear(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the day of the year (in 1-366 range) in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11859,7 +11859,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetHour(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetHour(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the hour in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11895,13 +11895,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMillisecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMillisecond(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the milliseconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMinute(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMinute(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the minute in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11913,7 +11913,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMonth(self, tz: 'DateTime.TimeZone'=Local) -> 'Month':
+    def GetMonth(self, tz: TimeZone=Local) -> 'Month':
         """ Returns the month in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11926,7 +11926,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToNextWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11939,7 +11939,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToPrevWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11951,7 +11951,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetSecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetSecond(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the seconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11970,7 +11970,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetTm(self, tz: 'DateTime.TimeZone'=Local) -> 'Tm':
+    def GetTm(self, tz: TimeZone=Local) -> 'Tm':
         """ Returns broken down representation of the date and time.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11982,7 +11982,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekBasedYear(self, tz: 'DateTime.TimeZone') -> int:
+    def GetWeekBasedYear(self, tz: TimeZone) -> int:
         """ Returns the year to which the week containing this date belongs.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12019,7 +12019,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetYear(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetYear(self, tz: TimeZone=Local) -> int:
         """ Returns the year in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12221,7 +12221,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetTm(self, tm: 'DateTime.Tm') -> 'DateTime':
+    def SetTm(self, tm: Tm) -> 'DateTime':
         """ Sets the date and time from the broken down representation in the  ` wx.DateTime.Tm  `   structure.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12264,7 +12264,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetMonth(self, month: DateTime.Month) -> 'DateTime':
+    def SetMonth(self, month: Month) -> 'DateTime':
         """ Sets the month without changing other date components.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12294,13 +12294,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the first weekday  following the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the last weekday  before the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
