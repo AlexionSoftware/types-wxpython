@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+
+import enum
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-Direction: TypeAlias = int  # Enumeration
+class Direction(enum.IntEnum):
+    Get = ...
+    Set = ...
+    Both = ...
 

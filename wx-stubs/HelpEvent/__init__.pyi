@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
+import enum
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-Origin: TypeAlias = int  # Enumeration
+class Origin(enum.IntEnum):
+    Origin_Unknown = ...
+    Origin_Keyboard = ...
+    Origin_HelpButton = ...
 
