@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-from .ActivateEvent import Reason
+from .ActivateEvent import Reason, Reason_Unknown
 from .ConfigBase import EntryType
-from .DateTime import Country, Month, Tm
-from .HelpEvent import Origin
-from .StandardPaths import FileLayout
+from .DataObject import Get
+from .DateTime import Calendar, Country, Country_Default, Gregorian, Inv_Month, Inv_Year, Local, Monday_First, Mon, Month, Name_Full, TimeZone, Tm, WeekDay, WeekFlags
+from .HelpEvent import Origin, Origin_Unknown
+from .StandardPaths import ConfigFileConv_Ext, Dir, FileLayout, ResourceCat_None
 from .StockPreferencesPage import Kind
+from .FileType import MessageParameters
+from .TopLevelWindow import GeometrySerializer
+from .StaticBitmap import ScaleMode
+from .Image import HSVValue, RGBValue
 
 FontFamily: TypeAlias = int  # Enumeration
 
@@ -697,7 +702,7 @@ def date2pydate(date) -> None:
     """
 
 
-def DateTimeFromDMY(day, month, year=DateTime.Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
+def DateTimeFromDMY(day, month, year=Inv_Year, hour=0, minute=0, second=0, millisecond=0) -> None:
     """ Compatibility wrapper for DateTime.FromDMY
 
         Source: https://docs.wxpython.org/wx.functions.html
@@ -831,7 +836,7 @@ def Exit() -> None:
 
 
 def FFont(pointSize, family, flags=FONTFLAG_DEFAULT, faceName="", encoding=FONTENCODING_DEFAULT) -> None:
-    """ 
+    """
 
         Source: https://docs.wxpython.org/wx.functions.html
     """
@@ -894,7 +899,7 @@ def FindWindowByName(name, parent=None) -> 'Window':
 
 
 def GetAccelFromString(label) -> None:
-    """ 
+    """
 
         Source: https://docs.wxpython.org/wx.functions.html
     """
@@ -2586,7 +2591,7 @@ class AlphaPixelData_Accessor:
         """
 
     def Set(self, red, green, blue, alpha) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.AlphaPixelData_Accessor.html
         """
@@ -2604,7 +2609,7 @@ class AlphaPixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.AlphaPixelData_Accessor.html
         """
@@ -2620,7 +2625,7 @@ various button classes.
         Source: https://docs.wxpython.org/wx.AnyButton.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.AnyButton.html
         """
@@ -2790,7 +2795,7 @@ this method from there.
         """
 
     def RestoreStdio(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.App.html
         """
@@ -2812,7 +2817,7 @@ an explicit parent set.
         """
 
     def __del__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.App.html
         """
@@ -3326,13 +3331,13 @@ class ArchiveFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
         """
 
     def Cleanup(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ArchiveFSHandler.html
         """
@@ -4385,13 +4390,13 @@ currently selected font.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DC.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DC.html
         """
@@ -4403,7 +4408,7 @@ currently selected font.
         """
 
     def EndDrawing(self) -> None:
-        """ 
+        """
         """
 
     AsBitmap: 'Bitmap'  # See GetAsBitmap
@@ -4762,7 +4767,7 @@ data.
             Source: https://docs.wxpython.org/wx.BitmapDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -4823,13 +4828,13 @@ supports transferring in the given direction.
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def GetFormatCount(self, dir: int=Get) -> int:
+    def GetFormatCount(self, dir=Get) -> int:
         """ Returns the number of available formats for rendering or setting the data.
 
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
 
-    def GetPreferredFormat(self, dir: int=Get) -> 'DataFormat':
+    def GetPreferredFormat(self, dir=Get) -> 'DataFormat':
         """ Returns the preferred format for either rendering the data (if dir  is  Get , its default value) or for setting it.
 
             Source: https://docs.wxpython.org/wx.DataObject.html
@@ -4848,7 +4853,7 @@ supports transferring in the given direction.
         """
 
     def _testGetAllFormats(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DataObject.html
         """
@@ -5556,7 +5561,7 @@ class Brush(GDIObject):
         """
 
     def MacSetTheme(self, macThemeBrushID) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Brush.html
         """
@@ -5703,13 +5708,13 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.BusyCursor.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.BusyCursor.html
         """
@@ -5741,13 +5746,13 @@ temporarily busy.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.BusyInfo.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.BusyInfo.html
         """
@@ -5904,7 +5909,7 @@ method.
         """
 
     def GetInterval(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -5922,7 +5927,7 @@ method.
         """
 
     def IsRunning(self) -> bool:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -5955,7 +5960,7 @@ object but with different parameters.
         """
 
     def __del__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.CallLater.html
         """
@@ -6412,7 +6417,7 @@ class ListBox(Control,ItemContainer):
         """
 
     def MSWSetTabStops(self, tabStops) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ListBox.html
         """
@@ -6730,7 +6735,7 @@ window from outside EVT_PAINT() handler.
         """
 
     def SetClippingRect(self, rect: 'Rect') -> None:
-        """ 
+        """
         """
 
 
@@ -7485,13 +7490,13 @@ determine drawing colours.
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
@@ -7503,25 +7508,25 @@ determine drawing colours.
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Colour.html
         """
@@ -7656,7 +7661,7 @@ predefined set of named colours.
         """
 
     def FindColour(self, colour) -> 'Colour':
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ColourDatabase.html
         """
@@ -8981,7 +8986,7 @@ class ConfigBase(Object):
         """
 
     def ReadInt(self, key, defaultVal=0) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ConfigBase.html
         """
@@ -9102,13 +9107,13 @@ object and restores it in dtor.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ConfigPathChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ConfigPathChanger.html
         """
@@ -9729,7 +9734,7 @@ object on screen.
         """
 
     def GetGtkWidget(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10450,7 +10455,7 @@ object on screen.
         """
 
     def SetClientRect(self, rect) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10480,7 +10485,7 @@ object on screen.
         """
 
     def SetDimensions(self, x, y, width, height, sizeFlags=SIZE_AUTO) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -10636,7 +10641,7 @@ object on screen.
         """
 
     def SetRect(self, rect) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Window.html
         """
@@ -11297,7 +11302,7 @@ standard ones).
             Source: https://docs.wxpython.org/wx.CustomDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -11340,7 +11345,7 @@ class.
             Source: https://docs.wxpython.org/wx.DataObjectSimple.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -11472,14 +11477,14 @@ may be used to support multiple formats.
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
         """
 
-    def GetObject(self, format, dir=DataObject.Get) -> 'DataObjectSimple':
+    def GetObject(self, format, dir=Get) -> 'DataObjectSimple':
         """ Returns the pointer to the object which supports the passed format for the specified direction.
 
             Source: https://docs.wxpython.org/wx.DataObjectComposite.html
@@ -11665,7 +11670,6 @@ different consider adding one month to Feb, 15  we want to get Mar,
         """
 
 
-
 class DateTime:
     """ DateTime class represents an absolute moment in time.
 
@@ -11786,7 +11790,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetCentury(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetCentury(self, tz: TimeZone=Local) -> int:
         """ Returns the century of this date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11819,13 +11823,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDay(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDay(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the day in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetDayOfYear(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetDayOfYear(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the day of the year (in 1-366 range) in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11859,7 +11863,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetHour(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetHour(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the hour in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11895,13 +11899,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMillisecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMillisecond(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the milliseconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMinute(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetMinute(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the minute in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11913,7 +11917,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetMonth(self, tz: 'DateTime.TimeZone'=Local) -> 'Month':
+    def GetMonth(self, tz: TimeZone=Local) -> 'Month':
         """ Returns the month in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11926,7 +11930,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToNextWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11939,7 +11943,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def GetPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Returns the copy of this object to which SetToPrevWeekDay   was applied.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11951,7 +11955,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetSecond(self, tz: 'DateTime.TimeZone'=Local) -> 'intshort':
+    def GetSecond(self, tz: TimeZone=Local) -> 'intshort':
         """ Returns the seconds in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11970,7 +11974,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetTm(self, tz: 'DateTime.TimeZone'=Local) -> 'Tm':
+    def GetTm(self, tz: TimeZone=Local) -> 'Tm':
         """ Returns broken down representation of the date and time.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -11982,7 +11986,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetWeekBasedYear(self, tz: 'DateTime.TimeZone') -> int:
+    def GetWeekBasedYear(self, tz: TimeZone) -> int:
         """ Returns the year to which the week containing this date belongs.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12019,7 +12023,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def GetYear(self, tz: 'DateTime.TimeZone'=Local) -> int:
+    def GetYear(self, tz: TimeZone=Local) -> int:
         """ Returns the year in the given timezone (local one by default).
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12221,7 +12225,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetTm(self, tm: 'DateTime.Tm') -> 'DateTime':
+    def SetTm(self, tm: Tm) -> 'DateTime':
         """ Sets the date and time from the broken down representation in the  ` wx.DateTime.Tm  `   structure.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12264,7 +12268,7 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetMonth(self, month: DateTime.Month) -> 'DateTime':
+    def SetMonth(self, month: Month) -> 'DateTime':
         """ Sets the month without changing other date components.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12294,13 +12298,13 @@ class DateTime:
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToNextWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToNextWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the first weekday  following the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
-    def SetToPrevWeekDay(self, weekday: DateTime.WeekDay) -> 'DateTime':
+    def SetToPrevWeekDay(self, weekday: WeekDay) -> 'DateTime':
         """ Sets the date so that it will be the last weekday  before the current date.
 
             Source: https://docs.wxpython.org/wx.DateTime.html
@@ -12370,13 +12374,13 @@ class DateTime:
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DateTime.html
         """
@@ -12415,13 +12419,13 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCBrushChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCBrushChanger.html
         """
@@ -12441,13 +12445,13 @@ during its lifetime.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCClipper.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCClipper.html
         """
@@ -12474,13 +12478,13 @@ previous one.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCFontChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCFontChanger.html
         """
@@ -12520,13 +12524,13 @@ one.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCPenChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCPenChanger.html
         """
@@ -12553,13 +12557,13 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextBgColourChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextBgColourChanger.html
         """
@@ -12574,13 +12578,13 @@ restoring the previous one.
         Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
     """
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextBgModeChanger.html
         """
@@ -12607,13 +12611,13 @@ destructor, restoring the previous one.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextColourChanger.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DCTextColourChanger.html
         """
@@ -13222,13 +13226,13 @@ which can be moved around the screen.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Dialog.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Dialog.html
         """
@@ -13403,7 +13407,7 @@ class DirFilterListCtrl(Choice):
         """
 
     def Init(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DirFilterListCtrl.html
         """
@@ -13583,7 +13587,7 @@ resolution has changed.
         Source: https://docs.wxpython.org/wx.DisplayChangedEvent.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.DisplayChangedEvent.html
         """
@@ -14004,13 +14008,13 @@ event (or a set of event types) directed to a specific window.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.EventBlocker.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.EventBlocker.html
         """
@@ -14049,13 +14053,13 @@ class EventLoopActivator:
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.EventLoopActivator.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.EventLoopActivator.html
         """
@@ -14209,7 +14213,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Bind(self, event, handler, source=None, id=wx.ID_ANY, id2=wx.ID_ANY) -> None:
+    def Bind(self, event, handler, source=None, id=ID_ANY, id2=ID_ANY) -> None:
         """ Bind an event to an event handler.
 
             Source: https://docs.wxpython.org/wx.EvtHandler.html
@@ -14324,7 +14328,7 @@ class EvtHandler(Object,Trackable):
             Source: https://docs.wxpython.org/wx.EvtHandler.html
         """
 
-    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None) -> None:
+    def Unbind(self, event, source=None, id=ID_ANY, id2=ID_ANY, handler=None) -> None:
         """ Disconnects the event handler binding for event from self.
 Returns True if successful.
 
@@ -14683,7 +14687,7 @@ class FileDataObject(DataObjectSimple):
             Source: https://docs.wxpython.org/wx.FileDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -15662,7 +15666,7 @@ class FileType:
             Source: https://docs.wxpython.org/wx.FileType.html
         """
 
-    def GetAllCommands(self, params: FileType.MessageParameters) -> tuple:
+    def GetAllCommands(self, params: MessageParameters) -> tuple:
         """ Returns a tuple containing the verbs and commands arrays, corresponding for the registered information for this mime type.
 
             Source: https://docs.wxpython.org/wx.FileType.html
@@ -15868,7 +15872,7 @@ class FilterFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.FilterFSHandler.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.FilterFSHandler.html
         """
@@ -16805,7 +16809,7 @@ or the fonts available in the given encoding).
         Source: https://docs.wxpython.org/wx.FontEnumerator.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.FontEnumerator.html
         """
@@ -17623,49 +17627,49 @@ rows and columns managed by a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBPosition.html
         """
@@ -17918,49 +17922,49 @@ items in a GridBagSizer.
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GBSpan.html
         """
@@ -19424,7 +19428,7 @@ CreateLinearGradientBrush and CreateRadialGradientBrush.
         """
 
     def __getitem__(self, n) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GraphicsGradientStops.html
         """
@@ -20361,7 +20365,7 @@ class GUIEventLoop(EventLoopBase):
         Source: https://docs.wxpython.org/wx.GUIEventLoop.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.GUIEventLoop.html
         """
@@ -20376,7 +20380,7 @@ draw the text or bitmap label.
         Source: https://docs.wxpython.org/wx.HeaderButtonParams.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.HeaderButtonParams.html
         """
@@ -21148,7 +21152,7 @@ help.
             Source: https://docs.wxpython.org/wx.HelpEvent.html
         """
 
-    def SetOrigin(self, origin: HelpEvent.Origin) -> None:
+    def SetOrigin(self, origin: Origin) -> None:
         """ Set the help event origin, only used internally by wxWidgets normally.
 
             Source: https://docs.wxpython.org/wx.HelpEvent.html
@@ -21202,7 +21206,7 @@ class HTMLDataObject(DataObjectSimple):
             Source: https://docs.wxpython.org/wx.HTMLDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -21356,7 +21360,7 @@ minimized application.
         """
 
     def SetHandle(self, handle) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Icon.html
         """
@@ -21506,7 +21510,7 @@ class IconLocation:
         """
 
     def SetIndex(self, num) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.IconLocation.html
         """
@@ -22245,7 +22249,7 @@ class ImageDataObject(CustomDataObject):
             Source: https://docs.wxpython.org/wx.ImageDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -22392,12 +22396,12 @@ image creation from data.
 
 
 class ImageHistogram:
-    """ startR (int) â 
+    """ startR (int) â
 
         Source: https://docs.wxpython.org/wx.ImageHistogram.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ImageHistogram.html
         """
@@ -22511,12 +22515,12 @@ IMAGELIST_DRAW_FOCUSED: int
 _Relationship: TypeAlias = Relationship
 
 class IndividualLayoutConstraint(Object):
-    """ sibling (wx.Window) â 
+    """ sibling (wx.Window) â
 
         Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -22534,7 +22538,7 @@ class IndividualLayoutConstraint(Object):
         """
 
     def AsIs(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -22672,7 +22676,7 @@ class IndividualLayoutConstraint(Object):
         """
 
     def Unconstrained(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.IndividualLayoutConstraint.html
         """
@@ -22892,7 +22896,7 @@ directly.
         """
 
     def close(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -22904,7 +22908,7 @@ directly.
         """
 
     def flush(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -22928,7 +22932,7 @@ directly.
         """
 
     def seek(self, offset, whence=0) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.InputStream.html
         """
@@ -22949,7 +22953,7 @@ class InternetFSHandler(FileSystemHandler):
         Source: https://docs.wxpython.org/wx.InternetFSHandler.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.InternetFSHandler.html
         """
@@ -23465,25 +23469,25 @@ events.
         """
 
     def SetKeyCode(self, keyCode) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetRawKeyCode(self, rawKeyCode) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetRawKeyFlags(self, rawFlags) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
 
     def SetUnicodeKey(self, uniChar) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.KeyEvent.html
         """
@@ -25328,7 +25332,7 @@ class LayoutConstraints(Object):
         Source: https://docs.wxpython.org/wx.LayoutConstraints.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.LayoutConstraints.html
         """
@@ -25431,7 +25435,7 @@ sequence with an item for each column
         """
 
     def ClearColumnImage(self, col) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
@@ -25883,7 +25887,7 @@ code is one of wx.``wx.LIST_RECT_BOUNDS``, wx.``wx.LIST_RECT_ICON``, wx.``wx.LIS
         """
 
     def SetColumnImage(self, col, image) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ListCtrl.html
         """
@@ -27155,13 +27159,13 @@ class LogNull:
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.LogNull.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.LogNull.html
         """
@@ -27654,7 +27658,7 @@ menu).
         """
 
     def Detach(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Menu.html
         """
@@ -27899,7 +27903,7 @@ class MenuBar(Window):
         """
 
     def Detach(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MenuBar.html
         """
@@ -29095,31 +29099,31 @@ mouse move events.
         """
 
     def SetColumnsPerAction(self, columnsPerAction) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetLinesPerAction(self, linesPerAction) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelAxis(self, wheelAxis) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelDelta(self, wheelDelta) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
 
     def SetWheelRotation(self, wheelRotation) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.MouseEvent.html
         """
@@ -29539,7 +29543,7 @@ somewhere using ToString() and restore them using FromString())
         """
 
     def Init(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.NativeFontInfo.html
         """
@@ -29722,7 +29726,7 @@ class NativePixelData_Accessor:
         """
 
     def Set(self, red, green, blue) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.NativePixelData_Accessor.html
         """
@@ -29740,7 +29744,7 @@ class NativePixelData_Accessor:
         """
 
     def nextPixel(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.NativePixelData_Accessor.html
         """
@@ -30026,7 +30030,7 @@ directly.
         """
 
     def close(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
@@ -30038,13 +30042,13 @@ directly.
         """
 
     def flush(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
 
     def seek(self, offset, whence=0) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.OutputStream.html
         """
@@ -30070,7 +30074,7 @@ like rubberbanding, etc.
         Source: https://docs.wxpython.org/wx.Overlay.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Overlay.html
         """
@@ -30380,7 +30384,7 @@ class Palette(GDIObject):
 
 
 class PaletteChangedEvent(Event):
-    """ winid (wx.WindowID) â 
+    """ winid (wx.WindowID) â
 
         Source: https://docs.wxpython.org/wx.PaletteChangedEvent.html
     """
@@ -30461,7 +30465,7 @@ class Panel(Window):
         """
 
     def DrawSavedLines(self, dc: 'DC') -> None:
-        """ 
+        """
         """
 
 
@@ -30691,7 +30695,7 @@ control.
         Source: https://docs.wxpython.org/wx.PickerBase.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -30763,7 +30767,7 @@ control.
         """
 
     def PostCreation(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -30811,13 +30815,13 @@ control.
         """
 
     def UpdatePickerFromTextCtrl(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
 
     def UpdateTextCtrlFromPicker(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PickerBase.html
         """
@@ -30875,7 +30879,7 @@ this pixel data object.
         """
 
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PixelDataBase.html
         """
@@ -31305,13 +31309,13 @@ class Point:
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
@@ -31323,25 +31327,25 @@ class Point:
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point.html
         """
@@ -31436,7 +31440,7 @@ class Point2D:
         """
 
     def Normalize(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -31454,49 +31458,49 @@ class Point2D:
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -31520,7 +31524,7 @@ class Point2D:
         """
 
     def __sub__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Point2D.html
         """
@@ -31692,49 +31696,49 @@ rows and columns such as GridBagSizer, or HVScrolledWindow.
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Position.html
         """
@@ -31855,13 +31859,13 @@ class PowerResourceBlocker:
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PowerResourceBlocker.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PowerResourceBlocker.html
         """
@@ -32300,7 +32304,7 @@ printer device contexts.
         """
 
     def SetPrivData(self, data) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PrintData.html
         """
@@ -33246,13 +33250,13 @@ class PropagateOnce:
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PropagateOnce.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PropagateOnce.html
         """
@@ -33271,13 +33275,13 @@ class PropagationDisabler:
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PropagationDisabler.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PropagationDisabler.html
         """
@@ -33395,7 +33399,7 @@ class PyEventBinder:
         Source: https://docs.wxpython.org/wx.PyEventBinder.html
     """
     def __init__(self, evtType, expectedIDs=0) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyEventBinder.html
         """
@@ -33441,19 +33445,19 @@ and write the text there.
         Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
     """
     def __init__(self, title="wxPython: stdout/stderr") -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def CreateOutputWindow(self, txt) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def OnCloseWindow(self, event) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
@@ -33465,13 +33469,13 @@ and write the text there.
         """
 
     def close(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
 
     def flush(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PyOnDemandOutputWindow.html
         """
@@ -33492,7 +33496,7 @@ class PySimpleApp(App):
         Source: https://docs.wxpython.org/wx.PySimpleApp.html
     """
     def __init__(self, *args, **kw) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.PySimpleApp.html
         """
@@ -33500,7 +33504,7 @@ class PySimpleApp(App):
 
 
 class QueryNewPaletteEvent(Event):
-    """ winid (wx.WindowID) â 
+    """ winid (wx.WindowID) â
 
         Source: https://docs.wxpython.org/wx.QueryNewPaletteEvent.html
     """
@@ -33773,7 +33777,7 @@ class RealPoint:
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -33785,13 +33789,13 @@ class RealPoint:
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -33809,31 +33813,31 @@ class RealPoint:
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.RealPoint.html
         """
@@ -34249,7 +34253,7 @@ class Rect:
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -34261,13 +34265,13 @@ class Rect:
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -34279,31 +34283,31 @@ class Rect:
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect.html
         """
@@ -34637,49 +34641,49 @@ class Rect2D:
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Rect2D.html
         """
@@ -35233,7 +35237,7 @@ area in view.
         """
 
     def AdjustScrollbars(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Scrolled.html
         """
@@ -35599,7 +35603,7 @@ to change the value.
         """
 
     def GetRange(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Slider.html
         """
@@ -36004,7 +36008,7 @@ control, and a cancel button.
         """
 
     def SetCancelBitmap(self, bmp) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
@@ -36058,13 +36062,13 @@ control, and a cancel button.
         """
 
     def SetSearchBitmap(self, bmp) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
 
     def SetSearchMenuBitmap(self, bmp) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SearchCtrl.html
         """
@@ -36605,7 +36609,7 @@ class Size:
         """
 
     def __bool__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -36617,13 +36621,13 @@ class Size:
         """
 
     def __getitem__(self, idx) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __len__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -36635,31 +36639,31 @@ class Size:
         """
 
     def __nonzero__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __reduce__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __setitem__(self, idx, val) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
 
     def __str__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.Size.html
         """
@@ -37161,7 +37165,7 @@ buttons.
         """
 
     def GetRange(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
@@ -37179,13 +37183,13 @@ buttons.
         """
 
     def SetMax(self, maxVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
 
     def SetMin(self, minVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinButton.html
         """
@@ -37277,7 +37281,7 @@ class SpinCtrl(Control):
         """
 
     def GetRange(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
@@ -37307,13 +37311,13 @@ class SpinCtrl(Control):
         """
 
     def SetMax(self, maxVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
 
     def SetMin(self, minVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrl.html
         """
@@ -37398,7 +37402,7 @@ and displays a real number.
         """
 
     def GetRange(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
@@ -37428,13 +37432,13 @@ and displays a real number.
         """
 
     def SetMax(self, maxVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
 
     def SetMin(self, minVal) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.SpinCtrlDouble.html
         """
@@ -39618,7 +39622,7 @@ data.
             Source: https://docs.wxpython.org/wx.TextDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -39631,7 +39635,7 @@ supports transferring in the given direction.
             Source: https://docs.wxpython.org/wx.TextDataObject.html
         """
 
-    def GetFormatCount(self, dir: int=DataObject.Get) -> int:
+    def GetFormatCount(self, dir=Get) -> int:
         """ Returns 2 under Mac and wxGTK, where text data coming from the clipboard may be provided as ANSI ( DF_TEXT ) or as Unicode text ( DF_UNICODETEXT , but only when   USE_UNICODE==1 ).
 
             Source: https://docs.wxpython.org/wx.TextDataObject.html
@@ -40490,7 +40494,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def AddLabelTool(self, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def AddLabelTool(self, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to add a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -40671,7 +40675,7 @@ below the menu bar in a Frame.
             Source: https://docs.wxpython.org/wx.ToolBar.html
         """
 
-    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=wx.NullBitmap, kind=wx.ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
+    def InsertLabelTool(self, pos, id, label, bitmap, bmpDisabled=NullBitmap, kind=ITEM_NORMAL, shortHelp="", longHelp="", clientData=None) -> None:
         """ Old style method to insert a tool in the toolbar.
 
             Source: https://docs.wxpython.org/wx.ToolBar.html
@@ -40844,7 +40848,7 @@ class ToolBarToolBase(Object):
         """
 
     def Detach(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
@@ -40988,7 +40992,7 @@ class ToolBarToolBase(Object):
         """
 
     def MakeStretchable(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.ToolBarToolBase.html
         """
@@ -41342,7 +41346,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacGetTopLevelWindowRef(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
@@ -41354,7 +41358,7 @@ class TopLevelWindow(NonOwnedWindow):
         """
 
     def MacSetMetalAppearance(self, on) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
@@ -41389,13 +41393,13 @@ class TopLevelWindow(NonOwnedWindow):
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def RestoreToGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def RestoreToGeometry(self, ser: GeometrySerializer) -> bool:
         """ Restores the window to the previously saved geometry.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
         """
 
-    def SaveGeometry(self, ser: 'TopLevelWindow.GeometrySerializer') -> bool:
+    def SaveGeometry(self, ser: GeometrySerializer) -> bool:
         """ Save the current window geometry to allow restoring it later.
 
             Source: https://docs.wxpython.org/wx.TopLevelWindow.html
@@ -42269,7 +42273,7 @@ class TreeItemId:
         """
 
     def GetID(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -42281,7 +42285,7 @@ class TreeItemId:
         """
 
     def Unset(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -42299,7 +42303,7 @@ class TreeItemId:
         """
 
     def __hash__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.TreeItemId.html
         """
@@ -42633,7 +42637,7 @@ e.g.
             Source: https://docs.wxpython.org/wx.URLDataObject.html
         """
 
-    def GetAllFormats(self, dir=DataObject.Get) -> None:
+    def GetAllFormats(self, dir=Get) -> None:
         """ Returns a list of wx.DataFormat objects which this data object
 supports transferring in the given direction.
 
@@ -43586,7 +43590,7 @@ those which are shown on the screen need to be measured; or even
 
 
 class WindowBase:
-    """ child (wx.WindowBase) â 
+    """ child (wx.WindowBase) â
 
         Source: https://docs.wxpython.org/wx.WindowBase.html
     """
@@ -43678,13 +43682,13 @@ back in its destructor.
         """
 
     def __enter__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.WindowDisabler.html
         """
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.WindowDisabler.html
         """
@@ -43734,7 +43738,7 @@ until all references to that ID are gone.
         """
 
     def __hash__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.WindowIDRef.html
         """
@@ -43770,7 +43774,7 @@ until all references to that ID are gone.
         """
 
     def __repr__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.WindowIDRef.html
         """
@@ -43824,7 +43828,7 @@ class WithImages:
         Source: https://docs.wxpython.org/wx.WithImages.html
     """
     def __init__(self) -> None:
-        """ 
+        """
 
             Source: https://docs.wxpython.org/wx.WithImages.html
         """
@@ -44409,16 +44413,6 @@ ACC_SEL_ADDSELECTION: int
 
 ACC_SEL_REMOVESELECTION: int
 
-WS_EX_BLOCK_EVENTS: int
-
-ID_OK: int
-
-ID_ANY: int
-
-ID_HIGHEST: int
-
-ID_LOWEST: int
-
 WindowVariant: TypeAlias = int  # Enumeration
 
 WINDOW_VARIANT_NORMAL: int
@@ -44453,19 +44447,9 @@ BITMAP_TYPE_MACCURSOR: int
 
 BITMAP_TYPE_BMP_RESOURCE: int
 
-BITMAP_TYPE_BMP: int
-
-BITMAP_TYPE_XPM: int
-
-BITMAP_TYPE_XBM: int
-
 BITMAP_TYPE_ICO_RESOURCE: int
 
-BITMAP_TYPE_ICO: int
-
 BITMAP_TYPE_CUR_RESOURCE: int
-
-BITMAP_TYPE_CUR: int
 
 PortId: TypeAlias = int  # Enumeration
 
@@ -44486,148 +44470,6 @@ PORT_MAC: int
 PORT_COCOA: int
 
 PORT_QT: int
-
-ID_ABOUT: int
-
-ID_ADD: int
-
-ID_APPLY: int
-
-ID_BACKWARD: int
-
-ID_BOLD: int
-
-ID_BOTTOM: int
-
-ID_CANCEL: int
-
-ID_CDROM: int
-
-ID_CLEAR: int
-
-ID_CLOSE: int
-
-ID_CONVERT: int
-
-ID_COPY: int
-
-ID_CUT: int
-
-ID_DELETE: int
-
-ID_DOWN: int
-
-ID_EDIT: int
-
-ID_EXECUTE: int
-
-ID_EXIT: int
-
-ID_FILE: int
-
-ID_FIND: int
-
-ID_FIRST: int
-
-ID_FLOPPY: int
-
-ID_FORWARD: int
-
-ID_HARDDISK: int
-
-ID_HELP: int
-
-ID_HOME: int
-
-ID_INDENT: int
-
-ID_INDEX: int
-
-ID_INFO: int
-
-ID_ITALIC: int
-
-ID_JUMP_TO: int
-
-ID_JUSTIFY_CENTER: int
-
-ID_JUSTIFY_FILL: int
-
-ID_JUSTIFY_LEFT: int
-
-ID_JUSTIFY_RIGHT: int
-
-ID_LAST: int
-
-ID_NETWORK: int
-
-ID_NEW: int
-
-ID_NO: int
-
-ID_OPEN: int
-
-ID_PASTE: int
-
-ID_PREFERENCES: int
-
-ID_PREVIEW: int
-
-ID_PRINT: int
-
-ID_PROPERTIES: int
-
-ID_REDO: int
-
-ID_REFRESH: int
-
-ID_REMOVE: int
-
-ID_REPLACE: int
-
-ID_REVERT_TO_SAVED: int
-
-ID_SAVE: int
-
-ID_SAVEAS: int
-
-ID_SELECTALL: int
-
-ID_SELECT_COLOR: int
-
-ID_SELECT_FONT: int
-
-ID_SORT_ASCENDING: int
-
-ID_SORT_DESCENDING: int
-
-ID_SPELL_CHECK: int
-
-ID_STOP: int
-
-ID_STRIKETHROUGH: int
-
-ID_TOP: int
-
-ID_UNDELETE: int
-
-ID_UNDERLINE: int
-
-ID_UNDO: int
-
-ID_UNINDENT: int
-
-ID_UP: int
-
-ID_YES: int
-
-ID_ZOOM_100: int
-
-ID_ZOOM_FIT: int
-
-ID_ZOOM_IN: int
-
-ID_ZOOM_OUT: int
 
 RasterOperationMode: TypeAlias = int  # Enumeration
 
@@ -44673,8 +44515,6 @@ MM_TWIPS: int
 
 MM_POINTS: int
 
-Direction: TypeAlias = int  # Enumeration
-
 NORTH: int
 
 SOUTH: int
@@ -44704,51 +44544,6 @@ def Add(window, proportion=0, flag=0, border=0, userData=None) -> 'SizerItem':
 
         Source: https://docs.wxpython.org/sizers_overview.html
     """
-
-
-TOP: int
-
-BOTTOM: int
-
-LEFT: int
-
-RIGHT: int
-
-ALL: int
-
-EXPAND: int
-
-SHAPED: int
-
-FIXED_MINSIZE: int
-
-RESERVE_SPACE_EVEN_IF_HIDDEN: int
-
-ALIGN_CENTER: int
-
-ALIGN_CENTRE: int
-
-ALIGN_LEFT: int
-
-ALIGN_RIGHT: int
-
-ALIGN_TOP: int
-
-ALIGN_BOTTOM: int
-
-ALIGN_CENTER_VERTICAL: int
-
-ALIGN_CENTRE_VERTICAL: int
-
-ALIGN_CENTER_HORIZONTAL: int
-
-ALIGN_CENTRE_HORIZONTAL: int
-
-GROW: int
-
-NORTH: int
-
-WEST: int
 
 BrushStyle: TypeAlias = int  # Enumeration
 
@@ -44820,33 +44615,11 @@ HT_WINDOW_CORNER: int
 
 HT_MAX: int
 
-EVT_CLOSE: int
-
-FD_OPEN: int
-
-FD_SAVE: int
-
-FD_OVERWRITE_PROMPT: int
-
 FD_HIDE_READONLY: int
-
-FD_FILE_MUST_EXIST: int
-
-FD_MULTIPLE: int
-
-FD_CHANGE_DIR: int
-
-ID_FILE1: int
-
-ID_FILE9: int
 
 _DragResult: TypeAlias = DragResult
 
-EVT_PAINT: int
-
 DefaultSize: int
-
-EVT_SIZE: int
 
 BackgroundStyle: TypeAlias = int  # Enumeration
 
@@ -44877,10 +44650,6 @@ SHOW_EFFECT_BLEND: int
 SHOW_EFFECT_EXPAND: int
 
 SHOW_EFFECT_MAX: int
-
-VERTICAL: int
-
-HORIZONTAL: int
 
 UpdateUI: TypeAlias = int  # Enumeration
 
@@ -44956,12 +44725,6 @@ DIALOG_ADAPTATION_MODE_DISABLED: int
 
 DialogLayoutAdaptationMode: TypeAlias = int  # Enumeration
 
-DIALOG_ADAPTATION_MODE_DEFAULT: int
-
-DIALOG_ADAPTATION_MODE_ENABLED: int
-
-DIALOG_ADAPTATION_MODE_DISABLED: int
-
 EventCategory: TypeAlias = int  # Enumeration
 
 FileHistoryMenuPathStyle: TypeAlias = int  # Enumeration
@@ -45015,20 +44778,6 @@ LIGHT: int
 BOLD: int
 
 FONTENCODING_XXX: int
-
-FONTENCODING_SYSTEM: int
-
-FONTENCODING_DEFAULT: int
-
-FONTENCODING_KOI8: int
-
-FONTENCODING_ISO8859_5: int
-
-FONTENCODING_CP1251: int
-
-FONTENCODING_CP1250: int
-
-FONTENCODING_CP1252: int
 
 FontSymbolicSize: TypeAlias = int  # Enumeration
 
@@ -45668,8 +45417,6 @@ APP_ASSERT_LOG: int
 
 ScrollbarVisibility: TypeAlias = int  # Enumeration
 
-SP_3D: int
-
 SplitMode: TypeAlias = int  # Enumeration
 
 StreamError: TypeAlias = int  # Enumeration
@@ -46054,20 +45801,16 @@ CONTENT_PROTECTION_NONE: int
 
 CONTENT_PROTECTION_ENABLED: int
 
-EVT_TREE_ITEM_EXPANDING: int
-
 UpdateUIMode: TypeAlias = int  # Enumeration
 
 _FileSystem: TypeAlias = FileSystem
-
-ID_NONE: int
 
 _SizerItem: TypeAlias = SizerItem
 
 TextFileType: TypeAlias = int  # Enumeration
 
 def HtmlWinParser_AddTagHandler(tagHandlerClass) -> None:
-    """ 
+    """
 
         Source: https://docs.wxpython.org/wx.html.functions.html
     """
@@ -46109,8 +45852,6 @@ PyUserData: TypeAlias = Any
 
 FileOffset: TypeAlias = int
 
-WeekDay: TypeAlias = int
-
 value_type: TypeAlias = bytes
 
 Byte: TypeAlias = bytes
@@ -46127,10 +45868,6 @@ MsgCatalog: TypeAlias = Any
 
 SIP_SSIZE_T: TypeAlias = int
 
-RGBValue: TypeAlias = 'Image.RGBValue'
-
-HSVValue: TypeAlias = 'Image.HSVValue'
-
 Relationship: TypeAlias = int  # Enumeration
 
 LogLevel: TypeAlias = int  # Enumeration
@@ -46145,10 +45882,6 @@ OutCode: TypeAlias = int  # Enumeration
 
 RegionContain: TypeAlias = int  # Enumeration
 
-Dir: TypeAlias = 'StandardPaths.Dir'  # Enumeration
-
-ScaleMode: TypeAlias = 'StaticBitmap.ScaleMode'  # Enumeration
-
 res: TypeAlias = Any
 
 void: TypeAlias = Any
@@ -46157,17 +45890,11 @@ Uint16: TypeAlias = int
 
 MemoryBuffer: TypeAlias = Any
 
-Calendar: TypeAlias = int  # Enumeration
-
 GROW: int  # Synonym of wx.EXPAND
 
 RA_HORIZONTAL: int  # Synonym of wx.HORIZONTAL
 
 RA_VERTICAL: int  # Synonym of wx.VERTICAL
-
-NORMAL: int
-
-DEFAULT: int
 
 wxEVT_COMMAND_BUTTON_CLICKED: int
 
@@ -46258,5 +45985,139 @@ LOG_Error: int
 
 EVT_CALENDAR_DAY: int
 
-LIST_AUTOSIZE_USEHEADER: int
+# Added
 
+ButtonNameStr: str
+CheckBoxNameStr: str
+ChoiceNameStr: str
+CollapsibleHeaderCtrlNameStr: str
+CollapsiblePaneNameStr: str
+ColourPickerCtrlNameStr: str
+ComboBoxNameStr: str
+ControlNameStr: str
+DialogNameStr: str
+DirDialogDefaultFolderStr: str
+DirDialogNameStr: str
+DirPickerCtrlNameStr: str
+DirSelectorPromptStr: str
+FileCtrlNameStr: str
+FileDialogNameStr: str
+FilePickerCtrlNameStr: str
+FileSelectorDefaultWildcardStr: str
+FileSelectorPromptStr: str
+FontPickerCtrlNameStr: str
+FrameNameStr: str
+GaugeNameStr: str
+GetPasswordFromUserPromptStr: str
+GetTextFromUserPromptStr: str
+HeaderCtrlNameStr: str
+ListBoxNameStr: str
+ListCtrlNameStr: str
+MessageBoxCaptionStr: str
+NotebookNameStr: str
+PanelNameStr: str
+RadioBoxNameStr: str
+RadioButtonNameStr: str
+RearrangeDialogNameStr: str
+RearrangeListNameStr: str
+ScrollBarNameStr: str
+SearchCtrlNameStr: str
+SliderNameStr: str
+StaticBitmapNameStr: str
+StaticBoxNameStr: str
+StaticLineNameStr: str
+StaticTextNameStr: str
+StatusBarNameStr: str
+TextCtrlNameStr: str
+ToolBarNameStr: str
+TreeCtrlNameStr: str
+VListBoxNameStr: str
+
+DefaultDateTimeFormat: str
+DefaultTimeSpanFormat: str
+
+class FSWFlags(int):
+    pass
+
+FSW_EVENT_CREATE: FSWFlags
+FSW_EVENT_DELETE: FSWFlags
+FSW_EVENT_RENAME: FSWFlags
+FSW_EVENT_MODIFY: FSWFlags
+FSW_EVENT_ACCESS: FSWFlags
+FSW_EVENT_ATTRIB: FSWFlags
+FSW_EVENT_UNMOUNT: FSWFlags
+FSW_EVENT_WARNING: FSWFlags
+FSW_EVENT_ERROR: FSWFlags
+FSW_EVENT_ALL: FSWFlags
+
+class SeekMode(int):
+    pass
+    
+FromStart: SeekMode
+FromCurrent: SeekMode
+FromEnd: SeekMode
+
+class ShutdownFlags(int):
+    pass
+    
+SHUTDOWN_FORCE: ShutdownFlags
+SHUTDOWN_POWEROFF: ShutdownFlags
+SHUTDOWN_REBOOT: ShutdownFlags
+SHUTDOWN_LOGOFF: ShutdownFlags
+
+class StockLabelQueryFlag(int):
+    pass
+
+STOCK_NOFLAGS: StockLabelQueryFlag
+STOCK_WITH_MNEMONIC: StockLabelQueryFlag
+STOCK_WITH_ACCELERATOR: StockLabelQueryFlag
+STOCK_WITHOUT_ELLIPSIS: StockLabelQueryFlag
+STOCK_FOR_BUTTON: StockLabelQueryFlag
+
+class TreeItemIcon(int):
+    pass
+
+TreeItemIcon_Normal: TreeItemIcon
+TreeItemIcon_Selected: TreeItemIcon
+TreeItemIcon_Expanded: TreeItemIcon
+TreeItemIcon_SelectedExpanded: TreeItemIcon
+TreeItemIcon_Max: TreeItemIcon
+
+BITMAP_SCREEN_DEPTH: int
+C2S_CSS_SYNTAX: int
+C2S_NAME: int
+DIRCTRL_DEFAULT_STYLE: int
+FULLSCREEN_ALL: int
+IMAGE_ALPHA_THRESHOLD: int
+JOY_BUTTON_ANY: int
+LAYOUT_DEFAULT_MARGIN: int
+LIST_RECT_BOUNDS: int
+SB_NORMAL: int
+SIZE_AUTO: int
+TEXT_TYPE_ANY: int
+USER_ATTENTION_INFO: int
+WRAPSIZER_DEFAULT_FLAGS: int
+
+DefaultCoord: int
+Drag_CopyOnly: int
+Strip_All: int
+TextEntryDialogStyle: int
+
+class BitmapBufferFormat(int):
+   pass
+
+BitmapBufferFormat_RGB: BitmapBufferFormat
+BitmapBufferFormat_RGBA: BitmapBufferFormat
+BitmapBufferFormat_RGB32: BitmapBufferFormat
+BitmapBufferFormat_ARGB32: BitmapBufferFormat
+
+DefaultVideoMode: VideoMode
+NullFont: Font
+NullGraphicsMatrix: GraphicsMatrix
+NullImage: Image
+TransparentColour: Colour
+
+HOURGLASS_CURSOR: Cursor
+
+wxEVT_NULL: int
+wxEVT_THREAD: int

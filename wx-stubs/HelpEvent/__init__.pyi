@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-Origin: TypeAlias = int  # Enumeration
+class Origin(int):  # Enum
+    pass
+
+Origin_Unknown: Origin
+Origin_Keyboard: Origin
+Origin_HelpButton: Origin
 
