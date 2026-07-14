@@ -46102,3 +46102,11 @@ DefaultCoord: int
 Drag_CopyOnly: int
 Strip_All: int
 TextEntryDialogStyle: int
+
+class BitmapBufferFormat(int):
+   pass
+
+BitmapBufferFormat_RGB: BitmapBufferFormat
+BitmapBufferFormat_RGBA: BitmapBufferFormat
+BitmapBufferFormat_RGB32: BitmapBufferFormat
+BitmapBufferFormat_ARGB32: BitmapBufferFormat
