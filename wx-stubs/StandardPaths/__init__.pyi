@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-import enum
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
 FileLayout: TypeAlias = int  # Enumeration
 
 Dir: TypeAlias = int  # Enumeration
 
-class ResourceCat(enum.IntEnum):
-    ResourceCat_None = ...
-    ResourceCat_Messages = ...
+class ResourceCat(int):  # Enum
+    pass
 
-class ConfigFileConv(enum.IntEnum):
-    ConfigFileConv_Dot = ...
-    ConfigFileConv_Ext = ...
+ResourceCat_None: ResourceCat
+ResourceCat_Messages: ResourceCat
+
+class ConfigFileConv(int):  # Enum
+    pass
+
+ConfigFileConv_Dot: ConfigFileConv
+ConfigFileConv_Ext: ConfigFileConv

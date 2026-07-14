@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-import enum
 from typing import Any, ContextManager, Optional, TypeAlias, Union
 
-class Origin(enum.IntEnum):
-    Origin_Unknown = ...
-    Origin_Keyboard = ...
-    Origin_HelpButton = ...
+class Origin(int):  # Enum
+    pass
+
+Origin_Unknown: Origin
+Origin_Keyboard: Origin
+Origin_HelpButton: Origin
 
