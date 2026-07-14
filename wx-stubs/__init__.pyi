@@ -46118,3 +46118,6 @@ NullImage: Image
 TransparentColour: Colour
 
 OURGLASS_CURSOR: Cursor
+
+wxEVT_NULL: int
+wxEVT_THREAD: int
