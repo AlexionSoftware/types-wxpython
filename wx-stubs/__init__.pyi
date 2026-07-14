@@ -46117,7 +46117,7 @@ NullGraphicsMatrix: GraphicsMatrix
 NullImage: Image
 TransparentColour: Colour
 
-OURGLASS_CURSOR: Cursor
+HOURGLASS_CURSOR: Cursor
 
 wxEVT_NULL: int
 wxEVT_THREAD: int
