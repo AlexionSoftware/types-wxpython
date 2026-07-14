@@ -46082,3 +46082,18 @@ TreeItemIcon_Selected: TreeItemIcon
 TreeItemIcon_Expanded: TreeItemIcon
 TreeItemIcon_SelectedExpanded: TreeItemIcon
 TreeItemIcon_Max: TreeItemIcon
+
+BITMAP_SCREEN_DEPTH: int
+C2S_CSS_SYNTAX: int
+C2S_NAME: int
+DIRCTRL_DEFAULT_STYLE: int
+FULLSCREEN_ALL: int
+IMAGE_ALPHA_THRESHOLD: int
+JOY_BUTTON_ANY: int
+LAYOUT_DEFAULT_MARGIN: int
+LIST_RECT_BOUNDS: int
+SB_NORMAL: int
+SIZE_AUTO: int
+TEXT_TYPE_ANY: int
+USER_ATTENTION_INFO: int
+WRAPSIZER_DEFAULT_FLAGS: int
