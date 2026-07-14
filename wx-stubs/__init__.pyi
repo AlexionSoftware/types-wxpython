@@ -46035,3 +46035,50 @@ VListBoxNameStr: str
 
 DefaultDateTimeFormat: str
 DefaultTimeSpanFormat: str
+
+class FSWFlags(int):
+    pass
+
+FSW_EVENT_CREATE: FSWFlags
+FSW_EVENT_DELETE: FSWFlags
+FSW_EVENT_RENAME: FSWFlags
+FSW_EVENT_MODIFY: FSWFlags
+FSW_EVENT_ACCESS: FSWFlags
+FSW_EVENT_ATTRIB: FSWFlags
+FSW_EVENT_UNMOUNT: FSWFlags
+FSW_EVENT_WARNING: FSWFlags
+FSW_EVENT_ERROR: FSWFlags
+FSW_EVENT_ALL: FSWFlags
+
+class SeekMode(int):
+    pass
+    
+FromStart: SeekMode
+FromCurrent: SeekMode
+FromEnd: SeekMode
+
+class ShutdownFlags(int):
+    pass
+    
+SHUTDOWN_FORCE: ShutdownFlags
+SHUTDOWN_POWEROFF: ShutdownFlags
+SHUTDOWN_REBOOT: ShutdownFlags
+SHUTDOWN_LOGOFF: ShutdownFlags
+
+class StockLabelQueryFlag(int):
+    pass
+
+STOCK_NOFLAGS: StockLabelQueryFlag
+STOCK_WITH_MNEMONIC: StockLabelQueryFlag
+STOCK_WITH_ACCELERATOR: StockLabelQueryFlag
+STOCK_WITHOUT_ELLIPSIS: StockLabelQueryFlag
+STOCK_FOR_BUTTON: StockLabelQueryFlag
+
+class TreeItemIcon(int):
+    pass
+
+TreeItemIcon_Normal: TreeItemIcon
+TreeItemIcon_Selected: TreeItemIcon
+TreeItemIcon_Expanded: TreeItemIcon
+TreeItemIcon_SelectedExpanded: TreeItemIcon
+TreeItemIcon_Max: TreeItemIcon
