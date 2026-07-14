@@ -46110,3 +46110,11 @@ BitmapBufferFormat_RGB: BitmapBufferFormat
 BitmapBufferFormat_RGBA: BitmapBufferFormat
 BitmapBufferFormat_RGB32: BitmapBufferFormat
 BitmapBufferFormat_ARGB32: BitmapBufferFormat
+
+DefaultVideoMode: VideoMode
+NullFont: Font
+NullGraphicsMatrix: GraphicsMatrix
+NullImage: Image
+TransparentColour: Colour
+
+OURGLASS_CURSOR: Cursor
