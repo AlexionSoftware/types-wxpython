@@ -46097,3 +46097,8 @@ SIZE_AUTO: int
 TEXT_TYPE_ANY: int
 USER_ATTENTION_INFO: int
 WRAPSIZER_DEFAULT_FLAGS: int
+
+DefaultCoord: int
+Drag_CopyOnly: int
+Strip_All: int
+TextEntryDialogStyle: int
