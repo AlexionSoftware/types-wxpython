@@ -46032,3 +46032,6 @@ TextCtrlNameStr: str
 ToolBarNameStr: str
 TreeCtrlNameStr: str
 VListBoxNameStr: str
+
+DefaultDateTimeFormat: str
+DefaultTimeSpanFormat: str
